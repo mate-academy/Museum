@@ -1,0 +1,79 @@
+@import "utils";
+
+.header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background: $color2;
+  color: $color1;
+
+  transition: 0.5s;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+
+    padding-top: $header__padding;
+  }
+
+  &__menuToggle {
+    display: flex;
+    width: 30%;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__uni-name {
+    height: $logo-height;
+  }
+
+  &__language-select {
+    display: flex;
+
+    top: $header__padding;
+
+    color: $color1;
+    font-size: 16px;
+    line-height: 16px;
+
+    border: none;
+    background-color: transparent;
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__btn-menu {
+    height: $burgMenuHeight;
+    display: block;
+    align-items: center;
+  }
+
+  &__btn-line {
+    display: block;
+    width: $burgLineWidth;
+    height: $burgLineHeight;
+    margin-bottom: 7px;
+    background: $color1;
+    transition: 0.5s;
+  }
+
+  input:checked + label > *:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 5px);
+  }
+  input:checked + label > *:nth-child(3) {
+    opacity: 0;
+  }
+  input:checked + label > *:nth-child(2) {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  input:checked ~ &__language-select {
+    opacity: 1;
+  }
+}
