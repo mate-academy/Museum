@@ -17,86 +17,137 @@
       rel="stylesheet"
     >
     <link rel="stylesheet" href="./styles/home.scss">
-    <script>
-      var slideIndex = 1;
-      showSlides(slideIndex);
-
-      /* Функция увеличивает индекс на 1, показывает следующй слайд*/
-      function plusSlide() {
-          showSlides(slideIndex += 1);
-      }
-
-      /* Функция уменьшяет индекс на 1, показывает предыдущий слайд*/
-      function minusSlide() {
-          showSlides(slideIndex -= 1);
-      }
-
-      /* Устанавливает текущий слайд */
-      function currentSlide(n) {
-          showSlides(slideIndex = n);
-      }
-
-      /* Основная функция слайдера */
-      function showSlides(n) {
-          var i;
-          var slides = document.getElementsByClassName("main__gallery-img");
-          var dots = document.getElementsByClassName("circles__circle");
-          if (n > slides.length) {
-            slideIndex = 1
-          }
-          if (n < 1) {
-              slideIndex = slides.length
-          }
-          for (i = 0; i < slides.length; i++) {
-              slides[i].style.display = "none";
-          }
-          for (i = 0; i < dots.length; i++) {
-              dots[i].className = dots[i].className.replace(" circles__circle--active", "");
-          }
-          slides[slideIndex - 1].style.display = "block";
-          dots[slideIndex - 1].className += " circles__circle--active";
-      }
-    </script>
   </head>
   <body>
-    <header class="header header__container">
-      <div class="menu header__menu"></div>
+    <header class="header">
+      <div class="header__container">
+        <a href="#" class="header__link">
+          <div class="logo header__logo"></div>
+        </a>
 
-      <a href="#" class="logo header__logo"></a>
+        <nav class="nav-top header__nav">
+          <ul class="nav-top__list">
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Галерея</a>
+            </li>
 
-      <p class="header__decor-title">Події</p>
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Виставки та події</a>
+            </li>
 
-      <hr class="header__decor-line">
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Відвідування</a>
+            </li>
 
-      <div class="header__img-container">
-        <div class="header__img-holder">
-          <img
-            src="./images/top-768.png"
-            alt="museum__photo"
-            class="header__img"
-          >
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Стати нашим другом</a>
+            </li>
 
-          <img
-            src="./images/top-1000.png"
-            alt="museum__photo"
-            class="header__img--hidden"
-          >
-        </div>
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Про нас</a>
+            </li>
 
-        <div class="header__info">
-          <h1 class="header__page-title">Худож<text class="header__unfilled-text">ній</text> музей</h1>
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Магазин</a>
+            </li>
 
-          <a href="#" class="buy-link header__buy-link">
-            Квитки
-            <div class="square header__square square--green"></div>
-          </a>
-        </div>
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Блог</a>
+            </li>
+
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Контакти</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header__search"></div>
       </div>
 
+      <div class="logo header__logo--small"></div>
 
+      <input
+        type="checkbox"
+        name="checkbox"
+        id="checkbox"
+        class="header__checkbox"
+      >
+
+      <label for="checkbox" class="header__checkbox-label"></label>
+
+      <div class="header__hidden-menu">
+        <nav class="nav-top header__nav">
+          <ul class="nav-top__list">
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Галерея</a>
+            </li>
+
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Виставки та події</a>
+            </li>
+
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Відвідування</a>
+            </li>
+
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Стати нашим другом</a>
+            </li>
+
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Про нас</a>
+            </li>
+
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Магазин</a>
+            </li>
+
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Блог</a>
+            </li>
+
+            <li class="nav-top__item">
+              <a href="#" class="nav-top__link">Контакти</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main class="main main__container">
+      <section class="promo main__promo">
+        <div class="promo__container">
+          <div class="promo__img-holder">
+            <img
+              src="./images/top-768.png"
+              alt="museum__photo"
+              class="promo__img"
+            >
+
+            <img
+              src="./images/top-1000.png"
+              alt="museum__photo"
+              class="promo__img--hidden"
+            >
+          </div>
+
+          <div class="promo__info">
+            <h1 class="promo__page-title">Худож<text class="promo__unfilled-text">ній</text> музей</h1>
+
+            <a href="#" class="promo__buy-link">
+              Квитки
+              <div class="square promo__square square--green"></div>
+            </a>
+          </div>
+
+          <div class="promo__decor">
+            <p class="promo__decor-title">Події</p>
+
+            <hr class="promo__decor-line">
+          </div>
+        </div>
+      </section>
+
       <section class="main__actual-info">
         <h2 class="main__actual-title">Актуальні події</h2>
 
@@ -201,14 +252,12 @@
             src="./images/Ellipse.png"
             alt="slider-button"
             class="slider-button"
-            onclick="minusSlide()"
           >
 
           <img
             src="./images/Ellipse.png"
             alt="slider-button"
             class="slider-button"
-            onclick="plusSlide()"
           >
 
           <div class="main__gallery-img-top">
@@ -257,13 +306,13 @@
           </div>
         </div>
 
-        <div class="square main__gallery-square square--green"></div>
+        <div class="square main__gallery-square square--green square--hidden"></div>
 
         <div class="circles main__gallery-circles">
-          <div class="circles__circle circles__circle--active" onclick="currentSlide(1)"></div>
-          <div class="circles__circle" onclick="currentSlide(2)"></div>
-          <div class="circles__circle" onclick="currentSlide(3)"></div>
-          <div class="circles__circle" onclick="currentSlide(4)"></div>
+          <div class="circles__circle circles__circle--active"></div>
+          <div class="circles__circle"></div>
+          <div class="circles__circle"></div>
+          <div class="circles__circle"></div>
         </div>
       </section>
 
@@ -288,7 +337,9 @@
     <footer class="footer">
       <div class="footer__container">
         <div class="footer__icons">
-          <a href="#" class="logo footer__logo"></a>
+          <a href="#" class="footer__link">
+            <div class="logo footer__logo"></div>
+          </a>
 
           <div class="footer__links">
             <a href="#" class="footer__link-first">

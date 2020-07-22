@@ -1,216 +1,99 @@
 .header {
-  font-family: Montserrat, sans-serif;
+
+  $blockName: &;
 
   &__container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  &__img-container {
-    width: 100%;
-  }
-
-  &__img {
-    width: 100%;
-    height: 100%;
-  }
-
-  &__img--hidden {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
     display: none;
+    padding: 0 $mediumScreensGap;
+    background-color: #fff;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.06);
   }
 
-  &__menu {
+  &__search {
+    $searchWidth: 17.5px;
+
+    width: $searchWidth;
+    height: $searchWidth;
+    background: url("../images/search.png") center no-repeat;
+    background-size: contain;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(0.8);
+      cursor: pointer;
+    }
+  }
+
+  &__hidden-menu {
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    background-color: $mainGreenColor;
+  }
+
+  &__checkbox-label {
     position: absolute;
     top: 33px;
     left: 23px;
+    content: url("../images/menu.png");
     cursor: pointer;
   }
 
-  &__logo {
-    position: absolute;
-    z-index: 1;
-    top: 9px;
-    left: calc(50% - 31.5px);
-    right: calc(50% - 31.5px);
-    width: 55px;
-    height: 61px;
-  }
+  &__checkbox {
 
-  &__buy-link {
-    position: relative;
-    width: 230px;
-    height: 50px;
-    margin: 20px auto 0;
-    padding-left: 60px;
-    display: flex;
-    align-items: center;
-    font-family: IBM Plex Sans, sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
-    color: #0f0e08;
-    text-transform: uppercase;
-    border: 1px solid #1a5a4c;
-    transition: box-shadow 2s, color 2s;
-
-    &:link,
-    &:visited,
-    &:active {
-      color: #0f0e08;
-      text-decoration: none;
-    }
-
-    &:hover {
-      color: white;
-      box-shadow: inset 230px 0 0 0 #f16f55;
-    }
-  }
-
-  &__page-title {
-    width: 280px;
-    margin: 20px auto 0;
-    font-weight: 700;
-    font-size: 45px;
-    color: #000;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
-  &__square {
-    position: absolute;
-    right: 0;
-  }
-
-  &__decor-title {
-    position: absolute;
-    left: 43px;
-    top: 522px;
     display: none;
-    font-family: IBM Plex Sans, sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    text-transform: uppercase;
-    color: #687480;
-    transform: rotate(-90deg);
+
+    &:checked + &-label {
+      position: absolute;
+      z-index: 3;
+      width: 20px;
+      height: 20px;
+      content: url("../images/close.png");
+    }
+
+    &:checked ~ #{$blockName}__hidden-menu {
+      display: block;
+      animation: hiddenBlock 0.5s;
+    }
   }
 
-  &__decor-line {
+  &__logo--small {
     position: absolute;
-    top: 562px;
-    left: 64px;
-    width: 1px;
-    height: 70px;
-    display: none;
-    background-color: #1a5a4c;
+    left: calc(50% - #{$pageLogoWidth} / 2);
   }
 
-  @media (min-width: 768px) {
-    display: grid;
-
-    &__img-container {
-      position: relative;
-      justify-self: end;
-      width: 65%;
+  @media (min-width: 1300px) {
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    &__img-holder {
-      height: 520px;
+    &__logo--small {
+      display: none;
     }
 
-    &__info {
-      position: absolute;
-    }
+    &__checkbox {
 
-    &__menu {
-      top: 45px;
-      left: 37px;
-    }
+      &-label {
+        display: none;
+      }
 
-    &__page-title {
-      position: relative;
-      bottom: 290px;
-      right: 230px;
-      width: 360px;
-      margin: 0;
-      text-align: left;
-      font-size: 55px;
-    }
-
-    &__unfilled-text {
-      color: transparent;
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: black;
-    }
-
-    &__buy-link {
-      position: absolute;
-      top: -165px;
-      left: -225px;
-      width: 210px;
-      height: 70px;
-      padding-left: 43px;
-
-      &::after {
-        $elemWidth: 70px;
-        width: $elemWidth;
-        height: $elemWidth;
+      &:checked ~ #{$blockName}__hidden-menu {
+        display: none;
       }
     }
   }
 
-  @media (min-width: 1200px) {
-
-    &__img {
-      display: none;
-    }
-
-    &__img--hidden {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    &__img-holder {
-      height: 655px;
-    }
-  }
-
-  @media (min-width: 1300px) {
-
-    &__decor-title,
-    &__decor-line {
-      display: block;
-    }
-  }
-
   @media (min-width: 1500px) {
-
-    &__decor-title {
-      left: 158px;
-    }
-
-    &__decor-line {
-      left: 179px;
-    }
-  }
-
-  @media (min-width: 1680px) {
-
-    &__menu {
-      top: 43px;
-      left: 178px;
-    }
-
-    &__page-title {
-      font-size: 4.5rem;
-      bottom: 370px;
-      right: 302px;
-    }
-
-    &__buy-link {
-      top: -205px;
-      left: -295px;
+    &__container {
+      padding: 0 $largeScreensGap;
     }
   }
 }
