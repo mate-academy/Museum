@@ -1,0 +1,189 @@
+.button {
+  $blockName: &;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $headerButtonWidth;
+  height: $headerButtonHeight;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  text-transform: uppercase;
+  border: 1px solid;
+  cursor: pointer;
+  transition: border-color $buttonsHoverAnimTime,
+    width $mockupSizingAnim;
+
+  @media (max-width: $tabletScreenSize) {
+    width: $headerButtonSmallWidth;
+    height: $headerButtonSmallHeight;
+  }
+
+  @media (max-width: $portableScreenSize) {
+    width: 100%;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &__arrow {
+    $elemName: &;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -($headerButtonHeight);
+    width: $headerButtonHeight;
+    height: $headerButtonHeight;
+    color: $secondaryLightColor;
+    transition: background-color $buttonsHoverAnimTime,
+      color $buttonsHoverAnimTime;
+    overflow: hidden;
+
+    @media (max-width: $tabletScreenSize) {
+      right: -($headerButtonSmallHeight);
+      width: $headerButtonSmallHeight;
+      height: $headerButtonSmallHeight;
+    }
+
+    @media (max-width: $portableScreenSize) {
+      right: 0;
+    }
+
+    &::before {
+      content: "→";
+      position: relative;
+      right: $headerButtonHeight;
+      transition: right $buttonsHoverAnimTime;
+
+      @media (max-width: $tabletScreenSize) {
+        right: $headerButtonSmallHeight;
+      }
+    }
+
+    &::after {
+      content: ">";
+      position: absolute;
+      transition: transform $buttonsHoverAnimTime;
+    }
+
+    &--subcr-btn {
+      width: $subscrButtonLargeHeight;
+      height: $subscrButtonLargeHeight;
+      font-size: 20px;
+      color: $mainTextColor;
+      background-color: $tertiaryColor;
+      border: 0;
+      cursor: pointer;
+      
+      @media (max-width: $portableScreenSize) {
+        z-index: 1;
+        width: $subscrButtonPortableHeight;
+        height: $subscrButtonPortableHeight;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+      &:hover {
+        background-color: $secondaryLightColor;
+      }
+
+      &:active {
+        background-color: $mainLightTextColor;
+      }
+    }
+
+    &--gallery-btn {
+      background-color: $secondaryColor;
+      font-size: 20px;
+      border: 0;
+      cursor: pointer;
+
+      &:focus {
+        outline: 0;
+      }
+
+      &:hover {
+        background-color: $secondaryLightColor;
+        color: $mainTextColor;
+      }
+
+      &:active {
+        background-color: $mainLightTextColor;
+      }
+    }
+  }
+
+  &:hover #{$blockName}__arrow::before {
+    right: 0;
+  }
+
+  &:hover #{$blockName}__arrow::after {
+    transform: translateX($headerButtonHeight);
+
+    @media (max-width: $tabletScreenSize) {
+      transform: translateX($headerButtonSmallHeight);
+    }
+  }
+  
+  &:focus #{$blockName}__arrow::before {
+    right: -($headerButtonHeight);
+
+    @media (max-width: $tabletScreenSize) {
+      right: -($headerButtonSmallHeight);
+    }
+  }
+
+  &--buy-btn {
+    background-color: $bgColor;
+    border-color: $secondaryColor;
+
+    #{$blockName}__arrow {
+      background-color: $secondaryColor;
+    }
+
+    &:hover {
+      border-color: $tertiaryColor;
+
+      #{$blockName}__arrow {
+        background-color: $tertiaryColor;
+      }
+    }
+
+    @media (max-width: $portableScreenSize) {
+      padding-right: $headerButtonSmallHeight;
+    }
+  }
+}
+
+.gallery-btn {
+
+  &--slide-minus,
+  &--slide-plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $gallerySliderButtonWidth;
+    height: $gallerySliderButtonWidth;
+    font-size: 20px;
+    line-height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &--slide-minus::after {
+    content: "<";
+  }
+
+  &--slide-plus::after {
+    content: ">";
+  }
+}

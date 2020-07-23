@@ -1,0 +1,196 @@
+.gallery {
+  position: relative;
+  text-align: center;
+
+  &__pictures {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: $galleryFirstRowLargeHeight;
+    grid-auto-rows: $gallerySecondRowLargeHeight;
+    grid-gap: $galleryGridGap;
+
+    @media (max-width: $notebookScreenSize) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: $tabletScreenSize) {
+      grid-gap: 2%;
+      display: flex;
+      justify-content: start;
+      overflow: hidden;
+      height: $galleryPicturesTabletHeight;
+    }
+
+    @media (max-width: $portableScreenSize) {
+      grid-gap: 0;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @media (max-width: $tabletScreenSize) {
+      display: block;
+      min-width: 49%;
+      transition: margin-left $mockupSizingAnim;
+    }
+
+    @media (max-width: $portableScreenSize) {
+      min-width: 100%;
+    }
+
+    &:first-child {
+      @media (max-width: $tabletScreenSize) {
+        // margin-left: -51%;
+        // margin-left: -102%;
+
+        @media (max-width: $portableScreenSize) {
+          // margin-left: -100%;
+          // margin-left: 2 * -100%;
+          // margin-left: 1 * -100%;
+        }
+      }
+    }
+
+    &--second-in-row {
+      grid-column: 2 / 4;
+    }
+
+    &--first-in-row {
+      grid-column: 1 / 3;
+    }
+
+    &--last-in-row {
+      @media (max-width: $notebookScreenSize) {
+        display: none;
+      }
+
+      @media (max-width: $tabletScreenSize) {
+        display: block;
+      }
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    $labelWidth: 10px;
+    
+    display: none;
+    
+    @media (max-width: $tabletScreenSize) {
+      position: relative;
+      display: inline-block;
+      width: $labelWidth;
+      height: $labelWidth;
+      margin-right: $labelWidth * 2;
+      background-color: $galleryLabelColor;
+      top: $galleryPicturesTabletHeight * 1.1;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &--6 {
+        display: none;
+
+        @media (max-width: $portableScreenSize) {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $tabletScreenSize) {
+  
+    &__input--1:checked ~ &__pictures &__img:first-child {
+      margin-left: 0 * $galleryImgTabletMrgnLeft;
+    }
+  
+    &__input--2:checked ~ &__pictures &__img:first-child {
+      margin-left: 1 * $galleryImgTabletMrgnLeft;
+    }
+  
+    &__input--3:checked ~ &__pictures &__img:first-child {
+      margin-left: 2 * $galleryImgTabletMrgnLeft;
+    }
+  
+    &__input--4:checked ~ &__pictures &__img:first-child {
+      margin-left: 3 * $galleryImgTabletMrgnLeft;
+    }
+  
+    &__input--5:checked ~ &__pictures &__img:first-child {
+      margin-left: 4 * $galleryImgTabletMrgnLeft;
+    }
+  
+    &__input--6:checked ~ &__pictures &__img:first-child {
+      margin-left: 5 * $galleryImgTabletMrgnLeft;
+    }
+  }
+
+  @media (max-width: $portableScreenSize) {
+
+    &__input--1:checked ~ &__pictures &__img:first-child {
+      margin-left: 0 * $galleryImgPortableMrgnLeft;
+    }
+  
+    &__input--2:checked ~ &__pictures &__img:first-child {
+      margin-left: 1 * $galleryImgPortableMrgnLeft;
+    }
+  
+    &__input--3:checked ~ &__pictures &__img:first-child {
+      margin-left: 2 * $galleryImgPortableMrgnLeft;
+    }
+  
+    &__input--4:checked ~ &__pictures &__img:first-child {
+      margin-left: 3 * $galleryImgPortableMrgnLeft;
+    }
+  
+    &__input--5:checked ~ &__pictures &__img:first-child {
+      margin-left: 4 * $galleryImgPortableMrgnLeft;
+    }
+  
+    &__input--6:checked ~ &__pictures &__img:first-child {
+      margin-left: 5 * $galleryImgPortableMrgnLeft;
+    }
+  }
+
+  @for $i from 1 through 6 {
+    &__input--#{$i}:checked ~ &__label--#{$i} {
+      background-color: $secondaryColor;
+    }
+  }
+
+  &__button-slider {
+    display: none;
+
+    @media (max-width: $tabletScreenSize) {
+      display: flex;
+      position: absolute;
+      top: calc(50% - 50px / 2); // $gallerySliderButtonWidth - 50px
+
+      &--minus {
+        left: 0;
+      }
+  
+      &--plus {
+        right: 0;
+      }
+    }
+  }
+
+  &__button {
+    margin-top: $galleryGridGap;
+
+    @media (max-width: $tabletScreenSize) {
+      display: none;
+    }
+  }
+}

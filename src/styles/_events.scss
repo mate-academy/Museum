@@ -1,0 +1,152 @@
+.events {
+
+  &__event {
+    display: flex;
+
+    @media (max-width: $tabletScreenSize) {
+      flex-direction: column;
+    }
+  }
+
+  &__picture {
+    width: $eventsPicWidth;
+    overflow: hidden;
+    transition: width $mockupSizingAnim;
+
+    @media (max-width: $tabletScreenSize) {
+      width: 100%;
+    }
+
+    &--even {
+
+      @media (max-width: $tabletScreenSize) {
+        order: -1;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: $eventsPicHeight;
+    object-fit: cover;
+    transition: transform $mockupSizingAnim;
+
+    @media (max-width: $portableScreenSize) {
+      height: $eventsPicPortableHeight;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $eventsContentWidth;
+
+    @media (max-width: $notebookScreenSize) {
+      align-items: flex-start;
+    }
+
+    @media (max-width: $tabletScreenSize) {
+      width: 100%;
+    }
+
+    &--odd {
+      @media (max-width: $notebookScreenSize) {
+        justify-content: flex-end;
+      }
+
+      @media (max-width: $tabletScreenSize) {
+        justify-content: flex-start;
+      }
+    }
+
+    &--even {
+      @media (max-width: $notebookScreenSize) {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &__text {
+    max-width: 400px;
+    width: 65%;
+
+    @media (max-width: $notebookScreenSize) {
+      margin-top: 50px;
+      width: 75%;
+    }
+
+    @media (max-width: $tabletScreenSize) {
+      margin-top: 35px;
+    }
+
+    @media (max-width: $portableScreenSize) {
+      margin-top: 20px;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+
+    @media (max-width: $portableScreenSize) {
+      justify-content: space-between;
+    }
+  }
+
+  &__subtitle {
+    margin-right: 25px;
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 15px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -8px;
+      background-color: $tertiaryColor;
+      transition: width $buttonsHoverAnimTime;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+
+    &::after {
+      $widthHeightAfterElem: 15px;
+      $widthHeightPortableAfterElem: 10px;
+      
+      content: "";
+      position: absolute;
+      bottom: calc((100% - 15px) / 2); //15px - $widthHeightAfterElem
+      display: inline-block;
+      width: $widthHeightAfterElem;
+      height: $widthHeightAfterElem;
+      margin-left: 20px;
+      background-color: $tertiaryColor;
+
+      @media (max-width: $portableScreenSize) {
+        width: $widthHeightPortableAfterElem;
+        height: $widthHeightPortableAfterElem;
+        margin-left: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+.nav {
+  position: relative;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  text-transform: uppercase;
+  transition: font-size $mockupSizingAnim;
+
+  @media (max-width: $notebookScreenSize) {
+    font-size: 13px;
+  }
+
+  @media (max-width: $tabletScreenSize) {
+    width: 100%;
+    height: $navLinksPortableHeight;
+  }
+  
+  &__list {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    @media (max-width: $tabletScreenSize) {
+      position: absolute;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+      height: 100%;
+      margin-top: $logoHeight / 2;
+      font-size: 1.5rem;
+      line-height: 100%;
+    }
+  }
+
+  &__item {
+    margin-left: 20px;
+    transition: margin-left $mockupSizingAnim;
+    
+    @media (max-width: $notebookScreenSize) {
+      margin-left: 15px;
+    }
+
+    @media (max-width: $tabletScreenSize) {
+      margin-left: 0;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    height: $logoHeight;
+    color: $mainTextColor;
+    transition: color $buttonsHoverAnimTime;
+
+    @media (max-width: $tabletScreenSize) {
+      height: inherit;
+    }
+
+    &:hover {
+      color: $placeholderTextColor;
+    }
+  }
+}
