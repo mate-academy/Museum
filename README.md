@@ -1,7 +1,7 @@
-# Museum landing page
-Implement landing page according to [Figma design](https://www.figma.com/file/NWD38mUnijAtiz3HrX3zgW/%D0%9D%D0%90%D0%9C%D0%A3?node-id=264%3A6) - Use BEM and SCSS
+# Museum 2 landing page
+Implement landing page according to [Figma design](https://www.figma.com/file/i8XiqSgs44QEVPHuMbkNO2/museum-prototype?node-id=818%3A418) - Use BEM and SCSS
 
-Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans?query=ibm), [Montserrat](https://fonts.google.com/specimen/Montserrat?query=mon)
+Check font styles. Use [Playfair Display](https://fonts.google.com/specimen/Playfair+Display?query=play), [Raleway](https://fonts.google.com/specimen/Raleway?query=ral)
 
 - Large screens 2560px
 - Full HD 1920px
@@ -9,14 +9,6 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 - Notebook 1280px
 - Tablet 1024
 - Mobile (> 320px)
-
-1. Implement the header with hamburger menu.
-1. Implement `Художній Музей` block.
-1. Implement `Актуальні події` block with two similar blocks `Йду і повертаюсь`, `І спогади і мрії`.
-1. Implement `Від класицизму до романтизму` block.
-1. Implement `Галерея` block and slider.
-1. Implement `Підписка` block.
-1. Implement footer.
 
 ## Instructions
 1. **Fork** the repo.
@@ -32,7 +24,7 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Museum/).
+  [DEMO LINK](https://artsashko.github.io/Museum/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.
