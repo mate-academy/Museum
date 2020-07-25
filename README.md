@@ -1,7 +1,7 @@
 # Museum landing page
 Implement landing page according to [Figma design](https://www.figma.com/file/NWD38mUnijAtiz3HrX3zgW/%D0%9D%D0%90%D0%9C%D0%A3?node-id=264%3A6) - Use BEM and SCSS
 
-Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans?query=ibm), [Montserrat](https://fonts.google.com/specimen/Montserrat?query=mon)
+Check font styles. Use [Playfair Display](https://fonts.google.com/specimen/Playfair+Display?query=play), [Raleway](https://fonts.google.com/specimen/Raleway?query=ral)
 
 - Large screens 2560px
 - Full HD 1920px
@@ -32,7 +32,7 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Museum/).
+  [DEMO LINK](https://aliceblunt8.github.io/Museum/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.
