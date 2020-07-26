@@ -2,15 +2,25 @@ $translateWide: calc(#{$wideScreenPadding} - 100px);
 $translateTablet: calc(#{$noteScreenPadding} - 50px);
 $translateMobile: calc(#{$iPadScreenPadding} - 110px);
 
+$promoTextTranslate: 100px;
+
 $imgWidth: 673px;
 $imgHeight: 753px;
 
 .promo {
   padding-top: 110px;
 
+  @media (max-width: $iPadScreenWidth) {
+    padding-top: 100px;
+  }
+
   &__date {
     margin-bottom: 10px;
     @include promoTranslate(0.5s);
+
+    @media (max-width: $iPadScreenWidth) {
+      margin-bottom: 20px;
+    }
   }
 
   &__title {
@@ -18,7 +28,7 @@ $imgHeight: 753px;
     @include promoTranslate(1s);
 
     &--translate {
-      margin-left: 100px;
+      margin-left: $promoTextTranslate;
 
     }
 
@@ -26,12 +36,13 @@ $imgHeight: 753px;
       font-size: 72px;
 
       &--translate {
-        margin-left: 50px;
+        margin-left: $promoTextTranslate / 2;
       }
     }
 
     @media (max-width: $iPadScreenWidth) {
       font-size: 48px;
+      margin-bottom: 30px;
 
       &--translate {
         margin-left: 0;
@@ -42,31 +53,34 @@ $imgHeight: 753px;
   &__subtitle {
     max-width: 370px;
     margin-bottom: 60px;
-    margin-left: 100px;
+    margin-left: $promoTextTranslate;
     @include promoTranslate(1.5s);
 
     @media (max-width: $tabletScreenWidth) {
       max-width: 267px;
-      margin-left: 50px;
+      margin-left: $promoTextTranslate / 2;
     }
 
     @media (max-width: $iPadScreenWidth) {
       max-width: 267px;
       margin-left: 0;
+      margin-bottom: 50px;
     }
   }
 
   &__button {
-    margin-left: 100px;
+    @extend %button;
+    margin-left: $promoTextTranslate;
     margin-bottom: 120px;
     @include promoTranslate(1.5s);
 
     @media (max-width: $tabletScreenWidth) {
-      margin-left: 50px;
+      margin-left: $promoTextTranslate / 2;
     }
 
-    @media (max-width: $tabletScreenWidth) {
+    @media (max-width: $iPadScreenWidth) {
       margin-left: 0;
+      margin-bottom: 0;
     }
   }
 
@@ -129,15 +143,13 @@ $imgHeight: 753px;
   &__img {
     width: $imgWidth;
     height: $imgHeight;
-    object-fit: cover;
-    object-position: top;
 
     @media (max-width: $tabletScreenWidth) {
       height: auto;
       width: 400px;
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: $mobileScreenWidth) {
       width: 245px;
     }
   }
