@@ -1,121 +1,96 @@
-.header {
-  position: relative;
-  width: 100%;
+.menu {
+
+  $blockName: &;
 
   &__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    // border: 1px solid red;
-    position: relative;
-    height: 655px;
-    padding: 0 175px;
-  }
-
-  &__bg {
-    background-image: url("../images/header-background.png");
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 60%;
-    position: absolute;
-    right: 0;
+    // position: fixed;
     top: 0;
-  }
-
-  &__burger {
-    background-image: url("../images/Vector.svg");
-    width: 18px;
-    height: 12px;
-    z-index: 1;
-  }
-
-  &__input {
+    left: 0;
+    right: 0;
+    z-index: 3;
     display: none;
+    padding: 0 $mediumGap;
+    background-color: $greenColor;
   }
 
-  &__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-  }
-
-  &__logo {
-    z-index: 1;
-    width: 68px;
-    height: 72px;
-  }
-
-  &__content {
-    font-family: IBM Plex Sans, Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
+  &__hidden-menu {
     position: absolute;
-    margin-left: 285px;
-    bottom: 150px;
+    width: 100%;
+    left: -100%;
+    height: 100vh;
+    z-index: 2;
+    background-color: #fff;
+    transition: all 0.5s;
   }
 
-  &__title {
-    font-weight: bold;
-    font-size: 72px;
-    line-height: 100%;
-    text-transform: uppercase;
+  &__checkbox-label {
+    position: absolute;
+    top: 28px;
+    left: 23px;
+    width: 18px;
+    height: 15px;
+    content: url("../images/menu.png");
+    cursor: pointer;
+  }
 
-    &--active {
-      -webkit-text-fill-color: transparent;
-      -webkit-text-stroke-width: 2px;
+  &__checkbox {
+
+    display: none;
+
+    &:checked + &-label {
+      position: absolute;
+      z-index: 3;
+      width: 18px;
+      height: 18px;
+      content: url("../images/close.png");
+    }
+
+    &:checked ~ #{$blockName}__hidden-menu {
+      left: 0;
     }
   }
 
-  &__button-section {
-    display: flex;
-    text-transform: uppercase;
-    margin-top: 80px;
+  &__logo--small {
+    position: absolute;
+    left: calc(50% - #{$logoWidth} / 2);
   }
 
-  &__button {
-    font-family: IBM Plex Sans, Arial, Helvetica, sans-serif;
-    position: relative;
-    width: 150px;
-    height: 70px;
-    border: 1px solid #1a5a4c;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 100%;
-    text-transform: uppercase;
+  @media (min-width: 1300px) {
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__logo--small {
+      display: none;
+    }
+
+    &__checkbox {
+
+      &-label {
+        display: none;
+      }
+
+      &:checked ~ #{$blockName}__hidden-menu {
+        display: none;
+      }
+    }
   }
 
-  &__arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70px;
-    height: 70px;
-    color: #fff;
-    background: #1a5a4c;
+  @media (min-width: 1500px) {
+    &__container {
+      padding: 0 $largeGap;
+    }
   }
 
-  &__event {
-    position: relative;
-    font-family: IBM Plex Sans, Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 100%;
-    text-transform: uppercase;
-    color: #687480;
-    right: 750px;
-    bottom: 900px;
-    transform: rotate(-90deg);
+  @media (min-width: 1680px) {
+    &__search {
+      right: $largeGap;
+    }
 
-    
-    &::before {
-      position: absolute;
-      content: "";
-      width: 70px;
-      height: 1px;
-      background: #1a5a4c;
-      right: 102%;
-      top: 50%;
+    &__search-input {
+      right: 200px;
     }
   }
 }
