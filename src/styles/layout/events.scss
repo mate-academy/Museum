@@ -1,0 +1,212 @@
+.events {
+  background-color: $lightGrey;
+  overflow: hidden;
+  position: relative;
+
+  &__wrapper {
+    padding: 260px 200px 400px;
+
+    @media (max-width: 1230px) {
+      padding: 150px 100px;
+    }
+
+    @media (max-width: $tabletSize) {
+      padding-top: 127px;
+    }
+
+    @media (max-width: $mediumSize) {
+      padding: 100px 20px 150px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 150px;
+
+    @media (max-width: 1230px) {
+      margin-bottom: 100px;
+    }
+
+    @media (max-width: $tabletSize) {
+      text-align: left;
+      margin-bottom: 55px;
+    }
+  }
+
+  &__calendar {
+    padding: 10px;
+    position: absolute;
+    right: 212px;
+    bottom: 184px;
+    cursor: pointer;
+
+    @media (max-width: 1230px) {
+      bottom: 70px;
+    }
+
+    @media (max-width: $tabletSize) {
+      right: 50%;
+      transform: translateX(50%);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      margin-left: 20px;
+      width: 70px;
+      height: 1px;
+      background: $jaguar;
+
+      @media (max-width: $tabletSize) {
+        top: 100%;
+        margin-left: 0;
+        width: auto;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+.event {
+  width: 470px;
+  position: relative;
+
+  @media (max-width: 1230px) {
+    margin: auto;
+    right: -50px;
+    padding-right: 50px;
+  }
+
+  @media (max-width: $mediumSize) {
+    width: 350px;
+    padding-right: 0;
+  }
+
+  @media (max-width: 550px) {
+    width: auto;
+    right: 0;
+  }
+
+  &--hudimov {
+    &::after {
+      content: url("../images/photo-hudimov.jpg");
+      position: absolute;
+      top: -80px;
+      right: -100%;
+
+      @media (max-width: 1230px) {
+        display: none;
+      }
+    }
+  }
+
+  &--australia {
+    right: -400px;
+    margin-top: 282px;
+
+    @media (max-width: 1230px) {
+      right: -50px;
+      margin-top: 100px;
+    }
+
+    @media (max-width: 550px) {
+      right: 0;
+      margin-top: 60px;
+    }
+
+    &::before {
+      content: url("../images/photo-insta.jpg");
+      position: absolute;
+      top: -80px;
+      left: -130%;
+
+      @media (max-width: 1230px) {
+        display: none;
+      }
+    }
+  }
+
+  &__date {
+    position: absolute;
+    left: -45%;
+    top: 0;
+    font-family: $font2;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 100%;
+    -webkit-text-stroke: 1px $orange;
+    color: transparent;
+
+    @media (max-width: $notebookSize) {
+      left: -25%;
+      font-size: 36px;
+    }
+
+    @media (max-width: $mediumSize) {
+      left: -33%;
+    }
+
+    @media (max-width: 550px) {
+      position: static;
+      font-family: $font1;
+      font-style: normal;
+      font-weight: 100;
+      font-size: 16px;
+      line-height: 150%;
+      color: $orange;
+      display: inline;
+    }
+  }
+
+  &__time {
+    display: block;
+    position: relative;
+    right: -82px;
+    font-size: 36px;
+    -webkit-text-stroke: none;
+    color: $orange;
+
+    @media (max-width: $notebookSize) {
+      font-size: 24px;
+      right: -27px;
+    }
+
+    @media (max-width: 550px) {
+      display: inline;
+      position: static;
+      font-size: inherit;
+
+      &::before {
+        content: ",";
+      }
+    }
+  }
+
+  &__label {
+    font-weight: 200;
+    font-size: 14px;
+    margin-bottom: 10px;
+
+    @media (max-width: 550px) {
+      display: inline;
+      padding-left: 20px;
+    }
+  }
+
+  &__desc {
+    color: $comet;
+    margin: 8px 0 60px;
+
+    @media (max-width: 550px) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__btn {
+    @extend %basicBtn;
+    @extend %orangeButton;
+  }
+}

@@ -1,0 +1,346 @@
+.exhibitions {
+  background-color: $lightGrey;
+  position: relative;
+  overflow: hidden;
+
+  &__wrapper {
+    padding: 160px 200px 205px;
+
+    @media (max-width: $notebookSize) {
+      padding-right: 100px;
+      padding-left: 100px;
+    }
+
+    @media (max-width: $tabletSize) {
+      padding-top: 115px;
+      padding-bottom: 150px;
+    }
+
+    @media (max-width: $mediumSize) {
+      padding: 90px 90px 200px;
+    }
+
+    @media (max-width: 550px) {
+      padding: 90px 20px 200px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+
+    @media (max-width: $tabletSize) {
+      text-align: left;
+    }
+  }
+
+  &__dates {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    color: $orange;
+    text-align: center;
+    position: relative;
+    right: -80px;
+
+    @media (max-width: $notebookSize) {
+      right: -100px;
+    }
+
+    @media (max-width: $tabletSize) {
+      margin: 55px;
+      right: 0;
+    }
+
+    @media (max-width: $mediumSize) {
+      text-align: left;
+    }
+
+    @media (max-width: $mobileXLsize) {
+      margin: 60px 0 10px;
+      font-size: 24px;
+    }
+  }
+
+  &__img {
+    position: absolute;
+
+    @media (max-width: $notebookSize) {
+      width: 400px;
+    }
+
+    @media (max-width: $tabletSize) {
+      width: 300px;
+    }
+    
+    &:first-of-type {
+      top: 60px;
+      left: 0;
+
+      @media (max-width: $notebookSize) {
+        top: 120px;
+      }
+
+      @media (max-width: $tabletSize) {
+        top: 170px;
+      }
+
+      @media (max-width: $mediumSize) {
+        top: 100px;
+        left: initial;
+        right: -60px;
+        transform: scaleX(-1) rotate(-15deg);
+      }
+
+      @media (max-width: $mobileXLsize) {
+        top: 140px;
+        right: -88px;
+      }
+
+      @media (max-width: 400px) {
+        right: -100px;
+      }
+    }
+
+    &:nth-of-type(2) {
+      top: 803px;
+      right: -10px;
+
+      @media (max-width: $notebookSize) {
+        top: 920px;
+      }
+
+      @media (max-width: $tabletSize) {
+        top: 730px;
+        right: -30px;
+      }
+
+      @media (max-width: $mediumSize) {
+        top: 630px;
+        right: initial;
+        left: -140px;
+        transform: scale(-1, -1) rotate(-20deg);
+      }
+    }
+
+    &:last-of-type {
+      top: 1340px;
+      left: 50px;
+
+      @media (max-width: $notebookSize) {
+        top: 1420px;
+      }
+
+      @media (max-width: $tabletSize) {
+        top: 960px;
+        left: 0;
+      }
+
+      @media (max-width: $mediumSize) {
+        top: 860px;
+        left: initial;
+        right: -40px;
+      }
+
+      @media (max-width: 550px) {
+        display: none;
+      }
+    }
+  }
+
+  &__archive {
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 212px;
+    cursor: pointer;
+
+    @media (max-width: $tabletSize) {
+      right: 50%;
+      transform: translateX(50%);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      margin-left: 20px;
+      width: 70px;
+      height: 1px;
+      background: $jaguar;
+
+      @media (max-width: $tabletSize) {
+        top: 100%;
+        margin-left: 0;
+        width: auto;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+.exhibition {
+  max-width: 370px;
+  position: relative;
+
+  @media (max-width: 550px) {
+    position: static;
+  }
+
+  &:nth-of-type(2)::after {
+    content: "";
+    background-image: url("../images/words-1.png");
+    position: absolute;
+    top: 110px;
+    right: -170%;
+    @extend %backgroundWords;
+
+    @media (max-width: $notebookSize) {
+      top: 200px;
+      right: -120%;
+    }
+
+    @media (max-width: $tabletSize) {
+      top: 150px;
+      right: -75%;
+    }
+
+    @media (max-width: $mediumSize) {
+      display: none;
+    }
+  }
+
+  &:last-of-type::before {
+    content: "";
+    background-image: url("../images/words-2.png");
+    position: absolute;
+    top: -120px;
+    left: -170%;
+    @extend %backgroundWords;
+
+    @media (max-width: $notebookSize) {
+      top: -60px;
+      left: -110%;
+    }
+
+    @media (max-width: $tabletSize) {
+      top: -20px;
+      left: -75%;
+    }
+
+    @media (max-width: $mediumSize) {
+      display: none;
+    }
+
+    @media (max-width: 550px) {
+      display: block;
+      background: none;
+      content: url("../images/kozak-small.png");
+      top: 960px;
+      left: initial;
+      right: 0;
+    }
+
+    @media (max-width: $mobileXLsize) {
+      top: 980px;
+    }
+  }
+
+  &--shifted {
+    right: -400px;
+
+    @media (max-width: $notebookSize) {
+      right: -350px;
+    }
+
+    @media (max-width: $tabletSize) {
+      right: -200px;
+    }
+
+    @media (max-width: $mediumSize) {
+      right: initial;
+    }
+  }
+
+  &--middle {
+    padding: 226px 0 308px;
+
+    @media (max-width: $tabletSize) {
+      padding: 140px 0;
+    }
+
+    @media (max-width: $mediumSize) {
+      position: relative;
+      right: -100px;
+    }
+
+    @media (max-width: 550px) {
+      padding: 90px 0 160px;
+      right: 0;
+    }
+
+    @media (max-width: 400px) {
+      padding-bottom: 112px;
+    }
+  }
+
+  &__label {
+    color: $orange;
+    margin-bottom: 10px;
+  }
+
+  &__desc {
+    margin: 20px 0 50px;
+    color: $comet;
+
+    @media (max-width: $notebookSize) {
+      width: 270px;
+    }
+
+    @media (max-width: $tabletSize) {
+      margin: 20px 0 0;
+    }
+
+    @media (max-width: $mobileXLsize) {
+      width: 170px;
+      height: 120px;
+      overflow: hidden;
+    }
+
+    &--middle {
+
+      @media (max-width: 550px) {
+        position: relative;
+        right: -130px;
+      }
+    }
+  }
+
+  &__btn {
+    @extend %basicBtn;
+    @extend %orangeButton;
+
+    @media (max-width: $tabletSize) {
+      display: none;
+    }
+  }
+
+  &__decor {
+    position: absolute;
+    top: -50px;
+    left: -850px;
+    width: 568px;
+    height: 576px;
+    font-family: $font2;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 144px;
+    line-height: 100%;
+    -webkit-text-stroke: 1px rgba(63, 82, 82, 0.3);
+    color: transparent;
+    text-transform: uppercase;
+
+    @media (max-width: 2000px) {
+      display: none;
+    }
+  }
+}
