@@ -5,11 +5,32 @@
     width: 100%;
   }
 
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__type {
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+
   &__period {
     margin-bottom: 10px;
     line-height: 150%;
     color: $accentColor;
     @include translateFromLeft(0.5s);
+
+    &--mobile {
+      display: none;
+
+      @media (max-width: $iPadScreenWidth) {
+        display: inline-block;
+        margin-right: 30px;
+      }
+    }
 
     &--limited {
       margin-left: -100px;
@@ -32,6 +53,7 @@
 
     @media (max-width: $iPadScreenWidth) {
       margin-bottom: 30px;
+      margin-right: 0;
     }
   }
 
@@ -43,6 +65,10 @@
     @media (max-width: $tabletScreenWidth) {
       width: 270px;
     }
+
+    @media (max-width: $iPadScreenWidth) {
+      width: 100%;
+    }
   }
 
   &__button {
@@ -50,6 +76,14 @@
 
     @media (max-width: $tabletScreenWidth) {
       display: none;
+
+      &--visible {
+        display: inline-block;
+
+        @media (max-width: $iPadScreenWidth) {
+          width: 100%;
+        }
+      }
     }
   }
 
