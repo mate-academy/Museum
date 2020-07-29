@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NAMU</title>
     <link rel="stylesheet" href="./styles/main.scss">
+    <link
+      rel="shortcut icon"
+      href="./images/favicon.png"
+      type="image/png-icon"
+    >
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header class="header">
-      <div class="container container--header">
+    <header class="header" id="header">
+      <div class="container header__container">
         <div class="header__top">
           <a href="#">
             <img
@@ -24,7 +29,25 @@
               <div class="burger-menu__icon">
               </div>
             </div>
-            <p class="header__lang">UA</p>
+            <select
+              name="lang"
+              id="lang"
+              class="header__lang"
+            >
+              <option
+                class="header__option"
+                value="UA"
+                selected
+              >
+                UA
+              </option>
+              <option
+                class="header__option"
+                value="EN"
+              >
+                EN
+              </option>
+            </select>
           </div>
         </div>
         <div class="promo">
@@ -60,13 +83,13 @@
           <nav class="nav hidden-nav__nav">
             <ul class="nav__list">
               <li class="nav__item">
-                <a href="" class="nav__link">Спланувати візит</a>
+                <a href="#actual" class="nav__link">Актуальтні виставки</a>
               </li>
               <li class="nav__item">
-                <a href="#actual" class="nav__link">Виставки та події</a>
+                <a href="#events" class="nav__link">Найближчі події</a>
               </li>
               <li class="nav__item">
-                <a href="" class="nav__link">Колекція</a>
+                <a href="#news" class="nav__link">Новини</a>
               </li>
             </ul>
           </nav>
@@ -170,7 +193,7 @@
       </section>
 
       <section class="events" id="events">
-        <div class="container container--events">
+        <div class="container events__container">
           <h2 class="events__title">Найближчі події</h2>
           <div class="event events__event">
             <div class="event__wrapper">
@@ -230,7 +253,7 @@
       </section>
 
       <section class="promo-bot">
-        <div class="container container--promo-bot">
+        <div class="container promo-bot__container">
           <img
             src="./images/bot-girl.png"
             alt="Promo girl"
@@ -249,7 +272,209 @@
           </div>
         </div>
       </section>
+
+      <section class="news" id="news">
+        <div class="container news__container">
+          <h2 class="news__title">Новини</h2>
+          <div class="news__row">
+            <div class="news__item">
+              <div class="news__img-box">
+                <img
+                  src="./images/news/winner.png"
+                  alt="winner"
+                  class="news__img"
+                >
+              </div>
+              <p class="news__date">9 серпня 2019</p>
+              <h4 class="news__caption">Оголошення переможця</h4>
+              <p class="news__excerpt">
+                Друзі, сьогодні п'ятниця!
+                А це означає, що час оголосити переможця розіграшу...
+              </p>
+            </div>
+            <div class="news__item">
+              <div class="news__img-box">
+                <img
+                  src="./images/news/cat-day.png"
+                  alt="cat-day"
+                  class="news__img"
+                >
+              </div>
+              <p class="news__date">9 серпня 2019</p>
+              <h4 class="news__caption">Міжнародний день котів</h4>
+              <p class="news__excerpt">
+                Музей з левами не може просто
+                так взяти і пропустити Міжнародний день котів!
+              </p>
+            </div>
+            <div class="news__item">
+              <div class="news__img-box">
+                <img
+                  src="./images/news/kozaks.png"
+                  alt="kozaks"
+                  class="news__img"
+                >
+              </div>
+              <p class="news__date">9 серпня 2019</p>
+              <h4 class="news__caption">200 років П. Кулішу</h4>
+              <p class="news__excerpt">
+                Поруч із Тарасом Шевченком
+                це найважливіша постать в українській культурі ХІХ століття...
+              </p>
+            </div>
+          </div>
+          <div class="news__circles">
+            <span class="news__circle news__circle--active"></span>
+            <span class="news__circle"></span>
+            <span class="news__circle"></span>
+          </div>
+          <p class="archieve">
+            <a href="#" class="archieve__link">Усі новини</a>
+            <span class="archieve__line"></span>
+          </p>
+        </div>
+      </section>
+
+      <section class="digest">
+        <div class="container digest__container">
+          <h2 class="digest__title">Підпишіться на дайджест</h2>
+          <div class="digest__content">
+            <p class="digest__text">
+              Першими дізнавайтесь про новини музею та розіграші,
+              отримуйте запрошення на події та читайте статті від кураторів
+            </p>
+            <form action="#" method="GET">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="digest__input"
+                placeholder="e-mail"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                autocomplete="off"
+                required
+              >
+              <button
+                href="#header"
+                class="arrow digest__arrow"
+                type="submit"
+              >
+                <span class="arrow__icon"></span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer class="footer">
+      <div class="container footer__container">
+        <div class="footer__row">
+          <div class="footer__contacts">
+            <h3 class="footer__caption">Контакти</h3>
+            <p class="footer__addresses">
+              Київ,<br>
+              вул. М. Грушевського, 6<br>
+              тел. 278-13-57,<br>
+              <span class="footer__phone">278-74-54</span><br>
+              info@namu.kiev.ua
+            </p>
+            <div class="footer__icons">
+              <a href="#">
+                <img
+                  src="./images/footer/facebook.svg"
+                  alt="facebook"
+                  class="footer__icon"
+                >
+              </a>
+              <a href="#">
+                <img
+                  src="./images/footer/twitter.svg"
+                  alt="twitter"
+                  class="footer__icon"
+                >
+              </a>
+              <a href="#">
+                <img
+                  src="./images/footer/telegram.svg"
+                  alt="telegram"
+                  class="footer__icon"
+                >
+              </a>
+              <a href="#">
+                <img
+                  src="./images/footer/instagram.svg"
+                  alt="instagram"
+                  class="footer__icon"
+                >
+              </a>
+            </div>
+
+          </div>
+          <div class="footer__shedule">
+            <h3 class="footer__caption">Розклад роботи</h3>
+            <div class="footer__lists">
+              <ul class="footer__list footer__list--right-align">
+                <li>пн</li>
+                <li>вт</li>
+                <li>ср</li>
+                <li>чт</li>
+                <li>пт</li>
+                <li>сб</li>
+                <li>нд</li>
+              </ul>
+              <ul class="footer__list">
+                <li>вихідний</li>
+                <li>вихідний</li>
+                <li>10:00 - 17:00</li>
+                <li>10:00 - 17:00</li>
+                <li>12:00 - 19:00</li>
+                <li>11:00 - 18:00</li>
+                <li>10:00 - 17:00</li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__programs">
+            <h3 class="footer__caption">Членські програми</h3>
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a href="" class="footer__link">Зробити разовий внесок</a>
+              </li>
+              <li class="footer__item">
+                <a href="" class="footer__link">Індивідуальна</a>
+              </li>
+              <li class="footer__item">
+                <a href="" class="footer__link">Корпоративна</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__about">
+            <h3 class="footer__caption">Про нас</h3>
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a href="" class="footer__link">Історія</a>
+              </li>
+              <li class="footer__item">
+                <a href="" class="footer__link">Обличчя музею</a>
+              </li>
+              <li class="footer__item">
+                <a href="" class="footer__link">Вакансії</a>
+              </li>
+              <li class="footer__item">
+                <a href="" class="footer__link">Новини</a>
+              </li>
+            </ul>
+          </div>
+          <a href="#header" class="arrow footer__arrow">
+            <span class="arrow__icon"></span>
+          </a>
+        </div>
+        <div class="footer__bottom">
+          <p class="footer__c">© 2010 — 2020</p>
+          <p class="footer__privacy">Privacy — Terms</p>
+        </div>
+      </div>
+    </footer>
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>

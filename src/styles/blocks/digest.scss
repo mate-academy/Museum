@@ -1,0 +1,102 @@
+.digest {
+  background-color: $accentColor;
+  color: $brightColor;
+
+  &__container {
+    padding-bottom: 160px;
+
+    @media (max-width: $tabletScreenWidth) {
+      padding-top: 110px;
+      padding-bottom: 110px;
+    }
+
+    @media (max-width: $iPadScreenWidth) {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+
+  &__title {
+    text-align: left;
+    @include translateFromLeft(1s);
+    margin-bottom: 63px;
+
+    @media (max-width: $iPadScreenWidth) {
+      @include playfairSizeHeight(36px, 125%);
+      text-align: left;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: $noteScreenWidth) {
+      flex-direction: column;
+    }
+  }
+
+  &__text {
+    width: 570px;
+
+    @media (max-width: $noteScreenWidth) {
+      flex-direction: column;
+      margin-bottom: 80px;
+    }
+
+    @media (max-width: $iPadScreenWidth) {
+      width: 280px;
+    }
+  }
+
+  &__arrow {
+    position: relative;
+    display: block;
+    z-index: -1;
+    background: none;
+    border: none;
+    margin-left: 300px;
+    animation: arrow-right 1s linear infinite;
+
+    &:hover {
+      animation: arrow-right 1s linear infinite;
+    }
+
+    @media (max-width: $noteScreenWidth) {
+      display: inline;
+      margin-left: 10px;
+      border: 1px solid $brightColor;
+      border-radius: 30px;
+    }
+  }
+
+  &__input {
+    margin-right: 100px;
+    width: 300px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $brightColor;
+    color: $brightColor;
+    line-height: 150%;
+    outline: none;
+    transition: box-shadow 0.3s;
+
+    @media (max-width: $noteScreenWidth) {
+      margin-right: 0;
+    }
+
+    @media (max-width: $iPadScreenWidth) {
+      width: 218px;
+    }
+
+    &::placeholder {
+      color: $brightColor;
+      font-family: "Raleway", sans-serif;
+    }
+
+    &:focus + .digest__arrow {
+      z-index: 1;
+    }
+  }
+}

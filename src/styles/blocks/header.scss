@@ -14,6 +14,10 @@ $topOverflow: $tabletScreenPadding / 2;
     height: 584px;
   }
 
+  &__container {
+    padding-top: 20px;
+  }
+
   &__top {
     display: flex;
     justify-content: space-between;
@@ -47,22 +51,25 @@ $topOverflow: $tabletScreenPadding / 2;
   }
 
   &__lang {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
     line-height: 24px;
     color: $brightColor;
-    position: relative;
     padding: 5px;
     padding-left: 10px;
     margin-left: 10px;
     transition: transform 1s;
-
-    &::after {
-      content: ">";
-      display: inline-block;
-      transform: translatex(5px) rotate(90deg);
-    }
+    background-color: transparent;
+    border: none;
+    outline: none;
 
     @media (max-width: $iPadScreenWidth) {
       display: none;
     }
+  }
+
+  &__option {
+    color: $headerColor;
   }
 }
