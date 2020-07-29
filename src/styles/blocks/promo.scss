@@ -1,0 +1,176 @@
+$promoTextTranslate: 100px;
+
+$imgWidth: 673px;
+$imgHeight: 753px;
+
+.promo {
+  padding-top: 110px;
+
+  &--hidden {
+    display: none;
+  }
+
+  @media (max-width: $iPadScreenWidth) {
+    padding-top: 100px;
+  }
+
+  &__date {
+    margin-bottom: 10px;
+    @include translateFromLeft(0.5s);
+
+    @media (max-width: $iPadScreenWidth) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    @include translateFromLeft(1s);
+
+    &--translate {
+      margin-left: $promoTextTranslate;
+
+    }
+
+    @media (max-width: $tabletScreenWidth) {
+      font-size: 72px;
+
+      &--translate {
+        margin-left: $promoTextTranslate / 2;
+      }
+    }
+
+    @media (max-width: $iPadScreenWidth) {
+      font-size: 48px;
+      margin-bottom: 30px;
+
+      &--translate {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__subtitle {
+    max-width: 370px;
+    margin-bottom: 60px;
+    margin-left: $promoTextTranslate;
+    @include translateFromLeft(1.5s);
+
+    @media (max-width: $tabletScreenWidth) {
+      max-width: 267px;
+      margin-left: $promoTextTranslate / 2;
+    }
+
+    @media (max-width: $iPadScreenWidth) {
+      max-width: 267px;
+      margin-left: 0;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__button {
+    @extend %button;
+    margin-left: $promoTextTranslate;
+    margin-bottom: 120px;
+    @include translateFromLeft(1.5s);
+
+    @media (max-width: $tabletScreenWidth) {
+      margin-left: $promoTextTranslate / 2;
+    }
+
+    @media (max-width: $iPadScreenWidth) {
+      margin-left: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__date-bottom {
+    display: flex;
+    align-items: center;
+    opacity: 0.7;
+    line-height: 100%;
+    @include translateFromRight(1s);
+
+    @media (max-width: $iPadScreenWidth) {
+      display: none;
+    }
+  }
+
+  &__line {
+    display: block;
+    width: 70%;
+    height: 1px;
+    background-color: $brightColor;
+    margin-left: 20px;
+  }
+
+  &__img-box {
+    position: absolute;
+    bottom: -4px;
+    right: $translateWide;
+    transition: ease 2s;
+
+    @media (max-width: $tabletScreenWidth) {
+      right: $translateTablet;
+
+      &:before {
+        display: none;
+      }
+    }
+
+    @media (max-width: $iPadScreenWidth) {
+      right: $translateiPad;
+    }
+
+    &:hover {
+      transform: translateX(-50px);
+    }
+
+    &::before {
+      content: "Дівчина з Поділля В. Тропінін";
+      width: 150px;
+      height: 48px;
+      position: absolute;
+      top: $imgHeight / 2;
+      right: 7%;
+
+      @media (max-width: $noteScreenWidth - 50px) {
+        display: none;
+      }
+    }
+  }
+
+  &__img {
+    width: $imgWidth;
+    height: $imgHeight;
+
+    @media (max-width: $tabletScreenWidth) {
+      height: auto;
+      width: 400px;
+    }
+
+    @media (max-width: $mobileScreenWidth) {
+      width: 245px;
+    }
+  }
+}
+
+@keyframes promo-translate-left {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes promo-translate-right {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}

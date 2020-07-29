@@ -1,0 +1,128 @@
+$newsImgSize: 370px;
+$newsImgMobileSize: 270px;
+
+.news {
+  &__container {
+    padding-bottom: 184px;
+
+    @media (max-width: $iPadScreenWidth) {
+      padding-bottom: 80px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    @include translateFromLeft(1s);
+    margin-bottom: 63px;
+
+    @media (max-width: $iPadScreenWidth) {
+      @include playfairSizeHeight(36px, 125%);
+      text-align: left;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 95px;
+
+    @media (max-width: $iPadScreenWidth) {
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+  }
+
+  &__item {
+    width: $newsImgSize;
+
+    @media (max-width: $noteScreenWidth) {
+      width: $newsImgMobileSize;
+    }
+
+    @media (max-width: $tabletScreenWidth) {
+      margin-right: 30px;
+      &:last-child {
+        display: none;
+      }
+    }
+
+    @media (max-width: $iPadScreenWidth) {
+      width: $newsImgSize;
+      margin-right: 0;
+
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+
+    @media (max-width: $mobileScreenWidth) {
+      width: $newsImgMobileSize + 10px;
+    }
+  }
+
+  &__img-box {
+    width: $newsImgSize;
+    height: $newsImgSize;
+    margin-bottom: 30px;
+    overflow: hidden;
+    cursor: pointer;
+
+    @media (max-width: $noteScreenWidth) {
+      width: $newsImgMobileSize;
+      height: $newsImgMobileSize;
+    }
+
+    @media (max-width: $iPadScreenWidth) {
+      width: $newsImgSize;
+      height: $newsImgSize;
+    }
+
+    @media (max-width: $mobileScreenWidth) {
+      width: $newsImgMobileSize + 10px;
+      height: $newsImgMobileSize + 10px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    transition: 1s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__date {
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 5px;
+  }
+
+  &__caption {
+    margin-bottom: 15px;
+  }
+
+  &__circles {
+    display: none;
+    justify-content: center;
+
+    @media (max-width: $iPadScreenWidth) {
+      display: flex;
+    }
+  }
+
+  &__circle {
+    width: 8px;
+    height: 8px;
+    background-color: $headerColor;
+    opacity: 0.3;
+    border-radius: 4px;
+    margin-right: 12px;
+    cursor: pointer;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+}

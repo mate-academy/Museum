@@ -1,0 +1,130 @@
+$angelWidth: 432px;
+$angelHeight: 740px;
+$coupleHeight: 393px;
+$coupleWidth: 393px;
+$kozakWidth: 402px;
+$kozakHeight: 452px;
+$exhibitionBlockHeight: 576px;
+$exhibitionBlockWidth: 568px;
+
+.exhibition {
+  $blockName: &;
+  display: flex;
+  height: $exhibitionBlockHeight;
+  justify-content: flex-start;
+
+  @media (max-width: $tabletScreenWidth) {
+    height: $exhibitionBlockHeight / 2;
+  }
+
+  @media (max-width: $iPadScreenWidth) {
+    margin-top: 100px;
+  }
+
+  &--right {
+    margin-top: -50px;
+    justify-content: flex-end;
+
+    @media (max-width: $noteScreenWidth) {
+      margin-top: 0;
+    }
+
+    @media (max-width: $iPadScreenWidth) {
+      margin-top: 50px;
+    }
+  }
+
+  &__card {
+    margin-left: 30px;
+    align-self: center;
+
+    @media (max-width: $iPadScreenWidth) {
+      margin-left: 0;
+    }
+  }
+
+  &__img-box {
+    position: relative;
+    width: 50%;
+    min-width: 150px;
+
+    @media (max-width: $iPadScreenWidth) {
+      display: none;
+    }
+
+    &--art20-21 {
+      background: url("../images/actual/20-21-century.png") no-repeat center;
+      background-size: contain;
+    }
+
+    &--anc-art {
+      background: url("../images/actual/ancient-art.png") no-repeat center;
+      background-size: contain;
+    }
+
+  }
+
+  &__img {
+    position: absolute;
+    transition: 1s;
+    height: auto;
+
+    &--angel {
+      top: -90px;
+      left: - $noteScreenPadding;
+
+      &:hover {
+        transform: translateY(-50px);
+      }
+
+      @media (max-width: $noteScreenWidth) {
+        left: - $tabletScreenPadding;
+      }
+
+      @media (max-width: $tabletScreenWidth) {
+        width: $angelWidth / 2;
+        left: calc(#{-$tabletScreenPadding} - #{$angelWidth} / 4);
+      }
+
+      @media (max-width: $iPadScreenWidth) {
+        left: -$iPadScreenPadding;
+      }
+    }
+
+    &--couple {
+      top: calc(50% - #{$coupleHeight} / 2);
+      right: - $noteScreenPadding;
+
+      &:hover {
+        transform: translateX(50px);
+      }
+
+      @media (max-width: $noteScreenWidth) {
+        right: - $tabletScreenPadding;
+      }
+
+      @media (max-width: $tabletScreenWidth) {
+        width: $coupleWidth / 1.5;
+        top: calc(50% - #{$coupleHeight} / 4);
+        right: calc(#{-$tabletScreenPadding} - #{$coupleWidth} / 3.5);
+      }
+
+    }
+
+    &--kozak {
+      top: $exhibitionBlockHeight / 2 - $kozakHeight / 2;
+      left: calc(50% - #{$kozakWidth} / 2);
+
+      &:hover {
+        transform: rotateX(-25deg);
+      }
+
+      @media (max-width: $tabletScreenWidth) {
+        width: $kozakWidth / 2;
+        top: calc(50% - 100px);
+        left: calc(50% - #{$kozakWidth} / 4);
+      }
+
+    }
+  }
+}

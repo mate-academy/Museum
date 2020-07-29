@@ -1,0 +1,122 @@
+$imgWidth: 624px;
+$imgHeight: 801px;
+
+.hidden-nav {
+  display: none;
+  padding-top: 30px;
+  width: 570px;
+
+  @media (max-width: $iPadScreenWidth) {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  &--active {
+    display: inline-block;
+  }
+
+  &__box {
+    display: flex;
+
+    @media (max-width: $tabletScreenWidth) {
+      flex-direction: column;
+
+      &--buttons {
+        flex-direction: row;
+
+        @media (max-width: $iPadScreenWidth) {
+          flex-direction: column;
+        }
+      }
+    }
+
+    &--buttons {
+      margin-top: 60px;
+    }
+  }
+
+  &__timetable {
+    width: 170px;
+    padding-right: 15px;
+    font-size: 14px;
+
+    @media (max-width: $tabletScreenWidth) {
+      width: 100%;
+    }
+
+    @media (max-width: $iPadScreenWidth) {
+      display: none;
+    }
+  }
+
+  &__address {
+    width: 213px;
+    padding-left: 15px;
+    font-size: 14px;
+
+    @media (max-width: $tabletScreenWidth) {
+      margin-top: 10px;
+      padding-left: 0;
+      width: 100%;
+    }
+
+    @media (max-width: $iPadScreenWidth) {
+      display: none;
+    }
+  }
+
+  &__tagline {
+    display: block;
+    font-weight: 200;
+
+    @media (max-width: $tabletScreenWidth) {
+      display: inline-block;
+    }
+  }
+
+  &__nav {
+    margin-top: 80px;
+
+    @media (max-width: $iPadScreenWidth) {
+      margin-top: 60px;
+    }
+  }
+
+  &__button {
+    @extend %button;
+    margin-right: 14px;
+
+    &--transparent {
+      margin-right: 0;
+      margin-left: 14px;
+      background-color: transparent;
+      outline: 1px solid $brightColor;
+
+      @media (max-width: $iPadScreenWidth) {
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: $iPadScreenWidth) {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  &__img-box {
+    position: absolute;
+    bottom: -4px;
+    right: $translateWide;
+    transition: ease 2s;
+
+    @media (max-width: $tabletScreenWidth) {
+      display: none;
+    }
+  }
+
+  &__img {
+    width: $imgWidth;
+    height: $imgHeight;
+  }
+}
