@@ -1,0 +1,197 @@
+.header {
+  position: relative;
+  right: 0;
+  top: 0;
+  padding-left: 55px;
+  width: 100%;
+  margin-bottom: 100px;
+  height: 100vh;
+  
+  &__container {
+    position: absolute;
+    top: 45px;
+    width: 18px;
+    height: 12px;
+    z-index: 5;
+    margin: 0;
+    transition: all 0.5s;
+
+    &:hover {
+      transform: scale(1.5, 1.5);
+    }
+  }
+  
+  &__label {
+    position: absolute;
+    width: 18px;
+    height: 12px;
+    z-index: 3;
+    cursor: pointer;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+  
+  &__burger-line {
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #0f0e08;
+    transition: 0.5s all;
+    z-index: 2;
+
+    &_second,
+    &_third {
+      top: 4px;
+    }
+
+    &_fourth {
+      top: 8px;
+    }
+  }
+  
+
+  .check-menu:checked ~ &__container &__burger-line_first {
+    display: none;
+  }
+
+  .check-menu:checked ~ &__container &__burger-line_second {
+    transform: rotate(45deg);
+  }
+
+  .check-menu:checked ~ &__container &__burger-line_third {
+    transform: rotate(-45deg);
+  }
+
+  .check-menu:checked ~ &__container &__burger-line_fourth {
+    display: none;
+  }
+  .check-menu:checked ~ .menu {
+    display: flex;
+  }
+
+  &__main {
+    position: absolute;
+    width: 71.4%;
+    right: 0;
+    height: 100vh;
+  }
+
+  &__title-mobile,
+  &__button-mobile {
+    display: none;
+  }
+
+  .check-menu:checked ~ &__main,
+  .check-menu:checked ~ &__button-mobile,
+  .check-menu:checked ~ &__title-mobile {
+    display: none;
+
+  }
+
+  &__main-logo {
+    position: absolute;
+    right: calc(50% - 34px);
+    top: 15px;
+    width: 68px;
+    height: 72px;
+    z-index: 2;
+  }
+  
+  &__photo {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    object-position: left;
+    object-fit: cover;
+  }
+
+  &__photo-smaller {
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    object-position: left;
+    object-fit: cover;
+  }
+
+  &__title {
+    display: inline-block;
+    position: absolute;
+    top: 35.9%;
+    left: -305px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 800;
+    font-size: 72px;
+    line-height: 100%;
+    color: #000;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  &__buy-arrow {
+    width: 70px;
+    height: 70px;
+    background: #1a5a4c;
+    font-family: IBM Plex Sans, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0;
+    border: 1px solid #1a5a4c;
+    cursor: pointer;
+    color: #d7dde3;
+    transition: all 0.5s;
+  }
+
+  &__button {
+    position: absolute;
+    top: 71.3%;
+    left: -305px;
+
+    &:hover {
+      .header__buy-arrow {
+        background-color: #216407;
+      }
+    }
+  }
+
+  &__buy-tickets {
+    width: 150px;
+    height: 70px;
+    border: 1px solid #1a5a4c;
+    font-family: IBM Plex Sans, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #0f0e08;
+  }
+
+  &__events {
+    position: absolute;
+    display: inline-block;
+    bottom: 90px;
+    font-family: IBM Plex Sans, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 14px;
+    color: #687480;
+    transform: rotate(-90deg);
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 70px;
+      left: -80px;
+      top: 7px;
+      background: #1a5a4c;
+    }
+  }
+}
