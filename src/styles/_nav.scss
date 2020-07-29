@@ -1,0 +1,59 @@
+.nav {
+  z-index: 1;
+  padding: 9px calc((100% - #{$contentWidth}) / 2);
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: fixed;
+  top: -90px;
+  left: 0;
+  width: 100%;
+  transition: transform 0.5s;
+
+  @media (min-width: $normalWidth) {
+    padding: 9px calc((100% - #{$contentWidthBig}) / 2);
+  }
+
+  &__but {
+    @include menuBut;
+    background-image: url("../images/close.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__logo {
+    @include logo;
+    margin: 0 0 0 30px;
+    color: black;
+  }
+
+  &__list {
+    padding: 5px 0;
+  }
+
+  &__link {
+    @include futerText;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-right: 5px;
+    padding: 10px 10px;
+    transition: background-color 0.5s, color 0.5s;
+
+    &:first-of-type {
+      margin-left: 37px;
+    }
+
+    &:hover {
+      color: #fff;
+      background-color: #1a5a4c;
+    }
+  }
+}

@@ -1,22 +1,28 @@
 .exhibitions {
+
   &__heading {
     @include sectionsHeading;
   }
 
   &__event {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-bottom: 60px;
 
     &:last-of-type {
       margin-bottom: 0;
     }
 
+    &--second {
+      display: flex;
+      justify-content: flex-end;
+    }
+
     &-photo-box {
-      width: 170%;
+      width: 670px;
       height: 520px;
-      margin-right: 130px;
       overflow: hidden;
+      margin-right: 130px;
 
       &--second {
         margin-right: 0;
@@ -35,6 +41,7 @@
     }
 
     &-info {
+      width: 35%;
       display: flex;
       flex-direction: column;
       padding-top: 48px;
@@ -85,6 +92,32 @@
       font-size: 16px;
       line-height: 150%;
       color: #4e4e4e;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .exhibitions {
+
+    &__heading {
+      @include mediumSectionsHeading;
+    }
+
+    &__event {
+      flex-direction: column;
+
+      &-photo-box {
+        margin: 0;
+      }
+
+      &-info {
+        width: 55%;
+      }
+
+      &--second {
+        display: flex;
+        flex-direction: column-reverse;
+      }
     }
   }
 }
