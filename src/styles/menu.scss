@@ -1,0 +1,254 @@
+.menu {
+  &__checkbox {
+    position: absolute;
+    display: none;
+    @extend %burger-button;
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $colorMain;
+    opacity: 0;
+    z-index: 3;
+    transition: z-index 1s;
+  }
+
+  @keyframes fading {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  &__info {
+    position: absolute;
+    left: $containerSideIndentDesk;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 200;
+    color: $colorLight;
+
+    &--schedule {
+      top: $containerTopIndent + 70px;
+      width: 170px;
+
+      & :last-child {
+        display: block;
+        font-weight: normal;
+        white-space: nowrap;
+        margin-top: 6px;
+      }
+    }
+
+    &--address {
+      top: $containerTopIndent + 70px;
+      left: $containerSideIndentDesk + 202px;
+      width: 213px;
+
+      & :last-child {
+        display: block;
+        font-weight: normal;
+        white-space: nowrap;
+        margin-top: 6px;
+      }
+    }
+  }
+
+  &__button--red {
+    position: absolute;
+    display: none;
+    top: 631px;
+    left: $containerSideIndentDesk;
+    @extend %red-button;
+    z-index: 3;
+  }
+
+  &__button--green {
+    position: absolute;
+    display: none;
+    top: 631px;
+    left: $containerSideIndentDesk + $buttonWidth + 30px;
+    @extend %green-button;
+    z-index: 3;
+  }
+
+  &__picture {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    right: 0;
+    width: 624px;
+    height: 800px;
+    background-image: url(../images/paintings/boy.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 0.3s;
+
+    @media (max-width: 1250px) {
+      opacity: 0;
+    }
+  }
+
+  &__checkbox:checked ~ &__info {
+
+    @media (max-width: 960px) {
+      &--schedule {
+        display: flex;
+        top: $containerTopIndent + 70px;
+        left: 90px;
+        width: fit-content;
+
+        & :last-child {
+          margin-top: 0;
+          margin-left: 5px;
+        }
+      }
+
+      &--address {
+        display: flex;
+        top: $containerTopIndent + 90px;
+        left: 90px;
+        width: fit-content;
+
+        & :last-child {
+          margin-top: 0;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    @media (max-width: 690px) {
+      display: none;
+    }
+  }
+
+  &__checkbox:not(:checked) ~ &__info {
+    display: none;
+  }
+
+  &__checkbox:checked ~ &__button--red {
+    display: block;
+
+    @media (max-width: 960px) {
+      left: 90px;
+    }
+
+    @media (max-width: 767px) {
+      position: relative;
+      top: 590px;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    @media (max-width: 690px) {
+      position: absolute;
+      top: 372px;
+    }
+  }
+
+  &__checkbox:checked ~ &__button--green {
+    display: block;
+
+    @media (max-width: 960px) {
+      left: $buttonWidth + 120px;
+    }
+
+    @media (max-width: 767px) {
+      position: relative;
+      top: 610px;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    @media (max-width: 690px) {
+      position: absolute;
+      top: 452px;
+    }
+
+  }
+
+  &__checkbox:checked ~ &__picture {
+    display: block;
+  }
+
+  &__checkbox:checked ~ .navigation .navigation__list {
+    display: block;
+
+    @media (max-width: 960px) {
+      left: 90px;
+    }
+
+    @media (max-width: 767px) {
+      width: fit-content;
+    }
+
+    @media (max-width: 690px) {
+      left: $containerSideIndentMobile;
+    }
+  }
+
+  &__checkbox:checked ~ .title {
+    display: none;
+  }
+
+  &__checkbox:checked ~ &__background {
+    animation-name: fading;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    z-index: 0;
+  }
+
+  &__label {
+    position: absolute;
+    display: block;
+    @extend %burger-button;
+    cursor: pointer;
+    z-index: 5;
+
+    @media (max-width: 690px) {
+      right: $containerSideIndentMobile;
+    }
+  }
+
+  &__line {
+    position: absolute;
+    top: $containerTopIndent + 19px;
+    right: $containerSideIndentDesk + 91px;
+    width: $burgerMenuWidth;
+    height: 2px;
+    background-color: $colorLight;
+    z-index: 4;
+
+    @media (max-width: 690px) {
+      right: $containerSideIndentMobile;
+    }
+
+    &--first {
+      top: $containerTopIndent + 10px;
+      @include display(display, none);
+    }
+
+    &--second {
+      @include transform(transform, rotate(45deg));
+    }
+
+    &--third {
+      @include transform(transform, rotate(-45deg));
+    }
+
+    &--fourth {
+      top: $containerTopIndent + 28px;
+      @include display(display, none);
+    }
+  }
+}
