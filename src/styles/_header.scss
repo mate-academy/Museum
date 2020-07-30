@@ -1,5 +1,5 @@
 .header {
-  height: 75%;
+  height: 100%;
   position: relative;
   padding: 15px calc((100% - #{$contentWidth}) / 2) 0;
 
@@ -19,11 +19,10 @@
 
   &__photo {
     z-index: -1;
-    object-fit: contain;
+    object-fit: cover;
     position: absolute;
-    right: 0;
+    left: 35%;
     bottom: 0;
-    width: 65%;
   }
 
   &__block {
@@ -137,20 +136,26 @@
 
 @media (min-width: $normalWidth) {
   .header {
+    height: 75%;
     padding: 15px calc((100% - #{$contentWidthBig}) / 2) 0;
   }
 }
 
-@media (max-width: $mediumWidth) {
+/* @media (max-device-aspect-ratio: 16/9) {
   .header {
-    height: 38%;
+    height: 75%;
+  }
+} */
 
+@media (max-width: 1025px) {
+  .header {
+    height: 40%;
     &__menu {
       left: 37px;
     }
 
     &__photo {
-      width: 65%;
+      width: 80%;
     }
 
     &__block {
@@ -164,6 +169,47 @@
 
     &__button {
       margin-top: 40px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    height: 100%;
+    padding: 0 20px;
+
+    &__photo {
+      left: 0;
+      height: 55%;
+      width: 100%;
+      top: 0;
+    }
+
+    &__logo {
+      font-size: 30px;
+      position: relative;
+      top: 9px;
+    }
+
+    &__block {
+      position: relative;
+      left: 0;
+      top: 50%;
+    }
+
+    &__heading {
+      font-size: 45px;
+      text-align: center;
+
+      &--trans {
+        color: #000;
+      -webkit-text-stroke: 0;
+      }
+    }
+
+    &__button {
+      width: calc(100% - 70px);
+      text-align: center;
     }
   }
 }
