@@ -1,32 +1,20 @@
 .current-events {
-  margin-right: 175px;
-  margin-left: 175px;
-  margin-top: 220px;
-  width: 100%;
-
+  /*margin: 0 auto;*/
+  margin-top: 755px;
+  margin-right: 5vw;
+  margin-left: 5vw;
   &__title {
     font-family: "Montserrat", sans-serif;
     font-size: 48px;
     line-height: 100%;
   }
-
-  &__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-  }
-  &__description {
-    &--descript {
-      margin-left: 200px;
-    }
-  }
+  
   &__text {
     display: block;
     margin-top: 15px;
+    color: $textColor;
     width: 100%;
     max-width: 380px;
-    color: $textColor;
   }
 
   &__data {
@@ -37,27 +25,35 @@
   }
 
   &__unit1 {
-    margin-top: 60px;
-    /*display: flex;
-    justify-content: space-between;*/
-    display: grid;
+    @include grid;
     grid-template-columns: 2fr 1fr;
-    grid-column-gap: 130px;
-    align-items: center;
+    justify-items: start;
   }
 
   &__unit2 {
-    margin-top: 60px;
-    display: grid;
+    @include grid;
     grid-template-columns: 1fr 2fr;
-    grid-column-gap: 130px;
     justify-items: end;
-    align-items: center;
   }
 
   &__picture {
     overflow: hidden;
-    width: 870px;
+    /*max-width: 870px;*/
     transition: width $scaleDuration;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .current-events {
+    margin-right: 4vw;
+    margin-left: 4vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .current-events {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
   }
 }

@@ -1,9 +1,7 @@
 .gallery {
   margin-top: 215px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+  margin-right: 5vw;
+  margin-left: 5vw;
 
   &__title {
     align-self: flex-start;
@@ -17,6 +15,19 @@
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-column-gap: 30px;
+    
+    &-picture1 {
+      width: 100%;
+    }
+
+    &-picture2 {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-picture3 {
+      width: 100%;
+    }
   }
 
   &__bottom {
@@ -24,10 +35,62 @@
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     grid-column-gap: 30px;
+
+    &-picture1 {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-picture2 {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-picture3 {
+      width: 100%;
+    }
   }
 
   &__btn {
-    position: relative;
-    right: calc(50% - #{$arrowSize} / 2);
+    background-color: $generalColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $arrowSize;
+    height: $arrowSize;
+    transition: $transitionDuration;
+
+    &:after {
+      content: ">";
+      color: $mainColor;
+      font-weight: bold;
+    }
+
+    &:hover {
+      background-color: $hoverColor;
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .gallery {
+    /*margin-right: 4vw;
+    margin-left: 4vw;*/
+
+    &__top {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    &__bottom {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  .gallery__top-picture3 {
+    display: none;
+  }
+
+  .gallery__bottom-picture3 {
+    display: none;
   }
 }
