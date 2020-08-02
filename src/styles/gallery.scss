@@ -1,7 +1,8 @@
 .gallery {
   margin-top: 215px;
-  margin-right: 5vw;
-  margin-left: 5vw;
+
+  /*margin-right: 5vw;
+  margin-left: 5vw;*/
 
   &__title {
     align-self: flex-start;
@@ -52,6 +53,7 @@
   }
 
   &__btn {
+    margin-top: 30px;
     background-color: $generalColor;
     display: flex;
     justify-content: center;
@@ -70,27 +72,124 @@
       background-color: $hoverColor;
     }
   }
-}
-
-@media screen and (max-width: 1600px) {
-  .gallery {
-    /*margin-right: 4vw;
-    margin-left: 4vw;*/
-
-    &__top {
-      grid-template-columns: 1fr 2fr;
+ 
+  &-btn {
+    &--slide-right,
+    &--slide-left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: $sliderBtnSize;
+      height: $sliderBtnSize;
+      font-size: 20px;
+      line-height: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      cursor: pointer;
     }
 
-    &__bottom {
-      grid-template-columns: 2fr 1fr;
+    &--slide-right::after {
+      content: ">";
+    }
+
+    &--slide-left::after {
+      content: "<";
     }
   }
 
+  &__button-slider {
+    display: none;
+
+    @media (max-width: 900px) {
+      display: flex;
+      position: relative;
+
+      top: -20vh;
+
+      &--left {
+        left: 1%;
+        position: relative;
+      }
+
+      &--right {
+        left: 87%;
+        position: relative;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .gallery {
+    margin-right: 4vw;
+    margin-left: 4vw;
+    &__top {
+      grid-template-columns: 1fr 2fr;
+
+      &-picture3 {
+        display: none;
+      }
+    }
+
+    &__bottom {
+      /*grid-template-columns: 2fr 1fr;*/
+      display: flex;
+      justify-content: space-between;
+      &-picture1 {
+        width: calc(66.6% - 15px);
+        height: 360px;
+      }
+
+      &-picture2 {
+        width: calc(33.3% - 15px);
+        height: 360px;
+      }
+      &-picture3 {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .gallery {
+    &__title {
+      align-self: center;
+    }
+
+    &__btn {
+      display: none;
+    }
+
+    &__top {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 20px;
+      
+      &-picture2 {
+        display: none;
+      }
+
+      &-picture3 {
+        display: block;
+      }
+    }
+
+    &__bottom {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .gallery__top {
+    width: 100%;
+    display: flex;
+  }
   .gallery__top-picture3 {
     display: none;
   }
 
-  .gallery__bottom-picture3 {
-    display: none;
+  .gallery__title {
+    font-size: 36px;
   }
 }
