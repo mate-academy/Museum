@@ -94,14 +94,14 @@
     background-repeat: no-repeat;
     transition: opacity 0.3s;
 
-    @media (max-width: 1250px) {
+    @media (max-width: $breakpointLarge) {
       opacity: 0;
     }
   }
 
   &__checkbox:checked ~ &__info {
 
-    @media (max-width: 960px) {
+    @media (max-width: $breakpointMedium) {
       &--schedule {
         display: flex;
         top: $containerTopIndent + 70px;
@@ -127,7 +127,7 @@
       }
     }
 
-    @media (max-width: 690px) {
+    @media (max-width: $breakpointSmall) {
       display: none;
     }
   }
@@ -139,18 +139,18 @@
   &__checkbox:checked ~ &__button--red {
     display: block;
 
-    @media (max-width: 960px) {
+    @media (max-width: $breakpointMedium) {
       left: 90px;
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: $breakpointTabletSmall) {
       position: relative;
       top: 570px;
       left: 50%;
       transform: translate(-50%, 0);
     }
 
-    @media (max-width: 690px) {
+    @media (max-width: $breakpointSmall) {
       position: absolute;
       top: 372px;
     }
@@ -159,22 +159,21 @@
   &__checkbox:checked ~ &__button--green {
     display: block;
 
-    @media (max-width: 960px) {
+    @media (max-width: $breakpointMedium) {
       left: $buttonWidth + 120px;
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: $breakpointTabletSmall) {
       position: relative;
       top: 590px;
       left: 50%;
       transform: translate(-50%, 0);
     }
 
-    @media (max-width: 690px) {
+    @media (max-width: $breakpointSmall) {
       position: absolute;
       top: 452px;
     }
-
   }
 
   &__checkbox:checked ~ &__picture {
@@ -184,15 +183,15 @@
   &__checkbox:checked ~ .navigation .navigation__list {
     display: block;
 
-    @media (max-width: 960px) {
+    @media (max-width: $breakpointMedium) {
       left: 90px;
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: $breakpointTabletSmall) {
       width: fit-content;
     }
 
-    @media (max-width: 690px) {
+    @media (max-width: $breakpointSmall) {
       left: $containerSideIndentMobile;
     }
   }
@@ -210,6 +209,18 @@
     z-index: 0;
   }
 
+  &__checkbox:not(:checked) ~ .selection {
+    @media (max-width: $breakpointSmall) {
+      display: none;
+    }
+  }
+
+  &__checkbox:checked ~ .selection {
+    @media (max-width: $breakpointSmall) {
+      display: block;
+    }
+  }
+
   &__label {
     position: absolute;
     display: block;
@@ -217,7 +228,7 @@
     cursor: pointer;
     z-index: 5;
 
-    @media (max-width: 690px) {
+    @media (max-width: $breakpointSmall) {
       right: $containerSideIndentMobile;
     }
   }
@@ -231,7 +242,7 @@
     background-color: $colorLight;
     z-index: 4;
 
-    @media (max-width: 690px) {
+    @media (max-width: $breakpointSmall) {
       right: $containerSideIndentMobile;
     }
 
