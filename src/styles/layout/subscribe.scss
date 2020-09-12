@@ -1,0 +1,115 @@
+.subscribe {
+  height: 459px;
+  background-color: $orange;
+  color: $clearDay;
+  overflow: hidden;
+
+  &__container {
+    padding: 160px 100px 0;
+
+    @media (max-width: $notebookSize) {
+      padding-top: 90px;
+    }
+
+    @media (max-width: $mediumSize) {
+      padding: 50px 20px 80px;
+    }
+  }
+
+  &__title {
+    color: inherit;
+  }
+
+  &__info {
+    margin-top: 41px;
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: $notebookSize) {
+      margin-top: 30px;
+      flex-direction: column;
+    }
+  }
+
+  &__desc {
+    width: 570px;
+
+    @media (max-width: $tabletSize) {
+      width: auto;
+    }
+  }
+
+  &__form {
+    position: relative;
+
+    @media (max-width: $notebookSize) {
+      margin-top: 80px;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    bottom: -50px;
+    right: -30px;
+    transition: transform 500ms ease, opacity 1s ease;
+    cursor: pointer;
+
+    @media (max-width: $notebookSize) {
+      opacity: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    @media (max-width: $mediumSize) {
+      right: 40px;
+    }
+
+    &:hover {
+      transform: scale(1.5) translateX(5px);
+
+      @media (max-width: $notebookSize) {
+        transform: scale(1) translateX(45px);
+      }
+    }
+  }
+
+  &__email {
+    width: 300px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $clearDay;
+    background-color: transparent;
+    @extend %inputText;
+
+    @media (max-width: $mobileXLsize) {
+      width: auto;
+    }
+
+    &::placeholder {
+      @extend %inputText;
+    }
+
+    &:focus:hover ~ .subscribe__label {
+      transform: scale(1.5) translateX(5px);
+
+      @media (max-width: $notebookSize) {
+        transform: translateX(10px);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__label-descktop {
+    @media (max-width: $notebookSize) {
+      display: none;
+    }
+  }
+
+  &__label-tablet {
+    opacity: 0;
+
+    @media (max-width: $notebookSize) {
+      opacity: 1;
+    }
+  }
+}

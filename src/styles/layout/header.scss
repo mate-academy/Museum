@@ -1,0 +1,372 @@
+.header {
+  height: $greenBlockHeight;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  background-color: $darkGreen;
+
+  @media (max-width: $bigContainer) {
+    padding: 0 40px;
+  }
+
+  @media (max-width: $notebookSize) {
+    height: 762px;
+  }
+
+  @media (max-width: $mobileXLsize) {
+    height: 584px;
+    padding: 0 20px;
+  }
+
+  &__container {
+    position: relative;
+
+    @media (min-width: 1000px) {
+      padding: 0 20px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    color: $clearDay;
+    padding-top: 20px;
+  }
+
+  &__logo {
+    transition: transform 1s ease;
+
+    &:hover {
+      transition: transform 1.5s ease;
+      transform: scale(1.2);
+    }
+  }
+
+  &__lang {
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    color: $clearDay;
+    position: relative;
+    cursor: pointer;
+
+    @media (max-width: $mobileXLsize) {
+      display: none;
+    }
+  }
+
+  &__promo {
+    font-weight: 300;
+    color: $clearDay;
+
+    @media (max-width: $notebookSize) {
+      padding: 0 60px;
+    }
+
+    @media (max-width: $mediumSize) {
+      padding: 0;
+    }
+  }
+
+  &__hero {
+    margin-top: 120px;
+  }
+
+  &__shifted-title {
+    @include shifted-block;
+
+    @media (max-width: $mediumSize) {
+      right: 0;
+    }
+  }
+
+  &__desc {
+    @include shifted-block;
+    margin-top: 40px;
+    width: 30%;
+
+    @media (max-width: $notebookSize) {
+      right: 0;
+      width: 55%;
+    }
+
+    @media (max-width: $mobileXLsize) {
+      margin-top: 30px;
+      width: 80%;
+    }
+  }
+
+  &__btn {
+    @extend %basicBtn;
+    @extend %orangeButton;
+    @include shifted-block;
+    margin-top: 60px;
+
+    @media (max-width: $notebookSize) {
+      right: 0;
+    }
+
+    @media (max-width: $mobileXLsize) {
+      margin-top: 50px;
+    }
+  }
+
+  &__bottom-info {
+    position: absolute;
+    bottom: 52px;
+
+    @media (max-width: $mobileXLsize) {
+      display: none;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      margin-left: 20px;
+      width: 600px;
+      height: 1px;
+      background: rgba(241, 245, 244, 0.3);
+    }
+  }
+
+  &__bottom-dates {
+    font-family: $font2;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    opacity: 0.7;
+  }
+
+  &__img-container {
+    width: 673px;
+    height: $heroImageHeight;
+    position: absolute;
+    bottom: 0;
+    right: $imageRightShift;
+    background-image: url("../images/hero-girl.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @media (max-width: $bigContainer) {
+      height: 633px;
+      right: -$heroImageHeight + 633px + $imageRightShift;
+    }
+
+    @media (max-width: $notebookSize) {
+      height: 445px;
+      right: -$heroImageHeight + 445px + $imageRightShift;
+    }
+
+    @media (max-width: $mobileXLsize) {
+      height: 273px;
+      right: -$heroImageHeight + 273px + $imageRightShift;
+    }
+  }
+
+  &__img-desc {
+    width: 134px;
+    position: absolute;
+    bottom: 319px;
+    right: 54px;
+
+    @media (max-width: $bigContainer) {
+      display: none;
+    }
+  }
+}
+
+.hidden {
+  --marginTop: 30px;
+  --headerTopHeight: 47px;
+
+  margin-top: var(--marginTop);
+  width: 100%;
+  height: calc(100% - var(--marginTop) - var(--headerTopHeight));
+  position: absolute;
+  right: -100vw;
+  visibility: hidden;
+  transition: right ease 0.75s;
+
+  @media (max-width: $notebookSize) {
+    padding: 0 60px;
+  }
+
+  @media (max-width: $mediumSize) {
+    padding: 0;
+  }
+
+  &__info {
+    display: flex;
+    font-size: 14px;
+    line-height: 20px;
+
+    @media (max-width: $notebookSize) {
+      display: block;
+    }
+
+    @media (max-width: $mobileXLsize) {
+      display: none;
+    }
+  }
+
+  &__working-hours {
+    margin-right: 60px;
+  }
+
+  &__details {
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+
+    @media (max-width: $notebookSize) {
+      display: inline;
+    }
+  }
+
+  &__navbar {
+    margin-top: 80px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid $clearDay;
+
+    @media (max-width: $tabletSize) {
+      margin-top: 55px;
+      padding-bottom: 55px;
+    }
+
+    @media (max-width: $mobileXLsize) {
+      border: none;
+      margin-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+
+  &__nav-list {
+    display: grid;
+    grid-row-gap: 60px;
+
+    @media (max-width: $mediumSize) {
+      grid-row-gap: 50px;
+    }
+  }
+
+  &__nav-item {
+    transition: transform 1s ease;
+
+    &:hover {
+      transform: translateX(20px);
+    }
+  }
+
+  &__nav-link {
+    font-family: $font2;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 120%;
+    letter-spacing: 2px;
+    color: $clearDay;
+
+    @media (max-width: $mediumSize) {
+      font-size: 35px;
+    }
+
+    @media (max-width: $mobileXLsize) {
+      font-size: 24px;
+    }
+  }
+
+  &__actions {
+    margin-top: 60px;
+
+    @media (max-width: $mobileXLsize) {
+      margin-top: 0;
+    }
+  }
+
+  &__buy-btn {
+    margin-right: 20px;
+    @extend %basicBtn;
+    @extend %orangeButton;
+
+    @media (max-width: $tabletSize) {
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: $mobileXLsize) {
+      margin-right: 0;
+    }
+  }
+
+  &__member-btn {
+    @extend %basicBtn;
+    @extend %transparentButton;
+  }
+
+  &__img-container {
+    width: 624px;
+    height: 801px;
+    position: absolute;
+    right: -55px;
+    bottom: 0;
+    background-image: url("../images/menu-boy.png");
+
+    @media (max-width: $bigContainer) {
+      background: none;
+    }
+  }
+}
+
+.hamburger {
+  position: absolute;
+  top: 15px;
+  right: 80px;
+  cursor: pointer;
+
+  @media (max-width: $mobileXLsize) {
+    right: 0;
+  }
+
+  &__line {
+    display: block;
+    background-color: $clearDay;
+    width: $hamburgerWidth;
+    height: $hamburgerLineHeight;
+    margin: 7px 0;
+    transition: 0.5s;
+  }
+}
+
+.checkbox {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 10px;
+  right: 65px;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+
+  @media (max-width: $mobileXLsize) {
+    right: 0;
+  }
+
+  &:checked + .hamburger > span:nth-child(1) {
+    transform: rotate(45deg) translate(3.5px, 2px);
+  }
+  &:checked + .hamburger > span:nth-child(2) {
+    transform: rotate(-45deg) translate(4px, -3px);
+  }
+  &:checked + .hamburger > span:nth-child(3) {
+    opacity: 0;
+  }
+
+  &:checked ~ .header__hero {
+    display: none;
+  }
+  
+  &:checked ~ .hidden {
+    right: 0;
+    visibility: visible;
+  }
+}
