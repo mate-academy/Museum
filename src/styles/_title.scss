@@ -1,23 +1,20 @@
 .title {
   position: relative;
   height: 655px;
-  padding-left: $general-padding;
   margin-bottom: 100px;
 
   &__img {
-    position: absolute;
-    left: 555px;
-    z-index: -1;
-
-    height: 100%;
-    width: 100%;
+    width: auto;
+    height: 655px;
     float: right;
 
     object-fit: cover;
     object-position: bottom;
 
-    &-size {
-      height: 655px;
+    &-mid {
+      display: none;
+      width: 100%;
+      height: inherit;
     }
   }
 
@@ -35,35 +32,35 @@
       color: transparent;
       -webkit-text-stroke: 1.5px $color-black;
     }
+
+    &-bottom {
+      display: none;
+      font-weight: bold;
+      font-size: 48px;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 10px 0 30px;
+    }
   }
 
   &__logo {
     position: absolute;
     top: 15px;
-    left: 50%;
+    right: 50%;
 
     background: center / cover no-repeat url(../images/NA_MU.png);
   }
 
   &__ticket {
+    display: flex;
+
     position: absolute;
     top: 467px;
     left: 255px;
 
-    display: flex;
-    width: 220px;
-    height: $btn-size;
-    padding-left: 35px;
-    justify-content: space-between;
-    align-items: center;
-
-    font-family: $IBM;
-    font-weight: 500;
-    font-size: 16px;
-    text-transform: uppercase;
-
-    background-color: $color-white;
-    border: 2px solid $color-green;
+    &-bottom {
+      display: none;
+    }
   }
 
   &__mark {
@@ -81,6 +78,54 @@
       height: 1px;
       background-color: $color-green;
       content: "";
+    }
+  }
+
+  @media (max-width: 900px) {
+    &__img {
+      display: none;
+
+      &-mid {
+        display: block;
+        max-width: 900px;
+      }
+    }
+
+    &__mark {
+      display: none;
+    }
+
+    &__heading {
+      display: none;
+
+      &-bottom {
+        display: block;
+      }
+    }
+
+    &__bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__ticket {
+      display: none;
+
+      &-bottom {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    height: 455px;
+  }
+
+  @media (max-width: 2500px) {
+    &__img {
+      width: calc(100% - 560px);
     }
   }
 }
