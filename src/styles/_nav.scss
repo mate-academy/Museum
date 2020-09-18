@@ -1,7 +1,11 @@
 .nav {
+  position: relative;
+  z-index: 1;
+
   &__list {
     display: flex;
     justify-content: center;
+    box-shadow: 0 1px 0 $color-green;
   }
 
   &__item {
@@ -10,25 +14,79 @@
     transition: color 1s, transform 1s;
 
     &:hover {
-      color: $color-green;
-      border-radius: 40px;
       transform: scale(1.2);
     }
   }
 
   &__link {
     white-space: nowrap;
-    font-family: $IBM;
+
     font-size: 18px;
     line-height: 50px;
     font-weight: 500;
-    color: $color-black;
     text-decoration: none;
+
+    color: $color-green;
+  }
+
+  &__toggler-label {
+    display: none;
+    padding: 10px;
+    color: black;
+
+    &::before {
+      content: url(../images/burgeronn.png);
+    }
+  }
+
+  &__toggler:checked ~ .nav__toggler-label::before {
+    content: url(../images/burgeroff.png);
+  }
+
+  &__toggler:checked ~ .nav__list {
+    margin: 0;
+    background-color: #fff;
+    width: 300px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    opacity: 0.9;
+  }
+
+  &__toggler {
+    display: none;
   }
 
   @media (max-width: 1200px) {
     &__item {
       padding: 0 15px;
+    }
+  }
+
+  @media (max-width: 1015px) {
+    &__item:hover {
+      transform: scale(1);
+    }
+
+    .nav__toggler-label {
+      display: inline-block;
+    }
+  
+    .nav__list {
+      flex-direction: column;
+    }
+  
+    .nav__toggler:not(:checked) ~ .nav__list {
+      display: none;
+    }
+
+    &__link {
+      font-size: 24px;
+    }
+  }
+
+  @media (min-width: 1015px) {
+    &__toggler:checked ~ .nav__list {
+      width: 100%;
     }
   }
 }
