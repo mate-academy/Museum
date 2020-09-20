@@ -1,26 +1,83 @@
 .nav {
-
   padding-top: 20px;
-  right: 100px;
 
-  // background-color: burlywood;
+  &__burger  {
+    position: absolute;
+    top: 9px;
+    display: block;
+    width: 25px;
+    height: 2px;
+
+
+    background-color:#f1f5f4;
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: -7px;
+      width: 25px;
+      height: 2px;
+      background-color:  #f1f5f4;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: +7px;
+      width: 25px;
+      height: 2px;
+      background-color:  #f1f5f4;
+    }
+
+  }
 
   &__chekbutton {
-    position: fixed;
-    right: 50px;
+    position: absolute;
+    top: 30px;
+    right: 260px;
+    width: 25px;
+    height: 20px;
+
     z-index: 5;
   }
+
 
   &__visite {
     display: none;
     position: absolute;
-    width: 500px;
-    height: 200px;
+    width: 430px;
+    padding-top: 50px;
 
     z-index: 3;
+  }
 
-    background-color: gold;
+  &__work-title-1,
+  &__work-title-2 {
+    margin-right: 90px;
 
+    font-family:  "Raleway",sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+    align-items: center;
+    color: #f1f5f4;
+  }
+
+  &__work-info {
+    margin-right: 112px;
+    font-family:  "Raleway",sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 20px;
+    align-items: center;
+    color: #F1F5F4;
+
+    &:last-child {
+      margin: 0;
+    }
   }
 
   &__items {
@@ -29,33 +86,74 @@
 
     height: 100%;
     width: 100vw;
-
     justify-content: space-between;
-
-    background-color: burlywood;
-
-    padding-top: 250px;
+    padding-left: 0;
+    padding-top: 180px;
     padding-bottom: 250px;
+
     transform: translateY(-57px);
     list-style-type: none;
+
+    background-color: #3f5252;
+
     z-index: 2;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 229px;
+      left: 2px;
+
+      width: 570px;
+      height: 1px;
+      background-color:  #f1f5f4;
+      opacity: 0.3;
+    }
+  }
+
+  &__link {
+    font-family: "Playfair Display",sans-serif;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 120px;
+    color: #f1f5f4;
   }
 
   &__buttons {
-
     display: none;
     position: absolute;
-    right: 500px;
-    bottom: 50px;
+    left: auto;
+    bottom: 109px;
 
     z-index: 2;
-
   }
 
-  &__member {
-    margin-left: 90px;
-    margin-bottom: 132px;
-    padding: 17.5px 81.5px;
+  &__member-link {
+    height: 60px;
+    width: 270px;
+    padding: 17.5px 77px;
+
+    font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    color: #f1f5f4;
+    background-color: #3f5252;
+    border: 3px solid #f1f5f4;
+
+    order: 2;
+
+    transition: box-shadow 300ms;
+
+    &:hover {
+      box-shadow: 1px 1px 23px;
+    }
+  }
+
+  &__ticket-link {
+    height: 60px;
+    width: 270px;
+    padding: 17.5px 79px;
+    margin-right: 30px;
 
     font-family: "Raleway", sans-serif;
     font-size: 16px;
@@ -65,26 +163,7 @@
     border: 3px solid #f1f5f4;
     border-color: transparent;
 
-    transition: border-color 300ms, box-shadow 300ms;
-
-    &:hover {
-      border-color: #f1f5f4 ;
-      box-shadow: 1px 1px 23px;
-    }
-  }
-
-  &__ticket {
-    margin-left: 90px;
-    margin-bottom: 132px;
-    padding: 17.5px 81.5px;
-
-    font-family: "Raleway", sans-serif;
-    font-size: 16px;
-    text-decoration: none;
-    color: #f1f5f4;
-    background-color: #cd4d31;
-    border: 3px solid #f1f5f4;
-    border-color: transparent;
+    order: 1;
 
     transition: border-color 300ms, box-shadow 300ms;
 
@@ -92,7 +171,6 @@
       border-color: #f1f5f4 ;
       box-shadow: 1px 1px 23px;
     }
-
   }
 
   &__img {
@@ -104,18 +182,85 @@
     z-index: 2;
   }
 
+  &__chekbutton>.nav__burger,
+  &__chekbutton>.nav__burger::before,
+  &__chekbutton>.nav__burger::after {
+    transition-duration:  300ms;
+  }
+
   &__toggler {
     display: none;
+
+    &:checked ~ .nav__chekbutton>.nav__burger {
+      transform: rotate(45deg);
+    }
+
+    &:checked ~ .nav__chekbutton>.nav__burger::before {
+      top: 0;
+      transform: rotate(0);
+    }
+
+    &:checked ~ .nav__chekbutton>.nav__burger::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
 
     &:checked ~ .nav__items,
     &:checked ~ .nav__img {
       display: block;
     }
 
-    &:checked ~ .nav__buttons,
+    &:checked ~ .nav__buttons {
+      display: flex;
+    }
+
     &:checked ~ .nav__visite {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    &__link {
+      line-height: 100px;
+    }
+
+    &__chekbutton {
+      transform: translate(110px, -13px);
+    }
+
+    &__img {
+      opacity: 0;
+    }
+
+    &__visite {
+      flex-direction: column;
+      width: 120px;
+    }
+
+    &__work-title-1,
+    &__work-title-2 {
+      margin-right: 0;
+    }
+
+    &__work-title-1::after {
+      content: "12:00 - 19:00";
+      position: absolute;
+      left: 120px;
+      font-weight: 200;
+      width: 100px;
+    }
+
+    &__work-title-2::after {
+      content: "Київ, вул. М. Грушевського, 6";
+      position: absolute;
+      left: 55px;
+      font-weight: 200;
+      width: 200px;
+    }
+
+    &__work-info {
+      display: none;
     }
   }
 }

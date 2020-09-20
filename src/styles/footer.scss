@@ -1,15 +1,46 @@
 .footer {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
 
   width: 100vw;
   padding-top: 160px;
   padding-bottom: 157px;
-  padding-left: calc(50% - 640px);
-  padding-right: calc(50% - 640px);
+  padding-left: calc(50% - 585px);
+  padding-right: calc(50% - 585px);
 
   background: #3F5252;
+
+  &__arrow {
+    position: absolute;
+    top: 165px;
+    right: 50px;
+    width: 20px;
+    height: 20px;
+    color: #f1f5f4;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 12px;
+      height: 1px;
+      background-color: #f1f5f4;
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -8px;
+      top: 6px;
+      width: 12px;
+      height: 1px;
+      background-color: #f1f5f4;
+      transform: rotate(315deg);
+    }
+  }
 
   &__underrights {
     position: absolute;
@@ -43,7 +74,9 @@
 .contacts {
   display: flex;
   flex-direction: column;
-  width: 223px;
+  width: 240px;
+  margin-right: 90px;
+
 
   &__title {
     margin-bottom: 40px;
@@ -96,7 +129,8 @@
   display: flex;
   flex-direction: column;
   width: 240px;
-  margin-right: 60;
+  margin-right: 60px;
+
   &__title {
     margin-bottom: 40px;
     font-family: "Playfair Display", sans-serif;
@@ -136,6 +170,9 @@
   display: flex;
   flex-direction: column;
   width: 240px;
+  margin-right: 60px;
+
+  order: 3;
 
   &__title {
     margin-bottom: 38px;
@@ -166,6 +203,8 @@
   flex-direction: column;
   width: 199px;
 
+  order: 4;
+
   &__title {
     margin-bottom: 40px;
 
@@ -188,5 +227,39 @@
     line-height: 150%;
     color: #f1f5f4;
     text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .footer {
+    flex-wrap: wrap;
+    padding-top: 120px;
+    padding-bottom: 155px;
+    padding-left: calc(50% - 390px);
+    padding-right: calc(50% - 330px);
+
+
+    &__arrow {
+      top: 125px;
+      right: 27px;
+    }
+  }
+
+  .contacts {
+    margin-right: 90px;
+    margin-bottom: 60px;
+  }
+
+  .work-time {
+    margin-right: 0;
+  }
+
+  .about-us {
+    order: 3;
+    margin-right: 120px;
+  }
+
+  .membership {
+   order: 4;
   }
 }
