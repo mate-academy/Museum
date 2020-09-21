@@ -46,8 +46,8 @@
 
   &__toggler:checked ~ .header__list {
     margin: 0;
-    background-color: $color-white;
     width: 300px;
+    background-color: $color-white;
     border: 1px solid $color-gray;
     border-radius: 5px;
     opacity: 0.9;
@@ -79,16 +79,31 @@
       box-shadow: 0 1px 10px $color-green;
     }
 
-    .header__toggler-label {
+    &__toggler-label {
       display: inline-block;
     }
   
-    .header__list {
+    &__list {
       flex-direction: column;
     }
+
+    &__toggler {
+      transition: transform 5s;
+    }
+
+    &__toggler:checked ~ &__list {
+      transition: transform 1s;
+      transform: translateX(0);
+    }
   
-    .header__toggler:not(:checked) ~ .header__list {
-      display: none;
+    &__toggler:not(:checked) ~ &__list {
+      width: 300px;
+      background-color: $color-white;
+      border: 1px solid $color-gray;
+      border-radius: 5px;
+      opacity: 0.9;
+      transition: transform 1s;
+      transform: translateX(-300px);
     }
 
     &__link {
@@ -97,7 +112,7 @@
   }
 
   @media (min-width: 1031px) {
-    &__toggler:checked ~ .header__list {
+    &__toggler:checked ~ &__list {
       width: 100%;
     }
   }
