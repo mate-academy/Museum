@@ -1,0 +1,111 @@
+.subscribe {
+
+  &__name {
+    width: fit-content;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 120%;
+    color: $colorLight;
+
+    @media (max-width: $breakpointMedium) {
+      width: 570px;
+    }
+
+    @media (max-width: $breakpointSmall) {
+      width: 280px;
+      font-size: 36px;
+      line-height: 100%;
+    }
+  }
+
+  &__about {
+    width: 570px;
+    margin-top: 41px;
+    @extend %p;
+    color: $colorLight;
+
+    @media (max-width: $containerMaxWidth - 1px) {
+      width: 570px / $containerMaxWidth * 100vw;
+    }
+
+    @media (max-width: $breakpointMedium) {
+      width: 570px;
+    }
+
+    @media (max-width: $breakpointSmall) {
+      width: 280px;
+    }
+  }
+
+  &__form {
+    position: relative;
+    top: -35px;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 352px;
+    height: 42px;
+    margin-right: 185px;
+
+    @media (max-width: $containerMaxWidth - 1px) {
+      margin-right: 100px / $containerMaxWidth * 100vw;
+    }
+
+    @media (max-width: $breakpointMedium) {
+      align-self: flex-start;
+      top: 0;
+      margin-top: 68px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    @media (max-width: $breakpointSmall) {
+      width: 280px;
+      margin-top: 48px;
+    }
+  }
+
+  &__button {
+    align-self: flex-end;
+    width: 42px;
+    height: 42px;
+    opacity: 0;
+    background-color: transparent;
+    border: 1px solid rgba(241, 245, 244, 0.3);
+    border-radius: 50%;
+    outline: none;
+    background-image: url(../images/arrow.svg);
+    background-size: initial;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+
+    transition: opacity, 0.3s;
+  }
+
+  &__input {
+    width: 300px;
+    height: 30px;
+    margin-top: 12px;
+    padding-left: 10px;
+    font-size: 16px;
+    line-height: 150%;
+    color: $colorLight;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(241, 245, 244, 0.3);
+
+    &:focus {
+      border-bottom: 1px solid rgba(241, 245, 244, 0.3);
+    }
+
+    &:focus + .subscribe__button {
+      opacity: 1;
+    }
+
+    @media (max-width: $breakpointSmall) {
+      width: 228px;
+    }
+  }
+}

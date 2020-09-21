@@ -1,0 +1,183 @@
+.title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 180px $containerSideIndentDesk 0;
+
+  @media (max-width: $breakpointSmall) {
+    padding: 160px $containerSideIndentMobile 0;
+  }
+
+  &__duration {
+    @extend %p;
+    color: $colorLight;
+
+    @media (max-width: $breakpointMedium) {
+      padding-left: 45px;
+    }
+
+    @media (max-width: $breakpointSmall) {
+      padding-left: 0;
+    }
+  }
+
+  &__name {
+    display: block;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    font-size: 96px;
+    line-height: 100%;
+    color: $colorLight;
+
+    &-item {
+      width: fit-content;
+      margin-top: 10px;
+    }
+
+    &-item:last-child {
+      margin-left: $titleSideIndent;
+    }
+
+    @media (max-width: $breakpointLarge) {
+      font-size: 72px;
+
+      &-item {
+        margin-top: 0;
+      }
+
+      &-item:last-child {
+        margin-left: 50px;
+      }
+    }
+
+    @media (max-width: $breakpointMedium) {
+      padding-left: 45px;
+    }
+
+    @media (max-width: $breakpointSmall) {
+      padding-left: 0;
+      font-size: 48px;
+
+      &-item:last-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__info {
+    width: 370px;
+    margin: 40px 0 0 $titleSideIndent;
+    @extend %p;
+    color: $colorLight;
+
+    @media (max-width: $breakpointMedium) {
+      width: 267px;
+      margin-left: 45px;
+    }
+
+    @media (max-width: $breakpointSmall) {
+      margin-top: 30px;
+      margin-left: 0;
+    }
+  }
+
+  &__button {
+    position: relative;
+    top: 60px;
+    left: $titleSideIndent;
+    @extend %red-button;
+    z-index: 4;
+
+    @media (max-width: $breakpointMedium) {
+      top: 80px;
+      left: 45px;
+    }
+
+    @media (max-width: $breakpointSmall) {
+      top: 50px;
+      left: 0;
+    }
+  }
+
+  &__dates {
+    position: relative;
+    top: 230px;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 125%;
+    color: $colorLight;
+
+    @media (max-width: $breakpointMedium) {
+      display: none;
+    }
+  }
+
+  &__line {
+    position: relative;
+    top: 162px;
+    display: block;
+    content: "";
+    width: 570px;
+    height: 1px;
+    margin-left: $titleSideIndent;
+    opacity: 0.3;
+    background-color: $colorLight;
+    z-index: 0;
+
+    @media (max-width: $breakpointMedium) {
+      display: none;
+    }
+  }
+
+  &__picture {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 753px;
+    width: 673px;
+    background-image: url(../images/paintings/girl.png);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    z-index: 1;
+
+    transition: background-size 0.3s, background-position-x 0.3s;
+
+    @media (max-width: $breakpointTabletLarge) {
+      background-size: 80%;
+      background-position-x: 130px;
+    }
+
+    @media (max-width: $breakpointMedium) {
+      background-size: 60%;
+      background-position-x: 250px;
+      background-position-y: 310px;
+    }
+
+    @media (max-width: $breakpointSmall) {
+      width: 160px;
+      height: 290px;
+      background-size: cover;
+      background-position-x: 7px;
+      background-position-y: 0;
+      z-index: 4;
+    }
+  }
+
+  &__picture-name {
+    position: absolute;
+    top: 413px;
+    right: $containerSideIndentDesk;
+    @extend %p;
+    color: $colorLight;
+
+    @media (max-width: $breakpointLarge) {
+      display: none;
+    }
+  }
+}
