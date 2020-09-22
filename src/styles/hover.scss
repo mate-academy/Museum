@@ -1,20 +1,10 @@
 .hover {
   position: relative;
-  transition: color .2s ease;
-
-  &:hover {
-    color: $hoverColor;
-
-    &::after,
-    &::before {
-      width: 100%;
-      left: 0;
-    }
-  }
+  transition: color 0.2s ease;
 
   &::after,
   &::before {
-    content: ''; 
+    content: "";
     position: absolute;
     top: calc(100% + 5px);
     width: 0;
@@ -23,12 +13,26 @@
   }
 
   &::before {
-    transition: width .4s cubic-bezier(0.51, 0.18, 0, 0.88) .1s;
+    transition: width 0.4s cubic-bezier(0.51, 0.18, 0, 0.88) 0.1s;
     background: $generalColor;
   }
 
   &::after {
-    transition: width .2s cubic-bezier(0.29, 0.18, 0.26, 0.83);
+    transition: width 0.2s cubic-bezier(0.29, 0.18, 0.26, 0.83);
     background: $hoverColor;
+  }
+
+  &:hover {
+    color: $hoverColor;
+
+    &::before {
+      width: 100%;
+      left: 0;
+    }
+
+    &::after {
+      width: 100%;
+      left: 0;
+    }
   }
 }
