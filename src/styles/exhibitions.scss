@@ -2,11 +2,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  max-width: 2560px;
 
   padding-top: 170px;
-  padding-bottom: 260px;
-  padding-left: calc(50% - 640px);
-  padding-right: calc(50% - 640px);
+
+  overflow: hidden;
 
   &__title {
     text-align: center;
@@ -19,8 +19,10 @@
     color: #1c1b29;
   }
 
-  &__first {
-    padding-left: 0;
+
+
+  &__second > :first-child {
+    order: 3;
   }
 
   &__link {
@@ -58,8 +60,8 @@
     & {
       padding-top: 110px;
       padding-bottom: 200px;
-      padding-left: calc(50% - 370px);
-      padding-right: calc(50% - 370px);
+
+      align-items: center;
     }
 
     &__link {
@@ -80,4 +82,60 @@
       }
     }
   }
+
+  @media screen and (max-width: 700px) {
+    & {
+      padding: 80px 10px;
+    }
+
+    &__title {
+      text-align: start;
+    }
+
+    &__first > :first-child {
+      position: absolute;
+      top: 130px;
+      right: -90px;
+
+      overflow: hidden;
+      order: 3;
+    }
+
+    &__second > :first-child {
+      position: absolute;
+      top: 130px;
+      left: -100px;
+
+      overflow: hidden;
+      order: 1;
+    }
+
+    &__second > :nth-child(2) {
+      margin: 0;
+      width: 100vw;
+      padding-left: calc(50% - 140px);
+      padding-right: calc(50% - 140px);
+    }
+
+    &__third  > :first-child {
+      position: absolute;
+      top: 130px;
+      right: -100px;
+
+      overflow: hidden;
+      order: 3;
+    }
+
+    &__link {
+      bottom: 10px;
+      right: calc(50% - 80px);
+    }
+  }
+
+  @media screen and (min-width: 1550px) {
+      & {
+        align-items: center;
+        padding-bottom: 200px;
+      }
+    }
 }

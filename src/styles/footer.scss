@@ -1,12 +1,13 @@
 .footer {
   position: relative;
+
   display: flex;
 
-  width: 100vw;
+  max-width: 2560px;
   padding-top: 160px;
   padding-bottom: 157px;
-  padding-left: calc(50% - 585px);
-  padding-right: calc(50% - 585px);
+  padding-left: 55px;
+  padding-right: 55px;
 
   background: #3f5252;
 
@@ -42,10 +43,12 @@
   }
 
   &__underrights {
+
     position: absolute;
     bottom: 60px;
-    left: calc(50% - 112px);
-    right: calc(50% - 112px);
+    left: calc(50% - 150px);
+    right: calc(50% - 150px);
+    width: 300px;
   }
 
   &__copyright {
@@ -231,11 +234,13 @@
 
 @media screen and (max-width: 1250px) {
   .footer {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     padding-top: 120px;
     padding-bottom: 155px;
-    padding-left: calc(50% - 390px);
-    padding-right: calc(50% - 330px);
+    padding-left: 99px;
+    padding-right: 99px;
 
     &__arrow {
       top: 125px;
@@ -244,7 +249,7 @@
   }
 
   .contacts {
-    margin-right: 90px;
+    margin-right: 0;
     margin-bottom: 60px;
   }
 
@@ -254,10 +259,45 @@
 
   .about-us {
     order: 3;
-    margin-right: 120px;
   }
 
   .membership {
     order: 4;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 10px 85px;
+  }
+
+  .work-time {
+    margin-right: 0;
+    margin-bottom: 60px;
+  }
+
+  .about-us {
+    margin-bottom: 60px;
+  }
+
+  .membership {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 1550px) {
+
+  .footer {
+    justify-content: space-around;
+  }
+
+  .contacts,
+  .work-time,
+  .about-us,
+  .membership {
+    transform: scale(1.2);
   }
 }

@@ -2,15 +2,18 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  max-width: 2560px;
   padding-top: 10px;
   padding-bottom: 184px;
-  padding-left: calc(50% - 640px);
-  padding-right: calc(50% - 640px);
+  padding-left: 55px;
+  padding-right: 55px;
+
+  overflow: hidden;
 
   &__title {
+    align-self: center;
     margin-bottom: 63px;
-    margin-left: 355px;
+
     font-family: "Playfair Display", sans-serif;
     font-weight: bold;
     font-size: 48px;
@@ -18,10 +21,9 @@
   }
 
   &__calendar {
-    position: relative;
-
-    margin-top: 60px;
-    margin-left: 1040px;
+    position: absolute;
+    bottom: 184px;
+    right: 207px;
 
     font-family: "Raleway", sans-serif;
     font-weight: normal;
@@ -51,7 +53,7 @@
 
   @media screen and (max-width: 1250px) {
     & {
-      padding-bottom: 134px;
+      padding-bottom: 200px;
     }
 
     &__title {
@@ -60,8 +62,9 @@
     }
 
     &__calendar {
-      margin-left: auto;
-      margin-right: auto;
+      bottom: 101px;
+      left: calc(50% - 80px);
+      right: calc(50% - 80px);
 
       &::after {
         top: 25px;
@@ -70,4 +73,19 @@
       }
     }
   }
-}
+
+  @media screen and (max-width: 700px) {
+    & {
+      padding-top: 80px;
+      padding-bottom: 200px;
+      padding-left: 10px;
+      padding-right: 10px;;
+
+    }
+
+    &__title {
+      width: 280px;
+      text-align: start;
+    }
+  }
+ }

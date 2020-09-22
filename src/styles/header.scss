@@ -1,22 +1,24 @@
 .header {
-  box-sizing: border-box;
+  display: flex;
+
   position: relative;
-  width: 100vw;
+  max-width: 2560px;
   height: 800px;
   padding-top: 20px;
   padding-bottom: 52px;
 
-  padding-left: calc(50% - 585px);
-  padding-right: calc(50% - 585px);
+  padding-left: 56px;
+  padding-right: 54px;
 
   background-color: #3f5252;
 
+  overflow: hidden;
+
   &__language {
     position: absolute;
-    width: 50px;
+    top: 30px;
+    width: 60px;
     right: 310px;
-
-    transform: translateY(-11px);
 
     font-family: "Raleway", sans-serif;
     font-style: normal;
@@ -27,7 +29,6 @@
     background-color: #3f5252;
 
     z-index: 2;
-
   }
 
   &__org {
@@ -60,7 +61,7 @@
     line-height: 150%;
     color: #f1f5f4;
 
-    z-index: -1;
+    z-index: 0;
   }
 }
 
@@ -169,8 +170,13 @@
     right: 71px;
   }
 
+  .header__picture-name {
+    display: none;
+  }
+
   .text {
     padding-top: 140px;
+   align-items: center;
   }
 
   .text__name-1 {
@@ -193,3 +199,57 @@
     margin-bottom: 180px;
   }
 }
+
+@media screen and (max-width: 700px) {
+  .header {
+    padding: 120px 20px;
+    height: 584px;
+    justify-content: center;
+  }
+
+  .header__language {
+    display: none;
+  }
+
+  .header__image {
+    height: 273px;
+    right: -90px;
+  }
+
+  .text {
+    padding-top: 40px;
+  }
+
+  .text__duration-1 {
+    align-self: start;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .text__name-1 {
+    font-size: 48px;
+  }
+
+  .text__name-2 {
+    margin-bottom: 30px;
+    margin-left: 0;
+    font-size: 48px;
+  }
+
+  .text__about {
+    width: 280px;
+    margin-bottom: 50px;
+  }
+
+  .text__ticket {
+    width: 280px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  .header {
+    justify-content: center;
+  }
+}
+
