@@ -4,3 +4,4 @@ Technologies used:
   Flexbox 
   BEM
   methodology
+[DEMO LINK](https://sobchuksasha.github.io/Museum/)
