@@ -1,0 +1,209 @@
+.header {
+  height: 100%;
+  position: relative;
+  padding: 15px calc((100% - #{$contentWidth}) / 2) 0;
+
+  &__logo {
+    @include logo;
+  }
+
+  &__menu {
+    @include menuBut;
+    cursor: pointer;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__photo {
+    z-index: -1;
+    object-fit: cover;
+    position: absolute;
+    left: 35%;
+    bottom: 0;
+  }
+
+  &__block {
+    position: absolute;
+    right: calc(65% - 140px);
+    top: 235px;
+  }
+
+  &__heading {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 1;
+
+    &--trans {
+      -webkit-text-stroke: 1px #0f0e08;
+      color: transparent;
+    }
+  }
+
+  &__vertical-text {
+    position: absolute;
+    right: 14px;
+    left: calc((100% - #{$contentWidth}) / 2);
+    bottom: 70px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 14px;
+    color: #687480;
+    text-transform: uppercase;
+    width: fit-content;
+    transform: rotate(-90deg);
+
+    @media (min-width: $normalWidth) {
+      left: calc((100% - #{$contentWidthBig}) / 2);
+    }
+
+    &::before {
+      content: "";
+      width: 70px;
+      height: 1px;
+      background-color: #1a5a4c;
+      position: absolute;
+      right: calc(100% + 20px);
+      top: 7px;
+    }
+  }
+
+  &__next {
+    position: absolute;
+    top: -1px;
+    left: calc(100% + 1px);
+    content: "";
+    background-color: #1a5a4c;
+    background-image: url("../images/button.svg");
+    @include buttonMore;
+    transition: background-color 0.5s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #f14a27;
+    }
+  }
+
+  &__button {
+    position: relative;
+    width: fit-content;
+    margin-top: 80px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #0f0e08;
+    padding: 26px 42px;
+    border: 1px solid #1a5a4c;
+    transition: border-color 0.5s, color 0.5s;
+
+    &:hover .header__next {
+      background-color: #f14a27;
+    }
+
+    &:hover {
+      border-color: #f14a27;
+      color: #f14a27;
+    }
+  }
+
+  &__toggle {
+    display: none;
+
+    &:checked ~ .header__nav {
+      transform: translateY(90px);
+    }
+  }
+}
+
+.menu {
+  width: 18px;
+  height: 12px;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  &__line {
+    width: 18px;
+    height: 2px;
+    background-color: #000;
+    border-radius: 1px;
+  }
+}
+
+@media (min-width: $normalWidth) {
+  .header {
+    height: 75%;
+    padding: 15px calc((100% - #{$contentWidthBig}) / 2) 0;
+  }
+}
+
+@media (max-width: 1025px) {
+  .header {
+    height: 40%;
+    &__menu {
+      left: 37px;
+    }
+
+    &__photo {
+      width: 80%;
+    }
+
+    &__block {
+      right: calc(65% - 107px);
+      top: 135px;
+    }
+
+    &__heading {
+      font-size: 55px;
+    }
+
+    &__button {
+      margin-top: 40px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    height: 100%;
+    padding: 0 20px;
+
+    &__photo {
+      left: 0;
+      height: 55%;
+      width: 100%;
+      top: 0;
+    }
+
+    &__logo {
+      font-size: 30px;
+      position: relative;
+      top: 9px;
+    }
+
+    &__block {
+      position: relative;
+      left: 0;
+      top: 50%;
+    }
+
+    &__heading {
+      font-size: 45px;
+      text-align: center;
+
+      &--trans {
+        color: #000;
+        -webkit-text-stroke: 0;
+      }
+    }
+
+    &__button {
+      width: calc(100% - 70px);
+      text-align: center;
+    }
+  }
+}
