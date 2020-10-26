@@ -1,0 +1,187 @@
+.title {
+  position: relative;
+  height: 655px;
+
+  &-position {
+    margin-top: 40px;
+    margin-bottom: 100px;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 15px;
+    right: calc(50% - 34px);
+  }
+
+  &__img {
+    height: 655px;
+    float: right;
+
+    object-fit: cover;
+    object-position: left;
+
+    &-mid {
+      display: none;
+      width: 100%;
+      height: inherit;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 30%;
+    left: calc(35% - 265px);
+    margin: 0 auto;
+  }
+
+  &__heading {
+    font-weight: bold;
+    font-size: 72px;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+
+    &--opacity {
+      color: transparent;
+      -webkit-text-stroke: 1.5px #000;
+    }
+
+    &-bottom {
+      display: none;
+      font-weight: bold;
+      font-size: 48px;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 10px 0 30px;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+  }
+
+  &__ticket {
+    display: flex;
+    @include ticket;
+    left: calc(35% - 265px);
+
+    &-bottom {
+      display: none;
+      @include ticket;
+    }
+  }
+
+  &__mark {
+    position: absolute;
+    bottom: 120px;
+    left: 40px;
+    font-family: $text-font;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    color: #1a5a4c;
+    transform: rotate(-90deg);
+
+    &::before {
+      content: "";
+      position: relative;
+      display: block;
+      right: 100px;
+      top: 10px;
+      width: 70px;
+      height: 1px;
+      background-color: #1a5a4c;
+    }
+  }
+
+  @media (max-width: 600px) {
+    &__ticket-bottom {
+      height: 50px;
+    }
+
+    &__logo {
+      width: 56px;
+      right: calc(50% - 28px);
+    }
+  }
+
+  @media (max-width: 767px) {
+    &-position {
+      margin-bottom: 250px;
+    }
+
+    &__img {
+      display: none;
+
+      &-mid {
+        display: block;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    &__heading {
+      display: none;
+
+      &-bottom {
+        display: block;
+      }
+    }
+
+    &__mark {
+      display: none;
+    }
+
+    &__bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 34px;
+    }
+
+    &__button,
+    &__ticket {
+      display: none;
+
+      &-bottom {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+    }
+  }
+
+  @media (min-width: $medium-screen) {
+    &__ticket,
+    &__heading {
+      left: calc(35% - 265px);
+    }
+
+    &__img {
+      width: 65%;
+    }
+  }
+
+  @media (max-width: 1050px) {
+    &-position {
+      margin-top: 0;
+    }
+
+    &__content {
+      position: absolute;
+      top: 30%;
+      left: calc(35% - 200px);
+      margin: 0 auto;
+    }
+
+    &__heading {
+      font-size: 55px;
+      margin-bottom: 40px;
+    }
+
+    &__ticket {
+      width: 120px;
+      padding-left: 20px;
+    }
+  }
+}
