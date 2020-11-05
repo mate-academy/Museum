@@ -1,0 +1,117 @@
+.menu {
+  &__wrapper-burger {
+    position: absolute;
+    top: 33px;
+    left: 23px;
+    z-index: 2;
+
+    &.active {
+      position: fixed;
+    }
+  }
+  &__burger {
+    display: block;
+    height: 24px;
+    width: 24px;
+    position: relative;
+    cursor: pointer;
+
+    &.active::before {
+      transform: rotate(-45deg);
+      top: 5px;
+    }
+
+    &.active::after {
+      transform: rotate(45deg);
+      bottom: 5px;
+    }
+  }
+
+  &__burger-line {
+    position: absolute;
+    top: calc(50% - #{$line-height / 2});
+    width: 18px;
+    height: $line-height;
+    background-color: black;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: transform 0.3s;
+
+    &.active {
+      transform: scale(0);
+    }
+  }
+
+  &__burger::before,
+  &__burger::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: $line-height;
+    background-color: black;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: transform 0.3s;
+  }
+
+  &__burger::before {
+    bottom: 5px;
+  }
+
+  &__burger::after {
+    top: 5px;
+  }
+
+  &__nav-wrapper {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    transition: all 0.3s ;
+
+    &.active {
+      position: fixed;
+      top: 0;
+      z-index: 1;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    padding-top: 130px;
+    margin-left: 20px;
+    font-size: 28px;
+    line-height: 2em;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__link {
+    &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      background-color: #f14a27;
+      height: $line-height;
+      transition: width 0.3s ease 0s, opacity 0.3s ease 0s;
+    }
+
+    &:hover::after,
+    &:active::after {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+}
