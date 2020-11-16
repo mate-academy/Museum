@@ -10,4 +10,4 @@
 
 - Stack: HTML5, SCSS, BEM, Flexbox, GRID
 - Fully responsive layout
-- Page is full of interactive elements (even ovals)
+- Page is full of interactive elements 
