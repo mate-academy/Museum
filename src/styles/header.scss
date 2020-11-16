@@ -1,0 +1,261 @@
+.header {
+  display: flex;
+
+  position: relative;
+  max-width: $max-monitor;
+  height: 800px;
+  padding-top: 20px;
+  padding-bottom: 52px;
+
+  padding-left: 56px;
+  padding-right: 54px;
+
+  background-color: $background-subcolor;
+
+  overflow: hidden;
+
+  &__language {
+    position: absolute;
+    top: 30px;
+    width: 60px;
+    right: 310px;
+
+    @include Raleway-small-font;
+
+    font-weight: 500;
+
+    border: none;
+    color: $white-text;
+    background-color: #3f5252;
+
+    z-index: 2;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__org {
+    position: absolute;
+    top: 20px;
+    left: 55px;
+
+    font-family: "Playfair Display", sans-serif;
+    font-size: 36px;
+    line-height: 43px;
+    color: $white-text;
+
+    z-index: 2;
+  }
+
+  &__image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__picture-name {
+    position: absolute;
+    top: 450px;
+    right: 50px;
+
+    @include Raleway-small-font;
+
+    font-weight: 100;
+    line-height: 150%;
+    color: $white-text;
+
+    z-index: 0;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  padding-top: 160px;
+
+  @include Raleway-small-font;
+
+  font-weight: 100;
+  line-height: 150%;
+  color: $white-text;
+
+  &__name-1 {
+    margin-bottom: 10px;
+
+    font-family: "Playfair Display", sans-serif;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 100%;
+    color: $white-text;
+  }
+
+  &__name-2 {
+    margin-left: 90px;
+    margin-bottom: 40px;
+
+    font-family: "Playfair Display", sans-serif;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 100%;
+    color: $white-text;
+  }
+
+  &__about {
+    width: 350px;
+    margin-left: 90px;
+    margin-bottom: 60px;
+
+    @include Raleway-small-font;
+
+    font-weight: 100;
+    line-height: 150%;
+    color: $white-text;
+  }
+
+  &__ticket {
+    height: 60px;
+    width: 270px;
+
+    margin-left: 90px;
+    margin-bottom: 132px;
+    padding: 17px 80px;
+
+    @include Raleway-small-font;
+
+    text-decoration: none;
+    color: $white-text;
+    background-color: $button-color;
+    border: 3px solid #f1f5f4;
+    border-color: transparent;
+
+    z-index: 1;
+
+    transition: border-color 300ms, box-shadow 300ms;
+
+    &:hover {
+      box-shadow: 1px 1px 19px;
+    }
+  }
+
+  &__duration-2 {
+    position: relative;
+    margin-top: 110px;
+
+    z-index: -1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 105px;
+
+      width: 468px;
+      height: 1px;
+      background-color: #f1f5f4;
+      opacity: 0.3;
+    }
+  }
+}
+
+@media screen and (max-width: 1250px) {
+
+  .header {
+    height: 762px;
+    padding-left: calc(50% - 285px);
+    padding-right: calc(50% - 285px);
+    padding-bottom: 0;
+  }
+  .header__image {
+    height: 445px;
+  }
+
+  .header__language {
+    top: 17px;
+    right: 71px;
+  }
+
+  .header__picture-name {
+    display: none;
+  }
+
+  .text {
+    padding-top: 140px;
+    align-items: center;
+  }
+
+  .text__name-1 {
+    margin-bottom: 0;
+    font-size: 72px;
+  }
+
+  .text__name-2 {
+    margin-bottom: 40px;
+    font-size: 72px;
+  }
+
+  .text__about {
+    margin-left: 0;
+    margin-bottom: 80px;
+  }
+
+  .text__ticket {
+    margin-left: 0;
+    margin-bottom: 180px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .header {
+    padding: 120px 20px;
+    height: 584px;
+    justify-content: center;
+  }
+
+  .header__language {
+    display: none;
+  }
+
+  .header__image {
+    height: 273px;
+    right: -90px;
+
+    z-index: 1;
+  }
+
+  .text {
+    padding-top: 40px;
+  }
+
+  .text__duration-1 {
+    align-self: start;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .text__name-1 {
+    font-size: 48px;
+  }
+
+  .text__name-2 {
+    margin-bottom: 30px;
+    margin-left: 0;
+    font-size: 48px;
+  }
+
+  .text__about {
+    width: 280px;
+    margin-bottom: 50px;
+  }
+
+  .text__ticket {
+    width: 280px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  .header {
+    justify-content: center;
+  }
+}

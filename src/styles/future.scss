@@ -1,0 +1,88 @@
+.future {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: $max-monitor;
+  padding-top: 10px;
+  padding-bottom: 184px;
+  padding-left: 55px;
+  padding-right: 55px;
+
+  overflow: hidden;
+
+  &__title {
+    align-self: center;
+    margin-bottom: 63px;
+
+    @include headers-font;
+
+    line-height: 120%;
+  }
+
+  &__calendar {
+    position: absolute;
+    bottom: 184px;
+    right: 207px;
+
+    @include Raleway-small-font;
+
+    line-height: 100%;
+    color: #1c1b29;
+    text-decoration: none;
+
+    transition: 300ms;
+
+    &:hover {
+      transform: scale(1.1);
+      text-decoration: underline;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 138px;
+
+      width: 70px;
+      height: 1px;
+      background-color: #1c1b29;
+    }
+  }
+
+  @media screen and (max-width: 1250px) {
+    & {
+      padding-bottom: 200px;
+    }
+
+    &__title {
+      margin: 0;
+      text-align: center;
+    }
+
+    &__calendar {
+      bottom: 101px;
+      left: calc(50% - 80px);
+      right: calc(50% - 80px);
+
+      &::after {
+        top: 25px;
+        left: -20px;
+        width: 160px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 760px) {
+    & {
+      padding-top: 80px;
+      padding-bottom: 200px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    &__title {
+      width: 280px;
+      text-align: start;
+    }
+  }
+}

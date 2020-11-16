@@ -1,0 +1,137 @@
+.exhibition {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: $max-monitor;
+
+  padding-top: 170px;
+
+  overflow: hidden;
+
+  &__title {
+    text-align: center;
+
+    @include headers-font;
+
+    line-height: 120%;
+
+    color: #1c1b29;
+  }
+
+  &__second > :first-child {
+    order: 3;
+  }
+
+  &__link {
+    position: relative;
+    margin-left: calc(50% + 400px);
+    margin-right: auto;
+
+    @include Raleway-small-font;
+
+    line-height: 100%;
+    color: #1c1b29;
+    text-decoration: none;
+
+    transition: 300ms;
+
+    &:hover {
+      transform: scale(1.1);
+      text-decoration: underline;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 138px;
+
+      width: 70px;
+      height: 1px;
+      background-color: #1c1b29;
+    }
+  }
+
+  @media screen and (max-width: 1250px) {
+    & {
+      padding-top: 110px;
+      padding-bottom: 200px;
+
+      align-items: center;
+    }
+
+    &__link {
+      position: absolute;
+      bottom: 120px;
+      right: 275px;
+      margin: 0;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 25px;
+        left: -20px;
+
+        width: 155px;
+        height: 1px;
+        background-color: #1c1b29;
+      }
+    }
+  }
+
+  @media screen and (max-width: 760px) {
+    & {
+      padding: 80px 10px;
+    }
+
+    &__title {
+      text-align: start;
+    }
+
+    &__first > :first-child {
+      position: absolute;
+      top: 130px;
+      right: -90px;
+
+      overflow: hidden;
+      order: 3;
+    }
+
+    &__second > :first-child {
+      position: absolute;
+      top: 130px;
+      left: -100px;
+
+      overflow: hidden;
+      order: 1;
+    }
+
+    &__second > :nth-child(2) {
+      margin: 0;
+      width: 100vw;
+      padding-left: calc(50% - 140px);
+      padding-right: calc(50% - 140px);
+    }
+
+    &__third > :first-child {
+      position: absolute;
+      top: 130px;
+      right: -100px;
+
+      overflow: hidden;
+      order: 3;
+    }
+
+    &__link {
+      bottom: 10px;
+      right: calc(50% - 80px);
+    }
+  }
+
+  @media screen and (min-width: 1550px) {
+    & {
+      align-items: center;
+      padding-bottom: 200px;
+    }
+  }
+}

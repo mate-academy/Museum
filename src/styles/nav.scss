@@ -1,0 +1,326 @@
+.nav {
+  padding-top: 20px;
+
+  &__burger {
+    position: absolute;
+    top: 9px;
+    display: block;
+
+    @include burger-size;
+
+    background-color: $white-text;
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: -7px;
+
+      @include burger-size;
+
+      background-color: $white-text;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: +7px;
+
+      @include burger-size;
+
+      background-color: $white-text;
+    }
+  }
+
+  &__chekbutton {
+    position: absolute;
+    top: 30px;
+    right: 260px;
+    width: 25px;
+    height: 20px;
+
+    z-index: 5;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__visite {
+    display: none;
+    position: absolute;
+    width: 430px;
+    padding-top: 50px;
+
+    z-index: 3;
+  }
+
+  &__work-title-1,
+  &__work-title-2 {
+    margin-right: 90px;
+
+    font-family: $secondary-font;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+    align-items: center;
+    color: $white-text;
+  }
+
+  &__work-info {
+    margin-right: 112px;
+
+    @include Raleway-small-font;
+
+    font-weight: 200;
+    line-height: 20px;
+    align-items: center;
+    color: $white-text;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__items {
+    display: none;
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 0;
+    padding-top: 180px;
+    padding-bottom: 250px;
+
+    transform: translateY(-57px);
+    list-style-type: none;
+
+    background-color: #3f5252;
+
+    z-index: 2;
+
+    & > li {
+      transition: transform 300ms;
+    }
+
+    & > li:hover {
+      transition: transform 300ms;
+      transform: scale(1.02);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 229px;
+      left: 2px;
+
+      width: 570px;
+      height: 1px;
+      background-color: $white-text;
+      opacity: 0.3;
+    }
+  }
+
+  &__link {
+    @include headers-font;
+
+    line-height: 120px;
+    color: $white-text;
+  }
+
+  &__buttons {
+    display: none;
+    position: absolute;
+    left: auto;
+    bottom: 109px;
+
+    z-index: 2;
+  }
+
+  &__member-link {
+    height: 60px;
+    width: 270px;
+    padding: 17.5px 77px;
+
+    @include Raleway-small-font;
+
+    text-decoration: none;
+    color: $white-text;
+    background-color: #3f5252;
+    border: 3px solid #f1f5f4;
+
+    order: 2;
+
+    transition: box-shadow 300ms;
+
+    &:hover {
+      box-shadow: 1px 1px 19px;
+    }
+  }
+
+  &__ticket-link {
+    height: 60px;
+    width: 270px;
+    padding: 17.5px 79px;
+    margin-right: 30px;
+
+    @include Raleway-small-font;
+
+    text-decoration: none;
+    color: $white-text;
+    background-color: #cd4d31;
+    border: 3px solid #f1f5f4;
+    border-color: transparent;
+
+    order: 1;
+
+    transition: border-color 300ms, box-shadow 300ms;
+
+    &:hover {
+      box-shadow: 1px 1px 19px;
+    }
+  }
+
+  &__img {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    z-index: 2;
+  }
+
+  &__chekbutton > .nav__burger,
+  &__chekbutton > .nav__burger::before,
+  &__chekbutton > .nav__burger::after {
+    transition-duration: 300ms;
+  }
+
+  &__toggler {
+    display: none;
+
+    &:checked ~ .nav__chekbutton > .nav__burger {
+      transform: rotate(45deg);
+    }
+
+    &:checked ~ .nav__chekbutton > .nav__burger::before {
+      top: 0;
+      transform: rotate(0);
+    }
+
+    &:checked ~ .nav__chekbutton > .nav__burger::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+
+    &:checked ~ .nav__items,
+    &:checked ~ .nav__img {
+      display: block;
+    }
+
+    &:checked ~ .nav__buttons {
+      display: flex;
+    }
+
+    &:checked ~ .nav__visite {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  @media screen and (max-width: 1250px) {
+    &__link {
+      line-height: 100px;
+    }
+
+    &__chekbutton {
+      transform: translate(110px, -13px);
+    }
+
+    &__img {
+      opacity: 0;
+
+      z-index: -1;
+    }
+
+    &__visite {
+      flex-direction: column;
+      width: 120px;
+    }
+
+    &__work-title-1,
+    &__work-title-2 {
+      margin-right: 0;
+    }
+
+    &__work-title-1::after {
+      content: "12:00 - 19:00";
+      position: absolute;
+      left: 120px;
+      font-weight: 200;
+      width: 100px;
+    }
+
+    &__work-title-2::after {
+      content: "Київ, вул. М. Грушевського, 6";
+      position: absolute;
+      left: 55px;
+      font-weight: 200;
+      width: 200px;
+    }
+
+    &__work-info {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 760px) {
+    &__img {
+      z-index: -5;
+    }
+
+    &__chekbutton {
+      position: absolute;
+      top: 50px;
+      right: 150px;
+    }
+
+    &__work-title-1,
+    &__work-title-2 {
+      display: none;
+    }
+
+    &__visite {
+      z-index: -5;
+    }
+
+    &__items {
+      height: 100%;
+      width: 100%;
+      padding-top: 40px;
+      padding-bottom: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &__buttons {
+      flex-direction: column;
+      bottom: 60px;
+
+    }
+
+    &__ticket-link {
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    &__link {
+      font-size: 24px;
+      line-height: 60px;
+    }
+
+  }
+}

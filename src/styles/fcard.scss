@@ -1,0 +1,158 @@
+.fcard {
+  display: flex;
+  justify-content: space-around;
+
+  &__date {
+    position: relative;
+
+    margin-top: 87px;
+
+    font-family: "Playfair Display", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 100%;
+
+    color: transparent;
+    -webkit-text-stroke: 1px #cd4d31;
+
+    order: 1;
+
+    &::after {
+      content: "14:00";
+      position: absolute;
+      left: 80px;
+      top: 70px;
+
+      font-family: "Playfair Display", sans-serif;
+      font-weight: bold;
+      font-size: 37px;
+      line-height: 100%;
+      -webkit-text-stroke: initial;
+      color: #cd4d31;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 470px;
+
+    margin-top: 87px;
+
+    order: 2;
+  }
+
+  &__type {
+    margin-bottom: 10px;
+
+    font-family: $secondary-font;
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 20px;
+
+    color: #1c1b29;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+
+    font-family: "Playfair Display", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 125%;
+
+    color: #1c1b29;
+  }
+
+  &__text {
+    margin-bottom: 60px;
+
+    @include Raleway-small-font;
+
+    line-height: 150%;
+    color: #504f5e;
+  }
+
+  &__link {
+    height: 60px;
+    width: 270px;
+
+    padding: 19px 65px;
+
+    @include Raleway-small-font;
+
+    text-decoration: none;
+    color: $white-text;
+    background-color: $button-color;
+    border: 3px solid #3f5252;
+    border-color: transparent;
+
+    transition: border-color 300ms, box-shadow 300ms;
+
+    &:hover {
+      box-shadow: 1px 1px 19px #3f5252;
+    }
+  }
+
+  &__foto {
+    width: 370px;
+    order: 3;
+
+    &--order {
+      order: 0;
+    }
+  }
+
+  @media screen and (max-width: 1250px) {
+    &__foto {
+      display: none;
+    }
+
+    &__text {
+      margin-bottom: 30px;
+    }
+
+    &__date::after {
+      left: 40px;
+      top: 50px;
+    }
+  }
+
+  @media screen and (max-width: 760px) {
+    &__container {
+      margin-top: 60px;
+    }
+
+    &__date {
+      display: none;
+    }
+
+    &__type::before {
+      content: "14 серпня  14:00";
+      margin-right: 20px;
+      color: #cd4d31;
+    }
+
+    &__title {
+      width: 280px;
+    }
+
+    &__text {
+      width: 280px;
+    }
+
+    &__link {
+      width: 280px;
+    }
+  }
+
+  @media screen and (min-width: 1550px) {
+    & {
+      max-width: 2000px;
+      transform: scale(1.2);
+    }
+
+  }
+}
