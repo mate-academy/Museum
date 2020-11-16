@@ -8,6 +8,6 @@
 - Tablet 1024
 - Mobile (> 320px)
 
--Stack: HTML5, SCSS, BEM, Flexbox, GRID
--Fully responsive layout
--Page is full of interactive elements (even ovals)
+- Stack: HTML5, SCSS, BEM, Flexbox, GRID
+- Fully responsive layout
+- Page is full of interactive elements (even ovals)
