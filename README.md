@@ -8,7 +8,6 @@
 - Tablet 1024
 - Mobile (> 320px)
 
-Stack: HTML5, SCSS, JS (for burger menu)
-The website has two themes (Air Black and Air Blue) changing on Air logo click
+Stack: HTML5, SCSS, BEM
 Fully responsive layout
 Page is full of interactive elements (even ovals)
