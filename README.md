@@ -9,5 +9,5 @@
 - Mobile (> 320px)
 
 Stack: HTML5, SCSS, BEM
- -Fully responsive layout
- -Page is full of interactive elements (even ovals)
+-Fully responsive layout
+-Page is full of interactive elements (even ovals)
