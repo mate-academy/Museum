@@ -1,0 +1,116 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    background-color: $base-color;
+    opacity: 0.8;
+  }
+
+  &__item {
+    padding: 0 24px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__link {
+    font-family: $text-font;
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 550;
+    transition: transform 0.3s;
+    color: $main-color;
+  }
+
+  &__toggler-label {
+    display: none;
+    margin: 35px;
+    width: 20px;
+    height: 20px;
+    color: #000;
+    cursor: pointer;
+
+    &::before {
+      content: url(../images/Menu.png);
+    }
+  }
+
+  &__toggler:checked ~ .header__toggler-label::before {
+    content: url(../images/menu-close.png);
+  }
+
+  &__toggler:checked ~ .header__list {
+    margin: 0;
+    width: 300px;
+    background-color: $base-color;
+    border-radius: 8px;
+    opacity: 0.8;
+  }
+
+  &__toggler {
+    display: none;
+  }
+
+  @media (min-width: 1051px) {
+    &__toggler:checked ~ &__list {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 1050px) {
+    position: absolute;
+
+    &__toggler-label {
+      display: block;
+    }
+
+    &__list {
+      position: relative;
+      align-items: center;
+      flex-direction: column;
+      left: -300px;
+    }
+
+    &__toggler:checked ~ &__list {
+      transition: transform 0.5s;
+      transform: translateX(300px);
+    }
+
+    &__toggler:not(:checked) ~ &__list {
+      width: 300px;
+      background-color: #fff;
+      border-radius: 8px;
+      opacity: 0.8;
+      transition: transform 0.5s;
+      transform: translateX(-300px);
+    }
+
+    &__link {
+      font-size: 24px;
+    }
+  }
+  
+  @media (max-width: 1280px) {
+    &__item {
+      padding: 0 15px;
+    }
+
+    &__link {
+      font-size: 18px;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    &__link {
+      font-size: 24px;
+    }
+  }
+}

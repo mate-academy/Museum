@@ -1,0 +1,125 @@
+.gallery {
+  position: relative;
+  width: 100%;
+
+  &__img,
+  &__bottom {
+    width: 100%;
+    display: none;
+
+    &:first-child {
+      display: block;
+    }
+  }
+
+  &__button {
+    display: none;
+  }
+
+  &__navigation-area {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__navigation-circle {
+    width: 9px;
+    height: 9px;
+    border-radius: 100%;
+    background: #e0e0e0;
+    margin-right: 22px;
+    margin-top: 30px;
+
+    &:first-child {
+      background: $main-color;
+    }
+  }
+
+  &__option {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    top: calc(50% - 30px);
+  }
+
+  &__btn {
+    width: 48px;
+    height: 48px;
+    margin: 0 5px;
+    border-radius: 100%;
+    background: rgba(255, 255, 255, 0.7);
+
+    &:first-child {
+      transform: rotate(180deg);
+    }
+  }
+
+  @media (min-width: $medium-screen) {
+    display: grid;
+
+    &__top {
+      display: grid;
+      grid-column-gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__img:nth-child(3) {
+      display: block;
+      height: 100%;
+    }
+
+    &__btn {
+      margin: 0 20px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    grid-row-gap: 30px;
+
+    &__img,
+    &__button {
+      display: block;
+    }
+
+    &__img:nth-child(3),
+    &__navigation-area,
+    &__option {
+      display: none;
+    }
+
+    &__img:nth-child(2) {
+      height: 100%;
+    }
+
+    &__top {
+      grid-template-columns: 1fr 2fr;
+      grid-column-gap: 30px;
+    }
+
+    &__bottom {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-column-gap: 30px;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    max-width: 1500px;
+    margin: 0 auto;
+
+    &__img:nth-child(3) {
+      display: block;
+    }
+
+    &__top {
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-column-gap: 30px;
+    }
+
+    &__bottom {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-column-gap: 30px;
+    }
+  }
+}
