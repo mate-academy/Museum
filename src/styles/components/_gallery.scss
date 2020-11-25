@@ -1,0 +1,57 @@
+.gallery {
+
+  &--gap {
+    margin-bottom: 100px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1;
+    color: #0f0e08;
+    margin-bottom: 60px;
+  }
+
+  &__image {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 600px 360px;
+    gap: 30px;
+    grid-template-areas: "a b b c"
+      "d d e f";
+
+    $items: (
+      1: a,
+      2: b,
+      3: c,
+      4: d,
+      5: e,
+      6t: f
+    );
+
+    @each $item, $value in $items {
+      &--#{$item} {
+        grid-area: $value;
+      }
+    }
+  }
+
+  &__button {
+    width: 70px;
+    height: 70px;
+    background: #1a5a4c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-top: 30px;
+  }
+
+}
