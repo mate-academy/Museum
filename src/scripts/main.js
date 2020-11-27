@@ -25,3 +25,12 @@ menuLink.onclick = function() {
   headerLogo.classList.remove('active');
   lockScroll.classList.remove('lock');
 };
+
+headerLogo.onclick = function() {
+  menuContainer.classList.remove('active');
+  burgerLine.classList.remove('active');
+  menuNavWrapp.classList.remove('active');
+  wrapperBurger.classList.remove('active');
+  headerLogo.classList.remove('active');
+  lockScroll.classList.remove('lock');
+};
