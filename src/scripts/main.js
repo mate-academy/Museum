@@ -1,6 +1,6 @@
 'use strict';
 
-const menuContainer = document.querySelector('.menu__burger');
+const menuBurger = document.querySelector('.menu__burger');
 const burgerLine = document.querySelector('.menu__burger-line');
 const menuNavWrapp = document.querySelector('.menu__nav-wrapper');
 const wrapperBurger = document.querySelector('.menu__wrapper-burger');
@@ -8,29 +8,29 @@ const headerLogo = document.querySelector('.header__logo');
 const menuLink = document.querySelector('.menu__list');
 const lockScroll = document.querySelector('body');
 
-menuContainer.onclick = function() {
-  menuContainer.classList.toggle('active');
-  burgerLine.classList.toggle('active');
-  menuNavWrapp.classList.toggle('active');
-  wrapperBurger.classList.toggle('active');
-  headerLogo.classList.toggle('active');
-  lockScroll.classList.toggle('lock');
+menuBurger.onclick = function() {
+  menuBurger.classList.toggle('menu__burger--active');
+  burgerLine.classList.toggle('menu__burger-line--active');
+  menuNavWrapp.classList.toggle('menu__nav-wrapper--active');
+  wrapperBurger.classList.toggle('menu__wrapper-burger--active');
+  headerLogo.classList.toggle('header__logo--active');
+  lockScroll.classList.toggle('body--lock');
 };
 
 menuLink.onclick = function() {
-  menuContainer.classList.remove('active');
-  burgerLine.classList.remove('active');
-  menuNavWrapp.classList.remove('active');
-  wrapperBurger.classList.remove('active');
-  headerLogo.classList.remove('active');
-  lockScroll.classList.remove('lock');
+  menuBurger.classList.remove('menu__burger--active');
+  burgerLine.classList.remove('menu__burger-line--active');
+  menuNavWrapp.classList.remove('menu__nav-wrapper--active');
+  wrapperBurger.classList.remove('menu__wrapper-burger--active');
+  headerLogo.classList.remove('header__logo--active');
+  lockScroll.classList.remove('body--lock');
 };
 
 headerLogo.onclick = function() {
-  menuContainer.classList.remove('active');
-  burgerLine.classList.remove('active');
-  menuNavWrapp.classList.remove('active');
-  wrapperBurger.classList.remove('active');
-  headerLogo.classList.remove('active');
-  lockScroll.classList.remove('lock');
+  menuBurger.classList.remove('menu__burger--active');
+  burgerLine.classList.remove('menu__burger-line--active');
+  menuNavWrapp.classList.remove('menu__nav-wrapper--active');
+  wrapperBurger.classList.remove('menu__wrapper-burger--active');
+  headerLogo.classList.remove('header__logo--active');
+  lockScroll.classList.remove('body--lock');
 };
