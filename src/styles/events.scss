@@ -3,7 +3,7 @@
   width: 100%;
 
   &__heading {
-    @extend %font-M700;
+    @include font-M700;
     font-size: 48px;
     color: #0f0e08;
     padding: 30px 0;
@@ -43,7 +43,7 @@
   }
 
   &__event1-exh {
-    @extend %font-I500;
+    @include font-I500;
     text-transform: uppercase;
     font-size: 14px;
     color: #687480;
@@ -51,7 +51,7 @@
   }
 
   &__event1-date {
-    @extend %font-I700;
+    @include font-I700;
     font-size: 14px;
     color: #1a5a4c;
   }
@@ -62,13 +62,39 @@
     justify-content: space-between;
   }
 
+  &__name-square &__event1-name:after,
+  &__name-square &__event2-name:after,
+  &__name-square &__event3-name:after {
+    content: "";
+    position: absolute;
+    transition: width 0.3s;
+    display: block;
+    width: 0;
+    height: 2px;
+  }
+
+  &__name-square:hover &__event1-name:after,
+  &__name-square:hover &__event2-name:after,
+  &__name-square:hover &__event3-name:after {
+    content: "";
+    transition: width 0.3s;
+    display: block;
+    background-color: #f14a27;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
   &__event1-name {
-    @extend %font-M400;
+    @include font-M400;
     font-size: 36px;
     color: #0f0e08;
     margin: 15px 0;
     cursor: pointer;
     transition: all 0.3s;
+    position: relative;
   }
 
   &__red-square {
@@ -77,8 +103,13 @@
     background-color: #f14a27;
   }
 
+  &__name-square:hover &__red-square {
+    transition: transform 0.3s ease-in 0.3s;
+    transform: rotate(360deg);
+  }
+
   &__event1-text {
-    @extend %font-I300;
+    @include font-I300;
     font-size: 16px;
     line-height: 150%;
     color: #4e4e4e;
@@ -113,7 +144,7 @@
   }
 
   &__event2-exh {
-    @extend %font-I500;
+    @include font-I500;
     text-transform: uppercase;
     font-size: 14px;
     color: #687480;
@@ -121,22 +152,23 @@
   }
 
   &__event2-date {
-    @extend %font-I700;
+    @include font-I700;
     font-size: 14px;
     color: #1a5a4c;
   }
 
   &__event2-name {
-    @extend %font-M400;
+    @include font-M400;
     font-size: 36px;
     color: #0f0e08;
     margin: 15px 0;
     cursor: pointer;
     transition: all 0.3s;
+    position: relative;
   }
 
   &__event2-text {
-    @extend %font-I300;
+    @include font-I300;
     font-size: 16px;
     line-height: 150%;
     color: #4e4e4e;
@@ -178,7 +210,7 @@
   }
 
   &__event3-exh {
-    @extend %font-I500;
+    @include font-I500;
     margin: 0;
     text-transform: uppercase;
     font-size: 14px;
@@ -187,24 +219,19 @@
   }
 
   &__event3-date {
-    @extend %font-I700;
+    @include font-I700;
     font-size: 14px;
     color: #1a5a4c;
   }
 
   &__event3-name {
-    @extend %font-M400;
+    @include font-M400;
     font-size: 36px;
     color: #0f0e08;
     margin: 0%;
     max-width: 370px;
     line-height: 100%;
     cursor: pointer;
-  }
-
-  &__event1-name:hover,
-  &__event2-name:hover,
-  &__event3-name:hover {
-    text-decoration: underline;
+    position: relative;
   }
 }

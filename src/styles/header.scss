@@ -32,7 +32,7 @@
   }
 
   &__name {
-    @extend %font-M700;
+    @include font-M700;
     color: #000;
     font-size: 72px;
     width: 460px;
@@ -41,12 +41,23 @@
     line-height: 100%;
   }
 
+  &__name2 {
+    @include font-M700;
+    color: #000;
+    font-size: 45px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    line-height: 100%;
+    text-align: center;
+    display: none;
+  }
+
   &__button {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    @extend %font-I500;
+    @include font-I500;
     width: 220px;
     height: 60px;
     font-size: 16px;
@@ -55,6 +66,12 @@
     line-height: 60px;
     cursor: pointer;
     padding-right: 60px;
+    transition: color 0.3s;
+  }
+
+  .button-text {
+    z-index: 2;
+    transition: color 0.3s;
   }
 
   &__button::after {
@@ -69,7 +86,30 @@
   }
 
   &__button:hover {
-    border: 2px solid #1a5a4c;
+    .button-text {
+      color: #fff;
+    }
+  }
+
+  &__button:before {
+    content: "";
+    color: #efefef;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 250ms;
+    background-color: #1a5a4c;
+    transition: all 250ms;
+    z-index: 1;
+  }
+
+  &__button:hover:before {
+    background-color: #1a5a4c;
+    width: calc(100% - 60px);
+    -webkit-transition: width 0.3s;
+    transition: width 0.3s;
   }
 
   &__rightside {
@@ -79,7 +119,7 @@
   }
 
   &__logo {
-    @extend %font-M700;
+    @include font-M700;
     font-size: 36px;
     text-transform: uppercase;
     width: 68px;
@@ -95,7 +135,7 @@
     position: absolute;
     top: 226px;
     left: 1px;
-    @extend %font-M700;
+    @include font-M700;
     color: #000;
     font-size: 72px;
     text-transform: uppercase;
