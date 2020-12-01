@@ -1,58 +1,178 @@
 .footer {
   &__content {
-    $lineWidth: 1px;
-
-    padding-top: 51px;
-    height: 457px;
     display: flex;
-    position: relative;
+    flex-direction: column;
+    padding-top: 51px;
 
-    &::after {
-      content: "";
-      position: absolute;
-      width: $lineWidth;
-      height: 260px;
-      background: rgba(26, 90, 76, 0.5);
-      left: calc(50% - #{$lineWidth / 2});
+    &--top {
+      display: flex;
+      margin-bottom: 137px;
+
+      &--left {
+        position: relative;
+
+        display: flex;
+        width: 50%;
+
+        &::after {
+          position: absolute;
+          right: 0;
+          content: "";
+
+          width: 1px;
+          height: 260px;
+
+          background: rgba(26, 90, 76, 0.5);
+        }
+      }
+
+      &--right {
+        width: 50%;
+        padding-left: 117px;
+      }
+
+      @media (max-width: 1170px) {
+        & {
+          flex-direction: column;
+          margin-bottom: 98px;
+
+          &--right {
+            width: 100%;
+            padding-left: 0;
+          }
+
+          &--left {
+            width: 100%;
+            margin-bottom: 98px;
+
+            &::after {
+              right: calc(50% - (460px / 2));
+              bottom: -49px;
+
+              width: 460px;
+              height: 1px;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 670px) {
+        & {
+          margin-bottom: 70px;
+
+          &--left {
+            flex-direction: column;
+
+            &::after {
+              right: calc(50% - (280px / 2));
+
+              width: 280px;
+            }
+          }
+        }
+      }
     }
 
-    &--left,
-    &--right {
-      width: 50%;
+    &--bottom {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 35px;
+
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 300;
+      font-family: "IBM Plex Sans", sans-serif;
+      color: #0f0e08;
+
+      @media (max-width: 670px) {
+        & {
+          flex-direction: column-reverse;
+          align-items: center;
+          padding-bottom: 48px;
+        }
+      }
+    }
+  }
+
+  &__visualization {
+    display: flex;
+    flex-direction: column;
+    margin-right: 133px;
+
+    @media (max-width: 1690px) {
+      & {
+        margin-right: 88px;
+      }
     }
 
-    &--left {
-      display: grid;
-      grid-gap: 138px;
-      grid-template-columns: repeat(3, auto);
-      justify-content: start;
+    @media (max-width: 1240px) {
+      & {
+        margin-right: 50px;
+      }
     }
 
-    &--right {
-      padding-left: 117px;
+    @media (max-width: 670px) {
+      & {
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &__public {
+    min-width: 72px;
+  }
+
+  &__info {
+    display: grid;
+    gap: 138px;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+
+    @media (max-width: 1700px) {
+      & {
+        gap: 80px;
+      }
+    }
+
+    @media (max-width: 1170px) {
+      & {
+        width: 100%;
+        justify-content: center;
+        gap: 197px;
+        margin-left: -50px;
+      }
+    }
+
+    @media (max-width: 670px) {
+      & {
+        gap: 22px;
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 370px) {
+      & {
+        grid-template-columns: auto 1fr;
+        justify-content: start;
+      }
     }
   }
 
   &__logo {
     margin-bottom: 63px;
-  }
 
-  &__copyright,
-  &__designed {
-    position: absolute;
-    font-size: 12px;
-    line-height: 1.4;
-    font-weight: 300;
-    font-family: "IBM Plex Sans", sans-serif;
-    color: #0f0e08;
-    bottom: 34px;
-  }
-
-  &__copyright {
-    left: $containerPadding;
+    @media (max-width: 670px) {
+      & {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__designed {
-    right: $containerPadding;
+    margin-bottom: 14px;
   }
 }

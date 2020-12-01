@@ -1,10 +1,32 @@
 .nav {
   &__list {
-    list-style-type: none;
     display: grid;
-    gap: 20px 162px;
-    grid-template-columns: 136px 136px;
+    gap: $navGap;
+    grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(4, 1fr);
+
+    list-style-type: none;
+
+    @media (max-width: 1170px) {
+      & {
+        gap: $navGapMedium;
+        justify-content: center;
+        margin-left: -50px;
+      }
+    }
+
+    @media (max-width: 670px) {
+      & {
+        gap: $navGapSmall;
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 370px) {
+      & {
+        justify-content: start;
+      }
+    }
   }
 
   &__link {
