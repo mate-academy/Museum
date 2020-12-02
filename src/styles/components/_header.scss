@@ -10,12 +10,105 @@
     left: calc(50% - #{$logoWidth / 2});
   }
 
-  &__menu {
+  &__toggler {
     position: absolute;
     top: 45px;
     height: 12px;
     width: 18px;
     background-color: transparent;
-    z-index: 1;
+    z-index: 2;
+  }
+
+  &__nav {
+    &-wrap {
+      visibility: hidden;
+      position: absolute;
+      height: 200px;
+      width: 100vw;
+      max-width: 1920px;
+      left: -$containerPadding;
+      top: -45px;
+      z-index: 1;
+      background-color: #fff;
+      box-shadow: 0 6px 3px -4px rgba(0, 0, 0, 0.7);
+      overflow-x: hidden;
+      transition: all 1s;
+      transform: translateY(-100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      padding-bottom: 20px;
+
+      @media (max-width: 1500px) {
+        & {
+          left: -$containerPaddingMedium;
+        }
+      }
+
+      @media (max-width: 1260px) {
+        & {
+          left: -$containerPaddingSmall;
+        }
+      }
+
+      @media (max-width: 720px) {
+        & {
+          left: -$containerPaddingMinimum;
+        }
+      }
+
+      @media (max-width: 940px) {
+        & {
+          height: 250px;
+        }
+      }
+
+      @media (max-width: 460px) {
+        & {
+          height: 350px;
+        }
+      }
+    }
+
+    &-list {
+      display: grid;
+      gap: 50px;
+      grid-template-columns: repeat(8, auto);
+
+      @media (max-width: 1260px) {
+        & {
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 940px) {
+        & {
+          grid-template-rows: repeat(4, auto);
+          grid-template-columns: repeat(2, auto);
+          gap: 30px 50px;
+        }
+      }
+
+      @media (max-width: 460px) {
+        & {
+          grid-template-columns: repeat(1, auto);
+          gap: 20px;
+        }
+      }
+    }
+
+    &-search {
+      width: 24px;
+      height: 24px;
+      background-image: url("../images/svg/search.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      transition: all 0.5s linear;
+
+      &:hover {
+        transform: rotate(360deg) scale(1.2);
+      }
+    }
   }
 }
