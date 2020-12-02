@@ -1,0 +1,98 @@
+.header {
+  height: 665px;
+  background-image: url(../images/header-back.jpg);
+  background-repeat: no-repeat;
+  background-position: top right;
+
+  @include mediumScreen {
+    height: 655px;
+    background-image: url(../images/header-back-m.jpg);
+    background-position: right;
+  }
+
+  @include tabletScreen {
+    height: 502px;
+    background-position: top right;
+    background-size: 502px 384px;
+  }
+
+  @include mobileScreen {
+    height: 483px;
+    background-size: 320px 300px;
+    background-position: top center;
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+
+  &__logo-text {
+    @include logo-text;
+    width: fit-content;
+    justify-self: center;
+  }
+  &__burger-img {
+    align-self: center;
+  }
+  &__title {
+    position: absolute;
+    top: 235px;
+    left: 10%;
+    @include main-title-text;
+    @include tabletScreen {
+      top: 135px;
+      font-size: 55px;
+      line-height: 55px;
+    }
+    @include mobileScreen {
+      top: 320px;
+      left: 5%;
+      font-size: 45px;
+      line-height: 45px;
+      text-align: center;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    top: 467px;
+    left: 20%;
+    @include mediumScreen {
+      left: 23%;
+    }
+    @include tabletScreen {
+      top: 289px;
+      left: 31%;
+    }
+    @include mobileScreen {
+      top: 433px;
+      left: 85%;
+    }
+    &::before {
+      content: "КВИТКИ";
+      display: block;
+      position: absolute;
+      right: 70px;
+      width: 150px;
+      height: 68px;
+      background-color: #fff;
+
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 70px;
+      text-align: center;
+
+      border: 1px solid #1a5a4c;
+
+      @include mobileScreen {
+        right: 50px;
+        height: 48px;
+        width: 230px;
+
+        line-height: 48px;
+      }
+    }
+  }
+}
