@@ -1,5 +1,20 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  @extend %mark;
+  transition: #{$_property} 0.3s linear;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin hoverEffect($_property, $_toValue) {
+  transition: #{$_property} 0.3s linear;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin hoverMoreSmoothly($_property, $_toValue) {
+  transition: #{$_property} 1s;
   &:hover {
     #{$_property}: $_toValue;
   }
