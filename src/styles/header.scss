@@ -1,0 +1,123 @@
+@import "utils";
+
+.header {
+  height: 800px;
+  background-color: $colorMainGreen;
+  //position: relative;
+
+  &__top {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__menu {
+    display: flex;
+  }
+
+  &__burger {
+    display: inline-block;
+    width: 25px;
+    //height: 20px;
+    margin-right: 40px;
+  }
+
+  &__span,
+  &__span::before,
+  &__span::after {
+    position: absolute;
+
+    width: inherit;
+    height: 2px;
+    background-color: $colorLightGray;
+    transition-duration: 0.3s;
+  }
+
+  &__span::before {
+    content: "";
+    top: -7px;
+  }
+
+  &__span::after {
+    content: "";
+    top: 7px;
+  }
+
+  &__language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0 3px;
+  }
+
+  &__language {
+    color: $colorLightGray;
+    display: block;
+    font-family: $fontSecondary;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  &__visit {
+    display: none;
+  }
+
+  &__content {
+    position: relative;
+    height: 720px;
+    padding: 110px 0 50px;
+  }
+
+  &__image-wrap {
+    position: absolute;
+    right: -30px;
+    bottom: 0;
+    max-height: 720px;
+    z-index: 2;
+  }
+  &__image-text {
+    position: absolute;
+    right: 30px;
+    bottom: 330px;
+  }
+
+  &__date,
+  &__description,
+  &__image-text,
+  &__bottom {
+    @include smallText($colorLightGray);
+  }
+
+  &__title,
+  &__title-second {
+    @include title(96px, 110px, $colorLightGray);
+  }
+
+  &__title-second,
+  &__description,
+  &__button {
+    margin-left: $column;
+  }
+
+  &__title-second {
+    margin-bottom: 40px;
+  }
+
+  &__bottom {
+    position: absolute;
+    bottom: $column / 2;
+    //display: inline-block;
+  }
+
+  &__bottom::after {
+    content: "";
+    height: 1px;
+    width: $column * 5;
+    z-index: 1;
+    background-color: $colorLightGray;
+    position: absolute;
+    bottom: 50%;
+    left: 115%;
+  }
+
+}
