@@ -1,0 +1,54 @@
+.toggler {
+  &__input {
+    position: relative;
+    z-index: 3;
+    width: 26px;
+    height: 26px;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__label,
+  &__label::before,
+  &__label::after {
+    position: absolute;
+    z-index: 2;
+    top: calc(50% + 5px);
+    width: 24px;
+    height: 2px;
+    background-color: #000;
+  }
+
+  &__label {
+    &::before,
+    &::after {
+      content: "";
+      transition: all 0.5s;
+    }
+
+    &::before {
+      transform: translateY(-13px);
+    }
+
+    &::after {
+      transform: translateY(2px);
+    }
+  }
+
+  &__input:checked + &__label::before {
+    transform: rotate(45deg);
+  }
+
+  &__input:checked + &__label::after {
+    transform: rotate(-45deg);
+  }
+
+  &__input:checked + &__label {
+    height: 0;
+  }
+
+  &__input:checked ~ .header__nav-wrap {
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
