@@ -21,7 +21,7 @@
   max-height: 100%;
   margin-right: 30px;
   object-fit: contain;
-  transition: 3s;
+  transition: 1s;
 
   &:last-child {
     margin-right: 0;
@@ -32,14 +32,14 @@
   margin-right: 30px;
   max-width: 100%;
   object-fit: contain;
-  transition: 3s;
+  transition: 1s;
 
   &:last-child {
     margin-right: 0;
   }
 }
 
-@media (max-width: 1599px) {
+@include onTV {
   .important__img:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 23px black;
@@ -63,7 +63,7 @@
   }
 }
 
-@media (max-width: 1185px) {
+@include onTVMini {
   .gallery__picture__important {
     margin-left: -25px;
   }
@@ -77,10 +77,10 @@
   }
 }
 
-@media (max-width: 815px) {
+@include onIpadMini {
   .gallery__picture {
     &__important {
-      margin-bottom: 0;
+      margin: 0;
     }
   }
 
@@ -92,15 +92,26 @@
     }
   }
 
-  .important__img:first-child {
-    margin-left: 30px;
-  }
-
   .important__img:last-child {
     margin-left: -85px;
   }
 
   .secondary__img:first-child {
+    display: none;
+  }
+}
+
+@include forGallery {
+  .important__img {
+    transform: scale(1);
+    margin: 0;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .important__img:last-child {
     display: none;
   }
 }

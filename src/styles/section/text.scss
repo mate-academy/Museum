@@ -1,12 +1,19 @@
+@import "../utils/animation/animation";
+
 .title {
   text-align: left;
   margin-bottom: 60px;
+  transform-origin: top;
 
   &__events {
     color: #0f0e08;
     font-size: 48px;
     line-height: 100%;
     transition: 1s;
+
+    &:hover {
+      transform: translate(7%);
+    }
   }
 
 }
@@ -70,14 +77,26 @@
   line-height: 150%;
   color: #4e4e4e;
   transition: 1s;
+
+  &:hover {
+    animation-name: test;
+    animation-duration: 1s;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+  }
 }
 
 .namu {
   font-size: 36px;
   line-height: 36px;
+  transition: 0.5s;
+
+  &:hover {
+    transform: scale(1, 0.5);
+  }
 }
 
-@media (max-width: 1130px) {
+@include onTVMini {
   .title__events {
     font-size: 40px;
   }
