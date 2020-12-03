@@ -1,22 +1,54 @@
 .dreams {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  //flex-wrap: wrap;
+  justify-content: flex-end;
   margin-bottom: 60px;
   align-items: center;
 
   &__img {
+    flex: 0 0 50%;
 
     &__picture {
-      width: 870px;
-      height: 520px;
+      justify-content: flex-end;
+      transition: 1s;
 
-      object-fit: cover;
-      object-position: center;
+      max-width: 100%;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 23px black;
+      }
     }
   }
 
   &__text {
+    text-align: left;
+    margin-right: 130px;
     width: 370px;
+    transition: 3s;
+  }
+}
+
+@media (max-width: 960px) {
+  .dreams {
+    justify-content: flex-start;
+    flex-wrap: wrap-reverse;
+    &__img {
+      justify-content: center;
+      flex: 0 0 100%;
+      margin-bottom: 40px;
+    }
+
+    &__text {
+      justify-content: flex-start;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .dreams {
+    &__img {
+      transform: scale(1.2);
+    }
   }
 }

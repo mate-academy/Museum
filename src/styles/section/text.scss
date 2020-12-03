@@ -1,10 +1,12 @@
 .title {
+  text-align: left;
   margin-bottom: 60px;
-  color: #0f0e08;
 
   &__events {
+    color: #0f0e08;
     font-size: 48px;
     line-height: 100%;
+    transition: 1s;
   }
 
 }
@@ -14,12 +16,14 @@
   font-weight: 500;
   line-height: 14px;
   color: #687480;
+  transition: 1s;
 
   &__span {
     color: rgba(26, 90, 76, 1);
     font-size: 18px;
     line-height: 21px;
     font-weight: 700;
+    transition: 1s;
   }
 }
 
@@ -30,19 +34,29 @@
 .name {
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   &__picture {
     font-family: "Montserrat", sans-serif;
     font-size: 36px;
     font-weight: 400;
+    transition: 1s;
 
     &__rectangle {
       width: 15px;
       height: 15px;
       background-color: red;
       margin-right: 10px;
+      transform-origin: top;
+      transform: rotate(0deg);
+
     }
   }
+}
+
+.name:hover .name__picture__rectangle {
+  transition: transform 0.3s ease-in 0.3s;
+  transform: rotate(-360deg);
 }
 
 .denomination {
@@ -55,9 +69,35 @@
   font-size: 16px;
   line-height: 150%;
   color: #4e4e4e;
+  transition: 1s;
 }
 
 .namu {
   font-size: 36px;
   line-height: 36px;
+}
+
+@media (max-width: 1130px) {
+  .title__events {
+    font-size: 40px;
+  }
+
+  .exhibition-day {
+    font-size: 12px;
+    &__span {
+      font-size: 14px;
+    }
+  }
+
+  .data {
+    margin-bottom: 18px;
+  }
+
+  .name__picture {
+    font-size: 28px;
+  }
+
+  .text-picture {
+    font-size: 14px;
+  }
 }
