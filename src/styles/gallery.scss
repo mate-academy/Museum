@@ -1,50 +1,132 @@
 .gallery {
-  max-width: 1280px;
+  min-width: 1280px;
   margin: 0 auto;
   padding: 0 55px;
+
+  @media screen and (max-width: 1280px) {
+    min-width: 768px;
+    padding: 0 30px;
+  }
+
+  @media screen and (max-width: 768px) {
+    min-width: 320px;
+    padding: 0 20px;
+  }
 
   &__name {
     font-weight: bold;
     font-size: 48px;
-    font-family: "Montserrat", sans-serif;
+    font-family: $Montserrat;
     margin-bottom: 60px;
   }
 
   &__photo {
+    margin-bottom: 200px;
 
-    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: 600px 360px;
+    gap: 30px;
+    justify-content: start;
 
     &1 {
-      margin-right: 30px;
-      margin-bottom: 30px;
-      width: 370px;
+      width: 100%;
       height: 600px;
+      grid-column: 1/ span 4;
+      object-fit: cover;
     }
 
     &2 {
-      width: 765px;
+      width: 100%;
       height: 600px;
-      margin-bottom: 30px;
+      grid-column: 5/ span 8;
+      object-fit: cover;
     }
 
     &3 {
-      width: 765px;
-      height: 360px;
-      margin-right: 30px;
+      width: 100%;
+      height: 600px;
+      grid-column: 13/ span 4;
+      object-fit: cover;
     }
 
     &4 {
-      width: 370px;
+      width: 100%;
       height: 360px;
+      grid-column: 1/ span 8;
+      grid-row: 2;
+      object-fit: cover;
+    }
+
+    &5 {
+      width: 100%;
+      height: 360px;
+      grid-column: 9/ span 4;
+      grid-row: 2;
+      object-fit: cover;
+    }
+
+    &6 {
+      width: 100%;
+      height: 360px;
+      grid-column: 13/ span 4;
+      grid-row: 2;
+      object-fit: cover;
+    }
+
+    @media screen and (max-width: 1440px) {
+      grid-template-columns: repeat(12, 1fr);
+
+      &3,
+      &6 {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: 1295px) {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 543px;
+
+      &1 {
+        grid-column: 1/span 3;
+        grid-row: 1/ span 2;
+        height: 543px;
+        object-fit: cover;
+        object-position: top;
+      }
+
+      &3 {
+        display: block;
+        grid-column: 4/span 3;
+        grid-row: 1/ span 2;
+        height: 543px;
+      }
+
+      &2,
+      &4,
+      &5,
+      &6 {
+        display: none;
+      }
+
+    }
+
+    @media screen and (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 410px;
+
+      &1 {
+        grid-column: 1/span 2;
+        // grid-row: 1/ span 2;
+        // height: 543px;
+        object-fit: cover;
+        object-position: top;
+      }
+
+      &3 {
+        display: none;
+      }
     }
   }
 
-  &__switch {
-    width: 70px;
-    height: 70px;
-    background: url(../images/Vector.svg) no-repeat center;
-    background-color: #1a5a4c;
-    margin-bottom: 100px;
-
-  }
 }

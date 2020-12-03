@@ -1,6 +1,8 @@
 .footer {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 30px;
   padding-top: 50px;
   padding-left: 55px;
   margin: 0 auto 100px;
@@ -8,40 +10,105 @@
   width: 1280px;
   height: 457px;
 
+  @media screen and (max-width: 1280px) {
+    grid-template-columns: 150px 1fr 1fr;
+    padding: 50px 20px;
+
+    width: 768px;
+    height: 690px;
+    grid-template-rows: 300px 300px;
+    row-gap: 95px;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 280px;
+    padding: 50px 0;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 80px 336px 120px;
+    gap: 40px 22px;
+    height: 750px;
+  }
+
   &__logos {
+
+    margin-right: 40px;
+    @media screen and (max-width: 1280px) {
+      width: 80px;
+      margin-right: 0;
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    @media screen and (max-width: 768px) {
+      display: grid;
+      grid-template-columns: 230px 25px 25px;
+      grid-template-rows: 80px;
+      align-items: center;
+      grid-column: 1 /span 2;
+      grid-row: 1;
+    }
+
     &-logo {
       width: 68px;
       height: 72px;
-      margin-right: 70px;
-      font-family: "Montserrat", sans-serif;
+      font-family: $Montserrat;
       font-weight: bold;
       font-size: 36px;
       margin-bottom: 65px;
+
+      @media screen and (max-width: 768px) {
+        margin: 0;
+      }
     }
 
     &-facebook {
       display: inline-block;
       background: url(../images/Facebook.svg) no-repeat center;
-      height: 24px;
+      height: 28px;
       width: 12px;
       margin-right: 25px;
+
+      @media screen and (max-width: 768px) {
+        justify-self: end;
+      }
     }
 
     &-instagram {
       display: inline-block;
-      background: url(../images/insta.svg) no-repeat center;
-      height: 11px;
-      width: 11px;
+      background: url(../images/instagram.png) no-repeat center;
+      height: 25px;
+      width: 25px;
+
+      @media screen and (max-width: 768px) {
+        justify-self: end;
+      }
     }
   }
 
   &__schedule {
+
     margin-right: 70px;
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: $IBM;
     width: 165px;
     height: 230px;
     font-size: 14px;
-    color: #0f0e08;
+    color: $darkGrey;
+
+    @media screen and (max-width: 1280px) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    @media screen and (max-width: 768px) {
+      grid-column: 1;
+      grid-row: 2;
+      width: 130px;
+      margin: 0;
+
+      &-content {
+        width: 130px;
+      }
+    }
 
     &-name {
       margin-bottom: 20px;
@@ -60,12 +127,24 @@
     margin-right: 70px;
     width: 220px;
     height: 180px;
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: $IBM;
     font-size: 14px;
-    color: #0f0e08;
+    color: $darkGrey;
 
     &-name {
       margin-bottom: 20px;
+    }
+
+    @media screen and (max-width: 1280px) {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    @media screen and (max-width: 768px) {
+      grid-column: 2;
+      grid-row: 2;
+      width: 128px;
+      margin: 0;
     }
   }
 
@@ -78,28 +157,75 @@
     height: 1px;
     background: rgba(26, 90, 76, 0.5);
     transform: rotate(90deg);
+
+    @media screen and (max-width: 1280px) {
+      width: 460px;
+      transform: rotate(0deg);
+      top: 100%;
+      left: -270px;
+    }
+
+    @media screen and (max-width: 768px) {
+      top: 80%;
+      left: -120%;
+      width: 290px;
+    }
   }
 
   &__nav {
     display: block;
     width: 135px;
     height: 120px;
+
+    @media screen and (max-width: 1280px) {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    @media screen and (max-width: 768px) {
+      grid-column: 1/ span 2;
+      grid-row: 3;
+    }
   }
 
   &__copyright {
-    position: absolute;
+    font-family: $IBM;
+    font-size: 12px;
+    position: relative;
     height: 17px;
     width: 270px;
-    top: 420px;
-    // bottom: 220px;
+    left: -370%;
+    bottom: -110%;
+
+    @media screen and (max-width: 1280px) {
+      left: 0;
+      bottom: -70%;
+    }
+
+    @media screen and (max-width: 768px) {
+      left: 20px;
+      top: 100px;
+    }
   }
 
   &__designer {
-    position: absolute;
+    font-family: $IBM;
+    font-size: 12px;
+    position: relative;
     height: 17px;
     width: 200px;
-    top: 420px;
-    left: 930px;
+    left: -150%;
+    bottom: -110%;
+
+    @media screen and (max-width: 1280px) {
+      left: 40%;
+      bottom: -70%;
+    }
+
+    @media screen and (max-width: 768px) {
+      left: -110px;
+      top: 70px;
+    }
   }
 }
 
@@ -112,7 +238,11 @@
   row-gap: 20px;
   width: 135px;
   height: 120px;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: $IBM;
   font-size: 14px;
-  color: #0f0e08;
+  color: $darkGrey;
+
+  @media screen and (max-width: 768px) {
+    column-gap: 40px;
+  }
 }
