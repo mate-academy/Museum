@@ -3,10 +3,12 @@
 @import "typography";
 @import "reset";
 @import "header";
+@import "exhibitions";
 
 body {
   background: $c-gray;
   font-family: $fontSecondary;
+  line-height: 24px;
 }
 
 .container {
@@ -23,4 +25,25 @@ body {
   background-color: $colorMainOrange;
   text-align: center;
   color: $colorLightGray;
+}
+
+.section-bottom {
+  text-align: right;
+  position: relative;
+  padding-right: 200px;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    width: 70px;
+    height: 1px;
+    background-color: $colorBlack;
+  }
+
+  &-link {
+    @include smallText($colorBlack)
+  }
 }
