@@ -1,10 +1,24 @@
 @for $i from 1 through 6 {
   .gallery__item--#{$i} {
     background-image: url("/images/gallery-#{$i}.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &::before {
+      content: "#{$i}";
+      // position: absolute;
+      // z-index: 2;
+      // top: 50%;
+      // left: 50%;
+
+      font-size: 36px;
+      color: lime;
+
+    }
   }
+
+
 }
-
-
 
 .gallery {
 
@@ -12,30 +26,46 @@
     margin-bottom: 60px;
   }
 
-  // margin: 0 auto;
-
   &__grid {
     display: grid;
     grid-template-rows: 600px 360px;
     grid-template-columns: repeat(3, 370px);
     gap: 30px;
 
-    // max-width: 1570px;
-    // height: 990px;
+    justify-content: center;
+
+    @media (min-width: $full-HD) {
+      grid-template-columns: repeat(4, 370px);
+
+      &__item {
+        &-- {
+        }
+      }
+    }
   }
 
   &__item {
-    display: inline-block;
 
-    width: 370px;
-    height: 600px;
+    &--3,
+    &--6 {
+      display: none;
+    }
 
-    background-repeat: no-repeat;
-    background-size: contain;
 
     &--wide {
-      width: 770px;
+      &-first {
+        grid-column-start: 2;
+        grid-column-end: 4;
+      }
+
+      &-second {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
     }
+
+
+
   }
 
 }
