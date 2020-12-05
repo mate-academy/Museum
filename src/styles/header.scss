@@ -1,0 +1,168 @@
+.header {
+  position: relative;
+  height: 655px;
+
+  &__container {
+    position: relative;
+
+    // border: 1px solid red;
+  }
+
+  &__top {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__toggler {
+    position: relative;
+
+    width: 18px;
+    height: 2px;
+
+    background-color: $color-black-text;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+
+      width: 18px;
+      height: 2px;
+
+      background-color: $color-black-text;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 4px;
+
+      width: 18px;
+      height: 2px;
+
+      background-color: $color-black-text;
+    }
+  }
+
+  // &__menu {
+
+  // }
+
+  // &__logo-link {
+  // }
+
+  // &__logo {
+
+  // }
+
+  // &__main {
+
+  // }
+
+  &__text {
+    position: relative;
+    z-index: 1;
+
+    margin-left: 187px;
+
+  }
+
+  &__background {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    left: 487px;
+    top: 0;
+
+    height: 100%;
+
+    background-image: url($img-header);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    // @media (min-width: 1200px) {
+    // }
+  }
+
+  &__title {
+
+    margin-top: 148px;
+    margin-bottom: 80px;
+  }
+
+  &__title-stroke {
+    color: transparent;
+    -webkit-text-stroke: 1px #0f0e08;
+  }
+
+  &__tickets {
+    width: 150px;
+    border: 1px solid $color-green;
+
+    background: linear-gradient(to right, #fff 50%, $color-green 50%);
+    background-size: 200% 100%;
+
+    transition: 0.3s;
+  }
+
+  &__tickets-link {
+    display: flex;
+    margin-bottom: 96px;
+
+    height: 70px;
+    width: 220px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: $color-black-text;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 70px;
+    text-align: center;
+
+    transition: all 0.3s ease-out;
+
+    &:hover .header__tickets {
+      background-position: right bottom;
+      background-color: $color-green;
+      color: #fff;
+    }
+  }
+
+  &__tickets-square {
+    position: relative;
+    z-index: 1;
+
+    width: 70px;
+
+    background-color: $color-green;
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: 35px-(12px/2);
+      top: 35px-(12px/2);
+      z-index: 2;
+
+      height: 12px;
+      width: 12px;
+
+      background-image: url($img-arrow);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &__side-link {
+    position: absolute;
+    left: -48px;
+    bottom: 46px;
+    transform: rotate(-90deg);
+  }
+}
