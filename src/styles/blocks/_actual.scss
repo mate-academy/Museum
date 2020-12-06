@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
   padding-top: 70px;
+
+  &__decor-side {
+    display: none;
+    @extend %decor-text;
+  }
+
   &__heading {
     @extend %h2;
     text-align: center;
@@ -15,6 +21,29 @@
     &__heading {
       text-align: left;
       padding: 0;
+    }
+  }
+
+  @include media(dt) {
+    &__decor-side {
+      $s-decor-line-width: 70px;
+      $s-decor-line-height: 1px;
+      position: absolute;
+      left: 0;
+      top: -#{$s-decor-line-width + 20};
+      display: block;
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      &::before {
+        content: "";
+        position: absolute;
+        left: -#{($s-decor-line-width + 20)};
+        top: 50%;
+        transform: translateY(-50%);
+        display: block;
+        @include size($s-decor-line-width, $s-decor-line-height);
+        background-color: $c-accent-first;
+      }
     }
   }
 }
