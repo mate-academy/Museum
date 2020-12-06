@@ -4,3 +4,35 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin largeScreen {
+  @media (min-width: 1570px) {
+    @content;
+  }
+}
+
+@mixin MediumScreen {
+  @media (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin TabletScreen {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin MobileScreen {
+  @media (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin square-position {
+  left: 25px;
+  bottom: calc((#{$squareEvetsLine-height} / 2 - #{$squareEvetsHeight}));
+  @include MobileScreen {
+    left: 10px;
+    bottom: calc( #{$squareEvetsLine-heightMob} / 2 - #{$squareEvetsHeightMob});
+  }
+}

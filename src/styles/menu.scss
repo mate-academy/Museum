@@ -1,33 +1,39 @@
 .menu {
-  display: flex;
   visibility: hidden;
+  z-index: 1;
+  display: flex;
   align-items: center;
-  height: 600px;
-  padding: 0 calc((100vw - #{$maxPageWidth}) / 2);
+  justify-content: space-around;
+  height: 0;
   font-family: Oswald, sans-serif ;
   font-size: 14px;
   line-height: 14px;
-  background-color: white;
-  
+
+  @include MediumScreen {
+    flex-direction: column;
+  }
 
   &__logo {
     visibility: visible;
     position: absolute;
     top: 15px;
-    right: calc(50% - 63px / 2);
+    right: calc(50% - #{$logoWidth} / 2);
+    z-index: 1;
+
+    @include MobileScreen {
+      right: calc(80% - #{$logoWidth} / 2);
+    }
+
+    @media screen and (max-width: 430px) {
+      right: calc(50% - #{$logoWidth} / 2);
+    }
   }
 
   &__nav {
     margin-left: 50px;
-    margin-bottom: 14px;
-    align-self: flex-end;
   }
 
   &__search {
-    position: absolute;
-    bottom: 9px;
-    right: calc((100vw - #{$maxPageWidth}) / 2);
-    font-size: 17px;
-
+    font-size: 19px;
   }
 }

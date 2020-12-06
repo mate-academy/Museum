@@ -1,16 +1,31 @@
 .header {
   position: relative;
-  background-color: $c-pageBackground;
+  max-width: $maxWitdhPageCont;
+  margin: 0 auto;
 
   &__btn {
     display: flex;
     align-items: center;
+    position: absolute;
     width: 24px;
     height: 24px;
-    position: absolute;
-    left: 10px;
     top: 39px;
+    left: 0;
     cursor: pointer;
+    z-index: 2;
+
+    @media screen and (max-width: 1680px) {
+      left: 55px;
+    }
+
+    @include MediumScreen {
+      left: 34px;
+    }
+
+    @include MobileScreen {
+      left: 20px;
+    }
+    
   }
 
   &__btn-item {
@@ -18,7 +33,7 @@
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: black;
+    background-color: $c-humburIcon;
     transition-duration: 0.3s;
     z-index: 1;
     &::before {
@@ -50,11 +65,21 @@
     }
 
     &:checked ~ .menu {
+      position: absolute;
       visibility: visible;
-      display: flex;
-      height: 90px;
-      // transform: translateY(200px);
+      width: 100%;
+      height: 230px;
+      background-color: $c-pageBackground;
       transition-duration: 0.7s;
+
+      @include largeScreen {
+        left: -172px;
+        width: 1920px;
+      }
+
+      @include MediumScreen {
+        height: 505px;
+      }
     }
 
     &:checked ~ .menu .menu__logo {
