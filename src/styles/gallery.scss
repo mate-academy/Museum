@@ -36,6 +36,12 @@
     @media (min-width: $full-HD) {
       grid-template-columns: repeat(4, 370px);
     }
+
+    @media (max-width: $min-desctop-width) {
+      grid-template-columns: repeat(2, 340px);
+      grid-template-rows: 543px;
+      gap: 20px;
+    }
   }
 
   &__item {
@@ -52,11 +58,27 @@
     &--wide-first {
       grid-column-start: 2;
       grid-column-end: 4;
+
+      @media (max-width: $min-desctop-width) {
+        display: none;
+      }
     }
 
     &--wide-second {
       grid-column-start: 1;
       grid-column-end: 3;
+
+      @media (max-width: $min-desctop-width) {
+        display: none;
+      }
+    }
+
+    @media (max-width: $min-desctop-width) {
+      display: none;
+
+      &--high {
+        display: block;
+      }
     }
   }
 }
