@@ -3,4 +3,33 @@
   &:hover {
     #{$_property}: $_toValue;
   }
+  &:active {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin size ($w, $h:$w) {
+  width: $w;
+  height: $h;
+}
+
+@mixin media($bp) {
+  @if ($bp == tablet) {
+    @media (min-width: 767px) {
+      @content;
+    }
+  }
+
+  @else if ($bp == dt) {
+    @media (min-width: 1279px) {
+      @content;
+    }
+  }
+
+  @else {
+    @media (min-width: $bp) {
+      @content;
+    }
+  }
+
 }
