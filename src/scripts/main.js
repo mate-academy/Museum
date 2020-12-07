@@ -1,9 +1,9 @@
 'use strict';
 
-const menu = document.querySelector('.mobile-menu');
-const toggler = document.querySelector('.toggler');
+const menu = document.querySelector('.nav__content');
+const toggler = document.querySelector('.nav__toggler-btn');
 
 toggler.onclick = function toggleSidebar() {
-  menu.classList.toggle('mobile-menu--open');
-  toggler.classList.toggle('toggler--active');
+  menu.classList.toggle('nav__content--open');
+  toggler.classList.toggle('nav__toggler--active');
 };

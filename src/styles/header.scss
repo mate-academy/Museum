@@ -10,38 +10,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
   }
 
   &__menu {
     display: flex;
-  }
 
-  &__burger {
-    display: inline-block;
-    width: 25px;
-    height: 20px;
-    margin-right: 40px;
-  }
-
-  &__span,
-  &__span::before,
-  &__span::after {
-    position: absolute;
-
-    width: inherit;
-    height: 2px;
-    background-color: $colorLightGray;
-    transition-duration: 0.3s;
-  }
-
-  &__span::before {
-    content: "";
-    top: -7px;
-  }
-
-  &__span::after {
-    content: "";
-    top: 7px;
   }
 
   &__language-switcher {
@@ -58,27 +32,35 @@
     text-transform: uppercase;
   }
 
-  &__visit {
-    display: none;
-  }
-
   &__content {
     position: relative;
     height: 720px;
-    padding: 110px 0 50px;
+    padding-top: 110px;
   }
 
   &__image-wrap {
     position: absolute;
-    right: -30px;
+    right: 0;
     bottom: 0;
     max-height: 720px;
     z-index: 2;
+
+    @media (max-width: 1170px) {
+      //transform: scale(0.5);
+      display: none;
+    }
+
   }
+
   &__image-text {
     position: absolute;
     right: 30px;
     bottom: 330px;
+
+    @media (max-width: 1170px) {
+      display: none;
+      //bottom: 0;
+    }
   }
 
   &__date,
@@ -107,6 +89,9 @@
     position: absolute;
     bottom: $column / 2;
     //display: inline-block;
+    @media (max-width: 1100px) {
+      display: none;
+    }
   }
 
   &__bottom::after {
@@ -118,20 +103,5 @@
     position: absolute;
     bottom: 50%;
     left: 115%;
-  }
-
-}
-
-.about {
-  display: flex;
-  margin-bottom: 80px;
-
-  &__item {
-    min-width: $column * 2;
-    @include smallText($colorLightGray);
-  }
-
-  &__title {
-    opacity: 0.7;
   }
 }
