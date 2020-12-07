@@ -22,25 +22,206 @@
     background-position: top center;
   }
 
-  &__top {
-    display: grid;
-    grid-template-columns: auto 1fr;
+  &__side-text {
+    position: absolute;
+    top: 522px;
+    transform: rotate(-90deg);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+    color: #687480;
+
+    &--positioned {
+      top: 432px;
+    }
+    
+    @include tabletScreen {
+      display: none;
+    }
+
+    &::after {
+      position: absolute;
+      right: calc(100% + 20px);
+      top: 50%;
+      content: "";
+      display: block;
+      height: 1px;
+      width: 70px;
+      background-color: #1a5a4c;
+
+    }
+  }
+
+  &__burger {
+    z-index: 3;
+    display: block;
+    position: absolute;
+    width: 18px;
+    height: 12px;
+    top: 40px;
+
+    cursor: pointer;
+
+    @include mobileScreen {
+      top: 33px;
+    }
+
+    & span {
+      position: absolute;
+      display: block;
+      background-color: #0f0e08;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      top: 45%;
+
+      // transition: all 1s ease-in;
+
+    }
+    &::before,
+    &::after {
+      content: "";
+      background-color: #0f0e08;
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      left: 0;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+
+    &--active {
+      // left: -80px;
+      @include tabletScreen {
+        left: 0;
+      }
+      span {
+        transform: scale(0);
+      }
+      &:before {
+        transform: rotate(45deg);
+        // top: 11px;
+      }
+      &:after {
+        transform: rotate(-45deg);
+        top: 0;
+      }
+    }
+  }
+
+  &__menu {
+    display: none;
+    justify-content: center;
+    grid-template-columns: 40fr 1fr;
+    position: relative;
+    top: -90px;
+    height: 90px;
+    padding-top: 62px;
+    padding-right: 139px;
+    padding-left: 238px;
+    background-color: #fff;
+
+    transition: top 1s;
+    @media (max-width: 1480px) {
+      padding-left: 200px;
+      padding-right: 39px;
+    }
+    @media (min-width: 2000px) {
+      padding-right: 300px;
+    }
+    @include tabletScreen {
+      top: -100vh;
+      padding-top: 110px;
+    }
+    @include mobileScreen {
+      padding-left: 50px;
+      padding-top: 100px;
+    }
+    &--open {
+      display: grid;
+      top: 0;
+      @include tabletScreen {
+        z-index: 2;
+        height: 100vh;
+      }
+    }
+    &-list {
+      justify-self: center;
+      display: flex;
+      font-family: "Oswald", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+
+      @include tabletScreen {
+        justify-self: start;
+        flex-direction: column;
+
+      }
+
+      &-item {
+        transition: opacity 0.3s ease-in;
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+
+      &-item:not(:last-child) {
+        margin-right: 50px;
+        @media (max-width: 1480px) {
+          margin-right: 30px;
+        }
+        @include tabletScreen {
+          margin-right: 0;
+          margin-bottom: 50px;
+        }
+      }
+    }
+    &-search {
+      justify-self: end;
+    }
   }
 
   &__logo-text {
+    z-index: 3;
     @include logo-text;
     width: fit-content;
     justify-self: center;
-  }
-  &__burger-img {
-    align-self: center;
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    transform: translateX(-50%);
+
+    cursor: pointer;
+    
+    &--positioned {
+      opacity: 1;
+      left: 10%;
+      top: -80px;
+      @include tabletScreen {
+        left: 50%;
+        top: -97.98vh;
+        transform: translateX(-50%);
+      }
+    }
   }
   &__title {
     position: absolute;
     top: 235px;
     left: 10%;
     @include main-title-text;
+    &--positioned {
+      top: 145px;
+      @include tabletScreen {
+        display: none;
+      }
+    }
     @include tabletScreen {
+      // top: calc(135px - 100vh);
       top: 135px;
       font-size: 55px;
       line-height: 55px;
@@ -58,6 +239,35 @@
     position: absolute;
     top: 467px;
     left: 20%;
+    display: flex;
+    width: 70px;
+    height: 70px;
+    background-color: #1a5a4c;
+
+    transition: background-color 0.5s ease-in;
+
+    &:hover {
+      
+      background-color: #847b74;
+    }
+  
+    &__arrow {
+      margin: auto;
+    }
+  
+    @include mobileScreen {
+      width: 50px;
+      height: 50px;
+    }
+    &--positioned {
+      top: 377px;
+      @include tabletScreen {
+        display: none;
+      }
+      @include mobileScreen {
+        display: none;
+      }
+    }
     @include mediumScreen {
       left: 23%;
     }
