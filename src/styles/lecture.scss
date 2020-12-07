@@ -1,0 +1,69 @@
+.lecture {
+  background-image: url(../images/bcgImg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 674px;
+  position: relative;
+
+  @media (max-width: 1170px) {
+    height: 550px;
+  }
+
+  @media (max-width: 610px) {
+    height: 210px;
+  }
+
+  &__text {
+    background-color: #fff;
+    width: 570px;
+    height: 204px;
+
+    display: grid;
+    grid-template-areas: "name date"
+      "article article";
+    grid-template-rows: 88px 116px;
+
+    position: absolute;
+    bottom: -116px;
+    left: 50%;
+    transform: translate(-50%);
+
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+    @media (max-width: 610px) {
+      width: 278px;
+      height: 154px;
+
+      grid-template-rows: 2fr 3fr;
+
+      bottom: -90px;
+    }
+  }
+
+  &__lecture {
+    @include event;
+    grid-area: name;
+
+    justify-self: center;
+    align-self: center;
+  }
+
+  &__date {
+    @include date;
+    grid-area: date;
+
+    justify-self: center;
+    align-self: center;
+  }
+
+  &__article {
+    @include articles;
+    text-align: center;
+    grid-area: article;
+
+    @media (max-width: 610px) {
+      font-size: 28px;
+      padding: 0 20px;
+    }
+  }
+}
