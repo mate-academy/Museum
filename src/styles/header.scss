@@ -1,28 +1,66 @@
-.body__header {
-  margin: 0 auto 200px;
-}
-
 .header {
   height: 655px;
-  max-width: 1370px;
   position: relative;
 
-  &__mainImg {
+  @media (max-width: 928px) {
+    height: 500px;
+  }
+
+  &__bcgImg {
+    background-image: url(../images/headerImg.png);
+    background-size: cover;
+
+    width: 1245px;
+    height: 655px;
     position: absolute;
+    right: -175px;
     top: 0;
-    right: -275px;
     z-index: -1;
+
+    @media (max-width: 1440px) {
+      right: -100px;
+      width: 1045px;
+    }
+
+    @media (max-width: 1280px) {
+      right: -60px;
+      width: 725px;
+    }
+
+    @media (max-width: 1024px) {
+      width: 655px;
+    }
+
+    @media (max-width: 928px) {
+      width: 505px;
+      height: 384px;
+    }
+
+    @media (max-width: 765px) {
+      top: 0;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    @media (max-width: 480px) {
+      width: 320px;
+      height: 300px;
+    }
   }
 
   &__sideImg {
     position: absolute;
-    left: 0;
+    left: 20px;
     bottom: 0;
 
     display: flex;
     align-items: center;
     transform: rotate(-90deg);
     transform-origin: left top;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
 
     &-line {
       width: 70px;
@@ -46,26 +84,71 @@
     }
   }
 
-  &__article {
+  &__text {
     position: absolute;
-    right: 830px;
-    top: 235px;
+    right: 930px;
+    top: 50%;
+    transform: translateY(-30%);
+
+    @media (max-width: 1440px) {
+      right: 805px;
+    }
+
+    @media (max-width: 1280px) {
+      right: 525px;
+    }
+
+    @media (max-width: 1024px) {
+      right: 455px;
+    }
+
+    @media (max-width: 928px) {
+      right: 305px;
+    }
+
+    @media (max-width: 765px) {
+      position: absolute;
+      top: 410px;
+      left: 50%;
+      transform: translate(-50%);
+      width: 280px;
+    }
+
+    @media (max-width: 480px) {
+      top: 320px;
+    }
+  }
+
+  &__article {
+    margin-bottom: 80px;
+
+    @media (max-width: 928px) {
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 765px) {
+      font-size: 45px;
+      text-align: center;
+    }
   }
 
   &__article-span {
-    -webkit-text-fill-color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+
+    @media (min-width: 766px) {
+      -webkit-text-fill-color: white;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+    }
   }
 
   &__tickets {
-    position: absolute;
-    top: 467px;
-    right: 1040px;
-
     display: flex;
-
+    width: 150px + 70px;
     border: 1px solid $mainGreen;
+
+    @media (max-width: 765px) {
+      width: 230px + 50px;
+    }
 
     &-text {
       width: 150px;
@@ -81,6 +164,12 @@
 
       text-align: center;
       line-height: 70px;
+
+      @media (max-width: 765px) {
+        height: 50px;
+        width: 230px;
+        line-height: 50px;
+      }
     }
 
     &-area {
@@ -88,6 +177,11 @@
       height: 70px;
       background-color: $mainGreen;
       display: flex;
+
+      @media (max-width: 765px) {
+        width: 50px;
+        height: 50px;
+      }
     }
 
     &-img {
