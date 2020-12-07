@@ -1,143 +1,159 @@
 .gallery {
   display: grid;
-  row-gap: 60px;
+  grid-template-areas: "first second second third" "fourth fourth fifth sixth";
+  justify-content: center;
+  gap: 30px;
 
-  &__position {
-    display: flex;
-    gap: 130px;
-    justify-content: flex-start;
+  &__photo {
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
 
-    &--end {
-      justify-content: flex-end;
+    &--first {
+      grid-area: first;
+    }
+
+    &--second {
+      grid-area: second;
+    }
+
+    &--third {
+      grid-area: third;
+    }
+
+    &--fourth {
+      grid-area: fourth;
+    }
+
+    &--fifth {
+      grid-area: fifth;
+    }
+
+    &--sixth {
+      grid-area: sixth;
+    }
+
+    &:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
     }
   }
 
-  &__description {
-    width: 370px;
-    align-self: center;
-  }
+  &__button {
+    width: 70px;
+    height: 70px;
+    background: #1a5a4c;
+    border: none;
+    outline: none;
+    margin-top: 30px;
 
-  &__exhibition {
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 500;
-    font-size: 14px;
-    color: #687480;
-    margin-bottom: 32px;
-
-    &--fon {
-      margin-bottom: 16px;
-    }
-  }
-
-  &__link {
-    padding-left: 26px;
-    text-decoration: none;
-    color: #1a5a4c;
-    font-family: "IBM Plex Sans", sans-serif;
-    font-weight: bold;
-    font-size: 14px;
-
-    &--fon {
-      padding-left: 146px;
-    }
-  }
-
-  &__name {
-    font-family: "Montserrat", sans-serif;
-    font-weight: normal;
-    font-size: 36px;
-    margin-bottom: 15px;
-  }
-
-  &__text {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 300;
     font-size: 16px;
-    line-height: 150%;
-    color: #4e4e4e;
-  }
+    color: #fff;
 
-  &__photos {
-    overflow: hidden;
-    // flex-grow: 1;
-    flex-shrink: 1;
-  }
+    cursor: pointer;
+    transition-duration: 0.5s;
 
+    &:hover {
+      border-radius: 50%;
+      box-shadow: 0 0 25px rgba(#1a5a4c, 0.9);
+    }
+  }
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1650px) {
   .gallery {
+    grid-template-areas: "first second second" "fourth fourth fifth";
 
     &__photo {
-      width: 800px;
-      height: 520px;
-    }
 
-    &__position {
-      gap: 30px;
+      &--third {
+        display: none;
+      }
+  
+      &--sixth {
+        display: none;
+      }
     }
   }
-
 }
 
-@media (max-width: 1300px) {
+@media screen and (max-width: 1300px) {
   .gallery {
+    grid-template-areas: "first third";
+    gap: 20px;
+    position: relative;
 
-    &__position {
-      flex-direction: column;
-      align-items: center;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.7);
+      top: calc(50% - 24px);
+      background-image: url(../images/left.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+      cursor: pointer;
+    }
 
-      &--end {
-        flex-direction: column-reverse;
-      }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.7);
+      top: calc(50% - 24px);
+      right: 0;
+      background-image: url(../images/right.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 1;
+      cursor: pointer;
     }
 
     &__photo {
-      width: 100%;
-      height: 100%;
+      width: 340px;
+      height: 543px;
+      z-index: -2;
+
+      &--second {
+        display: none;
+      }
+  
+      &--third {
+        display: block;
+      }
+  
+      &--fourth {
+        display: none;
+      }
+  
+      &--fifth {
+        display: none;
+      }
     }
 
+    &__button {
+      display: none;
+    }
   }
 
 }
 
-@media (max-width: 720px) {
+@media screen and  (max-width: 720px) {
   .gallery {
-    &__position {
-      gap: 10px;
-    }
+    grid-template-areas: "first";
+    
+    &__photo {
+      width: 280px;
+      height: 410px;
 
-    &__photos {
-      width: 100%;
-    }
-
-    &__description {
-      width: 100%;
-    }
-
-    &__exhibition {
-      margin-bottom: 10px;
-
-      &--fon {
-        font-size: 16px;
-      }
-    }
-
-    &__link {
-      font-size: 16px;
-
-      &--fon {
-        padding-left: 14px;
-      }
-    }
-
-    &__name {
-      font-size: 28px;
-      margin-bottom: 10px;
-
-      &--fon {
-        font-size: 28px;
-        text-align: center;
+      &--third {
+        display: none;
       }
     }
   }
