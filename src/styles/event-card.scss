@@ -1,10 +1,22 @@
 .event-card {
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
+  grid-template-columns: 7fr 2fr 7fr;
   grid-template-rows: repeat(2, auto);
-  gap: 0 30px;
+  gap: 0 130px;
+
+  &__image {
+    height: 520px;
+    overflow: hidden;
+  }
+
+  &__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: none;
+  }
 
   &__description {
+    width: 370px;
     align-self: center;
     display: flex;
     flex-direction: column;
@@ -57,5 +69,19 @@
       font-size: 16px;
       line-height: 150%;
     }
+  }
+}
+
+@media screen and (max-width: 1270px) {
+  .event-card {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, max-content);
+    gap: 0 20px;
+  }
+
+  &__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
