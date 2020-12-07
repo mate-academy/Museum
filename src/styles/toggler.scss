@@ -1,0 +1,65 @@
+.toggler {
+  position: relative;
+
+  padding: 12px 8px;
+
+  width: 34px;
+  height: 35px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__line {
+    position: relative;
+
+    width: 18px;
+    height: 2px;
+
+    background-color: $color-black-text;
+
+    transition: 0.3s;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 4px;
+
+      width: 18px;
+      height: 2px;
+
+      background-color: $color-black-text;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 8px;
+
+      width: 18px;
+      height: 2px;
+
+      background-color: $color-black-text;
+    }
+
+    &--active {
+
+      transform: rotate(44deg);
+
+      &::before {
+        top: 0;
+
+        transform: rotate(88deg);
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &--active {
+    z-index: 3;
+    bottom: 7px;
+  }
+}
