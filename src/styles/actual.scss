@@ -1,17 +1,7 @@
 .actual {
   &__article {
+    @include mainArticles;
     margin-bottom: 60px;
-
-    @include mainText;
-    font-weight: bold;
-    font-size: 48px;
-    line-height: 100%;
-    color: $dark;
-
-    @media (max-width: 480px) {
-      font-size: 36px;
-      text-align: center;
-    }
   }
 
   &__firstBlock {
@@ -19,9 +9,11 @@
 
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 130px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1170px) {
       grid-template-columns: 1fr;
+      gap: 30px;
       margin-bottom: 60px;
     }
   }
@@ -31,9 +23,12 @@
 
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 130px;
+    justify-items: end;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1170px) {
       grid-template-columns: 1fr;
+      gap: 30px;
       margin-bottom: 90px;
     }
 
@@ -44,11 +39,15 @@
 
   &__firstImg {
     @include actual-media-img;
+
+    // @media (max-width: 1170px) {
+    //   justify-self: center;
+    // }
   }
 
   &__secondImg {
     order: 2;
-    margin-left: 130px;
+    // margin-left: 130px;
 
     @include actual-media-img;
   }
@@ -58,44 +57,26 @@
     flex-direction: column;
     justify-content: center;
 
-    margin-left: 130px;
+    @media (max-width: 1170px) {
+      order: 2;
+    }
+    // margin-left: 130px;
   }
 
   &__exposure {
     margin-bottom: 32px;
 
-    @include secondaryText;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 100%;
-    text-transform: uppercase;
-
-    color: #687480;
-
-    @media (max-width: 480px) {
-      font-size: 16px;
-    }
+    @include event;
   }
 
   &__date {
     margin-left: 26px;
 
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 150%;
-
-    color: $mainGreen;
+    @include date;
   }
 
   &__name {
-    @include mainText;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 100%;
-
-    @media (max-width: 480px) {
-      font-size: 28px;
-    }
+    @include articles;
 
     &-wrapper {
       margin-bottom: 15px;
