@@ -5,24 +5,39 @@
     margin-bottom: 84px;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 2fr;
+    grid-template-columns: 1fr 2fr 2fr;
 
     @media (max-width: $min-desctop-width) {
-      grid-template-rows: 296px 1fr;
-      grid-template-columns: 1fr 2fr 2fr;
-      gap: 0 50px;
+      grid-template-columns: 1fr 6fr;
+      grid-template-rows: 2fr 1fr;
+      gap: 45px;
+    }
+
+    @media (max-width: $min-tablet-width) {
+      display: block;
     }
   }
 
-  // &__links {
-
-  // }
-
-  &__logo {
+  &__links {
     margin-bottom: 62px;
+
+    @media (max-width: $min-tablet-width) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 40px;
+    }
+  }
+
+  &__main-link {
+    display: inline-block;
+
+    height: 72px;
   }
 
   &__soc-links {
+    padding-top: 60px;
     * {
       padding: 5px;
 
@@ -37,11 +52,28 @@
       padding-left: 0;
       margin-right: 5px;
     }
+
+    @media (max-width: $min-tablet-width) {
+      padding-top: 0;
+    }
   }
 
-  // &__schedule {
+  &__time-and-contacts {
+    display: flex;
+    justify-content: space-between;
 
-  // }
+    width: 100%;
+
+    @media (max-width: $min-tablet-width) {
+      justify-content: space-between;
+
+      margin-bottom: 70px;
+    }
+  }
+
+  &__schedule {
+    width: 50%;
+  }
 
   &__title {
     margin-bottom: 20px;
@@ -57,6 +89,10 @@
     }
   }
 
+  &__contacts {
+    width: 50%;
+  }
+
   &__contacts-link {
     color: $color-black-text;
     &:hover {
@@ -69,32 +105,32 @@
 
     @media (max-width: $min-desctop-width) {
       grid-column-start: 2;
-      grid-column-end: 4;
-
       padding-top: 50px;
 
       border-left: none;
       border-top: 1px solid rgba(26, 90, 76, 0.5);
     }
+
+    @media (max-width: $min-tablet-width) {
+      margin-bottom: 70px;
+    }
   }
 
   &__list {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 0 0;
+    width: 100%;
 
     list-style-type: none;
 
-    @media (max-width: $min-desctop-width) {
+    @media (max-width: $min-tablet-width) {
+      justify-content: space-between;
       padding-left: 0;
     }
 
   }
-
-  // &__list-item {
-  // }
 
   &__nav-link {
     display: inline-block;
@@ -115,5 +151,16 @@
     justify-content: space-between;
 
     margin-bottom: 20px;
+
+    @media (max-width: $min-tablet-width) {
+      flex-direction: column-reverse;
+      justify-content: space-between;
+
+      text-align: center;
+
+      margin-bottom: 48px;
+
+      height: 48px;
+    }
   }
 }

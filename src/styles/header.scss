@@ -1,12 +1,12 @@
 .header {
   position: relative;
 
-  height: 655px;
+  // height: 655px;
 
   @media (max-width: $min-desctop-width) {
     margin-bottom: 90px;
 
-    height: 384px;
+    // height: 384px;
   }
 
   &__container {
@@ -66,8 +66,12 @@
 
   // }
 
-  // &__main {
-  // }
+  &__main {
+    @media (max-width: $min-tablet-width) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
 
   &__text {
     position: relative;
@@ -99,6 +103,10 @@
       left: 262px;
 
       height: 384px;
+
+      @media (max-width: $min-tablet-width) {
+        position: static;
+      }
     }
   }
 
@@ -116,6 +124,11 @@
   &__title-stroke {
     color: transparent;
     -webkit-text-stroke: 1px #0f0e08;
+
+    @media (max-width: $min-tablet-width) {
+      color: #000;
+      -webkit-text-stroke: none;
+    }
   }
 
   &__tickets {
@@ -171,7 +184,7 @@
       height: 12px;
       width: 12px;
 
-      background-image: url($img-arrow);
+      background-image: url($img-arrow-white);
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -179,14 +192,15 @@
 
   }
 
-  &__side-link {
+  &__side-link-wrapper {
     position: absolute;
     left: -48px;
-    bottom: 46px;
+    bottom: -50px;
     transform: rotate(-90deg);
 
     @media (max-width: $min-desctop-width) {
       display: none;
     }
   }
+
 }
