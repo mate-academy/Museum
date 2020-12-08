@@ -1,13 +1,9 @@
 .header {
+  position: relative;
   height: 665px;
-  background-image: url(../images/header-back.jpg);
-  background-repeat: no-repeat;
-  background-position: top right;
 
   @include mediumScreen {
     height: 655px;
-    background-image: url(../images/header-back-m.jpg);
-    background-position: right;
   }
 
   @include tabletScreen {
@@ -18,8 +14,29 @@
 
   @include mobileScreen {
     height: 483px;
-    background-size: 320px 300px;
-    background-position: top center;
+  }
+
+  &__right {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 65%;
+    background-image: url(../images/header-back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &--positioned {
+      top: 0;
+    }
+    @include mobileScreen {
+      width: 100%;
+      height: 300px;
+      background-image: url(../images/header-back-m.jpg);
+      background-position: top;
+    }
+    @media (min-width: 364px ) and (max-width: 699px) {
+      background-position: 50% 70%;
+    }
   }
 
   &__side-text {
@@ -54,7 +71,7 @@
   }
 
   &__burger {
-    z-index: 3;
+    z-index: 4;
     display: block;
     position: absolute;
     width: 18px;
@@ -75,9 +92,6 @@
       width: 100%;
       height: 1px;
       top: 45%;
-
-      // transition: all 1s ease-in;
-
     }
     &::before,
     &::after {
@@ -96,7 +110,6 @@
     }
 
     &--active {
-      // left: -80px;
       @include tabletScreen {
         left: 0;
       }
@@ -115,6 +128,7 @@
   }
 
   &__menu {
+    z-index: 3;
     display: none;
     justify-content: center;
     grid-template-columns: 40fr 1fr;
@@ -126,13 +140,14 @@
     padding-left: 238px;
     background-color: #fff;
 
-    transition: top 1s;
     @media (max-width: 1480px) {
       padding-left: 200px;
       padding-right: 39px;
+      grid-template-columns: 20fr 1fr;
     }
     @media (min-width: 2000px) {
       padding-right: 300px;
+      grid-template-columns: 20fr 5fr;
     }
     @include tabletScreen {
       top: -100vh;
@@ -156,6 +171,9 @@
       font-family: "Oswald", sans-serif;
       font-size: 14px;
       font-weight: 400;
+      @media (min-width: 2000px) {
+        justify-self: end;
+      }
 
       @include tabletScreen {
         justify-self: start;
@@ -197,11 +215,16 @@
     transform: translateX(-50%);
 
     cursor: pointer;
-    
+
+    @media (min-width: 364px ) and (max-width: 699px) {
+      color: #fff;
+      -webkit-text-stroke: 1px #0f0e08;
+    }
     &--positioned {
       opacity: 1;
       left: 10%;
       top: -80px;
+      color: #0f0e08;
       @include tabletScreen {
         left: 50%;
         top: -97.98vh;
@@ -212,8 +235,18 @@
   &__title {
     position: absolute;
     top: 235px;
-    left: 10%;
+    left: -296px;
     @include main-title-text;
+    &-mod {
+      -webkit-text-stroke: 1px #0f0e08;
+      color: transparent;
+
+      @include mobileScreen {
+        -webkit-text-stroke: 0;
+        color: #0f0e08;
+
+      }
+    }
     &--positioned {
       top: 145px;
       @include tabletScreen {
@@ -222,13 +255,15 @@
     }
     @include tabletScreen {
       // top: calc(135px - 100vh);
+      left: -225px;
       top: 135px;
       font-size: 55px;
       line-height: 55px;
     }
     @include mobileScreen {
+      width: fit-content;
       top: 320px;
-      left: 5%;
+      left: calc(50% - 137px);
       font-size: 45px;
       line-height: 45px;
       text-align: center;
@@ -238,7 +273,7 @@
   &__link {
     position: absolute;
     top: 467px;
-    left: 20%;
+    left: -142px;
     display: flex;
     width: 70px;
     height: 70px;
@@ -254,8 +289,15 @@
     &__arrow {
       margin: auto;
     }
+
+    @include tabletScreen {
+      top: 289px;
+      left: -75px;
+    }
   
     @include mobileScreen {
+      top: 433px;
+      left: calc(50% + 100px);
       width: 50px;
       height: 50px;
     }
@@ -267,17 +309,6 @@
       @include mobileScreen {
         display: none;
       }
-    }
-    @include mediumScreen {
-      left: 23%;
-    }
-    @include tabletScreen {
-      top: 289px;
-      left: 31%;
-    }
-    @include mobileScreen {
-      top: 433px;
-      left: 85%;
     }
     &::before {
       content: "КВИТКИ";
