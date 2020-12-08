@@ -6,19 +6,74 @@
     <title>Museum</title>
     <link rel="shortcut icon" href="images/icon.svg">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;700&family=Montserrat:wght@400;700&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
   <body>
-    <header class="header"></header>
+    <header class="header">
+      <div class="header__container">
+        <a href="#" class="header__logo">
+          NA
+          <br>
+          MU
+        </a>
+        <a href="#events" class="header__link">ПОДІЇ</a>
+        <div class="header__toggler toggler" onclick="toggleSidebar()"></div>
+
+
+        <nav class="header__nav nav">
+          <a href="#" class="nav__logo">
+            NA
+            <br>
+            MU
+          </a>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#gallery" class="nav__link">Галерея</a>
+            </li>
+            <li class="nav__item">
+              <a href="#events" class="nav__link">Виставки та події</a>
+            </li>
+            <li class="nav__item">
+              <a href="#contacts" class="nav__link">Відвідування</a>
+            </li>
+            <li class="nav__item">
+              <a href="#subscribe" class="nav__link">Стати нашим другом</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">Про Нас</a>
+            </li>
+            <li class="nav__item">
+              <a href="#contacts" class="nav__link">Магазин</a>
+            </li>
+            <li class="nav__item">
+              <a href="#subscribe" class="nav__link">Блог</a>
+            </li>
+            <li class="nav__item">
+              <a href="#contacts" class="nav__link">Контакти</a>
+            </li>
+          </ul>
+        </nav>
+
+
+        <div class="header__main">
+
+          <div class="header__info">
+            <h1 class="header__title">ХУДОЖ<span>НІЙ</span><br> МУЗЕЙ</h1>
+            <a href="#" class="header__button">КВИТКИ</a>
+          </div>
+
+        </div>
+      </div>
+    </header>
 
     <main class="main">
       <section class="events">
         <div class="events__container container">
           <a name="events">
-            <div class="events__title title">
+            <h2 class="events__title title">
               Актуальні події
-            </div>
+            </h2>
           </a>
           <article class="events__exhibition exhibition">
             <img
@@ -79,7 +134,7 @@
       <section class="gallery">
         <div class="container gallery__container">
           <a name="gallery">
-            <div class="gallery__title title">Галерея</div>
+            <h2 class="gallery__title title">Галерея</h2>
           </a>
           <div class="gallery__images">
             <img
@@ -129,7 +184,7 @@
 
       <section class="subscribe">
         <a name="subscribe">
-          <div class="title subscribe__title">Підписка</div>
+          <h2 class="title subscribe__title">Підписка</h2>
         </a>
         <div class="subscribe__text">
           Бути в курсі всіх актуальних подій та останніх новин.
@@ -227,6 +282,14 @@
         </div>
       </div>
     </footer>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script>
+    function toggleSidebar() {
+      const header = document.querySelector('.header');
+      const toggler = document.querySelector('.toggler');
+      const nav = document.querySelector('.nav');
+      nav.classList.toggle('nav--open');
+      toggler.classList.toggle('toggler--open');
+    }
+    </script>
   </body>
 </html>

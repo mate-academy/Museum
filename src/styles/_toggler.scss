@@ -1,0 +1,43 @@
+.toggler,
+.toggler::before,
+.toggler::after {
+  background-color: #0f0e08;
+  width: 20px;
+  height: 3px;
+  position: absolute;
+  top: 15px;
+  left: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.toggler {
+  left: 20px;
+
+  &::before {
+    content: "";
+    top: 5px;
+  }
+
+  &::after {
+    content: "";
+    top: 10px;
+  }
+
+  &--open {
+
+    transform: rotate(45deg);
+    z-index: 2;
+    // top: 100px;
+
+    &::before {
+      top: 0;
+      transform: rotate(0);
+    }
+
+    &::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+  }
+}
