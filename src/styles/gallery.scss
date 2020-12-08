@@ -1,15 +1,25 @@
 .gallery {
   width: 100%;
-  max-width: 1570px;
 
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: 100px 600px 360px;
-  gap: 30px;
+  &__wrapper {
+    width: 100%;
+    max-width: 1570px;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: 100px 600px 360px;
+    gap: 30px;
+  }
 
   &__title {
     grid-column: 1 / 5;
     grid-row: 1 / 1;
+
+    margin-left: 25px;
+
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
     font-size: 48px;
@@ -40,43 +50,83 @@
   &__img-5 {
     grid-column: 9 / 13;
     grid-row: 3 / 3;
+
+    align-self: end;
   }
 
   &__img-6 {
     grid-column: 13 / 17;
     grid-row: 3 / 3;
   }
+
+  &__switcher {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+  }
+
+  &__point {
+    display: block;
+    width: 9px;
+    height: 9px;
+    padding: 10px;
+    background: #e0e0e0;
+    border-radius: 50%;
+  }
+
+  &__point:hover {
+    background: #1a5a4c;
+  }
 }
 
 @media screen and (max-width: 1600px) {
-  .gallery {
+  .gallery__wrapper {
     max-width: 1170px;
 
     grid-template-columns: repeat(9, 1fr);
-
-    &__title {
-      grid-column: 1 / 4;
-    }
-
-    &__img-1 {
-      grid-column: 1 / 4;
-    }
-
-    &__img-2 {
-      grid-column: 4 / 10;
-    }
-
-    &__img-3,
-    &__img-6 {
-      display: none;
-    }
-
-    &__img-4 {
-      grid-column: 1 / 7;
-    }
-
-    &__img-5 {
-      grid-column: 7 / 10;
-    }
   }
+
+  .gallery__title {
+    grid-column: 1 / 4;
+  }
+
+  .gallery__img-1 {
+    grid-column: 1 / 4;
+  }
+
+  .gallery__img-2 {
+    grid-column: 4 / 10;
+  }
+
+  .gallery__img-3,
+  .gallery__img-6 {
+    display: none;
+  }
+
+  .gallery__img-4 {
+    grid-column: 1 / 7;
+  }
+
+  .gallery__img-5 {
+    grid-column: 7 / 10;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .gallery__wrapper {
+    display: flex;
+    margin-left: 25px;
+  }
+
+  .gallery__img-3,
+  .gallery__img-6 {
+    display: block;
+  }
+  
 }
