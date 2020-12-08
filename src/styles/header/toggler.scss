@@ -1,0 +1,52 @@
+%line {
+  width: 18px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #000;
+}
+
+.toggler {
+  transform: translate(-20%, -200%);
+  width: 18px;
+  z-index: 2;
+  height: 1.3px;
+  @media screen and (min-width: 768px) {
+    height: 2px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 1.3px;
+  }
+  position: absolute;
+  top: 25px;
+  left: 15px;
+  @extend %line;
+  cursor: pointer;
+  transition-duration: 0.3s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    transition-duration: 0.3s;
+    @extend %line;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    transition-duration: 0.3s;
+    @extend %line;
+  }
+  &--open {
+    transform: rotate(45deg);
+    height: 1.3px;
+
+  }
+  &--open::before {
+    top: 0;
+  }
+  &--open::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+}

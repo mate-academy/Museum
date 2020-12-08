@@ -1,0 +1,63 @@
+.switch {
+  width: 40px;
+  height: 40px;
+  &__checkbox {
+    margin-top: 50%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 2;
+    visibility: hidden;
+  }
+
+  &:hover {
+    background-color: rgba($color: #ffe, $alpha: 0.4);
+    border-radius: 5px;
+  }
+
+  &__checkbox:checked + nav {
+    transform: translate(0, 300px);
+    visibility: visible;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 18px;
+    width: 18px;
+    margin-top: 50%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .switch {
+    &__checkbox:checked + nav {
+      transform: translate(0, 32px);
+      visibility: visible;
+    }
+  }
+}
+
+@media screen and (min-width:1280px) {
+  .switch {
+    &__checkbox:checked + nav {
+      transform: translate(250px, 0);
+      visibility: visible;
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .switch {
+    &__checkbox:checked + nav {
+      transform: translate(18vw, 0);
+      visibility: visible;
+    }
+  }
+}
