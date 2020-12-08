@@ -47,6 +47,17 @@
     text-transform: uppercase;
   }
 
+  &__title2 {
+    display: none;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 100%;
+    color: #000;
+    text-transform: uppercase;
+  }
+
   &__decoration {
     grid-column: 7/ 9;
     grid-row: 4 / 5;
@@ -119,7 +130,7 @@
 
   &__name::before {
     content: "";
-    position: absolute;
+    position: relative;
     transform-origin: left top;
     top: 50%;
     transform: rotate(-90deg) translate(0, calc(-100% - 10px));
@@ -127,5 +138,58 @@
     width: 1px;
     height: 100px;
     background: #687480;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-left: 0;
+
+    &__title,
+    &__decoration,
+    &__nameContainer {
+      display: none;
+    }
+
+    &__abbr {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      font-size: 30px;
+    }
+
+    &__title2 {
+      display: block;
+      text-align: center;
+
+      font-size: 45px;
+      margin-top: 20px;
+    }
+
+    &__button {
+      width: 230px;
+      height: 50px;
+      line-height: 50px;
+      margin-top: 20px;
+      align-self: center;
+      transform: translate(-25px, 0);
+
+      &::after {
+        right: -50px;
+        height: 50px;
+        width: 50px;
+      }
+    }
+
+    &__imgItem {
+      width: 100%;
+    }
   }
 }
