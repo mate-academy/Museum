@@ -1,0 +1,138 @@
+.gallery {
+  display: grid;
+  grid-template-areas: "first second second third" "fourth fourth fifth sixth";
+  justify-content: center;
+  gap: 30px;
+
+  &__photo {
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+
+    &--first {
+      grid-area: first;
+    }
+
+    &--second {
+      grid-area: second;
+    }
+
+    &--third {
+      grid-area: third;
+    }
+
+    &--fourth {
+      grid-area: fourth;
+    }
+
+    &--fifth {
+      grid-area: fifth;
+    }
+
+    &--sixth {
+      grid-area: sixth;
+    }
+
+    &:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+    }
+  }
+
+}
+
+@media screen and (max-width: 1650px) {
+  .gallery {
+    grid-template-areas: "first second second" "fourth fourth fifth";
+
+    &__photo {
+
+      &--third {
+        display: none;
+      }
+  
+      &--sixth {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .gallery {
+    grid-template-areas: "first third";
+    gap: 20px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.7);
+      top: calc(50% - 24px);
+      background-image: url(../images/left.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.7);
+      top: calc(50% - 24px);
+      right: 0;
+      background-image: url(../images/right.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    &__photo {
+      width: 340px;
+      height: 543px;
+      z-index: -2;
+
+      &--second {
+        display: none;
+      }
+  
+      &--third {
+        display: block;
+      }
+  
+      &--fourth {
+        display: none;
+      }
+  
+      &--fifth {
+        display: none;
+      }
+    }
+
+    &__button {
+      display: none;
+    }
+  }
+
+}
+
+@media screen and  (max-width: 720px) {
+  .gallery {
+    grid-template-areas: "first";
+    
+    &__photo {
+      width: 280px;
+      height: 410px;
+
+      &--third {
+        display: none;
+      }
+    }
+  }
+}
