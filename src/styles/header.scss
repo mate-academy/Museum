@@ -35,7 +35,7 @@
       background-position: top;
     }
     @media (min-width: 364px ) and (max-width: 699px) {
-      background-position: 50% 70%;
+      background-position: right ;
     }
   }
 
@@ -75,7 +75,7 @@
     display: block;
     position: absolute;
     width: 18px;
-    height: 12px;
+    height: 15px;
     top: 40px;
 
     cursor: pointer;
@@ -90,7 +90,7 @@
       background-color: #0f0e08;
       left: 0;
       width: 100%;
-      height: 1px;
+      height: 2px;
       top: 45%;
     }
     &::before,
@@ -99,7 +99,7 @@
       background-color: #0f0e08;
       position: absolute;
       width: 100%;
-      height: 1px;
+      height: 2px;
       left: 0;
     }
     &::before {
@@ -110,6 +110,10 @@
     }
 
     &--active {
+      top: 44px;
+      @include mobileScreen {
+        top: 37px;
+      }
       @include tabletScreen {
         left: 0;
       }
@@ -118,7 +122,6 @@
       }
       &:before {
         transform: rotate(45deg);
-        // top: 11px;
       }
       &:after {
         transform: rotate(-45deg);
@@ -216,10 +219,6 @@
 
     cursor: pointer;
 
-    @media (min-width: 364px ) and (max-width: 699px) {
-      color: #fff;
-      -webkit-text-stroke: 1px #0f0e08;
-    }
     &--positioned {
       opacity: 1;
       left: 10%;
@@ -227,7 +226,7 @@
       color: #0f0e08;
       @include tabletScreen {
         left: 50%;
-        top: -97.98vh;
+        top: calc(-100vh + 15px);
         transform: translateX(-50%);
       }
     }
@@ -235,7 +234,7 @@
   &__title {
     position: absolute;
     top: 235px;
-    left: -296px;
+    left: -298px;
     @include main-title-text;
     &-mod {
       -webkit-text-stroke: 1px #0f0e08;
@@ -248,14 +247,12 @@
       }
     }
     &--positioned {
-      top: 145px;
       @include tabletScreen {
         display: none;
       }
     }
     @include tabletScreen {
-      // top: calc(135px - 100vh);
-      left: -225px;
+      left: -228px;
       top: 135px;
       font-size: 55px;
       line-height: 55px;
