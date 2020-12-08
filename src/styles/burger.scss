@@ -1,10 +1,11 @@
 .burger {
-  // display: none;
+  display: none;
   box-sizing: border-box;
   width: 20px;
   height: 13px;
   position: relative;
   text-align: center;
+  font-family: "Montserrat", sans-serif;
 }
 
 #check-menu {
@@ -18,7 +19,7 @@
   height: 100%;
   line-height: 40px;
   cursor: pointer;
-  z-index: 3;
+  z-index: 5;
 }
 
 .burger__line {
@@ -29,7 +30,7 @@
   height: 1px;
   background-color: black;
   transition: background-color 0.5s, transform 0.5s;
-  z-index: 2;
+  z-index: 4;
 
   &--2 {
     top: 6px;
@@ -50,21 +51,21 @@
   width: 0;
   height: 100vh;
 
-  font-size: 18px;
+  font-size: 0;
   overflow: hidden;
   transition: 0.5s all;
   background-color: black;
-  z-index: 1;
+  z-index: 3;
 }
 
 .burger__link {
   display: block;
-  width: 100%;
+  width: 80%;
   margin-top: 40px;
   padding: 10px;
-  color: blue;
+  color: #fff;
   text-decoration: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #fff;
 
   &--1 {
     margin-top: 150px;
@@ -73,12 +74,21 @@
 
 #check-menu:checked ~ .burger__menu {
   display: block;
-  width: 100vw;
+  width: 40vw;
+  position: fixed;
+  font-size: 18px;
+}
+
+#check-menu:checked ~ .burger__label {
+  position: fixed;
+}
+
+#check-menu:checked ~ .burger {
   position: fixed;
 }
 
 #check-menu:checked ~ .burger__line {
-  background-color: red;
+  background-color: #fff;
 }
 
 #check-menu:checked ~ .burger__line--1 {
@@ -95,4 +105,10 @@
 
 #check-menu:checked ~ .burger__line--4 {
   display: none;
+}
+
+@media screen and (max-width: 1270px) {
+  .burger {
+    display: block;
+  }
 }

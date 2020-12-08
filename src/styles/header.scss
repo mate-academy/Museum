@@ -12,15 +12,23 @@
     grid-column: 1;
     grid-row: 1 / span 2;
     display: grid;
-    grid-template: 1fr 1fr 2fr 1fr 1fr / 200px 300px;
+    grid-template: 1fr 1fr 2fr 1fr 1fr / 200px 300px 1fr;
   }
 
   &__logo {
-    grid-column: 1 / span 2;
+    grid-column-start: 1;
     grid-row: 1;
     align-self: center;
-    justify-self: center;
+    justify-self: start;
     z-index: 1;
+    animation: logo-rotate 2s ease-in-out;
+  }
+
+  &__nav {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    align-self: center;
+    justify-self: start;
   }
 
   &__burger {
@@ -36,15 +44,19 @@
     align-self: end;
     height: 133px;
     position: relative;
-    color: #687480;
-    font-size: 14px;
+    
     line-height: 100%;
     text-align: right;
     font-family: "IBM Plex Sans", sans-serif;
     text-transform: uppercase;
     writing-mode: vertical-lr;
     transform: scale(-1, -1);
-  
+
+    & a {
+      color: #687480;
+      font-size: 14px;
+    }
+
     &::before {
       content: "";
       position: absolute;
@@ -87,7 +99,13 @@
       width: 70px;
       background: url(../images/arrow.svg) center no-repeat;
       background-color: #1a5a4c;
+      transition: all 0.3s;
     }
+
+    &:hover::after {
+      background-color: #29977f;
+    }
+
   }
 
   &__image {
@@ -113,6 +131,10 @@
     grid-template-rows: 100px 284px;
     height: 384px;
     padding: 0;
+
+    &__nav {
+      display: none;
+    }
 
     &__events {
       display: none;
