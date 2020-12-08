@@ -65,7 +65,7 @@
 
     &__items {
       justify-self: center;
-      grid-template-columns: repeat(2, 340px);
+      grid-template-columns: repeat(2, minmax(250px, 340px));
       grid-auto-flow: column;
       grid-template-rows: 543px;
       gap: 0 20px;
@@ -80,6 +80,30 @@
       display: block;
       margin-top: 30px;
       justify-self: center;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .gallery {
+    grid-template-columns: minmax(auto, 320px);
+
+    &__item {
+      &:nth-child(2n + 3) {
+        display: none;
+      }
+    }
+    
+    &__title {
+      padding-bottom: 40px;
+    }
+
+    &__items {
+      grid-template-columns: 280px;
+      grid-auto-flow: column;
+      grid-template-rows: 410px;
+      gap: 0 20px;
+      overflow: hidden;
     }
   }
 }
