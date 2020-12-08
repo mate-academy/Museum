@@ -32,12 +32,26 @@
     top: 7px;
   }
 
+  &__toggler--active > &__toggler {
+    transform: rotate(45deg);
+  }
+
+  &__toggler--active > &__toggler::before {
+    top: 0;
+    transform: rotate(0);
+  }
+
+  &__toggler--active > &__toggler::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
   &__content {
-    display: none;
+    //display: none;
     height: 720px;
-    position: absolute;
+    position: fixed;
     top: 80px;
-    right: -100vw;
+    right: -110vw;
     width: 100%;
     transition: all 0.5s;
     z-index: 5;
@@ -49,7 +63,6 @@
     @media (max-width: 729px) {
       height: 540px;
     }
-
     @media (max-width: 460px) {
       height: 500px;
 
@@ -57,7 +70,6 @@
   }
 
   &__content--open {
-    display: block;
     right: 0;
     transition: all 0.5s;
   }
