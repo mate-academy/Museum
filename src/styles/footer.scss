@@ -46,10 +46,13 @@
   &__logo {
     height: 72px;
     width: 63px;
+
+    @include hoverLogo;
   }
 
   &__network-icons {
     height: 24px;
+    
 
     @include  MinMobileScreen {
       display: flex;
@@ -57,7 +60,12 @@
     }
   }
 
-  &__facebook {
+  &__icon {
+
+    @include hoverLogo;
+  }
+
+  &__icon--a {
     margin-right: 27px;
   }
 
@@ -98,6 +106,11 @@
     }
   }
 
+  &__contacts-link {
+    display: block;
+    @include hoverLinkText;
+  }
+
   &__line {
     display: flex;
     position: relative;
@@ -120,8 +133,28 @@
   &__button {
     position: absolute;
     top: -70px;
+
     @include  MinMobileScreen {
       visibility: hidden;
+    }
+
+    &:hover {
+      border-color: $c-squareEvets;
+      color: $c-squareEvets;
+      box-shadow: inset 1px 1px 12px 1px $c-textDate;
+    }
+  }
+
+  &__menu {
+    margin-top: 40px;
+
+    @include  MinMobileScreen {
+      margin-top: 51px;
+    }
+
+    @include MinMediumScreen {
+      width: 50%;
+      margin-top: 0;
     }
   }
 
@@ -139,17 +172,8 @@
     }
   }
 
-  &__menu {
-    margin-top: 40px;
-
-    @include  MinMobileScreen {
-      margin-top: 51px;
-    }
-
-    @include MinMediumScreen {
-      width: 50%;
-      margin-top: 0;
-    }
+  &__item {
+    @include hoverLinkText;
   }
 
   &__bottom {

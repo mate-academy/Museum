@@ -45,6 +45,16 @@
     color: transparent;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #000;
+    animation: title 5s infinite alternate linear;
+
+    @keyframes title {
+      0% {
+        color: transparent;
+      }
+      100% {
+        color: $c-textDate;
+      }
+    }
 
     @include MobileScreen {
       color: inherit;
@@ -63,6 +73,13 @@
     font-weight: 500;
     font-size: 16px;
     border: 1px solid $c-textDate;
+    transition: border-radius 0.3s, padding-right 0.3s;
+
+    &:hover {
+      border-radius: 20px;
+      padding-right: 0;
+      box-shadow: $shadow-field;
+    }
 
     @include MobileScreen {
       width: 280px;
@@ -74,6 +91,12 @@
   &__button {
     position: absolute;
     right: -1px;
+    transition: filter 0.3s, border-radius 0.3s;
+  }
+
+  &__item:hover .capital__button {
+    filter: brightness(120%);
+    border-radius: 0 20px 20px 0 ;
   }
 
   &__image {
@@ -92,8 +115,6 @@
       height: 320px;
       width: 100%;
       background-position: bottom ;
-      
-
     }
   }
 }

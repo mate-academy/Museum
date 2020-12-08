@@ -53,6 +53,7 @@
 
   &__email {
     display: flex;
+    outline: black;
   }
 
   &__field {
@@ -61,6 +62,13 @@
     font-family: Montserrat, sans-serif;
     font-weight: 400;
     color: $c-lightGreyText;
+    transition-duration: 0.3s;
+    &:hover {
+      box-shadow: inset 1px 1px 30px 1px $c-squareEvets;
+      background-color: transparent;
+      color: $c-pageBackground;
+      border: none;
+    }
 
     @include MediumScreen {
       width: 395px;
@@ -68,13 +76,19 @@
 
     @include MobileScreen {
       width: 233px;
+
+      &:hover {
+        box-shadow: inset 1px 1px 10px 1px $c-squareEvets;
+      }
     }
   }
 
   &__button {
     margin-left: 30px;
     cursor: pointer;
-    border-color: $c-squareEvets;
+    border: none;
+
+    @include hoverButton;
 
     @include MediumScreen {
       margin-left: 10px;
