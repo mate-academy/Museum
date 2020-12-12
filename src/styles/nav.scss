@@ -125,7 +125,6 @@
 
   &__item {
     display: block;
-    width: auto;
   }
 
   &__link {
@@ -141,7 +140,7 @@
     color: #0f0e08;
   }
 
-  &__link:hover {
+  &__item:hover &__link {
     color: #189c80;
   }
 
@@ -198,6 +197,20 @@
 
     &__navCheckbox:checked ~ &__bar &__list {
       margin-left: 75px;
+      align-items: center;
+    }
+
+    &__link {
+      font-size: 24px;
+    }
+
+    &__list > :nth-child(-n+9):not(:first-child)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100vw;
+      height: 1px;
+      background-color: rgb(197, 193, 193);
     }
   }
 }
