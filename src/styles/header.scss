@@ -1,0 +1,164 @@
+.header {
+  margin: 0 auto;
+  position: relative;
+  padding-left: 55px;
+  height: 655px;
+  display: flex;
+  max-width: 1920px;
+
+  &__left-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+  }
+
+  &__right-wrap {
+    width: 60%;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &__img-items {
+    width: 100%;
+    height: 655px;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  &__line {
+    position: absolute;
+    bottom: 100px;
+    left: 135px;
+    transform: rotate(-90deg);
+  }
+
+  &__line-text {
+    text-decoration: none;
+    @extend %ibm;
+    @extend %w7;
+    color: #687480;
+    font-size: 14px;
+    &:before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 70px;
+      top: 50%;
+      left: -90px;
+      background: #1a5a4c;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 15px;
+    left: 51px;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: #000;
+    font-size: 72px;
+    width: fit-content;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    line-height: 100%;
+    position: relative;
+
+    &-mobile {
+      font-size: 45px;
+      @extend %w7;
+      margin-top: 510px;
+      line-height: 100%;
+    }
+  }
+
+  &__span {
+    position: absolute;
+    top: 0;
+    right: -140px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 72px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    line-height: 100%;
+    -webkit-text-stroke: 1px;
+    -webkit-text-fill-color: rgba(#000, 0);
+  }
+
+  &__content {
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 235px;
+  }
+
+  &__button {
+    text-align: center;
+    line-height: 70px;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 80px;
+    margin-right: 141px;
+    position: relative;
+    height: 70px;
+    width: 150px;
+    border: 1px solid #1a5a4c;
+    @extend %ibm, %w5;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #0f0e08;
+
+    &::after {
+      content: "";
+      width: 70px;
+      height: 70px;
+      background-color: #1a5a4c;
+      position: absolute;
+      top: -1px;
+      left: 148px;
+      background-image: url("../images/arrow.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.toggler {
+  left: 23px;
+  top: 45px;
+  position: absolute;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  @extend %line;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    transition-duration: 0.3s;
+    @extend %line;
+    right: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    transition-duration: 0.3s;
+    @extend %line;
+    right: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
