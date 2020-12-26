@@ -1,0 +1,183 @@
+.nav {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__navBurgerMenu {
+    width: 25px;
+    height: 25px;
+    margin-top: 45px;
+    margin-left: 175px;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  &__burger {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+  }
+
+  &__burger--one,
+  &__burger--two,
+  &__burger--three {
+    position: absolute;
+  }
+
+  &__burger--one {
+    top: 0;
+  }
+
+  &__burger--two {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  &__burger--three {
+    position: absolute;
+    bottom: 0;
+  }
+
+  &__checkbox:checked ~ &__navBurgerMenu > &__burger--two {
+    transform: rotate(-45deg);
+  }
+
+  &__checkbox:checked ~ &__navBurgerMenu > &__burger--one {
+    top: calc(50% + 1px);
+    transform: translate(0,-50%) rotate(45deg);
+  }
+
+  &__checkbox:checked ~ &__navBurgerMenu > &__burger--three {
+    top: calc(50% + 1px);
+    transform: translate(0,-50%) rotate(-45deg);
+  }
+
+  &__bar {
+    transform: translate(0, -100%);
+  }
+
+  &__list {
+    display: none;
+  }
+
+  &__checkbox:checked ~ &__bar {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translate(0, 0);
+    z-index: 2;
+    background-color: rgba(white, .4);
+  }
+
+  &__checkbox:checked ~ &__bar &__list {
+    width: 100%;
+    height: 100px;
+    padding-right: 50px;
+    margin-top: 5px;
+
+    display: flex;
+
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__checkbox:checked ~ &__bar &__list {
+    align-self: center;
+  }
+
+  &__item {
+    display: block;
+    padding-left: 25px;
+  }
+
+  &__link {
+    display: block;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 100%;
+    color: #0f0e08;
+  }
+
+  &__item:hover &__link {
+    color: #189c80;
+  }
+
+  &__namu {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 100%;
+    color: #0f0e08;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .nav {
+    left: 0;
+
+    &__navBurgerMenu {
+      margin-left: 136px;
+    }
+
+    &__checkbox:checked ~ &__bar &__list {
+      margin-left: 225px;
+
+      flex-direction: column;
+      gap: 0;
+
+      justify-content: start;
+      align-items: start;
+    }
+
+    &__link {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .nav {
+
+    &__navBurgerMenu {
+      margin-left: 55px;
+    }
+
+    &__checkbox:checked ~ &__bar &__list {
+      margin-left: 95px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .nav {
+    top: 0;
+
+    &__navBurgerMenu {
+      margin-left: 50px;
+    }
+
+    &__checkbox:checked ~ &__bar &__list {
+      margin-left: 30px;
+      align-items: center;
+    }
+
+    &__link {
+      font-size: 24px;
+      color: black;
+    }
+  }
+}
