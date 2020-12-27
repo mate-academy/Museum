@@ -1,121 +1,179 @@
 .footer {
-  padding-top: 51px;
-  position: relative;
-  max-width: 1920px;
-  margin: 0 auto;
+  @extend %ibm;
+  padding: 0 20px 48px;
 
-  &::after {
-    position: absolute;
-    content: "";
-    background-color: rgba(26, 90, 76, 0.5);
-    width: 1px;
-    height: 260px;
-    top: 51px;
-    left: 50%;
+  @media (min-width: 768px) {
+    padding: 0 34px 36px;
   }
 
-  &__content-wrap {
+  @media (min-width: 1024px) {
+    padding: 0 55px 36px;
+  }
+
+  @media (min-width: 1801px) {
+    padding: 0 calc(50% - 1570px / 2);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__media {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    margin-bottom: 40px;
+
+    @media (min-width: 768px) {
+      flex-direction: column;
+      margin-right: 50px;
+      height: 158px;
+    }
+
+    @media (min-width: 1250px) {
+      margin-right: 90px;
+    }
   }
 
-  &__items {
-    margin-right: 5%;
+  &__logo {
+    width: 63px;
+    height: 72px;
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
-  &__left {
-    width: 55%;
+  &__links {
+    display: flex;
+    align-self: center;
+  }
+
+  &__link-fb {
+    width: 24px;
+    height: 24px;
+    margin-right: 20px;
+    background: no-repeat center / contain url("../images/Facebook.svg");
+  }
+
+  &__link-insta {
+    width: 24px;
+    height: 24px;
+    background: no-repeat center / contain url("../images/insta.svg");
+  }
+
+  &__content {
+    margin-bottom: 70px;
+
+    @media (min-width: 768px) {
+      flex-grow: 1;
+      margin-bottom: 100px;
+    }
+
+    @media (min-width: 1250px) {
+      display: flex;
+      padding-right: calc(100% - 1061px);
+    }
+  }
+
+  &__info {
     display: flex;
     justify-content: space-between;
-  }
+    position: relative;
+    margin-bottom: 111px;
+    line-height: 21px;
 
-  &__right {
-    display: flex;
-    width: 30%;
-    justify-content: space-between;
-  }
+    @media (min-width: 768px) {
+      padding-right: 120px;
+    }
 
-  &__soc {
-    margin-top: 62px;
-    width: 68px;
-  }
+    @media (min-width: 1250px) {
+      margin-bottom: 0;
+    }
 
-  &__facebook {
-    margin-right: 27px;
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      bottom: -71px;
+      width: 100%;
+      height: 1px;
+      background: rgba(26, 90, 76, 0.5);
+
+      @media (min-width: 1250px) {
+        bottom: 95px;
+        right: -40px;
+        transform: rotate(90deg);
+        width: 260px;
+      }
+    }
   }
 
   &__schedule {
-    width: 170px;
-    margin-right: 5%;
-
-    &-t {
-      color: #0f0e08;
-      line-height: 21px;
-      @extend %ibm;
-      font-size: 14px;
-      font-weight: 400;
-    }
-
-    &-s {
-      color: #0f0e08;
-      line-height: 21px;
-      @extend %ibm;
-      font-size: 14px;
-      font-weight: 600;
-
-      &-last {
-        margin-bottom: 24px;
-      }
-
-      &-first {
-        margin-top: 24px;
-      }
-    }
+    display: flex;
+    flex-direction: column;
+    width: 40% !important;
+    margin-right: 22px;
   }
 
-  &__b2 {
-    display: flex;
-    justify-content: space-between;
+  &__schedule-title {
+    margin-bottom: 20px;
+  }
+
+  &__schedule-paragraph {
+    margin-top: 20px;
   }
 
   &__contacts {
-    width: 177px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+
+    &-phone {
+      width: fit-content;
+    }
+
+    &-fax {
+      width: fit-content;
+    }
+
+    &-email {
+      width: fit-content;
+    }
   }
 
-  &__h4 {
+  &__contacts-title {
     margin-bottom: 20px;
   }
 
-  &__nav-l {
-    display: flex;
-    flex-direction: column;
-    margin-right: 5%;
-  }
-
-  &__nav-r {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__b3 {
-    margin-top: 85px;
-    margin-bottom: 35px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__licens {
+  &__bottom {
+    text-align: center;
     font-size: 12px;
-    @extend %ibm, %w3;
-    line-height: 17px;
+    font-weight: 300;
+
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
-  &__link {
-    text-decoration: none;
-    @extend %w4, %ibm;
-    color: #0f0e08;
-    font-size: 14px;
-    margin-bottom: 20px;
+  &__nav {
+    @media (min-width: 768px) {
+      padding-right: 150px;
+    }
+
+    @media (min-width: 1250px) {
+      padding-right: 0;
+      flex-grow: 1;
+    }
+  }
+
+  &__designer {
+    margin-bottom: 14px;
   }
 }
