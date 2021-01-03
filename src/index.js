@@ -1,6 +1,7 @@
 'use strict';
 
 const header = document.querySelector('.header__mobile__popup');
+const togglerWrap = document.querySelector('.header__togler-wrap');
 const toggler = document.querySelector('.toggler');
 const wrap = document.querySelector('.header__left-wrap');
 
@@ -12,4 +13,4 @@ function toggleSidebar() {
 }
 
 header.addEventListener('click', toggleSidebar);
-toggler.addEventListener('click', toggleSidebar);
+togglerWrap.addEventListener('click', toggleSidebar);
