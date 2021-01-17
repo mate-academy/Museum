@@ -126,21 +126,85 @@
     }
 
     @media screen and (max-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: 410px;
-
-      &1 {
-        grid-column: 1/span 2;
-        // grid-row: 1/ span 2;
-        // height: 543px;
-        object-fit: cover;
-        object-position: top;
-      }
-
-      &3 {
-        display: none;
-      }
+      display: none;
     }
   }
 
+  &__carousel {
+    display: none;
+
+    @media screen and (max-width: 768px) {
+      display: block;
+      margin-top: -50px;
+      position: relative;
+
+      width: 768px;
+      margin-bottom: 70px;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 1;
+    top: 280px;
+  }
+
+  &__arrow {
+    background: #0f0e08 url("../images/Vector.svg") no-repeat center;
+    opacity: 0.4;
+    border-radius: 50%;
+    border: 1px solid gray;
+
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      opacity: 0.6;
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  &__switch {
+    width: 740px;
+    overflow: hidden;
+
+    &-images {
+      height: 600px;
+      width: 9999px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      transition: margin-left 250ms;
+      font-size: 0;
+    }
+
+    &-photos {
+      width: 280px;
+      height: 600px;
+      margin-right: 20px;
+      display: block;
+    }
+
+    &-items {
+      display: inline-block;
+    }
+  }
+}
+
+.prev {
+  transform: rotate(180deg);
+}
+
+.next {
+  margin-right: 40px;
 }
