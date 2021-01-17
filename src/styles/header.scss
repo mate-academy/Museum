@@ -1,0 +1,340 @@
+.header {
+  position: relative;
+  height: 665px;
+
+  @include mediumScreen {
+    height: 655px;
+  }
+
+  @include tabletScreen {
+    height: 502px;
+    background-position: top right;
+    background-size: 502px 384px;
+  }
+
+  @include mobileScreen {
+    height: 483px;
+  }
+
+  &__right {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 65%;
+    background-image: url(../images/header-back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &--positioned {
+      top: 0;
+    }
+    @include mobileScreen {
+      width: 100%;
+      height: 300px;
+      background-image: url(../images/header-back-m.jpg);
+      background-position: top;
+    }
+    @media (min-width: 364px ) and (max-width: 699px) {
+      background-position: right ;
+    }
+  }
+
+  &__side-text {
+    position: absolute;
+    top: 522px;
+    transform: rotate(-90deg);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+    color: #687480;
+
+    &--positioned {
+      top: 432px;
+    }
+    
+    @include tabletScreen {
+      display: none;
+    }
+
+    &::after {
+      position: absolute;
+      right: calc(100% + 20px);
+      top: 50%;
+      content: "";
+      display: block;
+      height: 1px;
+      width: 70px;
+      background-color: #1a5a4c;
+
+    }
+  }
+
+  &__burger {
+    z-index: 4;
+    // line-height: 40px;
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    top: 40px;
+
+    cursor: pointer;
+
+    @include mobileScreen {
+      top: 33px;
+    }
+
+    & span {
+      position: absolute;
+      display: block;
+      background-color: #0f0e08;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      top: 9px;
+    }
+    &::before,
+    &::after {
+      content: "";
+      background-color: #0f0e08;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+
+    &--active {
+      // position: fixed;
+      @include mobileScreen {
+        // top: 37px;
+      }
+      @include tabletScreen {
+        left: 0;
+      }
+      span {
+        transform: scale(0);
+      }
+      &:before {
+        transform: rotate(45deg);
+        top: 9px;
+      }
+      &:after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+      }
+    }
+  }
+
+  &__menu {
+    z-index: 3;
+    display: none;
+    justify-content: center;
+    grid-template-columns: 40fr 1fr;
+    position: relative;
+    top: -90px;
+    height: 90px;
+    padding-top: 62px;
+    padding-right: 139px;
+    padding-left: 238px;
+    background-color: #fff;
+
+    @media (max-width: 1480px) {
+      padding-left: 200px;
+      padding-right: 39px;
+      grid-template-columns: 20fr 1fr;
+    }
+    @media (min-width: 2000px) {
+      padding-right: 300px;
+      grid-template-columns: 20fr 5fr;
+    }
+    @include tabletScreen {
+      width: 100%;
+      position: fixed;
+      // overflow: hidden;
+      top: -100vh;
+      padding-top: 110px;
+    }
+    @include mobileScreen {
+      padding-left: 50px;
+      padding-top: 100px;
+    }
+    &--open {
+      display: grid;
+      top: 0;
+      @include tabletScreen {
+        z-index: 2;
+        height: 100vh;
+      }
+    }
+    &-list {
+      justify-self: center;
+      display: flex;
+      font-family: "Oswald", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      @media (min-width: 2000px) {
+        justify-self: end;
+      }
+
+      @include tabletScreen {
+        justify-self: start;
+        flex-direction: column;
+
+      }
+
+      &-item {
+        transition: opacity 0.3s ease-in;
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+
+      &-item:not(:last-child) {
+        margin-right: 50px;
+        @media (max-width: 1480px) {
+          margin-right: 30px;
+        }
+        @include tabletScreen {
+          margin-right: 0;
+          margin-bottom: 50px;
+        }
+      }
+    }
+    &-search {
+      justify-self: end;
+    }
+  }
+
+  &__logo-text {
+    z-index: 4;
+    @include logo-text;
+    width: fit-content;
+    justify-self: center;
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    transform: translateX(-50%);
+
+    cursor: pointer;
+
+    &--positioned {
+      opacity: 1;
+      left: 10%;
+      top: -80px;
+      color: #0f0e08;
+      @include tabletScreen {
+        top: 15px;
+        left: 50%;
+      }
+    }
+  }
+  &__title {
+    position: absolute;
+    top: 235px;
+    left: -298px;
+    @include main-title-text;
+    &-mod {
+      -webkit-text-stroke: 1px #0f0e08;
+      color: transparent;
+
+      @include mobileScreen {
+        -webkit-text-stroke: 0;
+        color: #0f0e08;
+
+      }
+    }
+    &--positioned {
+      @include tabletScreen {
+        display: none;
+      }
+    }
+    @include tabletScreen {
+      left: -228px;
+      top: 135px;
+      font-size: 55px;
+      line-height: 55px;
+    }
+    @include mobileScreen {
+      width: fit-content;
+      top: 320px;
+      left: calc(50% - 137px);
+      font-size: 45px;
+      line-height: 45px;
+      text-align: center;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    top: 467px;
+    left: -142px;
+    display: flex;
+    width: 70px;
+    height: 70px;
+    background-color: #1a5a4c;
+
+    transition: background-color 0.5s ease-in;
+
+    &:hover {
+      
+      background-color: #847b74;
+    }
+  
+    &__arrow {
+      margin: auto;
+    }
+
+    @include tabletScreen {
+      top: 289px;
+      left: -75px;
+    }
+  
+    @include mobileScreen {
+      top: 433px;
+      left: calc(50% + 90px);
+      width: 50px;
+      height: 50px;
+    }
+    &--positioned {
+      top: 377px;
+      @include tabletScreen {
+        display: none;
+      }
+      @include mobileScreen {
+        display: none;
+      }
+    }
+    &::before {
+      content: "КВИТКИ";
+      display: block;
+      position: absolute;
+      right: 70px;
+      width: 150px;
+      height: 68px;
+      background-color: #fff;
+
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 70px;
+      text-align: center;
+
+      border: 1px solid #1a5a4c;
+
+      @include mobileScreen {
+        right: 50px;
+        height: 48px;
+        width: 230px;
+
+        line-height: 48px;
+      }
+    }
+  }
+}
