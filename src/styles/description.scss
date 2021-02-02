@@ -1,0 +1,114 @@
+.description {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  
+  height: 674px;
+  width: 100%;
+  
+  background: no-repeat url(\images\description-bakcground.png);
+  background-position: center;
+  background-size: cover;
+  
+  &__info {
+    display: grid;
+    grid-template-areas: "type time"
+      "title title";
+    padding: 45px 100px;
+    margin-bottom: -120px;
+
+    width: 570px;
+    height: 204px;
+
+    background-color: #fff;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+  }
+
+  &__name {
+    grid-area: type;
+    @extend %type-name;
+  }
+
+  &__time {
+    grid-area: time;
+    justify-self: end;
+    @extend %type-time;
+  }
+
+  &__subtitle {
+    grid-area: title;
+    @extend %subtitle;
+  }
+}
+
+@media (min-width: 1900px) {
+  .description__info {
+    margin-bottom: -100px;
+  }
+}
+
+@media (min-width: 1700px) {
+  .description__info {
+    margin-bottom: -80px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .description__info {
+    margin-bottom: -60px;
+  }
+}
+
+@media (min-width: 1350px) {
+  .description__info {
+    margin-bottom: -140px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .description {
+    background-size: 90% 50%;
+    background-position: center center;
+    
+    &__info {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .description {
+    background-size: contain;
+    
+    &__info {
+      padding: 20px 25px;
+      width: 300px;
+      height: 154px;
+      margin-bottom: 120px;
+    }
+
+    &__name {
+      font-size: 16px;
+    }
+
+    &__time {
+      font-size: 16px;
+    }
+
+    &__subtitle {
+      text-align: center;
+      font-size: 28px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .description {
+    background-size: 100% 50%;
+    align-items: center;
+    background-position: top;
+  }
+  .description__info {
+    margin-bottom: -20px;
+  }
+}

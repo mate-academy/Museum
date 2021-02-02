@@ -1,0 +1,161 @@
+.header {
+  display: grid;
+  grid-template-columns: 675px 3fr;
+
+  text-transform: uppercase;
+
+  &__left {
+    position: relative;
+
+    padding: 235px 0 0 175px;
+  }
+
+  &__right {
+    position: relative;
+    z-index: -1;
+    right: 0;
+  }
+
+  &__text {
+    position: absolute;
+    top: 83%;
+
+    color: $subtitle-color;
+    font-size: 14px;
+    font-weight: $fw-bold;
+    
+    transform: rotate(-90deg);
+
+    &::before {
+      position: absolute;
+      left: -53px;
+      bottom: -24px;
+      content: "";
+      height: 60px;
+      width: 1px;
+      background-color: $text-color;
+      transform: rotate(90deg);
+    }
+  }
+
+  &__title {
+    position: absolute;
+    left: 56%;
+    
+    font-family: $ff-monts;
+    font-weight: $fw-bold;
+    font-size: 72px;
+  }
+
+  &__title-transparent {
+    font-family: $ff-monts;
+    font-weight: $fw-bold;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #0f0e08;
+  }
+
+  &__link {
+    position: absolute;
+    top: 75%;
+    left: 57%;
+    font-family: $ff-ibm;
+    font-weight: 500;
+    font-size: 16px;
+    color: #0f0e08;
+  }
+
+  &__link-text {
+    border: 1px solid $text-color;
+    padding: 27px 43px;
+  }
+
+  &__link-arrow {
+    padding: 27px 31px;
+    background-color: $text-color;
+    border: 1px solid $text-color;
+    color: #d7dde3;
+  }
+
+  &__img {
+    object-fit: cover;
+    height: 655px;
+    width: 100%;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 0;
+    left: 5%;
+
+    @extend %logo;
+  }
+}
+
+@media (max-width: 1100px) {
+  .header {
+    grid-template-columns: 300px 1fr;
+
+    &__title {
+      font-size: 55px;
+      top: 30%;
+      left: 23%;
+    }
+
+    &__img {
+      height: 384px;
+      width: 100%;
+    }
+    &__link {
+      left: 23%;
+    }
+
+    &__text {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    &__left {
+      padding: 0;
+      order: 1;
+    }
+
+    &__title {
+      top: 10%;
+      left: 5%;
+      right: 5%;
+
+      font-size: 45px;
+      text-align: center;
+    }
+
+    &__title-transparent {
+      color: #0f0e08;
+    }
+
+    &__link {
+      top: 50%;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+
+    &__link-text {
+      padding: 18px 80px;
+    }
+
+    &__link-arrow {
+      padding: 18px 22px;
+    }
+
+    &__logo {
+      left: 45%;
+    }
+  }
+}

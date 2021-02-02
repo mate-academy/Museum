@@ -1,0 +1,190 @@
+.events {
+  display: grid;
+  padding: 200px 175px 100px;
+  grid-template-areas: "title ."
+    "img text";
+  grid-gap: 40px 130px;
+
+  &__title {
+    @extend %title;
+    grid-area: title;
+
+  }
+
+  &__img {
+    grid-area: img;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__type {
+    align-self: flex-end;
+  }
+
+  &__info {
+    display: grid;
+    grid-area: text;
+  }
+
+  &__subtitle {
+    position: relative;
+    @extend %subtitle;
+
+    &::after {
+      position: absolute;
+      top: 11px;
+      left: 350px;
+      right: 5px;
+      content: "";
+      width: 15px;
+      height: 15px;
+      background: #f14a27;
+    }
+  }
+
+  &__text {
+    font-weight: 300;
+    color: #4e4e4e;
+    width: 370px;
+
+  }
+
+  &__info-description {
+    display: grid;
+  }
+
+  &__type-name {
+    @extend %type-name;
+  }
+
+  &__type-time {
+    @extend %type-time;
+  }
+
+  &__info-type {
+    display: flex;
+    flex-direction: row;
+    gap: 26px;
+    align-self: center;
+    font-family: $ff-ibm;
+    font-size: 14px;
+  }
+
+  &--position {
+    grid-template-areas: "text img"
+      "text img";
+    padding-top: 0;
+  }
+
+  &__subtitle--posiotion {
+    &::after {
+      left: 300px;
+      right: 5px;
+    }
+  }
+}
+
+@media (min-width: 1500px) {
+  .events {
+  
+    &__info {
+      
+      align-items: flex-start;
+    }
+
+    &__info-type {
+      align-self: end;
+    }
+
+    &__subtitle {
+      padding-top: 40px;
+
+      &::after {
+        top: 50px;
+      }
+    }
+
+    &__text {
+      padding-top: 40px;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .events {
+    padding: 200px 55px 100px;
+
+    &--position {
+      padding-top: 0;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .events {
+    grid-template-areas: "title"
+      "img"
+      "text";
+    padding: 100px 55px 50px;
+
+    &__subtitle {
+      padding: 32px 0 20px;
+
+      &::after {
+        top: 44px;
+      }
+    }
+
+    &__text {
+      padding-top: 0;
+    }
+
+    &--position {
+      padding-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .events {
+    padding: 0 10px;
+
+    &__title {
+      font-size: 36px;
+      text-align: center;
+    }
+
+    &__subtitle {
+      font-size: 28px;
+
+      &::after {
+        top: 39px;
+        left: 270px;
+      }
+    }
+
+    &__info-type {
+      justify-content: space-between;
+    }
+
+    &__subtitle--posiotion {
+    
+      &::after {
+        left: 230px;
+      }
+    }
+
+    &__type {
+      font-size: 16px;
+    }
+
+    &__text {
+      width: 280px;
+    }
+
+    &--position {
+      padding-bottom: 50px;
+    }
+  }
+}

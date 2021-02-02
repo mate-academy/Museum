@@ -1,0 +1,128 @@
+.gallery {
+  margin: 0 auto;
+  max-width: 1200px;
+
+  &__title {
+    @extend %title;
+    margin-bottom: 60px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-areas: "top-left top-mid top-mid top-right"
+      "bott-left bott-left bott-mid bott-right";
+    grid-gap: 30px;
+    margin-bottom: 200px;
+  }
+
+  &__img--position-top-left {
+    grid-area: top-left;
+  }
+
+  &__img--position-top-mid {
+    grid-area: top-mid;
+  }
+  
+  &__img--position-top-right {
+    grid-area: top-right;
+  }
+
+  &__img--position-bottom-left {
+    grid-area: bott-left;
+  }
+
+  &__img--position-bottom-mid {
+    grid-area: bott-mid;
+  }
+
+  &__img--position-bottom-right {
+    grid-area: bott-right;
+  }
+}
+
+@media (min-width: 1900px) {
+  .gallery {
+    padding: 200px 175px 0;
+    max-width: 1900px;
+  }
+}
+
+@media (max-width: 1900px) {
+  .gallery {
+    padding: 200px 10px 0;
+    
+    &__container {
+      grid-template-areas: "top-left top-mid top-mid"
+        "bott-left bott-left bott-mid";
+    }
+
+    &__img--position-top-right {
+      display: none;
+    }
+
+    &__img--position-bottom-right {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .gallery {
+    padding: 0 0 0 10px;
+
+    &__title {
+      margin-top: 200px;
+    }
+    
+  
+    &__container {
+      display: flex;
+      justify-content: stretch;
+      gap: 20px;
+      width: 100%;
+      height: 543px;
+      margin-bottom: 130px;
+      
+      overflow-x: auto;
+    }
+    &__img {
+      position: relative;
+      flex-shrink: 0;
+      width: 340px;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    &__img--position-top-right {
+      display: block;
+    }
+
+    &__img--position-bottom-right {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .gallery {
+
+    &__title {
+      margin-top: 0;
+
+      text-align: center;
+    }
+
+    &__container {
+      grid-gap: 16px;
+    }
+
+    &__img {
+      width: 280px;
+
+      &:first-child {
+        margin-left: 10px;
+      }
+    }
+  }
+}
