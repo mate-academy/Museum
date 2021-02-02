@@ -1,0 +1,132 @@
+.footer {
+
+  &__section {
+    margin: 0 auto;
+  }
+
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #0f0e08;
+
+  &__info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 120px;
+
+    padding-bottom: 84px;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 54px;
+  }
+
+  &__icons {
+    display: grid;
+    justify-items: center;
+  }
+
+  &__logo {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  &__socials {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+  }
+
+  &__schedule {
+    max-width: 160px;
+    margin-right: 20px;
+  }
+
+  &__contacts {
+    position: relative;
+
+    margin-right: 20px;
+    max-width: 177px;
+
+    &::after {
+      position: absolute;
+      width: 1px;
+      height: 260px;
+      left: 150%;
+      top: 0;
+
+      content: "";
+      background-color: rgba(26,90,76,0.5);
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .footer {
+
+    &__info {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 1fr);
+  
+      padding-bottom: 84px;
+    }
+
+    &__contacts {
+
+      &::after {
+        transform: rotate(90deg);
+        left: -50%;
+        top: 50%;
+        height: 460px;
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .footer {
+    
+    &__info {
+      grid-template-columns: 1fr;
+      grid-template-rows: 2fr 1fr;
+
+    }
+
+    &__icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+
+      grid-area: icons;
+    }
+
+    &__schedule {
+      grid-area: schedule;
+    }
+
+    &__contacts {
+      grid-area: contacts;
+
+      &::after {
+        transform: rotate(90deg);
+        left: -10%;
+        top: 70%;
+        height: 80vw;
+      }
+      
+    }
+
+    &__bottom {
+      display: flex;
+      text-align: center;
+      flex-direction: column-reverse;
+      margin-bottom: 48px;
+    }
+  }
+}
