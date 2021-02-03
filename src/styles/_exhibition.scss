@@ -1,0 +1,223 @@
+.exhibition {
+  width: 100%;
+  padding-left: 136px;
+  padding-right: 136px;
+  padding-top: 176px;
+
+  display: grid;
+  justify-content: start;
+
+  @media screen and (max-width: 1280px) {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
+
+  @media screen and (min-width: 1920px) {
+    padding-left: 175px;
+    padding-right: 175px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding-top: 66px;
+    padding-left: 34px;
+  }
+
+  @media screen and (max-width: 320px) {
+    padding-left: 20px;
+  }
+
+  &__block {
+    display: grid;
+    gap: calc(#{$grid-gap * 2 + $grid-column});
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__block--left {
+    grid-template-columns: 670px 370px; /*????*/
+    padding-bottom: 100px;
+
+    @media screen and (min-width: 1920px) {
+      grid-template-columns: 870px 370px; /*????*/
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-bottom: 50px;
+    }
+  }
+
+  &__block--right {
+    grid-template-columns: 370px 670px; /*????*/
+    margin-bottom: 100px;
+
+    @media screen and (min-width: 1920px) {
+      grid-template-columns: 370px 870px; /*????*/
+      padding-left: 200px;
+    }
+
+    @media screen and (max-width: 768px) {
+      grid-template-columns: minmax(360px);
+      margin-bottom: 90px;
+    }
+  }
+
+  &__img {
+    height: 520px;
+  }
+
+  &__img--left {
+    background-image: url("../images/ex1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media screen and (min-width: 1920px) {
+      background-image: url("../images/ex1.png");
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 700px;
+    }
+
+    @media screen and (max-width: 320px) {
+      width: 280px;
+      height: 210px;
+    }
+  }
+
+  &__img--right {
+    background-image: url("../images/ex2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media screen and (min-width: 1920px) {
+      background-image: url("../images/ex2.png");
+    }
+
+    @media screen and (max-width: 768px) {
+      position: relative;
+      bottom: 280px;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 700px;
+    }
+
+    @media screen and (max-width: 320px) {
+      width: 280px;
+      height: 210px;
+      bottom: 330px; /*&&&&&&&&&&&&&*/
+    }
+  }
+
+  &__main--left {
+    @media screen and (max-width: 768px) {
+      width: 360px;
+    }
+
+    @media screen and (max-width: 320px) {
+      width: 280px;
+    }
+  }
+
+  &__main--right {
+    @media screen and (max-width: 768px) {
+      width: 360px;
+      position: relative;
+      top: 530px;
+    }
+
+    @media screen and (max-width: 320px) {
+      width: 280px;
+      position: relative;
+      top: 230px;
+    }
+  }
+
+  &__top {
+    padding-top: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(2, $grid-column);
+    gap: $grid-gap;
+
+    font-size: 14px;
+
+    @media screen and (max-width: 768px) {
+      padding-top: 0;
+    }
+  }
+
+  &__label {
+    font-weight: 500;
+    line-height: 21px;
+    color: #687480;
+    text-transform: uppercase;
+
+    @media screen and (max-width: 768px) {
+      line-height: 0;
+    }
+
+    @media screen and (max-width: 320px) {
+      font-size: 16px;
+    }
+  }
+
+  &__dates {
+    font-weight: 700;
+    line-height: 21px;
+    color: #1a5a4c;
+    white-space: nowrap;
+
+    @media screen and (max-width: 768px) {
+      line-height: 0;
+    }
+
+    @media screen and (max-width: 320px) {
+      font-size: 16px;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    padding-top: 10px;
+    font-family: $secondary-font;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 36px;
+    position: relative;
+
+    @media screen and (max-width: 320px) {
+      font-size: 28px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 24px;
+      left: calc(100% + 20px);
+      background-color: #f14a27;
+      width: 15px;
+      height: 15px;
+
+      @media screen and (max-width: 320px) {
+        top: 22px;
+        left: calc(100% + 12px);
+      }
+    }
+  }
+
+  &__text {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4e4e4e;
+  }
+
+}

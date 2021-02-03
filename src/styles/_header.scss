@@ -1,0 +1,85 @@
+.header {
+  width: 100%;
+  padding-left: 136px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $grid-column);
+  gap: $grid-gap;
+  justify-content: start;
+  grid-template-areas: "space image";
+
+  position: relative;
+
+  &__image {
+    height: 655px;
+
+    background-image: url("../images/1.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+  
+    grid-area: image;
+    grid-column-start: 6;
+    grid-column-end: -1;
+
+    @media screen and (max-width: 768px) {
+      height: 384px;
+
+      grid-column-start: 2;
+      margin-left: 105px;
+    }
+
+    @media screen and (max-width: 320px) {
+      height: 300px;
+
+      grid-column-start: 1;
+      grid-column-end: -1;
+      margin-left: 0;
+
+      background-image: url("../images/2.png");
+    }
+  }
+
+  &__tickets {
+    grid-column-start: 3;
+
+    display: flex;
+
+    position: absolute;
+    top: 502px;
+
+    @media screen and (max-width: 768px) {
+      grid-column-start: 1;
+      top: 289px;
+    }
+
+    @media screen and (max-width: 320px) {
+      grid-area: tickets;
+      top: 0;
+    }
+  }
+
+  @media screen and (min-width: 1920px) {
+    padding-left: 175px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    padding-left: 55px;
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, 100px);
+    gap: 20px;
+    padding-left: 34px;
+  }
+
+  @media screen and (max-width: 320px) {
+    grid-template-columns: repeat(auto-fill, 140px);
+    gap: 20px;
+    padding-left: 20px;
+
+    grid-template-areas: "image image"
+      "title title"
+      "tickets tickets";
+  }
+}
