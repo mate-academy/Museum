@@ -1,0 +1,113 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  height: 100vh;
+  box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
+  &__background {
+    grid-column: 7 / span 13;
+    grid-row: 1 / span 8;
+    background-image: url(\images\header_background.png);
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+  &__logo {
+    grid-column: 8 / span 1;
+    grid-row: 1 / span 1;
+    height: auto;
+    background-image: url(\images\header_logo.svg);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+  &__burger {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    height: 12px;
+    width: 18px;
+    margin: auto;
+    background-image: url(\images\header_burger.svg);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 4;
+  }
+  &__buy {
+
+    grid-column: 3 / span 3;
+    grid-row: 7 / span 1;
+  }
+  &__text,
+  &__text-aft {
+    display: block;
+    grid-column: 3/ span 5;
+    grid-row: 4 / span 1;
+    width: 462px;
+    text-align: left;
+
+    font-weight: 700;
+    font-size: 72px;
+    color: black;
+  }
+  &__text-aft {
+    -webkit-text-stroke: 2px black;
+    -webkit-text-fill-color: transparent;
+    z-index: 2;
+  }
+  &__menu {
+    display: none;
+    grid-column: 1 / span 16;
+    grid-row: 4 / span 3;
+    margin: 0;
+    height: 100vh;
+    box-sizing: border-box;
+    list-style: none;
+    background-color: #e5e5e5;
+    z-index: 4;
+  }
+  &__toggle:checked + &__menu {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    padding-top: 15vh;
+    background-color: #1a5a4c;
+    .burgermenu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+      &__item {
+        line-height: 45px;
+        box-sizing: border-box;
+        border-bottom: 3px solid #1a5a4c;
+        transition: border-bottom 0.25s;
+      }
+      &__item:hover {
+        border-bottom: 3px solid white;
+        cursor: pointer;
+      }
+      &__socnetwork {
+        display: flex;
+        width: 150px;
+        padding-top: 25px;
+        justify-content: space-around;
+      }
+      &__soc {
+        text-align: center;
+        flex-basis: 50%;
+      }
+      &__link:hover > path {
+        fill: white;
+      }
+    }
+  }
+  &__toggle:checked ~ &__burger {
+    background-image: url(\images\header_cancel.svg);
+  }
+}
