@@ -6,6 +6,8 @@
   grid-template-columns: repeat(auto-fill, $grid-column);
   gap: $grid-gap;
 
+  position: relative;
+
   color: #0f0e08;
 
   @media screen and (max-width: 1280px) {
@@ -16,8 +18,27 @@
     padding: 50px 176px 100px;
   }
 
+  @media screen and (max-width: 768px) {
+    padding: 50px 34px 100px;
+
+    grid-template-columns: repeat(auto-fill, 100px);
+    gap: 20px;
+  }
+
+  @media screen and (max-width: 320px) {
+    padding-left: 20px;
+
+    grid-template-columns: repeat(auto-fill, 130px);
+    gap: 20px;
+  }
+
   &__wrap {
     display: flex;
+
+    @media screen and (max-width: 320px) {
+      flex-direction: column;
+      gap: 40px;
+    }
   }
 
   &__icons {
@@ -26,13 +47,52 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
+
+    @media screen and (max-width: 768px) {
+      padding-right: 20px;
+    }
+
+    @media screen and (max-width: 320px) {
+      flex-direction: row;
+      gap: 144px;
+    }
   }
 
   &__schedule {
     padding-right: $grid-gap;
+
+    @media screen and (max-width: 768px) {
+      padding-right: 70px;
+    }
+
+    @media screen and (min-width: 1920px) {
+      padding-right: #{2 * $grid-gap + $grid-column};
+    }
+
   }
 
   &__contacts {
     padding-right: #{$grid-gap + $grid-column};
+
+    @media screen and (max-width: 320px) {
+      padding-right: 0;
+    }
+
+    @media screen and (min-width: 1920px) {
+      padding-right: #{2 * $grid-gap + 2 * $grid-column};
+    }
+  }
+
+  &__links {
+    @media screen and (max-width: 768px) {
+      position: absolute;
+      top: 450px;
+      left: 154px;
+    }
+
+    @media screen and (max-width: 320px) {
+      top: 672px;
+      left: 20px;
+    }
   }
 }

@@ -2,12 +2,27 @@
   display: flex;
 
   &__list {
+    width: #{2 * $grid-gap + 2 * $grid-column};
+
     display: flex;
     flex-direction: column;
     gap: 20px;
-    
+
     white-space: nowrap;
-    width: #{2 * $grid-gap + 2* $grid-column};
+
+    &:last-child {
+      @media screen and (max-width: 320px) {
+        padding-left: 60px;
+      }
+
+      @media screen and (min-width: 1920px) {
+        padding-left: #{$grid-gap + $grid-column};
+      }
+    }
+
+    @media screen and (max-width: 320px) {
+      width: 130px;
+    }
   }
 
 }
