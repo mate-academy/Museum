@@ -6,8 +6,6 @@
   grid-template-columns: repeat(auto-fill, $grid-column);
   gap: $grid-gap;
 
-  position: relative;
-
   color: #0f0e08;
 
   @media screen and (max-width: 1280px) {
@@ -18,15 +16,15 @@
     padding: 50px 176px 100px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     padding: 50px 34px 100px;
 
     grid-template-columns: repeat(auto-fill, 100px);
     gap: 20px;
   }
 
-  @media screen and (max-width: 320px) {
-    padding-left: 20px;
+  @media screen and (max-width: 613px) {
+    padding: 50px 20px 100px;
 
     grid-template-columns: repeat(auto-fill, 130px);
     gap: 20px;
@@ -35,64 +33,95 @@
   &__wrap {
     display: flex;
 
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: 1200px) {
+      flex-direction: column;
+      gap: 100px;
+    }
+  }
+
+  &__mediaq {
+    display: flex;
+    position: relative;
+
+    @media screen and (max-width: 613px) {
       flex-direction: column;
       gap: 40px;
     }
   }
 
   &__icons {
-    padding-right: #{2 * $grid-gap + $grid-column};
+    margin-right: #{2 * $grid-gap + $grid-column};
 
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 60px;
 
-    @media screen and (max-width: 768px) {
-      padding-right: 20px;
+    @media screen and (max-width: 1200px) {
+      margin-right: 50px;
     }
 
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: 613px) {
+      width: 280px;
+
       flex-direction: row;
-      gap: 144px;
+      justify-content: space-between;
     }
   }
 
   &__schedule {
-    padding-right: $grid-gap;
+    margin-right: $grid-gap;
 
-    @media screen and (max-width: 768px) {
-      padding-right: 70px;
+    @media screen and (max-width: 1200px) {
+      margin-right: 70px;
     }
 
     @media screen and (min-width: 1920px) {
-      padding-right: #{2 * $grid-gap + $grid-column};
+      margin-right: #{2 * $grid-gap + $grid-column};
     }
-
   }
 
   &__contacts {
-    padding-right: #{$grid-gap + $grid-column};
-
-    @media screen and (max-width: 320px) {
-      padding-right: 0;
-    }
+    margin-right: #{2* $grid-gap + $grid-column};
 
     @media screen and (min-width: 1920px) {
-      padding-right: #{2 * $grid-gap + 2 * $grid-column};
+      margin-right: #{3 * $grid-gap + 2 * $grid-column};
     }
+  }
+
+  &__narrow {
+    height: 50px;
+
+    position: relative;
+    bottom: 100px;
+    left: 180px;
+
+    background-image: url("../images/icon.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    transition: transform $hover-duration;
+
+    &:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    @media screen and (min-width: 613px) {
+      display: none;
+    }
+
   }
 
   &__links {
-    @media screen and (max-width: 768px) {
-      position: absolute;
-      top: 450px;
-      left: 154px;
+    @media screen and (max-width: 1200px) {
+      margin-left: 120px;
     }
 
-    @media screen and (max-width: 320px) {
-      top: 672px;
-      left: 20px;
+    @media screen and (max-width: 613px) {
+      margin-top: -50px;
+      margin-left: 0;
     }
   }
+
 }

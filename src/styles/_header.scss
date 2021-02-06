@@ -3,33 +3,40 @@
   padding-left: 136px;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, $grid-column);
+  grid-template-columns: repeat(6, $grid-column) repeat(auto-fill, 1px);
   gap: $grid-gap;
-  justify-content: start;
   grid-template-areas: "space image";
 
   position: relative;
 
   &__image {
     height: 655px;
+    justify-content: start;
 
-    background-image: url("../images/1.png");
+    background-image: url("../images/muz1440.png");
     background-repeat: no-repeat;
     background-position: left;
     background-size: cover;
-  
-    grid-area: image;
+
     grid-column-start: 6;
     grid-column-end: -1;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (min-width: 1500px) {
+      background-image: url("../images/muz1920.png");
+    }
+
+    @media screen and (max-width: 1280px) {
+      background-image: url("../images/muz1280.png");
+    }
+
+    @media screen and (max-width: 1200px) {
       height: 384px;
 
       grid-column-start: 2;
       margin-left: 105px;
     }
 
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: 613px) {
       height: 300px;
 
       grid-column-start: 1;
@@ -48,13 +55,13 @@
 
     grid-column-start: 6;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1200px) {
       padding-left: 75px;
 
       grid-column-start: 3;
     }
 
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: 613px) {
       padding-left: 122px;
       top: 9px;
 
@@ -62,7 +69,7 @@
     }
   }
 
-  &__tickets--button {
+  &__tickets {
     grid-column-start: 3;
 
     display: flex;
@@ -70,14 +77,20 @@
     position: absolute;
     top: 502px;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1200px) {
       grid-column-start: 1;
       top: 289px;
     }
 
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: 613px) {
+      width: 100vw;
+      justify-content: center;
       grid-area: tickets;
       top: 0;
+    }
+
+    @media screen and (max-width: 320px) {
+      width: 280px;
     }
   }
 
@@ -89,17 +102,17 @@
     padding-left: 55px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     padding-left: 34px;
 
-    grid-template-columns: repeat(auto-fill, 100px);
+    grid-template-columns: repeat(3, 100px) repeat(auto-fill, 1px);
     gap: 20px;
   }
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 613px) {
     padding-left: 20px;
 
-    grid-template-columns: repeat(auto-fill, 140px);
+    grid-template-columns: repeat(auto-fill, 1px);
     gap: 20px;
 
     grid-template-areas: "image image"
