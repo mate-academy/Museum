@@ -1,0 +1,132 @@
+@import "./art";
+@import "./nav";
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 35% auto;
+
+  &__logo {
+    position: absolute;
+    top: 9px;
+    left: calc(50% - #{$logo-width} / 2);
+
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    z-index: 1;
+  }
+
+  &__background {
+    position: relative;
+    grid-column: 2;
+    height: 655px;
+    background: no-repeat url("/images/header.png");
+    background-size: cover;
+    background-position: bottom;
+  }
+
+  &__art {
+    position: absolute;
+    top: 235px;
+    left: -300px;
+  }
+
+  &__toggler {
+    position: absolute;
+    opacity: 0;
+  }
+
+  &__toggler-label {
+    position: absolute;
+    top: 45px;
+    left: 5%;
+
+    & > .header__toggler-menu,
+    &::before,
+    &::after {
+      display: block;
+      width: 18px;
+      height: 2px;
+      content: "";
+      margin-bottom: 3px;
+
+      background-color: #000;
+    }
+  }
+
+  &__nav {
+    display: none;
+  }
+
+  &__events {
+    position: absolute;
+    bottom: 100px;
+    left: 10%;
+    font-size: 1rem;
+    color: #687480;
+
+    transform: rotate(-90deg);
+
+    &::after {
+      position: absolute;
+      left: -50px;
+      top: -30px;
+
+      width: 1px;
+      height: 70px;
+      background-color: $c-green;
+      content: "";
+
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+@media screen and (max-width: $medium-screen-breakpoint) {
+  .header {
+    &__background {
+      height: 384px;
+      background-position: center;
+    }
+
+    &__logo {
+      top: 15px;
+    }
+
+    &__art {
+      top: 135px;
+      left: -230px;
+    }
+
+    &__events {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: $small-screen-breakpoint) {
+  .header {
+    &__background {
+      height: 320px;
+    }
+
+    &__logo {
+      top: 9px;
+    }
+
+    &__art {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-screen-breakpoint) {
+  .header {
+    display: block;
+
+    &__background {
+      height: 320px;
+    }
+  }
+}
