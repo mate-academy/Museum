@@ -9,6 +9,7 @@
 @import "title";
 @import "event";
 @import "modificators";
+@import "gallery";
 
 html {
   font-family: Montserrat, sans-serif;
@@ -18,4 +19,45 @@ body {
   background: $c-gray;
   margin: 0;
   padding: 0;
+}
+
+@media screen and (max-width: 1600px) {
+  .gallery {
+    &__grid {
+      grid-template-columns: repeat(3, 370px);
+    }
+    &__image:nth-child(1) {
+      grid-column: 1 / span 1;
+    }
+    &__image:nth-child(2) {
+      grid-column: 2 / span 2;
+    }
+    &__image:nth-child(3) {
+      display: none;
+    }
+    &__image:nth-child(4) {
+      grid-column: 1 / span 2;
+    }
+    &__image:nth-child(5) {
+      grid-column: 3 / span 1;
+    }
+    &__image:nth-child(6) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .gallery {
+    justify-content: center;
+    &__grid {
+      height: 600px;
+      width: auto;
+      overflow: hidden;
+    }
+    &__image {
+      height: 600px;
+      width: 370px;
+    }
+  }
 }
