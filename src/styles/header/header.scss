@@ -105,6 +105,10 @@
       margin-right: 10px;
     }
 
+    // @media (max-width: 570px) {
+    //   width: 100%;
+    // }
+
     @media (max-width: 425px) {
       margin-right: 0;
       margin-top: 20px;
@@ -278,9 +282,27 @@
 }
 
 .ticket {
-  height: 70px;
+  height: 72px;
   display: flex;
   border: 1px solid;
+  position: relative;
+
+  &::before {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 70px;
+    background: rgba(26, 90, 76, 0.5);;
+    transition: all 2s ease;
+    z-index: 2;
+  }
+
+
+  &:hover::before {
+    width: calc(100% - 70px);
+  }
 
   @media (max-width: 570px) {
     width: 100%;
@@ -295,7 +317,7 @@
     text-align: center;
 
     @media (max-width: 570px) {
-      width: 100%;
+      width: calc(100% - 70px);
     }
   }
 
@@ -315,6 +337,11 @@
 
     &--secondary {
       background-color: #f14a27;
+      transition: background 0.4s;
+
+      &:hover {
+        background: #bc2100;
+      }
     }
   }
 
