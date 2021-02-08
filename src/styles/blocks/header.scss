@@ -1,5 +1,5 @@
 @import "./art";
-@import "./nav";
+@import "./menu";
 
 .header {
   position: relative;
@@ -32,15 +32,12 @@
     left: -300px;
   }
 
-  &__toggler {
-    position: absolute;
-    opacity: 0;
-  }
-
   &__toggler-label {
     position: absolute;
     top: 45px;
     left: 5%;
+
+    z-index: 1;
 
     & > .header__toggler-menu,
     &::before,
@@ -53,10 +50,6 @@
 
       background-color: #000;
     }
-  }
-
-  &__nav {
-    display: none;
   }
 
   &__events {
@@ -79,6 +72,36 @@
       content: "";
 
       transform: rotate(-90deg);
+    }
+  }
+  
+  &__toggler {
+    position: absolute;
+    opacity: 0;
+
+    &:checked {
+      & ~ .menu {
+        display: block;
+      }
+
+      & ~ .header__events {
+        display: none;
+      }
+
+      & ~ .header__toggler-label::before {
+        display: none;
+      }
+
+      & ~ .header__toggler-label::after {
+        position: relative;
+        top: -5px;
+
+        transform: rotate(-45deg);
+      }
+
+      & ~ .header__toggler-label > .header__toggler-menu {
+        transform: rotate(45deg);
+      }
     }
   }
 }
