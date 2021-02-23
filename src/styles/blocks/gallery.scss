@@ -1,0 +1,32 @@
+.gallery {
+  &__title {
+    @include title;
+  }
+
+  &__wrapper {
+    display: grid;
+    gap: 16px;
+
+    @include onTablet {
+      grid-template-columns: repeat(2, auto);
+      gap: 20px;
+      grid-auto-flow: dense;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(4, auto);
+      gap: 30px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    &:nth-of-type(2),
+    &:nth-of-type(4) {
+      @include onTablet {
+        grid-column: span 2;
+      }
+    }
+  }
+}
