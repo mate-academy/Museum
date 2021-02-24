@@ -1,22 +1,53 @@
 .header {
   position: relative;
-  display: grid;
-  grid-template-columns: 35% auto;
+  display: flex;
+
+  @media screen and(max-width: $beakpointTele) {
+    display: flex;
+    flex-direction: column;
+    position: static;
+  }
+
+  &__top {
+    width: 35%;
+    @media screen and(max-width: $beakpointTele) {
+      height: 0;
+    }
+  }
+
+  @media screen and(max-width: $beakpointTele) {
+    display: flex;
+    flex-direction: column;
+  }
 
   &__backgraund {
+    display: flex;
+    align-items: center;
+    width: 75%;
     background-image: url("../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 655px;
+
+    @media screen and(max-width: $beakpointTele) {
+      width: 100%;
+      height: 400px;
+    }
   }
 
   &__title {
     position: relative;
     text-transform: uppercase;
-    top: 235px;
     left: -264px;
     font-family: $monseratBoldFontFamili;
+
+    @media screen and(max-width: $beakpointTele) {
+      bottom: -350px;
+      margin: 0 auto;
+      left: 0;
+      text-align: center;
+    }
   }
 
   &__event {
@@ -30,7 +61,7 @@
     line-height: 1em;
     font-family: $IBMPlexSans-BoldFontFamili;
 
-    @media screen and(max-width: 920px) {
+    @media screen and(max-width: $beakpointIPood) {
       display: none;
     }
 
@@ -56,6 +87,14 @@
     font-size: 36px;
     line-height: 1em;
     letter-spacing: 1.1px;
+
+    &--disable {
+      display: none;
+    }
+
+    @media screen and(max-width: $beakpointTele) {
+      transform: translateX(-15%);
+    }
   }
 
   &__heading {
@@ -63,12 +102,25 @@
     font-size: 72px;
     line-height: 1em;
     margin-bottom: 120px;
+
+    @media screen and(max-width: $beakpointTele) {
+      margin-bottom: 20px;
+      font-size: 45px;
+      line-height: 1em;
+      max-width: 300px;
+    }
   }
 
   &__heading--transparent {
     font-family: $ubuntuFontFamili;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px #0f0e08;
+
+    @media screen and(max-width: $beakpointTele) {
+      font-family: $monseratBoldFontFamili;
+      -webkit-text-fill-color: $colorBlack;
+      -webkit-text-stroke: 0;
+    }
   }
 
   &__link {
@@ -85,7 +137,7 @@
       content: "";
       display: inline-block;
       width: 70px;
-      height: 58px;
+      height: 60px;
       transform: translate(31px, 24px);
       color: $colorWhite;
       background-color: $colorDarkGreen;
@@ -94,4 +146,5 @@
       background-repeat: no-repeat;
     }
   }
+
 }

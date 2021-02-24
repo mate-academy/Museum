@@ -5,6 +5,12 @@
   height: 12px;
   align-items: center;
 
+  @media screen and(max-width: $beakpointTele) {
+    position: absolute;
+    top: 0;
+    left: 15px;
+  }
+
   &__line {
     position: relative;
     width: 18px;
@@ -34,4 +40,26 @@
       background-color: $colorBlack;
     }
   }
+
+  &--active {
+    z-index: 110;
+    position: absolute;
+    left: 5px;
+  }
+}
+
+.burger-memu__line.burger-memu__line--active {
+  background-color: transparent;
+}
+
+.burger-memu__line.burger-memu__line--active::before {
+  transform: rotate(45deg);
+  top: 0;
+  transition: top 0.1s linear, transform 0.2s ease-out 0.1s;
+}
+
+.burger-memu__line.burger-memu__line--active::after {
+  transform: rotate(-45deg);
+  top: 0;
+  transition: top 0.1s linear, transform 0.2s ease-out 0.1s;
 }
