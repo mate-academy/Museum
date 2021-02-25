@@ -1,7 +1,7 @@
 @import "timetable";
+@import "contacts";
 
 .footer {
-  position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -9,10 +9,49 @@
   padding-bottom: 35px;
 
   &__top {
+    position: relative;
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 154px;
+    max-width: $max-width-for-viewport-more-than-1920px;
+    width: calc(100% - 40px);
+  }
+
+  &__logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 63px;
+    height: 72px;
+    background: url("../images/Logo.png") no-repeat center;
+  }
+
+  &__media {
+    position: absolute;
+    left: 0;
+    top: 126px;
+    display: flex;
+    align-self: center;
+    gap: 27px;
+  }
+
+  &__facebook-logo {
+    width: 11.2px;
+    height: 24px;
+  }
+
+  &__instagram-logo {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     max-width: 1062px;
-    width: calc(100% - 40px);
+    width: 100%;
   }
 
   &__timetable {
@@ -34,6 +73,9 @@
   }
 
   &__link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
     color: #0f0e08;
   }
 
@@ -43,5 +85,76 @@
     max-width: $max-width-for-viewport-more-than-1920px;
     width: calc(100% - 40px);
     margin-top: 85px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 140.62%;
+  }
+
+  @media (max-width: 1000px) {
+    &__separator {
+      margin: 45px 0 51px;
+      width: 100%;
+      height: 1px;
+      background-color: #8aaca5;
+    }
+
+    &__bottom {
+      margin-top: 100px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    padding-top: 162px;
+
+    &__top {
+      padding: 0;
+    }
+
+    &__container {
+      flex-wrap: wrap;
+    }
+
+    &__logo {
+      position: absolute;
+      left: 0;
+      top: -112px;
+    }
+
+    &__media {
+      position: absolute;
+      left: 80%;
+      top: -88px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    &__container {
+      justify-content: space-around;
+    }
+
+    &__bottom {
+      margin-top: 70px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    &__bottom {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__timetable {
+      width: 130px;
+    }
+
+    &__contacts {
+      width: 128px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    &__container {
+      justify-content: space-between;
+    }
   }
 }

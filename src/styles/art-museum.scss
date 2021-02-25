@@ -1,14 +1,18 @@
 .art-museum {
   position: relative;
+  align-items: center;
 
   &__event {
+    position: absolute;
+    left: 0;
+    bottom: 0;
     font-family: $IBM-font-family;
     font-weight: 700;
     font-size: 14px;
     line-height: 100%;
     color: #687480;
     transform-origin: left;
-    transform: translate(0, 140px) rotate(-90deg);
+    transform: rotate(-90deg);
     width: fit-content;
     height: fit-content;
     align-self: flex-end;
@@ -27,6 +31,7 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
+    transform: translate(163px, 0);
   }
 
   &__heading {
@@ -50,12 +55,18 @@
   }
 
   &__button {
+    outline: none;
     border: none;
     padding: 0;
     display: flex;
     align-items: stretch;
     width: 220px;
     height: 70px;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0.2em 0.2em 0.7em black, inset 0 0 0.7em gray;
+    }
   }
 
   &__ticets {
@@ -76,14 +87,97 @@
     flex-basis: 34%;
   }
 
+  &__button:active &__pointer {
+    background-color: #847b74;
+  }
+
+  &__button:active &__ticets {
+    border: 1px solid #847b74;
+  }
+
   &__img-container {
-    position: absolute;
-    left: 27%;
-    top: -260px;
-    width: 73vw;
-    height: 690px;
-    background: url("../images/national-museum.jpg") no-repeat bottom;
+    width: 280px;
+    height: 553px;
+    background: url("../images/national-museum.jpg") no-repeat left;
     background-size: cover;
     z-index: -1;
+    flex-grow: 1;
+    transition: height 1s;
+  }
+
+  @media (max-width: 1280px) {
+    &__event {
+      display: none;
+    }
+
+    &__heading {
+      width: 360px;
+      height: 152px;
+      font-size: 55px;
+      line-height: 100%;
+    }
+
+    &__wrapper {
+      transform: translate(130px, 0);
+    }
+
+    &__letters {
+      font-size: 55px;
+      line-height: 100%;
+    }
+
+    &__img-container {
+      height: 384px;
+    }
+  }
+
+  @media (max-width: 910px) {
+    justify-content: center;
+
+    &__wrapper {
+      order: 1;
+      transform: none;
+      width: 100%;
+      align-items: center;
+    }
+
+    &__img-container {
+      height: 300px;
+      background-position: left;
+    }
+
+    &__heading {
+      width: 280px;
+      font-size: 45px;
+      line-height: 100%;
+      text-align: center;
+      height: fit-content;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    &__letters {
+      font-size: 45px;
+      line-height: 100%;
+      font-family: $Montserrat-font-family;
+      font-weight: 700;
+      -webkit-text-fill-color: black;
+      -webkit-text-stroke: 0;
+    }
+
+    &__button {
+      width: 280px;
+      height: 50px;
+    }
+
+    &__ticets {
+      padding-top: 17px;
+      flex-basis: 80%;
+    }
+
+    &__pointer {
+      padding-top: 19px;
+      flex-basis: 20%;
+    }
   }
 }

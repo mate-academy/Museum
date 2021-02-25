@@ -9,7 +9,7 @@
   font-size: 14px;
   line-height: 100%;
   max-width: $max-width-for-viewport-more-than-1920px;
-  width: calc(100% - 40px);
+  width: calc(100% - 110px);
 
   &__toogler {
     display: none;
@@ -21,16 +21,21 @@
     margin-top: 45px;
     margin-bottom: 178px;
     cursor: pointer;
+
+    &:hover {
+      box-shadow: 0.2em 0.2em 0.7em black, inset 0 0 0.7em gray;
+    }
   }
 
   &__toogler-label-close {
     display: none;
-    width: 63px;
-    height: 72px;
+    width: 58px;
+    height: 63px;
     margin-top: 9px;
     margin-bottom: 155px;
-    object-fit: contain;
+    object-fit: cover;
     cursor: pointer;
+    z-index: 1;
   }
 
   &__menu {
@@ -52,6 +57,11 @@
 
   &__toogler:checked ~ &__toogler-label-close {
     display: block;
+    transition: transform 300ms;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__toogler:checked ~ &__toogler-label-open,
@@ -59,13 +69,23 @@
     display: none;
   }
 
-  // @media (max-width: 1125px) {
-  //   &__menu {
-  //     align-items: flex-start;
-  //   }
+  @media (max-width: 1280px) {
+    width: calc(100% - 40px);
+    min-width: calc(320px - 40px);
+  }
 
-  //   &__toogler-label-close {
-  //     align-self: flex-start;
-  //   }
-  // }
+  @media (max-width: 900px) {
+    &__toogler-label-close {
+      position: absolute;
+      left: 15px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    &__logo {
+      left: calc(50% - 55px / 2);
+      width: 55px;
+      height: 61px;
+    }
+  }
 }

@@ -1,6 +1,6 @@
 .gallery {
   flex-direction: column;
-  margin-top: 214px;
+  margin-top: 316px;
   margin-bottom: 200px;
 
   &__title {
@@ -12,13 +12,120 @@
   }
 
   &__album {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 600px 360px;
+    gap: 30px;
     margin-top: 30px;
   }
 
   &__img {
-    margin-top: 30px;
+    box-shadow: 0.2em 0.2em 0.7em transparent, inset 0 0 0.7em transparent;
+    transition: transform 300ms, box-shadow 300ms, border-radius 300ms;
+  }
+
+  &__img:hover {
+    transform: translate(0, -20px) scale(1.02);
+    border-radius: 20px;
+    box-shadow: 0.2em 0.2em 0.7em black, inset 0 0 0.7em gray;
+  }
+
+  &__img--one {
+    background: url("../images/img_1.jpg") no-repeat center;
+    background-size: cover;
+  }
+
+  &__img--two {
+    grid-column-start: span 2;
+    background: url("../images/img_2.jpg") no-repeat center;
+    background-size: cover;
+  }
+
+  &__img--three {
+    background: url("../images/img_3.jpg") no-repeat center;
+    background-size: cover;
+  }
+
+  &__img--four {
+    grid-column-start: span 2;
+    background: url("../images/img_4.jpg") no-repeat center;
+    background-size: cover;
+  }
+
+  &__img--five {
+    background: url("../images/img_5.jpg") no-repeat center;
+    background-size: cover;
+  }
+
+  &__img--six {
+    background: url("../images/img_6.jpg") no-repeat center;
+    background-size: cover;
+  }
+
+  @media (max-width: 1500px) {
+    margin-top: 300px;
+
+    &__album {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 600px 360px;
+      gap: 30px;
+    }
+
+    &__img--three,
+    &__img--six {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    margin-top: 210px;
+    margin-bottom: 129px;
+
+    &__album {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 543px;
+      gap: 20px;
+    }
+
+    &__img--two,
+    &__img--four,
+    &__img--five,
+    &__img--six {
+      display: none;
+    }
+
+    &__img--one,
+    &__img--three {
+      display: block;
+      background-position: top;
+    }
+  }
+
+  @media (max-width: 700px) {
+    margin-top: 197px;
+    margin-bottom: 139px;
+    align-items: center;
+
+    &__title {
+      font-size: 36px;
+    }
+
+    &__album {
+      grid-template-columns: 280px;
+      grid-template-rows: 410px;
+    }
+
+    &__img--one {
+      background-size: contain;
+      background-position: center;
+    }
+
+    &__img--two,
+    &__img--four,
+    &__img--five,
+    &__img--six,
+    &__img--three {
+      display: none;
+    }
   }
 }
