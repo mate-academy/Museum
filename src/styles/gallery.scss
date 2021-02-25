@@ -1,8 +1,41 @@
 .gallery {
   max-width: $maxWidth;
-  margin: 0 auto;
   @extend %bottomMargin;
+  @extend %widthWithMargins;
 
-  height: 500px;
-  background-color: #eee;
+  &__images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    grid-auto-flow: row dense;
+
+    @media screen and (min-width: $breakpoint1) {
+      grid-template-columns: repeat(3, auto);
+
+      & :nth-child(2),
+      & :nth-child(4) {
+        grid-column: span 2;
+      }
+
+      & :nth-child(3),
+      & :nth-child(6) {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: $breakpoint3) {
+      grid-template-columns: repeat(4, auto);
+
+      & :nth-child(3),
+      & :nth-child(6) {
+        display: block;
+      }
+    }
+
+  }
+
+  &__img {
+    width: 100%;
+  }
+
 }
