@@ -4,18 +4,7 @@
   left: 0;
   top: 0;
   
-
-  &--margin {
-    margin-bottom: 70px;
-    
-    @media screen and (min-width: $breakpoint1) {
-      margin-bottom: 90px;
-    }
-
-    @media screen and (min-width: $breakpoint2) {
-      margin-bottom: 200px;
-    }
-  }
+  @extend %bottomMargin;
 
   &__button {
     box-sizing: content-box;
@@ -24,9 +13,6 @@
     height: $menuHeight;
     margin-top: $menuSmallTop;
     margin-left: $leftSmallMargin;
-    // padding: 5px;
-    // display: none;
-    color: red;
     background-image: url("../images/icons/menu.png");
     background-size: 100%;
     z-index: 2;
@@ -39,6 +25,10 @@
 
     @media screen and (min-width: $breakpoint2) {
       margin-left: $leftBigMargin;
+    }
+
+    @media screen and (min-width: $breakpoint3) {
+      margin-left: calc((100% - 1570px) / 2);
     }
   }
   
@@ -81,8 +71,9 @@
       margin-bottom: 0;
     }
   
-    @media screen and (min-width: $breakpoint2) {
-      width: 65%;
+    @media screen and (min-width: $breakpoint3) {
+      width: calc(#{$maxWidth} * 0.65);
+      margin-right: calc((100% - #{$maxWidth}) / 2);
       margin-bottom: 0;
     }
     
@@ -133,7 +124,7 @@
   &__events {
     position: absolute;
     display: none;
-    left: 43px;
+    left: $leftSmallMargin;
     bottom: 90px;
     transform: rotate(270deg);
     transform-origin: bottom left;
@@ -151,8 +142,18 @@
     }
 
     @media screen and (min-width: $breakpoint1) {
-      display: block;
+      left: $leftMediumMargin;
     }
+
+    @media screen and (min-width: $breakpoint2) {
+      display: block;
+      left: $leftBigMargin;
+    }
+
+    @media screen and (min-width: $breakpoint3) {
+      left: calc((100% - 1570px) / 2);
+    }
+
   }
 
   @media screen and (min-width: $breakpoint1) {

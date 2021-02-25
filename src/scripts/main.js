@@ -7,11 +7,11 @@ $(document).ready(function() {
     hamburgerSlide();
   });
 
-  $('.hamburger__button').click(function() {
+  $('.hamburger__logo').click(function() {
     hamburgerSlide();
   });
 
-  $('.nav__item').click(function() {
+  $('.hamburger__nav-item').click(function() {
     hamburgerSlide();
   });
 });

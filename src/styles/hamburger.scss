@@ -4,39 +4,81 @@
   right: 0;
   left: 0;
   z-index: 33;
+  @include font($defaultFont, 14px, 400);
+  background-color: $whiteColor;
   display: none;
-  height: 100vh;
-  @include font($alternateFont, 22px, 500);
-  background-color: $grayColor;
+  box-shadow: 0 2px 4px $grayColor;
 
-  &__button {
-    position: absolute;
-    top: $menuSmallTop;
-    transform: translateY(-50%);
-    left: $leftSmallMargin;
-    width: 16px;
-    height: 16px;
-    border: none;
-    background-color: transparent;
-    background-image: url("../images/icons/menu_opened.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    cursor: pointer;
+  &__wrapper {
+    max-width: $maxWidth;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    @media screen and (min-width: $breakpoint1) {
-      top: $menuTop;
-      left: $leftMediumMargin;
-    }
-
-    @media screen and (min-width: $breakpoint2) {
-      left: $leftBigMargin;
-    }
+  &__logo {
+    padding: 10px;
+    @include  font($alternateFont, 36px, 700);
   }
 
   &__nav {
-    padding-top: 80px;
+    display: none;
     overflow: hidden;
   }
-  
+
+  &__nav-list {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0;
+
+    // @media screen and (min-width: $breakpoint1_2) {
+    //   gap: 10px;
+    // } 
+
+    @media screen and (min-width: $breakpoint2) {
+      gap: 20px;
+    }
+    
+    @media screen and (min-width: $breakpoint3) {
+      gap: 40px;
+    }
+  }
+
+  &__nav-item {
+    display: flex;
+
+    width: 100%;
+    color: black;
+    border-radius: 5px;
+    transition: background-color 0.5s, color 0.1s;
+    
+    &:hover {
+      color: $whiteColor;
+      background-color: $grayColor;
+    }
+
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    color: inherit;
+    white-space: nowrap;
+    padding: 15px 5px;
+    transition: color $hoverDuration;
+
+    &:hover {
+      color: $whiteColor;
+    }
+
+    @media screen and (min-width: $breakpoint1_2) {
+      padding: 15px 10px;
+    }
+
+    @media screen and (min-width: $breakpoint2) {
+      padding: 15px;
+    }
+  }
+ 
 }
