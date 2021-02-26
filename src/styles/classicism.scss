@@ -2,14 +2,15 @@
   justify-content: center;
 
   &__info {
+    $info-height-for-desctop: 204px;
     position: relative;
-    top: calc(674px - 102px);
+    top: calc(674px - #{$info-height-for-desctop} / 2);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     background-color: $white;
     width: 570px;
-    height: 204px;
+    height: $info-height-for-desctop;
     box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
   }
 
@@ -28,7 +29,7 @@
   &__date {
     margin-left: 146px;
     font-weight: 700;
-    color: #1a5a4c;
+    color: $green;
   }
 
   &__name {
@@ -43,21 +44,22 @@
 
   @media (max-width: 1280px) {
     &__info {
-      top: calc(394px - 102px);
+      $info-height-for-desctop: 204px;
+      top: calc(390px - #{$info-height-for-desctop} / 2);
       width: 570px;
-      height: 204px;
     }
   }
 
   @media (max-width: 700px) {
     &__info {
-      top: calc(394px - 77px);
+      $info-height-for-tablet: 154px;
+      top: calc(394px - #{$info-height-for-tablet} / 2);
       width: 278px;
-      height: 154px;
+      height: $info-height-for-tablet;
     }
 
     &__subtitle {
-      width: calc(100% - 40px);
+      width: $width-for-viewport-less-than-1280px;
       margin-top: 25px;
       margin-bottom: 16px;
       font-size: 16px;

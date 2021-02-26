@@ -9,7 +9,7 @@
   font-size: 14px;
   line-height: 100%;
   max-width: $max-width-for-viewport-more-than-1920px;
-  width: calc(100% - 110px);
+  width: $width-for-viewport-more-than-1280px;
 
   &__toogler {
     display: none;
@@ -21,9 +21,10 @@
     margin-top: 45px;
     margin-bottom: 178px;
     cursor: pointer;
+    transition: transform $duration;
 
     &:hover {
-      box-shadow: 0.2em 0.2em 0.7em black, inset 0 0 0.7em gray;
+      transform: scale(1.5);
     }
   }
 
@@ -57,7 +58,7 @@
 
   &__toogler:checked ~ &__toogler-label-close {
     display: block;
-    transition: transform 300ms;
+    transition: transform $duration;
 
     &:hover {
       transform: scale(1.1);
@@ -70,8 +71,8 @@
   }
 
   @media (max-width: 1280px) {
-    width: calc(100% - 40px);
-    min-width: calc(320px - 40px);
+    width: $width-for-viewport-less-than-1280px;
+    min-width: $min-width-for-viewport;
   }
 
   @media (max-width: 900px) {
@@ -83,8 +84,8 @@
 
   @media (max-width: 320px) {
     &__logo {
-      left: calc(50% - 55px / 2);
-      width: 55px;
+      left: calc(50% - #{$min-logo-width} / 2);
+      width: $min-logo-width;
       height: 61px;
     }
   }
