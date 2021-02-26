@@ -3,18 +3,27 @@
 const menu = document.querySelector('.js-header__nav');
 const menuOpen = document.querySelector('.js-header__burger');
 const menuClose = document.querySelector('.js-nav__close');
-const menuLinks = document.querySelectorAll('.nav__link');
 
 menuOpen.addEventListener('click', function() {
-  menu.style.transform = 'translateY(0)';
+  showMenu();
 });
 
 menuClose.addEventListener('click', function() {
-  menu.style.transform = 'translateY(-100%)';
+  hideMenu();
 });
 
-menuLinks.forEach(item =>
-  item.addEventListener('click', function() {
-    menu.style.transform = 'translateY(-100%)';
-  })
-);
+menu.addEventListener('click', (e) => {
+  const link = e.target.closest('.nav__link');
+
+  if (link) {
+    hideMenu();
+  }
+});
+
+function hideMenu() {
+  menu.style.transform = 'translateY(-100%)';
+}
+
+function showMenu() {
+  menu.style.transform = 'translateY(0)';
+}
