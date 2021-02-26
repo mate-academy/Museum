@@ -1,36 +1,22 @@
 .lection {
   display: flex;
+  width: 100%;
+  height: calc(210px + #{$lectionSmallHeight} / 2);
   flex-direction: column;
   align-items: center;
-  max-width: $maxWidth;
-
-  @extend %bottomMargin;
-
-  &__image {
-    width: 100%;
-
-    height: 210px;
-    @media screen and (min-width: $breakpoint1) {
-      height: 390px;
-    }
-
-    @media screen and (min-width: $breakpoint2) {
-      height: 674px;
-    }
-
-  }
+  background-image: url("../images/photos/background/1.png");
+  background-size: cover;
 
   &__rectangle {
-    $bigHeight : 204px;
-    $smallHeight : 154px;
-
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     width: calc(100% - 42px);
-    height: $smallHeight;
+    height: $lectionSmallHeight;
+    top: 100%;
     transform: translateY(-50%);
     padding: 8px;
     background-color: white;
@@ -39,8 +25,21 @@
 
     @media screen and (min-width: $breakpoint1) {
       width: 570px;
-      height: $bigHeight;
+      height: $lectionBigHeight;
+      top: 100%;
       transform: translateY(-50%);
     }
+  }
+
+  @media screen and (min-width: $breakpoint1) {
+    height: calc(390px + #{$lectionBigHeight} / 2);
+  }
+
+  @media screen and (min-width: $breakpoint2) {
+    height: calc(550px + #{$lectionBigHeight} / 2);
+  }
+
+  @media screen and (min-width: $breakpoint3) {
+    height: calc(650px + #{$lectionBigHeight} / 2);
   }
 }

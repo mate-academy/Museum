@@ -9,33 +9,78 @@
   display: none;
   box-shadow: 0 2px 4px $grayColor;
 
+  &__close-button {
+    box-sizing: content-box;
+    width: 22px;
+    height: 22px;
+    margin-top: 33px;
+    margin-left: $leftSmallMargin;
+    background-image: url("../images/icons/close.svg");
+    background-size: 100%;
+    z-index: 2;
+    cursor: pointer;
+
+    @media screen and (min-width: $breakpoint1_2) {
+      margin-top: 0;
+      margin-left: $leftMediumMargin;
+    }
+
+    @media screen and (min-width: $breakpoint2) {
+      margin-left: $leftBigMargin;
+    }
+
+    @media screen and (min-width: $breakpoint3) {
+      margin-left: calc((100% - 1570px) / 2);
+    }
+  }
+
   &__wrapper {
     max-width: $maxWidth;
     margin: 0 auto;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    @media screen and (min-width: $breakpoint1_2) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   &__logo {
-    padding: 10px;
+    padding: 10px 0;
     @include  font($alternateFont, 36px, 700);
+
+    margin-left: $leftSmallMargin;
+
+    @media screen and (min-width: $breakpoint1_2) {
+      padding: 10px;
+      margin-left: 0;
+    }
   }
 
   &__nav {
     display: none;
     overflow: hidden;
+    margin-left: $leftSmallMargin;
+
+    @media screen and (min-width: $breakpoint1_2) {
+      margin-left: 0;
+    }
   }
 
   &__nav-list {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    // justify-content: flex-start;
     gap: 0;
 
-    // @media screen and (min-width: $breakpoint1_2) {
-    //   gap: 10px;
-    // } 
+    @media screen and (min-width: $breakpoint1_2) {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
 
     @media screen and (min-width: $breakpoint2) {
       gap: 20px;

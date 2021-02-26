@@ -7,7 +7,7 @@ $(document).ready(function() {
     hamburgerSlide();
   });
 
-  $('.hamburger__logo').click(function() {
+  $('.hamburger__close-button').click(function() {
     hamburgerSlide();
   });
 
