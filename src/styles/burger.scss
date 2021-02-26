@@ -1,0 +1,122 @@
+.header__container {
+  position: relative;
+}
+
+.burger {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 25px;
+  height: 12px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.burger span,
+.burger span:before,
+.burger span:after {
+  width: 100%;
+  position: absolute;
+  height: 4px;
+  background: #333;
+  display: block;
+  transition: 0.3s;
+}
+
+.burger span:before {
+  content: "";
+  top: -7px;
+  transition: top 300ms 300ms,
+    transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.burger span {
+  top: 20px;
+}
+
+.burger span:after {
+  content: "";
+  bottom: -7px;
+  transition: bottom 300ms 300ms,
+    transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.burger span.active:before {
+  content: "";
+  top: 0;
+  transform: rotate(45deg);
+  transition: top 300ms,
+    transform 300ms 300ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.burger span.active:after {
+  content: "";
+  bottom: 0;
+  transform: rotate(-45deg);
+  transition: bottom 300ms,
+    transform 300ms 300ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.burger span.active {
+  background: rgba(255, 255, 255, 0);
+}
+
+.burger__menu {
+  height: auto;
+  background-color: $c-gray;
+  color: #ccc;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  top: -200px;
+  right: 0;
+  z-index: -1;
+  transition: top 1s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    background-color 1s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    z-index 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.burger__menu.animate {
+  background-color: $c-gray;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.burger__container {
+  display: flex;
+  width: 2000px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.burger__logo {
+  margin-top: 9px;
+  margin-right: 37px;
+}
+
+.burger__nav-list,
+.burger__search {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0;
+}
+
+.burger__nav-list {
+  margin-right: 229px;
+}
+
+.burger__nav-item {
+  list-style-type: none;
+  margin-right: 50px;
+}
+
+.burger__nav-link {
+  text-decoration: none;
+  color: #000;
+  font-family: $Montserrat-font;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+}
