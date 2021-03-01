@@ -1,0 +1,165 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__top {
+    height: 90px;
+  }
+
+  &__nav {
+    display: inline-block;
+  }
+
+  &__burger {
+    position: relative;
+    margin-top: 38px;
+    line-height: 100px;
+    z-index: 10;
+  }
+
+  &__logo {
+    position: absolute;
+    margin: 0 auto;
+    padding: 9px 0;
+    width: 68px;
+    left: 0;
+    right: 0;
+    text-align: left;
+    z-index: 10;
+  }
+
+  &__content {
+    position: absolute;
+    display: flex;
+    width: 65%;
+    height: 655px;
+    justify-content: center;
+    background-image: url(../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800-1200.jpg);
+    background-size: cover;
+    top: 0;
+    right: 0;
+
+    @include desktop_1440 {
+      width: 56.3%;
+    }
+
+    @include desktop_1280 {
+      width: 66%;
+      height: 384px;
+    }
+
+    @include tablet_768 {
+      flex-direction: row;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    top: 235px;
+    left: -298px;
+    letter-spacing: 0;
+
+    &--decor {
+      -webkit-text-stroke: 1px black;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @include desktop_1280 {
+      top: 135px;
+      left: -228px;
+    }
+
+    @include tablet_768 {
+      display: none;
+    }
+
+    &--mobile {
+      display: none;
+
+      @include tablet_768 {
+        display: block;
+        position: relative;
+        text-align: center;
+        align-self: flex-end;
+        justify-content: center;
+        top: 150px;
+      }
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 467px;
+    left: -298px;
+    width: 150px;
+    height: 70px;
+    font-weight: 500;
+    line-height: 70px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $colorTitles;
+    border: 1px solid $colorElemens;
+
+    &::after {
+      position: absolute;
+      content: ">";
+      width: 70px;
+      height: 70px;
+      font-size: 22px;
+      line-height: 70px;
+      top: -1px;
+      left: 146px;
+      border: 1px solid $colorElemens;
+      background-color: #1a5a4c;
+      color: #d7dde3;
+    }
+
+    @include desktop_1280 {
+      top: 285px;
+      left: -228px;
+      letter-spacing: 0;
+    }
+
+    &-mobile {
+      display: none;
+
+      @include tablet_768 {
+        display: flex;
+        position: relative;
+        align-self: center;
+        justify-content: center;
+        width: 280px;
+        height: 50px;
+        top: 500px;
+        line-height: 50px;
+        border: 1px solid $colorElemens;
+      }
+    }
+
+    &-link {
+      width: 230px;
+      height: 50px;
+      color: $colorTitles;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    &-arrow {
+      width: 50px;
+      height: 50px;
+      font-size: 16px;
+      line-height: 50px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid $colorElemens;
+      background-color: #1a5a4c;
+      color: #d7dde3;
+    }
+  }
+}
