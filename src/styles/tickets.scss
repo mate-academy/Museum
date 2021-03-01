@@ -7,11 +7,10 @@
   position: relative;
   left: 675px;
   top: -45px;
+  transition: left $transition-time;
 }
 
 .tickets__events {
-
-  // display: flex;
   transform: rotate(-90deg);
   position: absolute;
   display: flex;
@@ -34,9 +33,6 @@
   line-height: 14px;
   text-transform: uppercase;
   color: $gray-small-heading;
-  // position: relative;
-  //   right: 26%;
-  //   top: 100%;
 }
 
 .tickets__wrapper {
@@ -52,6 +48,7 @@
   font-weight: 700;
   line-height: 72px;
   margin-bottom: 80px;
+  transition: font-size $transition-time;
 
 }
 
@@ -65,14 +62,6 @@
   cursor: pointer;
   padding: 0;
   border: 1px solid #1a5a4c;
-  // width: 150px;
-  // height: 70px;
-  // font-family: $IBM-Plex-Sans-font;
-  // font-size: 16px;
-  // font-style: normal;
-  // font-weight: 500;
-  // line-height: 16px;
-  // text-transform: uppercase;
 }
 
 .tickets__button-title {
@@ -96,4 +85,82 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 1280px) {
+  .tickets {
+    background-size: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tickets {
+    left: 263px;
+
+    &__heading {
+      font-size: 55px;
+      margin-left: 35px;
+    }
+  }
+
+  .tickets__wrapper {
+    left: -230px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .tickets {
+    position: static;
+    height: 300px;
+    // width: 320px;
+    background-size: cover;
+    background-image: none;
+    margin-bottom: 253px;
+  }
+
+  .tickets__events {
+    width: 320px;
+    height: 300px;
+    position: static;
+    background-image: url("../images/header-muzej-1800x1200.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: none;
+    margin-bottom: 20px;
+  }
+
+  .tickets__events-stick,
+  .tickets__events-title {
+    display: none;
+  }
+
+  .tickets__wrapper {
+    position: static;
+  }
+
+  .tickets__heading {
+    font-size: 45px;
+    line-height: 45px;
+    margin: 0 20px 20px;
+    text-align: center;
+  }
+
+  .tickets__heading-letters {
+    -webkit-text-fill-color: #000;
+    -webkit-text-stroke: #000;
+  }
+
+  .tickets__button {
+    margin: 0 auto;
+  }
+
+  .tickets__button-title {
+    width: 230px;
+    height: 50px;
+  }
+
+  .tickets__button-img {
+    width: 50px;
+    height: 50px;
+  }
 }
