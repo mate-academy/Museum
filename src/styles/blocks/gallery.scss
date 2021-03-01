@@ -1,0 +1,44 @@
+.gallery {
+  &__title {
+    margin-bottom: 60px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 30px;
+    grid-auto-flow: row dense;
+
+    & :nth-child(2),
+    & :nth-child(4) {
+      grid-column: span 2;
+    }
+
+    @include desktop_1440 {
+      grid-template-columns: repeat(3, auto);
+
+      & :nth-child(3),
+      & :nth-child(6) {
+        display: none;
+      }
+    }
+
+    @include tablet_768 {
+      grid-template-columns: 1fr;
+
+      & :nth-child(3),
+      & :nth-child(6) {
+        display: block;
+      }
+
+      & :nth-child(2),
+      & :nth-child(4) {
+        grid-column: span 1;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+}
