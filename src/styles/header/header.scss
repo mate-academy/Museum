@@ -1,0 +1,350 @@
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 55px;
+
+  @media (max-width: 570px) {
+    flex-direction: column-reverse;
+    padding-left: 0;
+  }
+
+  @media (min-width: 570px) {
+    padding-left: 34px;
+  }
+
+  @media (min-width: 1280px) {
+    padding-left: 55px;
+  }
+
+  @media (min-width: 1440px) {
+    padding-left: 135px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    text-align: center;
+
+    @media (max-width: 570px) {
+      align-items: center;
+      padding: 0 20px;
+    }
+  }
+
+
+  &__main-title {
+    align-items: right;
+  }
+
+  &__title {
+    margin-top: 235px;
+    position: relative;
+    font-family: $montserratFontFamily;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 72px;
+
+    @media (max-width: 768px) {
+      font-size: 55px;
+      line-height: 55px;
+      margin-top: 135px;
+    }
+
+    @media (max-width: 570px) {
+      font-size: 40px;
+      line-height: 40px;
+      margin-top: 20px;
+    }
+  }
+
+  &__stroke {
+
+    @media (min-width: 570px) {
+      align-items: center;
+      position: absolute;
+      z-index: 1;
+      color: transparent;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+    }
+  }
+
+  &__image {
+    position: relative;
+    right: 0;
+    background-image: url("../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png");
+    background-repeat: no-repeat;
+    height: 655px;
+    width: calc(100% - 555px);
+    background-size: cover;
+    background-position: left bottom;
+
+    @media (max-width: 1280px) {
+      width: 675px;
+    }
+
+    @media (max-width: 768px) {
+      height: 500px;
+    }
+
+    @media (max-width: 570px) {
+      width: 100vw;
+      height: 300px;
+    }
+  }
+
+  &__ticket {
+    height: 70px;
+    margin-top: 80px;
+    margin-right: 77px;
+
+    @media (max-width: 768px) {
+      margin-right: 10px;
+    }
+
+    @media (max-width: 425px) {
+      margin-right: 0;
+      margin-top: 20px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    &__element {
+      background-color: #1a5a4c;
+      position: absolute;
+      width: 70px;
+      height: 1px;
+      left: 100px;
+      bottom: 35px;
+      transform: rotate(-90deg);
+  
+      &::after {
+        content: "Події";
+        position: absolute;
+        left: 85px;
+        bottom: -5px;
+        font-family: $plexSansFontFamily;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 14px;
+      }
+    }
+  }
+
+  
+}
+
+.navigation {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+}
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.menuToggle
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+.menuToggle .toggle-link:hover
+{
+  color: tomato;
+}
+
+
+.menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0;
+  z-index: 2;
+  
+  -webkit-touch-callout: none;
+}
+
+
+.menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #000;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+.menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+.menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+.menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu-list
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu-list li
+{
+  opacity: none;
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+.namu {
+  font-family: $montserratFontFamily;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 36px;
+  position: absolute;
+  z-index: 1;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.ticket {
+  height: 72px;
+  display: flex;
+  border: 1px solid;
+  position: relative;
+
+  &::before {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 70px;
+    background: rgba(26, 90, 76, 0.5);;
+    transition: all 2s ease;
+    z-index: 2;
+  }
+
+
+  &:hover::before {
+    width: calc(100% - 70px);
+  }
+
+  @media (max-width: 570px) {
+    width: 100%;
+  }
+
+  &__side {
+    width: 150px;
+    font-family: $plexSansFontFamily;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 70px;
+    text-align: center;
+
+    @media (max-width: 570px) {
+      width: calc(100% - 70px);
+    }
+  }
+
+  &__button {
+    position: relative;
+    cursor: pointer;
+    
+    @media (min-width: 320px) {
+      width: 70px;
+    }
+    
+
+    &--primary {
+      background-color: #1a5a4c;
+    }
+
+
+    &--secondary {
+      background-color: #f14a27;
+      transition: background 0.4s;
+
+      &:hover {
+        background: #bc2100;
+      }
+    }
+  }
+
+  &__svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
