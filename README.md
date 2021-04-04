@@ -37,6 +37,6 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 
 # Museum landing page
 
-[DEMO LINK](https://Serhii-Nikitin.github.io/Museum/).
-  - Tech stack: HTML5, SASS, CSS animations, JS
+  - [DEMO LINK](https://Serhii-Nikitin.github.io/Museum/).
+  - Tech stack: HTML5, SASS, BEM methodology
   - Responsive design
