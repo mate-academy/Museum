@@ -1,0 +1,230 @@
+.menu {
+  &__wrapper-burger {
+    position: absolute;
+    top: 33px;
+    left: 23px;
+    z-index: 3;
+
+    &--active {
+      position: fixed;
+    }
+
+    @media (min-width: 768px) {
+      top: 39px;
+      left: 34px;
+    }
+
+    @media (min-width: 1024px) {
+      left: 55px;
+    }
+
+    @media (min-width: 1801px) {
+      left: 175px;
+    }
+
+    @media (min-width: 1921px) {
+      display: none;
+    }
+  }
+
+  &__burger {
+    display: block;
+    height: 24px;
+    width: 24px;
+    position: relative;
+    cursor: pointer;
+
+    &--active::before {
+      transform: rotate(-45deg);
+      top: 5px;
+    }
+
+    &--active::after {
+      transform: rotate(45deg);
+      bottom: 5px;
+    }
+  }
+
+  &__burger-line {
+    position: absolute;
+    top: calc(50% - #{$line-height / 2});
+    width: 18px;
+    height: $line-height;
+    background-color: black;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: transform 0.3s;
+
+    &--active {
+      transform: scale(0);
+    }
+  }
+
+  &__burger::before,
+  &__burger::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: $line-height;
+    background-color: black;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: transform 0.3s;
+  }
+
+  &__burger::before {
+    bottom: 5px;
+  }
+
+  &__burger::after {
+    top: 5px;
+  }
+
+  &__nav-wrapper {
+    position: absolute;
+    overflow: auto;
+    top: -100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 9px;
+    padding-bottom: 15px;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    transition: all 0.3s ;
+
+    @media (min-width: 768px) {
+      padding: 15px 0 100px;
+    }
+
+    @media (min-height: 1024px) {
+      padding-bottom: 300px;
+    }
+
+    @media (min-width: 1250px) {
+      left: -100%;
+      top: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 100px;
+      padding: 0 20px 0 100px;
+      background-color: rgba($color: #fff, $alpha: 0.8);
+    }
+
+    @media (min-width: 1801px) {
+      padding: 0 calc(50% - 1544px / 2);
+    }
+
+    @media (min-width: 1921px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 calc(50% - 1900px / 2);
+      height: 100px;
+
+      z-index: 2;
+    }
+
+    &--active {
+      position: fixed;
+      top: 0;
+      z-index: 2;
+
+      @media (min-width: 1250px) {
+        left: 0;
+      }
+    }
+  }
+
+  &__wrapper-logo {
+    display: block;
+    width: $logo-small-width;
+    height: $logo-small-height;
+    margin-bottom: 30px;
+
+    @include hover(transform, scale(1.2));
+
+    @media (min-width: 768px) {
+      width: $logo-width;
+      height: $logo-height;
+      margin-bottom: 130px;
+    }
+
+    @media (min-width: 1250px) {
+      margin: 0;
+    }
+
+    @media (min-width: 1801px) {
+      margin-left: 70px;
+    }
+  }
+
+  &__logo {
+    width: 100%;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    line-height: 2em;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (min-height: 1024px) {
+      justify-self: center;
+    }
+
+    @media (min-height: 1024px) {
+      font-size: 44px;
+    }
+
+    @media (min-width: 1250px) {
+      flex-direction: row;
+      font-size: 18px;
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    @media (min-width: 1250px) {
+      margin-right: 15px;
+    }
+
+    @media (min-width: 1921px) {
+      margin-right: 30px;
+    }
+  }
+
+  &__link {
+    &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      background-color: #f14a27;
+      height: $line-height;
+      transition: width 0.3s ease 0s, opacity 0.3s ease 0s;
+    }
+
+    &:hover::after {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+}
