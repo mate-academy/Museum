@@ -1,0 +1,267 @@
+@import "utils";
+
+.header {
+  height: 800px;
+  background-color: $colorMainGreen;
+
+  @media (max-width: 729px) {
+    height: 620px;
+  }
+
+  @media (max-width: 460px) {
+    height: 580px;
+  }
+
+  &__top {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  &__menu {
+    display: flex;
+  }
+
+  &__language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0 3px;
+  }
+
+  &__language {
+    color: $colorLightGray;
+    display: block;
+    font-family: $fontSecondary;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    position: relative;
+    height: 720px;
+    padding-top: 110px;
+
+    @media (max-width: 729px) {
+      padding-top: 60px;
+    }
+  }
+
+  &__image-wrap {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    max-height: 720px;
+    z-index: 2;
+
+    @media (max-width: 1170px) {
+      //transform: scale(0.5);
+      display: none;
+    }
+
+  }
+
+  &__image-text {
+    position: absolute;
+    right: 30px;
+    bottom: 330px;
+
+    @media (max-width: 1170px) {
+      display: none;
+      //bottom: 0;
+    }
+  }
+
+  &__date,
+  &__description,
+  &__image-text,
+  &__bottom {
+    @include smallText($colorLightGray);
+  }
+
+  &__title,
+  &__title-second {
+    @include title(96px, 110px, $colorLightGray);
+
+    @media (max-width: 940px) {
+      font-size: 62px;
+      line-height: 96px;
+    }
+    @media (max-width: 460px) {
+      font-size: 42px;
+      line-height: 70px;
+    }
+  }
+
+  &__title-second,
+  &__description,
+  &__button {
+    margin-left: $column;
+
+    @media (max-width: 729px) {
+      margin-left: 0;
+    }
+  }
+
+  &__title-second {
+    margin-bottom: 40px;
+
+    @media (max-width: 729px) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__bottom {
+    position: absolute;
+    bottom: $column / 2;
+    //display: inline-block;
+    @media (max-width: 1100px) {
+      display: none;
+    }
+  }
+
+  &__bottom::after {
+    content: "";
+    height: 1px;
+    width: $column * 5;
+    z-index: 1;
+    background-color: $colorLightGray;
+    position: absolute;
+    bottom: 50%;
+    left: 115%;
+  }
+}
+
+.about {
+  display: flex;
+  margin-bottom: 80px;
+  @media (max-width: 729px) {
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: 630px) {
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+
+  &__item {
+    min-width: $column * 2;
+    @include smallText($colorLightGray);
+  }
+
+  &__title {
+    opacity: 0.7;
+  }
+}
+
+.slider {
+  position: absolute;
+  opacity: 0;
+  transition: all 0.7s;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 60px;
+    max-width: 1280px;
+    height: 720px;
+    background: $colorMainGreen;
+
+    @media (max-width: 1100px) {
+      background: $colorMainGreen;
+    }
+    @media (max-width: 729px) {
+      height: 540px;
+    }
+    @media (max-width: 460px) {
+      height: 500px;
+
+    }
+  }
+
+  &__list::after {
+    display: block;
+    content: "";
+    height: 1px;
+    max-width: $column * 6 - $gridGap;
+    background-color: $colorLightGray;
+    opacity: 0.7;
+  }
+
+  &__item {
+    margin-bottom: 60px;
+    @media (max-width: 729px) {
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 630px) {
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 420px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__link {
+    @include title(48px, 58px, $colorLightGray);
+
+    @media (max-width: 490px) {
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    @media (max-width: 420px) {
+      font-size: 30px;
+      line-height: 30px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: $gridGap;
+
+    @media (max-width: 630px) {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    //@media (max-width: 480px) {
+    //  margin-top: 30px;
+    //}
+
+    @media (max-width: 420px) {
+      align-items: center;
+      margin-top: 10px;
+    }
+  }
+
+  &__button {
+
+  }
+
+  &__image-wrap {
+    align-self: flex-end;
+    max-width: 55%;
+
+    @media (max-width: 939px) {
+      display: none;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.slider--open {
+  opacity: 1;
+  transition: all 0.5s;
+  z-index: 5;
+}

@@ -1,0 +1,49 @@
+@import "utils";
+
+.nav {
+
+  &__toggler-btn {
+    background-color: $colorMainGreen;
+    height: 20px;
+    width: 25px;
+    padding: 20px;
+    margin-right: 40px;
+    cursor: pointer;
+  }
+
+  &__toggler,
+  &__toggler::before,
+  &__toggler::after {
+    display: block;
+    position: absolute;
+
+    width: 25px;
+    height: 2px;
+    background-color: $colorLightGray;
+    transition-duration: 0.3s;
+  }
+
+  &__toggler::before {
+    content: "";
+    top: -7px;
+  }
+
+  &__toggler::after {
+    content: "";
+    top: 7px;
+  }
+
+  &__toggler--active > &__toggler {
+    transform: rotate(45deg);
+  }
+
+  &__toggler--active > &__toggler::before {
+    top: 0;
+    transform: rotate(0);
+  }
+
+  &__toggler--active > &__toggler::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+}

@@ -1,7 +1,98 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "reset";
+@import "header";
+@import "nav";
+@import "exhibitions";
+@import "events";
+@import "visit.scss";
+@import "news.scss";
+@import "digest";
+@import "footer";
 
 body {
   background: $c-gray;
+  font-family: $fontSecondary;
+  line-height: 24px;
+}
+
+.container {
+  max-width: 1280px;
+  padding: 0 30px;
+  margin: 0 auto;
+
+  @media (max-width: 340px) {
+    padding: 0 20px;
+  }
+}
+
+.button {
+  width: $column * 3 - $gridGap;
+  line-height: 60px;
+  margin-top: 60px;
+  display: inline-block;
+  background-color: $colorMainOrange;
+  text-align: center;
+  color: $colorLightGray;
+  position: relative;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+  @media (max-width: 970px) {
+    margin-top: 40px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 420px) {
+    margin-top: 10px;
+    width: 245px;
+  }
+
+}
+
+.button:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 10px rgba(0,0,0,0.3);
+}
+
+.button--inactive {
+  background-color: $colorMainGreen;
+  border: 1px solid $colorLightGray;
+}
+
+.section-bottom {
+  text-align: right;
+  position: relative;
+  padding-right: 200px;
+
+  @media (max-width: 970px) {
+    padding: 0;
+    text-align: center;
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    width: 70px;
+    height: 1px;
+    background-color: $colorBlack;
+
+    @media (max-width: 970px) {
+      right: 0;
+      left: calc(50% - 35px);
+      top: 150%;
+    }
+
+  }
+
+  &-link {
+    @include smallText($colorBlack);
+  }
 }

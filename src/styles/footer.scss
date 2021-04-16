@@ -1,0 +1,79 @@
+@import "utils";
+
+.footer {
+  background-color: $colorMainGreen;
+  padding-top: 60px;
+  @include smallText($colorLightGray);
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 $gridGap;
+
+    @media (max-width: 920px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: row;
+    }
+
+    @media (max-width: 570px) {
+      display: flex;
+      flex-direction: column;
+
+    }
+  }
+
+  &__item {
+    padding-bottom: 40px;
+  }
+
+  &__title {
+    @include title(24px, 30px, $colorLightGray);
+    margin-bottom: 40px;
+
+    @media (max-width: 570px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__sm {
+    display: flex;
+    gap: 0 20px;
+    padding-top: 36px;
+  }
+
+  &__media-link {
+    display: inline-block;
+    text-align: center;
+    width: 36px;
+    //line-height: 30px;
+    transition: all 0.5s ease;
+  }
+
+  &__media-link:hover {
+    transform: scale(1.2);
+  }
+
+  &__weekday {
+    display: inline-block;
+    width: 32px;
+  }
+
+  &__link {
+    @include smallText($colorLightGray);
+    line-height: 30px;
+  }
+
+  &__bottom {
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    opacity: 0.6;
+    margin: 0 auto;
+
+    @media (max-width: 570px) {
+      padding: 30px 0;
+    }
+  }
+}

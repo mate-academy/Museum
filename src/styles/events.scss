@@ -1,0 +1,103 @@
+@import "utils";
+
+.events {
+  position: relative;
+  padding-bottom: $column;
+
+  &__title {
+    @include title(48px, 58px, $colorBlack);
+    margin-left: $column * 3;
+    margin-bottom: 36px;
+    @media (max-width: 970px) {
+      margin-left: $column;
+    }
+    @media (max-width: 560px) {
+      margin-left: 0;
+      text-align: center;
+      font-size: 40px;
+    }
+  }
+
+  &__block {
+    margin-bottom: 10px;
+
+    @media (max-width: 970px) {
+      margin-bottom: 20px;
+    }
+  }
+
+}
+
+.event {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 $gridGap;
+
+  &__info {
+    display: flex;
+    max-width: $column * 7;
+    margin-right: $gridGap;
+    margin-bottom: $gridGap;
+
+    @media (max-width: 520px) {
+      flex-direction: column;
+      margin-right: 0;
+    }
+  }
+
+  &__date {
+    padding-right: $gridGap;
+    width: $column * 2;
+    @media (max-width: 520px) {
+      display: flex;
+      gap: 20px;
+      align-items: baseline;
+    }
+
+  }
+  &__day {
+    @include title(55px, 55px, transparent);
+    -webkit-text-stroke: 1px $colorMainOrange;
+    padding-right: $column / 2;
+    margin-bottom: 10px;
+
+    @media (max-width: 560px) {
+      padding-right: 0;
+      font-size: 32px;
+      line-height: 32px;
+    }
+  }
+
+  &__time {
+    @include title(36px, 36px, $colorMainOrange);
+    text-align: right;
+  }
+
+  &__type {
+    @include smallText($colorBlack);
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    @include title(24px, 30px, $colorBlack);
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    @include smallText($colorBlack);
+  }
+
+  &__image-wrap {
+    max-width: 30%;
+
+    @media (max-width: 970px) {
+      display: none;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+}
