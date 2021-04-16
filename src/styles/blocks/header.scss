@@ -1,41 +1,96 @@
 .header {
   position: relative;
-  &__content {
- 
-    max-width: 1920px;
-    margin: 0 auto;
-    padding: 15px 175px;
-  }
 
-  &__top {
+  &__burger-menu {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+
+    max-width: 1610px;
+    margin: 0 auto;
+    height: 655px;
+    padding: 15px 20px;
+
+    @media (max-width: 1024px) {
+      height: 275px;
+    }
+  }
+
+  &__content-block {
+    position: relative;
+    top: 148px;
+    left: -297px;
+    
+
+    @media (max-width: 1024px) {
+      font-size: 55px;
+      left: -227px;
+    }
+
+    @media (max-width: 1024px) {
+      top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      left: 0;
+      top: 260px;
+    }
   }
 
   &__logo {
-    z-index: 1;
+    position: relative;
+    top: 15px;
+    padding-left: 250px;
+    transition: 1s;
+
+    @media (max-width: 1140px) {
+      padding-left: 50px;
+    }
+
+    @media (max-width: 768px) {
+      padding-left: 40%;
+    }
   }
 
-  &__right {
+  &__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 62%;
     height: 655px;
 
-    background: url("../images/header/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png") no-repeat center;
+    background: url("../images/header/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png") no-repeat;
+    background-position: top left;
     background-size: cover;
-  }
 
-  &__main {
-    margin-top: 172px;
-    margin-left: 200px;
+    @media (max-width: 1024px) {
+      height: 384px;
+    }
+
+    @media (max-width: 768px) {
+      height: 300px;
+      width: 100%;
+    }
   }
 
   &__title {
     margin-bottom: 80px;
-
-    font-weight: bold;
+    font-weight: 700;
     font-size: 72px;
     line-height: 100%;
     text-transform: uppercase;
+
+    @media (max-width: 1024px) {
+      font-size: 55px;
+    }
+
+    @media (max-width: 768px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title-transparent {
+    color: transparent;
+    -webkit-text-stroke: 1px #0f0e08;
   }
 
   &__button {
@@ -66,6 +121,41 @@
       background-image: url("./../images/header/header-btn.svg");
       background-position: center;
       background-repeat: no-repeat;
+    }
+  }
+
+  &__events-wrapper {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transform: rotate(-90deg);
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__events {
+    position: relative;
+    text-transform: uppercase;
+    left: 104px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 68px;
+      display: block;
+      height: 1px;
+      width: 70px;
+      background-color: #1a5a4c;
     }
   }
 }
