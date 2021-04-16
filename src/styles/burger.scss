@@ -1,0 +1,118 @@
+.burger {
+  display: none;
+  box-sizing: border-box;
+  width: 20px;
+  height: 13px;
+  position: relative;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+#check-menu {
+  display: none;
+}
+
+.burger__label {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.burger__line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 1px;
+  background-color: black;
+  transition: background-color 0.5s, transform 0.5s;
+  z-index: 4;
+
+  &--2 {
+    top: 6px;
+  }
+
+  &--3 {
+    top: 6px;
+  }
+  &--4 {
+    top: 12px;
+  }
+}
+
+.burger__menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100vh;
+
+  font-size: 0;
+  overflow: hidden;
+  transition: 0.5s all;
+  background-color: black;
+  z-index: 3;
+}
+
+.burger__link {
+  display: block;
+  width: 80%;
+  margin-top: 40px;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #fff;
+
+  &--1 {
+    margin-top: 150px;
+  }
+}
+
+#check-menu:checked ~ .burger__menu {
+  display: block;
+  width: 40vw;
+  position: fixed;
+
+  font-size: 18px;
+}
+
+#check-menu:checked ~ .burger__line {
+  background-color: #fff;
+  position: fixed;
+  top: 6.5vh;
+  left: 7vw;
+}
+
+#check-menu:checked ~ .burger__label {
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  top: 5vh;
+  left: 6vw;
+}
+
+#check-menu:checked ~ .burger__line--1 {
+  display: none;
+}
+
+#check-menu:checked ~ .burger__line--2 {
+  transform: rotate(45deg);
+}
+
+#check-menu:checked ~ .burger__line--3 {
+  transform: rotate(-45deg);
+}
+
+#check-menu:checked ~ .burger__line--4 {
+  display: none;
+}
+
+@media screen and (max-width: 1270px) {
+  .burger {
+    display: block;
+  }
+}

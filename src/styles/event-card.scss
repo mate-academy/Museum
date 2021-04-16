@@ -1,0 +1,110 @@
+.event-card {
+  display: grid;
+  grid-template-columns: 7fr 2fr 7fr;
+  grid-template-rows: repeat(2, auto);
+  gap: 0 130px;
+
+  &__image {
+    height: 520px;
+    overflow: hidden;
+  }
+
+  &__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: none;
+  }
+
+  &__description {
+    width: 370px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+      padding-bottom: 30px;
+    }
+
+    &-type {
+      display: inline-block;
+      margin-right: 13px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 100%;
+      color: #687480;
+    }
+
+    &-date {
+      display: inline-block;
+      margin-left: 13px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 150%;
+      color: #1a5a4c;
+    }
+
+    &-name {
+      position: relative;
+      padding-bottom: 15px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 36px;
+      font-weight: normal;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translate(100%, -100%);
+        height: 15px;
+        width: 15px;
+        background-color: #f14a27;
+      }
+    }
+
+    &-details {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 150%;
+    }
+  }
+}
+
+@media screen and (max-width: 1270px) {
+  .event-card {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, max-content);
+    gap: 0 20px;
+  }
+
+  &__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .event-card {
+    grid-template-columns: repeat(2, 1fr);
+    
+    &__image {
+      height: 210px;
+      width: 280px;
+
+      & img {
+        object-fit: cover;
+      }
+    }
+
+    &__description {
+      width: 280px;
+
+      &-name {
+        font-size: 28px;
+      }
+    }
+  }
+}
