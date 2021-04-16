@@ -1,0 +1,49 @@
+.burger {
+  width: 30px;
+  height: 20px;
+
+  &__line {
+    position: absolute;
+    background-color: #000;
+    left: -10px;
+    width: 100%;
+    height: 2px;
+    top: 9px;
+    transition: transform 0.2s linear;
+  }
+  &::before,
+  &::after {
+    content: "";
+    background-color: #000;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: -10px;
+    transition: transform 0.2s linear;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  &_active &__line {
+    transform: scale(0);
+  }
+
+  &_active {
+    
+    &::before {
+      transform: rotate(45deg);
+      top: 9px;
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+      bottom: 9px;
+    }
+  }
+}
