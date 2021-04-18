@@ -1,10 +1,5 @@
 .footer {
-  font-family: "IBM Plex Sans", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 21px;
-  color: #0f0e08;
+  color: $main-text-color;
 
   &--wrapper {
     position: relative;
@@ -24,13 +19,13 @@
       gap: 50px;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: $large-screen-breakpoint) {
       grid-template-columns: 1fr;
     }
   }
 
   &__logos {
-    @media (max-width: 768px) {
+    @media (max-width: $medium-screen-breakpoint) {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -44,9 +39,10 @@
   }
 
   &__logo {
+    display: block;
     margin-bottom: 60px;
 
-    @media (max-width: 768px) {
+    @media (max-width: $medium-screen-breakpoint) {
       margin-bottom: 0;
     }
   }
@@ -55,13 +51,13 @@
     display: flex;
     justify-content: space-between;
 
-    @media (max-width: 1024px) {
+    @media (max-width: $large-screen-breakpoint) {
       justify-content: start;
       gap: 80px;
     }
 
-    @media (max-width: 768px) {
-      gap: 5%;
+    @media (max-width: $medium-screen-breakpoint) {
+      gap: 22px;
     }
   }
 
@@ -77,9 +73,13 @@
       margin-left: 50px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: $medium-screen-breakpoint) {
       margin: 0;
     }
+  }
+
+  &__schedule-list {
+    margin-bottom: 20px;
   }
 
   &__schedule-extra {
@@ -88,7 +88,13 @@
 
   &__link {
     display: block;
-    color: #0f0e08;
+    color: $main-text-color;
+
+    transition: 0.2s;
+
+    &:hover {
+      color: #f14a27;
+    }
   }
 
   &__list {
@@ -101,15 +107,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    @media (max-width: 1024px) {
+    @media (max-width: $large-screen-breakpoint) {
       display: flex;
-      margin-left: calc(60px + 50px);
       gap: 100px;
+      margin-left: calc(60px + 50px);
     }
 
-    @media (max-width: 768px) {
-      margin: 0;
+    @media (max-width: $medium-screen-breakpoint) {
       gap: 50px;
+      margin: 0;
     }
 
     @media (max-width: 320px) {
@@ -123,7 +129,7 @@
     display: grid;
     grid-template-columns: 60px 1fr;
 
-    @media (max-width: 768px) {
+    @media (max-width: $medium-screen-breakpoint) {
       grid-template-columns: 1fr;
     }
   }
@@ -133,37 +139,79 @@
     height: 100%;
     background: rgba(26, 90, 76, 0.5);
 
-    @media (max-width: 1024px) {
+    @media (max-width: $large-screen-breakpoint) {
       width: 460px;
       height: 1px;
       margin-left: 110px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: $medium-screen-breakpoint) {
       width: 100%;
       margin: 0;
     }
   }
 
   &__btn {
-    display: none;
     position: absolute;
-    height: 50px;
-    width: 50px;
-    border: 1px solid #1a5a4c;
-    border-radius: 50%;
-    bottom: 0;
+    display: none;
     right: 0;
 
-    @media (max-width: 768px) {
+    @include square(50px);
+
+    border: 1px solid $main-color;
+    border-radius: 50%;
+    bottom: 0;
+
+    @media (max-width: $medium-screen-breakpoint) {
       display: flex;
       justify-content: center;
       align-items: center;
     }
   }
 
+  &__btn-img {
+    animation-name: updown;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes updown {
+    0% {
+      transform: translateY(0);
+    }
+
+    25% {
+      transform: translateY(30%);
+    }
+
+    50% {
+      transform: translateY(-30%);
+    }
+
+    75% {
+      transform: translateY(10%);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
   &__bottom {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: $medium-screen-breakpoint) {
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+  }
+
+  &__copyright {
+    @media (max-width: $medium-screen-breakpoint) {
+      order: 1;
+    }
   }
 }

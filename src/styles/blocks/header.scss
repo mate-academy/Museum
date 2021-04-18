@@ -6,12 +6,17 @@
     justify-content: space-between;
 
     max-width: 1610px;
-    margin: 0 auto;
     height: 655px;
+
+    margin: 0 auto;
     padding: 15px 20px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: $large-screen-breakpoint) {
       height: 275px;
+    }
+
+    @media (max-width: $medium-screen-breakpoint) {
+      height: 375px;
     }
   }
 
@@ -19,20 +24,28 @@
     position: relative;
     top: 148px;
     left: -297px;
-    
 
-    @media (max-width: 1024px) {
+    @media (max-width: $large-screen-breakpoint) {
       font-size: 55px;
       left: -227px;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: $large-screen-breakpoint) {
       top: 40px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: $medium-screen-breakpoint) {
       left: 0;
       top: 260px;
+      padding: 0 20px;
+    }
+
+    @media (max-width: $small-screen-breakpoint) {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      text-align: center;
     }
   }
 
@@ -40,13 +53,14 @@
     position: relative;
     top: 15px;
     padding-left: 250px;
+    
     transition: 1s;
 
     @media (max-width: 1140px) {
       padding-left: 50px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: $medium-screen-breakpoint) {
       padding-left: 40%;
     }
   }
@@ -62,11 +76,11 @@
     background-position: top left;
     background-size: cover;
 
-    @media (max-width: 1024px) {
+    @media (max-width: $large-screen-breakpoint) {
       height: 384px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: $medium-screen-breakpoint) {
       height: 300px;
       width: 100%;
     }
@@ -79,18 +93,26 @@
     line-height: 100%;
     text-transform: uppercase;
 
-    @media (max-width: 1024px) {
+    @media (max-width: $large-screen-breakpoint) {
       font-size: 55px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: $medium-screen-breakpoint) {
       margin-bottom: 20px;
+    }
+
+    @media (max-width: $small-screen-breakpoint) {
+      font-size: 45px;
     }
   }
 
   &__title-transparent {
     color: transparent;
-    -webkit-text-stroke: 1px #0f0e08;
+    -webkit-text-stroke: 1px $main-text-color;
+
+    @media (max-width: $small-screen-breakpoint) {
+      color: $main-text-color;
+    }
   }
 
   &__button {
@@ -102,60 +124,100 @@
     height: 70px;
     width: 150px;
 
-    font-weight: 500;
     font-size: 16px;
-    line-height: 100%;
-    color: #000;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: black;
 
-    border: 1px solid #1a5a4c;
+    border: 1px solid $main-color;
+    transition: padding-left 0.4s;
+
+    @media (max-width: $small-screen-breakpoint) {
+      align-self: start;
+      width: calc(100% - 70px);
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+
+      height: 100%;
+      width: 0;
+    
+      background-color: $main-color;
+      transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+      transform-origin: bottom center;
+      z-index: -1;
+    }
 
     &:after {
       content: "";
       position: absolute;
       left: 149px;
 
-      width: 70px;
-      height: 70px;
-
-      background-color: #1a5a4c;
+      @include square(70px);
+      background-color: $main-color;
       background-image: url("./../images/header/header-btn.svg");
       background-position: center;
       background-repeat: no-repeat;
+
+      transition: 0.5s;
+
+      @media (max-width: $small-screen-breakpoint) {
+        left: 100%;
+      }
+    }
+
+    &:hover {
+      color: white;
+      padding-left: 70px;
+      
+      &:before {
+        width: 100%;
+      }
+
+      &:after {
+        background-position: 150%;
+      }
     }
   }
 
   &__events-wrapper {
     display: block;
     position: absolute;
-    bottom: 0;
+    top: calc(100% - 70px);
     transform: rotate(-90deg);
 
-    @media (max-width: 1024px) {
+    @media (max-width: $large-screen-breakpoint) {
       display: none;
     }
   }
 
   &__events {
     position: relative;
-    text-transform: uppercase;
-    left: 104px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 
-    font-family: "IBM Plex Sans", sans-serif;
-    font-style: normal;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
-    font-size: 14px;
-    line-height: 100%;
-    color: #687480;
+    text-transform: uppercase;
+    color: $extra-text-color;
+
+    transition: transform 0.6s;
+
+    &:hover {
+      transform: translateX(15px);
+    }
 
     &::before {
       content: "";
-      position: absolute;
-      top: 50%;
-      right: 68px;
       display: block;
       height: 1px;
       width: 70px;
-      background-color: #1a5a4c;
+      background-color: $main-color;
     }
   }
 }
