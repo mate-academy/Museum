@@ -1,0 +1,37 @@
+.menu {
+  visibility: hidden;
+  height: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @include screenMed {
+    flex-direction: column;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 15px;
+    right: calc(50% - #{$logoWidth} / 2);
+    z-index: 1;
+
+    @include screenMob {
+      right: calc(80% - #{$logoWidth} / 2);
+    }
+
+    @media screen and (max-width: 430px) {
+      right: calc(50% - #{$logoWidth} / 2);
+    }
+  }
+
+  &__nav {
+    margin-left: 50px;
+  }
+
+  &__search {
+    font-size: 19px;
+
+    @include linkHover($square-color, scale(1.3));
+  }
+}
