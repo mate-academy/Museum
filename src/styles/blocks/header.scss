@@ -32,7 +32,7 @@
       height: 12px;
       width: 18px;
       cursor: pointer;
-      z-index: 6;
+      z-index: 2;
       transition: transform 0.4s ease;
       &:hover {
         transform: scale(1.2);
@@ -55,7 +55,7 @@
   z-index: 0;
   transition: transform 0.5s;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 
   
@@ -63,7 +63,7 @@
   &__list {
     list-style: none;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     width: 75%;
   }
@@ -80,7 +80,22 @@
     background-size: contain;
     height: 50px;
     width: 50px;
+  }
 
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    font-weight: 700;
+    color: white;
+    background-color: #1a5a4c;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   &__link {
@@ -96,31 +111,8 @@
 
     &:hover {
       transform: scale(1.2);
-      
-
-      &:hover {
-        display: block;
-      }
-    }
-  }
-
-  @media (max-width: 1210px) {
-    height: 100vh;
-
-    &__list {
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-around;
-      height: 100vh;
-    }
-
-    &__link {
-      font-size: 28px;
       font-weight: 700;
-    }
 
-    &__logo {
-      margin: 0;
     }
   }
 }
@@ -135,16 +127,30 @@
   }
 }
 
+@media (max-width: 1210px) {
+  .nav {
+    height: 100vh;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+  }
+
+  .nav__link {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .nav__logo {
+    margin: 0;
+  }
+}
+
 .header__checkbox:checked ~ .nav {
   opacity: 1;
   transform: translateY(0%);
   z-index: 5;
-}
-
-.header__checkbox:checked + .header__label > .header__label-burger {
-  background-image: url(../photo/svg/cencel-icon.svg);
-  background-color: #1a5a4c;
-  border: 1px solid #1a5a4c;
-  box-shadow: none;
-  z-index: 6;
 }
