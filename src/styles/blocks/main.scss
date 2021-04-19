@@ -1,0 +1,247 @@
+.main {
+  width: 100%;
+}
+
+.museum {
+  margin-top: -64px ;
+  width: 100%;
+  height: 655px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  justify-content: center;
+  position: relative;
+
+  @media (max-width: 750px) {
+    display: block;
+    height: 300px;
+  }
+
+  &__photo {
+    position: relative;
+
+    &-image {
+      background-image: url(../photo/header.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 100%;
+      display: flex;
+      height: 655px;
+  
+      @media(min-width: 1900px) {
+        background-image: url(../photo/media-header.jpg);
+      }
+
+      @media (max-width: 750px) {
+        width: 100%;
+      }
+    }
+
+    &-text {
+      padding: 20px;
+      text-decoration: none;
+      color: black;
+      font-size: 36px;
+      font-weight: 700;
+      position: absolute;
+      top: 0;
+      left: 51px;
+
+      @media (max-width: 750px) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-30%);
+    left: -265px;
+
+    @media (max-width: 750px) {
+      display: flex;
+      position: relative;
+      margin-top: 300px;
+    }
+    &-name {
+      font-size: 72px;
+      font-weight: 700;
+      margin-bottom: 80px;
+
+      &-opacity {
+        color: rgba($color: #000, $alpha: 0);
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+      }
+    }
+
+    &-button {
+      width: 150px;
+      height: 70px;
+      font-size: 16px;
+      font-weight: 500;
+      border: 1px solid #1a5a4c;
+      text-decoration: none;
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+
+      &:hover {
+        background-color: #1a5a4c;
+        color: white;
+      }
+
+      &::after {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        content: ">";
+        height: 70px;
+        width: 70px;
+        color: white;
+        font-size: 20px;
+        background-color: #1a5a4c;
+        right: -70px;
+      }
+    }
+  }
+}
+
+.relevant {
+  max-width: 1170px;
+  margin: 0 auto;
+
+  @media (min-width: 1600px) {
+    max-width: 1570px;
+  }
+
+  @media (max-width: 1210px) {
+    max-width: 700px;
+  }
+
+  &__title {
+    margin-top: 200px;
+    margin-bottom: 60px;
+    font-size: 48px;
+    font-weight: 700;
+    @media (max-width: 1210px) {
+      margin-top: 90px;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  column-gap: 130px;
+
+  @media (max-width: 1210px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.5fr ;
+  }
+
+  &__second {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    margin-bottom: 100px;
+
+    @media (max-width: 1210px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 0.5fr;
+      margin-top: 50px;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__image {
+    display: flex;
+    width: 670px;
+    height: 520px;
+    object-fit: cover;
+    object-position: center;
+
+    @media (min-width: 1600px) {
+      max-width: 870px;
+    }
+
+    @media (max-width: 1210px) {
+      max-width: 700px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-rows: 10% 10% 30%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: relative;
+
+    @media (max-width: 1210px) {
+      justify-content: start;
+      align-items: stretch;
+      align-content: stretch;
+      grid-template-rows: 20% 20% 60%;
+    }
+
+    &-exhibition {
+      font-size: 14px;
+      font-weight: 500;
+      color: #687480;
+      
+      @media (max-width: 1210px) {
+        align-self: center;
+      }
+
+      &::after {
+        margin-left: 26px;
+        content: "26.08-29.11.2019";
+        font-weight: 700;
+        font-size: 14px;
+        color: #1a5a4c;
+      }
+    }
+
+    &-title {
+      font-size: 36px;
+      font-weight: 400;
+      position: relative;
+
+      &::after {
+        content: "";
+        margin-left: 25px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 15px;
+        height: 15px;
+        background-color: #f14a27;
+      }
+    }
+
+    &-about {
+      max-width: 370px;
+      font-size: 16px;
+      font-weight: 300;
+      color: #4e4e4e;
+    }
+  }
+}
+
+@media (max-width: 1210px) {
+  .box1 {
+    order: 0;
+  }
+
+  .box2 {
+    order: -1;
+  }
+}
