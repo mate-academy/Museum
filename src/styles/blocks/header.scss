@@ -1,0 +1,131 @@
+.header {
+  height: 100vh;
+  position: relative;
+
+  &__nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -100px;
+    visibility: hidden;
+    opacity: 0;
+    transition-duration: 0.4s;
+    background-color: $whiteColor;
+    height: 90px;
+    box-shadow: 0 13px 27px rgba(117, 119, 121, 0.46);
+    z-index: 1;
+  }
+
+  &__content {
+    position: absolute;
+    min-width: 100%;
+    height: 100vh;
+  }
+
+  &__photo {
+    position: absolute;
+    right: 0;
+    width: 65%;
+    height: 100%;
+    background-image: url("../images/nationalArtMuseum.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__title {
+    position: absolute;
+    top: 235px;
+    left: -32%;
+    @extend %Montserrat;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: $blackColor;
+    z-index: 1;
+    &-letters {
+      -webkit-text-stroke: 1px $letterColor;
+      color: transparent;
+    }
+  }
+
+  &__wrapper {
+    padding: 15px 55px 5px;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__pannel {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+
+  &__burger-icon {
+    padding: 5px;
+    width: 18px;
+    height: 12px;
+    background-image: url(../images/burger.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 2;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__logo-image {
+    display: block;
+    margin: 0 auto;
+    width: 63px;
+    height: 72px;
+    background-image: url(../images/namu.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__decor-text {
+    position: absolute;
+    bottom: 0;
+    top: 500px;
+    @extend %IBM;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+    color: $greyColor;
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    &::before {
+      content: "";
+      position: absolute;
+      transform: rotate(-90deg);
+      top: -30px;
+      left: -60px;
+      width: 1px;
+      height: 70px;
+      background-color: $greenColor;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+
+    &:checked ~ .nav {
+      visibility: visible;
+      opacity: 1;
+      top: 0;
+    }
+
+    &:checked ~ .header__pannel > .header__burger-icon {
+      transition-duration: 0.3s;
+      &:hover {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+}

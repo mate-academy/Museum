@@ -1,0 +1,87 @@
+.exhibition {
+  display: flex;
+  flex-direction: column;
+  &__1 {
+    display: grid;
+    grid-template-columns: (870px 1fr);
+    gap: 130px;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 100px;
+  }
+  &__2 {
+    display: grid;
+    grid-template-columns: (1fr 870px);
+    justify-content: start;
+    gap: 130px;
+    margin-bottom: 100px;
+  }
+  &__photo {
+    height: 520px;
+    min-width: 100%;
+    transition: 3s;
+    &:hover {
+      transition: 0.6s;
+      transform: scale(1.03);
+      box-shadow: 0 13px 27px rgba(151, 138, 63, 0.46);
+    }
+  }
+
+  &__description {
+    &--1 {
+      justify-content: center;
+
+      align-items: center;
+    }
+    &--2 {
+      align-items: center;
+    }
+  }
+
+  &__time {
+    margin-bottom: 32px;
+  }
+  &__fact {
+    @extend %IBM;
+    font-weight: 500;
+    color: $greyColor;
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: uppercase;
+  }
+  &__date {
+    padding-left: 26px;
+    @extend %IBM;
+    font-weight: 700;
+    color: $greenColor;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  &__title {
+    position: relative;
+    margin-bottom: 15px;
+    @extend %Montserrat;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 100%;
+    color: $letterColor;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: $orangeColor;
+    }
+  }
+  &__narrative {
+    width: 370px;
+    @extend %IBM;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    color: $thinGreyColor;
+  }
+}
