@@ -19,23 +19,27 @@
   }
 
   &__nav {
+    visibility: hidden;
     width: 100vw;
-    height: 100vh;
+    height: auto;
     position: absolute;
-    top: 0;
+    top: -200%;
     left: 0;
-    transition: transform $duration;
-    transform: translateY(-100%);
+    transition: top 500ms, visibility 500ms;
     z-index: 2;
+
+    @media (min-height: 500px) {
+      height: 100vh;
+    }
 
     @include onDesktop {
       height: auto;
     }
 
     &--active {
-      transform: translateY(0);
+      top: 0;
+      visibility: visible;
     }
-
   }
 
   &__burger {
