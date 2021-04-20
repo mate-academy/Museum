@@ -1,0 +1,131 @@
+.gallery {
+
+  max-width: 1690px;
+  padding: 0 60px;
+
+  @media (max-width: 1920px) {
+    max-width: 1290px;
+  }
+
+  @media (max-width: 1290px) {
+    max-width: 770px;
+    padding: 0 35px;
+  }
+
+  @media (max-width: 770px) {
+    padding: 0 20px;
+  }
+
+  &__title {
+    font-size: 48px;
+    margin-bottom: 60px;
+
+    @media (max-width: 767px) {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 621px) {
+      text-align: center;
+    }
+  }
+
+  &__pictures {
+    display: grid;
+    grid-template-columns: repeat(4, 370px);
+    grid-template-rows: 600px 360px;
+    gap: 30px;
+    margin-bottom: 200px;
+    grid-template-areas: "first second second third"
+      "forth forth fifth sixth";
+
+    @media (max-width: 1920px) {
+      grid-template-columns: repeat(3, 370px);
+      grid-template-areas: "first second second"
+        "forth forth fifth";
+    }
+
+    @media (max-width: 1290px) {
+      grid-template-columns: repeat(2, 340px);
+      grid-template-rows: 543px;
+      gap: 20px;
+      grid-template-areas: "first third";
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: 280px;
+      grid-template-rows: 410px;
+      grid-template-areas: "first";
+      justify-content: center;
+      margin-bottom: 120px;
+    }
+  }
+
+  &__picture {
+    object-fit: cover;
+
+    @media (max-width: 1290px) {
+      width: 340px;
+    }
+
+    @media (max-width: 767px) {
+      width: 280px;
+    }
+  }
+
+  &__picture--1 {
+    grid-area: first;
+  }
+
+  &__picture--2 {
+    grid-area: second;
+
+    @media (max-width: 1290px) {
+      display: none;
+    }
+  }
+
+  &__picture--3 {
+    grid-area: third;
+
+    @media (max-width: 1920px) {
+      display: none;
+    }
+
+    @media (max-width: 1290px) {
+      display: block;
+    }
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__picture--4 {
+    grid-area: forth;
+
+    @media (max-width: 1290px) {
+      display: none;
+    }
+  }
+
+  &__picture--5 {
+    grid-area: fifth;
+
+    @media (max-width: 1290px) {
+      display: none;
+    }
+  }
+
+  &__picture--6 {
+    grid-area: sixth;
+
+    @media (max-width: 1920px) {
+      display: none;
+    }
+
+    @media (max-width: 1290px) {
+      display: none;
+    }
+  }
+}
