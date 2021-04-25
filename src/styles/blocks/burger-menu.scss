@@ -3,18 +3,22 @@
   position: relative;
 
   &__nav {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: -15px;
     left: 0;
     right: 0;
-    height: 100px;
+    height: 90px;
     transform: translateY(-200%);
     
     background-color: white;
     transition: $hover-durations;
 
     @media (max-width: $large-screen-breakpoint) {
-      height: 350px;
+      height: 384px;
+    }
+
+    @media (max-width: $medium-screen-breakpoint) {
+      height: 300px;
     }
   }
 
@@ -22,20 +26,23 @@
     position: absolute;
     display: block;
     cursor: pointer;
+    top: -5px;
+    left: 10px;
+    padding: 16px;
 
     @include square(18px);
     margin-top: 24px;
 
     background: url("../images/header/burger-menu.svg") no-repeat center;
-    background-size: contain;
+    background-size: auto;
 
     transition: transform 0.6s;
     z-index: 2;
   }
 
   &__search {
-    position: fixed;
-    top: 30px;
+    position: absolute;
+    top: 15px;
     right: 10px;
     padding: 10px;
     
@@ -60,12 +67,14 @@
     }
 
     &:checked + .burger-menu__label {
-      position: fixed;
+      position: absolute;
       transform: rotate(-90deg);
-      display: flex;
+      top: 1px;
+      left: 17px;
+      padding: 0;
 
       background: url("../images/header/free-icon-next-130884.svg") no-repeat center;
-      background-size: cover;
+      background-size: contain;
       z-index: 3;
 
       &:hover {
