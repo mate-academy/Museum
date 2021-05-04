@@ -1,19 +1,14 @@
 .footer {
   display: flex;
+  flex-direction: column;
   padding: 50px 0;
-  height: 457px;
+  @extend %IBM-footer;
 
   &__media {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin-right: 133px;
-    margin-left: 175px;
-  }
-
-  &__logo {
-    padding-bottom: 63px;
+    margin-bottom: 40px;
   }
 
   &__media-links {
@@ -23,20 +18,16 @@
 
   &__info {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     padding-bottom: 68px;
     margin-bottom: 2px;
     gap: 22px;
-    @extend %IBM;
-    font-size: 14px;
-    color: $letterColor;
     border-bottom: 2px solid rgba(26, 90, 76, 0.25);
   }
 
   &__info-block {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 20px;
     width: 50%;
   }
@@ -50,7 +41,11 @@
     cursor: default;
     color: $letterColor;
     width: fit-content;
+  }
 
+  &__nav {
+    display: flex;
+    flex-direction: row;
   }
 
   &__bottom {
@@ -59,5 +54,62 @@
     align-items: center;
     gap: 14px;
     font-size: 12px;
+  }
+
+  @media (min-width: 767px) {
+    &__cont {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 55px;
+    }
+
+    &__media {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 60px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &__info {
+      width: 460px;
+    }
+
+    &__bottom {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  @media (min-width: 1080px) {
+    &__cont {
+      margin-bottom: 85px;
+    }
+
+    &__content {
+      display: flex;
+      height: 270px;
+    }
+
+    &__info {
+      border-bottom: none;
+      border-right: 2px solid rgba(26, 90, 76, 0.5);
+      padding-right: 62px;
+    }
+
+    &__nav {
+      margin-left: 62px;
+    }
+  }
+
+  @media(min-width: 1670px) {
+    padding-left: 90px;
+
+    &__cont {
+      gap: 130px;
+    }
   }
 }

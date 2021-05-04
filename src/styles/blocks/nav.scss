@@ -1,52 +1,79 @@
 .nav {
-  &__wrapper {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__logo {
     position: relative;
-    transition-duration: 0.4s;
+    top: 20px;
   }
 
   &__lens {
-    display: block;
-    position: absolute;
-    top: 60px;
-    right: 138px;
     &:hover {
       transform: scale(1.2);
       transition-duration: 0.4s;
     }
-    z-index: 2;
   }
 
   &__list {
-    position: relative;
-    left: 0;
-    right: 0;
     list-style: none;
-    display: flex;
-    justify-content: center;
-    padding-top: 62px;
-
+    @media (min-width: 767px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @media (min-width: 1279px) {
+      display: flex;
+      gap: 50px;
+    }
   }
  
   &__link {
-    display: block;
-    padding: 0 25px;
-    @extend %IBM;
+    @extend %IBM-footer;
     color: $letterColor;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 14px;
     text-decoration: none;
     cursor: pointer;
     &:after {
       content: "";
       position: relative;
-      bottom: -8px;
+      bottom: -5px;
       display: block;
       height: 1px;
       transition-duration: 0.5s;
     }
     &:hover::after {
       background-color: $letterColor;
+    }
+  }
+}
+
+.nav_footer {
+  padding: 40px 0 70px;
+  border-bottom: none;
+  .nav {
+    &__list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 22px;
+      width: 100%;
+      @media (min-width: 1279px) {
+        gap: 0 60px;
+      }
+    }
+    &__list-item {
+      @extend %IBM-footer;
+    }
+  }
+  @media (min-width: 1279px) {
+    padding: 0;
+    height: fit-content;
+
+    .nav {
+      &__list-item {
+        margin-bottom: 20px;
+      }
     }
   }
 }

@@ -1,70 +1,25 @@
 .header {
-  height: 100vh;
-  position: relative;
+  padding: 10px 0;
 
-  &__nav {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -100px;
-    visibility: hidden;
-    opacity: 0;
-    transition-duration: 0.4s;
-    background-color: $whiteColor;
-    height: 90px;
-    box-shadow: 0 13px 27px rgba(117, 119, 121, 0.46);
-    z-index: 1;
-  }
-
-  &__content {
-    position: absolute;
-    min-width: 100%;
-    height: 100vh;
-  }
-
-  &__photo {
-    position: absolute;
-    right: 0;
-    width: 65%;
-    height: 100%;
-    background-image: url("../images/nationalArtMuseum.png");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-
-  &__title {
-    position: absolute;
-    top: 235px;
-    left: -32%;
-    @extend %Montserrat;
-    font-weight: 700;
-    font-size: 72px;
-    line-height: 100%;
-    text-transform: uppercase;
-    color: $blackColor;
-    z-index: 1;
-    &-letters {
-      -webkit-text-stroke: 1px $letterColor;
-      color: transparent;
-    }
-  }
-
-  &__wrapper {
-    padding: 15px 55px 5px;
-    width: 100%;
-    height: 100%;
-  }
-
-  &__pannel {
-    position: relative;
+  &__container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
     align-items: center;
   }
 
-  &__burger-icon {
-    padding: 5px;
+  &__logo {
+    margin-right: 50%;
+  }
+
+  &__burger-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    z-index: 2;
+  }
+
+  &__burger {
     width: 18px;
     height: 12px;
     background-image: url(../images/burger.svg);
@@ -72,43 +27,26 @@
     background-size: cover;
     background-repeat: no-repeat;
     cursor: pointer;
-    z-index: 2;
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.5);
     }
   }
 
-  &__logo-image {
-    display: block;
-    margin: 0 auto;
-    width: 63px;
-    height: 72px;
-    background-image: url(../images/namu.png);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-
-  &__decor-text {
+  &__nav {
     position: absolute;
-    bottom: 0;
-    top: 500px;
-    @extend %IBM;
-    font-size: 14px;
-    line-height: 14px;
-    font-weight: 700;
-    color: $greyColor;
-    text-transform: uppercase;
-    transform: rotate(-90deg);
-    &::before {
-      content: "";
-      position: absolute;
-      transform: rotate(-90deg);
-      top: -30px;
-      left: -60px;
-      width: 1px;
-      height: 70px;
-      background-color: $greenColor;
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.4s;
+    background-color: $whiteColor;
+    height: 120px;
+    box-shadow: 0 13px 27px rgba(117, 119, 121, 0.46);
+    z-index: 1;
+    @media (max-width: 1280px) {
+      height: 220px;
+      padding-top: 20px;
     }
   }
 
@@ -116,15 +54,24 @@
     display: none;
 
     &:checked ~ .nav {
-      visibility: visible;
       opacity: 1;
+      visibility: visible;
       top: 0;
     }
 
-    &:checked ~ .header__pannel > .header__burger-icon {
+    &:checked ~ .header__container > .header__burger-wrapper {
       transition-duration: 0.3s;
-      &:hover {
-        transform: rotateY(180deg);
+      transform: scale(5.5);
+      top: 15%;
+      left: 4%;
+      opacity: 0;
+      @media (max-width: 1280px) {
+        top: 140%;
+        left: 4%;
+      }
+      @media (max-width: 768px) {
+        top: 220%;
+        left: 4%;
       }
     }
   }
