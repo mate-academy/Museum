@@ -1,0 +1,246 @@
+.footer {
+  padding: 50px 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 600px) {
+    padding: 50px 34px 0;
+  }
+
+  @media (min-width: 900px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-template-areas: "links links"
+      "schedule contacts";
+
+    @media (min-width: 600px) {
+      grid-template-columns: 70px 150px 180px;
+      grid-column-gap: 50px;
+      grid-template-areas: "links schedule contacts";
+    }
+
+    @media (min-width: 900px) {
+      max-width: 50%;
+    }
+  }
+
+  &__usefull-links {
+    margin-bottom: 40px;
+
+    grid-area: links;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: 600px) {
+      flex-direction: column;
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__namu {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+
+    text-decoration: none;
+    color: $c-black;
+  }
+
+  &__facebook {
+    margin-right: 20px;
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/Facebook.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__instagram {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/Instagram.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__schedule {
+    grid-area: schedule;
+  }
+
+  &__schedule-title {
+    padding-bottom: 20px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &__working-hours {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+
+    &--accent {
+      font-weight: 600;
+    }
+  }
+
+  &__contacts {
+    grid-area: contacts;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+
+    @media (min-width: 900px) {
+      margin-right: 60px;
+    }
+  }
+
+  &__contacts-title {
+    margin-bottom: 20px;
+  }
+
+  &__contact-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__contact-link {
+    text-decoration: none;
+    font-style: normal;
+    color: $c-black;
+  }
+
+  &__start-page-link {
+    margin-bottom: 20px;
+
+    align-self: flex-end;
+    display: block;
+
+    height: 50px;
+    width: 50px;
+
+    border: 1px solid $c-gark-green;
+    border-radius: 50%;
+
+    background-image: url(../images/arrow-up-darkgreen.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media (min-width: 900px) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 460px;
+
+    @media (min-width: 600px) {
+      margin-left: 120px;
+      justify-content: start;
+    }
+
+    @media (min-width: 1028px) {
+      margin: 0;
+      padding-left: 60px;
+    }
+
+    &::before {
+      position: absolute;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: rgba(26, 90, 76, 0.5);
+
+      @media (min-width: 1028px) {
+        top: 50%;
+        left: -50%;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__nav-list {
+    padding: 40px 0;
+    margin: 0 50px 0 0;
+
+    min-width: 150px;
+
+    list-style: none;
+
+    @media (min-width: 1028px) {
+      padding: 0;
+    }
+  }
+
+  &__nav-link {
+    display: block;
+    padding: 10px 0;
+
+    text-decoration: none;
+    color: $c-black;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+
+    @media (min-width: 900px) {
+      padding: 0 0 20px;
+    }
+  }
+
+  &__copyright {
+    padding: 20px 0;
+    width: 100vw;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 17px;
+
+    text-align: center;
+
+    @media (min-width: 600px) {
+      padding: 34px 0;
+
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 900px) {
+      padding: 80px 55px 34px;
+    }
+  }
+
+  &__copyright-text {
+    @media (max-width: 600px) {
+      padding-bottom: 14px;
+    }
+  }
+}
