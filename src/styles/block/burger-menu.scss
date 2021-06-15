@@ -1,0 +1,68 @@
+.burger-memu {
+  display: flex;
+  margin-top: 40px;
+  width: 18px;
+  height: 12px;
+  align-items: center;
+
+  @media screen and(max-width: $beakpointTele) {
+    position: absolute;
+    top: 0;
+    left: 15px;
+  }
+
+  &__line {
+    position: relative;
+    width: 18px;
+    height: 2px;
+    background-color: $colorBlack;
+    border-radius: 8px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 18px;
+      height: 2px;
+      border-radius: 8px;
+      background-color: $colorBlack;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -7px;
+      width: 18px;
+      height: 2px;
+      border-radius: 8px;
+      background-color: $colorBlack;
+    }
+  }
+
+  &--active {
+    z-index: 110;
+    position: absolute;
+    left: 40px;
+    top: -10px;
+  }
+}
+
+.burger-memu__line.burger-memu__line--active {
+  background-color: transparent;
+}
+
+.burger-memu__line.burger-memu__line--active::before {
+  transform: rotate(45deg);
+  background-color: $colorWhite;
+  top: 0;
+  transition: top 0.1s linear, transform 0.2s ease-out 0.1s;
+}
+
+.burger-memu__line.burger-memu__line--active::after {
+  transform: rotate(-45deg);
+  background-color: $colorWhite;
+  top: 0;
+  transition: top 0.1s linear, transform 0.2s ease-out 0.1s;
+}
