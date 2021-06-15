@@ -1,0 +1,146 @@
+.header {
+  width: 100%;
+  padding-left: 136px;
+
+  display: grid;
+  grid-template-columns: repeat(6, 100px) repeat(auto-fill, 2px);
+  grid-template-areas: "space image";
+
+  position: relative;
+
+  &__image {
+    height: 655px;
+    justify-content: start;
+
+    background-image: url("../images/muz1440.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+
+    grid-column-start: 6;
+    grid-column-end: -1;
+
+    @media screen and (min-width: 1500px) {
+      background-image: url("../images/muz1920.png");
+      background-position: left;
+      background-size: cover;
+    }
+
+    @media screen and (min-width: 2800px) {
+      width: calc(100vw - 33%);
+    }
+
+    @media screen and (max-width: 1280px) {
+      background-image: url("../images/muz1280.png");
+    }
+
+    @media screen and (max-width: 1200px) {
+      height: 384px;
+
+      grid-column-start: 2;
+      margin-left: 105px;
+    }
+
+    @media screen and (max-width: 613px) {
+      height: 300px;
+
+      grid-column-start: 1;
+      grid-column-end: -1;
+      margin-left: 0;
+
+      background-image: url("../images/2.png");
+    }
+  }
+
+  &__title {
+    position: absolute;
+    top: 271px;
+  }
+
+  &__namu {
+    padding-left: 52px;
+
+    position: absolute;
+    top: 15px;
+
+    grid-column-start: 6;
+
+    @media screen and (max-width: 1200px) {
+      padding-left: 75px;
+
+      grid-column-start: 3;
+    }
+
+    @media screen and (max-width: 613px) {
+      padding-left: 122px;
+      top: 9px;
+
+      grid-column-start: 1;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 45px;
+  }
+
+  &__tickets {
+    grid-column-start: 3;
+
+    display: flex;
+
+    position: absolute;
+    top: 502px;
+
+    @media screen and (max-width: 1200px) {
+      grid-column-start: 1;
+      top: 289px;
+    }
+
+    @media screen and (max-width: 613px) {
+      width: 100%;
+
+      justify-content: center;
+      grid-area: tickets;
+      top: 0;
+    }
+
+    @media screen and (max-width: 613px) {
+      width: 300px;
+    }
+  }
+
+  @media screen and (min-width: 1920px) {
+    padding-left: 175px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    padding-left: 55px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    padding-left: 34px;
+
+    grid-template-columns: repeat(3, 120px) repeat(auto-fill, 2px);
+  }
+
+  @media screen and (max-width: 613px) {
+    padding-left: 0;
+
+    grid-template-columns: repeat(auto-fill, 2px);
+
+    grid-template-areas: "image image"
+      "title title"
+      "tickets tickets";
+  }
+
+  &__button {
+    background-color: $primary-color;
+  }
+
+  &__events {
+    position: absolute;
+    top: 535px;
+    left: -16px;
+  }
+}
