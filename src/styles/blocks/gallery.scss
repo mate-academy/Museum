@@ -1,0 +1,138 @@
+.gallery {
+  padding: 200px 175px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    align-self: flex-start;
+
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 100%;
+    color: #0f0e08;
+    margin-bottom: 60px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-areas: "top-left top-mid top-mid top-right"
+      "bott-left bott-left bott-mid bott-right";
+    gap: 30px;
+    margin-bottom: 200px;
+  }
+
+  &__img {
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+  }
+
+  &__img--position-top-left {
+    grid-area: top-left;
+  }
+
+  &__img--position-top-mid {
+    grid-area: top-mid;
+  }
+
+  &__img--position-top-right {
+    grid-area: top-right;
+  }
+
+  &__img--position-bottom-left {
+    grid-area: bott-left;
+  }
+
+  &__img--position-bottom-mid {
+    grid-area: bott-mid;
+  }
+
+  &__img--position-bottom-right {
+    grid-area: bott-right;
+  }
+}
+
+@media (max-width: 1600px) {
+  .gallery {
+    padding: 200px auto 0;
+
+    &__container {
+      grid-template-areas: "top-left top-mid top-mid"
+        "bott-left bott-left bott-mid";
+    }
+
+    &__img--position-top-right {
+      display: none;
+    }
+
+    &__img--position-bottom-right {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .gallery {
+    padding: 0 0 0 10px;
+
+    &__title {
+      margin-top: 200px;
+    }
+
+    &__container {
+      display: flex;
+      justify-content: stretch;
+      gap: 20px;
+      width: 100%;
+      height: 543px;
+      margin-bottom: 130px;
+
+      overflow-x: auto;
+    }
+    &__img {
+      position: relative;
+      flex-shrink: 0;
+      width: 340px;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    &__img--position-top-right {
+      display: block;
+    }
+
+    &__img--position-bottom-right {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+
+    &__title {
+      margin-top: 0;
+
+      text-align: center;
+    }
+
+    &__container {
+      grid-gap: 16px;
+    }
+
+    &__img {
+      width: 280px;
+
+      &:first-child {
+        margin-left: 10px;
+      }
+    }
+  }
+}
