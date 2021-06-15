@@ -1,0 +1,179 @@
+$columnWidth: 160px;
+
+.footer {
+  max-width: $maxWidth;
+  width: calc(100% - 2 * #{$leftSmallMargin});
+  margin: 0 auto;
+  
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: $breakpoint1) {
+      flex-direction: row;
+    }
+  }
+
+  &__top-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    padding-left: $leftSmallMargin;
+    padding-right: $leftSmallMargin;
+
+    @media screen and (min-width: $breakpoint1) {
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-left: $leftMediumMargin;
+      padding-right: $leftMediumMargin;
+    }
+    
+    @media screen and (min-width: $breakpoint2) {
+      padding-left: $leftBigMargin;
+      padding-right: $leftBigMargin;
+    }
+    margin-bottom: 30px;
+  }
+  
+  &__logo {
+    margin-bottom: 0;
+    @include font($alternateFont, 36px, 700);
+
+    @media screen and (min-width: $breakpoint1) {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 15px;
+  }
+
+  &__paragraph {
+    display: block;
+    @include font($defaultFont, $smallSize, 
+    $smallFontWeight, $smallLineHeight);
+    text-decoration: none;
+    color: black;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+
+    @media screen and (min-width: $breakpoint1_2) {
+      flex-direction: row;
+    }
+    margin-bottom: 30px;
+
+  }
+
+  &__schedule {
+    display: grid;
+    grid-template-columns: $columnWidth auto;
+    gap: 10px;
+
+    @media screen and (min-width: $breakpoint1) {
+      gap: 80px;
+      grid-template-columns: $columnWidth 160px auto;
+    }
+  }
+
+  &__schedule-left {
+    width: $columnWidth;
+  }
+  
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba($greenColor, 50%);
+
+    @media screen and (min-width: $breakpoint1_2) {
+      height: 370px;
+      width: 1px;
+    }
+  }
+
+  &__space {
+    display: none;
+    width: 57px;
+    height: 100%;
+
+    @media screen and (min-width: $breakpoint1) {
+      display: block;
+    }
+
+    @media screen and (min-width: $breakpoint1_2) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: grid;
+    grid-template-columns: $columnWidth auto;
+    gap: 10px;
+
+    @media screen and (min-width: $breakpoint1) {
+      gap: 80px;
+      grid-template-columns: 57px $columnWidth auto;
+    }
+
+    @media screen and (min-width: $breakpoint1_2) {
+      grid-template-columns: $columnWidth auto;
+    }
+  }
+
+  &__menu-left {
+    width: $columnWidth;
+  }
+
+  &__nav-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    color: black;
+    transition: color 0.1s;
+    &:hover {
+      color: $grayColor;
+    }
+
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color $hoverDuration;
+
+    &:hover {
+      color: $grayColor;
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include font($defaultFont, 12px, 300, 17px); 
+    @extend %smallBottomMargin;
+
+    @media screen and (min-width: $breakpoint1) {
+      flex-direction: row;
+      justify-content: space-between;
+
+    }
+  }
+
+  @media screen and (min-width: $breakpoint1) {
+    width: calc(100% - 2 * #{$leftMediumMargin});
+
+  }
+  @media screen and (min-width: $breakpoint2) {
+    width: calc(100% - 2 * #{$leftBigMargin});
+
+  }
+}
