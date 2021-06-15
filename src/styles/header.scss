@@ -1,0 +1,188 @@
+.header {
+
+  &__section {
+    display: grid;
+    grid-template-columns: 675px 3fr;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+
+    text-transform: uppercase;
+  }
+
+  &__left {
+    position: relative;
+
+    padding: 235px 0 0 175px;
+  }
+
+  &__right {
+    position: relative;
+    z-index: -1;
+    right: 0;
+  }
+
+  &__text {
+    position: absolute;
+    top: 83%;
+
+    color: $subtitle-color;
+    font-size: 14px;
+    font-weight: $fw-bold;
+    
+    transform: rotate(-90deg);
+
+    &::before {
+      position: absolute;
+      left: -53px;
+      bottom: -24px;
+      height: 60px;
+      width: 1px;
+
+      content: "";
+
+      background-color: $text-color;
+
+      transform: rotate(90deg);
+    }
+  }
+
+  &__title {
+    position: absolute;
+    left: 56%;
+    
+    font-family: $ff-monts;
+    font-weight: $fw-bold;
+    font-size: 72px;
+  }
+
+  &__title-transparent {
+    font-family: $ff-monts;
+    font-weight: $fw-bold;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $links-color;
+  }
+
+  &__link {
+    position: absolute;
+    top: 75%;
+    left: 57%;
+
+    font-family: $ff-ibm;
+    font-weight: 500;
+    font-size: 16px;
+    color: $links-color;
+    
+    transition: transform $transition-time ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__link-text {
+    padding: 27px 43px;
+
+    border: 1px solid $text-color;
+  }
+
+  &__link-arrow {
+    padding: 27px 31px;
+
+    color: $form-button-hover-color;
+
+    background-color: $text-color;
+    border: 1px solid $text-color;
+  }
+
+  &__img {
+    height: 655px;
+    width: 100%;
+
+    object-fit: cover;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 0;
+    left: 5%;
+
+    @extend %logo;
+  }
+}
+
+@media (max-width: $notebook-width) {
+  .header {
+    &__section {
+      grid-template-columns: 300px 1fr;
+    }
+
+    &__title {
+      top: 30%;
+      left: 23%;
+
+      font-size: 55px;
+    }
+
+    &__img {
+      height: 384px;
+      width: 100%;
+    }
+    &__link {
+      left: 23%;
+    }
+
+    &__text {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $phone-width) {
+  .header {
+
+    &__section {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    &__left {
+      padding: 0;
+      order: 1;
+    }
+
+    &__title {
+      top: 10%;
+      left: 5%;
+      right: 5%;
+
+      font-size: 45px;
+      text-align: center;
+    }
+
+    &__title-transparent {
+      color: $links-color;
+    }
+
+    &__link {
+      top: 50%;
+      left: 0;
+      right: 0;
+      
+      text-align: center;
+    }
+
+    &__link-text {
+      padding: 18px 80px;
+    }
+
+    &__link-arrow {
+      padding: 18px 22px;
+    }
+
+    &__logo {
+      left: 45%;
+    }
+  }
+}

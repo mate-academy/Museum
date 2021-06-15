@@ -1,0 +1,99 @@
+.description {
+  position: relative;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  
+  height: 674px;
+  width: 100%;
+  
+  background: no-repeat url(\images\description-bakcground.png);
+  background-position: center;
+  background-size: cover;
+  
+  &__info {
+    position: absolute;
+    bottom: -16%;
+
+    display: grid;
+    grid-template-areas: "type time"
+      "title title";
+    padding: 45px 100px;
+
+    width: 570px;
+    height: 204px;
+
+    background-color: $primary-background-color;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+  }
+
+  &__name {
+    grid-area: type;
+    
+    @extend %type-name;
+  }
+
+  &__time {
+    grid-area: time;
+    justify-self: end;
+
+    @extend %type-time;
+  }
+
+  &__subtitle {
+    grid-area: title;
+
+    @extend %subtitle;
+  }
+}
+
+@media (max-width: $notebook-width) {
+  .description {
+    background-size: 90% 50%;
+    background-position: center center;
+    
+    &__info {
+      margin-bottom: 160px;
+    }
+  }
+}
+
+@media (max-width: $tablet-width - 50px) {
+  .description {
+    background-size: contain;
+    
+    &__info {
+      width: 300px;
+      height: 154px;
+      margin-bottom: 240px;
+      padding: 20px 25px;
+    }
+
+    &__name {
+      font-size: 16px;
+    }
+
+    &__time {
+      font-size: 16px;
+    }
+
+    &__subtitle {
+      text-align: center;
+      font-size: 28px;
+    }
+  }
+}
+
+@media (max-width: $phone-width) {
+  .description {
+    align-items: center;
+
+    background-size: 100% 50%;
+    background-position: top;
+  
+    &__info {
+      margin-bottom: 350px;
+    }
+  }
+}
