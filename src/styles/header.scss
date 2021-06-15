@@ -1,0 +1,103 @@
+.header {
+  position: relative;
+  max-width: $maxWitdhPageCont;
+  margin: 0 auto;
+
+  &__btn-item {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: $cburger-color;
+    transition-duration: 0.3s;
+    z-index: 1;
+    &::before {
+      @extend .header__btn-item;
+      content: "";
+      top: -6px;
+    }
+    &::after {
+      @extend .header__btn-item;
+      content: "";
+      top: 6px;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 39px;
+    left: -55px;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s, transform 0.3s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+    
+    &:hover > .header__btn-item {
+      background-color: $text-color;
+    }
+
+    @media screen and (max-width: 1680px) {
+      left: 55px;
+    }
+
+    @include screenMed {
+      left: 34px;
+    }
+
+    @include screenMob {
+      left: 20px;
+    }
+  }
+
+  &__toggler {
+    display: none;
+    margin-left: 50px;
+
+    &:checked ~ .header__btn:hover {
+      transform: scale(1.3);
+    }
+
+    &:checked ~ .header__btn > .header__btn-item {
+      transform: rotate(45deg);
+    }
+  
+    &:checked ~ .header__btn > .header__btn-item::before {
+      top: 0;
+      transform: rotate(0);
+    }
+  
+    &:checked ~ .header__btn > .header__btn-item::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+
+    &:checked ~ .menu {
+      position: absolute;
+      visibility: visible;
+      width: 100%;
+      height: 100px;
+      background-color: $back-color;
+      transition-duration: 0.8s;
+
+      @include largeScreen {
+        left: -172px;
+        width: 1920px;
+      }
+
+      @include screenMed {
+        height: 505px;
+      }
+    }
+
+    &:checked ~ .menu .menu__logo {
+      position: static;
+    }
+  }
+}
