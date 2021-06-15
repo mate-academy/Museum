@@ -1,0 +1,91 @@
+.gallery {
+  overflow: hidden;
+  margin-bottom: 100px;
+
+  &__images {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 16px;
+
+    @media (min-width: 768px) {
+      column-gap: 20px;
+    }
+
+    @media (min-width: 1280px) {
+      gap: 30px;
+      grid-template-areas: "first second second"
+        "third third fourth";
+    }
+
+    @media (min-width: 1920px) {
+      grid-template-areas: "first second second fifth"
+        "third third fourth sixth";
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    height: 410px;
+    margin: 0 auto;
+    display: none;
+    margin-bottom: 30px;
+    transition: 0.3s linear;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      height: 543px;
+
+      &:nth-child(3) {
+        display: block;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      height: 600px;
+      width: 100%;
+
+      &:nth-child(1) {
+        grid-area: first;
+      }
+
+      &:nth-child(2) {
+        display: none;
+      }
+
+      &:nth-child(3) {
+        grid-area: second;
+      }
+      &:nth-child(4) {
+        display: block;
+        grid-area: third;
+        height: 360px;
+      }
+      &:nth-child(5) {
+        display: block;
+        grid-area: fourth;
+        height: 360px;
+      }
+    }
+
+    @media (min-width: 1920px) {
+
+      &:nth-child(2) {
+        display: block;
+        grid-area: fifth;
+      }
+      &:nth-child(6) {
+        display: block;
+        grid-area: sixth;
+        height: 360px;
+      }
+    }
+  }
+}

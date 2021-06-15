@@ -1,0 +1,54 @@
+.toggler__line,
+.toggler__line::before,
+.toggler__line::after {
+  background-color: #0f0e08;
+  width: 24px;
+  height: 4px;
+  position: absolute;
+  top: 15px;
+
+  transition: 0.3s linear;
+  cursor: pointer;
+}
+
+.toggler {
+  left: 20px;
+  padding: 20px;
+
+  &__line {
+    left: 20px;
+    z-index: 4;
+
+    &::before {
+      content: "";
+      top: 5px;
+    }
+
+    &::after {
+      content: "";
+      top: 10px;
+    }
+  }
+
+  &--open {
+    padding: 20px;
+    .toggler__line {
+      transform: rotate(45deg);
+
+      @media (min-width: 1280px) {
+        left: 20px;
+      }
+
+      &::before {
+        top: 0;
+        transform: rotate(0);
+      }
+
+      &::after {
+        top: 0;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+}
