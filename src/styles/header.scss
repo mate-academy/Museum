@@ -1,0 +1,182 @@
+.header {
+
+  &__main {
+    position: relative;
+    margin-top: 235px;
+  }
+
+  &__section {
+    display: grid;
+    grid-template-columns: 675px 3fr;
+    margin: 0 auto;
+
+  }
+
+  &__title {
+    position: absolute;
+    margin-bottom: 100px;
+    right: -20%;
+    @extend %header-title-style;
+    font-family: "Montserrat", sans-serif;
+  
+  }
+
+  &__title-span {
+    @extend %header-title-style;
+    font-family: "Ubuntu", sans-serif;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  }
+
+  &__button {
+    position: absolute;
+    top: 60%;
+    right: 5%;
+    text-decoration: none;
+
+    
+  }
+
+  &__button-text {
+    padding: 27px 43px;
+    font-weight: 500;
+    line-height: 16px;
+    color: $header-text-color;
+
+    border: 1px solid #1a5a4c;
+
+    &:hover {
+      box-shadow: 0 6px 23px rgba(218, 213, 209, 0.8);
+    }
+  }
+
+  &__button-span {
+    padding: 27px 31px;
+    color: #d7dde3;
+    font-weight: bold;
+
+    border: 1px solid #1a5a4c;
+    background-color: #1a5a4c;
+
+    &:hover {
+      box-shadow: 0 6px 23px rgba(218, 213, 209, 0.8);
+    }
+  }
+
+  &__event {
+    position: absolute;
+
+    color: #687480;
+    font-weight: $fw-bold;
+    font-size: 0.9rem;
+    line-height: 14px;
+    left: 10%;
+    top: 70%;
+
+    transform: rotate(-90deg);
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 1px;
+      width: 70px;
+      background-color: #1a5a4c;
+      top: 50%;
+      right: 140%;
+    }
+  }
+
+  &__photo {
+    position: relative;
+    z-index: -1;
+  }
+
+  &__img {
+    object-fit: cover;
+    object-position: left bottom;
+    width: 100%;
+    height: 655px;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 2%;
+    left: 20%;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.1rem;
+    line-height: 36px;
+    font-weight: bold;
+    color: $header-text-color;
+  }
+}
+
+@media (max-width: 950px) {
+  .header {
+    display: grid;
+
+    &__section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__main {
+      display: grid;
+      margin: $margin-small auto 38px;
+      justify-content: center;
+
+      order: 1;
+    }
+
+    &__title {
+      position: static;
+      margin: 0 0 50px;
+      text-align: center;
+      font-size: 2.5rem;
+      line-height: 45px;
+
+      &-span {
+        font-size: inherit;
+        color: inherit;
+        font-family: inherit;
+        -webkit-text-stroke-width: inherit;
+      }
+    }
+
+    
+    &__event {
+      display: none;
+    }
+    
+    &__photo {
+      position: static;
+      display: flex;
+      justify-content: center;
+    }
+    
+    &__logo {
+      left: 45vw;
+    }
+    
+    &__img {
+      height: 320px;
+      object-position: left;
+    }
+
+    &__button {
+      position: static;
+
+      text-decoration: none;
+    }
+  
+    &__button-text {
+      padding: 18px 80px;
+
+    }
+  
+    &__button-span {
+      padding: 18px 19px 18px 21px;
+    }
+  }
+}

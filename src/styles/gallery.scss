@@ -1,0 +1,97 @@
+.gallery {
+  &__img {
+
+    transition: transform 1s, border-radius 1s;
+    &:hover {
+      transform: scale(1.1);
+      border-radius: 10px;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .gallery {
+    display: grid;
+    grid-template-areas: "girl house house goose"
+      "girl house house goose"
+      "park park beach village";
+    gap: 30px;
+
+    &__img {
+      height: auto;
+      max-width: 100%;
+      object-fit: cover;
+
+      &--girl {
+        grid-area: girl;
+      }
+
+      &--house {
+        grid-area: house;
+      }
+
+      &--goose {
+        grid-area: goose;
+      }
+
+      &--park {
+        grid-area: park;
+      }
+
+      &--beach {
+        grid-area: beach;
+      }
+
+      &--village {
+        grid-area: village;
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1440px) {
+  .gallery {
+    display: grid;
+    grid-template-areas: "girl house house"
+      "park park beach";
+    gap: 30px;
+    justify-content: center;
+
+    &__img {
+      height: auto;
+      max-width: 100%;
+      object-fit: cover;
+
+      &--girl {
+        grid-area: girl;
+      }
+
+      &--house {
+        grid-area: house;
+      }
+      &--park {
+        grid-area: park;
+      }
+
+      &--beach {
+        grid-area: beach;
+      }
+      &--village {
+        display: none;
+      }
+      &--goose {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 899px) {
+  .gallery {
+    display: flex;
+    gap: 20px;
+
+    overflow-x: auto;
+    height: 410px;
+  }
+}
