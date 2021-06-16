@@ -1,0 +1,73 @@
+.descr {
+  display: flex;
+  flex-direction: column;
+  width: 370px;
+  font-family: "IBM Plex Sans", sans-serif;
+
+  @include MobileScreen {
+    align-items: center;
+    width: 100%;
+  }
+
+  &__main {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+
+    @include MobileScreen {
+      justify-content: space-between;
+      width: 280px;
+    }
+  }
+
+  &__info {
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+    color: $c-lightGreyText;
+  }
+
+  &__date {
+    margin-left: 26px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: $c-textDate;
+  }
+
+  &__title {
+    margin-top: 30px;
+
+    &::after {
+      position: relative;
+      @include square-position;
+      content: "";
+      display: inline-block;
+      justify-items: center;
+      height: $squareEvetsHeight;
+      width: 15px;
+      background-color: $c-squareEvets;
+      
+      @include MobileScreen {
+        width: 10px;
+        height: $squareEvetsHeightMob;
+      }
+    }
+    
+    @include MobileScreen {
+      width: 280px;
+      font-size: 28px;
+    }
+  }
+
+  &__text {
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 24px;
+    color: $c-greyText;
+
+    @include MobileScreen {
+      width: 280px;
+      margin-top: 11px;
+    }
+  }
+}

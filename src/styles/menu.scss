@@ -1,0 +1,43 @@
+.menu {
+  visibility: hidden;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 0;
+
+  @include MediumScreen {
+    flex-direction: column;
+  }
+
+  &__logo {
+    visibility: visible;
+    position: absolute;
+    top: 15px;
+    right: calc(50% - #{$logoWidth} / 2);
+    z-index: 1;
+    transition-duration: 0.7s;
+
+    &:hover {
+      transform: scale(-1.2, 1.2);
+    }
+
+    @include MobileScreen {
+      right: calc(80% - #{$logoWidth} / 2);
+    }
+
+    @media screen and (max-width: 430px) {
+      right: calc(50% - #{$logoWidth} / 2);
+    }
+  }
+
+  &__nav {
+    margin-left: 50px;
+  }
+
+  &__search {
+    font-size: 19px;
+
+    @include hoverLinkText($c-squareEvets, scale(1.3));
+  }
+}

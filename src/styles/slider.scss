@@ -1,0 +1,53 @@
+.slider {
+  position: relative;
+  text-align: center;
+  
+  &__input {
+    position: relative;
+    visibility: hidden;
+    display: inline-block;
+  }
+
+  &__label {
+    visibility: hidden;
+    position: absolute;
+    margin-left: -17px;
+    bottom: -30px;
+    background-color: $c-noActive;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    @include MediumScreen {
+      visibility: visible;
+    }
+
+  }
+
+  &__input--1:checked ~ .gallery__wrapper .gallery__picture {
+    left: 0;
+  }
+
+  &__input--2:checked ~ .gallery__wrapper .gallery__picture {
+    left: -($galleryWidthTab + $galleryGapTab);
+    @include  MobileScreen {
+      left: -($galleryWidthMob + $galleryGapMob);
+    }
+  }
+
+  &__input--3:checked ~ .gallery__wrapper .gallery__picture {
+    left: -($galleryWidthTab + $galleryGapTab) * 2;
+    @include  MobileScreen {
+      left: -($galleryWidthMob + $galleryGapMob) * 2;
+    }
+  }
+
+  &__input--4:checked ~ .gallery__wrapper .gallery__picture {
+    left: 0;
+  }
+
+  &__input:checked + .slider__label {
+    background-color: $c-textDate;
+  }
+}
