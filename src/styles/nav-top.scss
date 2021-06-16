@@ -1,0 +1,83 @@
+.nav-top {
+
+  $bottomGap: 14px;
+  $linksLeftGap: 37px;
+
+  &__list {
+    margin: 80px 30px 50px;
+    display: grid;
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-size: 24px;
+    font-family: Oswald, sans-serif;
+    transition: color 0.5s;
+
+    &:link,
+    &:visited,
+    &:active {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: #000;
+      text-decoration: none;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    display: block;
+
+    &__link {
+      height: 72px;
+      font-size: 1rem;
+
+      &:link,
+      &:visited,
+      &:active {
+        color: $mainBlackColor;
+      }
+
+      &:hover {
+        color: $mainGreenColor;
+
+        &::after {
+          $elemHeight: 2px;
+
+          position: absolute;
+          bottom: 10px;
+          width: 100%;
+          height: $elemHeight;
+          background-color: $mainGreenColor;
+          border-radius: $elemHeight / 2;
+          content: "";
+          animation: linksUnderline 0.5s;
+        }
+      }
+    }
+
+    &__list {
+      position: absolute;
+      margin: 0;
+      left: calc(#{$mediumScreensGap} + #{$pageLogoWidth} + #{$linksLeftGap});
+      top: 0;
+      grid-template-columns: repeat(8, auto);
+      grid-column-gap: 50px;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    &__list {
+      left: calc(#{$largeScreensGap} + #{$pageLogoWidth} + #{$linksLeftGap});
+    }
+  }
+}
