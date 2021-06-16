@@ -1,0 +1,93 @@
+.nav {
+  background-color: $darkGrey;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  box-shadow: inset 0 0 15px $blackColor;
+
+  @include onTablet {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  @include onDesktop {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  &__container {
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__item {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__list {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      justify-items: center;
+      gap: 5px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(8, auto);
+      gap: 10px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    color: $whiteColor;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: all $duration;
+    text-align: center;
+  }
+
+  &__close {
+    margin-left: auto;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: transform $duration;
+
+    @include onTablet {
+      margin: 0;
+    }
+
+    &:hover {
+      transform: scale(1.4);
+    }
+  }
+
+  &__logo {
+    display: none;
+    width: 45px;
+    height: 49px;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}
+
+.nav__item:hover {
+  .nav__link {
+    color: $blackColor;
+    background-color: $whiteColor;
+    box-shadow: 2px 2px 5px 2px rgba($blackColor, 0.5);
+  }
+}
