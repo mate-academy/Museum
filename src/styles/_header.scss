@@ -1,0 +1,256 @@
+.header {
+  height: $headerDefaultHeight;
+  position: relative;
+  transition: height $mockupSizingAnim;
+
+  @media (max-width: $tabletScreenSize) {
+    height: $headerTabletHeight;
+  }
+
+  @media (max-width: $portableScreenSize) {
+    height: $headerPortableHeight;
+  }
+
+  &__hamburger-input {
+    display: none;
+  }
+
+  &__hamburger-toggler {
+    position: absolute;
+    top: ($logoHeight + $headerTopSectionTop) / 2;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    width: $hambMenuLabelWidth;
+    height: $hambMenuLabelHeight;
+    cursor: pointer;
+  }
+
+  &__hamburger-icon,
+  &__hamburger-icon::before,
+  &__hamburger-icon::after {
+    position: relative;
+    display: block;
+    width: $hambMenuLineWidth;
+    height: $hambMenuLineHeight;
+    background-color: #000;
+    transition: transform $buttonsHoverAnimTime,
+      top $buttonsHoverAnimTime,
+      opacity $buttonsHoverAnimTime;
+  }
+
+  &__hamburger-icon::before,
+  &__hamburger-icon::after {
+    content: "";
+  }
+
+  &__hamburger-icon::before {
+    bottom: $hambMenuLineHeight + $hambMenuLineGapY;
+    opacity: 1;
+  }
+
+  &__hamburger-icon::after {
+    top: $hambMenuLineGapY;
+  }
+
+  &__hamburger-input:checked ~ &__hamburger-toggler {
+    position: fixed;
+  }
+
+  &__hamburger-input:checked ~ &__hamburger-toggler &__hamburger-icon {
+    transform: rotate(45deg);
+  }
+
+  &__hamburger-input:checked ~ &__hamburger-toggler &__hamburger-icon::before {
+    top: 0;
+    opacity: 0;
+  }
+
+  &__hamburger-input:checked ~ &__hamburger-toggler &__hamburger-icon::after {
+    transform: rotate(-90deg);
+    top: -($hambMenuLineHeight);
+  }
+
+  &__menu {
+    z-index: -1;
+    position: fixed;
+    opacity: 0;
+    transition: opacity $buttonsHoverAnimTime,
+      z-index $buttonsHoverAnimTime;
+  }
+
+  &__hamburger-input:checked ~ &__menu {
+    z-index: 2;
+    opacity: 1;
+  }
+
+  &__top {
+    position: relative;
+    top: $headerTopSectionTop;
+    text-align: center;
+  }
+
+  &__hamburger-input:checked ~ &__top {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__hamburger-input:checked ~ &__top &__logo {
+    @media (max-width: $tabletScreenSize) {
+      position: fixed;
+      top: $headerTopSectionTop;
+      z-index: 2;
+    }
+  }
+
+  &__content {
+    margin-left: $headerContentMarginLeft;
+    transition: margin-left $mockupSizingAnim;
+
+    @media (max-width: $tabletScreenSize) {
+      margin-left: 0;
+    }
+  }
+
+  &__bg {
+    z-index: -1;
+    position: absolute;
+    background-image: url(../images/header.png);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    right: 0;
+    left: $largeScreenSizeMargin;
+    margin-left: $headerContentMarginLeft + $headerBgPictureMediumMrgnLeft;
+    height: $headerDefaultHeight;
+    transition: left $mockupSizingAnim,
+      margin-left $mockupSizingAnim,
+      height $mockupSizingAnim;
+
+    @media (max-width: $fhdScreenSize) {
+      left: $fhdScreenSizeMargin;
+    }
+
+    @media (max-width: $mediumScreenSize) {
+      left: $mediumScreenSizeMargin;
+    }
+
+    @media (max-width: $notebookScreenSize) {
+      margin-left: $headerContentMarginLeft + $headerBgPictureNotebookMrgnLeft;
+    }
+
+    @media (max-width: $tabletScreenSize) {
+      margin-left: $headerBgPictureTabletMrgnLeft;
+      height: $headerTabletHeight;
+    }
+
+    @media (max-width: $portableScreenSize) {
+      margin-left: -($mediumScreenSizeMargin);
+      height: $headerBgPicturePortableHeight;
+    }
+  }
+
+  &__title {
+    $countGapY: 5;
+
+    position: relative;
+    top: $headerDefaultHeight / $countGapY;
+    font-family: Montserrat, sans-serif;
+    font-size: 72px;
+    line-height: 100%;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: $mainTextColor;
+    transition: font-size $mockupSizingAnim,
+      margin-left $mockupSizingAnim,
+      top $mockupSizingAnim;
+
+    @media (max-width: $notebookScreenSize) {
+      font-size: 55px;
+    }
+    
+    @media (max-width: $tabletScreenSize) {
+      top: $headerTabletHeight / $countGapY;
+      font-size: 45px;
+    }
+
+    @media (max-width: $portableScreenSize) {
+      text-align: center;
+      top: $headerBgPicturePortableHeight;
+      margin-top: -$logoHeight;
+    }
+
+    &--transparent {
+      color: transparent;
+      -webkit-text-stroke: 1px $mainTextColor;
+
+      @media (max-width: $portableScreenSize) {
+        color: $mainTextColor;
+        -webkit-text-stroke: 0;
+      }
+    }
+  }
+
+  &__button {
+    $countGapY: 3;
+    position: relative;
+    top: $headerDefaultHeight / $countGapY;
+    transition: top $mockupSizingAnim;
+
+    @media (max-width: $tabletScreenSize) {
+      top: $headerTabletHeight / $countGapY;
+    }
+
+    @media (max-width: $portableScreenSize) {
+      top: $headerBgPicturePortableHeight;
+      margin-top: $headerTopSectionTop;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+  }
+
+  &__events {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    bottom: $subtitle4Size;
+    left: $largeScreenSizeMargin;
+    transform: rotate(-90deg);
+    transform-origin: left center;
+    transition: left $mockupSizingAnim;
+    
+    @media (max-width: $fhdScreenSize) {
+      left: $fhdScreenSizeMargin;
+    }
+
+    @media (max-width: $mediumScreenSize) {
+      left: $mediumScreenSizeMargin;
+    }
+
+    @media (max-width: $tabletScreenSize) {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      position: relative;
+      left: -20px;
+      display: block;
+      width: 70px;
+      height: 1px;
+      background-color: $secondaryColor;
+    }
+  }
+
+  &__events-link {
+    transition: color $buttonsHoverAnimTime;
+    
+    &:hover {
+      color: $secondaryColor;
+    }
+  }
+}
