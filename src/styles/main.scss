@@ -1,7 +1,80 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "__reset";
+@import "header";
+@import "button";
+@import "card";
+@import "image";
+@import "title";
+@import "event";
+@import "modificators";
+@import "gallery";
+@import "footer";
+
+html {
+  font-family: Montserrat, sans-serif;
+}
 
 body {
   background: $c-gray;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 1600px) {
+  .gallery {
+    &__grid {
+      grid-template-columns: repeat(3, 370px);
+    }
+    &__image:nth-child(1) {
+      grid-column: 1 / span 1;
+    }
+    &__image:nth-child(2) {
+      grid-column: 2 / span 2;
+    }
+    &__image:nth-child(3) {
+      display: none;
+    }
+    &__image:nth-child(4) {
+      grid-column: 1 / span 2;
+    }
+    &__image:nth-child(5) {
+      grid-column: 3 / span 1;
+    }
+    &__image:nth-child(6) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .gallery {
+    justify-content: center;
+    align-items: center;
+    &__grid {
+      margin: 0 0 30px 34px;
+      display: flex;
+      height: 600px;
+      width: calc(100% - 34px);
+      overflow: hidden;
+    }
+    &__image {
+      height: 600px;
+      min-width: 370px;
+      &:nth-child(2) {
+        background-image: url(\images\gallery3.jpg);
+      }
+      &:nth-child(4) {
+        background-image: url(\images\gallery2.jpg);
+      }
+    }
+    &__slider {
+      display: flex;
+      width: 15%;
+      margin-bottom: 90px;
+      justify-content: space-between;
+
+    }
+  }
 }
