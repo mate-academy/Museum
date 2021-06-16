@@ -1,0 +1,92 @@
+.nav {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 37px;
+  font-family: $Oswald-font-family;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  max-width: $max-width-for-viewport-more-than-1920px;
+  width: $width-for-viewport-more-than-1280px;
+
+  &__toogler {
+    display: none;
+  }
+
+  &__toogler-label-open {
+    width: 18px;
+    height: 12px;
+    margin-top: 45px;
+    margin-bottom: 178px;
+    cursor: pointer;
+    transition: transform $duration;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+
+  &__toogler-label-close {
+    display: none;
+    width: 58px;
+    height: 63px;
+    margin-top: 9px;
+    margin-bottom: 155px;
+    object-fit: cover;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  &__menu {
+    display: none;
+  }
+
+  &__logo {
+    position: absolute;
+    left: $horisontical-logo-position;
+    top: 15px;
+    width: 68px;
+    height: 72px;
+    z-index: 1;
+  }
+
+  &__toogler:checked ~ &__menu {
+    display: flex;
+  }
+
+  &__toogler:checked ~ &__toogler-label-close {
+    display: block;
+    transition: transform $duration;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__toogler:checked ~ &__toogler-label-open,
+  &__toogler:checked ~ &__logo {
+    display: none;
+  }
+
+  @media (max-width: 1280px) {
+    width: $width-for-viewport-less-than-1280px;
+    min-width: $min-width-for-viewport;
+  }
+
+  @media (max-width: 900px) {
+    &__toogler-label-close {
+      position: absolute;
+      left: 15px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    &__logo {
+      left: calc(50% - #{$min-logo-width} / 2);
+      width: $min-logo-width;
+      height: 61px;
+    }
+  }
+}
