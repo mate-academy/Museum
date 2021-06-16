@@ -1,0 +1,52 @@
+.article {
+  &__title {
+    position: relative;
+    width: max-content;
+    margin-bottom: 15px;
+
+    font-size: 3rem;
+    font-weight: 400;
+    color: $c-dark-gray;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      bottom: 50%;
+      right: -40px;
+      width: 12px;
+      height: 12px;
+
+      content: "";
+      background-color: $c-red;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__text {
+    width: 370px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 1.33rem;
+    font-weight: 300;
+    line-height: 24px;
+    color: $c-gray;
+  }
+}
+
+@media screen and (max-width: $small-screen-breakpoint) {
+  .article {
+    &__title {
+      font-size: 2rem;
+
+      &::after {
+        right: -25px;
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    &__text {
+      width: 100%;
+    }
+  }
+}
