@@ -1,0 +1,160 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+
+  &__logo {
+    @include logo;
+    order: 2;
+    transition-duration: $transDuration;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 990px) {
+      text-align: center;
+    }
+
+    @media (max-width: 928px) {
+      font-size: 24px;
+    }
+
+    // @media (max-width: 640px) {
+    //   text-align: center;
+    // }
+  }
+
+  &__search {
+    visibility: hidden;
+    order: 3;
+    align-self: center;
+    transition-duration: $transDuration;
+  }
+
+  &__list {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    z-index: 1;
+
+    transition-duration: $transDuration;
+
+    background-color: #fff;
+    order: 2;
+
+    @media (max-width: 1200px) {
+      opacity: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    margin: 0 10px;
+
+    @include mainText;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 72px;
+    color: $dark;
+
+    text-align: center;
+
+    @media (max-width: 928px) {
+      line-height: 48px;
+    }
+  }
+
+  &__toggler {
+    display: none;
+    position: absolute;
+  }
+
+  &__toggler-label {
+    order: 1;
+
+    display: none;
+    position: relative;
+    margin: auto 0 auto -15px;
+    padding: 15px;
+    width: 50px;
+    height: 13px + 30px;
+
+    cursor: pointer;
+
+    @media (max-width: 1200px) {
+      display: block;
+    }
+
+    @media (max-width: 990px) {
+      z-index: 2;
+    }
+
+    @media (max-width: 640px) {
+      z-index: 2;
+      margin: 0;
+    }
+  }
+
+  &__span,
+  &__span::before,
+  &__span::after {
+    display: block;
+    position: absolute;
+
+    width: 20px;
+    height: 1px;
+
+    background-color: $dark;
+
+    transition-duration: $transDuration;
+  }
+
+  &__span::before {
+    content: "";
+    top: -5px;
+  }
+  &__span::after {
+    content: "";
+    top: 5px;
+  }
+
+  &__toggler:checked ~ &__toggler-label > &__span {
+    transform: rotate(45deg);
+  }
+
+  &__toggler:checked ~ &__toggler-label > &__span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+
+  &__toggler:checked ~ &__toggler-label > &__span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  &__toggler:checked {
+
+    & ~ .nav__list {
+      opacity: 1;
+      justify-content: center;
+
+      @media (max-width: 990px) {
+        flex-direction: column;
+        margin-left: -50px;
+      }
+
+      @media (max-width: 765px) {
+        height: 600px;
+      }
+
+      @media (max-width: 640px) {
+        height: 505px;
+        flex-direction: column;
+        margin-left: -50px;
+      }
+    }
+  }
+}
