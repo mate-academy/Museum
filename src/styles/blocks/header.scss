@@ -1,72 +1,225 @@
-.page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 175px;
-  width: 1920px;
-  margin: 0 auto;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-}
-
 .header {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 100vh;
+  height: 320px;
+  padding: 0;
+  background-image: url(../images/header-museum.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: padding 0.5s ease 0s;
 
-  &__background {
-    height: 655px;
-    width: 1245px;
-    background-image: url(../images/header-museum.png);
-    background-size: cover;
+  &__container {
+    margin: 0 auto;
+    max-width: 1920px;
+    padding: 0 20px;
+
+    @include onIpad {
+      padding: 0 34px;
+    }
+
+    @include onDesktop {
+      padding: 0 55px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__hamburger {
+    display: block;
+    background-image: url(../images/menu.png);
+    width: 18px;
+    height: 12px;
     background-repeat: no-repeat;
-    position: relative;
-    left: 503px;
+    background-size: cover;
+    background-position: center;
+
+    &:hover {
+      width: 18px;
+      height: 12px;
+      cursor: pointer;
+      background-image: url(../images/menu-hover.png);
+      background-size: cover;
+    }
+  }
+
+  &__hamburger--active {
+    width: 25px;
+    height: 14px;
+    background-image: url(../images/menu-active.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    z-index: 1;
+
+    &:hover {
+      width: 25px;
+      height: 14px;
+      background-image: url(../images/menu-active.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      cursor: pointer;
+      z-index: 1;
+    }
+  }
+
+  &__search {
+    width: 18px;
+    height: 12px;
+
+    &-image {
+      width: 18px;
+      height: 12px;
+    }
   }
 
   &__logo {
-    position: absolute;
-    z-index: 2;
-    margin: 15px 730px;
-    width: 68px;
-    height: 72px;
-    font-family: "Montserrat", serif;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 36px;
-    letter-spacing: 0;
-    text-align: left;
+    padding-top: 9px;
+    z-index: 1;
+    transition: transform 0.2s linear;
 
-    & a {
-      color: black;
+    &-img {
+      width: 55px;
+      height: 61px;
+
+      @include onIpad {
+        width: 68px;
+        height: 72px;
+      }
     }
-  }
 
-  &__title {
-    position: relative;
-    width: 462px;
-    height: 152px;
-    top: 235px;
-    right: 298px;
-    font-family: "Montserrat", serif;
-    font-size: 72px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 72px;
-    text-align: left;
+    &:hover {
+      transform: scale(1.1);
+    }
 
-    & strong {
-      mix-blend-mode: multiply;
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: black;
-      color: #fff;
+    &-link {
+      color: $header-strongtext-color;
     }
   }
 }
+//   display: flex;
+//   margin: 0 auto;
+//   position: relative;
+//   width: 1920px;
+//   padding: 0 175px;
+
+//   &__nav {
+//     display: flex;
+//     justify-content: space-between;
+
+//   }
+
+//   &__background {
+//     height: 655px;
+//     width: 1245px;
+//     background-image: url(../images/header-museum.png);
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     transition: padding 0.5s ease 0s;
+//   }
+
+//   &__logo {
+//     margin-top: 15px;
+//     z-index: 1;
+//     width: 68px;
+//     height: 72px;
+//     font-family: "Montserrat", serif;
+//     font-size: 36px;
+//     font-style: normal;
+//     font-weight: 700;
+//     line-height: 36px;
+//     letter-spacing: 0;
+
+//     transition: transform 0.2s linear;
+
+//     &:hover {
+//       transform: scale(1.1);
+//     }
+
+//     &-link {
+//       color: $header-strongtext-color;
+//     }
+//   }
+
+//     &-strongtext {
+//       mix-blend-mode: multiply;
+//       -webkit-text-stroke-width: 1px;
+//       -webkit-text-stroke-color: black;
+//       color: #fff;
+//     }
+
+//   &__button {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     width: 230px;
+//     height: 70px;
+//     border: 1px solid #1a5a4c;
+
+//     &-name {
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       width: 150px;
+//       height: 70px;
+//       font-family: "IBM Plex Sans", serif;
+//       font-size: 16px;
+//       font-style: normal;
+//       font-weight: 500;
+//       line-height: 16px;
+//       text-align: center;
+//     }
+
+//     &-buy {
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       width: 70px;
+//       height: 70px;
+//       background: #1a5a4c;
+//       text-align: center;
+//       color: #d7dde3;
+//       transition: transform 0.3s linear;
+
+//       &:hover {
+//         transform: scale3d(1.2, 1.2, 1.2);
+//       }
+//     }
+//   }
+
+//   &__events {
+//     transform: rotate(90deg);
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 230px;
+//     height: 70px;
+
+//     &-text {
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       height: 14px;
+//       width: 43px;
+//       font-family: "IBM Plex Sans", serif;
+//       font-size: 14px;
+//       font-style: normal;
+//       font-weight: 700;
+//       line-height: 14px;
+//       text-align: left;
+//       color: #687480;
+//       transform: rotate(180deg);
+//     }
+
+//     &-line {
+//       width: 70px;
+//       height: 0;
+//       border: 1px solid #687480;
+//     }
+//   }
+
+// @media (max-width: 768px) {
+//   //
+// }
