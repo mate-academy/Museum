@@ -10,11 +10,16 @@
 $colorGren: #1a5a4c;
 $colorBlac: #0f0e08;
 $colorGrey: #4e4e4e;
+$colorRed: #f14a27;
 
 html {
   font-family: IBM Plex Sans, sans-serif;
   font-style: normal;
   font-weight: 500;
+}
+
+.cursor {
+  cursor: pointer;
 }
 
 body {
@@ -48,7 +53,7 @@ h4 {
     flex-direction: row;
     padding-bottom: 240px;
     min-width: 177px;
-    justify-content: space-between;
+    justify-content: start;
   }
 
   &__menu {
@@ -65,7 +70,7 @@ h4 {
     font-size: 30px;
     text-decoration: none;
     color: black;
-    margin-right: 133px;
+    margin-left: 91px;
     margin-top: -19px;
   }
 
@@ -214,11 +219,221 @@ h4 {
 }
 
 .footer {
-  height: 5555px;
+  padding-bottom: 48px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 386px;
+    width: 100%;
+    background: url(../images/footer1.jpg) no-repeat center;
+    background-size: cover;
+    color: white;
+    padding: 55px 20px 131px;
+  }
+
+  &__title {
+    font-size: 36px;
+    line-height: 36px;
+    padding-bottom: 30px;
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 18px;
+    line-height: 27px;
+    padding-bottom: 48px;
+  }
+
+  &__forms {
+    display: flex;
+  }
+
+  &__mail {
+    height: 50px;
+    width: 233px;
+    outline: 0;
+    border: 0;
+    padding-left: 31px;
+  }
+
+  &__button {
+    height: 50px;
+    width: 50px;
+    background-color: $colorRed;
+    text-decoration: none;
+    border: 0;
+  }
+
+  &__adres {
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__days {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 130px;
+  }
+
+  &__day {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    padding-bottom: 30px;
+    color: $colorGrey;
+
+    &::before {
+      position: absolute;
+      content: "Графік роботи";
+      top: -40px;
+      left: 0;
+
+      font-size: 14;
+      line-height: 20px;
+      color: $colorBlac;
+    }
+  }
+
+  &__work {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 124px;
+    color: $colorGrey;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 80px;
+  }
+
+  &__inst {
+    height: 24px;
+    width: 24px;
+  }
+
+  &__facb {
+    height: 24px;
+    width: 24px;
+  }
+
+  &__mes {
+    position: relative;
+    padding-left: 30px;
+    background-color: white;
+    z-index: 3;
+  }
+
+  &__logo {
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+  }
+
+  &__navig {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__bold {
+    margin: 0;
+    font-weight: 700;
+    line-height: 21px;
+  }
+
+  &__bolds {
+    font-weight: 400;
+    color: $colorGrey;
+    line-height: 21px;
+  }
+
+  &__linke {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    width: 128px;
+
+    & :nth-child(n) {
+      text-decoration: none;
+      color: $colorBlac;
+
+      &:hover {
+        color: $colorRed;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: "Контакти:";
+      top: -40px;
+      left: 0;
+      line-height: 20px;
+      color: $colorBlac;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-between;
+    height: 150px;
+    padding: 20px;
+    margin: 0;
+  }
+
+  &__link {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    color: $colorBlac;
+
+    &:hover {
+      color: $colorRed;
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & p:nth-child(n) {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 17px;
+      text-align: center;
+    }
+
+    & p:first-child() {
+      padding-bottom: 14px;
+    }
+  }
+
 }
 
 .gallery {
   padding: 20px;
+  margin-bottom: 139px;
 
   &__title {
     margin-bottom: 40px;
@@ -235,9 +450,6 @@ h4 {
   text-align: center;
   font-size: 18px;
   background: #fff;
-
-  /* Center slide text vertically */
-  
 }
 
 .swiper-slide img {
@@ -249,9 +461,22 @@ h4 {
 
 .swiper-pagination-bullet {
   width: 16px !important;
+  margin-right: 7px !important;
   height: 16px !important;
   display: inline-block;
   border-radius: 50%;
   background: $colorGren !important;
   opacity: 0.8 !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
 }
