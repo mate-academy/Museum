@@ -1,11 +1,31 @@
+.main-container {
+  border: 1px solid black;
+  padding-right: 0;
+}
+
 .header {
   max-width: 1842px;
+  width: 100%;
   display: flex;
-  margin: 0 auto;
+  justify-content: flex-end;
+  margin: 0 0 0 auto;
+  padding: 0 0 0 20px;
   position: relative;
+  border: 1px solid black;
+
+  @media only screen and (max-width: 1300px) {
+    justify-content: space-between;
+  }
+
+  @media only screen and (max-width: 700px) {
+    flex-direction: column-reverse;
+    padding: 0;
+    &__title {
+      margin: 20px;
+    }
+  }
 
   &__burger-logo-container {
-    width: 100%;
     position: absolute;
     top: 2%;
     right: 0;
@@ -35,34 +55,55 @@
     max-height: 655px;
     object-fit: cover;
     position: relative;
-    right: 0;
   }
 
   &__text-opacity {
     position: absolute;
+    font-weight: bold;
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #0f0e08;
     z-index: 10;
+    @media only screen and (max-width: 700px) {
+      font-weight: bold;
+      position: relative;
+      -webkit-text-fill-color: black;
+      -webkit-text-stroke-width: 0;
+      -webkit-text-stroke-color: none;
+      color: black;
+    }
   }
 
   &__ticket-title-container {
-    margin-left: 170px;
+    margin-left: 177px;
+    @media only screen and (max-width: 700px) {
+      margin: 0 auto;
+    }
   }
 
   &__title {
-    margin-top: 235px;
+    margin: 235px 0 0;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
-    font-size: 72px;
+    font-size: 74px;
     line-height: 100%;
+    @media only screen and (max-width: 700px) {
+      margin: 20px 0;
+      text-align: center;
+    }
   }
 
   &__ticket {
     width: 220px;
     height: 70px;
     border: 1px solid #1a5a4c;
-    margin: 80px 80px 0 0;
+    margin: 80px 40px 0 0;
     display: flex;
+    @media only screen and (max-width: 700px) {
+      height: 50px;
+      margin: 0 auto;
+      text-align: center;
+    }
   }
 
   &__ticket-container-left {
@@ -74,6 +115,10 @@
     font-family: "IBM Plex Sans", sans-serif;
     font-size: 16px;
     font-weight: 500;
+    @media only screen and (max-width: 700px) {
+      width: 230px;
+      height: 50px;
+    }
   }
 
   &__ticket-container-right {
@@ -85,5 +130,9 @@
     background-color: #1a5a4c;
     width: 70px;
     height: 70px;
+    @media only screen and (max-width: 700px) {
+      width: 50px;
+      height: 50px;
+    }
   }
 }
