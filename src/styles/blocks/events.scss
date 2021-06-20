@@ -1,0 +1,110 @@
+.events {
+  padding-top: 200px;
+
+  @include screenMed {
+    padding-top: 90px;
+  }
+
+  @include screenMob {
+    padding-top: 70px;
+  }
+
+  &__inscription {
+    position: absolute;
+    left: -5px;
+    top: -65px;
+    transform: rotate(-90deg);
+    font-size: 14px;
+    font-weight: 700;
+    color: $main-light-gray;
+
+    &::before {
+      position: relative;
+      display: inline-block;
+      background-color: $text-color;
+      margin-right: 20px;
+      height: 1px;
+      width: 70px;
+      content: "";
+      bottom: 2px;
+      line-height: 33px;
+    }
+
+    @include screenMed {
+      display: none;
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 60px;
+
+    @include screenMed {
+      margin-bottom: 50px;
+    }
+
+    @include screenMob {
+      text-align: center;
+      font-size: 36px;
+      width: 187px;
+      margin: 0 auto 40px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 100px;
+    display: flex;
+
+    @include screenMed {
+      flex-direction: column;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__item--reverse {
+    flex-direction: row-reverse;
+
+    @include screenMed {
+      flex-direction: column;
+    }
+  }
+
+  &__picture {
+    object-fit: cover;
+    transition: transform 1s;
+    width: 55%;
+    height: 520px;
+
+    @include screenMed {
+      width: 100%;
+    }
+
+    @include screenMob {
+      height: 75vw;
+      width: 100%;
+    }
+
+  }
+
+  &__description {
+    flex-shrink: 0;
+    margin-left: 130px;
+
+    @include screenMed {
+      margin-left: 0;
+      margin-top: 30px;
+    }
+
+    @include screenMob {
+      margin-top: 15px;
+    }
+  }
+
+  &__description--rev {
+    margin-right: 130px;
+  }
+}
+
+.events__picture:hover {
+
+  transform: scale(1.05);
+}

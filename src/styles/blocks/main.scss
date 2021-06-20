@@ -1,0 +1,102 @@
+.main {
+  display: flex;
+  justify-content: flex-end;
+  text-transform: uppercase;
+  position: relative;
+  background-color: $back-color;
+
+  @include screenMob {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  &__information {
+    font-family: "IBM Plex Sans", sans-serif;
+    padding-top: 235px;
+
+    @include screenMed {
+      padding-top: 135px;
+    }
+
+    @include screenMob {
+      padding-top: 20px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 80px;
+    margin-right: -140px;
+
+    @include screenMed {
+      margin-right: -108px;
+    }
+
+    @include screenMob {
+      text-align: center;
+      font-size: 45px;
+      margin-right: 0;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+  }
+
+  &__title--empty {
+    position: relative;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000;
+
+    @include screenMob {
+      color: inherit;
+      -webkit-text-stroke-width: unset;
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-right: 70px;
+    height: 70px;
+    width: 220px;
+    font-weight: 500;
+    font-size: 16px;
+    border: 1px solid $text-color;
+
+    @include screenMob {
+      width: 280px;
+      height: 50px;
+      padding-right: 50px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    right: -1px;
+    transition: filter 0.3s, border-radius 0.3s;
+  }
+
+  &__item:hover .capital__button {
+    filter: brightness(120%);
+  }
+
+  &__image {
+    height: 655px;
+    width: 65%;
+    background-image: url("../images/header.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom ;
+
+    @include screenMed {
+      height: 505px;
+    }
+
+    @include screenMob {
+      height: 320px;
+      width: 100%;
+      background-position: bottom ;
+    }
+  }
+}
