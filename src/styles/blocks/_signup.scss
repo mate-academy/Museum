@@ -1,0 +1,104 @@
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(#000, #111);
+  background-image: url("../images/signup-picture.png");
+  background-position: bottom center;
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 400px;
+  cursor: pointer;
+
+  @include laptop {
+    height: 560px;
+  }
+  @include fullHD {
+    height: 680px;
+  }
+  transition: background $time ease-in-out;
+  &:hover {
+    background: linear-gradient(#000, #112);
+    background-image: url("../images/signup-picture.png");
+    background-position: top center;
+  }
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    @include tablet {
+      font-size: 48px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 66px;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    font-size: 18px;
+  }
+
+  &__form {
+    display: flex;
+  }
+
+  &__input {
+    width: 230px;
+    height: 50px;
+    margin-right: 0;
+    padding-left: 32px;
+    border-radius: 0;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    transition: $time;
+    @include tablet {
+      width: 395px;
+      height: 70px;
+      margin-right: 10px;
+    }
+    &:hover {
+      border-radius: 3px;
+    }
+  }
+
+  &__btn {
+    width: 50px;
+    height: 50px;
+    background-color: #f14a27;
+    background-image: url("../icons/btn.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid transparent;
+    transition: $time;
+    cursor: pointer;
+    @include tablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: url("../icons/btn.svg") no-repeat;
+      background-position: -150%;
+      transition: $time;
+    }
+
+    &:hover {
+      background-color: $color-button-green;
+      background-position: 180%;
+
+      &::before {
+        background-position: center;
+      }
+    }
+  }
+}

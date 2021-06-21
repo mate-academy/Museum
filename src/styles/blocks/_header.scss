@@ -28,20 +28,19 @@
   }
 
   &__content {
-    padding: 32px 20px 0;
+    padding-top: 32px;
     height: 100%;
-    @include tablet {
-      padding: 45px 80px 0;
-    }
-    @include laptop {
-      padding: 45px 120px 0;
-    }
     max-width: 1750px;
+    @extend %padding-container;
+
+    @include tablet {
+      padding-top: 45px;
+    }
   }
 
   &__wrapper {
     width: 100%;
-
+    position: relative;
   }
 
   &__logo {
@@ -95,30 +94,75 @@
     &-tickets {
       width: 230px;
       height: 50px;
-      line-height: 50px;
       @include tablet {
         width: 150px;
         height: 70px;
         line-height: 70px;
       }
-
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 50px;
       text-align: center;
       color: $color-text-primary;
 
     }
     &-square {
+      display: block;
       width: 50px;
       height: 50px;
       line-height: 50px;
+      text-decoration: none;
       @include tablet {
         width: 70px;
         height: 70px;
         line-height: 70px;
       }
-
       text-align: center;
       background-color: $color-button-green;
       color: $color-text-button;
+      transition: background-color $time ease-in-out,
+        color $time ease-in-out;
+      &:link {
+        color: $color-slider-circle;
+      }
+      &:visited {
+        color: $color-text-button;
+      }
+      &:hover {
+        background-color: $color-title-box;
+        color: $color-text-primary;
+      }
+    }
+  }
+
+  &__events {
+    transform: rotate(-90deg);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: none;
+    @include laptop {
+      display: block;
+    }
+
+    &--title {
+      display: inline-block;
+      text-align: center;
+      padding-bottom: 100px;
+      @extend %IBM-events-text;
+
+      &::before {
+        display: inline-block;
+        margin-right: 20px;
+        line-height: 100%;
+        content: "";
+        border: 1px solid $color-button-green;
+        width: 70px;
+        height: 0;
+        transition: border-color $time ease-in-out;
+      }
     }
   }
 }
