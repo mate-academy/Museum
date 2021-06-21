@@ -1,9 +1,30 @@
 .main {
-  padding: 0;
-  margin: 0;
-
+  margin: 0 auto;
   &__container {
     padding: 0 20px;
+
+    @include screen-760 {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 0 34px;
+      width: 700px;
+    }
+
+    @include screen-1280 {
+      padding: 0 55px;
+      min-width: 1280px;
+    }
+
+    @include screen-1440 {
+      padding: 0 136px;
+      min-width: 1440px;
+    }
+
+    @include screen-1920 {
+      padding: 0 175px;
+      min-width: 1920px;
+    }
   }
 
   &__title {
@@ -14,6 +35,10 @@
     font-weight: 700;
     line-height: 45px;
     text-align: center;
+
+    @include screen-760 {
+      display: none;
+    }
   }
 
   &__button {
@@ -24,6 +49,10 @@
     width: 280px;
     height: 50px;
     border: 1px solid #1a5a4c;
+
+    @include screen-760 {
+      display: none;
+    }
 
     &-name {
       display: flex;
@@ -48,10 +77,13 @@
       background: #1a5a4c;
       text-align: center;
       color: #d7dde3;
-      transition: transform 0.3s linear;
+      transition: transform 0.3s linear, box-shadow 0.3s linear;
 
       &:hover {
         transform: scale3d(1.2, 1.2, 1.2) rotate(180deg);
+        background-color: rgb(255, 135, 80);
+        color: #000;
+        box-shadow: -5px -5px 5px 1px rgba(0, 83, 181, 0.46);
       }
     }
   }

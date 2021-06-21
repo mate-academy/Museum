@@ -1,4 +1,7 @@
 .events {
+  display: flex;
+  flex-direction: column;
+
   &__title {
     margin-top: 70px;
     font-family: "Montserrat", serif;
@@ -7,6 +10,17 @@
     font-weight: 700;
     line-height: 36px;
     text-align: center;
+
+    @include screen-760 {
+      margin-top: 90px;
+      font-size: 48px;
+      line-height: 48px;
+      text-align: left;
+    }
+
+    @include screen-1280 {
+      margin-top: 200px;
+    }
   }
 
   &__card {
@@ -16,15 +30,71 @@
     justify-content: center;
     align-items: center;
 
+    @include screen-760 {
+      margin-top: 50px;
+      align-items: flex-start;
+    }
+
+    @include screen-1280 {
+      margin-top: 60px;
+      flex-direction: row;
+    }
+
+    &:last-child {
+      @include screen-1280 {
+        margin-top: 100px;
+      }
+    }
+
+    &--rewerse {
+      @include screen-1280 {
+        flex-direction: row-reverse;
+      }
+    }
+
     &-photo {
       width: 280px;
       height: 210px;
       transition: transform 0.4s linear, filter 0.4s linear;
 
+      @include screen-760 {
+        width: 700px;
+        height: 520px;
+      }
+
+      @include screen-1280 {
+        width: 670px;
+        height: 520px;
+      }
+
+      @include screen-1920 {
+        width: 870px;
+        height: 520px;
+      }
+
       &:hover {
         transform: scale(1.1);
         cursor: pointer;
         filter: brightness(80%);
+      }
+
+      &--margR {
+        @include screen-1280 {
+          margin-right: 130px;
+        }
+      }
+
+      &--margL {
+        @include screen-1280 {
+          margin-left: 130px;
+        }
+      }
+    }
+
+    &-container {
+      @include screen-1280 {
+        display: flex;
+        flex-direction: column;
       }
     }
 
@@ -35,6 +105,10 @@
       width: 280px;
       align-items: center;
 
+      @include screen-760 {
+        margin-top: 34px;
+      }
+
       &-type {
         font-family: "IBM Plex Sans", serif;
         font-size: 16px;
@@ -44,6 +118,11 @@
         text-align: left;
         text-transform: uppercase;
         color: #687480;
+
+        @include screen-760 {
+          font-size: 14px;
+          line-height: 14px;
+        }
       }
 
       &-date {
@@ -54,13 +133,18 @@
         line-height: 24px;
         text-align: left;
         color: #1a5a4c;
+
+        @include screen-760 {
+          font-size: 14px;
+          line-height: 14px;
+        }
       }
     }
 
     &-title {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       margin-top: 15px;
       width: 280px;
       height: 34px;
@@ -72,12 +156,35 @@
       text-align: left;
       color: #0f0e08;
 
+      @include screen-760 {
+        justify-content: flex-start;
+        margin-top: 32px;
+        font-size: 36px;
+        line-height: 36px;
+        width: 370px;
+        height: 39px;
+      }
+
+      &-link {
+        color: black;
+        transition: transform 0.4s linear;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
       &::after {
         content: "";
         display: inline-block;
         width: 10px;
         height: 10px;
         background-color: #f14a27;
+
+        @include screen-760 {
+          margin-left: 20px;
+          width: 15px;
+          height: 15px;
+        }
       }
     }
 
@@ -90,6 +197,11 @@
       font-weight: 300;
       line-height: 24px;
       text-align: left;
+
+      @include screen-760 {
+        width: 370px;
+        height: 97px;
+      }
     }
   }
 }

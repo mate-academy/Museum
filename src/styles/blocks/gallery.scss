@@ -1,4 +1,14 @@
 .gallery {
+  margin-bottom: 100px;
+
+  @include screen-1280 {
+    min-width: 1280px;
+  }
+
+  @include screen-760 {
+    margin-bottom: 90px;
+  }
+
   &__title {
     margin: 0 auto 40px;
     width: 280px;
@@ -8,11 +18,41 @@
     font-weight: 700;
     line-height: 36px;
     text-align: center;
+
+    @include screen-760 {
+      min-width: 700px;
+      margin: 0 auto 50px;
+      text-align: left;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 48px;
+    }
+
+    @include screen-1280 {
+      min-width: 1280px;
+    }
+
+    @include screen-1440 {
+      min-width: 1440px;
+    }
+
+    @include screen-1920 {
+      min-width: 1920px;
+    }
   }
 
   &__slider {
     margin: 0 auto;
     width: 280px;
+
+    @include screen-760 {
+      min-width: 700px;
+    }
+
+    @include screen-1280 {
+      display: none;
+    }
 
     &-active label {
       border-radius: 10px;
@@ -26,7 +66,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 30px auto 100px;
+      margin: 30px auto;
       height: 9px;
       width: 102px;
       text-align: center;
@@ -35,6 +75,7 @@
     &-active label:hover {
       background: #76c8ff;
       border-color: #777;
+      cursor: pointer;
     }
 
     & input {
@@ -48,17 +89,26 @@
       float: left;
     }
 
-    & .gallery__slides-images {
+    &-images {
       width: 500%;
       line-height: 0;
       transition: all 800ms cubic-bezier(0.77, 0, 0.17, 1);
+
+      @include screen-760 {
+        width: 1765px;
+      }
     }
 
     &-images-pic {
       width: 280px;
       height: 410px;
-      object-fit: fill;
+      object-fit: cover;
       transition: filter 0.4s linear;
+
+      @include screen-760 {
+        width: 340px;
+        height: 543px;
+      }
 
       &:hover {
         cursor: pointer;
@@ -70,6 +120,10 @@
   &__overflow {
     width: 100%;
     overflow: hidden;
+
+    @include screen-760 {
+      width: 100%;
+    }
   }
 
   #switch1:checked ~ &__slides .gallery__slides-images {
@@ -78,14 +132,26 @@
 
   #switch2:checked ~ &__slides .gallery__slides-images {
     margin-left: -100%;
+
+    @include screen-760 {
+      margin-left: -50%;
+    }
   }
 
   #switch3:checked ~ &__slides .gallery__slides-images {
     margin-left: -200%;
+
+    @include screen-760 {
+      margin-left: -100%;
+    }
   }
 
   #switch4:checked ~ &__slides .gallery__slides-images {
     margin-left: -300%;
+
+    @include screen-760 {
+      margin-left: -150%;
+    }
   }
 
   #switch1:checked ~ .gallery__slider-active label:nth-child(1),
@@ -93,5 +159,81 @@
   #switch3:checked ~ .gallery__slider-active label:nth-child(3),
   #switch4:checked ~ .gallery__slider-active label:nth-child(4) {
     background: #1a5a4c;
+  }
+
+  &__desktop {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 30px;
+
+    @include screen-max-1279 {
+      display: none;
+    }
+
+    &-image {
+      object-fit: cover;
+      transition: transform 0.4s linear, filter 0.4s linear;
+
+      &:hover {
+        cursor: pointer;
+        filter: brightness(80%);
+        transform: scale(1.1);
+      }
+
+      &--hide {
+        @include screen-1280 {
+          display: none;
+        }
+
+        @include screen-1920 {
+          display: inline-block;
+        }
+      }
+
+      &--1 {
+        height: 600px;
+        width: 370px;
+      }
+
+      &--2 {
+        height: 600px;
+        width: 770px;
+      }
+
+      &--3 {
+        height: 360px;
+        width: 770px;
+
+        @include screen-1920 {
+          height: 600px;
+          width: 370px;
+        }
+      }
+
+      &--4 {
+        height: 360px;
+        width: 370px;
+
+        @include screen-1920 {
+          height: 360px;
+          width: 770px;
+        }
+      }
+
+      &--5 {
+        @include screen-1920 {
+          height: 360px;
+          width: 370px;
+        }
+      }
+
+      &--6 {
+        @include screen-1920 {
+          height: 360px;
+          width: 370px;
+        }
+      }
+    }
   }
 }
