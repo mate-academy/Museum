@@ -1,0 +1,203 @@
+.actuals {
+  &__title {
+    @extend %title-position;
+    @extend %title-fonts;
+  }
+
+  &__block {
+    @include laptop {
+      display: flex;
+    }
+    &--1 {
+      margin-bottom: 60px;
+      @include tablet {
+        margin-bottom: 48px;
+      }
+      @include laptop {
+        justify-content: flex-start;
+        column-gap: 120px;
+        margin-bottom: 100px;
+      }
+    }
+    &--2 {
+      margin-bottom: 60px;
+      @include tablet {
+        margin-bottom: 48px;
+      }
+      @include laptop {
+        justify-content: flex-end;
+        column-gap: 120px;
+        margin-bottom: 100px;
+      }
+    }
+    &--3 {
+      position: relative;
+      margin-bottom: 0;
+      @include tablet {
+        margin-bottom: 0;
+      }
+      @include laptop {
+        justify-content: center;
+        margin-bottom: 0;
+      }
+    }
+    &--order {
+      &-1 {
+        @include laptop {
+          order: 1;
+        }
+      }
+      &-2 {
+        @include laptop {
+          order: 2;
+        }
+      }
+    }
+  }
+
+  &__place {
+    &--picture {
+      position: relative;
+      width: 100%;
+      max-height: 210px;
+      @include tablet {
+        max-height: 520px;
+      }
+      @include laptop {
+        max-width: 900px;
+      }
+      &::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+    &--background {
+      flex-grow: 1;
+      width: 100%;
+      position: relative;
+
+      @include tablet {
+        padding-left: 36px;
+        padding-right: 36px;
+      }
+      @include laptop {
+        max-height: 680px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      &::after {
+        content: "";
+        display: block;
+      }
+    }
+
+    &--description {
+      padding-top: 20px;
+      max-width: 370px;
+
+      @include tablet {
+        padding-top: 36px;
+      }
+      @include laptop {
+        padding-top: 160px;
+        margin-bottom: 0;
+      }
+    }
+    &--title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      max-width: 370px;
+      margin-top: 8px;
+      padding-right: 9px;
+
+      @extend %subtitle-fonts;
+      @include tablet {
+        margin-top: 32px;
+      }
+
+      &::after {
+        display: block;
+        content: "";
+        width: 10px;
+        height: 10px;
+        margin: auto 0;
+        background-color: $color-title-box;
+      }
+    }
+
+    &--title-fixed {
+      display: flex;
+      align-items: baseline;
+      justify-content: flex-start;
+      margin-top: 8px;
+      @extend %subtitle-fonts;
+      @include tablet {
+        margin-top: 32px;
+      }
+    }
+
+    &--article {
+      max-width: 370px;
+      margin-top: 8px;
+
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 150%;
+      color: $color-text-secondary;
+      @include tablet {
+        margin-top: 16px;
+      }
+    }
+
+    &--event-name {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 100%;
+      color: $color-text-events;
+      text-align: left;
+      margin-right: 48px;
+      @include tablet {
+        margin-right: 24px;
+      }
+    }
+    &--event-date {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 150%;
+      color: $color-button-green;
+      text-align: right;
+    }
+    &--event-block {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 280px;
+      height: 160px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      @include tablet {
+        width: 560px;
+        height: 200px;
+      }
+      box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+    }
+    &--event-inner {
+      width: 236px;
+      justify-content: center;
+      @include tablet {
+        width: 370px;
+      }
+    }
+  }
+}

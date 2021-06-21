@@ -1,0 +1,30 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+
+  @include laptop {
+    flex-direction: row;
+  }
+
+  &__item {
+    display: block;
+    margin-bottom: 12px;
+
+    @include laptop {
+      margin-bottom: 0;
+      margin-right: 50px;
+    }
+
+  }
+  &__link {
+    @extend %IBM-menu-text;
+    text-decoration: transparent;
+    transition: color $time ease,
+      box-shadow $time ease;
+
+    &:hover {
+      color: $color-button-green;
+      box-shadow: 1px 1px 4px 4px $color-text-events;
+    }
+  }
+}

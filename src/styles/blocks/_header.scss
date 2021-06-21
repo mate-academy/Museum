@@ -1,0 +1,168 @@
+.header {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  @include tablet {
+    height: 384px;
+  }
+  @include laptop {
+    height: 655px;
+  }
+
+  &__promo {
+    background-image: url("../images/header-museum-1800-1200.png");
+    background-size: cover;
+    background-position: top left;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    @include tablet {
+      width: 66%;
+    }
+    @include laptop {
+      width: 57%;
+    }
+  }
+
+  &__content {
+    padding-top: 32px;
+    height: 100%;
+    max-width: 1750px;
+    @extend %padding-container;
+
+    @include tablet {
+      padding-top: 45px;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%);
+    @include tablet {
+      top: 15px;
+    }
+  }
+
+  &__title {
+    font-size: 45px;
+    margin-top: 280px;
+    text-align: center;
+
+    @include tablet {
+      font-size: 55px;
+      margin-top: 40px;
+      text-align: left;
+    }
+    @include laptop {
+      font-size: 72px;
+      margin-top: 250px;
+    }
+
+    &-style-1 {
+      @extend %Montserat-title-text1;
+    }
+    &-style-2 {
+      @extend %Montserat-title-text2;
+    }
+  }
+
+  &__button {
+    display: flex;
+    border: 1px solid $color-button-green;
+    width: 280px;
+    margin-top: 20px;
+
+    @include tablet {
+      width: 220px;
+      margin-top: 40px;
+    }
+    @include laptop {
+      margin-top: 80px;
+    }
+
+    &-tickets {
+      width: 230px;
+      height: 50px;
+      @include tablet {
+        width: 150px;
+        height: 70px;
+        line-height: 70px;
+      }
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 50px;
+      text-align: center;
+      color: $color-text-primary;
+
+    }
+    &-square {
+      display: block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      text-decoration: none;
+      @include tablet {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+      }
+      text-align: center;
+      background-color: $color-button-green;
+      color: $color-text-button;
+      transition: background-color $time ease-in-out,
+        color $time ease-in-out;
+      &:link {
+        color: $color-slider-circle;
+      }
+      &:visited {
+        color: $color-text-button;
+      }
+      &:hover {
+        background-color: $color-title-box;
+        color: $color-text-primary;
+      }
+    }
+  }
+
+  &__events {
+    transform: rotate(-90deg);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: none;
+    @include laptop {
+      display: block;
+    }
+
+    &--title {
+      display: inline-block;
+      text-align: center;
+      padding-bottom: 100px;
+      @extend %IBM-events-text;
+
+      &::before {
+        display: inline-block;
+        margin-right: 20px;
+        line-height: 100%;
+        content: "";
+        border: 1px solid $color-button-green;
+        width: 70px;
+        height: 0;
+        transition: border-color $time ease-in-out;
+      }
+    }
+  }
+}

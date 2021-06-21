@@ -1,0 +1,156 @@
+.footer {
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    @include tablet {
+      margin-bottom: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 62px;
+    }
+
+    &--logo {
+      box-sizing: border-box;
+    }
+
+    &--sm {
+      display: flex;
+      justify-content: space-between;
+      min-width: 72px;
+    }
+  }
+
+  &__content {
+    &--schedule {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 400;
+      line-height: 150%;
+      max-width: 130px;
+      margin-bottom: 70px;
+
+      @include tablet {
+        max-width: 170px;
+        margin-bottom: 40px;
+      }
+      @include laptop {
+        margin-bottom: 80px;
+      }
+    }
+    &--contacts {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 400;
+      line-height: 150%;
+
+    }
+    &--line {
+      position: relative;
+      background: rgba(26, 90, 76, 0.5);
+      width: 100%;
+      height: 1px;
+      margin-bottom: 48px;
+
+      @include tablet {
+        width: 460px;
+        height: 1px;
+      }
+      @include laptop {
+        width: 1px;
+        height: 260px;
+        margin-bottom: 0;
+      }
+    }
+    &--link {
+      @extend %link-decoration;
+    }
+    &--button {
+      @include smartphone {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-image: url("../icons/arrow-up.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        top: -100px;
+        right: 0;
+        border: 1px solid $color-button-green;
+        cursor: pointer;
+        transition: border-color $time ease,
+          background-color $time ease,
+          background-position $time ease,
+          box-shadow $time ease;
+
+        &::before {
+          display: block;
+          content: "";
+          height: 100%;
+          width: 100%;
+          background-image: url("../icons/arrow-up.png");
+          background-position: -150%;
+          background-repeat: no-repeat;
+          text-align: center;
+        }
+        &:hover {
+          border-color: $color-button-green;
+          background-color: $color-title-box;
+          background-position: center;
+          box-shadow: 1px 1px 10px 1px $color-title-box;
+
+          &::before {
+            background-position: center;
+          }
+        }
+        &:active {
+          box-shadow: 0 0 0 0 transparent;
+          background-color: transparent;
+        }
+      }
+    }
+    &-bold {
+      font-weight: bold;
+    }
+  }
+  &__author {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+    text-align: center;
+    margin-bottom: 36px;
+
+    @include tablet {
+      flex-direction: row-reverse;
+    }
+  }
+  &__menu {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 80px;
+
+    @include tablet {
+      margin-bottom: 100px;
+    }
+    @include laptop {
+      margin-bottom: 0;
+    }
+    &-block {
+      flex-basis: 50%;
+    }
+    &-item {
+      margin-bottom: 20px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 100%;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    &-link {
+      @extend %link-decoration;
+    }
+  }
+}

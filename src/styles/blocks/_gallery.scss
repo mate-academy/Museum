@@ -1,0 +1,117 @@
+.gallery {
+  &__title {
+    @extend %title-position;
+    @extend %title-fonts;
+  }
+
+  &__pictures {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    overflow: hidden;
+    gap: 20px;
+    margin-bottom: 30px;
+
+    @include laptop {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 30px;
+      max-width: 1570px;
+    }
+
+    &__img {
+      height: 410px;
+      width: 280px;
+      cursor: zoom-out;
+
+      @include tablet {
+        height: 543px;
+        width: 340px;
+      }
+
+      object-fit: cover;
+      object-position: top center;
+
+      transition: transform $time ease-in-out,
+        border-radius $time ease-in-out,
+        box-shadow $time ease-in-out;
+
+      &:hover {
+        box-shadow: 1px 1px 4px 4px $color-text-events;
+        transform: scale(0.95);
+        border-radius: 4px;
+      }
+    }
+
+    & > .gallery__img:nth-of-type(3n) {
+      display: block;
+
+      @include laptop {
+        display: none;
+      }
+      @include fullHD {
+        display: block;
+        flex-basis: 370px;
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+    & > .gallery__img:first-of-type,
+    .gallery__img:nth-of-type(5n) {
+      @include laptop {
+        flex-basis: 370px;
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+    & > .gallery__img:nth-of-type(n+4) {
+      @include laptop {
+        height: 360px;
+      }
+    }
+    & > .gallery__img:nth-of-type(2n):not(:last-of-type) {
+      @include laptop {
+        flex-basis: 770px;
+        flex-grow: 2;
+        flex-shrink: 2;
+      }
+    }
+  }
+
+  &__slider-menu {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    @include laptop {
+      display: none;
+    }
+
+    &--element {
+      border-radius: 50%;
+      width: 9px;
+      height: 9px;
+      transition: background-color $time ease-in-out,
+        box-shadow $time ease-in-out;
+      @include laptop {
+        display: none;
+      }
+      &:first-of-type {
+        background-color: $color-button-green;
+      }
+      &:not(:first-of-type) {
+        background-color: $color-slider-circle;
+      }
+      &:hover {
+        cursor: pointer;
+        background-color: $color-title-box;
+        box-shadow: 1px 1px 10px 5px $color-title-box;
+      }
+      &:active {
+        cursor: initial;
+        background-color: $color-button-green;
+        box-shadow: 1px 1px 10px 5px $color-button-green;
+      }
+    }
+  }
+}
