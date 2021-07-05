@@ -1,0 +1,73 @@
+.descr {
+  width: 370px;
+  display: flex;
+  font-family: "IBM Plex Sans", sans-serif;
+  flex-direction: column;
+
+  @include screenMob {
+    width: 100%;
+    align-items: center;
+  }
+
+  &__main {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+
+    @include screenMob {
+      justify-content: space-between;
+      width: 280px;
+    }
+  }
+
+  &__info {
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: $main-light-gray;
+  }
+
+  &__date {
+    margin-left: 26px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: $text-color;
+  }
+
+  &__title {
+    margin-top: 30px;
+
+    &::after {
+      width: 15px;
+      content: "";
+      position: relative;
+      display: inline-block;
+      justify-items: center;
+      height: $squareEventsHeight;
+      background-color: $square-color;
+      @include square-position;
+      
+      @include screenMob {
+        width: 10px;
+        height: $squareEventsHeightMob;
+      }
+    }
+    
+    @include screenMob {
+      width: 280px;
+      font-size: 28px;
+    }
+  }
+
+  &__text {
+    margin-top: 15px;
+    line-height: 24px;
+    font-size: 16px;
+    color: $main-gray;
+
+    @include screenMob {
+      margin-top: 11px;
+      width: 280px;
+    }
+  }
+}
