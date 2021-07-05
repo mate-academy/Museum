@@ -1,50 +1,184 @@
 .header {
-  /*position: relative;*/
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  /*height: $mobile-header-heigth;
-  width: $mobile-header-width;*/
+  position: relative;
+  width: 100%;
+  height: 300px;
 
-  background-image: url(/images/header.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top;
-
-  /*z-index: -1;*/
-
-  &__menu-icon {
-    display: block;
-    width: 18px;
-    height: 12px;
-  
-    background-size: contain;
-    background-repeat: no-repeat;
-  
-    background-image: url(../images/menu.svg);
+  @include tablet {
+    height: 384px;
+  }
+  @include laptop {
+    height: 655px;
   }
 
-  &__logo {
-    margin: 5px auto;
-  }
+  &__events {
+    transform: rotate(-90deg);
+    display: none;
+    position: absolute;
   
+    @include laptop {
+      display: block;
+      bottom: 100px;
+    }
+
+    text-align: center;
+
+    font-weight: bold;
+    font-size: 14px;
+    color: #687480;
+  
+    &::before {
+      display: block;
+      margin-right: 20px;
+      line-height: 100%;
+      content: " ";
+      border: 1px solid $green;
+      width: 70px;
+      height: 0;
+      transition: border-color 0.3s ease;
+      transform: translate(-60px, 25px);
+    }
+  }
+
   &__title {
-    margin: 200px auto 20px;
+    /*margin: 20px;*/
+    
     text-align: center;
 
     font-family: "Monserat", sans-serif;
     font-size: 45px;
     font-weight: bold;
-  }
 
-  &__subtitle {
-    display: none;
+    @include tablet {
+      margin: 40px 0;
+      text-align: left;
+      padding-left: 34px;
+      width: min-content;
+      font-size: 55px;
+    }
   }
 }
 
-.header-container {
+/*@media (min-width: 768) {
+  .top-actions {
+    padding: $header-padding-desktop;
+  }
+}*/
+
+.desktop-wrapper {
   display: grid;
-  grid-template-columns: 25% 50% 25%;
+  margin-top: 20em;
+  justify-content: center;
+
+  @media (min-width: 280px) {
+    margin-top: 24em;
+  }
+
+  @media (min-width: 360px) and (min-height: 812px) {
+    margin-top: 31em;
+  }
+
+  @media (min-width: 411px) {
+    margin-top: 27em;
+  }
+
+  @media (min-width: 411px) and (min-height: 823px) {
+    margin-top: 31em;
+  }
+
+  @include tablet {
+    margin-top: 0;
+    /*display: flex;
+    flex-direction: column;
+    transform: translateY(80%);*/
+    position: absolute;
+    top: 135px;
+    left: 20px;
+    /*justify-content: flex-start;
+    justify-content: flex-start;*/
+  }
+
+  @media (min-width: 1024px) {
+    /*display: flex;
+    flex-direction: column;
+    transform: translateY(80%);*/
+    position: absolute;
+    top: 135px;
+    left: 275px;
+    /*justify-content: flex-start;
+    justify-content: flex-start;*/
+  }
+}
+
+.transparent {
+  @media (min-width: 768px) {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px black;
+  }
+}
+
+.header__header-image {
+  background-image: url("../images/header.png");
+  background-size: cover;
+  background-position: top right;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 60%;
+
+  @include tablet {
+    width: 505px;
+    height: 384px;
+  }
+
+  @include laptop {
+    width: 725px;
+    height: 655px;
+  }
+
+  @include desktop {
+    width: 805px;
+  }
+
+  @include desktopLarge {
+    width: 1245px;
+  }
+}
+
+.top-actions {
+  display: grid;
+  padding: $header-padding;
+  grid-template-columns: $icon-width 1fr $icon-width;
   justify-items: center;
   align-items: center;
+}
+
+.icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  &--menu {
+    background-image: url(../images/menu.svg);
+    transition: transform 0.3s;
+    cursor: pointer;
+  
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  &--cross {
+    background-image: url(../images/close.png);
+    transition: transform 0.3s;
+  
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }

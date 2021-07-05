@@ -3,10 +3,14 @@
 @import "typography";
 
 @import "blocks/header.scss";
+@import "blocks/menu.scss";
 @import "blocks/form.scss";
 @import "blocks/events.scss";
 @import "blocks/lection.scss";
 @import "blocks/gallery.scss";
+@import "blocks/follow.scss";
+@import "blocks/footer.scss";
+@import "blocks/nav.scss";
 
 *,
 *::after,
@@ -15,22 +19,47 @@
 }
 
 .page {
+  /*display: block;*/
+  scroll-behavior: smooth;
   background-color: $c-gray;
 
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 16px;
   font-weight: 300;
 
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+  
+    &:target {
+      transform: translateY(0);
+    }
+  }
+
   &__body {
-    margin: 0 auto;
+    margin: 0;
+    
   }
 
   &__main {
-    margin-top: 76px;
+    /*margin-top: 76px;*/
     padding: 20px;
+
+    @media (min-width: 415px) {
+      padding: 34px;
+    }
   }
 }
 
 .container {
   margin-bottom: 70px;
+ 
+  @media (min-width: 415px) {
+    margin-bottom: 100px;
+  }
 }
