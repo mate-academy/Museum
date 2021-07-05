@@ -1,0 +1,74 @@
+.nav {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1570px;
+
+    @media (min-width: 767px) {
+      padding: 0 34px;
+    }
+
+    @media (min-width: 1279px) {
+      padding: 0 55px;
+    }
+
+    @media (min-width: 1440px) {
+      padding: 0 136px;
+    }
+
+    @media (min-width: 1670px) {
+      padding: 0;
+    }
+  }
+
+  &__logo {
+    position: relative;
+    top: 20px;
+  }
+
+  &__lens {
+    margin-top: 10px;
+    &:hover {
+      transform: scale(1.2);
+      transition-duration: 0.4s;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    @media (min-width: 767px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @media (min-width: 1279px) {
+      display: flex;
+      gap: 50px;
+    }
+  }
+
+  &__list-item {
+    margin-top: 20px;
+  }
+ 
+  &__link {
+    @extend %IBM-footer;
+    color: $letterColor;
+    text-decoration: none;
+    cursor: pointer;
+    &:after {
+      content: "";
+      position: relative;
+      bottom: -5px;
+      display: block;
+      height: 1px;
+      transition-duration: 0.5s;
+    }
+    &:hover::after {
+      background-color: $letterColor;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.events {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 70px;
+
+  &__decor-line {
+    display: none;
+    @extend %IBM-decor;
+  }
+
+  &__heading {
+    margin-bottom: 40px;
+    padding: 0 20px;
+    @extend %h2;
+    text-align: center;
+  }
+
+  @media (min-width: 767px) {
+    padding-bottom: 40px;
+
+    &__heading {
+      text-align: left;
+      padding: 0;
+    }
+  }
+
+  @media (min-width: 1279px) {
+
+    &__decor-line {
+      position: absolute;
+      display: block;
+      $decor-line-width: 70px;
+      $decor-line-height: 1px;
+      left: 0;
+      top: -#{$decor-line-width + 20};
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        left: -#{($decor-line-width + 20)};
+        top: 50%;
+        transform: translateY(-50%);
+        width: $decor-line-width;
+        height: $decor-line-height;
+        background-color: $greenColor;
+      }
+    }
+  }
+}
