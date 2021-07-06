@@ -1,0 +1,161 @@
+@import "../utils/animation/animation";
+
+.left {
+  position: relative;
+  left: -30px;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1;
+
+  &__text {
+    position: absolute;
+    top: 550px;
+    left: 20px;
+    width: 10px;
+    &__paragraph {
+      transform: rotate(-90deg);
+    }
+
+    &__line {
+      position: absolute;
+      left: 5px;
+      width: 1px;
+      height: 70px;
+      background-color: #1a5a4c;
+    }
+  }
+
+  &__center {
+    position: absolute;
+    width: 300px;
+    top: 244px;
+
+    &__title {
+      font-family: Montserrat, sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      color: #000;
+      line-height: 100%;
+      transition: 0.5s;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: IBM Plex Sans, sans-serif;
+    font-weight: 500;
+    width: 220px;
+    height: 70px;
+    font-size: 16px;
+    line-height: 70px;
+    border: 1px solid #1a5a4c;
+    color: #0f0e08;
+    cursor: pointer;
+    padding-left: 40px;
+    transition: 0.5s;
+
+    &:hover &__link {
+      color: #fff;
+    }
+
+    &:hover {
+      background-color: #1a5a4c;
+    }
+
+    &__click {
+      height: 70px;
+      width: 70px;
+
+      background-color: #1a5a4c;
+    }
+  }
+}
+
+@include onIpadMini {
+  .left {
+    width: 28%;
+    left: -37px;
+    .left__text {
+      display: none;
+    }
+
+    .left__center {
+      top: 153px;
+      width: 208px;
+
+      &__title {
+        font-size: 50px;
+      }
+    }
+
+    &__button {
+      width: 200px;
+    }
+  }
+}
+
+@include forHeader {
+  .left {
+    left: 28px;
+    .left__center {
+      top: 153px;
+      width: 208px;
+
+      &__title {
+        font-size: 34px;
+      }
+    }
+
+    &__button {
+      height: 50px;
+      width: 120px;
+      font-size: 14px;
+      line-height: 50px;
+      padding-left: 10px;
+      &__click {
+        height: 50px;
+        width: 40px;
+
+        background-color: #1a5a4c;
+      }
+    }
+  }
+}
+
+@include onMobileMax {
+  .left {
+    width: 70%;
+
+    .left__center {
+      top: 153px;
+      width: 208px;
+
+      &__title {
+        display: none;
+      }
+    }
+
+    &__button {
+      position: absolute;
+      top: 160px;
+      width: 100%;
+      height: 50px;
+
+      &__click {
+        height: 50px;
+        width: 50px;
+      }
+    }
+  }
+}
+
+@include onMobile {
+  .left__button {
+    left: 46px;
+  }
+}

@@ -1,0 +1,120 @@
+.gallery {
+  &__picture {
+    &__important {
+      display: flex;
+      justify-content: center;
+      max-height: 100%;
+      flex: 0 0 40%;
+
+      margin-bottom: 30px;
+    }
+
+    &__secondary {
+      display: flex;
+      flex: 0 0 40%;
+
+      justify-content: center;
+    }
+  }
+
+}
+
+.important__img {
+  max-width: 100%;
+  max-height: 100%;
+  margin-right: 30px;
+  object-fit: contain;
+  transition: 1s;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 23px black;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.secondary__img {
+  margin-right: 30px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: 1s;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 23px black;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+@include onTV {
+  .important__img--second {
+    margin-right: 0;
+  }
+
+  .important__img:last-child {
+    display: none;
+  }
+
+  .secondary__img:last-child {
+    display: none;
+  }
+}
+
+@include onTVMini {
+  .gallery__picture__important {
+    margin-left: -25px;
+  }
+
+  .important__img:last-child {
+    display: block;
+  }
+
+  .important__img--second {
+    display: none;
+  }
+}
+
+@include onIpadMini {
+  .gallery__picture {
+    &__important {
+      margin: 0;
+    }
+  }
+
+  .important__img {
+    transform: scale(0.8);
+
+    &:hover {
+      transform: scale(0.7);
+    }
+  }
+
+  .important__img:last-child {
+    margin-left: -85px;
+  }
+
+  .secondary__img:first-child {
+    display: none;
+  }
+}
+
+@include forGallery {
+  .important__img {
+    transform: scale(1);
+    margin: 0;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .important__img:last-child {
+    display: none;
+  }
+}
