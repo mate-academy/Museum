@@ -1,0 +1,97 @@
+.tickets {
+  display: flex;
+  align-self: center;
+  border: 1px solid #1a5a4c;
+
+  @include onDesktop {
+    align-self: flex-end;
+  }
+
+  &__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    height: 50px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+    color: #0f0e08;
+    transition: linear 0.4s;
+
+    @include onTablet {
+      width: 150px;
+      height: 70px;
+    }
+
+    &:hover {
+      background-color: #1a5a4c;
+      color: $colorWhite;
+      border: none;
+    }
+
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #1a5a4c;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+
+.container-tickets {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 70px;
+
+  @include onTablet {
+    justify-content: flex-end;
+    margin-right: 10px;
+  }
+
+  @include onDesktop {
+    margin-right: 80px;
+    flex-direction: column;
+  }
+
+  @include onDesktop {
+    &::before {
+      content: "події";
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 14px;
+      text-align: left;
+      color: #687480;
+      text-transform: uppercase;
+      transform: rotate(270deg);
+      transform-origin: left;
+      display: flex;
+      align-self: start;
+      order: 2;
+      margin-top: 30px;
+    }
+    &::after {
+      content: "";
+      height: 70px;
+      width: 1px;
+      background: #1a5a4c;
+      display: block;
+      order: 3;
+      margin-top: 20px;
+    }
+
+  }
+}
