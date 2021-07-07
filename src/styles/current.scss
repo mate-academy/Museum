@@ -1,0 +1,100 @@
+.current-events {
+  margin-top: 755px;
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 48px;
+    line-height: 100%;
+  }
+  
+  &__text {
+    display: block;
+    margin-top: 15px;
+    color: $textColor;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  &__data {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 140px;
+    width: 230px;
+  }
+
+  &__unit1 {
+    @include grid;
+    grid-template-columns: 2fr 1fr;
+    justify-items: start;
+  }
+
+  &__unit2 {
+    @include grid;
+    grid-template-columns: 1fr 2fr;
+    justify-items: end;
+  }
+
+  &__picture {
+    overflow: hidden;
+    transition: width $scaleDuration;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .current-events {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .current-events {
+    margin-top: 387px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__title {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__data {
+      margin-top: 30px;
+    }
+    
+    &__description {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-content: flex-start;
+      width: 100%;
+    }
+
+    &__unit1 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__unit2 {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .current-events {
+    margin-top: 470px;
+
+    &__title {
+      font-size: 36px;
+      width: 197px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    &__data {
+      width: 100%;
+      padding-right: 10px;
+    }
+  }
+}
