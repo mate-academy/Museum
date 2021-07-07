@@ -1,0 +1,164 @@
+.title {
+  position: relative;
+  height: 655px;
+  margin-bottom: 100px;
+
+  &__logo {
+    position: absolute;
+    top: 15px;
+    right: calc(50% - 34px);
+
+    background: center / cover no-repeat url(../images/NA_MU.png);
+  }
+
+  &__img {
+    height: 655px;
+    float: right;
+
+    object-fit: cover;
+    object-position: left;
+
+    &-mid {
+      display: none;
+      width: 100%;
+      height: inherit;
+    }
+  }
+
+  &__heading {
+    position: absolute;
+    top: 40%;
+    left: 255px;
+    margin: 0 auto;
+
+    font-weight: bold;
+    font-size: 72px;
+    text-transform: uppercase;
+
+    &--opacity {
+      color: transparent;
+      -webkit-text-stroke: 1.5px $color-black;
+    }
+
+    &-bottom {
+      display: none;
+      font-weight: bold;
+      font-size: 48px;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 10px 0 30px;
+    }
+  }
+
+  &__ticket {
+    display: flex;
+    @include ticket;
+
+    position: absolute;
+    top: 467px;
+    left: 255px;
+
+    &-bottom {
+      display: none;
+      @include ticket;
+    }
+  }
+
+  &__mark {
+    @include mark;
+
+    position: absolute;
+    bottom: 120px;
+    left: 40px;
+    color: $color-green;
+    transform: rotate(-90deg);
+
+    &::before {
+      position: relative;
+      right: 100px;
+      top: 10px;
+
+      display: block;
+      width: 70px;
+      height: 1px;
+      background-color: $color-green;
+      content: "";
+    }
+  }
+
+  @media (min-width: 1700px) {
+    &__heading {
+      left: 376px;
+    }
+
+    &__ticket {
+      left: 376px;
+    }
+
+    &__img {
+      width: calc(100% - 682px);
+    }
+  }
+
+  @media (max-width: 1700px) {
+    &__img {
+      width: calc(100% - 560px);
+    }
+  }
+
+  @media (max-width: 1200px) {
+
+    &__ticket,
+    &__heading {
+      left: 100px;
+    }
+
+    &__img {
+      width: calc(100% - 405px);
+    }
+  }
+
+  @media (max-width: 900px) {
+    &__img {
+      display: none;
+
+      &-mid {
+        display: block;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    &__mark {
+      display: none;
+      color: green;
+    }
+
+    &__heading {
+      display: none;
+
+      &-bottom {
+        display: block;
+      }
+    }
+
+    &__bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__ticket {
+      display: none;
+
+      &-bottom {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    height: 80vw;
+  }
+}
