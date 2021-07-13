@@ -1,5 +1,5 @@
 .footer {
-  &__top {
+  &__follow {
     padding: 0 20px;
     display: flex;
     flex-direction: column;
@@ -30,12 +30,17 @@
 
   &__bottom {
     padding: 50px 20px 0;
+    display: grid;
+    gap: 0 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "top top"
+      "schedules contacts"
+      "line line"
+      "link link";
 
     @media (min-width: 768px) {
-      display: grid;
-      gap: 20px;
       grid-template-columns: repeat(6, 100px);
-      grid-template-rows: repeat(2, auto);
+      grid-template-rows: repeat(3, auto);
     }
   }
 }
@@ -54,6 +59,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    grid-area: top;
 
     @media (min-width: 768px) {
       flex-direction: column;
@@ -71,8 +77,16 @@
 
 .links {
   display: flex;
-  padding: 70px 0;
+  padding-bottom: 70px;
   gap: 54px;
+
+  @media (max-width: 767px) {
+    grid-area: link;
+  }
+
+  @media (min-width: 768px) {
+    grid-area: 3 / 2 / 4 / 6;
+  }
 
   &__left,
   &__right {
@@ -84,17 +98,9 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 100%;
-  }
 
-  &__left {
     @media (min-width: 768px) {
-      grid-area: 2 / 2 / 3 / 4;
-    }
-  }
-
-  &__right {
-    @media (min-width: 768px) {
-      grid-area: 2 / 4 / 3 / 6;
+      margin-right: 50px;
     }
   }
 
@@ -120,6 +126,7 @@
       justify-content: space-between;
     }
   }
+
   &__description,
   &__subscription {
     font-family: "IBM Plex Sans", sans-serif;
@@ -140,7 +147,12 @@
 
 .line {
   height: 1px;
-  width: 460px;
-  content: "";
+  width: 100%;
+  margin: 70px 0 40px;
   background-color: rgba(26, 90, 76, 0.5);
+  grid-area: line;
+
+  @media (min-width: 768px) {
+    grid-area: 2 / 2 / 3 / -2;
+  }
 }
