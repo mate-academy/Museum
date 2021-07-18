@@ -3,14 +3,27 @@
   font-style: normal;
   font-weight: normal;
 
-  @media (min-width: 768px) {
-    &__header {
+  &__header {
+    margin-bottom: 90px;
+
+    @media (min-width: 768px) {
       display: grid;
+      grid-template-columns: repeat(6, 100px);
+      grid-template-rows: 115px auto auto;
+      gap: 20px;
+      padding: 0 34px;
+    }
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(12, 70px);
+      grid-template-rows: 115px auto auto;
+      gap: 30px;
+      padding: 0 55px;
     }
   }
 
   &__body {
-    margin: 0;
+    margin: 0 auto;
     background-color: #fff;
   }
 
@@ -22,5 +35,27 @@
     line-height: 100%;
     text-align: center;
     text-transform: uppercase;
+
+    @media (min-width: 768px) {
+      grid-area: 2 / 1;
+      margin: 0;
+      font-size: 55px;
+    }
+
+    @media (min-width: 1280px) {
+      grid-area: 2 / 3;
+      margin: 0;
+      font-size: 72px;
+    }
+
+    @media (min-width: 1920px) {
+      grid-area: 2 / 3;
+      margin: 0;
+    }
+
+    &-piece {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(15, 14, 8, 1);
+    }
   }
 }

@@ -30,17 +30,30 @@
 
   &__bottom {
     padding: 50px 20px 0;
-    display: grid;
     gap: 0 20px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "top top"
-      "schedules contacts"
-      "line line"
-      "link link";
+    display: grid;
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "top top"
+        "schedules contacts"
+        "line line"
+        "link link";
+    }
 
     @media (min-width: 768px) {
       grid-template-columns: repeat(6, 100px);
       grid-template-rows: repeat(3, auto);
+      padding: 50px 34px 0;
+    }
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(12, 70px);
+      grid-template-rows: auto;
+      gap: 0 30px;
+      padding: 50px 55px 0;
+      max-width: 1280px;
+      margin: 0 auto;
     }
   }
 }
@@ -66,6 +79,7 @@
       gap: 62px;
       align-items: unset;
       justify-content: unset;
+      grid-area: 1 / 1 / 2 / 2;
     }
   }
 
@@ -86,6 +100,10 @@
 
   @media (min-width: 768px) {
     grid-area: 3 / 2 / 4 / 6;
+  }
+
+  @media (min-width: 1280px) {
+    grid-area: 1 / 8 / 3 / 12;
   }
 
   &__left,
@@ -125,6 +143,12 @@
       display: flex;
       justify-content: space-between;
     }
+
+    @media (min-width: 1280px) {
+      padding: 84px 55px 0;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
   }
 
   &__description,
@@ -154,5 +178,12 @@
 
   @media (min-width: 768px) {
     grid-area: 2 / 2 / 3 / -2;
+  }
+
+  @media (min-width: 1280px) {
+    width: 1px;
+    height: 100%;
+    margin: 0 auto;
+    grid-area: 1 / 7;
   }
 }
