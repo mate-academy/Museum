@@ -1,0 +1,182 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 48px;
+      text-align: left;
+      padding: 0 34px;
+    }
+
+    @include onDesktop {
+      padding: 0 56px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    gap: 20px;
+
+    @include onDesktop {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      gap: 40px;
+    }
+
+  }
+
+  &__picture {
+    width: 280px;
+    height: 400px;
+    object-fit: cover;
+    transition: transform linear 0.4s;
+
+    @include onTablet {
+      width: 340px;
+      height: 540px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      cursor: zoom-in;
+    }
+
+    &--1 {
+
+      @include onDesktop {
+        width: 32%;
+        height: 600px;
+      }
+
+      @include onTV {
+        width: 25%;
+        order: 1;
+      }
+
+    }
+
+    &--2 {
+
+      @include onDesktop {
+        display: none;
+      }
+
+      @include onTV {
+        display: flex;
+        width: 25%;
+        height: 600px;
+        order: 3;
+      }
+    }
+
+    &--3 {
+
+      @include onDesktop {
+        width: 63%;
+        height: 600px;
+      }
+
+      @include onTV {
+        width: 40%;
+        order: 2;
+      }
+    }
+
+    &--4 {
+
+      @include onDesktop {
+        width: 65%;
+        height: 360px;
+      }
+
+      @include onTV {
+        order: 4;
+        width: 50%;
+      }
+
+    }
+
+    &--5 {
+
+      @include onDesktop {
+        width: 30%;
+        height: 360px;
+      }
+
+      @include onTV {
+        order: 5;
+        width: 20%;
+      }
+    }
+
+    &--6 {
+
+      @include onDesktop {
+        display: none;
+      }
+
+      @include onTV {
+        display: flex;
+        order: 6;
+        width: 20%;
+        height: 360px;
+      }
+    }
+  }
+
+  &__slider {
+    width: 102px;
+    height: 9px;
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__slide-buttons {
+    height: 9px;
+    width: 9px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+
+    &:first-child {
+      background: #1a5a4c;
+    }
+  }
+
+}
+
+.container-gallery {
+  margin: 0 20px 30px;
+  display: flex;
+  overflow: hidden;
+
+  @include onTablet {
+    margin: 0 34px 30px;
+  }
+
+  @include onDesktop {
+    margin: 0 56px 30px;
+  }
+}
+
+.container-slider {
+  display: flex;
+  margin-bottom: 100px;
+  align-self: center;
+}
