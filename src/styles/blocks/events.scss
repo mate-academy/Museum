@@ -1,0 +1,65 @@
+.current-events {
+  &__event {
+    margin-bottom: 60px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.event {
+  &__photo-container {
+    position: relative;
+    width: 100%;
+    max-height: 300px;
+    overflow: hidden;
+    margin-bottom: 35px;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  &__schedule {
+    margin-bottom: 15px;
+  }
+  &__name {
+    @extend %exhibinition;
+  }
+  
+  &__date {
+    @extend %date;
+  }
+
+  &__title {
+    position: relative;
+    display: inline-block;
+    @extend %h3;
+    margin-bottom: 10px;
+    
+    &::after {
+      position: absolute;
+      top: 45%;
+      right: -20px;
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-color: #f14a27;
+    }
+  }
+
+  &__description {
+    @extend %p;
+  }
+}
