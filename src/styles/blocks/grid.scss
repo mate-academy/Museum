@@ -1,0 +1,33 @@
+.grid {
+  @include laptop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    grid-auto-rows: auto;
+    gap: 30px;
+  }
+
+  // &--desktop {
+  //   display: block;
+
+  //   @include laptop {
+  //     display: grid;
+  //   }
+  // }
+
+  &__item {
+    &--row {
+      grid-row: 1;
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        @include laptop {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}

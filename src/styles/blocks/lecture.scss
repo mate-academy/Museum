@@ -1,0 +1,79 @@
+.lecture {
+  @include laptop {
+    height: 725px;
+  }
+
+  &__container {
+    --container-width: 260px;
+    width: var(--container-width);
+    box-sizing: border-box;
+    padding: 10px;
+    margin-left: calc(50% - var(--container-width) / 2);
+    transform: translateY(-40%);
+    background: #fff;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+    @include biggerScreen {
+      --container-width: 500px;
+      padding: 20px 70px;
+    }
+
+    @include laptop {
+      transform: translateY(300%);
+    }
+  }
+
+  &__date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  &__name {
+    line-height: 100%;
+    color: #687480;
+  }
+
+  &__time {
+    line-height: 150%;
+    color: #1a5a4c;
+  }
+
+  &__cover-name {
+    margin: 15px auto 10px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    line-height: 100%;
+    text-align: left;
+    color: #0f0e08;
+
+    @include biggerScreen {
+      font-size: 36px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 210px;
+
+    object-fit: cover;
+    object-position: center;
+
+    @include tablet {
+      height: 290px;
+    }
+
+    @include laptop {
+      height: 550px;
+    }
+
+    @include laptop {
+      position: absolute;
+      left: 0;
+    }
+  }
+}

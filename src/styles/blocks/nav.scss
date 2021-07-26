@@ -1,0 +1,84 @@
+.nav {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 300px;
+  width: 100%;
+  transform: translateY(-110%);
+  z-index: 5;
+
+  background-color: #fff;
+  box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+  transition: transform 0.5s;
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  @include tablet {
+    height: 100px;
+    flex-direction: row;
+  }
+
+  @include laptop {
+    height: 110px;
+    flex-direction: row;
+  }
+
+  &__logo {
+    list-style: none;
+    text-align: center;
+  }
+
+  &__logo-link {
+    text-decoration: none;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+
+    @include biggerScreen {
+      width: 100%;
+      padding: 0 40px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__link {
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 100%;
+    text-decoration: none;
+
+    color: #0f0e08;
+    transition: 0.3s;
+    
+    &:hover {
+      background-color: #5f5f5c;
+      border-radius: 10px;
+    }
+
+    @include laptop {
+      padding: 20px 5px;
+    }
+
+    @include laptop {
+      font-size: 18px;
+    }
+  }
+}
