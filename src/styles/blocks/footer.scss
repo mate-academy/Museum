@@ -1,0 +1,96 @@
+.footer {
+  padding: 50px 0 48px;
+
+  &__bottom {
+
+    margin-top: 70px;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      flex-direction: column;
+      justify-content: start;
+      align-items: flex-start;
+      row-gap: 64px;
+    }
+  }
+
+  &__icon {
+    &:first-child {
+      margin-right: 26px;
+    }
+
+    &:hover {
+      animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
+
+    @keyframes shake {
+      10%,
+      90% {
+        transform: translate3d(-1px, 0, 0);
+      }
+      
+      20%,
+      80% {
+        transform: translate3d(1px, 0, 0);
+      }
+    
+      30%,
+      50%,
+      70% {
+        transform: translate3d(-1px, 0, 0);
+      }
+    
+      40%,
+      60% {
+        transform: translate3d(1px, 0, 0);
+      }
+    }
+  }
+
+  &__top-btn {
+    display: block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid $green-secondary;
+    justify-self: end;
+    box-sizing: border-box;
+    background-image: url(../images/to-top.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    transition: transform 0.3s;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__credit,
+  &__terms {
+    display: block;
+    margin-bottom: 10px;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 140.62%;
+    text-align: center;
+    color: $font-main-color;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,73 @@
+.gallery {
+  position: relative;
+  overflow: hidden;
+  visibility: visible;
+  
+  &__image {
+
+    transition: filter 0.5s;
+
+    @include mobileOnly {
+      position: relative;
+      width: 92%;
+      margin-bottom: 20px;
+  
+      &:nth-child(1) {
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+  
+      &:nth-child(n + 2) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        visibility: hidden;
+      }
+    }
+
+    @include onTablet {
+      width: 100%;
+      scroll-snap-align: center;
+    }
+
+    @include onDesktop {
+      overflow: hidden;
+
+      &:nth-child(3),
+      &:nth-child(5) {
+        display: none;
+      }
+    }
+
+    @include xlarge {
+      &:nth-child(3),
+      &:nth-child(5) {
+        display: initial;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(80%);
+
+    }
+  }
+
+  &__container {
+    
+    align-items: center;
+    gap: 28px;
+
+    @include onTablet {
+      display: flex;
+      overflow: scroll;
+      scroll-snap-type: x mandatory;
+    }
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+}
