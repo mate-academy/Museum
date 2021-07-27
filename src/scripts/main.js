@@ -16,7 +16,7 @@ $(window).on('load resize orientationchange', function() {
           dots: true,
           adaptiveHeight: true,
           infinite: false,
-          variableWidth: true,
+          slidesToShow: 1,
           mobileFirst: true,
         });
       }
