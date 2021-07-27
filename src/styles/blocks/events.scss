@@ -1,6 +1,9 @@
 .current-events {
   &__event {
     margin-bottom: 60px;
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     @include onTablet {
       margin-bottom: 50px;
@@ -9,36 +12,9 @@
 }
 
 .event {
-  display: flex;
-  align-items: center;
-
-  // @include onDesktop {
-  //   flex-direction: row;
-  // }
-
   &__img {
     width: 870px;
     height: 520px;
-  }
-
-  &-description {
-    display: flex;
-    flex-direction: column;
-    width: 370px;
-  }
-  
-  &__photo-container {
-    position: relative;
-    width: 100%;
-    max-height: 300px;
-    overflow: hidden;
-    margin-bottom: 35px;
-
-    &::after {
-      content: "";
-      display: block;
-      padding-bottom: 100%;
-    }
   }
 
   &__photo {
@@ -47,11 +23,29 @@
     object-fit: cover;
     object-position: center;
   }
+
+  &__info {
+    margin-top: 15px;
+
+    @include onTablet {
+      margin-top: 30px;
+    }
+
+    @include onDesktop {
+      margin-top: 50px;
+    }
+
+    @include onLargeDes {
+      margin-top: 0;
+    }
+  }
+
   &__schedule {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
   }
+
   &__name {
     @extend %exhibinition;
     margin-right: 26px;

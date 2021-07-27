@@ -3,24 +3,44 @@
   grid-template-columns: repeat(2, 2fr);
   column-gap: 20px;
 
-  @include onDesktop {
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 24px;
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
   }
 
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onLargeDes {
+    grid-template-columns: repeat(16, 1fr);
+    column-gap: 30px;
+  }
+  
   &--desktop {
     display: block;
 
-    @include onDesktop {
+    @include onTablet {
       display: grid;
     }
   }
-  
+
+  @include onDesktop {
+    display: grid;
+  }
+
   &__item {
-    @for $start from 1 through 12 {
-      @for $end from $start through 12 {
+    @for $start from 1 through 16 {
+      @for $end from $start through 16 {
         &--#{$start}-#{$end} {
           grid-column: #{$start} / #{$end + 1};
+        }
+
+        &--tablet-#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
         }
 
         &--desktop-#{$start}-#{$end} {
@@ -28,11 +48,25 @@
             grid-column: #{$start} / #{$end + 1};
           }
         }
+
+        &--large-#{$start}-#{$end} {
+          @include onLargeDes {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    &--center {
+      @include onLargeDes {
+        align-self: center;
       }
     }
 
     &--reverse {
-      order: 2;
+      @include onDesktop {
+        order: 2;
+      }
     }
   }
 }
