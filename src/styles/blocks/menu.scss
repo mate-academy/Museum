@@ -5,15 +5,15 @@
   left: 0;
   z-index: 10;
   height: 100vh;
-  padding: 30px 0 0 15vw;
+  padding: 30px 0 0 10vw;
   
   font-family: Oswald, sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   color: $text-color;
   background-color: rgba(255, 255, 255, 1);
   
   transform: translateX(-100%);
-  transition: transform 500ms;
+  transition: transform 600ms;
 
   @include on-desktop {
     position: fixed;
@@ -21,6 +21,8 @@
     left: 0;
     right: initial;
     width: 30vw;
+
+    padding: 50px 0 0 15vw;
 
     background-color: rgba(255, 255, 255, 0.8);
   }
@@ -37,10 +39,31 @@
     display: block;
   }
 
-  // perphaps redundant
-  &__container {
-    display: flex;
-    flex-direction: column;
+  &__icon-close {
+    position: relative;
+    left: 5px;
+
+    display: block;
+    height: 16px;
+    width: $icon-width;
+  
+    margin-bottom: 30px;
+
+    background-image: url("../images/close.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    transition: transform 300ms;
+
+    @include on-desktop {
+      position: relative;
+      bottom: 20px;
+      left: 5px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__logo {
@@ -49,15 +72,35 @@
 
   &__link {
     margin-bottom: 20px;
+
+    transition: text-decoration 250ms;
+
+    &:hover {
+      text-decoration: underline;
+      color: #000;
+    }
   }
 
   &__search-input {
-    height: 17.5px;
-    padding: 0;
-    border: 0;
+    height: 18px;
+
+    padding: 10px 0 10px 28px;
+
+    border: 1px solid transparent;
+    border-bottom: 1px solid #eee;
     background-image: url(../images/search.png);
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: 5px center;
     background-color: transparent;
+
+    &:hover {
+      background-color: #eee;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #eee;
+
+    }
   }
 }

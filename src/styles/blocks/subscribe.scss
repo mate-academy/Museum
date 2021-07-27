@@ -45,16 +45,28 @@
   }
 
   &__input {
+    box-sizing: border-box;
     height: $mobile-button-height;
     flex-grow: 1;
     padding-left: 31px;
 
-    border: 0;
+    border: 1 px solid transparent;
+
+    transition: border-color 200ms, filter 300ms;
 
     &::placeholder {
       font-size: 14px;
       line-height: 100%;
       color: #687480;
+    }
+
+    &:hover {
+      filter: brightness(90%);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $accent-2;
     }
 
     @include on-tablet {
