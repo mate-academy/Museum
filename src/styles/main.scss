@@ -11,9 +11,24 @@ p {
 
 .page {
   font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
 
   &__body {
     margin: 0;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
   }
 }
 
@@ -151,7 +166,7 @@ p {
   &__img {
     height: 210px;
     width: 100%;
-    object-fit: fill;
+    object-fit: cover;
   }
 
   &__exb {
@@ -399,6 +414,46 @@ p {
 
     transition: 0.3s;
     
+    &:hover {
+      text-shadow: 1px 1px 2px #1a5a4c;
+    }
+  }
+}
+
+.menu {
+  background-color: #fff;
+  z-index: 1;
+
+  &__content {
+    padding-top: 9px;
+    height: 300px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 80%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    margin: 0;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 100%;
+    color: #0f0e08;
+    transition: 0.3s;
+
     &:hover {
       text-shadow: 1px 1px 2px #1a5a4c;
     }
