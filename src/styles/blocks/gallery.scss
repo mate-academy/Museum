@@ -1,0 +1,105 @@
+.gallery {
+  &__wrapper {
+    overflow: hidden;
+    @include onTablet {
+      gap: $galleryGapTab;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    &--3,
+    &--6 {
+      display: none;
+    }
+
+  
+    @include onLargeDes {
+      &--3,
+      &--6 {
+        display: block;
+      }
+
+      &--1,
+      &--2,
+      &--3 {
+        height: 600px;
+      }
+
+      &--4,
+      &--5,
+      &--6 {
+        height: 360px;
+      }
+    }
+
+    @include onDesktop {
+      width: 100%;
+      &--5 {
+        height: 360px;
+      }
+    }
+  }
+
+  &__slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}
+
+.slider {
+
+  &__label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    width: 9px;
+    height: 9px;
+    margin-right: 0;
+    line-height: 18px;
+    
+    user-select: none;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+      background-color: #eee;
+      border-radius: 50%;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover::before {
+      filter: brightness(120%);
+    }
+  }
+
+  &__bulet {
+    width: 9px;
+    height: 9px;
+    background-color: #eee;
+    border-radius: 50%;
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:target {
+      background-color: $color-green;
+    }
+  }
+}
