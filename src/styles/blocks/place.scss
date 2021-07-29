@@ -1,8 +1,60 @@
 .place {
 
+  &__reverse {
+    &_1 {
+      order: 1;
+    }
+    &_2 {
+      order: 2;
+    }
+  }
+
   &__photo {
     width: 100%;
+    transition: 0.3s;
+
+    &--actual {
+      height: 210px;
+    }
+
+    &--gallery-1 {
+      height: 410px;
+    }
+
+    &--gallery-2 {
+      opacity: 0;
+      height: 360px;
+    }
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+
+  &__lection {
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+    transform: translateY(-25%);
+  }
+
+  &__boat {
     height: 210px;
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 1;
+    z-index: -1;
+
+    @include iPad {
+      height: 390px;
+    }
+
+    @include onDesktop {
+      height: 550px;
+    }
   }
 
   &__about-photo {
@@ -53,13 +105,29 @@
 
   @include iPad {
     &__photo {
-      height: 520px;
+      &--actual {
+        height: 520px;
+      }
+
+      &--gallery-1 {
+        height: 600px;
+      }
     }
   }
 
   @include onDesktop {
     &__photo {
-      height: 520px;
+      &--actual {
+        height: 520px;
+      }
+
+      &--gallery-1 {
+        height: 600px;
+      }
+
+      &--gallery-2 {
+        opacity: 1;
+      }
     }
 
     &__about {
@@ -68,6 +136,14 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+
+    &__lection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 204px;
     }
   }
 }
