@@ -84,17 +84,6 @@
     }
   }
 
-  &__logo {
-    @extend %h3;
-    font-weight: bold;
-    margin-top: 9px;
-    z-index: 2;
-
-    @include onTablet {
-      font-size: 36px;
-    }
-  }
-
   &__bottom {
     display: flex;
     align-items: center;
@@ -120,30 +109,34 @@
     display: none;
 
     @include onDesktop {
-      position: absolute;
-      bottom: 70px;
-      left: auto;
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr;
       align-items: center;
-      transform: rotate(270deg);
+      
     }
 
     &-text {
+      position: relative;
       font-weight: bold;
-    }
+      transform: rotate(270deg);
 
-    &-line {
-      display: inline-block;
-      width: 70px;
-      height: 1px;
-      background-color: $color-green;
-      margin-right: 20px;
+      &::before {
+        content: "";
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        display: inline-block;
+        width: 70px;
+        height: 1px;
+        background-color: $color-green;
+        margin-right: 20px;
+      }
     }
   }
 }
 
 .top-action {
-  --width-icon: 18px;
+  --width-icon: 24px;
   display: grid;
   grid-template-columns: var(--width-icon) 1fr;
   justify-items: center;
@@ -163,5 +156,25 @@
   &--menu {
     background-image: url("../images/menu.svg");
     z-index: 2;
+    transition: background-image 0.3s;
+
+    &:hover {
+      background-image: url("../images/menu-hover.svg");
+    }
+  }
+
+  &--cross {
+    background-image: url("../images/cross.svg");
+  }
+}
+
+.logo {
+  @extend %h3;
+  font-weight: bold;
+  margin-top: 9px;
+  z-index: 2;
+
+  @include onTablet {
+    font-size: 36px;
   }
 }

@@ -1,5 +1,6 @@
 .page {
   font-family: "IBM Plex Sans", sans-serif;
+  scroll-behavior: smooth;
 
   &__body {
     margin: 0;
@@ -19,6 +20,20 @@
 
     @include onDesktop {
       margin-bottom: 200px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transform: translateY(-130%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateY(0);
     }
   }
 
