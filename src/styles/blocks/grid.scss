@@ -4,27 +4,49 @@
   column-gap: 20px;
 
   @include iPad {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+  }
+
+  @include onDesktop {
     grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+  }
+
+  @include fullHD {
+    grid-template-columns: repeat(16, 1fr);
     column-gap: 24px;
   }
 
   &--desktop {
     display: block;
 
-    @include iPad {
+    @include onDesktop {
       display: grid;
     }
   }
 
   &__item {
-    @for $start from 1 through 12 {
-      @for $end from $start through 12 {
+    @for $start from 1 through 16 {
+      @for $end from $start through 16 {
         &--#{$start}-#{$end} {
           grid-column: #{$start} / #{$end + 1};
         }
 
-        &--desktop-#{$start}-#{$end} {
+        &--iPad-#{$start}-#{$end} {
           @include iPad {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--desktop-#{$start}-#{$end} {
+          @include onDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--fullhd-#{$start}-#{$end} {
+          @include fullHD {
             grid-column: #{$start} / #{$end + 1};
           }
         }
