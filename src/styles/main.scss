@@ -15,6 +15,10 @@ p {
 
   &__body {
     margin: 0;
+    @media (min-width: 1920px) {
+      max-width: 1920px;
+      margin: 0 auto;
+    }
   }
 
   &__menu {
@@ -22,6 +26,8 @@ p {
     top: 0;
     left: 0;
     right: 0;
+    max-width: 1920px;
+    margin: 0 auto;
 
     transform: translateX(-100%);
     transition: transform 0.3s;
@@ -46,6 +52,11 @@ p {
     background-position: right;
   }
 
+  @media (min-width: 1280px) {
+    height: 655px;
+    background-size: 66%;
+  }
+
   &__nav {
     padding-top: 9px;
   }
@@ -58,6 +69,18 @@ p {
     width: 18px;
     height: 12px;
     background-image: url(../images/Burger_menu.svg);
+  }
+
+  &__menu-closer {
+    position: absolute;
+    top: 33px;
+    left: 23px;
+    display: block;
+    width: 18px;
+    height: 12px;
+    background-image: url(../images/closer.png);
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 
@@ -93,6 +116,18 @@ p {
     // width: 360px;
     top: 135px;
     left: 34px;
+  }
+
+  @media (min-width: 1280px) {
+    position: absolute;
+    top: 235px;
+    left: 210px;
+  }
+
+  @media (min-width: 1920px) {
+    position: absolute;
+    top: 235px;
+    left: 440px;
   }
 
   &__name {
@@ -149,9 +184,92 @@ p {
     font-size: 16px;
     line-height: 100%;
     color: #0f0e08;
+    transition: 0.5s;
+
+    &:hover {
+      color: #fff;
+      background-color: #1a5a4c;
+      cursor: pointer;
+    }
 
     @media (min-width: 768px) {
       width: 150px;
+      height: 70px;
+    }
+
+    &--email {
+      background-color: #fff;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 100%;
+      color: #687480;
+      border: none;
+      justify-content: flex-start;
+      padding-left: 30px;
+    }
+  }
+
+  &__square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #1a5a4c;
+
+    &:hover {
+      justify-content: start;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      width: 70px;
+      height: 70px;
+    }
+
+    &--email {
+      background-color: #f14a27;
+    }
+  }
+
+  &__txt {
+    color: #d7dde3;
+
+    &--email {
+      color: #000;
+    }
+  }
+}
+
+.button-email {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px 70px;
+  
+  @media (min-width: 768px) {
+    gap: 10px;
+  }
+
+  &--email {
+    padding: 0;
+    width: 100%;
+  }
+
+  &__tickets {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    height: 50px;
+    border: 1px solid #1a5a4c;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: #0f0e08;
+
+    @media (min-width: 768px) {
+      width: 395px;
       height: 70px;
     }
 
@@ -182,6 +300,7 @@ p {
 
     &--email {
       background-color: #f14a27;
+      border-color: #f14a27;
     }
   }
 
@@ -388,6 +507,9 @@ p {
 
 .gallery {
   padding: 0 20px;
+  @media (min-width: 768px) {
+    padding: 0 34px;
+  }
 
   &__name {
     font-weight: bold;
@@ -396,11 +518,31 @@ p {
     text-align: center;
     color: #0f0e08;
     padding-bottom: 40px;
+
+    @media (min-width: 768px) {
+      text-align: left;
+      font-weight: bold;
+      font-size: 48px;
+      line-height: 100%;
+    }
   }
 
+  &__container {
+    display: flex;
+    overflow: hidden;
+    @media (min-width: 768px) {
+      display: flex;
+      gap: 20px;
+    }
+  }
   &__img {
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
+
+    @media (min-width: 768px) {
+      width: 340px;
+      height: 543px;
+    }
   }
 
   &__slider {
@@ -523,6 +665,17 @@ p {
     transition: 0.3s;
     
     &:hover {
+      text-shadow: 1px 1px 2px #1a5a4c;
+    }
+  }
+
+  &__contact-link {
+    text-decoration: none;
+    color: #0f0e08;
+    transition: text-shadow 300ms;
+
+    &:hover {
+      color: #0f0e08;
       text-shadow: 1px 1px 2px #1a5a4c;
     }
   }
