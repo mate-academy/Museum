@@ -22,12 +22,12 @@
     font-size: 28px;
     line-height: 100%;
     color: $text-color;
-
+    
     @include on-tablet {
       margin-bottom: 15px;
     }
   }
-
+  
   &__name::after {
     display: inline-block;
     content: "";
@@ -35,6 +35,7 @@
     width: 10px;
 
     background-color: $accent-2;
+    transition: border-radius 300ms linear;
 
     @include on-tablet {
       height: 15px;
@@ -42,10 +43,15 @@
     }
   }
 
+  &__name:hover {
+    &::after {
+      border-radius: 50%;
+    }
+  }
+
   &__link {
     &:hover {
       color: $accent-color;
-      text-decoration: underline;
     }
   }
 
