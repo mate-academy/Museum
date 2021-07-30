@@ -5,14 +5,14 @@
   box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
 
   @include onDesktop {
-    padding-top: 35px;
+    padding: 35px 0;
   }
 
   &__content {
     height: 100vh;
 
     @include onDesktop {
-      height: 15vh;
+      height: auto;
     }
   }
 
@@ -27,21 +27,34 @@
   }
 
   &__list {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
+    justify-content: space-between;
     margin-bottom: 48px;
 
     @include onDesktop {
       flex-direction: row;
-      justify-content: space-between;
       margin-bottom: 0;
     }
+
   }
 
   &__item {
     margin-bottom: 24px;
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+
+    &--onDesktop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
   }
 
   &__link {
