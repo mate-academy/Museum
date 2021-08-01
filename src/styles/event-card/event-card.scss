@@ -1,0 +1,145 @@
+.event-card {
+  padding-bottom: 60px;
+
+  @include on-tablet {
+    padding-bottom: 50px;
+  }
+
+  @include on-lap-top {
+    padding-bottom: 64px;
+  }
+
+  @include on-hd-resolution {
+    align-items: center;
+  }
+
+  &__image-wrapper {
+    @include on-lap-top {
+      order: 2;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 19px;
+    transition: all 0.2s linear;
+
+    &:hover {
+      transform: scale(1.03);
+
+      box-shadow: 0 10px 13px -7px $c-black, 5px 5px 15px 5px $c-white;
+    }
+
+    @include on-tablet {
+      margin-bottom: 34px;
+      height: 520px;
+    }
+  }
+
+  &__info-wrapper {
+    @include on-lap-top {
+      padding-top: 50px;
+      order: 1;
+    }
+    @include on-hd-resolution {
+      padding-top: 0;
+
+    }
+  }
+
+  &__event-time-wrapper {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+
+    @include on-lap-top {
+      justify-content: start;
+      align-items: baseline;
+
+    }
+  }
+
+  &__event-title {
+    display: inline-block;
+    font-family: "IBMPlexSans-Bold", sans-serif;
+    text-transform: uppercase;
+    color: $c-gray-first;
+
+    @extend %font-style-16-16;
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 14px;
+    }
+
+    @include on-lap-top {
+      margin-right: 26px;
+    }
+  }
+
+  &__event-data {
+    display: inline-block;
+    font-family: "IBMPlexSans-Bold", sans-serif;
+    font-weight: 700;
+    color: $c-green;
+
+    @extend %font-style-16-16;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+  }
+
+  &__title {
+    @extend %h3-font-style;
+
+    position: relative;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 11px;
+    color: $c-dark-first;
+    font-weight: 400;
+
+    &:after {
+      content: " ";
+      position: relative;
+      width: 10px;
+      height: 10px;
+      margin-left: 15px;
+      background-color: $c-red;
+
+      @include on-tablet {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    @include on-tablet {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__text {
+    font-family: "IBMPlexSans-Bold", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    color: $c-gray-second;
+
+    @include on-tablet {
+      width: 50%;
+    }
+
+    @include on-lap-top {
+      width: auto;
+    }
+
+  }
+}

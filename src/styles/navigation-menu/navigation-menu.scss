@@ -1,3 +1,123 @@
 .navigation-menu {
+  position: absolute;
+  z-index: 2;
+  height: 100vh;
+  width: 100vw;
+  transform: translateY(-150%);
+  padding: 9px 0 0;
+  background-color: $c-white;
+  transition: transform 0.3s linear;
 
+  @include on-lap-top {
+    height: auto;
+    padding-top: 15px;
+    padding-left: 0;
+  }
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__content-wrapper {
+    display: grid;
+    transform: translateY(0);
+    grid-template-rows: 68px 1fr 68px;
+    row-gap: 85px;
+    height: 100%;
+    padding-bottom: 20px;
+
+    @media (max-height: 500px) {
+      row-gap: 40px;
+    }
+
+    @include on-lap-top {
+      grid-template-rows: auto;
+      grid-template-columns: 68px 1fr 18px;
+      align-items: flex-end;
+      padding-bottom: 0;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style-type: none;
+
+    @include on-lap-top {
+      flex-direction: row;
+      justify-content: flex-start;
+      justify-self: center;
+      align-self: center;
+      padding-bottom: 10px;
+      margin-left: 34px;
+    }
+    @include on-desktop {
+      justify-content: space-between;
+
+      padding: 0 75px;
+    }
+
+    @include on-hd-resolution {
+      padding: 0 175px;
+    }
+  }
+
+  &__list-item {
+    margin-right: 50px;
+
+    @media (max-height: 500px) {
+      margin-right: 0;
+
+      &:nth-child(2n) {
+        align-self: flex-end;
+      }
+    }
+  }
+
+  &__list-item-link {
+    @extend %font-style-24-24;
+
+    position: relative;
+    display: inline-block;
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    color: $c-dark-first;
+    text-decoration: none;
+
+    &:active {
+      color: $c-green;
+    }
+
+    &:hover {
+      &:after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        height: 1px;
+        top: 150%;
+        right: 50%;
+        transform: translateX(50%);
+        background-color: $c-dark-first;
+      }
+    }
+
+    @media (max-height: 500px) {
+      font-size: 18px;
+      line-height: 18px;
+    }
+
+    @include on-lap-top {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &__search {
+
+    @include on-lap-top {
+      align-self: center;
+    }
+  }
 }

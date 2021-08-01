@@ -1,0 +1,136 @@
+.art-museum {
+  padding-bottom: 70px;
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+    padding: 0 34px;
+  }
+
+  @include on_lap-top {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+    padding: 0 55px;
+  }
+  @include on-desktop {
+    padding: 0 135px;
+  }
+  @include on-hd-resolution {
+    grid-template-columns: repeat(16, 1fr);
+  }
+
+  &__photo-wrapper {
+    @include on-tablet {
+      grid-column: 3/7;
+      order: 2;
+    }
+
+    @include on-lap-top {
+      grid-column: 6/13;
+    }
+    @include on-hd-resolution {
+      grid-column: 6 / 17;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    min-height: 300px;
+    max-height: 384px;
+    margin-bottom: 20px;
+    object-fit: cover;
+    object-position: bottom;
+
+    @include on-tablet {
+      width: calc(100% + 34px);
+      min-width: 495px;
+      min-height: 384px;
+      max-height: 655px;
+      margin-bottom: 90px;
+    }
+    @include on-lap-top {
+      width: calc(100% + 55px);
+      margin-bottom: 200px;
+    }
+
+    @include on-desktop {
+      width: calc(100% + 134px);
+      height: 655px;
+    }
+    @include on-hd-resolution {
+      width: calc(100% + 134px);
+    }
+  }
+
+  &__content-group {
+    @include on-tablet {
+      position: relative;
+      grid-column: 1/3;
+      order: 1;
+    }
+    @include on-lap-top {
+      grid-column: 3/6;
+    }
+  }
+
+  &__title {
+    min-width: 280px;
+    margin: 0 20px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+
+    @include on-tablet {
+      position: absolute;
+      top: 20vw;
+      font-size: 55px;
+      line-height: 55px;
+      margin-left: 0;
+      text-align: left;
+
+    }
+    @include on-lap-top {
+      font-size: 72px;
+      line-height: 72px;
+      top: 30%;
+    }
+  }
+
+  &__title-border-text {
+    @include on-tablet {
+      color: transparent;
+      -webkit-text-stroke: 1.5px $c-dark-first;
+    }
+  }
+
+  &__event-absolute {
+    @extend %font-style-14-14;
+
+    display: none;
+    font-family: "IBMPlexSans-Bold", sans-serif;
+    font-weight: 700;
+    color: $c-gray-first;
+
+    @include on-lap-top {
+      position: absolute;
+      display: inline-block;
+      top: 550px;
+      transform: rotate(270deg);
+
+      &:before {
+        content: "";
+        position: relative;
+        display: inline-block;
+        width: 70px;
+        height: 1px;
+        background-color: $c-green;
+        top: -5px;
+        left: -20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,200 @@
+.footer {
+  @extend %font-style-14-21;
+
+  position: relative;
+  font-family: "IBMPlexSans-Bold", sans-serif;
+  color: $c-dark-first;
+  padding-top: 50px;
+
+  &__icon-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      justify-content: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  &__insta-facebook-icon-container {
+
+    @include on-tablet {
+      padding-top: 62px;
+    }
+  }
+
+  &__schedule-contact-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 22px;
+    margin-bottom: 79px;
+
+    @include on-tablet {
+      column-gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      margin-bottom: 46px;
+    }
+    @include on-lap-top {
+      column-gap: 30px;
+    }
+    @include on-hd-resolution {
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 30px;
+    }
+  }
+
+  &__schedule {
+    @include on-tablet {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__contacts {
+    @include on-tablet {
+      grid-column: 3/ 5;
+    }
+    @include on-lap-top {
+      grid-column: 3/ 5;
+    }
+    @include on-hd-resolution {
+      grid-column: 4/ 6;
+    }
+  }
+
+  &__schedule-title {
+    padding-bottom: 20px;
+  }
+
+  &__schedule-time {
+    font-weight: 600;
+    @include on-tablet {
+      display: inline-block;
+    }
+  }
+
+  &__schedule-day {
+    @include on-tablet {
+      display: inline-block;
+    }
+  }
+
+  &__contacts-title {
+    padding-bottom: 20px;
+  }
+
+  &__separator-line {
+    height: 1px;
+    margin-bottom: 40px;
+    background-color: $c-green;
+    opacity: 0.5;
+
+    @include on-tablet {
+      margin-bottom: 51px;
+    }
+    @include on-lap-top {
+      position: absolute;
+      width: 260px;
+      transform: rotate(90deg);
+      left: 115%;
+      top: 180px;
+    }
+
+    @include on-hd-resolution {
+      left: 150%;
+    }
+  }
+
+  &__arrow-icon {
+    background-image: url("../../src/images/arrow-up-icon.svg");
+    height: 50px;
+    width: 50px;
+
+    position: absolute;
+    right: 0;
+    top: calc(75%);
+    transform: translateY(-100%);
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include on-lap-top {
+      height: min-content;
+    }
+
+    @include on-hd-resolution {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__menu-item {
+    @extend %font-style-14-14;
+
+    position: relative;
+    display: inline-block;
+    color: $c-dark-first;
+    font-family: "IBMPlexSans-Bold", sans-serif;
+    text-decoration: none;
+    padding-bottom: 20px;
+
+    &:active {
+      color: $c-green;
+    }
+
+    &:nth-child(2n) {
+      grid-column: 2 / 3;
+      padding-left: 55px;
+
+      &:hover {
+        &:after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          width: 35%;
+          height: 1px;
+          top: 50%;
+          left: 0;
+          background-color: $c-dark-first;
+        }
+      }
+
+      @include on-tablet {
+        padding-left: 0;
+      }
+
+      @include on-hd-resolution {
+        grid-column: 4 / 5;
+      }
+
+    }
+
+    &:nth-child(2n+1) {
+      grid-column: 1 / 2;
+
+      &:hover {
+        &:after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          width: 75%;
+          height: 1px;
+          top: 50%;
+          left: 0;
+          background-color: $c-dark-first;
+        }
+      }
+
+      @include on-hd-resolution {
+        grid-column: 2 / 3;
+      }
+    }
+
+  }
+}

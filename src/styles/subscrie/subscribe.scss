@@ -1,0 +1,126 @@
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  background-image: url("../../src/images/subscribe-background-320w386.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 55px 20px 113px;
+  max-height: 386px;
+
+  @include on-tablet {
+    max-height: 380px;
+    padding: 64px 0 94px;
+  }
+  @include on-lap-top {
+    max-height: 550px;
+    padding: 140px 0 188px;
+  }
+
+  @include on-hd-resolution {
+    max-height: 650px;
+    padding: 175px 0 253px;
+  }
+
+  &__title {
+    @extend %h2-font-style;
+
+    padding-bottom: 30px;
+    color: $c-white;
+    text-align: center;
+
+    @include on-tablet {
+      padding-bottom: 20px;
+    }
+  }
+
+  &__text {
+    padding-bottom: 48px;
+    font-family: "IBMPlexSans-Bold", sans-serif;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 400;
+    color: $c-white;
+    text-align: center;
+
+    @include on-tablet {
+      padding-bottom: 68px;
+    }
+
+  }
+
+  &__form {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 50px;
+    max-width: 450px;
+    text-decoration: none;
+
+    @include on-tablet {
+      grid-template-columns: 395px 70px;
+      column-gap: 10px;
+      padding: 0 20px;
+    }
+
+    @include on-lap-top {
+      grid-template-columns: 470px 70px;
+      column-gap: 30px;
+      padding: 0 20px;
+    }
+  }
+
+  &__email {
+    @extend %font-style-14-14;
+    padding: 18px 35px;
+    height: 50px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    border: none;
+
+    &:hover {
+      background-color: $c-gray-sixth;
+    }
+
+    &:focus {
+      outline: none;
+      border: none;
+      box-shadow: 0 10px 15px 0 $c-red;
+    }
+
+    @include on-tablet {
+      height: 70px;
+      padding: 28px 35px;
+    }
+  }
+
+  &__submit-button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    width: 50px;
+    height: 50px;
+    background-color: $c-red;
+
+    &:hover {
+      background-color: $c-green;
+    }
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &:before {
+      position: absolute;
+      width: 8px;
+      height: 12px;
+      content: url("../../src/images/arrow.svg");
+      background-position: center;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+.buy-ticket {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  text-decoration: none;
+  padding: 0 20px;
+  transition: all 0.2s linear;
+
+  &:hover {
+    box-shadow: -1px 3px 8px 5px $c-green, 2px 5px 16px 0 $c-green, 5px 5px 15px 5px  $c-white;
+  }
+
+  @include on-tablet {
+    position: relative;
+    top: 20vw;
+    transform: translateY(150px);
+    grid-template-columns: 150px 50px;
+    width: 220px;
+    padding: 0;
+  }
+
+  @include on-lap-top {
+    top: 38.5%;
+  }
+
+  &__button {
+    @extend %font-style-16-16;
+
+    height: 50px;
+    padding: 17px 0;
+    font-family: "IBMPlexSans-Bold", sans-serif;
+    font-weight: 500;
+    text-align: center;
+    background-color: $c-white;
+    border: 1px solid $c-green;
+    cursor: pointer;
+
+    @include on-tablet {
+      height: 70px;
+      padding: 27px 0;
+    }
+
+  }
+
+  &__button-icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+
+    background-color: $c-green;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &:before {
+      position: absolute;
+      width: 8px;
+      height: 12px;
+      transform: translateY(-50%);
+      content: url("../../src/images/arrow.svg");
+      background-position: center;
+    }
+  }
+
+}
