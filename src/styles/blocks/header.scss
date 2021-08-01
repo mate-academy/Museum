@@ -5,6 +5,8 @@
   min-width: 300px;
 
   &__teleport {
+    display: flex;
+    gap: 20px;
     position: absolute;
     top: 70%;
     font-family: "IBM Plex Sans", sans-serif;
@@ -13,11 +15,12 @@
     line-height: 100%;
     color: #687480;
     text-decoration: none;
+    opacity: 0;
 
     transform: rotate(-90deg);
 
-    &::before {
-      content: "";
+    &-line {
+      align-self: center;
       height: 1px;
       width: 70px;
       background-color: #687480;
@@ -34,10 +37,12 @@
     font-size: 45px;
     line-height: 100%;
     text-align: center;
+    padding-bottom: 20px;
   }
 
   &__button {
     display: block;
+    padding-bottom: 70px;
   }
 
   @include iPad {
@@ -53,6 +58,7 @@
 
     &__title {
       position: absolute;
+      top: 20%;
       right: 60%;
       font-size: 55px;
       text-align: unset;
@@ -66,19 +72,25 @@
 
     &__button {
       position: absolute;
-      top: 30%;
+      top: 40%;
       right: 65%;
     }
   }
 
   @include onDesktop {
     height: 655px;
+    
 
     &__title {
       font-size: 72px;
     }
     &__button {
       top: 60%;
+      padding-bottom: 0;
+    }
+
+    &__teleport {
+      opacity: 1;
     }
   }
 }
