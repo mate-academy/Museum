@@ -1,0 +1,102 @@
+.lecture {
+  @include screenMed {
+    padding: 40px 35px 0;
+  }
+
+  @include screenMob {
+    padding: 10px 0 0;
+  }
+
+  &__background {
+    height: 30vw;
+    position: relative;
+    background-image: url("../images/lecture.png");
+    background-size: cover;
+    background-position: center;
+    
+    @media screen and (min-width: 1920px) {
+      height: 674px;
+    }
+
+    @media screen and (max-width: 1680px) {
+      height: 43vw;
+    }
+
+    @include screenMed {
+      height: 43vw;
+    }
+
+    @include screenTablet {
+      height: 55vw;
+    }
+
+    @include screenMob {
+      height: 65vw;
+    }
+  }
+
+  &__item {
+    position: absolute;
+    right: calc(50% - #{$lectureCardWidth} / 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: -120px;
+    width: $lectureCardWidth;
+    height: 204px;
+    background-color: $back-color;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+    @include screenMob {
+      width: $lectureCardWidthMob;
+      height: 155px;
+      right: calc(50% - #{$lectureCardWidthMob} / 2);
+      bottom: -100px;
+    }
+  }
+
+  &__background:hover .lecture__item {
+    box-shadow: 1px 1px 5px rgba(26, 90, 76, 0.25);
+  }
+
+  &__head {
+    width: 370px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 1;
+
+    @include screenMob {
+      width: 236px;
+      font-size: 16px;
+    }
+  }
+
+  &__info {
+    font-weight: 500;
+    color: $main-light-gray;
+  }
+
+  &__time {
+    width: 170px;
+    font-weight: 700;
+    line-height: 1;
+    color: $text-color;
+
+    @include screenMob {
+      width: 155px;
+    }
+  }
+
+  &__text {
+    margin-top: 15px;
+    width: 370px;
+
+    @include screenMob {
+      width: 235px;
+      font-size: 28px;
+      text-align: center;
+    }
+  }
+}

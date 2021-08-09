@@ -1,0 +1,110 @@
+.events {
+  padding-top: 200px;
+
+  @include screenMed {
+    padding-top: 90px;
+  }
+
+  @include screenMob {
+    padding-top: 70px;
+  }
+
+  &__text {
+    position: absolute;
+    left: -5px;
+    top: -65px;
+    font-size: 14px;
+    font-weight: 700;
+    transform: rotate(-90deg);
+    color: $main-light-gray;
+
+    &::before {
+      height: 1px;
+      width: 70px;
+      position: relative;
+      margin-right: 20px;
+      content: "";
+      bottom: 2px;
+      display: inline-block;
+      line-height: 33px;
+      background-color: $text-color;
+    }
+
+    @include screenMed {
+      display: none;
+    }
+  }
+
+  &__title {
+    margin-bottom: 60px;
+
+    @include screenMed {
+      margin-bottom: 50px;
+    }
+
+    @include screenMob {
+      width: 187px;
+      text-align: center;
+      margin: 0 auto 40px;
+      font-size: 36px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 100px;
+    display: flex;
+
+    @include screenMed {
+      flex-direction: column;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__item--reverse {
+    flex-direction: row-reverse;
+
+    @include screenMed {
+      flex-direction: column;
+    }
+  }
+
+  &__picture {
+    object-fit: cover;
+    width: 55%;
+    height: 520px;
+    transition: transform 1s;
+
+    @include screenMed {
+      width: 100%;
+    }
+
+    @include screenMob {
+      height: 75vw;
+      width: 100%;
+    }
+
+  }
+
+  &__descr {
+    flex-shrink: 0;
+    margin-left: 130px;
+
+    @include screenMed {
+      margin-left: 0;
+      margin-top: 30px;
+    }
+
+    @include screenMob {
+      margin-top: 15px;
+    }
+  }
+
+  &__descr--rev {
+    margin-right: 130px;
+  }
+}
+
+.events__picture:hover {
+
+  transform: scale(1.05);
+}
