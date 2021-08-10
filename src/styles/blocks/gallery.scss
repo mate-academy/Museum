@@ -1,7 +1,20 @@
 .gallery {
+  display: flex;
+  max-width: 1750px;
+  margin: 0 auto;
+  flex-direction: column;
+  /*margin-top: 16em - LAPTOP;*/
+
+  @include laptop {
+    margin-top: 16em;
+    align-items: center;
+  }
+
   @include desktopLarge {
     display: flex;
+    margin: 0 auto;
     margin-top: 16em;
+    align-items: center;
   }
 
   &__title {
@@ -14,7 +27,17 @@
 
     @media (min-width: 415px) {
       display: inline-block;
+      width: fit-content;
       padding-bottom: 60px;
+    }
+
+    @include laptop {
+      align-self: flex-start;
+    }
+
+    @include desktopLarge {
+      align-self: flex-start;
+      padding-left: 100px;
     }
   }
 
