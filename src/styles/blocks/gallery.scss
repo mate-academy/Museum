@@ -1,0 +1,48 @@
+.gallery {
+  
+  &__images {
+    display: grid;
+    gap: 16px;
+
+    @include forTablet {
+      grid-template-columns: repeat(2, auto);
+      gap: 20px;
+      grid-auto-flow: dense;
+    }
+
+    @include forDesktop {
+      grid-template-columns: repeat(3, auto);
+      gap: 30px;
+    }
+
+    @include forLargeDesktop {
+      grid-template-columns: repeat(4, auto);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    transition: transform 0.3s;
+    
+    &:hover {
+      transform: scale(1.03);
+    }
+    &:nth-child(2),
+    &:nth-child(4) {
+      @include forTablet {
+        grid-column: span 2;
+      }
+    }
+
+    &:nth-child(3),
+    &:nth-child(6) {
+      @include forDesktop {
+        display: none;
+      }
+
+      @include forLargeDesktop {
+        display: block;
+      }
+    }
+  }
+}

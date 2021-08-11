@@ -1,0 +1,302 @@
+.events {
+  position: relative;
+
+  &__start {
+    display: none;
+
+    @include forDesktop {
+      display: block;
+      position: absolute;
+      margin-top: -312px;
+      margin-left: -16px;
+      transform: rotate(-90deg);
+
+      font-size: 14px;
+      line-height: 14px;
+      font-weight: 700;
+      color: $greyBlue;
+      text-transform: uppercase;
+
+      transition: color 0.3s;
+
+      &::after {
+        content: "";
+        width: 1px;
+        height: 70px;
+
+        position: absolute;
+        left: -50px;
+        top: -28px;
+        transform: rotate(-90deg);
+
+        background-color: $swampGreen;
+      }
+    }
+
+    &:hover {
+      color: $swampGreen;
+    }
+  }
+
+  &__item {
+    margin-bottom: 56px;
+
+    @include forTablet {
+      margin-bottom: 48px;
+    }
+
+    @include forDesktop {
+      display: flex;
+      margin-bottom: 96px;
+    }
+
+    @include forExtraLargeDesktop {
+      align-items: center;
+    }
+  }
+
+  &__item--reverse {
+    
+    @include forDesktop {
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+    }
+  }
+
+  &__item--lecture {
+
+    margin-bottom: 0;
+
+    @include forTablet {
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    @include forDesktop {
+      flex-direction: column;
+      padding: 0;
+    }
+
+  }
+
+  &__img-container {
+    min-width: 280px;
+    max-width: 370px;
+    margin-bottom: 16px;
+    margin-right: 0;
+
+    object-fit: cover;
+    object-position: center;
+
+    @include forTablet {
+      margin-bottom: 32px;
+      max-width: 700px;
+    }
+
+    @include forDesktop {
+      max-width: 670px;
+      margin-bottom: 0;
+      margin-right: 128px;
+
+    }
+
+    @include forExtraLargeDesktop {
+      max-width: 870px;
+      align-items: center;
+    }
+
+  }
+
+  &__img-container--reverse {
+    margin-left: 0;
+
+    @include forDesktop {
+      margin-left: 128px;
+      margin-right: 0;
+    }
+  }
+
+  &__img-container--lecture {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  &__img {
+    width: 100%;
+    transition: border 0.5s;
+
+    @include forTablet {
+      border: 10px double transparent;
+
+      &:hover {
+        border-color: $greyBlue;
+      }
+    }
+  }
+
+  &__img--lecture {
+    width: 100%;
+    border: none;
+  }
+
+  &__info {
+    width: 100%;
+    max-width: 384px;
+    padding: 16px 10px 0;
+
+    @include forDesktop {
+      padding: 64px 10px 0 0;
+    }
+
+    @include forExtraLargeDesktop {
+      padding: 0;
+    }
+  }
+
+  &__info--reverse {
+    @include forDesktop {
+      padding: 64px 0 0 10px;
+    }
+
+    @include forExtraLargeDesktop {
+      padding: 0;
+    }
+  }
+
+  &__info--lecture {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 352px;
+    height: 178px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+    transform: translateY(-72px);
+      
+    @include forTablet {
+      min-width: 570px;
+      height: 208px;
+      transform: translateY(-88px);
+    }
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    @include forTablet {
+      justify-content: start;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__type {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 500;
+    margin-right: 40px;
+
+    text-transform: uppercase;
+    color: $greyBlue;
+
+    @include forTablet {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &__type--lecture {
+
+    @include forTablet {
+      margin-right: 144px;
+    }
+  }
+
+  &__date {
+    font-family: IBM Plex Sans, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+    
+    color: $swampGreen;
+
+    @include forTablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    @extend %title-text-small;
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: normal;
+
+    color: $kindaBlack;
+
+    transition: color 0.3s;
+
+    @include forTablet {
+      margin-bottom: 16px;
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    &::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      margin-left: 12px;
+      margin-top: 12px;
+      position: absolute;
+      background-color: #f14a27;
+
+      transition: border-radius 0.3s;
+
+      @include forTablet {
+        width: 15px;
+        height: 15px;
+        margin-left: 20px;
+      }
+    }
+
+    &:hover {
+      color: $swampGreen;
+
+      &::after {
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &__title--lecture {
+    text-align: center;
+    max-width: 240px;
+    margin: 0 auto;
+
+    @include forTablet {
+      text-align: left;
+      max-width: 352px;
+      margin: 0;
+
+    }
+    &::after {
+      display: none;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+
+    color: $grey;
+  }
+}

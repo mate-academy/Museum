@@ -1,0 +1,146 @@
+.intro {
+  width: 100%;
+  height: 100%;
+
+  @include forTablet {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+  }
+
+  @include forDesktop {
+    align-items: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include forTablet {
+      width: auto;
+      margin-right: -107px;
+      margin-bottom: 24px;
+      align-items: flex-start;
+    }
+
+    @include forDesktop {
+      margin-right: -140px;
+      margin-bottom: -96px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    @extend %title-text;
+    font-size: 45px;
+    line-height: 45px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #000;
+
+    @include forTablet {
+      margin-bottom: 40px;
+      font-size: 55px;
+      line-height: 55px;
+      text-align: left;
+    }
+
+    @include forDesktop {
+      margin-bottom: 80px;
+      font-size: 72px;
+      line-height: 72px;
+    }
+
+  }
+
+  &__title-empty {
+    display: inline;
+
+    @include forTablet {
+      color: transparent;
+      -webkit-text-stroke: 2px #000;
+
+    }
+  }
+
+  &__link {
+    position: relative;
+    width: 230px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -50px;
+
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $kindaBlack;
+    border: 1px solid $swampGreen;
+
+    transition: background-color 0.3s;
+
+    @include forTablet {
+      width: 150px;
+      height: 70px;
+      margin-left: 0;
+    }
+
+    &::after {
+      content: "";
+      width: 50px;
+      height: 50px;
+
+      background-image: url(../images/arrow.png);
+      background-size: 8px 12px;
+      background-position: 50%;
+      background-repeat: no-repeat;
+
+      position: absolute;
+      right: -50px;
+
+      background-color: $swampGreen;
+
+      @include forTablet {
+        width: 70px;
+        height: 70px;
+        right: -70px;
+      }
+    }
+
+    &:hover {
+      background-color: $lightGrey;
+    }
+  }
+
+  &__img {
+    min-height: 300px;
+    width: 100%;
+    height: 100%;
+
+    margin-bottom: 20px;
+    object-fit: cover;
+
+    @include forTablet {
+      margin-bottom: 0;
+
+      width: 66%;
+      height: 384px;
+    }
+
+    @include forDesktop {
+      width: 57%;
+      height: 655px;
+    }
+
+    @include forLargeDesktop {
+      width: 56%;
+    }
+
+    @include forExtraLargeDesktop {
+      width: 65%;
+    }
+  }
+
+}
