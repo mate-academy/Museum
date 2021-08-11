@@ -1,0 +1,54 @@
+.nav {
+  position: relative;
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 55px;
+
+  @include laptop {
+    margin-top: 0;
+  }
+
+  @include tablet {
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+    gap: 126px;
+  }
+
+  &__list {
+    padding-left: 0;
+  }
+
+  &__item {
+    list-style: none;
+    justify-self: flex-start;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 250%;
+    color: $dark-brown;
+  }
+}
+
+.nav--line::before {
+  position: absolute;
+  top: -40px;
+  content: " ";
+  width: 93vw;
+  height: 1px;
+  background: rgba(26, 90, 76, 0.5);
+
+  @include tablet {
+    width: 60vw;
+    transform: translateX(50px);
+  }
+
+  @include laptop {
+    transform: translate(-250px, 250px) rotate(-90deg);
+    width: 30vw;
+  }
+}

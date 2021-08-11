@@ -1,0 +1,140 @@
+.events {
+  display: block;
+  max-width: 1750px;
+  margin: 0 auto;
+
+  @include laptop {
+    display: flex;
+    width: fit-content;
+  }
+
+  &__title {
+    margin: 0 auto;
+    padding-bottom: 40px;
+    width: min-content;
+
+    font-family: "Monserat", sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+
+    text-align: center;
+
+    @media (min-width: 415px) {
+      display: inline-block;
+      width: fit-content;
+      padding-bottom: 60px;
+    }
+
+    @include laptop {
+      margin-top: 200px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease,
+      border-radius 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:hover {
+      cursor: zoom-in;
+      box-shadow: 1px 1px 6px 6px $gray;
+      transform: scale(1.03);
+    }
+
+    @media (min-width: 415px) {
+      display: none;
+    }
+  }
+
+  &__image-desktop {
+    margin: 0 auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease,
+      border-radius 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:hover {
+      cursor: zoom-in;
+      box-shadow: 1px 1px 6px 6px $gray;
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 415px) {
+      display: none;
+    }
+  }
+
+  &__exhibition {
+    display: inline-block;
+    padding-top: 19px;
+    font-weight: 500;
+    color: $gray;
+
+    &::after {
+      display: inline-block;
+      content: "26.08-29.11.2019";
+      color: $green;
+      transform: translateX(45%);
+    }
+  }
+
+  &__exhibition-name {
+    font-family: "Monserat", sans-serif;
+    font-weight: normal;
+    font-size: 28px;
+
+    &::after {
+      display: inline-block;
+      content: url(/images/rectangle.svg);
+      transform: translateY(-7%);
+    }
+
+    @include tablet {
+      font-size: 36px;
+    }
+  }
+
+  &__exhibition-info {
+    max-width: 85vw;
+
+    @include tablet {
+      max-width: 60vw;
+    }
+
+    &_exhibition-1 {
+      padding-bottom: 50px;
+    }
+  }
+
+  &__exhibition-link {
+    text-decoration: none;
+
+    &:visited {
+      color: black;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .events__exhibition-1 {
+    display: flex;
+    gap: 130px;
+    margin-bottom: 100px;
+  }
+
+  .events__exhibition-2 {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 130px;
+  }
+
+  .events__exhibition-description {
+    width: 370px;
+  }
+}
+
+.events__exhibition-link:hover {
+  color: $gray;
+}
