@@ -29,8 +29,8 @@
   &__list {
     list-style-type: none;
     display: flex;
-    overflow: hidden;
-    height: max-content;
+    flex-wrap: wrap;
+    justify-content: space-around;
     column-gap: 16px;
     margin-left: 20px;
 
@@ -61,6 +61,7 @@
     max-width: 370px;
     max-height: 543px;
     transition: all 0.2s linear;
+    margin-bottom: 35px;
 
     &:hover {
       transform: scale(0.98);
@@ -70,12 +71,14 @@
     @include on-tablet {
       max-height: 600px;
       width: calc(51% - 34px);
+
     }
 
     @include on-lap-top {
       max-width: none;
       width: auto;
       max-height: none;
+      margin-bottom: 0;
 
       &:nth-child(1) {
         grid-column: 1/3;
