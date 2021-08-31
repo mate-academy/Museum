@@ -1,0 +1,155 @@
+.gallery {
+
+  &__sub-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 36px;
+    line-height: 100%;
+    color: $subTitleColor;
+
+    &--small-screns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      margin: 0;
+      margin-bottom: 40px;
+      font-size: 48px;
+      line-height: 100%;
+      color: $subTitleColor;
+
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
+
+    @include on768 {
+      display: block;
+    }
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__item--1 {
+    @media (max-width: 767px) {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      grid-column: 1 / 6;
+    }
+
+    @media (min-width: 1024px) {
+      grid-column: 1 / 6;
+    }
+
+    @media (min-width: 1920px) {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__item--2 {
+    @media (max-width: 767px) {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      display: flex;
+      grid-column: 6 / 13;
+    }
+
+    @media (min-width: 1920px) {
+      grid-column: 4 / 13;
+    }
+  }
+
+  &__item--3 {
+    @media (max-width: 767px) {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      display: flex;
+      grid-column: 6 / 13;
+    }
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__item--4 {
+    @media (max-width: 767px) {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      display: flex;
+      grid-column: 1 / 9;
+    }
+  }
+
+  &__item--5 {
+    @media (max-width: 767px) {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      display: flex;
+      grid-column: 9 / 13;
+    }
+  }
+
+  &__item {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transition: box-shadow, transform 0.3s linear;
+
+    @include on1024 {
+      height: 600px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    &:hover {
+      transform: scale(105%);
+      box-shadow: 1px 1px 5px #000;
+    }
+  }
+  
+  &__pict {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  &--bot {
+    margin-bottom: 100px;
+  }
+}
