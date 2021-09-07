@@ -1,0 +1,192 @@
+.header {
+  display: flex;
+  height: 650px;
+  font-family: "Montserrat", sans-serif;
+
+  @include smartphone {
+    flex-direction: column-reverse;
+  }
+
+  &__logo {
+    @extend %logo;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__indent {
+    min-width: 34px;
+    flex-basis: 0;
+    flex-grow: 1;
+
+    @include smartphone {
+      display: none;
+    }
+  }
+
+  &__elements {
+    position: relative;
+    width: 500px;
+
+    @include smartphone {
+      position: static;
+      width: unset;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__menu-button {
+    position: absolute;
+    left: 0;
+    top: 45px;
+    transition: transform 0.5s;
+
+    @include smartphone {
+      left: 23px;
+      top: 33px;
+    }
+
+    &:hover {
+      transform: scaleY(1.5);
+    }
+  }
+
+  &__title {
+    position: absolute;
+    display: block;
+    top: 235px;
+    right: -142px;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 72px;
+
+    @include smartphone {
+      position: static;
+      margin: 20px;
+      text-align: center;
+      font-size: 45px;
+      line-height: 45px;
+    }
+
+    &--special {
+      -webkit-text-stroke: 1px #000;
+      color: transparent;
+
+      @include smartphone {
+        -webkit-text-stroke: 0;
+        color: black;
+      }
+    }
+  }
+
+  &__image {
+    flex-basis: 670px;
+    flex-grow: 1;
+    background-image: url(../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png);
+    background-size: cover;
+    background-position: top 0 left 0;
+  }
+
+  &__buy-button {
+    position: absolute;
+    top: 494px;
+    box-sizing: border-box;
+    right: 80px;
+    display: flex;
+    border: 1px solid $color-green;
+    height: 70px;
+    width: 220px;
+    text-decoration: none;
+    transition: all 0.5s;
+
+    @include smartphone {
+      position: static;
+      width: 100%;
+      display: flex;
+      max-width: 280px;
+    }
+
+    &-text {
+      flex-grow: 1;
+      font-family: "IBM Plex Sans", sans-serif;
+
+      &::before {
+        display: block;
+        content: "КВИТКИ";
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 70px;
+        color: #0f0e08;
+        text-align: center;
+      }
+    }
+
+    &-arrow {
+      width: 70px;
+      height: 70px;
+      background-color: $color-green;
+      background-image: url(../images/arrov.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: all 0.5s;
+    }
+
+    &:hover {
+      border-color: $color-grey;
+      width: 328px;
+
+      & .header__buy-button-text::before {
+        content: "Купити квитки";
+        font-family: "Oswald", sans-serif;
+        font-weight: 200;
+        font-size: 24px;
+      }
+
+      & .header__buy-button-arrow {
+        background-image: url(../images/arrow2.svg);
+        background-color: $color-grey;
+      }
+    }
+  }
+
+  &__events {
+    position: absolute;
+    bottom: 90px;
+    left: 0;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #687480;
+    transform: rotate(-90deg) translateY(-100%);
+    transition: all 0.3s;
+
+    &:hover {
+      color: $color-green;
+      transform: rotate(-90deg) translateY(-100%) scaleX(1.1);
+    }
+
+    @include tablet {
+      visibility: hidden;
+    }
+
+    @include smartphone {
+      visibility: hidden;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -90px;
+      top: 50%;
+      width: 70px;
+      height: 1px;
+      background-color: $color-green;
+    }
+  }
+}
