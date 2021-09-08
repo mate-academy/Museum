@@ -1,10 +1,15 @@
 .header {
   display: flex;
-  height: 650px;
+  height: 655px;
   font-family: "Montserrat", sans-serif;
+
+  @include tablet {
+    height: 385px;
+  }
 
   @include smartphone {
     flex-direction: column-reverse;
+    height: unset;
   }
 
   &__logo {
@@ -28,6 +33,10 @@
   &__elements {
     position: relative;
     width: 500px;
+
+    @include tablet {
+      width: 470px;
+    }
 
     @include smartphone {
       position: static;
@@ -65,6 +74,12 @@
     font-size: 72px;
     line-height: 72px;
 
+    @include tablet {
+      font-size: 55px;
+      top: 135px;
+      right: -107px;
+    }
+
     @include smartphone {
       position: static;
       margin: 20px;
@@ -90,6 +105,11 @@
     background-image: url(../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png);
     background-size: cover;
     background-position: top 0 left 0;
+
+    @include smartphone {
+      // flex-grow: 0;
+      max-height: 50vh;
+    }
   }
 
   &__buy-button {
@@ -103,6 +123,11 @@
     width: 220px;
     text-decoration: none;
     transition: all 0.5s;
+
+    @include tablet {
+      top: 290px;
+      right: 10px;
+    }
 
     @include smartphone {
       position: static;
@@ -139,6 +164,10 @@
     &:hover {
       border-color: $color-grey;
       width: 328px;
+
+      @include tablet {
+        width: 300px;
+      }
 
       & .header__buy-button-text::before {
         content: "Купити квитки";
