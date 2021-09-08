@@ -1,0 +1,161 @@
+.footer {
+  box-sizing: border-box;
+  height: 460px;
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+
+  &__bold-text {
+    font-weight: 600;
+  }
+
+  @include tablet {
+    height: 690px;
+  }
+
+  @include smartphone {
+    flex-direction: column;
+    align-items: center;
+    height: unset;
+  }
+
+  &__icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 160px;
+
+    @include smartphone {
+      width: 280px;
+      height: unset;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    @extend %logo;
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+  }
+
+  &__soc-links {
+    display: flex;
+    justify-content: space-between;
+    width: 64px;
+    height: 24px;
+  }
+
+  &__soc-link {
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    margin-left: 140px;
+
+    @include tablet {
+      flex-direction: column;
+    }
+
+    @include smartphone {
+      margin: 40px 0 0;
+    }
+  }
+
+  &__info {
+    display: flex;
+    width: 440px;
+    border-right: 1px solid $color-grey;
+
+    @include largeScreen {
+      width: 580px;
+    }
+
+    @include tablet {
+      height: 307px;
+      border-right: 0;
+      border-bottom: 1px solid $color-grey;
+    }
+
+    @include smartphone {
+      height: 450px;
+      width: 280px;
+      margin: 0;
+    }
+  }
+
+  &__info-title {
+    margin-bottom: 20px;
+  }
+
+  &__schedule-hours {
+    margin-bottom: 20px;
+  }
+
+  &__schedule {
+    width: 170px;
+  }
+
+  &__contacts {
+    margin-left: 30px;
+    width: 177px;
+
+    @include largeScreen {
+      margin-left: 140px;
+    }
+  }
+
+  &__nav {
+    margin-left: 60px;
+
+    @include largeScreen {
+      margin-left: 120px;
+    }
+
+    @include tablet {
+      margin: 50px 0 0;
+    }
+
+    @include smartphone {
+      margin: 40px 0 0;
+    }
+  }
+
+  &__nav-list {
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 20px 65px;
+
+    @include largeScreen {
+      column-gap: 160px;
+    }
+
+    @include smartphone {
+      grid-template-columns: repeat(2, auto);
+      width: 280px;
+      column-gap: 55px;
+    }
+  }
+
+  &__nav-link {
+    display: block;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $color-green;
+      transform: scaleY(1.2);
+    }
+  }
+}
