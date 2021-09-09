@@ -1,4 +1,5 @@
 .footer {
+  position: relative;
   box-sizing: border-box;
   height: 460px;
   padding-top: 50px;
@@ -65,6 +66,7 @@
 
     @include tablet {
       flex-direction: column;
+      margin-left: 55px;
     }
 
     @include smartphone {
@@ -72,7 +74,28 @@
     }
   }
 
+  &__button {
+    display: none;
+    position: absolute;
+    object-position: center;
+    object-fit: contain;
+    right: 0;
+    bottom: 20px;
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+    border-radius: 50%;
+    border: 2px solid $color-green;
+
+    @include smartphone {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
   &__info {
+    position: relative;
     display: flex;
     width: 440px;
     border-right: 1px solid $color-grey;
@@ -161,6 +184,23 @@
     &:hover {
       color: $color-green;
       transform: scaleY(1.2);
+    }
+  }
+
+  &__copyright {
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+
+    @include smartphone {
+      position: static;
+      margin: 70px auto 45px;
+      flex-direction: column-reverse;
+      gap: 15px;
+      align-items: center;
     }
   }
 }
