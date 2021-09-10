@@ -1,0 +1,118 @@
+.menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%); //спрятано
+  background-color: rgb(45, 165, 173);
+  transition: transform 0.3s;
+  z-index: 0;
+
+  @media (max-width: 1179px) {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  @media (min-width: 1180px) {
+    width: 100vw;
+    height: 90px;
+  }
+
+  &:target {
+    display: block;
+    transform: translateX(0);
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 1180px) {
+      // flex-direction: row;
+      padding: 9px 5% 9px 3%;
+      // justify-content: flex-start;
+      display: grid;
+      grid-template-columns: 5% 80% 15%;
+      align-items: center;
+    }
+  }
+
+  &__actions {
+    padding: 50px 0 0 32px;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 33% 36%;
+    align-items: center;
+
+    @media (min-width: 1180px) {
+      display: flex;
+      flex-direction: row;
+      padding: 9px 0;
+    }
+  }
+
+  &__close {
+    font-size: 30px;
+    font-weight: 500;
+    color: #000;
+    transition: all 0.3s;
+
+    &:hover {
+      color: #4143e2;
+    }
+
+    @media (min-width: 1180px) {
+      display: none;
+    }
+  }
+
+  &__logo {
+    margin: auto;
+    width: 63px;
+    height: 72px;
+    cursor: pointer;
+
+    @media (min-width: 1180px) {
+      display: block;
+      margin: 0;
+    }
+  }
+
+  &__form {
+    display: none;
+    align-self: center;
+    width: 100%;
+    height: 80%;
+
+    @media (min-width: 1180px) {
+      margin-bottom: 25px;
+      margin-left: 50px;
+    }
+  }
+
+  &__search {
+
+    @media (min-width: 1180px) {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      bottom: 15px;
+      right: 50px;
+      background: url("../images/search.svg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      cursor: pointer;
+
+      // &:hover .form {
+      //   display: block;
+      //   transform: translateX(0); 
+      //   visibility: visible;
+      // }
+    }
+  }
+}
