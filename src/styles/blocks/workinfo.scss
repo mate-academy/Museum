@@ -1,26 +1,27 @@
 .workinfo {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 3;
+  grid-template-columns: minmax(100px, 180px) minmax(100px, 180px);
+  justify-content: space-between;
+  column-gap: 20px;
 
-  column-gap: 22px;
-  row-gap: 20px;
-
-  width: 280px;
+  width: 100%;
   font-family: "IBM Plex Sans", sans-serif;
   font-weight: 400;
   font-size: 14px;
 
-  @include media(tablet, desktop, desktopWide) {
-    width: 100%;
+  transition: all 1s;
+
+  @include media (tablet, desktop, desktopWide) {
+    grid-template-columns: repeat(2, 180px);
+    justify-content: space-between;
   }
 
   &__schedule {
+    width: 100%;
     line-height: 21px;
   }
   &__section-title {
     margin-bottom: 20px;
-
     line-height: 20px;
   }
 

@@ -3,15 +3,104 @@
   padding: 50px 0;
 
   &__top-container {
-    display: block;
+    box-sizing: border-box;
     
     width: 100%;
-    margin: 0;
+    margin: 0 0 70px;
     padding: 0;
 
-    @include media(tablet, desktop, desktopWide) {
+    @include tablet {
       display: grid;
-      grid-template-columns: 2fr 6fr 6fr 2fr;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 1fr auto;
+      grid-template-areas: "sm si si si si . "
+        "sm map map map map . ";
     }
+
+    @include desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(1, auto);
+      grid-template-areas: "sm . si si si si . map map map map . .";
+
+      margin: 0 0 84px;
+    }
+
+    @include desktopWide {
+      display: grid;
+      grid-template-columns: repeat(16, 1fr);
+      grid-template-rows: repeat(1, auto);
+      grid-template-areas: "sm . si si si si si . . map map map map  map . .";
+    }
+  }
+
+  &__sm-bar {
+    margin-bottom: 40px;
+  }
+
+  &__service-info {
+    grid-area: si;
+    position: relative;
+    width: 100%;
+    margin: 0 0 110px;
+    box-sizing: border-box;
+
+    @include tablet {
+      margin: 0 0 100px;
+    }
+
+    @include desktop {
+      margin: 0;
+    }
+
+    @include desktopWide {
+      margin: 0;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      height: 1px;
+      background-color: rgba(26, 90, 76, 0.5);
+      transform: translateY(60px);
+
+      @include tablet {
+        transform: translateY(50px);
+      }
+
+      @include desktop {
+        top: 0;
+        left: auto;
+
+        height: auto;
+        width: 1px;
+        transform: translate(40px, 0);
+      }
+
+      @include desktopWide {
+        top: 0;
+        left: auto;
+
+        height: auto;
+        width: 1px;
+        transform: translate(97px, 0);
+      }
+    }
+  }
+
+  &__bottom-box {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 140.62%;
+    color: $colorMarshland;
   }
 }
