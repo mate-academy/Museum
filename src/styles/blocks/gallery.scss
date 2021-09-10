@@ -1,0 +1,173 @@
+.gallery {
+
+  &__container-desktop {
+    display: none;
+
+    @include media(desktop, desktopWide) {
+      display: block;
+    }
+  }
+
+  &__list-desktop {
+    display: none;
+
+    @include media(desktop, desktopWide) {
+      display: grid;
+      width: 100%;
+      height: 930px;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 600px 300px;
+      grid-template-areas: "one one two two two two"
+        "three three three three four four";
+    }
+
+    @include desktopWide {
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-areas: "one one two two two two five five"
+        "three three three three four four six six";
+    }
+
+    gap: 30px;
+
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item-desktop {
+    position: relative;
+
+    width: 100%;
+
+    display: none;
+
+    @include media(desktop, desktopWide) {
+      display: block;
+    }
+
+    &--1 {
+      grid-area: one;
+      overflow: hidden;
+    }
+    &--2 {
+      grid-area: two;
+      overflow: hidden;
+    }
+    &--3 {
+      grid-area: three;
+      overflow: hidden;
+    }
+    &--4 {
+      grid-area: four;
+      overflow: hidden;
+    }
+    &--5 {
+      grid-area: five;
+      display: none;
+      overflow: hidden;
+
+      @include desktopWide {
+        display: block;
+      }
+    }
+    
+    &--6 {
+      grid-area: six;
+      display: none;
+      overflow: hidden;
+
+      @include desktopWide {
+        display: block;
+      }
+    }
+  }
+
+  &__img-desktop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* mobile gallery */
+  &__container {
+    position: relative;
+  }
+
+  &__wrapper {
+    overflow: hidden;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+
+    transition: transform 0.3s;
+
+    @include media (desktop, desktopWide) {
+      display: none;
+    }
+  }
+
+  &__item {
+    width: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+
+  &__img {
+    width: 100%;
+    height: 410px;
+    object-position: 50% 50%;
+    object-fit: cover;
+
+    @include tablet {
+      height: 543px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 50%;
+    width: 50px;
+    height: 50px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: white;
+    background-color: $colorGreenPea;
+    border: 1px solid $colorGreenPea;
+
+    cursor: pointer;
+
+    transform: translateY(0);
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    @include media (desktop, desktopWide) {
+      display: none;
+    }
+
+    &--prev {
+      left: -5px;
+    }
+
+    &--next {
+      right: -5px;
+    }
+  }
+}
