@@ -27,3 +27,28 @@
     @content;
   }
 }
+
+@mixin media($keys...) {
+  @each $key in $keys {
+    @if ($key == onTablet) {
+      @include onTablet {
+        @content;
+      }
+    }
+    @else if ($key == onNoteBook) {
+      @include onNoteBook {
+        @content;
+      }
+    }
+    @else if ($key == onDesktop) {
+      @include onDesktop {
+        @content;
+      }
+    }
+    @else if ($key == onLargeScreen) {
+      @include onLargeScreen {
+        @content;
+      }
+    }
+  }
+}
