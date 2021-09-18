@@ -1,0 +1,89 @@
+.menu {
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  opacity: 1;
+  background-color: #fff;
+  transition: all 0.3s;
+  height: 100vh;
+
+  overflow: auto;
+
+  @include onNoteBook {
+    height: 90px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 7px;
+
+    @include onNoteBook {
+      align-items: flex-end;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+    padding-top: 100px;
+
+    @include onTablet {
+      gap: 45px;
+    }
+
+    @include onNoteBook {
+      flex-direction: row;
+      gap: 50px;
+      padding-top: 0;
+    }
+    
+  }
+
+  &__item {
+    font-family: "Oswald", sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 18px;
+
+    @include onTablet {
+      font-size: 25px;
+      line-height: 25px;
+    }
+
+    @include onNoteBook {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &__logo {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 36px;
+    color: $colorDark;
+
+    @include onNoteBook {
+      margin-left: 20;
+    }
+  }
+
+  &__search-icon {
+    position: relative;
+    top: 20px;
+
+    @include onNoteBook {
+      top: 0;
+    }
+  }
+
+  &__link {
+     &:hover {
+       color: rgb(173, 164, 164);
+     }
+  }
+}
