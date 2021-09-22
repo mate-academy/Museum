@@ -18,20 +18,19 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 1. Implement `Підписка` block.
 1. Implement footer.
 
-## HR important moments
+## Checklist for preparing a portfolio project for HR review
 
-- Скорость анимаций на всем лендинге одинаковые (например увеличение при наведении или выезд блоков при скроле)
-- Placeholder в формах подсказывают что именно ввести, а если стоит валидация формы, то понятно в каком формате вводить номер телефона 
-- Убедитесь, что с мобильных выглядит все аккуратно и без горизонтальной прокрутки
-- Добавьте favicon
-- Добавьте мягкий скрол при клике на меню до соответствующего блока страницы
-- Кнопки "відвідування" и "квитки" должны вести на блок с актуальными событиями
-- Кнопка "про нас" должна вести на дайджест
-- Для пользователя удобно, когда при клике на Address, он открывался в новой вкладке в гугл-картах
-- Кнопки фейсбук и инстаграм внизу страницы должны  быть кликабельными и вести на страницы музея в соцсетях (и открываться в новой вкладке)
-- Картинки в галерее и в событиях должны увеличиваться при ховере
-- В мобильной версии нужно сделать слайдер, чтобы юзер смог просмотреть все картинки в галерее
-
+- The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
+- Placeholders in the forms suggest what to enter, and if there is a validation of the form, then it is clear in what format to enter the phone number
+- Make sure everything looks neat on mobile and without horizontal scrolling
+- Add favicon
+- Add a smooth scroll for the whole page
+- When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
+- The buttons "exhibitions" and "tickets" should lead to the block with current events
+- The button "about us" should lead to the email digest
+- Facebook and Instagram icons in the footer should be clickable and open the museum's social networks in a new tab
+- Pictures in the gallery and exhibitions sections should increase on hover
+- In the mobile version, you need to make a slider so that the user can view all the pictures in the gallery
 
 ## Github flow
 1. **Fork** the repo.
