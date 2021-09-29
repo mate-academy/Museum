@@ -1,15 +1,35 @@
 .header {
-  box-sizing: border-box;
+  height: 553px;
+  position: relative;
 
-  &__img-conteiner {
-    position: relative;
-    margin-bottom: 20px;
+  @include onTablet {
+    height: 474px;
   }
 
-  &__logo {
+  @include onDesktop {
+    height: 855px;
+  }
+
+  &__img {
+    background-image: url(../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.svg);
+    background-size: cover;
+
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    right: 0;
     top: 0;
-    width: 100vh;
-    object-position: center;
+    z-index: -1;
+
+    @include onTablet {
+      height: 384px;
+      width: 65%;
+    }
+  
+    @include onDesktop {
+      height: 655px;
+      width: 65%;
+    }
   }
 
   &__logo-small {
@@ -19,6 +39,8 @@
     transform: translate(-50%);
     text-decoration: none;
     color: $colorTitleAndFooter;
+
+    @include firstText;
     font-weight: bold;
     font-size: 30px;
     line-height: 100%;
@@ -35,6 +57,8 @@
 
   &__title {
     margin: 0 auto 20px;
+
+    @include firstText;
     font-weight: bold;
     font-size: 45px;
     line-height: 100%;
@@ -43,6 +67,8 @@
   }
 
   &__button-container {
+    margin: 0 auto;
+
     display: flex;
     justify-content: center;
     text-decoration: none;
@@ -55,10 +81,13 @@
     align-items: center;
     width: 230px;
     height: 50px;
-    border: 1px solid $colorForDate;
+
+    @include secondaryText;
     font-weight: 500;
     font-size: 16px;
     line-height: 100%;
+    border: 1px solid $colorForDate;
+    text-transform: uppercase;
     color: $colorTitleAndFooter;
   }
 
@@ -67,6 +96,7 @@
     height: 50px;
     width: 50px;
     background-color: $colorForDate;
+    border: 1px solid $colorForDate;
   }
 
   &__for-button {
