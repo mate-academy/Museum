@@ -1,52 +1,75 @@
 .description {
-  &__container {
-    position: relative;
-    height: fit-content;
-    margin-top: 60px;
-  }
 
   &__title {
-    padding-right: 26px;
-    font-family: "IBM Plex Sans", sans-serif;
+    padding-right: 48px;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 100%;
     color: #687480;
+    
+    &--last {
+      padding-right: 14px;
+    }
+
+    @include onDesktop {
+      padding-right: 26px;
+      font-size: 14px;
+    }
   }
 
   &__date {
-    font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 150%;
-
     color: #1a5a4c;
+    font-weight: bold;
 
-    &--last {
-      padding-left: 120px;
+    @include onDesktop {
+      font-size: 14px;
+
+      &--last {
+        padding-left: 120px;
+      }
     }
   }
 
   &__name {
+    margin: 10px 0;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 30px 0 15px;
+
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
-    font-size: 36px;
+    font-size: 28px;
     line-height: 100%;
     color: #0f0e08;
 
+    @include onDesktop {
+      margin: 30px 0 15px;
+      font-size: 36px;
+
+      &::after {
+        margin-left: 20px;
+        content: "";
+        width: 15px;
+        height: 15px;
+        background: #f14a27;
+      }
+    }
+
     &::after {
-      margin-left: 20px;
+      margin-top: 4px;
+      margin-left: 5px;
       content: "";
-      width: 15px;
-      height: 15px;
+      width: 10px;
+      height: 10px;
       background: #f14a27;
     }
 
     &--last {
-      margin: 16px 0 0;
+      @include onDesktop {
+        margin: 16px 0 0;
+      }
       &::after {
         display: none;
       }
@@ -61,11 +84,20 @@
   }
 
   &__block {
+    position: absolute;
+    top: -65px;
+    left: 13px;
+    width: fit-content;
+    padding: 25px 11px 34px;
     height: fit-content;
-    padding: 45px 100px 50px;
     border: 1px solid transparent;
     background-color: #fff;
-    position: absolute;
-    transform: translateY(-102px);
+    
+    z-index: 1;
+
+    @include onDesktop {
+      padding: 45px 100px 50px;
+      transform: translateY(-102px);
+    }
   }
 }
