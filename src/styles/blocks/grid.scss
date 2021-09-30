@@ -4,8 +4,21 @@
   column-gap: 20px;
 
   @include onDesktop {
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(5, 131px);
     column-gap: 24px;
+  }
+
+  &--main {
+    @include onDesktop {
+      grid-template-rows: repeat(5, 104px);
+    }
+  }
+
+  &--gallery {
+    @include onDesktop {
+      grid-template-rows: repeat(30, 33px);
+    }
   }
 
   &--desktop {
@@ -17,8 +30,8 @@
   }
 
   &__item {
-    @for $start from 1 through 12 {
-      @for $end from $start through 12 {
+    @for $start from 1 through 16 {
+      @for $end from $start through 16 {
         &--#{$start}-#{$end} {
           grid-column: #{$start} / #{$end + 1};
         }
@@ -33,7 +46,7 @@
   }
 
   &__row {
-    @for $row from 1 through 12 {
+    @for $row from 1 through 30 {
       &--#{$row} {
         grid-row: #{$row};
       }
