@@ -1,14 +1,35 @@
 .footer {
   position: relative;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #0f0e08;
 
-  &__content {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #0f0e08;
+  &__links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    &--icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    @include onDesktop {
+      flex-direction: column;
+    }
+  }
+
+  &__icon {
+    margin-right: 24px;
+    height: 24px;
+    width: 100%;
+    
+    &:nth-child(2n) {
+      margin: 0;
+    }
   }
 
   &__button {
@@ -22,6 +43,10 @@
     background-color: #fff;
     border: 1px solid ;
     box-sizing: border-box;
+
+    @include onDesktop {
+      display: none;
+    }
   }
 
   &__hr {
@@ -29,7 +54,15 @@
     color: rgba(26, 90, 76, 0.5);
     width: 200%;
     border: 1px solid black;
+
+    @include onDesktop {
+      width: 1px;
+      height: 260px;
+      transform: translateX(120px);
+      border: 1px solid rgba(26, 90, 76, 0.5);
+    }
   }
+
   &__menu {
     grid-column: 1;
   }
