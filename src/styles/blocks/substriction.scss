@@ -1,6 +1,20 @@
 .substriction {
   box-sizing: border-box;
 
+  &__mobile {
+
+    &--br {
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    @include onDesktop {
+      background-image: url("../images/footer/footer-1920.jpg");
+      width: 1920px;
+      height: 650px;
+    }
+  }
   &__container {
     display: flex;
     flex-direction: column;
@@ -13,7 +27,7 @@
     background-image: url("../images/footer/footer.png");
     background-position: center;
     background-repeat: no-repeat;
-
+    
     @include onDesktop {
       background-image: url("../images/footer/footer-1920.jpg");
       width: 1920px;
@@ -22,7 +36,7 @@
   }
 
   &__title {
-    margin: 55px 69px 30px;
+    padding: 55px 69px 30px;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
     font-size: 36px;
@@ -37,23 +51,29 @@
   }
 
   &__content {
-    margin-bottom: 48px;
+    padding-top: 20px;
+    overflow-wrap: break-word;
+    margin: 0 auto 48px;
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;
     text-align: center;
-
+    width: fit-content;
     color: #fff;
 
     @include onDesktop {
+      padding-top: 45px;
       margin: 0;
       line-height: 100%;
     }
   }
 
   &__form {
+    margin: auto 0;
+    height: fit-content;
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
 
     @include onDesktop {
       display: block;
@@ -64,7 +84,7 @@
     border: none;
     outline: none;
     height: 47px;
-    width: 233px;
+    width: 220px;
     background: #fff;
 
     &::placeholder {
