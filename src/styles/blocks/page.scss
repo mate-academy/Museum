@@ -1,0 +1,59 @@
+.page {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: $main-text;
+  background-color: $main-color;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+
+    overflow-x: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-100%);
+    transition: transform $duration;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 70px;
+
+    &:last-child {
+      margin-bottom: 40px;
+    }
+    
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+  
+  &__section-title {
+    margin: 0 0 40px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 100%;
+    color: #0f0e08;
+
+    @include onDesktop {
+      font-size: 48px;
+      line-height: 100%;
+      margin: 0 0 60px;
+      text-align: left;
+    }
+  }
+}

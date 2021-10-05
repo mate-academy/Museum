@@ -1,0 +1,83 @@
+.header {
+  position: relative;
+  box-sizing: border-box;
+
+  &__desktop {
+    width: 0;
+
+    @include onDesktop {
+      width: 95.45%;
+      height: 655px;
+      padding-left: 55px;
+    }
+  }
+
+  &__background {
+    background-image: url("../images/header/header-mobile.png");
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onDesktop {
+      background-image: none;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    padding-top: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+
+    color: #000;
+
+    @include onDesktop {
+      font-weight: bold;
+      font-size: 72px;
+      text-align: left;
+    }
+
+    &--style {
+      @include onDesktop {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+      }
+    }
+  }
+
+  &__subtitle {
+    display: none;
+
+    @include onDesktop {
+      position: absolute;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      align-items: center;
+      top: calc(655px - 140px);
+      transition: transform $duration;
+      &:hover {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__subtitle-name {
+    height: fit-content;
+    transform: rotate(-90deg);
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+  }
+
+  &__subtitle-line {
+    transform: translateX(18px);
+    width: 1px;
+    height: 70px;
+    line-height: 14px;
+    background: #000;
+  }
+}

@@ -1,0 +1,72 @@
+.place {
+  
+  &__photo-container {
+    position: relative;
+    box-sizing: border-box;
+
+    @include onDesktop {
+      height: 520px;
+      padding-bottom: 0;
+    }
+
+    transition: transform $duration;
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+
+  &__photo-gallery {
+    margin-bottom: 30px;
+    max-height: 600px;
+  }
+
+  &__photo {
+
+    &--hidden {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+    
+    margin: 0 0 15px;
+    width: 280px;
+    object-fit: cover;
+    object-position: center;
+
+    &--main {
+      @include onDesktop {
+        height: 520px;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &--high-resolution {
+      @include onDesktop {
+        width: fit-content;
+        margin: 0;
+      }
+    }
+
+    &--last {
+      margin: 0;
+    }
+
+    &--last-desktop {
+      @include onDesktop {
+        height: 678px;
+        width: 100%;
+      }
+    }
+  }
+
+  &__padding {
+    padding: 0 15px;
+
+    @include onDesktop {
+      padding: 0;
+    }
+  }
+}
