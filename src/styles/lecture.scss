@@ -1,0 +1,106 @@
+.lecture {
+  @include MediumScreen {
+    padding: 40px 35px 0;
+  }
+
+  @include MobileScreen {
+    padding: 10px 0 0;
+  }
+
+  &__background {
+    position: relative;
+    background-image: url("../images/lecture.png");
+    background-size: cover;
+    background-position: center;
+    height: 35vw;
+    
+    &:hover {
+      box-shadow: inset 1px 1px 10px grey;
+    }
+
+    @media screen and (min-width: 1920px) {
+      height: 674px;
+    }
+
+    @media screen and (max-width: 1680px) {
+      height: 43vw;
+    }
+
+    @include MediumScreen {
+      height: 43vw;
+    }
+
+    @include TabletScreen {
+      height: 55vw;
+    }
+
+    @include MobileScreen {
+      height: 65vw;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: calc(50% - #{$lectureCardWidth} / 2);
+    bottom: -120px;
+    width: $lectureCardWidth;
+    height: 204px;
+    background-color: $c-pageBackground;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+    @include MobileScreen {
+      width: $lectureCardWidthMob;
+      height: 154px;
+      right: calc(50% - #{$lectureCardWidthMob} / 2);
+      bottom: -97px;
+    }
+  }
+
+  &__background:hover .lecture__item {
+    box-shadow: 1px 1px 5px rgba(26, 90, 76, 0.25);
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    width: 370px;
+    font-size: 14px;
+    line-height: 1;
+
+    @include MobileScreen {
+      width: 236px;
+      font-size: 16px;
+    }
+  }
+
+  &__info {
+    font-weight: 500;
+    color: $c-lightGreyText;
+  }
+
+  &__time {
+    width: 169px;
+    font-weight: 700;
+    line-height: 1;
+    color: $c-textDate;
+
+    @include MobileScreen {
+      width: 154px;
+    }
+  }
+
+  &__text {
+    margin-top: 16px;
+    width: 370px;
+
+    @include MobileScreen {
+      width: 236px;
+      font-size: 28px;
+      text-align: center;
+    }
+  }
+}
