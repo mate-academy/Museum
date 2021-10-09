@@ -1,0 +1,60 @@
+@mixin onLargeScreen {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin onNoteBook {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onTabletPro {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onSmartPhone {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin media($keys...) {
+  @each $key in $keys {
+    @if ($key == onTablet) {
+      @include onTablet {
+        @content;
+      }
+    }
+    @else if ($key == onNoteBook) {
+      @include onNoteBook {
+        @content;
+      }
+    }
+    @else if ($key == onDesktop) {
+      @include onDesktop {
+        @content;
+      }
+    }
+    @else if ($key == onLargeScreen) {
+      @include onLargeScreen {
+        @content;
+      }
+    }
+  }
+}

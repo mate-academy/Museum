@@ -1,0 +1,181 @@
+.event {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s;
+
+  @include onNoteBook {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include onLargeScreen {
+    align-items: center;
+  }
+
+  // Это свойство используется для задания
+  // отступов сверху для новых нечётных блоков.
+
+  &--straight {
+    @include onTablet {
+      padding-top: 50px;
+    }
+
+    @include onNoteBook {
+      padding-top: 100px;
+    }
+  }
+
+  &--reverse {
+    @include onTablet {
+      padding-top: 50px;
+    }
+
+    @include onNoteBook {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      padding-top: 100px;
+    }
+
+    @include onLargeScreen {
+      align-items: center;
+    }
+  }
+
+  &__image {
+    display: block;
+    transition: transform 0.5s;
+
+    @include onTablet {
+      max-height: 520px;
+      object-fit: cover;
+    }
+
+    @include onNoteBook {
+      width: 670px;
+      height: 520px;
+
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+
+    @include onLargeScreen {
+      width: 870px;
+      height: 520px;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0 60px;
+
+    @include onTablet {
+      padding: 30px 0 0;
+    }
+
+    @include onNoteBook {
+      padding-top: 46px;
+    }
+
+    &--straight {
+      @include onLargeScreen {
+        padding-right: 150px;
+      }
+    }
+
+    &--reverse {
+      @include onLargeScreen {
+        padding-left: 150px;
+      }
+    }
+  }
+
+  &__type-and-date {
+    font-family: "IBM Plex Sans";
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+    @include onTablet {
+      justify-content: flex-start;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    position: relative;
+    width: max-content;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 28px;
+    color: $colorDark;
+    padding: 10px 0;
+
+    @include onTablet {
+      padding: 30px 0 15px;
+    }
+    
+    &::after {
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      transform: translateY(-33%);
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: $colorOrange;
+      margin-left: 25px;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+        right: -35px;
+        transform: translateY(5%);
+      }
+    }
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 36px;
+    }
+  }
+
+  &__type {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: $typeColor;
+    padding-right: 26px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &__date {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: $dateColor;
+
+    @include onTablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__about {
+    font-family: "IBM Plex Sans";
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: $aboutColor;
+    max-width: 370px;
+  }
+}
