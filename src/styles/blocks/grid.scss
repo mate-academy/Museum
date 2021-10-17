@@ -1,0 +1,98 @@
+.grid {
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-flow: column;
+    align-items: center;
+    column-gap: 30px;
+  }
+
+  @include xlarge {
+    grid-template-columns: repeat(16, 1fr);
+  }
+
+  &--header {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(1fr, 100px));
+      column-gap: 20px;
+    }
+  
+    @include onDesktop() {
+      display: grid;
+      grid-template-columns: repeat(8, 70px);
+      column-gap: 30px;
+    }
+  
+    @include xlarge {
+      grid-template-columns: repeat(16, 70px);
+    }
+  }
+
+  &--mobile {
+    display: grid;
+
+    @include mobileOnly {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 24px;
+    }
+
+    @include onTablet {
+      align-items: flex-start;
+    }
+  }
+
+  &__item {
+
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--mobile-#{$start}-#{$end} {
+          @include mobileOnly {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 8 {
+      @for $end from $start through 8 {
+        &--tablet-#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--tablet-row-#{$start}-#{$end} {
+          grid-row: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--desktop-#{$start}-#{$end} {
+          @include onDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 16 {
+      @for $end from $start through 16 {
+        &--xlarge-#{$start}-#{$end} {
+          @include xlarge {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}

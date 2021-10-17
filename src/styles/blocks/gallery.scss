@@ -1,0 +1,38 @@
+.gallery {
+  position: relative;
+  overflow: hidden;
+  visibility: visible;
+  
+  &__image {
+    width: 100%;
+
+    transition: filter 0.5s;
+
+    @include onDesktop {
+      overflow: hidden;
+
+      &:nth-child(3),
+      &:nth-child(5) {
+        display: none;
+      }
+    }
+
+    @include xlarge {
+      &:nth-child(3),
+      &:nth-child(5) {
+        display: initial;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(80%);
+    }
+  }
+
+  &__container {
+    
+    align-items: center;
+    gap: 28px;
+  }
+}
