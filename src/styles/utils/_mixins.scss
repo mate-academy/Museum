@@ -4,3 +4,41 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin tablet {
+  @media (max-width: 1068px) and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: 1919px) and (min-width: 1068px) {
+    @content;
+  }
+}
+
+@mixin desktopWide {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin media($keys...) {
+  @each $key in $keys {
+    @if ($key == tablet) {
+      @include tablet {
+        @content;
+      }
+    }
+    @else if ($key == desktop) {
+      @include desktop {
+        @content;
+      }
+    }
+    @else if ($key == desktopWide) {
+      @include desktopWide {
+        @content;
+      }
+    }
+  }
+}
