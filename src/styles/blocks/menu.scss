@@ -1,0 +1,86 @@
+.menu {
+  background-color: #fff;
+
+  &__list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 0;
+    padding-bottom: 10px;
+    margin: 0;
+  }
+
+  &__cross {
+    height: 17px;
+    width: 17px;
+    transition: 0.3s;
+    padding-bottom: 5px;
+    position: absolute;
+    top: 35px;
+    right: 35px;
+
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+    color: #000;
+    font-family: "Oswald", sans-serif;
+    padding-bottom: 5px;
+
+    &:hover::after {
+      display: block;
+      content: "";
+      height: 4px;
+      width: 100%;
+      background-color: grey;
+      border-radius: 8px;
+      position: absolute;
+    }
+  }
+
+  &__li {
+    list-style: none;
+  }
+
+  &__logo {
+    text-decoration: none;
+  }
+
+  @include onDesktop {
+    &__link {
+      position: relative;
+      text-decoration: none;
+      color: #000;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    &__logo-container {
+      display: flex;
+      gap: 40px;
+      align-items: flex-end;
+    }
+
+    &__li {
+      list-style: none;
+    }
+
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+}
