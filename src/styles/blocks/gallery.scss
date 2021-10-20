@@ -1,0 +1,67 @@
+.gallery {
+  margin-bottom: $section-margin;
+
+  &__images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    @include forIpad {
+      gap: 20px;
+      overflow: hidden;
+    }
+
+    @include forPC {
+      gap: 30px;
+    }
+
+    &--img {
+      flex: 1 0 calc(90% - 15px);
+      width: 280px;
+      height: 410px;
+      object-fit: cover;
+      object-position: center;
+      transition: all 0.3s;
+
+      @include forIpad {
+        flex: 1 0 calc(45% - 15px);
+        width: 340px;
+        height: 543px;
+      }
+
+      @include forPC {
+        flex: 1 0 calc(30% - 15px);
+        width: 370px;
+        height: 543px;
+        
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  &__points {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 22px;
+
+    margin-top: 30px;
+    
+    @include forPC {
+      display: none;
+    }
+
+    &--point {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: #e0e0e0;
+
+      &:hover {
+        background-color: #1a5a4c;
+      }
+    }
+  }
+}

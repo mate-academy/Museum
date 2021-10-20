@@ -1,0 +1,175 @@
+.museum {
+  position: relative;
+  margin-bottom: 70px;
+
+  @include forIpad {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+  }
+
+  @include forPC {
+    align-items: center;
+  }
+  
+  &--full {
+    margin-top: -72px;
+  }
+
+  &__image {
+    min-height: 300px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+    object-fit: cover;
+
+    @include forIpad {
+      width: 66%;
+      height: 384px;
+      margin: 0;
+    }
+
+    @include forPC {
+      width: 56%;
+      height: 655px;
+      margin: 0;
+    }
+
+    @include forFull {
+      width: 65%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include forIpad {
+      width: auto;
+      margin-right: -107px;
+      margin-bottom: 24px;
+      align-items: flex-start;
+    }
+
+    @include forPC {
+      margin-right: -140px;
+      margin-bottom: -96px;
+    }
+  }
+
+  &__text {
+    @include montserrat700;
+    font-size: 45px;
+    line-height: 100%;
+    color: #000;
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    @include forIpad {
+      margin-bottom: 40px;
+      font-size: 55px;
+      line-height: 55px;
+      text-align: left;
+    }
+
+    @include forPC {
+      margin-bottom: 80px;
+      font-size: 72px;
+      line-height: 72px;
+    }
+
+    &--transp {
+      display: inline;
+
+      @include forIpad {
+        color: transparent;
+        -webkit-text-stroke: 1px #0f0e08;
+      }
+    }
+
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 230px;
+    height: 50px;
+    border: 1px solid #1a5a4c;
+    margin-left: -50px;
+
+    @include ibm500;
+    font-size: 16px;
+    line-height: 100%;
+    color: #0f0e08;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    @include forIpad {
+      width: 150px;
+      height: 70px;
+      margin: 0;
+    }
+
+    &::after {
+      content: "";
+      width: 50px;
+      height: 50px;
+      background-color: #1a5a4c;
+
+      background-image: url(/images/icons/arrow.svg);
+      background-size: 8px 12px;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      position: absolute;
+      right: -50px;
+
+      @include forIpad {
+        width: 70px;
+        height: 70px;
+        right: -70px;
+      }
+    }
+  }
+
+  &__event {
+    display: none;
+    position: absolute;
+    bottom: 80px;
+
+    transform: rotate(-90deg);
+
+    @include ibm700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 70px;
+      left: -40px;
+      top: -28px;
+      background-color: #1a5a4c;
+      transform: rotate(-90deg);
+    }
+
+    @include forPC {
+      display: block;
+      left: $padding-PC;
+    }
+
+    @include forDesktop {
+      left: $padding-Desktop;
+    }
+
+    @include forFull {
+      left: $padding-full;
+    }
+  }
+}
