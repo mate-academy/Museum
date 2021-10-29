@@ -1,0 +1,138 @@
+.exhibition {
+  width: 100%;
+  padding: 0 136px 100px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+
+  @media screen and (max-width: 1280px) {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    padding-left: 34px;
+    padding-right: 34px;
+
+    gap: 50px;
+  }
+
+  @media screen and (min-width: 1920px) {
+    padding-left: 175px;
+    padding-right: 175px;
+  }
+
+  @media screen and (max-width: 613px) {
+    padding: 0 20px 60px;
+
+    gap: 60px;
+  }
+
+  &__block {
+    width: 100%;
+    display: flex;
+    gap: #{2 * $grid-gap + 1 * $grid-column};
+
+    @media screen and (max-width: 1200px) {
+      flex-direction: column;
+      gap: $grid-gap;
+    }
+  }
+
+  &__block--right {
+    @media screen and (min-width: 1700px) {
+      padding-left: #{2 * $grid-gap + 2 * $grid-column};
+    }
+  }
+
+  &__img--right {
+    order: 2;
+
+    @media screen and (max-width: 1200px) {
+      order: 0;
+    }
+  }
+
+  &__main {
+    max-width: #{3 * $grid-gap + 4 * $grid-column};
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__top {
+    padding-bottom: 30px;
+
+    display: flex;
+    gap: 26px;
+
+    font-size: 14px;
+    line-height: 14px;
+
+    @media screen and (max-width: 613px) {
+      padding-bottom: 10px;
+
+      font-size: 16px;
+      line-height: 16px;
+    }
+  }
+
+  &__label {
+    color: $color-for-additional-text;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  &__dates {
+    color: $primary-color;
+    font-weight: 700;
+  }
+
+  &__title {
+    padding-bottom: 15px;
+
+    display: inline-block;
+    width: max-content;
+
+    position: relative;
+
+    font-family: $secondary-font;
+    color: $color-for-additional-titles;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 36px;
+
+    @media screen and (max-width: 613px) {
+      padding-bottom: 10px;
+
+      font-size: 28px;
+      line-height: 28px;
+    }
+
+    &::after {
+      content: "";
+
+      width: 15px;
+      height: 15px;
+
+      position: absolute;
+      top: 13px;
+      left: calc(100% + 20px);
+
+      background-color: $secondary-color;
+
+      @media screen and (max-width: 613px) {
+        top: 9px;
+        left: calc(100% + 9px);
+      }
+    }
+  }
+
+  &__text {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4e4e4e;
+  }
+}
