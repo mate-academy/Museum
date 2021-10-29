@@ -1,3 +1,5 @@
+[DEMO LINK](https://jastler.github.io/Museum/)
+-----------------------------------------------------------------------
 # Museum landing page
 Implement landing page according to [Figma design](https://www.figma.com/file/cRBCqE06cDrY3s4jX7h3iY/%D0%9D%D0%90%D0%9C%D0%A3-(Edit)?node-id=0%3A1) - Use BEM and SCSS
 
@@ -51,7 +53,7 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Museum/).
+  [DEMO LINK](https://jastler.github.io/Museum/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.

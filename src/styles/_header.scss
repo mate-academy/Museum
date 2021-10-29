@@ -1,0 +1,177 @@
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 35% auto;
+  justify-items: end;
+
+  &__burger {
+    display: block;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+  }
+
+  &__elem {
+    position: absolute;
+    left: 9%;
+    bottom: 110px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: $color-grey;
+    transform: rotate(-90deg);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -27px;
+      right: 100px;
+      width: 1px;
+      height: 70px;
+      background-color: $color-grey;
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__info {
+    position: relative;
+    top: 35%;
+  }
+
+  &__title {
+    margin-bottom: 80px;
+    font-family: $title-font;
+    text-transform: uppercase;
+    font-size: 72px;
+    font-weight: 700;
+  }
+
+  &__span {
+    display: none;
+  }
+
+  &__link,
+  &__link:visited {
+    padding: 27px 0 27px 43px;
+    
+    
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    color: #000;
+
+    border: 1px solid $color-green;
+  }
+
+  &__text {
+    padding-right: 43px;
+  }
+
+  &__arrow {
+    padding: 30px;
+    color: #d7dde3;
+    background-color: $color-green;
+  }
+
+  &__photo {
+    position: relative;
+    z-index: -1;
+  }
+
+  &__img {
+    width: 100%;
+    height: 655px;
+    object-fit: cover;
+  }
+
+  &__logo {
+    position: absolute;
+    left: 15%;
+    top: 15px;
+    font-weight: 700;
+    font-family: $title-font;
+    font-size: 36px;
+    text-transform: uppercase;
+  }
+
+  &__transparent {
+    position: absolute;
+    left: 0;
+    top: 35%;
+
+    font-family: $title-font;
+    font-size: 72px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    color: transparent;
+    -webkit-text-stroke: 1px black;
+  }
+}
+
+@media screen and (max-width:$notebook-bp ) {
+  .header {
+    &__elem {
+      left: 2%;
+    }
+    
+    &__burger {
+      left: 5%;
+    }
+  }
+}
+
+@media screen and (max-width:$tablet-bp) {
+  .header {
+
+    &__elem {
+      display: none;
+    }
+
+    &__title,
+    &__transparent {
+      font-size: 55px;
+    }
+
+    &__img {
+      height: 505px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.5fr;
+    align-items: start;
+    justify-items: center;
+
+    &__info {
+      text-align: center;
+      top: 20px;
+      order: 1;
+    }
+    
+    &__title {
+      font-size: 45px;
+      margin-bottom: 30px;
+    }
+    &__span {
+      display: inline;
+    }
+
+    &__logo {
+      left: 50%;
+      transform: translateX(-50%);
+      
+      font-weight: 700;
+    }
+
+    &__transparent {
+      display: none;
+    }
+  }
+}
