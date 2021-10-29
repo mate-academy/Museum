@@ -1,0 +1,128 @@
+.gallery {
+  &__article {
+    @include mainArticles;
+    margin-bottom: 60px;
+  }
+
+  &__images {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(4 370px);
+    grid-template-rows: 600px 360px;
+
+    justify-items: center;
+
+    @media (max-width: 1180px) {
+      display: flex;
+    }
+
+    @media (max-width: 480px) {
+      height: 454px;
+    }
+
+    > img:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__firstImg {
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    @media (max-width: 480px) {
+      width: 280px;
+      height: 454px;
+    }
+  }
+
+  &__secondImg {
+    grid-column-start: 2;
+    grid-column-end: 4;
+
+    @media (max-width: 1180px) {
+      display: none;
+    }
+  }
+
+  &__thirdImg {
+    grid-column-start: 4;
+    grid-column-end: 5;
+
+    @media (max-width: 1620px) {
+      display: none;
+    }
+
+    @media (max-width: 1180px) {
+      display: block;
+    }
+
+    @media (max-width: 820px) {
+      object-fit: cover;
+      object-position: 0;
+      overflow: hidden;
+    }
+  }
+
+  &__fourthImg {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    @media (max-width: 1180px) {
+      object-fit: cover;
+      object-position: 0;
+      overflow: hidden;
+    }
+
+    @media (max-width: 820px) {
+      display: none;
+    }
+  }
+
+  &__fifthImg {
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+    @media (max-width: 1180px) {
+      display: none;
+    }
+  }
+
+  &__sixthImg {
+    grid-column-start: 4;
+    grid-column-end: 5;
+
+    @media (max-width: 1620px) {
+      display: none;
+    }
+
+    @media (max-width: 1180px) {
+      display: none;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin: 0 auto;
+
+    @media (min-width: 821px) {
+      display: none;
+    }
+
+    > a {
+      padding: 15px;
+    }
+  }
+
+  &__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: $lightGrey;
+
+    &-active {
+      background-color: $mainGreen;
+    }
+  }
+}

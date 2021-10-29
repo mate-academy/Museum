@@ -1,0 +1,140 @@
+.footer {
+  height: max-content;
+
+  display: grid;
+  gap: 20px;
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 130px 2fr 1fr 1fr 2fr 2fr;
+  @include footerText;
+
+  @media (max-width: 928px) {
+    height: max-content;
+    grid-template-columns: 130px 1fr 1fr;
+    grid-template-rows: repeat(4, max-content);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5, max-content);
+  }
+
+  &__links {
+    justify-content: center;
+
+    @media (max-width: 480px) {
+      grid-column-start: 1;
+      grid-column-end: 3;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    @include logo;
+    margin-bottom: 60px;
+
+    @media (max-width: 480px) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__socLinks {
+    :first-child {
+      margin-right: 10px;
+    }
+  }
+
+  &__socLink {
+    padding: 15px;
+  }
+
+  &__workTime {
+    justify-self: center;
+  }
+
+  &__span {
+    font-weight: 600;
+  }
+
+  &__contacts {
+    & > a {
+      color: $dark;
+    }
+  }
+
+  &__line {
+    width: 1px;
+    height: 260px;
+    background: rgba(26, 90, 76, 0.5);
+
+    justify-self: center;
+
+    @media (max-width: 928px) {
+      width: 260px;
+      height: 1px;
+      grid-column-start: 1;
+      grid-column-end: 4;
+
+      margin: 40px 0;
+    }
+
+    @media (max-width: 480px) {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+
+  &__list {
+    &-first-part {
+      justify-self: center;
+
+      @media (max-width: 928px) {
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
+
+      @media (max-width: 480px) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+      }
+    }
+
+    &-second-part {
+      @media (max-width: 928px) {
+        grid-column-start: 3;
+        grid-column-end: 4;
+      }
+
+      @media (max-width: 480px) {
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
+    }
+  }
+
+  &__item {
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    padding: 5px;
+    color: $dark;
+  }
+
+  &__copyright {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 140.62%;
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    align-self: end;
+
+    @media (max-width: 928px) {
+      margin-top: 40px;
+    }
+  }
+}
