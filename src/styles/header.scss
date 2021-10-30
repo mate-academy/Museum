@@ -1,0 +1,246 @@
+.header {
+  margin: 0 auto;
+  position: relative;
+  padding-left: 55px;
+  height: 655px;
+  display: flex;
+  max-width: 1920px;
+
+  &__togler-wrap {
+    position: absolute;
+    top: 45px;
+    width: 18px;
+    height: 14px;
+    z-index: 100;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__menu {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__left-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+
+    &--close {
+      display: none;
+    }
+  }
+
+  &__right-wrap {
+    width: 60%;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &__img-items {
+    z-index: 2;
+    width: 100%;
+    height: 655px;
+    object-fit: cover;
+    object-position: right 100% bottom 50%;
+  }
+
+  &__line {
+    position: absolute;
+    bottom: 100px;
+    left: 135px;
+    transform: rotate(-90deg);
+  }
+
+  &__line-text {
+    width: 5px;
+    height: 20px;
+    @extend %ibm;
+    @extend %w7;
+    color: #687480;
+    font-size: 14px;
+    &:before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 70px;
+      top: 50%;
+      left: -90px;
+      background: #1a5a4c;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 15px;
+    left: 51px;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: #000;
+    font-size: 72px;
+    width: fit-content;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    line-height: 100%;
+    position: relative;
+
+    &-mobile {
+      font-size: 45px;
+      @extend %w7;
+      margin-top: 510px;
+      line-height: 100%;
+    }
+  }
+
+  &__span {
+    position: absolute;
+    top: 0;
+    right: -141px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 72px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    line-height: 100%;
+    -webkit-text-stroke: 1px;
+    -webkit-text-fill-color: rgba(#000, 0);
+  }
+
+  &__content {
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 235px;
+  }
+
+  &__button {
+    text-align: center;
+    line-height: 70px;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 80px;
+    margin-right: 141px;
+    position: relative;
+    height: 70px;
+    width: 150px;
+    border: 1px solid #1a5a4c;
+    @extend %ibm, %w5;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #0f0e08;
+
+    &::after {
+      content: "";
+      width: 70px;
+      height: 70px;
+      background-color: #1a5a4c;
+      position: absolute;
+      top: -1px;
+      left: 148px;
+      background-image: url("../images/arrow.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &:hover::after {
+      background-color: #ed4a34;
+      transition: background-color 0.5s;
+    }
+  }
+
+  &__mobile__popup {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    height: 100vh;
+    width: 100vw;
+    transition: left 0.3s;
+    background-color: #fff;
+    z-index: 1;
+    align-items: center;
+    flex-direction: column;
+
+    &--has-popup {
+      left: 0;
+    }
+
+    &__logo {
+      width: 100px;
+      height: 100px;
+      background-image: url("../images/logo.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-bottom: 5%;
+    }
+
+    &__item {
+      @extend %ibm;
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 200%;
+      color: #687480;
+    }
+  }
+}
+
+.toggler {
+  z-index: 3;
+  top: 6px;
+  position: absolute;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  @extend %line;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    transition-duration: 0.3s;
+    @extend %line;
+    right: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    transition-duration: 0.3s;
+    @extend %line;
+    right: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--open {
+    transform: rotate(45deg);
+  }
+
+  &--open::before {
+    top: 0;
+  }
+
+  &--open::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+}
+
+.page {
+  &--fixed {
+    overflow: hidden;
+  }
+}
