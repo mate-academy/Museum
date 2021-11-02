@@ -1,0 +1,250 @@
+.gallery {
+
+  $items: (1: a, 2: b, 3: c, 4: d, 5: e, 6: f);
+
+  $itemsMidShow: (1: a, 2: b, 4: d, 5: e);
+
+  $itemsSmallShow: (1: a, 3: c, 5: e, 6: f);
+
+  $itemsExtraSmallShow: (1: a, 3: c,);
+
+  $itemsMidHide: (3: c, 6: f);
+
+  $itemsSmallHide: (2: b, 4: d);
+
+  $itemsExtraSmallHide: (2: b, 4: d, 5: e, 6: f);
+
+  $itemsMaximumHide: (2: b, 3: c, 4: d, 5: e, 6: f);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+  }
+
+  &__image {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: 600px 360px;
+    gap: 30px;
+    cursor: pointer;
+    grid-template-areas: "a b b c"
+      "d d e f";
+
+    @each $item, $value in $items {
+      &--#{$item} {
+        grid-area: $value;
+        transition: transform 0.5s ease-out;
+
+        &:hover {
+          transform: scale(1.1);
+          box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.7);
+        }
+      }
+    }
+  }
+
+  &__button {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 1620px) {
+    &__image {
+      grid-template-columns: repeat(3, auto);
+      grid-template-areas: "a b b"
+        "d d e";
+
+      @each $item, $value in $itemsMidHide {
+        &--#{$item} {
+          display: none;
+        }
+      }
+
+      @each $item, $value in $itemsMidShow {
+        &--#{$item} {
+          grid-area: $value;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1240px) {
+    &__image {
+      grid-template-columns: repeat(2, auto);
+      grid-template-areas: "a c"
+        "e f";
+      grid-template-rows: auto;
+      gap: 20px;
+
+      @each $item, $value in $itemsSmallHide {
+        &--#{$item} {
+          display: none;
+        }
+      }
+
+      @each $item, $value in $itemsSmallShow {
+        &--#{$item} {
+          grid-area: $value;
+          display: inline-block;
+        }
+      }
+    }
+
+    &__title {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 830px) {
+    &__title {
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    &__image {
+      position: relative;
+      grid-template-columns: repeat(2, auto);
+      grid-template-areas: "a c";
+      grid-template-rows: auto;
+      gap: 20px;
+
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        z-index: 1;
+        background-image: url("../images/svg/arrow-black.svg");
+
+        background-repeat: no-repeat;
+        background-position: center;
+        top: calc(50% - 48px / 2);
+      }
+
+      &::before {
+        left: 20px;
+      }
+
+      &::after {
+        transform: rotate(180deg);
+        right: 20px;
+      }
+
+      @each $item, $value in $itemsExtraSmallHide {
+        &--#{$item} {
+          display: none;
+        }
+      }
+
+      @each $item, $value in $itemsExtraSmallShow {
+        &--#{$item} {
+          grid-area: $value;
+          display: inline-block;
+          width: 340px;
+          height: 543px;
+        }
+      }
+    }
+
+    &__button {
+      display: none;
+    }
+
+    &__radio {
+      display: grid;
+      padding-top: 20px;
+    }
+  }
+
+  @media (max-width: 730px) {
+    &__title {
+      margin-bottom: 40px;
+      font-size: 36px;
+    }
+
+    &__image {
+      grid-template-columns: auto;
+      grid-template-areas: "a";
+
+      &--1 {
+        grid-area: a;
+        width: 360px;
+        height: 570px;
+      }
+
+      @each $item, $value in $itemsMaximumHide {
+        &--#{$item} {
+          display: none;
+        }
+      }
+
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 50%;
+        z-index: 1;
+        background-image: url("../images/svg/arrow-white.svg");
+
+        background-repeat: no-repeat;
+        background-position: center;
+        top: calc(50% - 48px / 2);
+      }
+
+      &::before {
+        transform: rotate(180deg);
+        left: 20px;
+      }
+
+      &::after {
+        transform: rotate(0);
+        right: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    &__image {
+      &--1 {
+        width: 280px;
+        height: 410px;
+      }
+
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        background: rgba(252, 255, 255, 0.7);
+        border-radius: 50%;
+        z-index: 1;
+        background-image: url("../images/svg/arrow-black.svg");
+
+        background-repeat: no-repeat;
+        background-position: center;
+        top: calc(50% - 48px / 2);
+      }
+
+      &::before {
+        transform: rotate(0);
+        left: 5px;
+      }
+
+      &::after {
+        transform: rotate(180deg);
+        right: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+.event {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 130px;
+
+  &--reverse {
+    justify-content: flex-end;
+  }
+
+  &__info {
+    width: 370px;
+  }
+
+  &__type,
+  &__date {
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 500;
+    font-family: "IBM Plex Sans", sans-serif;
+    color: #687480;
+    text-transform: uppercase;
+  }
+
+  &__date {
+    margin-left: 26px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #1a5a4c;
+  }
+
+  &__title {
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    font-weight: 400;
+    color: #0f0e08;
+    padding: 30px 0 15px;
+
+    &--red-box::after {
+      content: "";
+      position: absolute;
+      width: $redBoxSize;
+      height: $redBoxSize;
+      background: #f14a27;
+      top: 50%;
+      margin-left: 20px;
+      -webkit-animation: rotating 10s linear infinite;
+    }
+  }
+
+  &__text {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: #4e4e4e;
+  }
+
+  &__img {
+    width: 870px;
+    height: 520px;
+    object-fit: cover;
+
+    @media (max-width: 1640px) {
+      width: 670px;
+    }
+
+    @media (max-width: 1240px) {
+      width: 700px;
+    }
+
+    @media (max-width: 760px) {
+      width: 100%;
+    }
+
+    @media (max-width: 560px) {
+      width: 280px;
+      height: 210px;
+    }
+  }
+
+  @media (max-width: 1240px) {
+    & {
+      gap: 30px;
+    }
+  }
+
+  @media (max-width: 1170px) {
+    & {
+      flex-direction: column;
+      justify-self: center;
+      align-items: flex-start;
+
+      &--reverse {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  @media (max-width: 560px) {
+    & {
+      gap: 20px;
+
+      &__info {
+        width: 280px;
+      }
+
+      &__type {
+        font-size: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      &__date {
+        margin-left: 0;
+      }
+
+      &__title {
+        font-size: 28px;
+        padding: 15px 0 10px;
+
+        &--red-box::after {
+          width: $redBoxSmallSize;
+          height: $redBoxSmallSize;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}
+
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
