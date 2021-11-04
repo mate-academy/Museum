@@ -1,0 +1,127 @@
+.header {
+  &__content {
+    @include onTablet {
+      @include grid;
+      @include container;
+      position: relative;
+    }
+  }
+
+  &__top-actions {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: 10px;
+  
+    @include onTablet {
+      margin-top: 15px;
+    }
+  }
+
+  &__image-container {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      grid-column: 3 / 7;
+      grid-row: 1 / 2;
+      margin-right: -35px;
+      margin-bottom: 0;
+    }
+
+    @include onLaptop {
+      grid-column: 6 / 13;
+      margin-right: -200px;
+    }
+
+    @include onDesktop {
+      margin-right: -500px;
+    }
+
+    @include onFullHd {
+      grid-column: 6 / 17;
+    }
+  }
+
+    &__image {
+      height: 300px;
+
+      @include onTablet {
+        height: 384px;
+      }
+
+      @include onLaptop {
+        height: 655px;
+      }
+    }
+
+    &__text {
+      @include container;
+
+      @include onTablet {
+        grid-column: 3 / 5;
+        grid-row: 1 / 2;
+        padding: 0;
+        align-self: end;
+        margin-bottom: 24px;
+        transform: translateX(-228px);
+      }
+
+      @include onLaptop {
+        grid-column: 6 / 10;
+        transform: translateX(-300px);
+        margin-bottom: 120px;
+      }
+    }
+
+    &__title {
+      font-family: 'Montserrat';
+      font-weight: bold;
+      font-size: 45px;
+      line-height: 45px;
+      text-align: center;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        text-align: left;
+        font-size: 55px;
+        line-height: 55px;
+        margin-bottom: 40px;
+      }
+
+      @include onLaptop {
+        font-size: 72px;
+        line-height: 72px;
+        margin-bottom: 80px;
+      }
+    }
+
+    &__outline {
+      @include onTablet {
+        color: black;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $color-black;
+      }
+    }
+
+  &__button {
+
+    @include onTablet {
+      width: 220px;
+    }
+  }
+
+  &__side-link {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+
+    @include onLaptop {
+      visibility: visible;
+      left: $container-paddings-desk;
+    }
+  }
+}

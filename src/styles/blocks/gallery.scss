@@ -1,0 +1,115 @@
+.gallery {
+  &__content {
+    @include container;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+      text-align: left;
+    }
+
+    @include onLaptop {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__row {
+    @include grid;
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__photo {
+    overflow: hidden;
+
+    &:nth-child(2) {
+      display: none;
+    }
+
+    @include onTablet {
+      &:nth-child(1) {
+        grid-column: 1 / 4;
+      }
+
+      &:nth-child(3) {
+        grid-column: 4 / 7;
+      }
+    }
+
+    @include onLaptop {
+      &:nth-child(1) {
+        grid-column: 1 / 5;
+      }
+
+      &:nth-child(2) {
+        display: block;
+        grid-column: 5 / 13;
+      }
+
+      &:nth-child(3) {
+        display: none;
+      }
+
+      @include onFullHd {
+        &:nth-child(3) {
+          display: block;
+          grid-column: 13 / 17;
+        }
+      }
+    }
+
+    &--smallRow {
+      display: none;
+
+      @include onLaptop {
+        &:nth-child(1) {
+          display: block;
+          grid-column: 1 / 9;
+        }
+  
+        &:nth-child(2) {
+          display: block;
+          grid-column: 9 / 13;
+        }
+  
+        &:nth-child(3) {
+          display: none;
+        }
+      }
+
+      @include onFullHd {
+        &:nth-child(3) {
+          display: block;
+          grid-column: 13 / 17;
+        }
+      }
+    }
+  }
+
+  &__pic {
+    width: 100%;
+    transform-origin: bottom center;
+    transition: transform $duration;
+
+    &:hover {
+      transform: scale(1.03);
+
+    }
+  }
+
+  &__slider {
+    width: max-content;
+    margin: 0 auto;
+
+    @include onLaptop {
+      display: none;
+    }
+  }
+}

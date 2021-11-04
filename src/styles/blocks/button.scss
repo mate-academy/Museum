@@ -1,0 +1,45 @@
+.button {
+  position: relative;
+  display: block;
+  color: $color-green;
+
+  &:hover {
+    &::after {
+      background-color: $color-dark-green;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: $color-green;
+    background: url(../images/button-arrow.svg) no-repeat center center $color-green; 
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: background-color $duration;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__text {
+    display: block;
+    height: 50px;
+    margin-right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border: 1px solid $color-green;
+    border-right: none;
+
+    @include onTablet {
+      height: 70px;
+    }
+  }
+}
