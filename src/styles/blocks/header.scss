@@ -19,13 +19,13 @@
   }
 
   &__nav {
-    visibility: hidden;
-    width: 100vw;
-    height: auto;
-    position: absolute;
-    top: -200%;
+    position: fixed;
+    top: 0;
     left: 0;
-    transition: top 500ms, visibility 500ms;
+    right: 0;
+
+    transform: translateY(-100%);
+    transition: transform $duration;
     z-index: 2;
 
     @media (min-height: 500px) {
@@ -37,8 +37,7 @@
     }
 
     &--active {
-      top: 0;
-      visibility: visible;
+      transform: translateY(0);
     }
   }
 
