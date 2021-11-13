@@ -1,0 +1,182 @@
+.header {
+  height: 100vh;
+
+  &__photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60vh;
+
+    @include onTablet {
+      position: absolute;
+      left: auto;
+      height: 100vh;
+      width: 55%;
+    }
+
+    @include onDesktop {
+      left: auto;
+      height: 100vh;
+      width: 53%;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+
+    @include onTablet {
+      object-position: top left;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+
+    &-stroke {
+      @include onTablet {
+        position: absolute;
+        top: 35vh;
+        display: block;
+        -webkit-text-stroke: 1.5px #000;
+        color: transparent;
+        text-transform: uppercase;
+        font-size: 55px;
+      }
+      
+      @include onDesktop {
+        font-size: 72px;
+      }
+    }
+
+    @include onTablet {
+      text-align: left;
+      font-size: 55px;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      text-align: left;
+      font-size: 72px;
+      margin-bottom: 80px;
+    }
+
+    &--onMobile {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--onDesktop {
+      display: none;
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50vh;
+
+    @include onTablet {
+      justify-content: flex-end;
+      margin-top: 20vh;
+      width: 45%;
+    }
+
+    @include onDesktop {
+      width: 46%;
+    }
+  }
+
+  &__btn {
+    position: relative;
+  }
+
+  &__mark {
+    display: none;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      
+    }
+
+    &-text {
+      position: relative;
+      font-weight: bold;
+      transform: rotate(270deg);
+
+      &::before {
+        content: "";
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        display: inline-block;
+        width: 70px;
+        height: 1px;
+        background-color: $color-green;
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.top-action {
+  --width-icon: 24px;
+  display: grid;
+  grid-template-columns: var(--width-icon) 1fr;
+  justify-items: center;
+  align-items: center;
+  height: 15vh;
+  z-index: 1;
+}
+
+.icon {
+  display: block;
+  width: 100%;
+  padding-bottom: 100%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &--menu {
+    background-image: url("../images/menu.svg");
+    z-index: 2;
+    transition: background-image 0.3s;
+
+    &:hover {
+      background-image: url("../images/menu-hover.svg");
+    }
+  }
+
+  &--cross {
+    background-image: url("../images/cross.svg");
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.logo {
+  @extend %h3;
+  font-weight: bold;
+  margin-top: 9px;
+  z-index: 2;
+
+  @include onTablet {
+    font-size: 36px;
+  }
+}

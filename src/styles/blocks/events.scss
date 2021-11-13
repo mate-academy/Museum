@@ -1,0 +1,85 @@
+.current-events {
+  &__event {
+    margin-bottom: 60px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.event {
+  &__img {
+    width: 870px;
+    height: 520px;
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s;
+    
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+  }
+
+  &__info {
+    margin-top: 15px;
+
+    @include onTablet {
+      margin-top: 30px;
+    }
+
+    @include onDesktop {
+      margin-top: 50px;
+    }
+
+    @include onLargeDes {
+      margin-top: 0;
+    }
+  }
+
+  &__schedule {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  &__name {
+    @extend %exhibinition;
+    margin-right: 26px;
+  }
+  
+  &__date {
+    @extend %date;
+  }
+
+  &__title {
+    position: relative;
+    display: inline-block;
+    @extend %h3;
+    margin-bottom: 10px;
+    
+    &::after {
+      position: absolute;
+      top: 45%;
+      right: -20px;
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-color: #f14a27;
+    }
+  }
+
+  &__description {
+    @extend %p;
+  }
+}

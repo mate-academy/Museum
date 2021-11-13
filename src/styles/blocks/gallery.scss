@@ -1,0 +1,99 @@
+.gallery {
+
+  &__desktop {
+    display: none;
+
+    @include onDesktop {
+      display: grid;
+      row-gap: 30px;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+
+    &--3,
+    &--6 {
+      display: none;
+    }
+
+  
+    @include onLargeDes {
+      &--3,
+      &--6 {
+        display: block;
+      }
+    }
+  }
+
+  &__mobile {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    @include onDesktop {
+      display: none;
+    }
+
+    @include onTablet {
+      gap: 20px;
+    }
+
+    &-img {
+      object-fit: cover;
+      object-position: center;
+      width: 280px;
+      height: 410px;
+      scroll-snap-align: start;
+
+      @include onTablet {
+        width: 340px;
+        height: 543px;
+      }
+    }
+  }
+
+  &__bulet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+
+    &:target {
+      background-color: $color-green;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &-link {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: #eee;
+      border-radius: 50%;
+      margin-right: 30px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:target {
+        background-color: $color-green;
+      }
+    }
+  }
+}
