@@ -1,0 +1,162 @@
+.header {
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+
+    @include onSmallTablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__menu {
+    background-image: url("../images/menu-icon.svg");
+    background-size: contain;
+    height: 12px;
+    width: 18px;
+    position: relative;
+    z-index: 2;
+    top: 33px;
+    left: 23px;
+
+    @include onSmallTablet {
+      top: 45px;
+      left: 37px;
+    }
+  }
+
+  &__main {
+    position: absolute;
+    background-image: url("../images/museumPhoto.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-width: 100vw;
+    min-height: 320px;
+    z-index: 1;
+    box-sizing: border-box;
+
+    @include onSmallTablet {
+      position: relative;
+      justify-content: start;
+      min-width: 65vw;
+    }
+
+    @include onBigTablet {
+      min-height: 385px;
+      min-width: 60vw;
+    }
+
+    @include onDesktop {
+      height: 100vh;
+      min-width: 58vw;
+    }
+  }
+
+  &__logo {
+    background-image: url("../images/headerLogo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 61px;
+    width: 55px;
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    transform: translateX(-50%);
+    z-index: 4;
+
+    @include onSmallTablet {
+      top: 15px;
+    }
+
+    @include onBigTablet {
+      height: 70px;
+      width: 68px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    bottom: -320px;
+
+    @include onSmallTablet {
+      align-items: start;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -147px;
+    }
+
+    @include onBigTablet {
+      left: -202px;
+    }
+
+    @include onDesktop {
+      left: -265px;
+    }
+  }
+
+  &__title-text {
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: $colorTitle;
+    margin: 20px 0;
+
+    @include onSmallTablet {
+      font-size: 40px;
+      margin: 0 0 40px;
+      text-align: left;
+    }
+
+    @include onBigTablet {
+      font-size: 55px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin: 0 0 80px;
+      font-size: 72px;
+    }
+
+    &--letters {
+      @include onSmallTablet {
+        color: transparent;
+        -webkit-text-stroke: 2px $colorTitle;
+      }
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      position: absolute;
+      bottom: 120px;
+      transform: rotate(-90deg);
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      background-color: $colorGreen;
+      position: relative;
+      transform: translateX(-90px);
+      top: 10px;
+      width: 70px;
+      height: 1px;
+    }
+  }
+
+  &__events-text {
+    color: $colorText;
+    font-family: $ibmFont;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 100%;
+  }
+}
