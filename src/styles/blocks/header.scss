@@ -1,0 +1,114 @@
+.header {
+  position: relative;
+  height: $header-mobl-hight;
+  margin-bottom: 255px;
+
+  @include on-tablet {
+    height: $header-tablt-hight;
+    margin-bottom: 90px;
+  }
+
+  @include on-desktop {
+    height: $header-deskt-hight;
+    margin-bottom: 200px;
+  }
+
+  @media (min-width: 2560px) {
+    max-width: $large-content-maxw;
+    margin: 0 auto 200px;
+  }
+
+  &__photo {
+    height: 300px;
+    position: absolute;
+    right: 0;
+    left: 0;
+
+    background-image: url(../images/hero.png);
+    background-position: right top;
+    background-size: cover;
+
+    @include on-tablet {
+      left: initial;
+      
+      height: $header-tablt-hight;
+
+      // implement the max-width (doesnt have to overflow container line)
+      max-width: 585px;
+      width: 65%;
+      min-width: 505px;
+    }
+
+    @include on-desktop {
+      height: $header-deskt-hight;
+      width: 57%;
+      max-width: 100%;
+    }
+    
+    @include on-large-screen {
+      width: 1245px;
+    }
+
+    @media (min-width: 2560px) {
+      width: 1100px;
+    }
+  }
+
+  &__info {
+    position: relative;
+    top: 340px;
+
+    @include on-tablet {
+      position: absolute;
+      top: 135px;
+      transform: translateX(-68%);
+    }
+
+    @include on-desktop {
+      top: 235px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+      text-align: left;
+      font-size: 55px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 80px;
+      font-size: 72px;
+    }
+
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+  }
+
+  @include on-tablet {
+    &__stroke {
+      -webkit-text-stroke: 1.5px #000;
+      color: transparent;
+    }
+
+  }
+
+  &__buttons {
+    max-width: 280px;
+    margin: 0 auto;
+
+    @include on-tablet {
+      margin: initial;
+    }
+  }
+
+  &__container {
+    position: relative;
+    top: $header-deskt-hight;
+  }
+}

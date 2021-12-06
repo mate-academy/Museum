@@ -4,3 +4,33 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin header-grid {
+  display: grid;
+  grid-template-columns: $icon-width 1fr $icon-width;
+  justify-items: center;
+  align-items: center;
+}
+
+@mixin on-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin on-large-screen {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin make-grid ($cols, $gap) {
+  grid-template-columns: repeat($cols, 1fr);
+  gap: $gap;
+}
