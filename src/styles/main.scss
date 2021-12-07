@@ -1,7 +1,152 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "./utils/reset.scss";
+@import "./utils/variables";
+@import "./utils/mixins";
 
-body {
-  background: $c-gray;
+@import "./blocks/page.scss";
+@import "./blocks/container.scss";
+@import "./blocks/grid.scss";
+@import "./blocks/button.scss";
+
+@import "./blocks/header.scss";
+@import "./blocks/top-bar.scss";
+@import "./blocks/title.scss";
+@import "./blocks/logo.scss";
+@import "./blocks/left-side-mark.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+.section__title {
+  margin: 70px 0 40px;
+  text-align: center;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 100%;
+  color: #0f0e08;
+
+  @include onTablet {
+    margin: 110px 0 34px;
+  }
+
+  @include onDesktop {
+    margin: 320px 0 56px;
+  }
+}
+
+.section__photo {
+  margin-bottom: 20px;
+
+  @include onTablet {
+    margin-bottom: 40px ;
+  }
+
+  @include onDesktop {
+    margin-bottom: 104px;
+  }
+}
+
+.event {
+  margin-bottom: 60px;
+
+  @include onTablet {
+    margin-bottom: 64px;
+  }
+
+  &__photo-container {
+    position: relative;
+    margin-bottom: 16px;
+
+    @include onDesktop {
+      margin: 0;
+    }
+
+    box-sizing: border-box;
+    min-height: 210px;
+    // width: 100%;
+    // overflow: hidden;
+
+    // &:after {
+    //   content: "";
+    //   display: block;
+    //   padding-bottom: 100%;
+    // }
+
+    @include onTablet {
+      height: 520px;
+      // padding-bottom: 0;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+      justify-content: flex-start;
+      gap: 30px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    line-height: 100%;
+    color: #0f0e08;
+
+    @include onTablet {
+      margin-bottom: 15px;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      margin-left: 12px;
+      height: 15px;
+      width: 15px;
+      background-color: #f14a27;
+    }
+  }
+
+  &__type {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: #687480;
+    text-transform: uppercase;
+  }
+
+  &__date {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 150%;
+    color: #1a5a4c;
+  }
+
+  &__description {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: #4e4e4e;
+  }
 }
