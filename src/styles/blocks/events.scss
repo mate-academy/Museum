@@ -1,19 +1,101 @@
 .events {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 16px;
+
+  @include onDesktop {
+    margin-bottom: 104px;
+  }
+
   &__img {
     height: 210px;
     width: 100%;
     object-fit: cover;
+    margin-bottom: 16px;
 
     @include onTablet {
       height: 520px;
+      margin-bottom: 44px;
     }
 
     @include onDesktop {
       width: 670px;
+      margin-bottom: 104px;
     }
   }
 
-  .events__block-type {
+  &__block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      justify-content: start;
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__block-type {
+    font-weight: 500;
     color: #687480;
+  }
+
+  &__block-data {
+    font-weight: bold;
+    line-height: 150%;
+    color: #1a5a4c;
+
+  }
+
+  &__title {
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    color: #0f0e08;
+    font-weight: normal;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      max-width: 370px;
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 35%;
+      margin-left: 20px;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: #f14a27;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  &__text {
+    font-weight: 300;
+    line-height: 150%;
+    color: #4e4e4e;
+    padding-bottom: 60px;
+
+    @include onTablet {
+      max-width: 460px;
+      padding-bottom: 64px;
+    }
+
+    @include onDesktop {
+      max-width: 370px;
+    }
   }
 }
