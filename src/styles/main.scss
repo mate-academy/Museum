@@ -23,25 +23,160 @@
   position: relative;
 
   &__photo {
-    // position: absolute;
     width: 100%;
     z-index: -1;
   }
 
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__info {
+    margin: 0 auto 20px;
+    padding: 0 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 
-    width: 280px;
+    min-width: 280px;
+    max-width: 570px;
     height: 140px;
     background-color: #fff;
-    box-sizing: 0 2px 0 rgba(26, 90, 76, 0.25);
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+    transform: translateY(-55%);
+
+    @include onTablet {
+      height: 204px;
+      width: 570px;
+      padding: 0 55px;
+    }
+
+    @include onDesktop {
+      padding: 0 100px;
+    }
 
     &-top {
       display: flex;
-      gap: 20px;
+      justify-content: space-between;
+
+      font-size: 16px;
+
+      @include onTablet {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__type {
+    font-weight: 500;
+    line-height: 100%;
+    color: #687480;
+  }
+
+  &__time {
+    font-weight: bold;
+    line-height: 150%;
+    color: #1a5a4c;
+  }
+
+  &__name {
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    line-height: 100%;
+    color: #0f0e08;
+    text-align: center;
+
+    @include onTablet {
+      font-size: 36px;
+      text-align: start;
+    }
+  }
+}
+
+.submit {
+  background-image: url(../images/Rectangle22.png);
+  min-height: 320px;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 16px;
+
+      font-size: 48px;
+      font-weight: 700;
+    }
+  }
+
+  &__description {
+    display: block;
+    margin-bottom: 50px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 64px;
+
+      line-height: 100%;
+    }
+  }
+
+  &__button {
+    @include onTablet {
+      gap: 30px;
+      max-width: 570px;
+    }
+
+    &-field {
+      border: none;
+      padding: 0 20px;
+
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 100%;
+      color: #0f0e08;
+      text-transform: none;
+
+      &::placeholder {
+        font-weight: normal;
+        font-size: 14px;
+        color: #687480;
+
+        transition: font-size 0.3s;
+      }
+
+      &:hover::placeholder {
+        font-size: 18px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &-icon {
+      background-color: #f14a27;
+      color: #000;
+
+      cursor: pointer;
     }
   }
 }
