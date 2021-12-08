@@ -1,0 +1,83 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+
+  @include onTablet {
+    padding-left: 34px;
+  }
+
+  @include onDesktop {
+    padding-left: 0;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    color: #0f0e08;
+    font-weight: bold;
+    font-size: 36px;
+    margin-bottom: 40px;
+    align-self: center;
+
+    @include onTablet {
+      font-size: 48px;
+
+      align-self: start;
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+      padding-left: 55px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    overflow: scroll;
+    gap: 15px;
+    height: 410px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      height: 543px;
+      padding-left: 0;
+    }
+
+    @include onDesktop {
+      height: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+
+  &__hidden {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__toggle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 11px;
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--point {
+      height: 9px;
+      width: 9px;
+      border-radius: 50%;
+      background-color: #e0e0e0;
+      cursor: pointer;
+    }
+  }
+}
+
+.active {
+  background-color: #1a5a4c;
+}
