@@ -23,3 +23,91 @@
 * {
   box-sizing: border-box;
 }
+
+.slider {
+  @include onDesktop {
+    display: none;
+  }
+
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  height: 410px;
+
+  @include onTablet {
+    height: 543px;
+  }
+
+  &__picture {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 100%;
+    transition: left 0s 0.75s;
+
+    @include onTablet {
+      &--1 {
+        position: relative;
+        grid-column: 1 / 4;
+        left: 0;
+        width: 100%;
+      }
+
+      &--2 {
+        position: relative;
+        grid-column: 4 / 7;
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  &__menu {
+    margin-top: 32px;
+
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__button {
+    display: block;
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #1a5a4c;
+    }
+  }
+
+  &__selector--input {
+    display: none;
+
+    &:checked ~ .slider__button {
+      background-color: #1a5a4c;
+    }
+
+    &:checked + .slider__picture {
+      left: 0;
+      z-index: 1;
+      transition: left 0.65s ease-out;
+      width: 100%;
+    }
+  }
+}
+
+.none {
+  display: none;
+
+  @include onDesktop {
+    display: block;
+  }
+}
