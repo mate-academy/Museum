@@ -14,7 +14,7 @@
   background-size: contain;
   background-repeat: no-repeat;
 
-  @include onLaptop {
+  @include onTablet {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
 
@@ -42,7 +42,7 @@
 
     margin-bottom: 12px;
 
-    @include onLaptop {
+    @include onTablet {
       grid-template-columns: repeat(6, 1fr);
       grid-column: 1 / 7;
       column-gap: 30px;
@@ -63,7 +63,7 @@
     grid-column: 2;
     justify-self: center;
 
-    @include onLaptop {
+    @include onTablet {
       grid-column: 3 / 5;
     }
 
@@ -76,7 +76,7 @@
     justify-self: center;
     margin-bottom: 20px;
 
-    @include onLaptop {
+    @include onTablet {
       grid-column: 1 / 4;
       justify-self: flex-start;
 
@@ -92,7 +92,7 @@
   }
 
   &__button {
-    @include onLaptop {
+    @include onTablet {
       grid-column: 1 / 4;
       margin-bottom: 20px;
     }
@@ -114,6 +114,7 @@
     left: 55px;
     bottom: 110px;
     transform: rotateZ(-90deg);
+    transition: transform 0.3s;
 
     font-family: IBM Plex Sans, sans-serif;
     font-weight: bold;
@@ -132,6 +133,10 @@
       background-color: $c-dark-green;
       right: 65px;
       top: 7px;
+    }
+
+    &:hover {
+      transform: rotateZ(-90deg) scale(110%);
     }
   }
 }
