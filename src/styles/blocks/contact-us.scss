@@ -1,85 +1,165 @@
 .contact-us {
   padding: 0 20px;
 
+  @include onTablet {
+    display: flex;
+  }
+
   &__logo {
     margin: 0;
   }
 
+  &__logo-text {
+    width: 100%;
+    padding-right: 10px;
+  }
+
   &__header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    justify-content: space-between;
+
+    @include onTablet {
+      flex-direction: column;
+      max-height: 150px;
+      min-width: 100px;
+      margin-right: 20px;
+    }
+
+    @include onDesktop {
+      margin-right: 90px;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__info {
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__block {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 40px 0 70px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #0f0e08;
+    border-bottom: 1px solid #1f5f4c80;
+
+    @include onTablet {
+      padding-top: 0;
+    }
+
+    @include onDesktop {
+      border-bottom: 0;
+      border-right: 1px solid #1f5f4c80;
+      padding: 0;
+    }
+  }
+
+  &__work {
+    font-family: "IBM Plex Sans", sans-serif;
+    width: 61%;
+    max-width: 175px;
+
+    @include onTablet {
+      width: 100%;
+      max-width: 224px;
+    }
+
+    @include onDesktop {
+      max-width: 185px;
+    }
+  }
+
+  &__text--bolt {
+    @include onDesktop {
+      font-weight: bold;
+    }
+  }
+
+  &__title {
+    font-weight: normal;
+    line-height: 140%;
+
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__time {
+    margin-bottom: 20px;
   }
 
   &__time-work {
     font-weight: 600;
   }
 
-  &__title {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 140%;
-    padding-bottom: 20px;
-  }
-
-  &__icon {
-    display: flex;
-    gap: 25px;
-  }
-
-  &__time {
-    font-family: "IBM Plex Sans", sans-serif;
-    line-height: 150%;
-    font-size: 14px;
-    max-width: 110px;
-    margin-bottom: 20px;
-  }
-
-  &__info {
-    display: flex;
-    justify-content: space-between;
-    color: #0f0e08;
-  }
-
-  &__text {
-    line-height: 150%;
-    padding-bottom: 70px;
-  }
-
-  &__links {
-    font-size: 14px;
-    max-width: 120px;
-  }
-
   &__link {
-    line-height: 150%;
+    font-family: "IBM Plex Sans", sans-serif;
     text-decoration: none;
     color: #0f0e08;
 
     &:hover {
-      color: #64f0f5;
+      color: cadetblue;
+    }
+
+    @include onTablet {
+      padding-right: 65px;
     }
   }
 
   &__nav {
     display: flex;
-    flex-direction: row;
-    gap: 45px;
-    border-top: 1px solid #1a5a4c80;
-    padding-top: 40px;
-  }
+    justify-content: space-between;
+    padding: 40px 50px 0 0 ;
 
-  &__nav-item:first-child {
-    margin-bottom: 20px;
+    @include onTablet {
+      padding: 70px 100px 0 0 ;
+    }
+
+    @include onDesktop {
+      padding: 0 0 0 64px;
+      gap: 55px;
+    }
   }
 
   &__nav-link {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-size: 14px;
-    text-decoration: none;
     color: #0f0e08;
+    text-decoration: none;
+  }
+
+  &__nav-item {
+    margin-bottom: 20px;
+  }
+
+  &__go-header {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+
+    border: 1px solid #1a5a4c;
+    border-radius: 50%;
+
+    @include onTablet {
+      display: none;
+    }
   }
 }
