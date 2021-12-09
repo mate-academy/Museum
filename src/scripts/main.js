@@ -1,8 +1,8 @@
 'use strict';
 
-const form = document.querySelector('.contact-us__form');
-const inputs = document.querySelectorAll('.contact-us__form-input');
-const textarea = document.querySelector('.contact-us__form-text');
+const form = document.querySelector('.subscribe__form');
+const inputs = document.querySelectorAll('.subscribe__form-email');
+/* const textarea = document.querySelector('.subscribe__form-button'); */
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -13,5 +13,5 @@ form.addEventListener('submit', (event) => {
 
   /* inputs.forEach(elem => elem.value = ''); */
 
-  textarea.value = '';
+  /* textarea.value = ''; */
 });
