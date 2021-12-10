@@ -1,36 +1,64 @@
 .header {
+  display: grid;
+  justify-content: center;
 
-  &__menu-opener {
-    position: absolute;
-    top: 33px;
-    left: 23px;
-    display: block;
-    width: 18px;
-    height: 12px;
-    background-image: url(../images/menu__button.png);
+  @include onTablet {
+    margin-left: 34px;
   }
 
-  &__logo {
-    position: absolute;
-    top: 9px;
-    left: 50%;
-    transform: translateX(-50%);
+  @include onDesktop {
+    margin-left: 55px;
+  }
 
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 36px;
-    text-align: center;
-    text-transform: uppercase;
+  &__menu-button {
+    position: absolute;
+    top: 15px;
+
+    display: block;
+
+    width: 18px;
+    height: 12px;
+
+    background-image: url(../images/menu__button.svg);
+
+    @include onTablet {
+      top: 34px;
+    }
+
+    @include onDesktop {
+      top: 46px;
+    }
   }
 
   &__photo {
     margin-bottom: 20px;
 
-    min-height: 300px;
+    display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+
+    @include onTablet {
+      margin-bottom: 88px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 15px;
+    right: 50%;
+    transform: translateX(50%);
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36px;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
   }
 
   &__title {
@@ -41,19 +69,65 @@
     font-size: 45px;
     line-height: 45px;
     text-transform: uppercase;
-    text-align: center;
+    text-align: left;
+
+    @include onTablet {
+      width: min-content;
+
+      font-size: 58px;
+      line-height: 68px;
+
+      &--transparent {
+        color: transparent;
+        -webkit-text-stroke: 2px black;
+      }
+    }
+
+    @include onDesktop {
+      width: min-content;
+
+      font-size: 72px;
+      line-height: 86px;
+
+      &--transparent {
+        color: transparent;
+        -webkit-text-stroke: 2px black;
+      }
+    }
   }
 
-  &__button-buy {
-    margin: 0 auto;
+  &__title-n-tickets-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      position: absolute;
+      top: 127px;
+      align-items: flex-start;
+    }
+
+    @include onDesktop {
+      position: absolute;
+      top: 215px;
+      align-items: flex-start;
+    }
+  }
+
+  &__tickets {
+    margin-bottom: 70px;
+
+    display: flex;
+    border: 1px solid black;
+    width: 280px;
+  }
+
+  &__tickets-text {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    height: 50px;
-    width: 280px;
-    border: 1px solid #1a5a4c;
-    border-right: 50px solid #1a5a4c;
+    width: 230px;
 
     text-decoration: none;
     text-transform: uppercase;
@@ -62,5 +136,60 @@
     line-height: 16px;
     font-weight: 500;
     color: #000;
+  }
+
+  &__tickets-buy {
+    height: 50px;
+    width: 50px;
+    background-color: #1a5a4c;
+
+    background-image: url(../images/Vector.png);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    @include onDesktop {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__events-link-container {
+    position: absolute;
+    display: none;
+    gap: 20px;
+    align-content: flex-start;
+    width: max-content;
+    padding-bottom: 115px;
+
+    transform: rotate(-90deg);
+    bottom: 147px;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__events-link {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+    text-align: left;
+    color: #687480;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  &__line {
+    align-self: center;
+    bottom: 200px;
+    width: 70px;
+    height: 1px;
+    background-color: #1a5a4c;
   }
 }

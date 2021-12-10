@@ -1,17 +1,45 @@
-// .grid {
-//   display: grid;
-//   grid-template-columns: repeat(12, 70px);
-//   column-gap: 30px;
+.grid {
 
-//   &__item {
-//     height: min-content;
+  @include onDesktop {
+    &--onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 70px);
+      column-gap: 30px;
+    }
+  }
 
-//     @for $start from 1 through 12 {
-//       @for $end from $start through 12 {
-//         &--#{$start}-#{$end} {
-//           grid-column: #{$start} / #{$end + 1};
-//         }
-//       }
-//     }
-//   }
-// }
+  @include onTablet {
+    &--onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 90px);
+      column-gap: 30px;
+    }
+  }
+
+  &__item {
+
+    @include onDesktop {
+      &--onDesktop {
+        @for $start from 1 through 12 {
+          @for $end from $start through 12 {
+            &-#{$start}-#{$end} {
+              grid-column: #{$start} / #{$end + 1};
+            }
+          }
+        }
+      }
+    }
+
+    @include onTablet {
+      &--onTablet {
+        @for $start from 1 through 6 {
+          @for $end from $start through 6 {
+            &-#{$start}-#{$end} {
+              grid-column: #{$start} / #{$end + 1};
+            }
+          }
+        }
+      }
+    }
+  }
+}

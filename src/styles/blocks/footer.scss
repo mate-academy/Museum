@@ -1,18 +1,32 @@
 .footer {
+  position: relative;
+  display: grid;
 
   &__logo-n-socials {
-    padding: 32px 0 40px;
+    padding-bottom: 40px;
 
     display: flex;
     justify-content: space-between;
+
+    @include onTablet {
+      flex-direction: column;
+      gap: 64px;
+    }
+
+    @include onDesktop {
+      flex-direction: column;
+      gap: 64px;
+    }
   }
 
   &__logo {
+    text-decoration: none;
+    color: #000;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 36px;
     line-height: 36px;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
   }
 
@@ -20,20 +34,37 @@
     display: flex;
     align-items: center;
     gap: 24px;
+
+    @include onTablet {
+      gap: 38px;
+    }
   }
 
   &__schedule-n-contacts {
-    position: relative;
-    padding-bottom: 70px;
+    margin: 0 auto;
+
     margin-bottom: 40px;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     border-bottom: 1px solid rgba(26, 90, 76, 0.5);
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 88px;
+      margin-right: 65px;
+
+      border-bottom: 0;
+      border-right: 1px solid rgba(26, 90, 76, 0.5);
+    }
   }
 
   &__schedule-info {
+    margin-bottom: 70px;
     width: 130px;
 
     font-family: "IBM Plex Sans", sans-serif;
@@ -41,6 +72,14 @@
     font-weight: 400;
     line-height: 21px;
     text-align: left;
+
+    @include onTablet {
+      width: 220px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
   }
 
   &__schedule-time {
@@ -52,6 +91,10 @@
     font-weight: 600;
     line-height: 21px;
     text-align: left;
+
+    @include onTablet {
+      display: inline;
+    }
   }
 
   &__contacts-info {
@@ -62,6 +105,14 @@
     font-weight: 400;
     line-height: 21px;
     text-align: left;
+
+    @include onTablet {
+      width: 220px;
+    }
+
+    @include onDesktop {
+      margin-right: 65px;
+    }
   }
 
   &__button-up {
@@ -83,14 +134,37 @@
     font-family: "IBM Plex Sans", sans-serif;
     font-size: 20px;
     text-decoration: none;
+
+    transition: transform 0.3s;
+
+    @include onTablet {
+      right: 50px;
+      bottom: 135px;
+    }
+
+    @include onDesktop {
+      right: 50px;
+      bottom: 135px;
+    }
+
+    &:hover {
+      background-color: #1a5a4c;
+      color: #fff;
+
+      transform: scale(1.2);
+    }
   }
 
   &__nav {
     margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 120px;
+    }
   }
 
   &__rights {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 
     display: flex;
     justify-content: center;
