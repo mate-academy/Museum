@@ -1,0 +1,62 @@
+.slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  @include onDesktop {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  &__dots-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 22px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__dots {
+    border-radius: 50%;
+    width: 9px;
+    height: 9px;
+    background-color: #e0e0e0;
+
+    &:first-child {
+      background: $darkGreen;
+    }
+  }
+
+  &__image {
+    display: none;
+
+    &:last-child {
+      display: block;
+    }
+
+    @include onTablet {
+
+      &:nth-child(n+5) {
+        display: block;
+      }
+
+      &:last-child {
+        display: none;
+      }
+    }
+
+    @include onDesktop {
+      display: block;
+
+      &:nth-child(n + 5) {
+        display: none;
+      }
+    }
+  }
+}
