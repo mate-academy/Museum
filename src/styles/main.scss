@@ -13,6 +13,7 @@
 @import "./blocks/title.scss";
 @import "./blocks/logo.scss";
 @import "./blocks/left-side-mark.scss";
+@import "./blocks/menu.scss";
 @import "./blocks/section.scss";
 @import "./blocks/event.scss";
 @import "./blocks/lecture.scss";
@@ -37,6 +38,16 @@
 
   @include onTablet {
     height: 543px;
+  }
+
+  &__image {
+    height: 100%;
+    object-position: center;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   &__picture {
@@ -86,14 +97,14 @@
     &:hover {
       background-color: #1a5a4c;
     }
+
+    &--active {
+      background-color: #1a5a4c;
+    }
   }
 
   &__selector--input {
     display: none;
-
-    &:checked ~ .slider__button {
-      background-color: #1a5a4c;
-    }
 
     &:checked + .slider__picture {
       left: 0;
@@ -103,6 +114,12 @@
     }
   }
 }
+
+// @for $index from 1 through 4 {
+//   #select-#{index}:checked ~ .slider__button--#{index} {
+//     background-color: #1a5a4c;
+//   }
+// }
 
 .none {
   display: none;

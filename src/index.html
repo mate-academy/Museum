@@ -12,14 +12,13 @@
       rel="stylesheet"
     >
     <link rel="stylesheet" href="./styles/main.scss">
+    <script src="./scripts/main.js" defer></script>
   </head>
   <body>
     <header class="page__header header">
       <div class="header__content container">
         <div class="top-bar">
-          <a href="#" class="top-bar__menu menu ">
-            <img src="./images/Vector.svg" alt="menu">
-          </a>
+          <a href="#menu" class="top-bar__menu"></a>
 
           <a href="#" class="top-bar__logo logo">
             NA
@@ -35,7 +34,7 @@
             музей
           </h1>
 
-          <a href="#" class="header__button button">
+          <a href="#events" class="header__button button">
             <div class="button__field">Квитки</div>
             <div class="button__icon">
               <img src="./images/button-icon.svg" alt="link to tickets">
@@ -105,8 +104,8 @@
       <div class="grid grid--header grid__tablet container container--without-padding">
         <div class="grid__item--tablet-1-1">
           <div class="top-bar">
-            <a href="#" class="top-bar__menu menu leftm top65">
-              <img src="./images/Vector.svg" alt="menu">
+            <a href="#menu" class="top-bar__menu menu leftm top65">
+              <!-- <img src="./images/Vector.svg" alt="menu"> -->
             </a>
           </div>
         </div>
@@ -151,8 +150,50 @@
       </div>
     </header>
 
+    <nav class="page__menu menu" id="menu">
+      <div class="container">
+        <div class="menu__content">
+          <div class="menu__top top-bar">
+            <a href="#" class="top-bar__menu--cross link">
+              <img src="./images/cross.svg" alt="вихід з меню">
+            </a>
+
+            <a href="#" class="logo logo--menu">
+              <img
+                src="./images/NA MU.svg"
+                alt="logo"
+                class="logo__image"
+              >
+            </a>
+          </div>
+          <h1 class="menu__title title">
+            Художній
+            <br>
+            музей
+          </h1>
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a href="#" class="menu__link">Домашня сторінка</a>
+            </li>
+            <li class="menu__item">
+              <a href="#events" class="menu__link">Виставки та події</a>
+            </li>
+            <li class="menu__item">
+              <a href="#gallery" class="menu__link">Галерея</a>
+            </li>
+            <li class="menu__item">
+              <a href="#submit" class="menu__link">Підписка</a>
+            </li>
+            <li class="menu__item">
+              <a href="#contactі" class="menu__link">Контакти</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <main class="body__content">
-      <section class="page__section">
+      <section class="page__section" id="events">
         <div class="container">
           <h2 class="section__title">Актуальні події</h2>
 
@@ -237,7 +278,7 @@
         </div>
       </section>
 
-      <section class="page__section gallery">
+      <section class="page__section gallery" id="gallery">
         <div class="container">
           <h2 class="section__title section__title--gallery">
             Галерея
@@ -289,10 +330,12 @@
                 class="slider__selector--input"
                 checked
               >
-              <img
-                src="./images/Rectangle 13.9.png" alt="Картина жінки в національному вбранні"
-                class="slider__picture slider__picture--1"
-              >
+              <div class="slider__picture slider__picture--1">
+                <img
+                  src="./images/Rectangle 13.9.png" alt="Картина жінки в національному вбранні"
+                  class="slider__image slider__image--1"
+                >
+              </div>
 
               <input
                 type="radio"
@@ -301,10 +344,12 @@
                 value="2"
                 class="slider__selector--input"
               >
-              <img
-                src="./images/Rectangle 24.1.png" alt="Гуси"
-                class="slider__picture slider__picture--2"
-              >
+              <div class="slider__picture slider__picture--2">
+                <img
+                  src="./images/Rectangle 24.1.png" alt="Гуси"
+                  class="slider__image slider__image--2"
+                >
+              </div>
 
               <input
                 type="radio"
@@ -313,10 +358,12 @@
                 value="3"
                 class="slider__selector--input"
               >
-              <img
-                src="./images/Rectangle 3.1.png" alt="Засніжений український будинок"
-                class="slider__picture slider__picture--3"
-              >
+              <div class="slider__picture slider__picture--3">
+                <img
+                  src="./images/Rectangle 3.1.png" alt="Засніжений український будинок"
+                  class="slider__image slider__image--3"
+                >
+              </div>
 
               <input
                 type="radio"
@@ -325,23 +372,25 @@
                 value="4"
                 class="slider__selector--input"
               >
-              <img
-                src="./images/Rectangle 13.4.png" alt="Морський пейзаж"
-                class="slider__picture slider__picture--4"
-              >
+              <div class="slider__picture slider__picture--4">
+                <img
+                  src="./images/Rectangle 13.4.png" alt="Морський пейзаж"
+                  class="slider__image slider__image--4"
+                >
+              </div>
             </div>
           </div>
         </div>
 
         <div class="slider__menu">
-          <label for="select-1" class="slider__button"></label>
-          <label for="select-2" class="slider__button"></label>
-          <label for="select-3" class="slider__button"></label>
-          <label for="select-4" class="slider__button"></label>
+          <label for="select-1" class="slider__button slider__button--1"></label>
+          <label for="select-2" class="slider__button slider__button--2"></label>
+          <label for="select-3" class="slider__button slider__button--3"></label>
+          <label for="select-4" class="slider__button slider__button--4"></label>
         </div>
       </section>
 
-      <section class="page__section page__submit">
+      <section class="page__section page__submit" id="submit">
         <div class="container container--without-padding submit">
           <div class="container">
             <div class="grid grid--tablet">
@@ -385,16 +434,28 @@
           <div class="grid__item grid__item-footer grid__item--1-2 grid__item--tablet-1-1">
             <div class="footer__icons">
               <a href="#" class="footer__logo-namu">
-                <img src="./images/NA MU.svg" alt="NAMU logo">
+                <img
+                  src="./images/NA MU.svg"
+                  alt="NAMU logo"
+                  class="footer__logo"
+                >
               </a>
 
               <div class="footer__logos-soc">
                 <a href="https://www.facebook.com/namu.museum/" target="blank">
-                  <img src="./images/Facebook.svg" alt="Facebook logo">
+                  <img
+                    src="./images/Facebook.svg"
+                    alt="Facebook logo"
+                    class="footer__logo"
+                  >
                 </a>
 
                 <a href="https://www.instagram.com/namu.museum/" target="blank">
-                  <img src="./images/Insta.svg" alt="Instagram logo">
+                  <img
+                    src="./images/Insta.svg"
+                    alt="Instagram logo"
+                    class="footer__logo"
+                  >
                 </a>
               </div>
             </div>
@@ -430,7 +491,7 @@
           </div>
 
           <div class="grid__item grid__item-footer grid__item--2-2 grid__item--tablet-4-5 grid__item--desktop-5-6">
-            <h4 class="footer__subtitle">
+            <h4 class="footer__subtitle" id="contacts">
               Контакти
             </h4>
 
@@ -475,19 +536,19 @@
 
           <div class="grid__item grid__item-footer grid__item--1-1 grid__item--tablet-2-3 grid__item--desktop-8-9">
             <div class="footer__content footer__content--top-0">
-              <a href="#" class="footer__link link">Галерея</a>
+              <a href="#gallery" class="footer__link link">Галерея</a>
             </div>
             <div class="footer__content">
-              <a href="#" class="footer__link link">Виставки та події</a>
+              <a href="#events" class="footer__link link">Виставки та події</a>
             </div>
           </div>
 
           <div class="grid__item grid__item-footer grid__item--2-2 grid__item--tablet-4-5 grid__item--desktop-10-11">
             <div class="footer__content footer__content--top-0">
-              <a href="#" class="footer__link link">Про Нас</a>
+              <a href="#contacts" class="footer__link link">Про Нас</a>
             </div>
             <div class="footer__content">
-              <a href="#" class="footer__link link">Контакти</a>
+              <a href="#contacts" class="footer__link link">Контакти</a>
             </div>
           </div>
         </div>
