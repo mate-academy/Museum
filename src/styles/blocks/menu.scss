@@ -1,0 +1,75 @@
+.menu {
+  background-color: #ddd;
+
+  overflow-y: auto;
+  z-index: 2;
+
+  &__content {
+    height: 100vh;
+    padding: 8px 0 0;
+
+    @include onTablet {
+      padding: 15px 0 0;
+    }
+  }
+
+  &__top {
+    margin-bottom: 48px;
+  }
+
+  &__top-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+
+  &__icon-cross {
+    @include square($icon-size);
+    color: $c-dark;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../images/cross.svg");
+  }
+
+  &__logo {
+    @include font-family-Montserrat;
+    font-weight: bold;
+    font-size: 30px;
+    color: $c-dark;
+    text-decoration: none;
+    transform: translateX(#{$icon-size / 2});
+
+    @include onTablet {
+      font-size: 36px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin-bottom: 48px;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding-bottom: 8px;
+    border-bottom: 1px solid transparent;
+
+    color: $c-green;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    @include hover(border-color, $c-green);
+  }
+}

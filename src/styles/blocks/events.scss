@@ -1,0 +1,108 @@
+.events {
+  &__section-title {
+    @include font-family-Montserrat;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    color: $c-dark;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      font-size: 48px;
+      text-align: left;
+      margin-bottom: 48px;
+    }
+  }
+
+  &__image-container {
+    &--even {
+      @include onDesktop {
+        order: 1;
+      }
+    }
+  }
+
+  &__event-image {
+    width: 100%;
+    margin-bottom: 16px;
+    @include hover(transform, scale(1.05));
+
+    @include onTablet {
+      margin-bottom: 40px;
+      height: 520px;
+      width: 100%;
+    }
+
+    @include onDesktop {
+      margin-bottom: 104px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 520px;
+  }
+
+  &__wraper {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    @include onTablet {
+      max-width: 210px;
+    }
+
+    @include onDesktop {
+      max-width: 219px;
+    }
+  }
+
+  &__type {
+    display: inline-block;
+  }
+
+  &__date {
+    display: inline-block;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 15px;
+    }
+
+    &--dot {
+      &:after {
+        margin-left: 18px;
+        position: absolute;
+        top: 9px;
+        content: "";
+        @include square(10px);
+        background-color: $c-orange;
+
+        @include onTablet {
+          margin-left: 28px;
+          top: 12px;
+          @include square(12px);
+        }
+      }
+    }
+  }
+
+  &__description {
+    margin-bottom: 60px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+  }
+}
