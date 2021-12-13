@@ -31,62 +31,49 @@
   }
 
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
 
-  width: 100%;
   height: 410px;
 
   @include onTablet {
-    height: 543px;
-  }
-
-  &__image {
-    height: 100%;
-    object-position: center;
-    transition: transform 0.3s;
-
-    &:hover {
-      transform: scale(1.05);
-    }
+    height: auto;
   }
 
   &__picture {
-    position: absolute;
-    height: 100%;
-    top: 0;
-    left: 100%;
-    transition: left 0s 0.75s;
+    position: relative;
+    height: 410px;
+
+    @include onTablet {
+      height: 100%;
+    }
+
+    &--3,
+    &--4 {
+      width: calc(100vw - 40px);
+    }
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: none;
 
     @include onTablet {
       &--1 {
-        position: relative;
+        display: block;
         grid-column: 1 / 4;
-        left: 0;
         width: 100%;
       }
 
       &--2 {
-        position: relative;
+        display: block;
         grid-column: 4 / 7;
-        left: 0;
         width: 100%;
       }
     }
   }
 
-  &__menu {
-    margin-top: 32px;
-
-    display: flex;
-    justify-content: center;
-    gap: 22px;
-
-    @include onDesktop {
-      display: none;
-    }
-  }
-
   &__button {
+    position: absolute;
     display: block;
     height: 9px;
     width: 9px;
@@ -94,11 +81,31 @@
     background-color: #e0e0e0;
     cursor: pointer;
 
-    &:hover {
-      background-color: #1a5a4c;
+    left: 50%;
+
+    &--1 {
+      transform: translateX(-30px);
     }
 
-    &--active {
+    &--2 {
+      transform: translateX(-10px);
+    }
+
+    &--3 {
+      transform: translateX(10px);
+    }
+
+    &--4 {
+      transform: translateX(30px);
+    }
+
+    top: 430px;
+
+    @include onTablet {
+      top: calc(100% + 35px);
+    }
+
+    &:hover {
       background-color: #1a5a4c;
     }
   }
@@ -107,19 +114,29 @@
     display: none;
 
     &:checked + .slider__picture {
-      left: 0;
-      z-index: 1;
-      transition: left 0.65s ease-out;
-      width: 100%;
+      @media (max-width: 768px) {
+        z-index: 1;
+        display: block;
+      }
+    }
+
+    &--1:checked ~ .slider__button--1 {
+      background-color: #1a5a4c;
+    }
+
+    &--2:checked ~ .slider__button--2 {
+      background-color: #1a5a4c;
+    }
+
+    &--3:checked ~ .slider__button--3 {
+      background-color: #1a5a4c;
+    }
+
+    &--4:checked ~ .slider__button--4 {
+      background-color: #1a5a4c;
     }
   }
 }
-
-// @for $index from 1 through 4 {
-//   #select-#{index}:checked ~ .slider__button--#{index} {
-//     background-color: #1a5a4c;
-//   }
-// }
 
 .none {
   display: none;
