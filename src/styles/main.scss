@@ -1,7 +1,66 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@mixin onTablet {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
 
-body {
-  background: $c-gray;
+@mixin onDesktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+}
+
+.page {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+  &__title {
+    text-transform: uppercase;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 120%;
+  }
+
+  &__image {
+    background-image: url("../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 700px;
+    left: 0;
+
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
 }
