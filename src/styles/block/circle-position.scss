@@ -1,0 +1,22 @@
+.circle-position {
+  display: flex;
+  justify-content: space-between;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__circle {
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+  }
+
+  @for $index from 1 through 4 {
+    &--select-#{$index} > &__circle:nth-child(#{$index}) {
+      background-color: $c-dark-green;
+    }
+  }
+}

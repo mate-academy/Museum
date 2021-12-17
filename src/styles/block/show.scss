@@ -1,0 +1,131 @@
+.show {
+  padding: 0 20px;
+  margin-bottom: 60px;
+
+  @include onTablet {
+    padding: 0 34px;
+    margin-bottom: 64px;
+  }
+
+  @include onDesktop {
+    padding: 0 55px;
+    margin-bottom: 104px;
+
+    align-items: center;
+  }
+
+  &--flex-reverse {
+    @include onDesktop {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 130px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    margin-bottom: 16px;
+
+    transition: transform 0.3s, border-radius 0.2s;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    &:hover {
+      transform: scale(105%);
+      border-radius: 5%;
+    }
+  }
+
+  &__event {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      max-width: 220px;
+    }
+  }
+
+  &__event-type {
+    display: inline-block;
+
+    font-family: IBM Plex Sans, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+
+    color: $c-show-title;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__event-date {
+    display: inline-block;
+
+    font-family: IBM Plex Sans, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: $c-dark-green;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    box-sizing: border-box;
+
+    font-weight: normal;
+    font-size: 28px;
+
+    color: $c-main-black;
+
+    margin-bottom: 10px;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(102%);
+    }
+
+    @include onTablet {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 35%;
+      margin-left: 5px;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+
+      background-color: $c-orange;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  &__info {
+    font-family: IBM Plex Sans, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #4e4e4e;
+  }
+}

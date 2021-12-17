@@ -1,0 +1,142 @@
+.header {
+  position: relative;
+  // height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+
+  padding: 8px 20px 0;
+
+  background-image: url(../images/Natsionalnij-mobile.png);
+  background-position: top right;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    padding: 15px 34px 0;
+    // background-position: top 0 left calc(50% + 225px);
+    background-image: url(../images/Natsionalnij-laptop.png);
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    padding: 15px 54px 0;
+
+    background-position: top right;
+    background-image: url(../images/Natsionalnij-desktop.png);
+  }
+
+  &__container-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    height: 93vw;
+    box-sizing: border-box;
+
+    margin-bottom: 12px;
+
+    @include onTablet {
+      grid-template-columns: repeat(6, 1fr);
+      grid-column: 1 / 7;
+      column-gap: 30px;
+      max-height: 72px;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      grid-column: 1 / 12;
+      column-gap: 30px;
+      max-height: 72px;
+      margin-bottom: 128px;
+    }
+  }
+
+  &__logo {
+    grid-column: 2;
+    justify-self: center;
+
+    @include onTablet {
+      grid-column: 3 / 5;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__title {
+    justify-self: center;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      justify-self: flex-start;
+
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      justify-self: flex-start;
+
+      grid-column: 3 / 8;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__button {
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin-bottom: 20px;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 6;
+      margin-bottom: 120px;
+    }
+  }
+
+  &__text-events {
+    display: none;
+
+    @include onDesktop {
+      display: inline-block;
+    }
+
+    position: absolute;
+    left: 55px;
+    bottom: 110px;
+    transform: rotateZ(-90deg);
+    transition: transform 0.3s;
+
+    font-family: IBM Plex Sans, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+
+    text-transform: uppercase;
+
+    color: #687480;
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 70px;
+      height: 1px;
+      background-color: $c-dark-green;
+      right: 65px;
+      top: 7px;
+    }
+
+    &:hover {
+      transform: rotateZ(-90deg) scale(110%);
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.page {
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 48px;
+
+  scroll-behavior: smooth;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__menu {
+    position: absolute;
+    top: -130%;
+
+    @include onTablet {
+      max-width: $width-tablet;
+      left: calc(50vw - (#{$width-tablet} / 2));
+    }
+
+    @include onDesktop {
+      max-width: $width-desktop;
+      left: calc(50vw - (#{$width-desktop} / 2));
+    }
+  }
+
+  &__body--with-menu {
+    overflow: hidden;
+  }
+
+  &__body {
+    width: 100vw;
+    @include onTablet {
+      max-width: $width-tablet;
+    }
+
+    @include onDesktop {
+      max-width: $width-desktop;
+    }
+  }
+}

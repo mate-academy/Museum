@@ -1,0 +1,50 @@
+.menu {
+  transition: all 1s;
+
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  background-color: rgba(255, 255, 255, 0);
+
+  padding: 8px 15px;
+  height: 100vh;
+  width: 100%;
+
+  @include onTablet {
+    padding: 15px 34px 0;
+  }
+
+  @include onDesktop {
+    padding: 15px 54px 0;
+  }
+
+  &__close-link {
+    display: inline-block;
+    grid-column: 1;
+    font-size: 25px;
+    margin: 15px 0 0 4px;
+    text-decoration: none;
+    color: #000;
+  }
+
+  &__logo {
+    justify-self: center;
+    grid-column: 2;
+    margin-bottom: 40px;
+  }
+
+  &__nav {
+    grid-column: 1 / 4;
+
+    color: $c-main-black;
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  &:target {
+    top: 0;
+    background-color: rgba(143, 143, 105, 1);
+  }
+}
