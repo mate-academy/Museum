@@ -1,6 +1,32 @@
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin font-family-Montserrat {
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+@mixin just-align($_center) {
+  justify-content: #{$_center};
+  align-items: #{$_center};
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} 0.5s ease-in-out;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin square($_side) {
+  height: #{$_side};
+  width: #{$_side};
 }

@@ -1,0 +1,163 @@
+.header {
+  margin-bottom: 70px;
+
+  @include onTablet {
+    margin-bottom: 88px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+
+  &__content {
+    padding: 8px 0 0;
+
+    @include onTablet {
+      padding: 15px 0 0;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    max-height: 300px;
+    z-index: -1;
+
+    @include onTablet {
+      width: 64%;
+      top: 0;
+      right: 0;
+      max-height: 384px;
+    }
+
+    @include onDesktop {
+      width: 57%;
+      max-height: 655px;
+    }
+  }
+
+  &__top-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 250px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 128px;
+    }
+  }
+
+  &__icon {
+    @include square($icon-size);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../images/burger.svg");
+  }
+
+  &__logo {
+    @include font-family-Montserrat;
+    font-weight: bold;
+    font-size: 30px;
+    color: $c-dark;
+    text-decoration: none;
+    transform: translateX(#{$icon-size / 2});
+
+    @include onTablet {
+      font-size: 36px;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    @include font-family-Montserrat;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 57px;
+      line-height: 120%;
+      margin-bottom: 32px;
+
+      &--outline {
+        color: transparent;
+        -webkit-text-stroke: 1px $c-dark;
+      }
+    }
+
+    @include onDesktop {
+      font-size: 70px;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+  }
+
+  &__field {
+    display: flex;
+    text-transform: uppercase;
+    height: 50px;
+    width: 100%;
+    border: 2px solid $c-green;
+    background-color: transparent;
+    color: $c-dark;
+    text-align: center;
+    @include just-align(center);
+
+    @include onTablet {
+      max-width: 200px;
+      height: 70px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    @include just-align(center);
+    background-color: $c-green;
+    @include square(50px);
+    background-image: url("../images/arrow-2.svg");
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      @include square(70px);
+    }
+  }
+
+  &__block-event {
+    transform-origin: left bottom;
+    transform: translate(14px, 82px) rotate(-90deg);
+    display: none;
+    align-items: center;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__line {
+    height: 1px;
+    width: 70px;
+    background-color: $c-green;
+    margin-right: 20px;
+  }
+
+  &__event {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    color: $c-gray;
+  }
+}

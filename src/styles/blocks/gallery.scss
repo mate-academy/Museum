@@ -1,0 +1,63 @@
+.gallery {
+  margin-bottom: 100px;
+
+  @include onTablet {
+    margin-bottom: 92px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 590px;
+  }
+
+  &__section-title {
+    @include font-family-Montserrat;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    color: $c-dark;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      font-size: 48px;
+      text-align: left;
+      margin-bottom: 48px;
+    }
+  }
+
+  &__image-container {
+    overflow: hidden;
+
+    @include onDesktop {
+      overflow: visible;
+    }
+  }
+
+  &__slider {
+    display: flex;
+    column-gap: 16px;
+    overflow-x: auto;
+    height: 425px;
+
+    @include onTablet {
+      column-gap: 20px;
+      height: 543px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+      flex-wrap: wrap;
+      overflow-x: visible;
+      max-width: 1170px;
+    }
+  }
+
+  &__image {
+    @include hover(transform, scale(1.05));
+
+    &-5 {
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+}
