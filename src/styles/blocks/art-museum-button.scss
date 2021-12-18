@@ -1,0 +1,55 @@
+.art-museum-button {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  width: calc(100% - 40px);
+  height: 50px;
+  color: #0f0e08;
+  text-decoration: none;
+
+  transition: width 0.5s;
+
+  @include biggerScreen {
+    width: 220px;
+    height: 70px;
+  }
+
+  &__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 50px);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    text-transform: uppercase;
+
+    border: 1px solid #1a5a4c;
+  }
+
+  &__arrow {
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $green-color;
+    transition: 0.5s;
+  }
+
+  @include laptop {
+    &:hover {
+      width: 280px;
+
+      .art-museum-button__text::before {
+        content: "Купити";
+        margin-right: 5px;
+      }
+
+      .art-museum-button__arrow {
+        background-color: #847b74;
+      }
+    }
+  }
+}
