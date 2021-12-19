@@ -1,6 +1,7 @@
 .header {
   display: grid;
   justify-content: center;
+  position: relative;
 
   @include onTablet {
     margin-left: 34px;
@@ -77,6 +78,7 @@
 
       font-size: 58px;
       line-height: 68px;
+      text-align: left;
 
       &--transparent {
         color: transparent;
@@ -89,6 +91,7 @@
 
       font-size: 72px;
       line-height: 86px;
+      text-align: left;
 
       &--transparent {
         color: transparent;
@@ -121,6 +124,12 @@
     display: flex;
     border: 1px solid black;
     width: 280px;
+
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #1a5a4c;
+    }
   }
 
   &__tickets-text {
@@ -137,6 +146,20 @@
     line-height: 16px;
     font-weight: 500;
     color: #000;
+
+    transition: transform 0.6s;
+
+    &:hover {
+      transform: translateX(100px);
+    }
+
+    @include onTablet {
+      width: 210px;
+    }
+
+    @include onDesktop {
+      width: 210px;
+    }
   }
 
   &__tickets-buy {
@@ -147,6 +170,8 @@
     background-image: url(../images/Vector.png);
     background-repeat: no-repeat;
     background-position: center;
+
+    transition: transform 0.3s;
 
     @include onTablet {
       width: 70px;
@@ -160,15 +185,15 @@
   }
 
   &__events-link-container {
+
     position: absolute;
     display: none;
     gap: 20px;
-    align-content: flex-start;
-    width: max-content;
     padding-bottom: 115px;
+    width: max-content;
 
     transform: rotate(-90deg);
-    bottom: 147px;
+    top: 475px;
 
     @include onDesktop {
       display: flex;
