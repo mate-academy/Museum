@@ -1,0 +1,77 @@
+.nav-top {
+
+  $bottomGap: 14px;
+  $linksLeftGap: 37px;
+
+  &__list {
+    margin: 80px 30px 50px;
+    display: grid;
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-size: 24px;
+    font-family: Oswald, sans-serif;
+    transition: color 0.5s;
+
+    &:link,
+    &:visited,
+    &:active {
+      color: $greenColor;
+    }
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    display: block;
+
+    &__link {
+      height: 72px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: 0.5s;
+
+      &:link,
+      &:visited,
+      &:active {
+        color: $greenColor;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+
+        &::after {
+          position: absolute;
+          bottom: 10px;
+          width: 100%;
+          height: 2px;
+          background-color: $greenColor;
+          border-radius: 2px / 2;
+          content: "";
+          animation: linksUnderline 0.5s;
+        }
+      }
+    }
+
+    &__list {
+      position: absolute;
+      margin: 0;
+      left: calc(#{$mediumGap} + #{$logoWidth} + #{$linksLeftGap});
+      top: 0;
+      grid-template-columns: repeat(8, auto);
+      grid-column-gap: 50px;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    &__list {
+      left: calc(#{$largeGap} + #{$logoWidth} + #{$linksLeftGap});
+    }
+  }
+}
