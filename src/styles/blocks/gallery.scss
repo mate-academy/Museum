@@ -1,0 +1,125 @@
+.gallery {
+  box-sizing: border-box;
+  max-width: 100vw;
+
+  &__slider {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 30px;
+    transition: all 0.9s;
+    max-width: 100%;
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2fr);
+      margin-bottom: 200px;
+    }
+  }
+
+  &__slider-item--desktop-1-3,
+  &__slider-item--desktop-4-12 {
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__slider-item {
+    max-width: 100%;
+    margin-right: 20px;
+
+    &--mobile-off {
+      display: none;
+    }
+
+    @include onSmallTablet {
+      margin-right: 20px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    @include onDesktop {
+      &--mobile {
+        display: none;
+      }
+
+      &:nth-child(2),
+      &:nth-child(5) {
+        margin-right: 0;
+      }
+
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--desktop-#{$start}-#{$end} {
+            @include onDesktop {
+              grid-column: #{$start} / #{$end + 1};
+              display: grid;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__slider-img {
+    object-fit: cover;
+    width: 280px;
+    height: 410px;
+
+    @include onSmallTablet {
+      width: 310px;
+      height: 543px;
+    }
+
+    @include onBigTablet {
+      width: 340px;
+      height: 543px;
+    }
+
+    @include onDesktop {
+      object-fit: cover;
+      width: 100%;
+      height: 600px;
+
+      &--360 {
+        height: 360px;
+      }
+    }
+  }
+
+  &__slider-dots {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 0 100px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__slider-dot {
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    background-color: $colorDots;
+    margin-right: 22px;
+    cursor: pointer;
+    transition: all 0.4s;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background-color: $colorGreen;
+    }
+
+    &.active {
+      background-color: $colorGreen;
+    }
+  }
+}
