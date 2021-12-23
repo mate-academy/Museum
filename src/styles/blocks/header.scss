@@ -1,0 +1,66 @@
+.header {
+  position: relative;
+  height: 300px;
+
+  background-image: url(/images/header.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+
+  @include onTablet {
+    height: 385px;
+    background-size: 65%;
+    background-position: 100%;
+  }
+
+  @include onDesktop {
+    height: 655px;
+    background-size: 60%;
+  }
+
+  &__nav {
+    padding-top: 9px;
+  }
+
+  &__icon--menu {
+    position: absolute;
+    top: 33px;
+    left: 23px;
+
+    background-image: url(/images/menu.svg);
+    display: block;
+    width: 18px;
+    height: 12px;
+  }
+
+  &__events {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    position: absolute;
+    bottom: 120px;
+    transform: rotate(-90deg);
+
+    &::before {
+      content: "";
+      position: relative;
+      display: block;
+      width: 70px;
+      height: 1px;
+      background-color: #1a5a4c;
+      transform: translateX(-90px);
+      top: 10px;
+    }
+  }
+
+  &__events-text {
+    color: #687480;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+  }
+}
