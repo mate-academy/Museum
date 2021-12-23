@@ -1,0 +1,49 @@
+.page {
+  &__body {
+    background: $c-gray;
+    margin: 0;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateY(0);
+    }
+
+    @include onTablet {
+      transform: translateX(-100%);
+
+      &:target {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__section {
+    margin-top: 200px;
+
+    @include onTablet {
+      margin-top: 100px;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 100%;
+    color: #0f0e08;
+
+    @include onMobile {
+      font-size: 36px;
+    }
+  }
+}
