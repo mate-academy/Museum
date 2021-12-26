@@ -1,0 +1,45 @@
+.page {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: $color-black;
+  scroll-behavior: smooth;
+
+  &__content {
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    transition: transform $duration;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 70px;
+    overflow-x: hidden;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+
+    @include onLaptop {
+      margin-bottom: 200px;
+    }
+
+    &--events {
+      margin-bottom: 0px;
+
+      @include onLaptop {
+        margin-bottom: 50px;
+      }
+    }
+  }
+}

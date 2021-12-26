@@ -1,0 +1,131 @@
+.subscribe {
+  background: center / cover url(../images/subscribe-bg.png) no-repeat;
+  width: 100%;
+  margin-bottom: 0;
+
+  @include onFullHd {
+    background-size: cover;
+  }
+
+  &__content {
+    @include container;
+    text-align: center;
+    margin-top: 55px;
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-top: 64px;
+      margin-bottom: 94px;
+    }
+
+    @include onLaptop {
+      margin-top: 140px;
+      margin-bottom: 180px;
+    }
+
+    @include onFullHd {
+      margin-top: 176px;
+      margin-bottom: 254px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include onLaptop {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    line-height: 27px;
+    color: $color-white;
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 66px;
+    }
+  }
+
+  &__form {
+    @include onLaptop {
+      // @include grid;
+    }
+  }
+
+  &__form-content {
+    display: flex;
+    margin: 0 auto;
+    max-width: 480px;
+
+    @include onLaptop {
+      @include grid;
+      max-width: none;
+    }
+
+  }
+
+  &__field {
+    flex-grow: 1;
+    border: none;
+    padding: 17px 30px;
+
+    @include onTablet {
+      padding: 28px;
+      margin-right: 10px;
+    }
+
+    @include onLaptop {
+      padding: 28px 35px;
+      grid-column: 4 / 9;
+      margin-right: 0;
+    }
+
+    @include onFullHd {
+      padding: 28px 35px;
+      grid-column: 6 / 11;
+    }
+
+    &::placeholder{
+      color: $color-light-gray;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:focus, 
+    &:-webkit-autofill:active  {
+        -webkit-box-shadow: 0 0 0 100px $color-white inset;
+    }
+  }
+
+  &__button {
+    width: 50px;
+    height: 50px;
+    background: center no-repeat url(../images/button-arrow.svg) $color-red; 
+    transition: background-color $duration;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $color-dark-red;
+    }
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    @include onLaptop {
+      grid-column: 9 / 10;
+    }
+
+    @include onFullHd {
+      grid-column: 11 / 12;
+    }
+  }
+}

@@ -1,0 +1,94 @@
+.menu {
+  height: 100vh;
+  background-color: $color-white;
+  z-index: 1;
+
+  &__content {
+    @include container;
+    margin-top: 30px;
+    position: relative;
+
+    @include onLaptop {
+      margin-top: 40px;
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(../images/cross-icon.svg) no-repeat;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 80px;
+    }
+
+    @include onFullHd {
+      margin-bottom: 120px;
+    }
+
+    &:hover {
+      background-image: url(../images/cross-icon-hover.svg);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: center;
+      align-items: start;
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: max-content;
+
+    @include onTablet {
+      margin-right: 100px;
+    }
+
+    @include onLaptop {
+      margin-right: 120px;
+    }
+  }
+
+  &__list {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 30px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 10px;
+    transition: color $duration;
+
+    @include onTablet {
+      margin-bottom: 20px;
+      font-size: 24px;
+      line-height: 24px;
+    }
+
+    @include onLaptop {
+      margin-bottom: 30px;
+      font-size: 28px;
+      line-height: 28px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      color: $color-light-green;
+    }
+  }
+}
