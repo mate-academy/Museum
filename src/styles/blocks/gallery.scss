@@ -1,0 +1,158 @@
+.gallery {
+  max-width: 100vw;
+  box-sizing: border-box;
+
+  &__title {
+    width: max-content;
+    margin: 0 auto 40px;
+    @extend %blockTitle;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      margin-left: 0;
+      margin-bottom: 50px;
+      font-size: 48px;
+    }
+
+    @media (min-width: 1280px) {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__container {
+    @media (min-width: 270px) {
+      width: 100%;
+      height: 410px;
+      margin: 0 0 30px;
+      display: flex;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    @media (min-width: 1280px) {
+      display: none;
+    }
+
+    &--large {
+      @media (max-width: 1279px) {
+        display: none;
+      }
+
+      @media (min-width: 1280px) {
+        height: 990px;
+        display: grid;
+        grid-template-columns: repeat (3, 380px);
+        grid-template-rows: repeat (8, 120px);
+        gap: 30px;
+        grid-template-areas: "a c c"
+          "a c c"
+          "a c c"
+          "a c c"
+          "a c c"
+          "d d e"
+          "d d e"
+          "d d e";
+      }
+
+      @media (min-width: 1920px) {
+        grid-template-columns: repeat (4, 380px);
+        grid-template-areas: "a c c b"
+          "a c c b"
+          "a c c b"
+          "a c c b"
+          "a c c b"
+          "d d e f"
+          "d d e f"
+          "d d e f";
+      }
+    }
+  }
+
+  &__picture {
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    &--1 {
+      grid-area: a;
+    }
+
+    &--2 {
+      width: 100%;
+      grid-area: b;
+
+      @media (min-width: 1280px) {
+        display: none;
+      }
+
+      @media (min-width: 1920px) {
+        display: block;
+      }
+    }
+
+    &--3 {
+      grid-area: c;
+      width: 100%;
+    }
+
+    &--4 {
+      width: 100%;
+      grid-area: d;
+    }
+
+    &--5 {
+      width: 100%;
+      grid-area: e;
+    }
+
+    &--6 {
+      width: 100%;
+      grid-area: f;
+
+      @media (min-width: 1280px) {
+        display: none;
+      }
+
+      @media (min-width: 1920px) {
+        display: block;
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  &__choise {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (min-width: 1280px) {
+      display: none;
+    }
+  }
+
+  &__radio {
+    width: 9px;
+    height: 9px;
+    background-color: #e0e0e0;
+  }
+}
