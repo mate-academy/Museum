@@ -1,7 +1,147 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "./utils/reset.scss";
+@import "./utils/variables";
+@import "./utils/mixins";
 
-body {
-  background: $c-gray;
+@import "./blocks/page.scss";
+@import "./blocks/container.scss";
+@import "./blocks/grid.scss";
+@import "./blocks/button.scss";
+@import "./blocks/link.scss";
+
+@import "./blocks/header.scss";
+@import "./blocks/top-bar.scss";
+@import "./blocks/title.scss";
+@import "./blocks/logo.scss";
+@import "./blocks/left-side-mark.scss";
+@import "./blocks/menu.scss";
+@import "./blocks/section.scss";
+@import "./blocks/event.scss";
+@import "./blocks/lecture.scss";
+@import "./blocks/gallery.scss";
+@import "./blocks/submit.scss";
+@import "./blocks/footer.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+.slider {
+  @include onDesktop {
+    display: none;
+  }
+
+  position: relative;
+  // overflow: hidden;
+
+  height: 410px;
+
+  @include onTablet {
+    height: auto;
+  }
+
+  &__picture {
+    position: relative;
+    height: 410px;
+
+    @include onTablet {
+      height: 100%;
+    }
+
+    &--3,
+    &--4 {
+      width: calc(100vw - 40px);
+    }
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: none;
+
+    @include onTablet {
+      &--1 {
+        display: block;
+        grid-column: 1 / 4;
+        width: 100%;
+      }
+
+      &--2 {
+        display: block;
+        grid-column: 4 / 7;
+        width: 100%;
+      }
+    }
+  }
+
+  &__button {
+    position: absolute;
+    display: block;
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    cursor: pointer;
+
+    left: 50%;
+
+    &--1 {
+      transform: translateX(-30px);
+    }
+
+    &--2 {
+      transform: translateX(-10px);
+    }
+
+    &--3 {
+      transform: translateX(10px);
+    }
+
+    &--4 {
+      transform: translateX(30px);
+    }
+
+    top: 430px;
+
+    @include onTablet {
+      top: calc(100% + 35px);
+    }
+
+    &:hover {
+      background-color: #1a5a4c;
+    }
+  }
+
+  &__selector--input {
+    display: none;
+
+    &:checked + .slider__picture {
+      @media (max-width: 768px) {
+        z-index: 1;
+        display: block;
+      }
+    }
+
+    &--1:checked ~ .slider__button--1 {
+      background-color: #1a5a4c;
+    }
+
+    &--2:checked ~ .slider__button--2 {
+      background-color: #1a5a4c;
+    }
+
+    &--3:checked ~ .slider__button--3 {
+      background-color: #1a5a4c;
+    }
+
+    &--4:checked ~ .slider__button--4 {
+      background-color: #1a5a4c;
+    }
+  }
+}
+
+.none {
+  display: none;
+
+  @include onDesktop {
+    display: block;
+  }
 }
