@@ -1,17 +1,10 @@
 'use strict';
 
-const form = document.querySelector('.subscribe__form');
-const inputs = document.querySelectorAll('.subscribe__form-email');
-/* const textarea = document.querySelector('.subscribe__form-button'); */
+const form = document.querySelector('.follow__form');
+const inputs = document.querySelectorAll('.follow__email');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  for (const input of inputs) {
-    input.value = '';
-  }
-
-  /* inputs.forEach(elem => elem.value = ''); */
-
-  /* textarea.value = ''; */
+  inputs.forEach(elem => (elem.value = ''));
 });

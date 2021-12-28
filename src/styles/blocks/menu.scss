@@ -1,85 +1,66 @@
 .menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  background-color: #424949;
+  z-index: 1;
 
-  transform: translateX(-100%);
-  transition: transform 0.3s;
-
-  background-color: $c-gray;
-
-  &:target {
-    transform: translateX(0);
-  }
-
-  min-width: 320px;
-  min-height: 100vh;
-
-  background-size: contain;
-  background-position: top right;
-  background-repeat: no-repeat;
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-
-    margin-bottom: 36px;
-
-    &-cross {
-      display: block;
-      width: 18px;
-      height: 18px;
-      margin: 32px 0 0 24px;
-
-      text-decoration: none;
-      font-size: 24px;
-      line-height: 24px;
-      font-weight: 700;
-      color: $c-dark;
-
-      transition: 0.3s;
-
-      &:hover {
-        background-image: url(../images/menu_hover.svg);
-      }
-    }
+  &__content {
+    box-sizing: border-box;
+    height: 100vh;
   }
 
   &__list {
+    margin: 0 0 48px;
+    padding: 80px;
     list-style: none;
   }
 
   &__item {
-    @extend %menu-link;
+    margin-bottom: 24px;
 
-    font-size: 20px;
-    font-weight: 700;
-
-    margin-bottom: 16px;
-  }
-
-  &__sub-item {
-    @extend %menu-link;
-
-    font-size: 16px;
-    font-weight: 400;
-
-    margin-top: 4px;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__link {
     display: inline-block;
-    padding-bottom: 4px;
+    padding-bottom: 8px;
     border-bottom: 1px solid transparent;
 
     text-decoration: none;
-    color: $c-dark;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
 
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, font-size 0.2s;
 
     &:hover {
-      border-color: $c-dark;
+      border-color: #fff;
+      font-size: 34px;
+    }
+  }
+
+  &__call {
+    display: block;
+    width: max-content;
+
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+
+    &--phone {
+      margin-bottom: 16px;
+    }
+
+    &--action {
+      padding-bottom: 8px;
+      border-bottom: 1px solid #fff;
     }
   }
 }
