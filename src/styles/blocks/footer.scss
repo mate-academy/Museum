@@ -48,6 +48,14 @@
     }
   }
 
+  &__link {
+    transition: transform 500ms;
+  }
+
+  &__link:hover {
+    transform: scale(1.4);
+  }
+
   &__link:nth-child(2) {
 
     @include onTablet {
@@ -76,7 +84,7 @@
       background-color: #1a5a4c80;
 
       @include onTablet {
-        width: 460px;
+        display: none;
       }
 
       @include onDesktop {
@@ -116,15 +124,23 @@
   }
 
   &__nav {
+    margin-bottom: 60px;
     margin-top: 40px;
-    margin-bottom: 120px;
+
+    @include onTablet {
+      margin-top: 64px;
+    }
 
     @include onDesktop {
+      margin-top: 0;
+      margin-bottom: 120px;
       grid-row: 1;
     }
   }
 
   &__nav-link {
+    display: inline-block;
+    margin-bottom: 20px;
     text-decoration: none;
     color: black;
 
@@ -134,8 +150,15 @@
   }
 
   &__rights {
+    opacity: 0.5;
+    margin: 20px 0;
     grid-column: 1 / -1;
     text-align: center;
+
+    @include onTablet {
+      text-align: right;
+
+    }
   }
 
   &__separate {

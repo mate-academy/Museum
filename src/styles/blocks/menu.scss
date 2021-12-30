@@ -47,9 +47,10 @@
     text-decoration: none;
     letter-spacing: 2px;
     text-transform: uppercase;
-    transition: border-color 0.3s;
+    transition: border-color 1s, color 1s;
 
     &:hover {
+      color: #fff;
       border-color: #fff;
     }
   }
@@ -65,14 +66,28 @@
     text-transform: uppercase;
     color: orange;
     text-decoration: none;
+    transition: color 0.5s ease-in-out;
+
+    &:hover {
+      color: black;
+    }
 
     &--phone {
       margin-bottom: 16px;
     }
 
-    &--action {
-      padding-bottom: 8px;
-      border-bottom: 1px solid orange;
+    &--action::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: black;
+      transition: width 500ms;
+      margin-top: 8px;
+    }
+
+    &--action:hover::after {
+      width: 100%;
     }
   }
 }
