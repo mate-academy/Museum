@@ -1,0 +1,52 @@
+.page {
+  font-family: "IBM Plex Sans", "Montserrat", sans-serif;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0%);
+    }
+  }
+
+  &__header {
+    @include onTablet {
+      padding-bottom: 5%;
+      margin-bottom: 9%;
+    }
+
+    @include onDesktop {
+      margin-bottom: 100px;
+      overflow: hidden;
+    }
+  }
+
+  &__gallery {
+    margin-bottom: 100px;
+    margin-top: 24px;
+
+    @include onTablet {
+      margin-bottom: 92px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+}
