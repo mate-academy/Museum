@@ -1,0 +1,144 @@
+.header {
+
+  &__abbr {
+    position: absolute;
+    padding-top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 1;
+
+    @include onTablet {
+      padding-top: 16px;
+      left: 40%;
+    }
+
+    @include onDesctop {
+      padding-top: 16px;
+      left: 15%;
+    }
+  }
+
+  &__tickets {
+    border: 1px solid $green-elements-color;
+  }
+
+  &__content {
+    display: block;
+    margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 88px;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    @include onDesctop {
+      margin-bottom: 200px;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__title {
+    margin: 0 0 $base-spaces-mobile;
+    padding-top: $base-spaces-mobile;
+    font-size: 46px;
+    line-height: 1em;
+    color: #000;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include onTablet {
+      margin: 0 0 $base-spaces-tablet;
+      padding-top: $base-spaces-tablet * 3.75;
+      font-size: 54px;
+      line-height: 1.2em;
+      text-align: left;
+    }
+
+    @include onDesctop {
+      margin: 0 0 $base-spaces-desctop * 1.6;
+      padding-top: $base-spaces-desctop * 3.75;
+      font-size: 72px;
+      line-height: 1.2em;
+      text-align: left;
+    }
+  }
+
+  &__text-content {
+    margin: 0 $base-spaces-mobile;
+
+    @include onTablet {
+      margin: 0 $base-spaces-tablet;
+      flex-grow: 1;
+    }
+
+    @include onDesctop {
+      margin: 0 $base-spaces-desctop;
+      flex-grow: 1;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+  }
+
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+
+    @include onTablet {
+      object-fit: cover;
+      object-position: left bottom;
+      width: 100%;
+      height: 384px;
+    }
+
+    @include onDesctop {
+      object-fit: cover;
+      object-position: left bottom;
+      width: 100%;
+      height: 655px;
+    }
+  }
+
+  &__events--desctop {
+    display: none;
+
+    @include onDesctop {
+      position: absolute;
+      top: 570px;
+      left: 0;
+
+      display: block;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: $small-font-size;
+      line-height: 1em;
+      color: $event-type-color;
+      text-transform: uppercase;
+      text-align: center;
+
+      transform-origin: top left;
+      transform: rotate(270deg);
+
+      &::before {
+        box-sizing: border-box;
+        content: "";
+        display: block;
+        height: 1px;
+        width: 70px;
+        background-color: $green-elements-color;
+        border: 0.5px solid $green-elements-color;
+
+        transform: translate(-100%, 0.5em);
+      }
+
+      &:visited {
+        color: $event-type-color;
+      }
+    }
+  }
+}
