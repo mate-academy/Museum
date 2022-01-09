@@ -1,0 +1,46 @@
+.lecture {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-40%);
+  box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+  background-color: $bg-color;
+  z-index: 1;
+
+  @include onTablet {
+    margin: 0 100px $lecture-block-margin-tablet;
+    padding: 0 56px;
+    transform: translateY(-30%);
+  }
+  @include onDesctop {
+    grid-column: $grid-second-position * 2 / span 6;
+    transform: translateY(-50%);
+    align-items: center;
+  }
+  &__information {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: $base-spaces-mobile;
+    margin-bottom: $base-spaces-mobile;
+    @include onTablet {
+      justify-content: space-between;
+    }
+    @include onDesctop {
+      justify-content: space-between;
+      width: 100%;
+      padding-top: 44px;
+    }
+  }
+  &__title {
+    padding-bottom: $event-title-lecture-padding-mobile;
+    font-weight: 400;
+    text-align: center;
+    @include onTablet {
+      padding-bottom: $event-title-lecture-padding;
+      text-align: left;
+    }
+    @include onDesctop {
+      padding-bottom: $event-title-lecture-padding;
+      text-align: left;
+    }
+  }
+}

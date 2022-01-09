@@ -1,0 +1,127 @@
+.gallery {
+  &__title {
+    font-size: $base-titles-font-size-not-mobile;
+    text-align: center;
+
+    @include onTablet {
+      font-size: $big-font-size;
+      text-align: left;
+    }
+
+    @include onDesctop {
+      margin-bottom: $base-spaces-desctop;
+      grid-column: $grid-first-position / span 3;
+      font-size: $big-font-size;
+      text-align: left;
+    }
+  }
+
+  &__images {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+
+    @include onDesctop {
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__image {
+    max-width: 280px;
+    min-height: 412px;
+    max-height: 412px;
+    margin-right: 16px;
+    margin-bottom: $base-spaces-mobile;
+
+    @include onTablet {
+      max-width: 340px;
+      min-height: 544px;
+      max-height: 544px;
+      margin-right: 20px;
+      margin-bottom: 32px;
+    }
+
+    @include onDesctop {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+
+    &--high-left {
+      grid-column: $grid-first-position / span 2;
+
+      @include onDesctop {
+        max-width: 100%;
+        width: 100%;
+        max-height: 600px;
+        grid-column: $grid-first-position / span 4;
+      }
+    }
+
+    &--high-right {
+      grid-column: $grid-second-position / span 1;
+
+      @include onDesctop {
+        max-width: 100%;
+        width: 100%;
+        max-height: 600px;
+        grid-column: ($grid-second-position * 2 + 1) / span 8;
+      }
+    }
+
+    &--low-left {
+      @include onDesctop {
+        max-width: 100%;
+        width: 100%;
+        max-height: 360px;
+        grid-column: $grid-first-position / span 8;
+      }
+    }
+
+    &--low-right {
+      @include onDesctop {
+        max-width: 100%;
+        width: 100%;
+        max-height: 360px;
+        grid-column: ($grid-second-position * 4 + 1) / span 4;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__dots {
+    display: flex;
+    margin: 0 auto;
+    height: 9px;
+    width: max-content;
+
+    @include onDesctop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    content: "";
+    box-sizing: border-box;
+    background-color: rgb(182, 182, 182);
+    margin-right: $base-spaces-mobile;
+
+    width: 9px;
+    height: 9px;
+    border: 1px transparent;
+    border-radius: 50%;
+
+    &:first-child {
+      background-color: rgb(62, 62, 62);
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
