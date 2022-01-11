@@ -1,0 +1,56 @@
+.page {
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: $base-font-size;
+  line-height: 1.5em;
+  color: $content-text-color;
+  background-color: $bg-color;
+
+  transition: linear;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__lecture {
+    margin: 0 auto $lecture-block-margin-mobile;
+  }
+
+  &__subscription {
+    margin-bottom: 52px;
+  }
+
+  &__footer {
+    margin: 0 $base-spaces-mobile;
+
+    @include onTablet {
+      margin: 0 $base-spaces-tablet;
+    }
+
+    @include onDesctop {
+      margin: 0 $base-spaces-desctop;
+    }
+
+    @include onLargeScreens {
+      margin: 0 auto;
+    }
+  }
+}

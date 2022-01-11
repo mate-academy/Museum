@@ -1,0 +1,81 @@
+.menu {
+  background-color: $green-elements-color;
+  height: 100vh;
+  z-index: 1;
+
+  &__abbr {
+    padding: 8px 0;
+
+    @include onTablet {
+      padding: 16px 0;
+    }
+
+    @include onDesctop {
+      padding: 2vw 0;
+      font-size: 3vw;
+    }
+  }
+
+  &__content {
+    box-sizing: border-box;
+    transition-timing-function: linear;
+  }
+
+  &__list {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+
+    @include onTablet {
+      font-size: 3vw;
+      max-width: 40vw;
+    }
+
+    @include onDesctop {
+      font-size: 2vw;
+      max-width: 30vw;
+    }
+  }
+
+  &__item {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: $titles-color;
+    text-align: center;
+
+    @include onDesctop {
+      line-height: 2em;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: $menu-items-padding;
+
+    text-decoration: none;
+    color: inherit;
+
+    transition: 0.5s;
+
+    &:first-child {
+      padding-top: $menu-items-padding;
+    }
+
+    &:last-child {
+      padding-bottom: $menu-items-padding;
+    }
+
+    &:hover,
+    &:focus {
+      @include onDesctop {
+        color: #fff;
+        border: 1px solid $bg-color;
+        border-radius: 10px;
+        transform: scale(1.2);
+      }
+    }
+  }
+}

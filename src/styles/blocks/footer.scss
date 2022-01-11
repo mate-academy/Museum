@@ -1,0 +1,233 @@
+.footer {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: $base-spaces-mobile;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onDesctop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onLargeScreens {
+    width: 91vw;
+    max-width: $max-desctop-section-width;
+  }
+
+  max-width: 100vw;
+
+  font-size: $small-font-size;
+  line-height: 1.5em;
+  color: $titles-color;
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    grid-column: $grid-first-position / span 2;
+
+    @include onTablet {
+      flex-direction: column;
+      justify-content: start;
+      grid-column: $grid-first-position / span 1;
+    }
+
+    @include onDesctop {
+      flex-direction: column;
+      justify-content: start;
+      grid-column: $grid-first-position / span 1;
+    }
+  }
+
+  &__abbr {
+    margin-bottom: 40px;
+    text-align: left;
+    font-size: $base-titles-font-size-not-mobile;
+    line-height: 1em;
+
+    @include onTablet {
+      margin-bottom: 64px;
+      left: 40%;
+    }
+
+    @include onDesctop {
+      margin-bottom: 64px;
+      left: 15%;
+    }
+  }
+
+  &__schedule {
+    grid-column: $grid-first-position / span 1;
+
+    @include onTablet {
+      grid-column: $grid-first-position * 2 / span 2;
+    }
+
+    @include onDesctop {
+      grid-column: $grid-first-position * 3 / span 2;
+    }
+  }
+
+  &__schedule-title {
+    margin-bottom: 20px;
+  }
+
+  &__contacts {
+    grid-column: $grid-second-position / span 1;
+
+    @include onTablet {
+      grid-column: $grid-second-position * 2 / span 2;
+    }
+
+    @include onDesctop {
+      grid-column: ($grid-second-position * 2 + 1) / span 2;
+    }
+  }
+
+  
+  &__contacts-title {
+    margin-bottom: 20px;
+  }
+
+  &__to-the-top {
+    grid-column: $grid-second-position / span 1;
+    justify-self: end;
+    margin-bottom: $base-spaces-mobile;
+    margin-right: -$base-spaces-mobile;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: $button-size-mobile;
+    height: $button-size-mobile;
+    border: 1px solid $green-elements-color;
+    border-radius: 50%;
+
+    &::before {
+      display: block;
+      content: "";
+      background-image: url(../images/ArrowUp.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 10px;
+      height: 12px;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesctop {
+      display: none;
+    }
+  }
+
+  &__separator {
+    margin-bottom: 40px;
+    height: 1px;
+    background: rgba(26, 90, 76, 0.5);
+    grid-column: $grid-first-position / span 2;
+
+    @include onTablet {
+      grid-column: $grid-first-position * 2 / span 4;
+    }
+
+    @include onDesctop {
+      width: 1px;
+      height: 260px;
+      grid-column: ($grid-second-position * 3 + 1) / span 1;
+      justify-self: center;
+    }
+  }
+  
+  &__links {
+
+    &:nth-last-child(even) {
+      grid-column: $grid-first-position / span 1;
+
+      @include onTablet {
+        grid-column: $grid-first-position * 2 / span 2;
+      }
+
+      @include onDesctop {
+        grid-column: $grid-first-position * 8 / span 2;
+      }
+    }
+
+    &:nth-last-child(odd) {
+      grid-column: $grid-second-position / span 1;
+
+      @include onTablet {
+        grid-column: $grid-second-position * 2 / span 2;
+      }
+
+      @include onDesctop {
+        grid-column: $grid-second-position * 5 / span 2;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    line-height: 1em;
+    color: $titles-color;
+
+    &:last-child {
+      margin-bottom: 80px;
+
+      @include onTablet {
+        margin-bottom: 120px;
+      }
+    }
+  }
+
+  &__copyright {
+    order: 2;
+    grid-column: $grid-first-position / span 2;
+    font-weight: 300;
+    font-size: $tiny-font-size;
+    line-height: 1.4em;
+    margin-bottom: 12px;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 36px;
+      order: 0;
+      grid-column: $grid-first-position / span 2;
+      text-align: left;
+    }
+
+    @include onDesctop {
+      margin-bottom: 36px;
+      order: 0;
+      grid-column: $grid-first-position / span 3;
+      text-align: left;
+    }
+  }
+
+  &__designed {
+    grid-column: $grid-first-position / span 2;
+    font-weight: 300;
+    font-size: $tiny-font-size;
+    line-height: 1.4em;
+    margin-bottom: 12px;
+    text-align: center;
+    align-self: start;
+
+    @include onTablet {
+      grid-column: ($grid-second-position * 2 + 1) / span 2;
+      text-align: right;
+    }
+
+    @include onDesctop {
+      grid-column: ($grid-second-position * 5 + 1) / span 2;
+      text-align: right;
+    }
+  }
+}
