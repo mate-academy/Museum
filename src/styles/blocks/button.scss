@@ -1,0 +1,47 @@
+.button {
+  display: flex;
+
+  width: $buttonWidth;
+  height: $buttonHeight;
+
+  &__name {
+    box-sizing: border-box;
+    position: relative;
+    width: calc(#{$buttonWidth} - #{$buttonHeight});
+    height: $buttonHeight;
+
+    border: 1px solid $buttonBackground;
+    background-color: $colorWhite;
+    transition: background-color $animationTime, color $animationTime;
+
+    &::before {
+      content: "Квитки";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    &:hover {
+      background-color: $buttonBackground;
+      color: #d7dde3;
+    }
+  }
+
+  &__icon {
+    @include square($buttonHeight);
+    box-sizing: border-box;
+    border: 1px solid $buttonBackground;
+    background-color: $buttonBackground;
+    background-image: url(../images/button-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-color $animationTime;
+
+    &:hover {
+      background-color: $colorRed;
+    }
+  }
+}
