@@ -1,0 +1,119 @@
+.exhibition {
+  margin-bottom: 60px;
+
+  @include onTablet {
+    margin-bottom: 64px;
+  }
+
+  @include onDesktop {
+    @include gridDesktop;
+
+    margin-bottom: 104px;
+  }
+
+  &__description {
+    grid-column: 9 / 13;
+    align-self: center;
+  }
+
+  &__image {
+    margin-bottom: 16px;
+
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+
+    @include onTablet {
+      margin-bottom: 40px;
+      height: 520px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+      margin-bottom: 0;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    font-size: 16px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      width: 220px;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / 12;
+    }
+  }
+
+  &__type {
+    font-weight: 500;
+    color: $colorGray;
+  }
+
+  &__date {
+    font-weight: bold;
+    color: $colorGreenDark;
+  }
+
+  &__name {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 10px;
+    max-width: 280px;
+
+    position: relative;
+
+    font-size: 28px;
+    font-weight: 400;
+
+    &::after {
+      content: "";
+      @include square(10px);
+      background-color: $colorRed;
+
+      @include onTablet {
+        @include square(15px);
+      }
+
+      @include onDesktop {
+        min-width: 15px;
+      }
+    }
+
+    @include onTablet {
+      margin-bottom: 15px;
+      gap: 15px;
+      max-width: 370px;
+      font-size: 36px;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / 13;
+    }
+  }
+
+  &__details {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+    color: $buttonBackground;
+
+    @include onTablet {
+      max-width: 460px;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / 13;
+      max-width: 370px;
+    }
+  }
+}
