@@ -5,15 +5,21 @@
   }
 
   &__header {
-    // max-width: 320px;
     margin: 0 auto;
+  }
 
-    @include onTablet {
-      // max-width: 768px;
-    }
+  &__menu {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
 
-    @include onDesktop {
-      // max-width: 1280px;
+    transform: translateX(-100%);
+    transition: transform $animationTime;
+
+    &:target {
+      transform: translateX(0);
     }
   }
 }
