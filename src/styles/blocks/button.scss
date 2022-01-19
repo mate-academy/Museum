@@ -13,21 +13,6 @@
     border: 1px solid $buttonBackground;
     background-color: $backgroundColor;
     transition: background-color $animationTime, color $animationTime;
-
-    &::before {
-      content: "Квитки";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    &:hover {
-      background-color: $buttonBackground;
-      color: #d7dde3;
-    }
   }
 
   &__icon {
@@ -35,13 +20,98 @@
     box-sizing: border-box;
     border: 1px solid $buttonBackground;
     background-color: $buttonBackground;
-    background-image: url(../images/button-icon.svg);
     background-repeat: no-repeat;
     background-position: center;
     transition: background-color $animationTime;
+  }
 
-    &:hover {
+  &--default {
+    &__name {
+      &::before {
+        content: "Квитки";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      &:hover {
+        background-color: $buttonBackground;
+        color: #d7dde3;
+      }
+    }
+
+    &__icon {
+      background-image: url(../images/button-icon.svg);
+
+      &:hover {
+        background-color: $colorRed;
+      }
+    }
+  }
+
+  &--input {
+    @include onTablet {
+      width: calc(374px + 16px + 70px);
+      height: 70px;
+      gap: 16px;
+    }
+
+    @include onDesktop {
+      width: calc(470px + 30px + 70px);
+      gap: 30px;
+    }
+
+    &__name {
+      padding-left: 24px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      color: $colorGray;
+      transition: background-color $animationTime,
+        color $animationTime,
+        border-color $animationTime;
+
+      &:hover {
+        background-color: $buttonBackground;
+        color: $colorWhite;
+        border-color: $colorWhite;
+      }
+
+      &::placeholder {
+        color: inherit;
+      }
+
+      @include onTablet {
+        width: 374px;
+        height: 70px;
+      }
+
+      @include onDesktop {
+        width: 470px;
+        height: 70px;
+      }
+    }
+
+    &__icon {
+      background-image: url(../images/button-icon-black.svg);
       background-color: $colorRed;
+      cursor: pointer;
+
+      transition: border-color $animationTime, background-color $animationTime;
+
+      &:hover {
+        border-color: $colorWhite;
+      }
+
+      &:active {
+        border-color: $colorRed;
+      }
+
+      @include onTablet {
+        @include square(70px);
+      }
     }
   }
 }
