@@ -1,0 +1,81 @@
+.event {
+  &__img-container {
+    margin-bottom: 16px;
+    @include hover(all, scale(1.05));
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__info {
+    margin-bottom: 10px;
+
+    @include onTablet {
+      max-width: 220px;
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    font-size: 28px;
+    line-height: 28px;
+    margin-bottom: 10px;
+    position: relative;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 36px;
+      margin-bottom: 15px;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: $activeColor;
+      margin-left: 10px;
+      position: absolute;
+      bottom: 0;
+      transform: translateY(-8px);
+
+      @include onTablet {
+        width: 12px;
+        height: 12px;
+        margin-left: 12px;
+        transform: translateY(-9px);
+      }
+    }
+  }
+
+  &__description {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__grid {
+    align-items: center;
+  }
+}

@@ -1,0 +1,50 @@
+.slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  &__flex-container {
+    display: flex;
+    justify-content: space-around;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__line {
+    display: flex;
+    transition: all ease 1s;
+    height: 410px;
+
+    @include onTablet {
+      gap: 20px;
+      margin-bottom: 20px;
+      height: 543px;
+    }
+
+    @include onDesktop {
+      gap: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      height: auto;
+    }
+  }
+
+  &__img {
+    height: inherit;
+    object-fit: cover;
+    object-position: center top;
+    @include hover(all, scale(1.06));
+
+    @include onDesktop {
+      &:hover {
+        transform: scale(1.06);
+      }
+
+      &:nth-child(2n-1) {
+        height: 100%;
+      }
+    }
+  }
+}

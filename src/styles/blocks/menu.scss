@@ -1,0 +1,43 @@
+.menu {
+  border-top: 1px solid rgba(26, 90, 76, 0.5);
+  padding-top: 40px;
+  overflow-y: auto;
+
+  @include onDesktop {
+    border-top: 0;
+  }
+
+  &__items {
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__item {
+    list-style: none;
+    margin-bottom: 20px;
+
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 14px;
+    color: $titleDarkColor;
+    @include hover(color, $activeColor);
+
+    &:hover {
+      color: $activeColor;
+    }
+  }
+}

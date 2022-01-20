@@ -1,0 +1,39 @@
+.grid {
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__container {
+    &--event-img {
+      grid-column: 1 / 7;
+
+      @include onDesktop {
+        grid-column: 1 / 8;
+      }
+    }
+
+    &--event-text {
+      grid-column: 1 / 5;
+
+      @include onDesktop {
+        grid-column: 9 / 13;
+      }
+    }
+
+    @for $x from 1 through 12 {
+      @for $y from $x through 12 {
+        &--#{$x}-#{$y} {
+          grid-column: #{$x} / #{$y + 1};
+        }
+      }
+    }
+  }
+}
