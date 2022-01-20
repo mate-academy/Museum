@@ -7,3 +7,13 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page__body--with-menu');
   }
 });
+
+const emailForm
+= document.getElementById('get-user-email');
+const emailInput
+= document.getElementById('btn-mail');
+
+emailForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  emailInput.value = '';
+});
