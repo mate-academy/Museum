@@ -12,8 +12,6 @@
 
   &__section {
     margin: 0 auto;
-
-    max-width: 1600px;
   }
 
   * {
@@ -22,9 +20,8 @@
 }
 
 .container {
-  background-color: bisque;
   margin: 0 auto;
-  max-width: 1280px;
+  max-width: 1600px;
   padding: 0 20px;
 
   @include onTablet {
@@ -41,21 +38,30 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 20px;
 
-  @include onTablet {
-    grid-template-columns: repeat(6, 1fr);
-    column-gap: 30px;
-  }
+  // @include onTablet {
+  //   grid-template-columns: repeat(6, 1fr);
+  //   column-gap: 30px;
+  // }
 
-  @include onLaptop {
-    grid-template-columns: repeat(12, 1fr);
-    // column-gap: 30px;
+  // @include onLaptop {
+  //   grid-template-columns: repeat(12, 1fr);
+  // }
+
+  &__tablet {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+    }
   }
 
   &__laptop {
-    display: block;
-
     @include onLaptop {
       display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
     }
   }
 
@@ -209,9 +215,19 @@
       width: 270px;
     }
 
+    &--link {
+      margin: 0 auto;
+  
+      font-size: 16px;
+      text-transform: uppercase;
+      color: $c-darkgrey;
+
+      @include title4_500_100;
+    }
+
     &--arrow {
       height: 50px;
-      transform: translateY(2px);
+      transform: translate(1px, 2px);
 
       @include onTablet {
         height: 70px;
@@ -220,33 +236,28 @@
   }
 }
 
-.tickets {
+.form-field {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   &--link {
-    margin: 0 auto;
-
     text-decoration: none;
-    text-transform: uppercase;
-
-    @include text_16_100;
   }
 }
 
 .events {
+  max-width: 1600px;
+
   &__title {
-    background-color: cadetblue;
     margin: 0 auto 40px;
 
     max-width: 280px;
     text-align: center;
     text-transform: uppercase;
-    font-size: 36px;
-    line-height: 100%;
+    color: $c-darkgrey;
 
-    @include title1_700;
+    @include title2_700_100;
 
     @include onTablet {
       margin: 0 0 50px;
@@ -305,6 +316,7 @@
 
       font-size: 16px;
       text-transform: uppercase;
+      color: $c-lightgrey;
 
       @include title4_500_100;
 
@@ -326,16 +338,15 @@
 
   &__container-title {
     display: flex;
-    align-items: center;
 
     &--rectangle {
-      margin-left: 12px;
+      margin: 12px 0 0 12px;
       width: 10px;
       height: 10px;
       background-color: #f14a27;
 
       @include onTablet {
-        margin-left: 20px;
+        margin: 15px 0 0 20px;
         width: 15px;
         height: 15px;
       }
@@ -359,11 +370,316 @@
   &__paragraph {
     margin: 0;
 
-    // max-width: 276px;
     @include text_16_150;
 
     @include onTablet {
       max-width: 460px;
+    }
+  }
+}
+
+.lecture {
+  margin: 0 auto 45px;
+
+  width: 280px;
+  height: 140px;
+  background: $c-white;
+  transform: translateY(-40%);
+  box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+  @include onTablet {
+    margin: 0 auto 38px;
+    width: 570px;
+    height: 204px;
+  }
+
+  @include onLaptop {
+    margin: 0 auto 98px;
+
+    transform: translateY(-50%);
+  }
+
+  &__items {
+    padding: 20px 0;
+
+    @include onTablet {
+      margin-left: 55px;
+
+      padding: 45px 0 23px;
+    }
+
+    @include onLaptop {
+      margin-left: 100px;
+
+    }
+  }
+
+  &__date {
+    margin: 0 auto 24px;
+
+    max-width: 240px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      margin: 0 0 24px;
+      max-width: 375px;
+    }
+
+    @include onLaptop {
+      max-width: 335px;
+
+    }
+
+    &--title {
+      margin: 0;
+
+      font-size: 16px;
+      text-transform: uppercase;
+      color: $c-lightgrey;
+
+      @include title4_500_100;
+
+      @include onTablet {
+        font-size: 14px;
+      }
+    }
+
+    &--item {
+      font-size: 16px;
+
+      @include title4_700_150_green;
+
+      @include onTablet {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__subtitle {
+    margin: 0 auto;
+
+    font-size: 28px;
+    text-align: center;
+
+    @include title3_400_100;
+
+    @include onTablet {
+      margin: 0;
+
+      max-width: 460px;
+      font-size: 36px;
+      text-align: left;
+    }
+  }
+}
+
+.gallery {
+  &__container {
+    margin-bottom: 100px;
+
+    @include onTablet {
+      margin-bottom: 92px;
+    }
+
+    @include onLaptop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__tablet {
+    &--container {
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 32px;
+      }
+    }
+
+    &--pointer {
+      margin: 0 auto;
+
+      display: flex;
+      justify-content: space-between;
+      width: 102px;
+
+      &-item {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background-color: #e0e0e0;
+
+        @include hover (background-color, #1a5a4c);
+      }
+
+      @include onLaptop {
+        display: none;
+      }
+    }
+  }
+
+  &__laptop {
+    display: none;
+  }
+
+  @include onTablet {
+    &__tablet {
+      display: grid;
+    }
+  }
+
+  @include onLaptop {
+    &__tablet {
+      display: none;
+    }
+
+    &__laptop {
+      display: grid;
+    }
+  }
+
+  &__title {
+    margin: 0 auto 40px;
+
+    text-align: center;
+    text-transform: uppercase;
+    color: $c-darkgrey;
+
+    @include title2_700_100;
+
+    @include onTablet {
+      margin: 0 0 48px;
+
+      text-align: left;
+      font-size: 48px;
+    }
+
+    @include onLaptop {
+      margin: 0 0 56px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    &--tablet {
+      display: none;
+      width: 101.5%;
+    }
+
+    @include onTablet {
+      &--tablet {
+        display: block;
+      }
+    }
+
+    @include onLaptop {
+      &--first {
+        margin-bottom: 30px;
+      }
+
+      &--laptop {
+        display: none;
+      }
+    }
+  }
+}
+
+.subscribe {
+  &__container {
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 386px;
+    background: url(../images/subscribe_image.svg) center no-repeat;
+
+    @include onLaptop {
+      height: 550px;
+
+    }
+  }
+
+  &__title {
+    margin: 0 auto 20px;
+
+    text-align: center;
+    color: $c-white;
+
+    @include title2_700_100;
+
+    @include onTablet {
+      font-size: 48px;
+    }
+  }
+
+  &__paragraph {
+    margin: 0 auto 50px;
+
+    text-align: center;
+    color: $c-white;
+    font-size: 16px;
+
+    @include title4_500_100;
+    line-height: 150%;
+
+    @include onTablet {
+      margin: 0 auto 72px;
+
+      line-height: 100%;
+    }
+  }
+
+  &__email {
+    margin: 0 auto;
+
+    height: 50px;
+    width: 280px;
+
+    @include onTablet {
+      height: 70px;
+      width: 460px;
+    }
+
+    @include onLaptop {
+      width: 570px;
+    }
+
+    &--link {
+      background: $c-white;
+      padding-left: 24px;
+
+      display: flex;
+      align-items: center;
+      font-family: "Montserrat", Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 100%;
+      width: 100%;
+      height: 100%;
+      color: $c-lightgrey;
+
+      @include onTablet {
+        background: linear-gradient(to right, $c-white 96%, transparent 4%);
+      }
+
+      @include onLaptop {
+        background: linear-gradient(to right, $c-white 95%, transparent 5%);
+      }
+    }
+
+    &--arrow {
+      height: 50px;
+      transform: translate(1px, 2px);
+
+      @include onTablet {
+        height: 70px;
+      }
     }
   }
 }
