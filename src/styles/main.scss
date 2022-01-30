@@ -2,6 +2,10 @@
 @import "fonts";
 @import "typography";
 
+html {
+  scroll-behavior: smooth;
+}
+
 .page {
   margin: 0;
 
@@ -38,14 +42,14 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 20px;
 
-  // @include onTablet {
-  //   grid-template-columns: repeat(6, 1fr);
-  //   column-gap: 30px;
-  // }
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
 
-  // @include onLaptop {
-  //   grid-template-columns: repeat(12, 1fr);
-  // }
+  @include onLaptop {
+    grid-template-columns: repeat(12, 1fr);
+  }
 
   &__tablet {
     display: block;
@@ -99,6 +103,64 @@
 
     @include onLaptop {
       margin-bottom: 320px;
+    }
+  }
+
+  &__menu {
+    background: url(../images/subscribe_image.svg) center no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20vw 0 0 20vw;
+
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    &--line {
+      width: 5vw;
+      height: 0.5vw;
+      background: $c-white;
+      border-radius: 2px;
+    }
+
+    &--close-link {
+      margin: 0 0 15vw;
+
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+
+      &-1 {
+        position: absolute;
+        transform: rotate(45deg);
+      }
+
+      &-2 {
+        transform: rotate(-45deg);
+      }
+    }
+
+    &--link {
+      padding-bottom: 8px;
+      font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-size: 7vw;
+      font-weight: 400;
+      line-height: 200%;
+      color: $c-white;
+      border-bottom: 2px solid transparent;
+
+      @include hover(border-color, $c-white);
     }
   }
 
@@ -276,6 +338,11 @@
     margin-bottom: 24px;
 
     width: 100%;
+    transition: transform 0.3s linear;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 
     @include onTablet {
       margin-bottom: 40px;
@@ -563,6 +630,11 @@
 
   &__image {
     width: 100%;
+    transition: transform 0.3s linear;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 
     &--tablet {
       display: none;
@@ -588,6 +660,9 @@
 }
 
 .subscribe {
+  background: url(../images/subscribe_image.svg) center no-repeat;
+  background-size: cover;
+
   &__container {
     margin: 0 auto;
 
@@ -596,7 +671,6 @@
     justify-content: center;
     align-items: center;
     height: 386px;
-    background: url(../images/subscribe_image.svg) center no-repeat;
 
     @include onLaptop {
       height: 550px;
@@ -681,5 +755,199 @@
         height: 70px;
       }
     }
+  }
+}
+
+.footer {
+  &__container {
+    margin-top: 50px;
+  }
+
+  &__networks {
+    &--container {
+      background-color: chartreuse;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include onTablet {
+        display: grid;
+        align-items: start;
+      }
+    }
+
+    &--logo {
+      background-color: chocolate;
+
+      @include onTablet {
+        margin-bottom: 62px;
+      }
+
+      &-image {
+        width: 63px;
+      }
+    }
+
+    &--items {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+    }
+
+    &--facebook {
+      margin-right: 26px;
+
+      width: 11px;
+      height: 24px;
+      transition: transform 0.3s linear;
+
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+
+    &--instagram {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s linear;
+
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  &__content {
+    background-color: bisque;
+    @include onTablet {
+      margin-top: -203px;
+    }
+
+    &--title {
+      background-color: blueviolet;
+      margin: 40px 0 20px;
+
+      line-height: 150%;
+      @include text_14_400;
+    }
+
+    &--items {
+      background-color: cadetblue;
+      margin: 0;
+
+      line-height: 150%;
+      @include text_14_400;
+
+      &-bold {
+        @include text_14_150_600;
+      }
+
+      &-paragraph {
+        margin: 20px 0 0;
+      }
+    }
+
+    &--up {
+      background-color: rgb(228, 230, 96);
+      display: flex;
+      justify-content: end;
+      width: 100%;
+
+      @include onTablet {
+        display: none;
+      }
+
+      &-arrow-up {
+        transition: transform 0.3s linear;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    &--line {
+      &-container {
+        margin-top: 20px;
+
+        // background-color: #9bb7b1;
+        background-color: #000;
+        height: 1px;
+
+        @include onTablet {
+          margin-top: 64px;
+        }
+
+        @include onLaptop {
+          margin-top: -245px;
+          margin-left: 50%;
+          width: 1px;
+          height: 260px;
+        }
+      }
+    }
+  }
+
+  &__menu {
+    background-color: cyan;
+    margin: 20px 0 80px;
+
+    @include onTablet {
+      margin: 64px 0 120px;
+    }
+
+    @include onLaptop {
+      margin-top: -265px;
+      // margin-bottom: 90px;
+      margin-bottom: 335px;
+    }
+
+    &--items {
+      background-color: cadetblue;
+    }
+
+    &--item {
+      &:first-child {
+        margin-bottom: 20px;
+      }
+    }
+
+    &--link {
+      line-height: 100%;
+      @include text_14_400;
+    }
+  }
+
+  &__information {
+    margin-bottom: 60px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    @include onTablet {
+      margin-bottom: 35px;
+
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    &--item {
+      @include text_12_150_300;
+    }
+  }
+}
+
+.menu {
+  margin: 0;
+
+  padding-left: 0;
+  list-style: none;
+  white-space: nowrap;
+
+  &__link {
+    text-decoration: none;
   }
 }
