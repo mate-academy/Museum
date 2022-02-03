@@ -2,9 +2,9 @@
 @import "fonts";
 @import "typography";
 
-html {
-  scroll-behavior: smooth;
-}
+// html {
+//   scroll-behavior: smooth;
+// }
 
 .page {
   margin: 0;
@@ -62,6 +62,8 @@ html {
   }
 
   &__laptop {
+    display: block;
+
     @include onLaptop {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -660,11 +662,11 @@ html {
 }
 
 .subscribe {
-  background: url(../images/subscribe_image.svg) center no-repeat;
-  background-size: cover;
-
   &__container {
     margin: 0 auto;
+
+    background: url(../images/subscribe_image.svg) center no-repeat;
+    background-size: cover;
 
     display: flex;
     flex-direction: column;
@@ -760,42 +762,66 @@ html {
 
 .footer {
   &__container {
-    margin-top: 50px;
+    margin: 50px 0 60px;
+
+    @include onTablet {
+      margin: 50px 0 35px;
+    }
   }
 
-  &__networks {
-    &--container {
-      background-color: chartreuse;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 72px 1fr 71px 60px;
+    column-gap: 20px;
 
-      @include onTablet {
-        display: grid;
-        align-items: start;
-      }
+    @include onTablet {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 160px 1fr 64px 60px;
+      column-gap: 30px;
+    }
+  
+    @include onLaptop {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 160px 1fr;
+    }
+  }
+
+  &__top {
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      grid-column: 1 / 1;
+      flex-direction: column;
     }
 
     &--logo {
       background-color: chocolate;
-
-      @include onTablet {
-        margin-bottom: 62px;
-      }
 
       &-image {
         width: 63px;
       }
     }
 
-    &--items {
-      display: flex;
-      justify-content: end;
-      align-items: center;
+    &--networks {
+      background-color: chartreuse;
+      width: 62px;
+
+      &-items {
+        display: flex;
+        justify-content: space-between;
+      }
     }
 
     &--facebook {
-      margin-right: 26px;
+      margin: 0 26px 0 65px;
+
+      @include onTablet {
+        margin: 0 26px;
+      }
 
       width: 11px;
       height: 24px;
@@ -819,13 +845,39 @@ html {
 
   &__content {
     background-color: bisque;
+    margin-top: 40px;
+
     @include onTablet {
-      margin-top: -203px;
+      margin-top: 0;
+    }
+
+    &--schedule {
+      @include onTablet {
+        grid-row: 1 / 4;
+        grid-column: 2 / 4;
+      }
+
+      @include onLaptop {
+        grid-row: 1 / 4;
+        grid-column: 3 / 5;
+      }
+    }
+
+    &--contacts {
+      @include onTablet {
+        grid-row: 1 / 4;
+        grid-column: 4 / 6;
+      }
+
+      @include onLaptop {
+        grid-row: 1 / 4;
+        grid-column: 5 / 7;
+      }
     }
 
     &--title {
       background-color: blueviolet;
-      margin: 40px 0 20px;
+      margin: 0 0 20px;
 
       line-height: 150%;
       @include text_14_400;
@@ -844,62 +896,72 @@ html {
 
       &-paragraph {
         margin: 20px 0 0;
-      }
-    }
-
-    &--up {
-      background-color: rgb(228, 230, 96);
-      display: flex;
-      justify-content: end;
-      width: 100%;
-
-      @include onTablet {
-        display: none;
-      }
-
-      &-arrow-up {
-        transition: transform 0.3s linear;
-
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
-    }
-
-    &--line {
-      &-container {
-        margin-top: 20px;
-
-        // background-color: #9bb7b1;
-        background-color: #000;
-        height: 1px;
 
         @include onTablet {
-          margin-top: 64px;
-        }
-
-        @include onLaptop {
-          margin-top: -245px;
-          margin-left: 50%;
-          width: 1px;
-          height: 260px;
+          max-width: 190px;
         }
       }
     }
   }
 
-  &__menu {
-    background-color: cyan;
-    margin: 20px 0 80px;
+  &--line {
+    margin-top: 70px;
+
+    grid-column: 1 / 3;
+    background-color: #9bb7b1;
+    height: 1px;
 
     @include onTablet {
-      margin: 64px 0 120px;
+      margin-top: 0;
+
+      grid-row: 5 / 6;
+      grid-column: 2 / 6;
     }
 
     @include onLaptop {
-      margin-top: -265px;
-      // margin-bottom: 90px;
-      margin-bottom: 335px;
+      margin-left: 50%;
+
+      grid-row: 1 / 4;
+      grid-column: 7 / 7;
+
+      width: 1px;
+      height: 260px;
+    }
+  }
+
+  &__menu {
+    margin-top: 40px;
+
+    @include onTablet {
+      margin-top: 60px;
+    }
+
+    @include onLaptop {
+      margin-top: 0;
+    }
+
+    &--left {
+      @include onTablet {
+        grid-row: 7 / 8;
+        grid-column: 2 / 4;
+      }
+
+      @include onLaptop {
+        grid-row: 1 / 1;
+        grid-column: 8 / 10;
+      }
+    }
+
+    &--right {
+      @include onTablet {
+        grid-row: 7 / 8;
+        grid-column: 4 / 6;
+      }
+
+      @include onLaptop {
+        grid-row: 1 / 1;
+        grid-column: 10 / 12;
+      }
     }
 
     &--items {
@@ -918,8 +980,33 @@ html {
     }
   }
 
+  &--up {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    display: inline-block;
+    width: 50px;
+
+    &-arrow-up {
+      transition: transform 0.3s linear;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    @include onTablet {
+      bottom: 60px;
+      right: 39px;
+    }
+  
+    @include onLaptop {
+      right: 55px;
+    }
+  }
+
   &__information {
-    margin-bottom: 60px;
+    margin-top: 80px;
 
     display: flex;
     flex-direction: column;
@@ -928,10 +1015,14 @@ html {
     gap: 10px;
 
     @include onTablet {
-      margin-bottom: 35px;
+      margin-top: 120px;
 
       flex-direction: row-reverse;
       justify-content: space-between;
+    }
+
+    @include onLaptop {
+      margin-top: 85px;
     }
 
     &--item {
