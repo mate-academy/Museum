@@ -1,0 +1,235 @@
+.header {
+  &__container {
+    margin-bottom: 70px;
+    position: relative;
+
+    @include onTablet {
+      margin-bottom: 110px;
+    }
+
+    @include onLaptop {
+      margin-bottom: 320px;
+    }
+  }
+
+  &__menu {
+    background: url(../images/subscribe_image.svg) center no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20vw 0 0 20vw;
+
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    @include onTablet {
+      padding: 10vw 0 0 10vw;
+    }
+
+    @include onLaptop {
+      padding: 6vw 0 0 10vw;
+    }
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    &--line {
+      width: 5vw;
+      height: 0.5vw;
+      background: $c-white;
+      border-radius: 2px;
+
+      @include onTablet {
+        width: 2.5vw;
+        height: 0.25vw;
+      }
+
+      @include onLaptop {
+        width: 2vw;
+        height: 0.2vw;
+      }
+    }
+
+    &--close-link {
+      margin: 0 0 15vw;
+
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+
+      @include onTablet {
+        margin: 0 0 5vw;
+      }
+
+      &-1 {
+        position: absolute;
+        transform: rotate(45deg);
+      }
+
+      &-2 {
+        transform: rotate(-45deg);
+      }
+    }
+
+    &--link {
+      padding-bottom: 8px;
+      font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-size: 7vw;
+      font-weight: 400;
+      line-height: 200%;
+      color: $c-white;
+      border-bottom: 2px solid transparent;
+
+      @include hover(border-color, $c-white);
+
+      @include onTablet {
+        font-size: 4vw;
+      }
+
+      @include onLaptop {
+        font-size: 2.5vw;
+      }
+    }
+  }
+
+  &__images {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+
+    @include onTablet {
+      width: 384px;
+    }
+
+    @include onLaptop {
+      width: 725px;
+    }
+
+    &--container {
+      margin: 0;
+      position: relative;
+    }
+
+    &--image {
+      width: 100%;
+      height: auto;
+    }
+
+    &--logo {
+      position: absolute;
+      top: 9px;
+      right: 41%;
+      display: flex;
+      width: 55px;
+      height: 61px;
+
+      @include onTablet {
+        top: 15px;
+        left: 77px;
+        width: 62px;
+        height: 72px;
+      }
+
+      @include onLaptop {
+        left: 52px;
+      }
+
+      &-image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__nav {
+    &--image {
+      margin: 33px 0 95%;
+
+      @include onTablet {
+        margin-bottom: 70px;
+      }
+
+      @include onLaptop {
+        margin-bottom: 150px;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0 auto 20px;
+
+    max-width: 280px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 45px;
+    line-height: 100%;
+
+    @include title1_700;
+
+    @include onTablet {
+      margin: 0 0 40px;
+
+      max-width: 340px;
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onLaptop {
+      margin: 0 0 90px;
+      max-width: 470px;
+      font-size: 72px;
+    }
+  }
+
+  &__tickets {
+    margin: 0 auto;
+
+    height: 50px;
+    width: 280px;
+    border: 1px solid #1a5a4c;
+
+    @include onTablet {
+      margin: 0;
+
+      height: 70px;
+      width: 265px;
+    }
+
+    @include onLaptop {
+      margin-left: 200px;
+
+      width: 270px;
+    }
+
+    &--link {
+      margin: 0 auto;
+
+      font-size: 16px;
+      text-transform: uppercase;
+      color: $c-darkgrey;
+
+      @include title4_500_100;
+    }
+
+    &--arrow {
+      height: 50px;
+      transform: translate(1px, 2px);
+
+      @include onTablet {
+        height: 70px;
+      }
+    }
+  }
+}
