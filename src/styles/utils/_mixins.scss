@@ -4,3 +4,155 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin hover($_property, $_toValue...) {
+  transition: $_property 0.3s;
+  &:hover {
+    @content;
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin hoverBefore($_property, $_toValue) {
+  transition: $_property 0.3s;
+  &:hover::before {
+    @content;
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin hoverAfter($_property, $_toValue) {
+  transition: $_property 0.3s;
+  &:hover::after {
+    @content;
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin active($_property, $_toValue) {
+  transition: $_property 0.3s;
+  &:active {
+    @content;
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin activeBefore($_property, $_toValue) {
+  transition: $_property 0.3s;
+  &:active::before {
+    @content;
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin square($size) {
+  height: $size;
+  width: $size;
+}
+
+//Адаптивное свойство
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+  @if $type==1 {
+    //Только если меньше контейнера
+    #{$property}: $startSize + px;
+    @media (max-width: #{$maxWidth + px}) {
+      #{$property}: calc(
+        #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
+      );
+    }
+  }
+
+  @else if $type==2 {
+    //Только если больше контейнера
+    #{$property}: $startSize + px;
+    @media (min-width: #{$maxWidth + px}) {
+      #{$property}: calc(
+        #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
+      );
+    }
+  }
+  @else {
+    //Всегда
+    #{$property}: calc(
+      #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
+    );
+  }
+}
+
+@mixin toTablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1238px) {
+    @content;
+  }
+}
+
+@mixin gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+    @content;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+    row-gap: 30px;
+    @content;
+  }
+
+  &--tablet {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+      @content;
+    }
+  }
+
+  &--desktop {
+    display: block;
+
+    @include onDesktop {
+      display: grid;
+      @content;
+    }
+  }
+}
+
+@mixin gridItem {
+  @for $start from 1 through 12 {
+    @for $end from $start through 12 {
+      &--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end + 1};
+      }
+
+      &--tablet-#{$start}-#{$end} {
+        @include onTablet {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+
+      &--desktop-#{$start}-#{$end} {
+        @include onDesktop {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+}
