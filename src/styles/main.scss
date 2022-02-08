@@ -23,6 +23,7 @@ p {
 
 .container {
   margin: 0 auto;
+
   max-width: 280px;
   padding: 0 20px;
   
@@ -331,10 +332,19 @@ p {
   @include onDesktop {
     grid-template-columns: repeat(12, 1fr);
     column-gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 
   &--desktop {
     display: block;
+
+    @include onTablet {
+      display: block;
+    }
 
     @include onDesktop {
       display: grid;
@@ -522,6 +532,78 @@ p {
   }
 }
 
+.gallery {
+
+  &__art {
+    width: 280px;
+    height: 410px;
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+    }
+  
+    @include onDesktop {
+      width: 370px;
+      height: 600px;
+    }
+
+    &-2-Des {
+      display: none;
+
+      @include onTablet {
+        display: none;
+      }
+    
+      @include onDesktop {
+        display: grid;
+
+        width: 770px;
+        height: 600px;
+      }
+    }
+  }
+
+  &__only-tablet {
+    display: none;
+
+    @include onTablet {
+      display: grid;
+
+      width: 340px;
+      height: 543px;
+    }
+  
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__only-desctop {
+    display: none;
+
+    @include onTablet {
+      display: none;
+    }
+  
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &__place {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      // margin-bottom: 0;
+    }
+  }
+}
+
 .lecture {
 
   margin-bottom: 210px;
@@ -684,6 +766,40 @@ p {
       font-size: 36px;
       // margin-bottom: 15px;
       margin-left: 100px;
+    }
+  }
+}
+
+.scroll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // margin-bottom: 24px;
+  
+  cursor: pointer;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__ellipse {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__point {
+    background-image: url(../images/Ellipse_3.1.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 9px;
+    width: 9px;
+  
+    &:not(:last-child) {
+      margin-right: 22px;
+    }
+
+    &--1 > :nth-child(1) {
+      background-image: url(../images/Ellipse_3.svg);
     }
   }
 }
