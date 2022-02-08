@@ -104,7 +104,7 @@ function slidersBildCallback(params) {
 }
 
 // init Swiper:
-const gallery = new Swiper('.gallery__items', {
+const gallery = new Swiper('.gallery__slider', {
   // configure Swiper to use modules
   modules: [Navigation, Pagination],
 
