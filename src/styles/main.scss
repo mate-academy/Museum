@@ -8,10 +8,6 @@ $icon-width: 18px;
 //   background-color: #e5e5e5;
 // }
 
-// * {
-//   box-sizing: border-box;
-// }
-
 body,
 h1,
 h2,
@@ -211,6 +207,10 @@ p {
 
   margin-bottom: 70px;
 
+  transition: background-color 0.3s,
+    box-shadow 0.3s,
+    border-color 0.3s;
+
   @include onTablet {
     justify-content: flex-start;
     margin-bottom: 107px;
@@ -219,6 +219,20 @@ p {
   @include onDesktop {
     margin-left: 200px;
     margin-bottom: 318px;
+  }
+
+  &--subscribe {
+    margin-bottom: 0;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  
+    @include onDesktop {
+      margin-left: 0;
+      margin-bottom: 0;
+    }
+
   }
 
   &__text {
@@ -241,6 +255,18 @@ p {
     @include onDesktop {
       padding: 26px 67px;
     }
+
+    &:hover {
+      border-color: #d7dde3;
+      background-color: #fff;
+      box-shadow: 0 13px 27px rgba(210, 219, 230, 0.46);
+    }
+  
+    &:active {
+      border-color: #1a5a4c;
+      background-color: #1a5a4c;
+      box-shadow: 0 8px 14px rgba(232, 234, 236, 0.48);
+    }
   }
 
   &__button {
@@ -259,6 +285,26 @@ p {
       width: 70px;
       height: 70px;
     }
+
+    &--red {
+      border: transparent;
+      background-color: #f14a27;
+
+      padding: 0;
+    }
+
+    &:hover {
+      color: #13d1a8;
+      border-color: #1a5a4c;
+      background-color: #13d1a8;
+      box-shadow: 0 13px 27px rgba(210, 219, 230, 0.46);
+    }
+  
+    &:active {
+      border-color: #1a5a4c;
+      background-color: #1a5a4c;
+      box-shadow: 0 8px 14px rgba(232, 234, 236, 0.48);
+    }
   }
 
   &__arrow-right {
@@ -275,6 +321,55 @@ p {
       padding: 29px 31px;
     }
   }
+
+  &__email {
+    box-sizing: border-box;
+    width: 230px;
+    height: 50px;
+
+    padding-left: 24px;
+
+    background-color: #fff;
+
+    border: transparent;
+
+    margin-right: 0;
+
+    @include onTablet {
+      width: 374px;
+      height: 70px;
+
+      margin-right: 16px;
+    }
+  
+    @include onDesktop {
+      width: 470px;
+      height: 70px;
+      padding-left: 32px;
+      margin-right: 30px;
+    }
+
+    &::placeholder {
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 100%;
+      color: #687480;
+    }
+
+    &:hover {
+      border-color: #fff;
+      background-color: #fff;
+      box-shadow: 0 13px 27px rgba(210, 219, 230, 0.46);
+    }
+  
+    &:active {
+      border-color: #d7dde3;
+      background-color: #d7dde3;
+      box-shadow: 0 8px 14px rgba(232, 234, 236, 0.48);
+    }
+  }
 }
 
 .page__section {
@@ -286,6 +381,18 @@ p {
 
   @include onDesktop {
     margin-bottom: 200px;
+  }
+
+  &--desktop {
+    margin-bottom: 188px;
+
+    @include onTablet {
+      margin-bottom: 174px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 363px;
+    }
   }
 
   &-title {
@@ -800,6 +907,100 @@ p {
 
     &--1 > :nth-child(1) {
       background-image: url(../images/Ellipse_3.svg);
+    }
+  }
+}
+
+.subscribe {
+  
+
+  &__container {
+    position: relative;
+    max-width: 320px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    margin: 0 auto;
+
+    @include onTablet {
+      max-width: 768px;
+    }
+
+    @include onDesktop {
+      max-width: 1280px;
+    }
+  }
+  
+  &__image {
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    margin: 0 auto;
+
+    z-index: -1;
+
+    width: 320px;
+    height: 386px;
+
+    background-image: url(../images/Subscribe-phone.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onTablet {
+      width: 768px;
+      height: 380px;
+
+      background-image: url(../images/Subscribe_tab.png);
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    @include onDesktop {
+      width: 1280px;
+      height: 550px;
+
+      background-image: url(../images/Subscribe_Des.png);
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &__title {
+    display: block;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    font-family: IBM Plex Sans, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+
+    color: #fff;
+
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 72px;
     }
   }
 }
