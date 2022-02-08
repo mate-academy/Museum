@@ -1,7 +1,1236 @@
 @import "utils";
+@import "../../node_modules/swiper/swiper-bundle.min.css";
 @import "fonts";
-@import "typography";
 
-body {
-  background: $c-gray;
+@function getAdaptImgTo($percImage) {
+  @return 0 0 calc(((100vw - 68px) * #{$percImage}) + 34px);
+}
+
+@function getAdaptImgOver($percContent) {
+  @return 0 0
+    calc(
+      100vw - (((100vw - #{$md1}) / 2) + ((#{$md1} - 68px) * #{$md1}) + 34px)
+    );
+}
+
+//#region reset
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+ol li,
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+//#endregion
+
+//#region icons
+%ic {
+  font-family: "icons", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="_icon-"],
+[class*=" _icon-"] {
+  &::before,
+  &::after {
+    @extend %ic;
+    display: block;
+  }
+}
+
+._icon-arrow:after {
+  content: "\e900";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  @include square(50px);
+
+  transition: all 0.3s ease 0s;
+
+  @include onTablet {
+    @include square(70px);
+  }
+}
+
+._icon-arrow-t:before {
+  content: "\e901";
+}
+
+._icon-facebook:before,
+._icon-insta:before {
+  transition: all 0.3s ease 0s;
+}
+
+._icon-facebook:before {
+  content: "\e902";
+}
+
+._icon-insta:before {
+  content: "\e903";
+}
+//#endregion
+
+._container {
+  min-width: 0;
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  @media (max-width: ($md3+px)) {
+    padding: 0 20px;
+  }
+  padding: 0 34px;
+}
+
+.ibg {
+  position: relative;
+
+  &__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    object-fit: cover;
+    transition: all 0.3s ease 0s;
+  }
+}
+
+.page {
+  &__body {
+    &._lock {
+      overflow: hidden;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 100%;
+  }
+
+  &__main {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+.page,
+.page__body {
+  height: 100%;
+  font-family: $mainFont;
+  color: $textColor;
+  scroll-behavior: smooth;
+}
+
+.header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+
+  &__body {
+    @media (max-width: ($md3+px)) {
+      position: relative;
+      display: flex;
+      min-height: 80px;
+    }
+
+    @media (min-width: ($md3+px)) {
+      min-height: 102px;
+      @include gridContainer;
+    }
+  }
+
+  &__logo {
+    @include gridItem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    justify-self: center;
+    align-self: center;
+  }
+}
+
+.menu {
+  &__body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    padding-top: 120px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.95));
+    overflow: auto;
+    transition: left 0.3s ease 0s;
+    text-align: center;
+
+    @media (min-width: ($md3+px)) {
+      padding-top: 140px;
+    }
+
+    &::before {
+      content: "";
+      position: fixed;
+      z-index: 3;
+      width: 100%;
+      min-height: 80px;
+      top: 0;
+      left: -100%;
+      background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.9)
+      );
+      transition: left 0.3s ease 0s;
+
+      @media (min-width: ($md3+px)) {
+        min-height: 102px;
+      }
+    }
+
+    &._active {
+      left: 0;
+      &::before {
+        left: 0;
+      }
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include adaptiv-value("margin-bottom", 30, 20, 1);
+    }
+  }
+
+  &__link {
+    font-weight: 500;
+    @include adaptiv-value("font-size", 28, 22, 1);
+    line-height: 150%;
+    color: #fff;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        border-color: #fff;
+      }
+    }
+  }
+}
+
+.icon-menu {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  transform: translateY(-50%);
+  @include square(24px);
+  padding: 6px 3px;
+  cursor: pointer;
+
+  @media (min-width: 1238px) {
+    @include square(32px);
+  }
+
+  &__wrapper {
+    position: relative;
+    min-width: 18px;
+    min-height: 12px;
+  }
+
+  span {
+    transition: all 0.3s ease 0s;
+    top: calc(50% - 1px);
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #0f0e08;
+    &:first-child {
+      top: 0;
+    }
+    &:last-child {
+      top: auto;
+      bottom: 0;
+    }
+  }
+
+  &._active {
+    span {
+      transform: scale(0);
+      &:first-child {
+        transform: rotate(-45deg);
+        top: calc(50% - 1px);
+      }
+      &:last-child {
+        transform: rotate(45deg);
+        bottom: calc(50% - 1px);
+      }
+    }
+  }
+}
+
+.logo {
+  font-family: $secondFont;
+  font-size: 2.25rem;
+  line-height: 100%;
+  font-weight: 700;
+  color: $textColor;
+  transition: all 0.3s ease 0s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: #0e62ff;
+    }
+  }
+}
+
+.section {
+  &__home {
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 88px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__events {
+    margin-bottom: 60px;
+
+    @include onTablet {
+      margin-bottom: 112px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 104px;
+    }
+  }
+
+  &__lecture {
+    margin-bottom: 183px;
+
+    @include onTablet {
+      margin: 0 34px 208px;
+    }
+
+    @include onDesktop {
+      margin: 0 0 302px;
+    }
+  }
+
+  &__gallery {
+    min-width: 0;
+    margin-bottom: 100px;
+
+    @include onTablet {
+      margin-bottom: 92px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+}
+
+.home {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+
+  @include onDesktop {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  &__content {
+    flex: 0 0 100%;
+  }
+
+  &__container {
+    min-height: 100%;
+    @include onTablet {
+      position: relative;
+      @include gridContainer;
+    }
+  }
+
+  &__body {
+    @media (max-width: ($md3+px)) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: ($md3+px)) {
+      @include gridItem;
+      @include adaptiv-value("padding-top", 206, 58, 1);
+      @include adaptiv-value("padding-bottom", 115, -69, 1);
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-family: $secondFont;
+    font-size: 2.8rem;
+    line-height: 104%;
+    color: #000;
+    font-weight: 700;
+
+    @include onTablet {
+      font-size: 3.4rem;
+      line-height: 120%;
+      margin-bottom: 38px;
+    }
+
+    @include onDesktop {
+      font-size: 4.5rem;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__tickets-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1 1 100%;
+    min-height: 50px;
+    width: 280px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 500;
+    color: inherit;
+    border: 1px solid #1a5a4c;
+    transition: all 0.3s ease 0s;
+
+    & ._icon-arrow:after {
+      margin-left: 68px;
+      color: #d7dde3;
+      background-color: #1a5a4c;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        border-color: transparent;
+        cursor: pointer;
+        background-color: #1a5a4c;
+        color: #fff;
+
+        ._icon-arrow:after {
+          color: #1a5a4c;
+          background-color: #fff;
+        }
+      }
+    }
+
+    &:active {
+      border-color: transparent;
+      cursor: pointer;
+      background-color: #1a5a4c;
+      color: #fff;
+
+      ._icon-arrow:after {
+        color: #1a5a4c;
+        background-color: #fff;
+      }
+    }
+
+    @include onTablet {
+      max-width: 270px;
+    }
+
+    @include onDesktop {
+      margin-left: auto;
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @include onDesktop {
+      position: absolute;
+      left: -19px;
+      bottom: 58px;
+      display: inline-flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #687480;
+      transform: rotate(-90deg);
+
+      &::before {
+        content: "";
+        display: inline-flex;
+        height: 1px;
+        width: 70px;
+        margin-right: 20px;
+        background-color: #1a5a4c;
+      }
+    }
+  }
+
+  &__image {
+    max-width: 100%;
+    min-height: 300px;
+    @media (max-width: ($md3+px)) {
+      margin-bottom: 20px;
+    }
+
+    @include onTablet {
+      flex: getAdaptImgTo(0.48);
+      transform: translateX(-100%);
+    }
+
+    @include onDesktop {
+      min-width: 725px;
+      flex: getAdaptImgOver(0.4);
+      padding-bottom: 51%;
+    }
+  }
+}
+
+.events {
+  &__title {
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__event {
+    &:not(:last-child) {
+      margin-bottom: 60px;
+    }
+
+    @include toTablet {
+      &:not(:last-child) {
+        margin-bottom: 64px;
+      }
+    }
+
+    @include onDesktop {
+      &:not(:last-child) {
+        margin-bottom: 104px;
+      }
+    }
+  }
+}
+
+.title-section {
+  font-family: $secondFont;
+  color: $textColor;
+  font-size: 2.25rem;
+  font-weight: 700;
+
+  &--white {
+    color: #fff;
+  }
+
+  @media (max-width: ($md3+px)) {
+    text-align: center;
+  }
+
+  @include onTablet {
+    font-size: 3rem;
+  }
+}
+
+.event {
+  @include gridContainer;
+
+  &__image {
+    overflow: hidden;
+    @include gridItem;
+    display: block;
+    width: 100%;
+    max-height: 520px;
+    margin-bottom: 16px;
+    transition: all 0.3s ease 0s;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 75%;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 0 0 20px 2px rgba(34, 60, 80, 0.4);
+
+        & .ibg__img {
+          transform: scale(1.2);
+        }
+      }
+    }
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    @include gridItem;
+  }
+}
+
+.content-event {
+  display: block;
+  @include onDesktop {
+    align-self: center;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      .content-event__title,
+      .content-event__subtitle,
+      .content-event__text {
+        color: #1867fb;
+      }
+    }
+  }
+
+  &__title {
+    color: $textColor;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__date {
+    margin-left: 55px;
+    font-weight: 700;
+    line-height: 150%;
+
+    @include onTablet {
+      margin-left: 24px;
+    }
+  }
+
+  &__subtitle {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: $textColor;
+
+    @include onTablet {
+      margin-bottom: 15px;
+    }
+
+    &::after {
+      content: "";
+      position: relative;
+      top: 2px;
+      display: inline-block;
+      @include square(10px);
+      margin-left: 14px;
+      background-color: #f14a27;
+
+      @include onTablet {
+        @include square(15px);
+        top: 3px;
+        margin-left: 20px;
+      }
+    }
+  }
+
+  &__text {
+    font-weight: 300;
+    color: #4e4e4e;
+  }
+}
+
+.title-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+
+  @include onTablet {
+    font-size: 0.88rem;
+  }
+}
+
+.subtitle-content {
+  font-family: $secondFont;
+  font-size: 1.75rem;
+
+  @include onTablet {
+    font-size: 2.25rem;
+  }
+}
+
+.lecture {
+  background-image: url("../images/lectures/1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 210px;
+
+  @include onTablet {
+    min-height: 390px;
+  }
+
+  @include onDesktop {
+    min-height: 550px;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__content {
+    position: relative;
+    top: 153px;
+    max-width: 570px;
+    max-height: 204px;
+    padding: 20px 3px;
+    color: inherit;
+    background: #fff;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 0 0 20px 2px rgba(34, 60, 80, 0.2);
+      }
+    }
+
+    @media (max-width: ($md3+px)) {
+      text-align: center;
+    }
+
+    @include onTablet {
+      top: 306px;
+      padding: 45px 145px 55px 55px;
+    }
+
+    @include onDesktop {
+      top: 448px;
+      padding: 45px 100px 55px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    padding: 0 26px 0 21px;
+
+    @include onTablet {
+      padding: 0;
+    }
+  }
+
+  &__title-date {
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    line-height: 100%;
+  }
+}
+
+.gallery {
+  &__container {
+    position: relative;
+
+    @media (max-width: 1237px) {
+      &::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 100%;
+        top: 0;
+        z-index: 10;
+        left: 0;
+        background-color: #fff;
+
+        @media (min-width: ($md3+px)) {
+          width: 34px;
+        }
+      }
+    }
+  }
+
+  &__title {
+    @extend .events__title;
+  }
+
+  &__wrapper {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__items {
+    @include gridContainer {
+      grid-template-rows: 600px 360px;
+    }
+  }
+
+  &__item {
+    overflow: hidden;
+    @include gridItem;
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 0 0 20px 2px rgba(34, 60, 80, 0.4);
+
+        & .ibg__img {
+          transform: scale(1.2);
+        }
+      }
+    }
+
+    &:active {
+      box-shadow: 0 0 10px 2px rgba(34, 60, 80, 0.4);
+
+      & .ibg__img {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    padding-bottom: 146.5%;
+
+    @include onTablet {
+      padding-bottom: 159.7%;
+    }
+
+    @include onDesktop {
+      padding-bottom: 0;
+
+      height: 100%;
+    }
+  }
+
+  .pagination {
+    display: none;
+  }
+
+  @media (max-width: 1237px) {
+    .pagination {
+      display: flex;
+      justify-content: space-between;
+      width: 102px;
+      margin: 20px auto 0;
+
+      @media (min-width: ($md3+px)) {
+        margin-top: 32px;
+      }
+
+      .swiper-pagination-bullet {
+        @include square(9px);
+        margin: 0;
+      }
+    }
+  }
+}
+
+.subscription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 386px;
+  background-image: url("../images/subscription/1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include onTablet {
+    min-height: 380px;
+  }
+
+  @include onDesktop {
+    min-height: 550px;
+  }
+
+  &__container {
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 50px;
+    font-size: 1.13rem;
+    color: #fff;
+    line-height: 150%;
+
+    @media (min-width: ($md3+px)) {
+      margin-bottom: 64px;
+      line-height: 100%;
+    }
+
+    @include onDesktop {
+      margin-bottom: 72px;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__input {
+    padding: 0 24px;
+    line-height: 50px;
+    width: 230px;
+    @include adaptiv-value("margin-right", 30, 0, 1);
+    font-family: $secondFont;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: $textColor;
+    transition: box-shadow 0.3s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: inset 0 5px 30px 0 rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @include onTablet {
+      font-size: 1.13rem;
+      line-height: 70px;
+      min-width: 374px;
+    }
+
+    @include onDesktop {
+      padding: 0 32px;
+      min-width: 470px;
+    }
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 0.88rem;
+      line-height: 100%;
+      color: #687480;
+    }
+  }
+
+  &__button {
+    &._icon-arrow::after {
+      background-color: #f14a27;
+    }
+
+    &._icon-arrow {
+      @include hoverAfter(background-color, rgb(170, 52, 52)) {
+        box-shadow: inset 0 5px 30px 0 rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+.footer {
+  &__body {
+    padding: 50px 0 56px;
+
+    @include onTablet {
+      padding: 50px 0 36px;
+    }
+
+    @include onDesktop {
+      padding-top: 46px;
+    }
+  }
+
+  &__content {
+    @include gridContainer;
+
+    font-size: 0.88rem;
+    color: $textColor;
+    margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 120px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 87px;
+    }
+  }
+
+  &__top {
+    @include gridItem;
+
+    @media (max-width: ($md3+px)) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__logo {
+    @include onTablet {
+      display: inline-block;
+      margin-bottom: 62px;
+    }
+  }
+
+  &__scls {
+    display: block;
+
+    & .footer__scls-link {
+      display: inline-block;
+      font-size: 24px;
+      color: #000;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+
+      @include onTablet {
+        &:not(:last-child) {
+          margin-right: 32px;
+        }
+      }
+
+      @include onDesktop {
+        &:not(:last-child) {
+          margin-right: 22px;
+        }
+      }
+    }
+
+    & ._icon-facebook,
+    & ._icon-insta {
+      @include hoverBefore(transform, scale(1.2));
+
+      @include activeBefore(transform, scale(1));
+    }
+  }
+
+  &__work-time {
+    @include gridItem;
+  }
+
+  &__contacts {
+    @include gridItem;
+  }
+
+  &__line {
+    @include gridItem;
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: 70px 0 40px;
+    background: rgba(26, 90, 76, 0.5);
+
+    @include onDesktop {
+      width: 1px;
+      height: 264px;
+      justify-self: center;
+      margin: 0;
+    }
+  }
+
+  &__menu {
+    @include gridItem;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    line-height: 100%;
+  }
+
+  &__foot {
+    text-align: center;
+    font-size: 0.75rem;
+    line-height: 140%;
+    font-weight: 300;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  & a {
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #1867fb;
+      }
+    }
+
+    &:active {
+      color: #1867fb;
+    }
+  }
+}
+
+.work-time {
+  line-height: 150%;
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+    & .times {
+      font-weight: 600;
+    }
+
+    & .weekend {
+      @include onDesktop {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.contacts {
+  color: $textColor;
+  line-height: 150%;
+
+  &__link {
+    display: block;
+
+    &--address {
+      color: inherit;
+    }
+
+    &--phone {
+      color: inherit;
+    }
+
+    &--fax {
+      color: inherit;
+    }
+
+    &--email {
+      color: inherit;
+    }
+  }
+}
+
+.title-footer {
+  line-height: 140%;
+  margin-bottom: 24px;
+}
+
+.up {
+  position: fixed;
+  text-align: center;
+  bottom: 280px;
+  right: 20px;
+  z-index: 100;
+  display: none;
+  @include square(50px);
+  border-radius: 50%;
+  border: 1px solid #1a5a4c;
+  transition: all 0.3s ease 0s;
+
+  &._icon-arrow-t::before {
+    font-size: 12px;
+    color: #1a5a4c;
+    line-height: 50px;
+    transition: all 0.3s ease 0s;
+  }
+
+  &._up-show {
+    display: block;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      cursor: pointer;
+      background-color: #1a5a4c;
+
+      &._icon-arrow-t::before {
+        color: #fff;
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  &:active {
+    background-color: #1a5a4c;
+
+    &._icon-arrow-t::before {
+      color: #fff;
+      transform: scale(1.3);
+    }
+  }
 }
