@@ -1,0 +1,173 @@
+$icon-width: 18px;
+
+.header {
+  &__actions {
+    display: grid;
+    grid-template-columns: $icon-width 1fr;
+    justify-items: center;
+    align-items: center;
+  
+    margin-bottom: 250px;
+  
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  
+    @include onDesktop {
+      margin-bottom: 120px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    max-width: 1280px;
+
+    margin: 0 auto;
+    padding: 9px 0 0;
+
+    @include onTablet {
+      padding: 15px 0 0;
+    }
+
+    @include onDesktop {
+      padding: 15px 0 0;
+    }
+  }
+  
+  &__title {
+    font-family: $font-text;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 38px;
+
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+  
+    @include onDesktop {
+      margin-bottom: 90px;
+
+      font-size: 72px;
+      line-height: 120%;
+      text-align: left;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 320px;
+    height: 300px;
+
+    z-index: -1;
+
+    @include onTablet {
+      width: 374px;
+      height: 384px;
+    }
+  
+    @include onDesktop {
+      width: 725px;
+      height: 655px;
+    }
+  }
+
+  &__logo {
+    width: 55px;
+    height: 60px;
+
+    transition: box-shadow $transition-time;
+
+    @include onTablet {
+      width: 62px;
+      height: 72px;
+    }
+  
+    @include onDesktop {
+      width: 62px;
+      height: 72px;
+    }
+
+    &:hover {
+      box-shadow: 0 13px 37px rgb(255, 251, 250);
+    }
+
+    &--menu:hover {
+      box-shadow: 0 13px 37px rgba(202, 195, 192, 0.94);
+    }
+  }
+
+  &__icon {
+    width: 18px;
+    height: 12px;
+    
+    transition: transform $transition-time,
+      box-shadow $transition-time;
+
+    &--menu {
+      background-image: url(../images/Menu.png);
+    }
+
+    &--cross {
+      width: 21px;
+      height: 21px;
+
+      background-image: url(../images/Cross.svg);
+      
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 13px 37px rgba(255, 251, 250, 0.94);
+      }
+    }
+  }
+
+  &__events {
+    margin-right: 150px;
+    position: absolute;
+    left: 45px;
+    top: 535px;
+
+    font-family: $font-title;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 100%;
+    color: $colore-gray;
+
+    transform: rotate(-90deg);
+    display: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 70px;
+      left: -56px;
+      top: -28px;
+
+      background: $colore-green;
+      transform: rotate(-90deg);
+      overflow: hidden;
+    }
+  
+    @include onDesktop {
+      overflow: visible;
+      display: block;
+    }
+  }
+}
