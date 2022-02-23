@@ -1,0 +1,101 @@
+.slider {
+  margin-bottom: 133px;
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+  &__item {
+    margin-right: 16px;
+    width: 280px;
+    overflow: hidden;
+
+    @include onTablet {
+      margin-right: 20px;
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 100%;
+    }
+    &--1 {
+      grid-area: 1 / 1 / 2 / 5;
+    }
+    &--3 {
+      grid-area: 1 / 5 / 2 / -1;
+    }
+    &--4 {
+      grid-area: 2 / 1 / 3 / 9;
+    }
+    &--5 {
+      grid-area: 2 / 9 / 3 / -1;
+    }
+  }
+  &__window {
+    height: 410px;
+    overflow: scroll;
+
+    @include onTablet {
+      height: 543px;
+      object-fit: contain;
+    }
+
+    @include onDesktop {
+      height: 960px;
+      overflow: hidden;
+    }
+  }
+  &__picture {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+
+    &--2 {
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+  &__container {
+    position: relative;
+    height: 410px;
+    width: 1460px;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    transition-duration: 1s;
+
+    @include onTablet {
+      height: 543px;
+      width: 1775px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      height: 100%;
+      width: max-content;
+      max-width: 1140px;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+      grid-template-rows: 600px 360px;
+    }
+  }
+  &__switcher {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+  &__dot {
+    margin: 20px 11px;
+    border-radius: 50%;
+    width: 9px;
+    height: 9px;
+    background: #e0e0e0;
+  }
+  &__dot--active {
+    background-color: #1a5a4c;
+  }
+}
