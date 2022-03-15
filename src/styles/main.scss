@@ -1,7 +1,152 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "./normalize";
+@import "./utils/mixin";
+@import "./blocks/grid.scss";
 
-body {
-  background: $c-gray;
+.page {
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+  }
+}
+
+.container {
+  padding: 9px 20px 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include onTablet {
+    max-width: 768px;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    // height: 700px;
+    // width: 916px;
+    // padding: 48px 0 0;
+  }
+
+  @include onDesktop {
+    max-width: 1024px;
+  }
+
+  @include onBigDesktop {
+    max-width: 1280px;
+    padding: 15px 55px 0;
+  }
+}
+
+.header {
+  position: relative;
+  padding: 0;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  &__nav {
+
+    @media (max-width: 320px) {
+      position: absolute;
+      top: 9px;
+      display: flex;
+      align-items: center;
+    }
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 250px;
+      // // margin-bottom: 40px;
+    }
+  }
+
+  &__menu-opener {
+    display: block;
+    width: 18px;
+    height: 12px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../images/menu-opener.png);
+
+    margin-right: 91px;
+    z-index: 2;
+
+    @include onTablet {
+      margin-right: 339px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    // text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      margin-bottom: 38px;
+    }
+
+    @include onBigDesktop {
+      margin-bottom: 89px;
+      line-height: 120%;
+    }
+  }
+
+  &__image-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+
+    background-image: url(../images/header/header-image.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    // overflow: hidden;
+    // border-radius: 30px;
+
+    @include onTablet {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50%;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      width: 58%;
+      height: 725px;
+    }
+
+    @include onLargeDesktop {
+      justify-content: flex-end;
+    }
+  }
+}
+
+.logo {
+  z-index: 2;
+
+  @include onTablet {
+    width: 220px;
+  }
+
+  &__image {
+    display: block;
+    width: 55px;
+    height: 61px;
+
+    margin: 0 auto;
+  }
 }
