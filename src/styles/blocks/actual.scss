@@ -1,0 +1,92 @@
+.actual {
+
+  &__title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    color: $title-color;
+  }
+
+  &__article {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 60px;
+
+    @include On768 {
+      max-width: 700px;
+      margin: 0 auto 64px;
+    }
+
+    @include On1280 {
+      max-width: 100%;
+      margin: 0 0 104px;
+    }
+
+    &-images {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      @include hover(transform, scale);
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  
+    &-image-container {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 500px;
+      height: 210px;
+      overflow: hidden;
+      margin-bottom: 20px;
+  
+      @include On768 {
+        height: 520px;
+        max-width: 700px;
+        margin-bottom: 40px;
+      }
+  
+      @include On1280 {
+        margin-bottom: 0;
+      }
+  
+      &::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+  
+    &-image {
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: cover;
+    }
+
+    &-description {
+      display: block;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 150%;
+      color: #4e4e4e;
+      min-width: 320px;
+      margin: 0 auto;
+  
+      @include On768 {
+        margin: 0;
+      }
+
+      @include On1280 {
+        max-width: 370px;
+      }
+    }
+  }
+}
