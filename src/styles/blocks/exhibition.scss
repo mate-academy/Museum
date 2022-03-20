@@ -1,0 +1,121 @@
+.exhibition {
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__picture {
+    width: 100%;
+    margin-bottom: 16px;
+    transition: transform 0.5s;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+      width: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__when {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      justify-content: flex-start;
+      margin-bottom: 30px;
+    }
+
+    &-type {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      color: $grey;
+
+      @include onTablet {
+        font-size: 14px;
+        margin-right: 34px;
+      }
+    }
+
+    &-dates {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 150%;
+      color: $darkGreen;
+
+      @include onTablet {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 15px;
+    }
+
+    &-name {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 100%;
+      color: $almostBlack;
+
+      @include onTablet {
+        font-size: 36px;
+      }
+    }
+
+    &-squre {
+      margin-left: $squre-size;
+      width: $squre-size;
+      height: $squre-size;
+      background-color: $orange;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+        margin-left: 15px;
+      }
+    }
+  }
+
+  &__detail {
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__container-info {
+    @include onTablet {
+      max-width: 460px;
+    }
+  }
+
+  &__info {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: #4e4e4e;
+  }
+}
