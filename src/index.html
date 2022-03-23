@@ -13,6 +13,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    >
   </head>
   <body>
 
@@ -28,9 +32,9 @@
               <ul class="menu__box">
                 <li><a class="menu__item" href="#main">Головна</a></li>
                 <li><a class="menu__item" href="#actual">Актуальні події</a></li>
-                <li><a class="menu__item" href="#">Галерея</a></li>
-                <li><a class="menu__item" href="#">Підписка</a></li>
-                <li><a class="menu__item" href="#">Контакти:</a></li>
+                <li><a class="menu__item" href="#gallery">Галерея</a></li>
+                <li><a class="menu__item" href="#subscription">Підписка</a></li>
+                <li><a class="menu__item" href="#contacts">Контакти:</a></li>
               </ul>
             </div>
             <a href="#" class="header__link header__link--logo  grid__item grid__item--6-7">
@@ -100,18 +104,85 @@
         <img src="./images/actual.jpg" alt="img" class="lection__image">
         <div class="lection__wrapper grid">
           <div class="lection__info grid__item grid__item--4-9">
-            <p class="lection__subtitle">ВИСТАВКА</p>
-            <p class="lection__date">26.08-29.11.2019</p>
+            <p class="lection__subtitle">ЛЕКЦІЯ</p>
+            <p class="lection__date">26/08/2019 - 11:00</p>
             <a class="lection__link" href="#">
-              <h3 class="lection__title">Йду і повертаюсь
+              <h3 class="lection__title">Від класицизму до романтизму
               </h3>
             </a>
           </div>
         </div>
       </section>
+
+      <section class="gallery" id="gallery">
+
+        <div class="gallery__wrapper">
+          <div class="grid container">
+            <h2 class="gallery__title grid__item grid__item--1-3">Галерея</h2>
+          </div>
+          <div class="container grid">
+            <img src="./images/gallery1.jpg" alt="img" class="gallery__image grid__item grid__item--1-4">
+            <img src="./images/gallery2.jpg" alt="img" class="gallery__image grid__item grid__item--5-12">
+            <img src="./images/gallery3.jpg" alt="img" class="gallery__image grid__item grid__item--1-8">
+            <img src="./images/gallery4.jpg" alt="img" class="gallery__image grid__item grid__item--9-12">
+          </div>
+        </div>
+
+        <div class="gallery__wrapper gallery__wrapper--mobile">
+          <div class="grid">
+            <h2 class="gallery__title grid__item grid__item--1-3">Галерея</h2>
+          </div>
+          <div class="swiper-container slider">
+            <div class="swiper-wrapper slider__wrapper">
+
+              <div class="swiper-slide slider__slide">
+                <div class="slider__image-wrapper"><img src="./images/gallery1.jpg" alt="img" class="slider__image"></div>
+              </div>
+              
+              <div class="swiper-slide slider__slide">
+                <div class="slider__image-wrapper"><img src="./images/gallery5.jpg" alt="img" class="slider__image"></div>
+              </div>
+              
+              <div class="swiper-slide slider__slide">
+                <div class="slider__image-wrapper"><img src="./images/gallery6.jpg" alt="img" class="slider__image"></div>
+              </div>
+
+              <div class="swiper-slide slider__slide">
+                <div class="slider__image-wrapper"><img src="./images/gallery7.jpg" alt="img" class="slider__image"></div>
+              </div>
+
+            </div>
+            <div class="slider__pagination"></div>
+          </div>
+        </div>
+      </section>
       
     </main>
+    <script type="module">
+      import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
+    
+      const swiper = new Swiper('.slider', {
+        pagination: {
+          el: '.slider__pagination',
+          clickable: true,
+          dynamicBullets: true,
+        },
 
+        slidesPerView: 1.1,
+        spaceBetween: 20,
+        slidesPerGroup: 1,
+        
+
+        breakpoints: {
+          739: {
+            slidesPerView: 2.1,
+            spaceBetween: 20,
+          },
+        }
+      });
+      
+    </script>
     <script type="text/javascript" src="scripts/main.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   </body>
 </html>
