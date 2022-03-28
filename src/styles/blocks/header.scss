@@ -1,3 +1,168 @@
 .header {
-  font-size: 45px;
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 70px;
+
+  @include onTablet {
+    flex-direction: row;
+
+    margin-bottom: 80px;
+  }
+
+  &__bg {
+    min-height: 300px;
+    background: center/ cover no-repeat url("../images/header.png");
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      width: 50%;
+      min-height: 400px;
+
+      order: 2;
+    }
+
+    @include onTablet {
+      width: 60%;
+      min-height: 650px;
+    }
+  }
+
+  &__row {
+    padding: 9px 23px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menu-desktop {
+    display: none;
+    @include onTablet {
+      display: inline-block;
+      padding: 45px 0;
+
+      margin-bottom: 35px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 100px;
+    }
+  }
+
+  .menu-phone {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__logo {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 100%;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 45px;
+    text-align: center;
+    color: #000;
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+
+      text-align: left;
+
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 120%;
+
+      margin-bottom: 90px;
+    }
+  }
+
+  &__btn {
+    display: flex;
+
+    @include onTablet {
+      max-width: 300px;
+    }
+
+    @include onDesktop {
+      transform: translateX(80%);
+    }
+  }
+
+  &__link {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+
+    padding: 18px 80px;
+    border: 2px solid #1a5a4c;
+    width: 100%;
+
+    transition: background-color 0.3s,
+      color 0.3s,
+      transform 0.3s,
+      box-shadow 0.3s;
+
+    @include onTablet {
+      padding: 30px 70px;
+    }
+
+    &:hover {
+      transform: scale(0.9);
+      background-color: #1a5a4c;
+      color: #fff;
+      box-shadow: rgba(255, 255, 255, 0.1) 0 1px 1px 0 inset,
+        rgba(50, 50, 93, 0.25) 0 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0 30px 60px -30px;
+    }
+  }
+
+  &__arrow {
+    width: 100%;
+    max-width: 50px;
+    background: center / 10px no-repeat url("../images/icons/arr.png") #1a5a4c;
+
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: scale(0.9);
+      box-shadow: rgba(255, 255, 255, 0.1) 0 1px 1px 0 inset,
+        rgba(50, 50, 93, 0.25) 0 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0 30px 60px -30px;
+    }
+  }
+
+  &__events {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+    text-transform: uppercase;
+
+    display: none;
+
+    &-link {
+      transform: rotate(270deg);
+      display: inline-block;
+    }
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
 }
