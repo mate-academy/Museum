@@ -1,0 +1,121 @@
+.gallery {
+  margin-bottom: 100px;
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+
+  &__title {
+    @extend %h2;
+
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+
+  &__photos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      display: grid;
+
+      margin-bottom: 32px;
+    }
+  }
+
+  &__photo {
+    &:nth-child(1){
+      display: none;
+
+      @include onDesktop{
+        display: block;
+      }
+    }
+    &:nth-child(2){
+      display: none;
+
+      @include onDesktop{
+        display: block;
+      }
+    }
+    &:nth-child(3){
+      display: none;
+
+      @include onDesktop{
+        display: block;
+      }
+    }
+    &:nth-child(4){
+      display: none;
+
+      @include onDesktop{
+        display: block;
+      }
+    }
+    &:nth-child(5){
+
+      display: flex;
+      justify-content: center;
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &:last-child{
+      display: none;
+
+      @include onTablet{
+        display: block;
+      }
+      @include onDesktop{
+        display: none;
+      }
+    }
+  }
+
+  &__image {
+    @include onTablet {
+      width: 100%;
+    }
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+    
+  }
+
+  &__scroll {
+    display: flex;
+    justify-content: center;
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &-item {
+      margin-right: 22px;
+      height: 9px;
+      width: 9px;
+      background-color: #e0e0e0;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:first-child {
+        background-color: $grean;
+      }
+
+      &:hover {
+        background-color: $grean;
+      }
+    }
+  }
+}
