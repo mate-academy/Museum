@@ -1,5 +1,4 @@
 .footer {
-
   &__top {
     display: flex;
     justify-content: space-between;
@@ -34,7 +33,8 @@
     &:hover {
       transition: 0.3s;
       transform: scale(1.1);
-      filter: brightness(0) saturate(100%) invert(32%) sepia(4%) saturate(5058%) hue-rotate(117deg) brightness(92%) contrast(99%);
+      filter: brightness(0) saturate(100%) invert(32%) sepia(4%) saturate(5058%)
+        hue-rotate(117deg) brightness(92%) contrast(99%);
     }
   }
 
@@ -64,6 +64,16 @@
     }
   }
 
+  &__links {
+    text-decoration: none;
+    color: $hColor;
+
+    &:hover {
+      color: $elementColor;
+      text-decoration: underline;
+    }
+  }
+
   &__span {
     font-weight: 600;
   }
@@ -72,7 +82,7 @@
     max-width: 129px;
     font-size: 14px;
     line-height: 21px;
-    
+
     @include tabletScreen {
       max-width: 100%;
     }
@@ -83,12 +93,29 @@
     justify-content: space-between;
   }
 
+  &__arrow-btn {
+    display: flex;
+    justify-content: end;
+    grid-column: 1/3;
+
+    @include tabletScreen {
+      display: none;
+    }
+  }
+
+  &__arrow-img {
+    &:hover {
+      transition: 0.3s;
+      transform: scale(1.1);
+    }
+  }
+
   &__line {
     display: flex;
     grid-column: 1/3;
     height: 1px;
     background: rgba(26, 90, 76, 0.5);
-    margin: 70px 0 40px;
+    margin: 20px 0 40px;
 
     @include tabletScreen {
       grid-column: 2/6;
@@ -96,12 +123,11 @@
     }
 
     @include desktopScreen {
-       grid-column: 7/8;
-       width: 1px;
-       height: 260px;
-       justify-self: center;
-       margin: 0;
-      
+      grid-column: 7/8;
+      width: 1px;
+      height: 260px;
+      justify-self: center;
+      margin: 0;
     }
   }
 
@@ -121,17 +147,17 @@
     font-weight: 300;
     font-size: 12px;
     line-height: 17px;
+  }
+ 
+  &__block {
+    margin-bottom: 80px;
+
+    @include tabletScreen {
+      margin-bottom: 120px;
     }
 
-    &__block {
-      margin-bottom: 80px;
-
-      @include tabletScreen {
-        margin-bottom: 120px;
-      }
-
-      @include desktopScreen {
-        margin-bottom: 87px;
-      }
+    @include desktopScreen {
+      margin-bottom: 87px;
     }
+  }
 }
