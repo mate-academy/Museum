@@ -1,0 +1,26 @@
+.dots {
+  width: 100px;
+  justify-content: space-between;
+  margin: 20px auto;
+  display: flex;
+  &__dot {
+    width: 9px;
+    height: 9px;
+    margin-right: 4px;
+    background: #e0e0e0;
+    border-radius: 50%;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @for $dotCount from 1 through 5 {
+    &--#{$dotCount} span:nth-child(-n+#{$dotCount}) {
+      background: #1A5A4C;
+    }
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+}
