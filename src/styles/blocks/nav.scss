@@ -1,0 +1,96 @@
+.nav {
+  box-sizing: border-box;
+  transition: transform, 0.5s;
+  transform: translateX(100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  height: 100vh;
+  @extend %base-top-padd-header;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__background {
+    @extend %background-position;
+    @include Tablet {
+      animation: height 3s ease-in forwards;
+    }
+  }
+
+  @keyframes height {
+    to {
+      height: 100vh;
+    }
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    padding: 10px 0;
+    // border-right: 3px solid $color-orange;
+    margin-bottom: 3px;
+
+    @include Tablet {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__link {
+    @extend %ff--Montserrat;
+    font-size: 24px;
+    line-height: 100%;
+    transition: border-bottom 1s ease-in, color 1s ease-in;
+    border-bottom: 3px solid transparent;
+
+    @include Tablet {
+      font-size: 36px;
+    }
+
+    @include Desktop {
+      font-size: 48px;
+    }
+
+    &::before {
+      content: "# ";
+      color: $color-orange;
+      width: 0.75em;
+      display: none;
+      animation: margin-right 1s forwards;
+    }
+
+    &:hover::before {
+      display: inline-block;
+    }
+
+    @keyframes margin-right {
+      from {
+        margin-right: 0;
+      }
+      to {
+        margin-right: 13px;
+      }
+    }
+    &:hover {
+      color: $color-orange;
+      border-bottom: 3px solid $color-orange;
+    }
+  }
+
+  &__top-action {
+    margin-bottom: $h-header-mobile;
+
+    @include Tablet {
+      margin-bottom: 40px;
+    }
+  
+    @include Desktop {
+      margin-bottom: 120px;
+    }
+  }
+}

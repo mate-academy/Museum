@@ -1,0 +1,70 @@
+.header {
+  position: relative;
+
+  &__background {
+    @extend %background-position;
+  }
+
+  &__content {
+    @extend %base-top-padd-header;
+
+    @include Desktop {
+      height: $h-header-desktop;
+    }
+  }
+
+  &__title {
+    @extend %ff--Montserrat;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: $color-title;
+    margin-bottom: 20px;
+
+    @include Tablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+      margin-bottom: 38px;
+    }
+
+    @include Desktop {
+      font-size: 72px;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__uniq-link {
+    display: none;
+    transform-origin: left;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: lowercase;
+    color: #687480;
+
+    @include Desktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      transform: rotate(270deg);
+      position: absolute;
+      bottom: 0;
+    }
+
+    &::before {
+      content: "";
+      width: 70px;
+      height: 1px;
+      display: block;
+      background-color: $color-btn;
+    }
+  }
+
+  &__top-action {
+    @extend %mb-top-action-header;
+  }
+}
