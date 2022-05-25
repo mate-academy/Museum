@@ -27,6 +27,18 @@
 
   &__item {
 
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--onMob_#{$start}-#{$end} {
+          @media (min-width: 100px) {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    
+
     @for $start from 1 through 6 {
       @for $end from $start through 6 {
         &--onTab_#{$start}-#{$end} {
@@ -44,14 +56,6 @@
             grid-column: #{$start} / #{$end + 1};
           }
         }
-      }
-    }
-
-    &--slider {
-      grid-column-start: 7;
-
-      @media (min-width: 1600px) {
-        grid-column-start: 8;
       }
     }
   }
