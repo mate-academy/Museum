@@ -1,0 +1,64 @@
+.galery {
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: $colortitle;
+    text-align: center;
+    margin-top: 100px;
+
+    @include onDesktop {
+      font-size: 48px;
+      padding-right: 900px;
+    }
+  }
+
+  &_photos {
+    display: grid;
+    grid-template-columns: repeat(5, 280px);
+    overflow: hidden;
+    gap: 20px;
+    box-sizing: border-box;
+    padding-left: 20px;
+
+    @include onIpad {
+      grid-template-columns: repeat(5, 340px);
+    }
+
+    @include onDesktop {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &--item {
+      margin-top: 40px;
+      width: 280px;
+      height: 410px;
+
+      &--hiden {
+        @include onDesktop {
+          display: none;
+        }
+      }
+
+      @include onIpad {
+        width: 340px;
+        height: 543px;
+      }
+
+      @include onDesktop {
+        width: unset;
+        height: unset;
+        max-width: 770px;
+        transition: $transition9;
+
+        &:hover {
+          transform: scale(1.05);
+          transition: $transition3;
+        }
+      }
+    }
+  }
+}
