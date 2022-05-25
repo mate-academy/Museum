@@ -1,4 +1,4 @@
-This 📁 repository is demonstrated a possible solution of visualization of the layout design of the kickstarter page.
+This 📁 repository is demonstrated a possible solution of visualization of the layout design of the museum page.
 
 The main purpose of this project is mastering HTML & CSS with minimum JS involving.
 
