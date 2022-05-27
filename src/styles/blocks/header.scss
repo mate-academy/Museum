@@ -1,0 +1,161 @@
+.header {
+  &__image {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    @include onTablet {
+      width: 50%;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      width: 55%;
+      height: 655px;
+    }
+  }
+
+  &__image-container {
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include onTablet {
+      left: 50%;
+    }
+
+    @include onDesktop {
+      left: 45%;
+    }
+  }
+
+  &__text {
+    // position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 250px;
+
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 9px 0;
+
+    @include onTablet() {
+      display: block;
+      padding: 15px 0;
+      // margin-bottom: 40px;
+      // gap: 40px;
+    }
+
+    // @include onDesktop() {
+    //   padding: 42px 0 80px;
+    // }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $fontMont;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: $mainBlack;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+      margin-bottom: 16px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__events {
+    display: none;
+    bottom: 30px;
+    position: relative;
+    writing-mode: vertical-rl;
+    transform: scale(-1);
+
+    font-family: $fontIbn;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &::before {
+      // writing-mode: vertical-rl;
+      // transform: scale(-1);
+      content: "";
+      display: inline-block;
+      margin-bottom: 20px;
+      // border: 1px solid red;
+      width: 1px;
+      height: 70px;
+      background-color: $colorGreen;
+    }
+  }
+
+  &__button {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+
+    @include onTablet {
+      grid-template-columns: 200px 70px;
+    }
+
+    @include onDesktop {
+      margin-left: 18%;
+    }
+  }
+
+  &__button-text {
+    display: block;
+    box-sizing: border-box;
+    height: 50px;
+    border: 1px solid $colorGreen;
+    font-family: $fontIbn;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 50px;
+    text-align: center;
+    color: $colorBlack;
+
+    @include onTablet {
+      height: 70px;
+      line-height: 70px;
+    }
+  }
+
+  &__button-link {
+    display: block;
+    height: 50px;
+    width: 50px;
+    background-color: $colorGreen;
+    background-image: url(../images/go.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 70px;
+      width: 70px;
+    }
+  }
+}
