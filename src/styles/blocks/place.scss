@@ -1,0 +1,102 @@
+.place {
+  &__photo-container {
+    position: relative;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 210px;
+    margin-bottom: 16px;
+
+    @include onTablet {
+      height: 520px;
+      margin-bottom: 40px;
+      padding-bottom: 0;
+    }
+
+    @include onDesktop {
+      height: 520px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .grid .place__photo--1 {
+    @include onDesktop {
+      display: block;
+      grid-column: 1 /8;
+    }
+  }
+
+  &__exhibition {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__exhibition--show {
+    font-weight: 500;
+    line-height: 100%;
+    color: $colorShow;
+  }
+
+  &__exhibition--data {
+    font-weight: 700;
+    color: $colorShowData;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    color: $colorText_H2_H3;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 15px;
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      width: 10px;
+      height: 10px;
+      margin-left: 15px;
+      background-color: #f14a27;
+    }
+  }
+
+  &__paragraf {
+    color: $colorTextParagraf;
+    margin-bottom: 60px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    &--tablet {
+      @include onTablet {
+        margin-bottom: 112px;
+      }
+    }
+  }
+}
