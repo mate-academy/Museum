@@ -9,6 +9,20 @@
     object-position: center;
     transition: transform 0.3s;
 
+    &--2,
+    &--3,
+    &--4 {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
     &:hover {
       transform: scale(1.05);
     }
@@ -24,8 +38,14 @@
   }
 
   &__photo--desktop {
+    @include onTablet {
+      display: none;
+    }
+
     @include onDesktop {
+      display: block;
       height: 360px;
+      margin-bottom: 200px;
     }
   }
 
