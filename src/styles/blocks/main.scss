@@ -1,0 +1,152 @@
+.main {
+    padding-bottom: 70px;
+
+    @include onTablet {
+      padding-bottom: 88px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 200px;
+    }
+
+  &__container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+
+    @include onTablet {
+      flex-direction: row;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+    }
+  }
+
+  &__image {
+    display: block;
+    height: 300px;
+    margin: 0 -20px;
+    object-fit: cover;
+    object-position: center;
+
+    @include onTablet {
+      margin: 0;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      height: 655px;
+      // margin: 0;
+      // width: 725px;
+      // margin: 0 55px;
+
+    }
+  }
+
+  &__content {
+
+    @include onTablet {
+      align-self: flex-end;
+      padding-bottom: 19px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 0;
+    }
+  }
+
+  &__title {
+    margin: 0 0 30px;
+
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: $mainBlack;
+
+    @include onTablet {
+      margin: 0 0 38px;
+
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin: 0 35px 90px 0;
+
+      font-size: 72px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+
+    @include onDesktop {
+      justify-content: end;
+    }
+  }
+
+  &__actions-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 50px;
+    width: 100%;
+    border: 1px solid $colorGreen;
+    font-family: $fontIbn;
+    font-weight: 500;
+
+    @include onTablet {
+      width: 200px;
+      height: 70px;
+    }
+  }
+
+  &__actions-link {
+    display: block;
+    height: 50px;
+    width: 50px;
+    background-color: $colorGreen;
+    background-image: url(../images/go.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 70px;
+      width: 70px;
+    }
+  }
+
+  &__events {
+    display: none;
+    height: max-content;
+    bottom: 30px;
+    writing-mode: vertical-rl;
+    transform: scale(-1);
+
+    font-family: $fontIbn;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      margin-bottom: 20px;
+      width: 1px;
+      height: 70px;
+      background-color: $colorGreen;
+    }
+  }
+}
+
