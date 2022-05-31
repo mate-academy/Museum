@@ -1,18 +1,71 @@
 .header {
-  background-image: url(../images/header.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 300px;
+  &__backgroundImg {
+    background-image: url(../images/header_h200.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    margin-bottom: 20px;
 
-  &__nav {
-    display: flex;
+    @include onTablet {
+      height: 384px;
+      background-size: 60%;
+      background-position: top right;
+    }
+
+    @include onDesktop {
+      height: 656px;
+    }
+  }
+
+  &__content {
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      width: 1%;
+    }
   }
 
   &__title {
+    margin-bottom: 20px;
     font-weight: 700;
     font-size: 45px;
     line-height: 100%;
     color: #000;
+    text-align: center;
+  }
+
+  &__tickets {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--field {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $colorShowData;
+      width: 280px;
+      height: 50px;
+      text-align: center;
+    }
+
+    &--button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      background-color: $colorShowData;
+
+      &-arrow {
+        width: 8px;
+        height: 12px;
+      }
+    }
   }
 }
