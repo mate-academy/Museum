@@ -3,15 +3,23 @@
   height: 100vh;
   box-sizing: border-box;
   background-color: $dot-color-grey;
+  background-image: url(../images/head.jpg);
+  background-size: cover;
+  background-position-x: 20%;
+  background-repeat: no-repeat;
   overflow-y: auto;
   padding: 33px 0;
 
   @include onTablet {
     padding: 45px 0;
+    background-size: cover;
+    background-position: top left;
   }
 
   @include onDesktop {
     padding: 45px 0;
+    background-size: contain;
+    background-position-x: right;
   }
 
   &__icon {
@@ -22,6 +30,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 60px;
+    transition: transform 0.5s;
+
+    &:hover {
+      transition: transform 0.5s;
+      transform: rotate(180deg);
+      background-image: url(../images/cross-green.svg);
+    }
   }
 
 
@@ -47,6 +62,10 @@
     color: $main-color-black;
     text-decoration: none;
 
+    &:hover {
+      color: $button-color-green;
+    }
+
     @include onTablet {
       font-size: 36px;
       line-height: 100%;
@@ -67,7 +86,8 @@
     transition: border-color 0.3s;
 
     &:hover {
-      border-color: $main-color-black;
+      color: $button-color-green;
+      border-color: $button-color-green;
     }
   }
 
