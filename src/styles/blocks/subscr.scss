@@ -1,49 +1,87 @@
 .subscr {
+  box-sizing: border-box;
   height: 386px;
-  padding: 0 82px;
-  background-image: url(../images/subs.png);
+  padding: 82px 20px;
+  margin-bottom: 18px;
+  background-image: url(../images/subsMob.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   @include onTablet {
     height: 380px;
+    margin-bottom: 51px;
+    background-image: url(../images/subs.png);
   }
 
   @include onDesktop {
     height: 550px;
+    padding: 163px 0;
+    margin-bottom: 48px;
   }
 
   &__title {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     text-align: center;
     font-weight: 700;
     font-size: 36px;
     line-height: 100%;
     color: #fff;
+
+    @include onTablet {
+      margin-bottom: 16px;
+      font-size: 48px;
+    }
   }
 
   &__text {
-    margin-bottom: 64px;
+    margin-bottom: 50px;
     text-align: center;
     font-family: $fontIbn;
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;
     color: #fff;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 72px;
+    }
   }
 
   &__form {
     display: flex;
     justify-content: center;
-    // gap: 16px;
+
+    @include onTablet {
+      gap: 16px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+    }
   }
 
   &__form-field {
     box-sizing: border-box;
     display: block;
-    width: 374px;
+    width: 230px;
     height: 50px;
+    padding-left: 24px;
     border: 1px solid transparent;
-    // padding: 14px 16px;
     background-color: #fff;
+
+    @include onTablet {
+      height: 70px;
+      width: 374px;
+    }
+
+    @include onDesktop {
+      width: 470px;
+    }
 
     &:hover {
       border-color: #f14a27;
@@ -57,7 +95,7 @@
     &::placeholder {
       font-weight: 400;
       font-size: 14px;
-      line-height: 100%px;
+      line-height: 100%;
       color: #687480;
     }
   }
@@ -66,14 +104,24 @@
     display: block;
     height: 50px;
     width: 50px;
-    background-color: $colorGreen;
-    background-image: url(../images/go.svg);
+    border: none;
+    background-color: #f14a27;
+    background-image: url(../images/goBlack.svg);
     background-position: center;
     background-repeat: no-repeat;
+
+    &:hover {
+      background-color: #842613;
+    }
 
     @include onTablet {
       height: 70px;
       width: 70px;
     }
   }
+}
+
+input:-webkit-autofill {
+  border: 1px solid green;
+  -webkit-text-fill-color: #f14a27;
 }
