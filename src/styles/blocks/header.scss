@@ -1,0 +1,120 @@
+.header {
+  height: 100vh;
+  position: relative;
+  padding: 0;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      margin-bottom: 38px;
+      text-align: start;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+    }
+
+    @include onMonoblock {
+      margin-bottom: 89px;
+      line-height: 120%;
+    }
+  }
+
+  &__image-preview {
+    padding: 9px 20px 0;
+    display: flex;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+
+    background-image: url(../images/header/header-image.png);
+
+    @extend %bgr-image;
+    background-size: cover;
+
+    @include onTablet {
+      padding: 9px 0 0;
+      justify-content: left;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50%;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      height: 655px;
+    }
+  }
+
+  &__flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @include onTablet {
+      padding-top: 70px;
+      align-items: flex-start;
+    }
+
+    @include onDesktop {
+      padding-top: 149px;
+      max-width: 500px;
+    }
+  }
+
+  &__button {
+    @include onDesktop {
+      margin-left: 170px;
+    }
+  }
+
+  &__events {
+    display: none;
+    transform: rotate(-90deg);
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 1px;
+      background-color: #242424;
+      width: 70px;
+      margin-left: -90px;
+      top: 50%;
+    }
+
+    @include onDesktop {
+      display: block;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+
+      color: #687480;
+      position: relative;
+    }
+  }
+}
+
+.header__logo--preview {
+  display: block;
+  margin: 0 auto;
+  align-self: start;
+
+  @include onTablet {
+    margin: 0;
+  }
+}
