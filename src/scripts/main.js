@@ -34,5 +34,4 @@ const formField = document.getElementById('non');
 formField.addEventListener('submit', function(event) {
   event.preventDefault();
   formField.reset();
-  window.scrollTo(0, 0);
 });
