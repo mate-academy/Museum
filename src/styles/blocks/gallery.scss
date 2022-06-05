@@ -21,10 +21,18 @@
     }
   }
 
+  &__container {
+    //max-width: 100vw - $base-spaces-mobile * 2;
+    overflow-x: hidden;
+
+    // @include onTablet {
+    //   max-width: 100vw - $base-spaces-tablet * 2;
+    // }
+  }
+
   &__images {
     display: flex;
     flex-wrap: nowrap;
-    overflow: hidden;
 
     @include onDesctop {
       overflow: hidden;
@@ -35,7 +43,7 @@
   }
 
   &__image {
-    max-width: 280px;
+    max-width: 87.5vw; //280px
     min-height: 412px;
     max-height: 412px;
     margin-right: 16px;
@@ -44,8 +52,8 @@
     transition: 0.5s;
 
     @include onTablet {
-      max-width: 567px;
-      min-width: 44vw;
+      max-width: 89vw; //567px
+      //min-width: 44vw;
       min-height: 544px;
       max-height: 70.7vw;
       margin-right: 20px;
@@ -58,8 +66,6 @@
     }
 
     &--high-left {
-      grid-column: $grid-first-position / span 2;
-
       @include onDesctop {
         max-width: 100%;
         width: 100%;
@@ -70,8 +76,6 @@
     }
 
     &--high-right {
-      grid-column: $grid-second-position / span 1;
-
       @include onDesctop {
         max-width: 100%;
         width: 100%;
@@ -104,6 +108,14 @@
     &:hover {
       transform: scale(1.05);
     }
+
+    &:last-child {
+      margin-right: $base-spaces-mobile;
+
+      @include onTablet {
+        margin-right: $base-spaces-tablet;
+      }
+    }
   }
 
   &__dots {
@@ -128,12 +140,12 @@
     border: 1px transparent;
     border-radius: 50%;
 
-    &:first-child {
+    &--isactive {
       background-color: rgb(62, 62, 62);
     }
 
     &:last-child {
-      padding-right: 0;
+      margin-right: 0;
     }
   }
 }
