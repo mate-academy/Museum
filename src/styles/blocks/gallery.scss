@@ -4,6 +4,10 @@
     max-width: $max-desctop-section-width;
   }
 
+  @include onTablet {
+    width: 100vw - $base-spaces-tablet * 2;
+  }
+
   &__title {
     font-size: $base-titles-font-size-not-mobile;
     text-align: center;
@@ -22,19 +26,20 @@
   }
 
   &__container {
-    //max-width: 100vw - $base-spaces-mobile * 2;
+    max-width: 100vw - $base-spaces-mobile * 2;
     overflow-x: hidden;
 
-    // @include onTablet {
-    //   max-width: 100vw - $base-spaces-tablet * 2;
-    // }
+    @include onTablet {
+      max-width: 100vw - $base-spaces-tablet * 2;
+    }
   }
 
   &__images {
     display: flex;
     flex-wrap: nowrap;
+    
 
-    transition: transform 0.5s;
+    transition: transform $transition-duration;
 
     @include onDesctop {
       overflow: hidden;
@@ -45,24 +50,23 @@
   }
 
   &__image {
-    max-width: 87.5vw; //280px
+    min-width: $mobile-gallery-image-min-width;
     min-height: 412px;
-    max-height: 412px;
+    max-height: 128vw;
     margin-right: 16px;
     margin-bottom: $base-spaces-mobile;
 
-    transition: 0.5s;
-
     @include onTablet {
-      max-width: 89vw; //567px
-      //min-width: 44vw;
+      min-width: $tablet-gallery-image-min-width;
+      max-width: 567px;
       min-height: 544px;
-      max-height: 70.7vw;
-      margin-right: 20px;
+      margin-right: 100vw - $tablet-gallery-image-min-width*2
+        - $base-spaces-tablet*2;
       margin-bottom: 32px;
     }
 
     @include onDesctop {
+      min-width: 370px;
       margin-right: 0;
       margin-bottom: 0;
     }
@@ -79,6 +83,7 @@
 
     &--high-right {
       @include onDesctop {
+        margin-right: 0;
         max-width: 100%;
         width: 100%;
         height: 47vw;
@@ -99,6 +104,7 @@
 
     &--low-right {
       @include onDesctop {
+        margin-right: 0;
         max-width: 100%;
         width: 100%;
         height: 28vw;
@@ -111,13 +117,13 @@
       transform: scale(1.05);
     }
 
-    &:last-child {
-      margin-right: $base-spaces-mobile;
+    // &:last-child {
+    //   margin-right: $base-spaces-mobile;
 
-      @include onTablet {
-        margin-right: $base-spaces-tablet;
-      }
-    }
+    //   @include onTablet {
+    //     margin-right: $base-spaces-tablet;
+    //   }
+    // }
   }
 
   &__dots {
@@ -144,6 +150,15 @@
 
     &--isactive {
       background-color: rgb(62, 62, 62);
+    }
+
+    &--hidden {
+      display: none;
+      margin-right: 0;
+    }
+
+    &--last {
+      margin-right: 0;
     }
 
     &:last-child {

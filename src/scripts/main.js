@@ -6,6 +6,7 @@ const emailInput = form.querySelector('.subscription__email');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   emailInput.value = '';
+  window.scrollTo(0, 0);
 });
 
 const body = document.querySelector('.page__body');
