@@ -1,0 +1,121 @@
+.details-namu {
+  font-weight: 400;
+  font-size: 14px;
+  color: $color-black;
+  
+  &__social {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    align-self: flex-start;
+    margin-bottom: 40px;
+
+    @include Tablet {
+      flex-direction: column;
+      gap: 62px;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 0;
+    }
+  }
+
+  &__social-platform {
+    display: flex;
+    gap: 32px;
+
+    @include Tablet {
+      gap: 38px;
+    }
+
+    @include Desktop {
+      gap: 28px;
+    }
+  }
+
+  &__timetable {
+    margin-bottom: 70px;
+
+    @include Tablet {
+      margin-bottom: 64px;
+    }
+
+    @include Desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__contacts {
+    align-self: flex-start;
+  }
+
+  &__decor-line {
+    position: relative;
+    background: rgba(26, 90, 76, 0.5);
+    width: 100%;
+    height: 1px;
+    margin-bottom: 40px;
+
+    @include Tablet {
+      margin-bottom: 64px;
+    }
+
+    @include Desktop {
+      width: 1px;
+      height: 260px;
+      align-self: flex-start;
+      justify-self: center;
+      margin-bottom: 0;
+    }
+  }
+
+  &__decor-link {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include circle(50px);
+    border: 1px solid $color-btn;
+
+    animation: mothion 3s ease-out infinite;
+
+    &::after {
+      content: "";
+      background-image: url(../images/icon/to-top.svg);
+      width: 10px;
+      height: 12px;
+    }
+
+    @include Tablet {
+      display: none;
+    }
+
+    @keyframes mothion {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  }
+  
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-self: flex-start;
+  }
+
+  &__info-name {
+    line-height: 100%;
+    color: inherit;
+  }
+}

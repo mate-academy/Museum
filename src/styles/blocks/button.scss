@@ -1,32 +1,66 @@
 .button {
+  overflow: hidden;
+  position: relative;
+  color: $color-black;
+  @include hover(color, #fff);
+
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: $h-btn;
-  border: 1px solid $color-btn;
-  border-right: 0;
-  
+  height: $h-btn-mobile;
+  width: 100%;
+
   @include Tablet {
     width: 270px;
+    height: $h-btn;
   }
 
-  &__text {
-    font-style: normal;
-    font-weight: 500;
-    line-height: 100%;
-    color: $color-black;
-    text-transform: uppercase;
-    flex-grow: 1;
-    text-align: center;
+  @include Desktop {
+    width: 100%;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    background-color: $color-btn;
+    transform: skew(35deg);
+    transition: width 1s;
+  }
+
+  &:hover::before {
+    width: 150%;
   }
 
   &__link {
+    outline: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    @include square($h-btn);
+    flex-grow: 1;
+    height: 100%;
+
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    color: inherit;
+    text-transform: uppercase;
+    border: 1px solid $color-btn;
+  }
+
+  &__atribute {
+    @include square($h-btn-mobile);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: $color-btn;
+
+    @include Tablet {
+      @include square($h-btn);
+    }
 
     &::after {
       content: "";

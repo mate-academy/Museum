@@ -1,0 +1,120 @@
+.preview {
+  display: block;
+  flex-direction: column;
+  width: 100%;
+
+  &__background {
+    background-image: url(../images/painting/preview.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: $h-preview-mobile;
+    max-height: $h-preview-desktop;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    @include Tablet {
+      position: relative;
+      height: $h-preview-tablet;
+    }
+
+    @include Desktop {
+      position: absolute;
+      height: $h-preview-desktop;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 87.5%;
+    max-width: 400px;
+    position: relative;
+    top: 153px;
+    padding: 20px 0;
+    margin: 0 auto;
+
+    background: #fff;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+    @include Tablet {
+      margin: 0 auto;
+      max-width: 570px;
+      top: 306px;
+      padding: 45px 55px 50px;
+    }
+
+    @include Desktop {
+      top: 448px;
+      padding: 45px 100px 50px;
+    }
+  }
+
+  &__date {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 22px;
+    width: 100%;
+  }
+
+  &__text {
+    color: $color-date-text;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    margin-left: 20px;
+
+    @include Tablet {
+      font-size: 14px;
+      margin-left: 0;
+    }
+  }
+
+  &__day {
+    position: absolute;
+    width: 174px;
+    right: 0;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: $color-btn;
+
+    @include Tablet {
+      width: 220px;
+      font-size: 14px;
+    }
+
+    @include Desktop {
+      width: 170px;
+    }
+  }
+
+  &__title {
+    @extend %ff--Montserrat;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    text-align: center;
+
+    @include Tablet {
+      font-size: 36px;
+      text-align: left;
+    }
+  }
+}
+
+.painting__article.preview {
+  margin-bottom: $h-preview-mobile + 80px;
+
+  @include Tablet {
+    margin-bottom: 120px;
+  }
+
+  @include Desktop {
+    margin-bottom: $h-preview-desktop + 102px;
+  }
+}
