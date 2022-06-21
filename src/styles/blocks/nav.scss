@@ -1,6 +1,6 @@
 .nav {
   box-sizing: border-box;
-  transition: transform, 0.5s;
+  transition: transform, 1s;
   transform: translateX(100%);
   position: fixed;
   top: 0;
@@ -35,10 +35,17 @@
     padding: 10px 0;
     border-right: 3px solid $color-orange;
     margin-bottom: 3px;
+    overflow: hidden;
+    transform: translateX(-30px);
+    width: 100%;
+    
+    @include hover(transform, translateX(0));
 
     @include Tablet {
       margin-bottom: 10px;
       border-right: 0;
+      width: max-content;
+      transform: translateX(-50px);
     }
   }
 
@@ -48,6 +55,8 @@
     line-height: 100%;
     transition: border-bottom 1s ease-in, color 1s ease-in;
     border-bottom: 3px solid transparent;
+    width: 100%;
+    display: inline-block;
 
     @include Tablet {
       font-size: 36px;
@@ -61,22 +70,16 @@
       content: "# ";
       color: $color-orange;
       width: 0.75em;
-      display: none;
-      animation: margin-right 1s forwards;
+      display: inline-block;
+      margin-right: 13px;
+      transform: translateX(-100%);
+      transition: transform 1s;
     }
 
     &:hover::before {
-      display: inline-block;
+      transform: translateX(0);
     }
 
-    @keyframes margin-right {
-      from {
-        margin-right: 0;
-      }
-      to {
-        margin-right: 13px;
-      }
-    }
     &:hover {
       color: $color-orange;
       border-bottom: 3px solid $color-orange;
