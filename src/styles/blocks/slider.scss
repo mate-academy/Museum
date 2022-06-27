@@ -1,0 +1,110 @@
+.slider {
+  width: 280px;
+  height: 410px;
+  text-align: center;
+  position: relative;
+
+  @include onTablet {
+    width: 340px;
+    height: 543px;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+}
+
+.image-container {
+  width: 1464px;
+  height: 410px;
+  clear: both;
+  position: relative;
+  transition: left 2s;
+
+  @include onTablet {
+    width: 1780px;
+    height: 543px;
+  }
+}
+
+.slide {
+  float: left;
+  margin-right: 16px;
+  margin-bottom: 20px;
+  width: 280px;
+  height: 410px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include onTablet {
+    width: 340px;
+    height: 543px;
+    margin-right: 20px;
+    margin-bottom: 32px;
+  }
+}
+
+#slide-1:target ~ .image-container {
+  left: 0;
+}
+
+#slide-2:target ~ .image-container {
+  left: -296px;
+
+  @include onTablet {
+    left: -360px;
+  }
+}
+
+#slide-3:target ~ .image-container {
+  left: -592px;
+
+  @include onTablet {
+    left: -720px;
+  }
+}
+
+#slide-4:target ~ .image-container {
+  left: -888px;
+
+  @include onTablet {
+    left: -1080px;
+  }
+}
+
+#slide-5:target ~ .image-container {
+  left: -1184px;
+
+  @include onTablet {
+    left: -1440px;
+  }
+}
+
+.buttons {
+  text-align: center;
+
+  &__slide {
+    display: inline-block;
+    margin-right: 22px;
+    margin-bottom: 100px;
+    height: 9px;
+    width: 9px;
+    border-radius: 50px;
+    background-color: #1a5a4c;
+    cursor: pointer;
+  
+    &:last-child {
+      margin-right: 0;
+    }
+  
+    @include onTablet {
+      margin-bottom: 92px;
+    }
+  
+    @include onDesktop {
+      display: none;
+    }
+  }
+}
