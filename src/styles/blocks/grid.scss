@@ -1,0 +1,66 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat($max-column-mobile, 1fr);
+  column-gap: 20px;
+
+  align-items: center;
+
+  @include Tablet {
+    grid-template-columns: repeat($max-column-tablet, 1fr);
+    column-gap: 30px;
+  }
+
+  &--album {
+    gap: 16px;
+    display: flex;
+
+    @include Tablet {
+      column-gap: 20px;
+      display: grid;
+    }
+  }
+
+  @include Desktop {
+    grid-template-columns: repeat($max-column-desktop, 1fr);
+  }
+
+  &--no-mobile {
+    display: block;
+
+    @include Tablet {
+      display: grid;
+    }
+  }
+
+  &__item {
+    @for $start from 1 through $max-column-tablet {
+      @for $end from $start through $max-column-tablet {
+        &--tablet-#{$start}-#{$end} {
+          @include Tablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through $max-column-desktop {
+      @for $end from $start through $max-column-desktop {
+        &--desktop-#{$start}-#{$end} {
+          @include Desktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+    
+    @for $start from 1 through $max-column-mobile {
+      @for $end from $start through $max-column-mobile {
+        &--mobile-#{$start}-#{$end} {
+          @media (max-width: $tablet-w-size - 1) {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}

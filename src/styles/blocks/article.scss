@@ -1,0 +1,67 @@
+.article {
+  &__date {
+    margin-bottom: 10px;
+
+    @include Tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__name {
+    @extend %ff--Montserrat;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    @include Tablet {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      right: 5px;
+      @include square(10px);
+      background-color: $color-orange;
+
+      @include Tablet {
+        @include square(15px);
+      }
+    }
+  }
+
+  &__text {
+    line-height: 150%;
+    margin-bottom: 0;
+  }
+
+  &__img {
+    position: relative;
+    height: 210px;
+    max-height: 520px;
+    width: 100%;
+
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 16px;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(1.1);
+      z-index: 10;
+    }
+
+    @include Tablet {
+      height: 520px;
+      margin-bottom: 40px;
+    }
+
+    @include Desktop {
+      margin-bottom: 0;
+    }
+  }
+}

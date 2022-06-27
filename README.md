@@ -6,7 +6,7 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 - Large screens 2560px
 - Full HD 1920px
 - The design 1600px
-- Notebook 1280px
+- Desktop 1280px
 - Tablet 1024
 - Mobile (> 320px)
 
@@ -51,7 +51,7 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Museum/).
+  [DEMO LINK](https://YevheniiKushnir.github.io/Museum/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.

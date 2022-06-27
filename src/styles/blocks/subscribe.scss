@@ -1,0 +1,161 @@
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 386px;
+  padding: 0 20px;
+
+  background-image: url(../images/background-pic/subscription.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include Tablet {
+    height: 380px;
+    padding: 0 154px;
+  }
+
+  @include Desktop {
+    height: 550px;
+    padding: 0 355px;
+  }
+
+  &__title {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include Tablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    color: #fff;
+    font-size: 18px;
+    line-height: 150%;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 50px;
+
+    @include Tablet {
+      line-height: 100%;
+      margin-bottom: 64px;
+    }
+
+    @include Desktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    @include Tablet {
+      gap: 16px;
+    }
+
+    @include Desktop {
+      gap: 30px;
+    }
+  }
+
+  &__input {
+    background-color: #fff;
+    height: $h-btn-mobile;
+    width: 230px;
+    padding: 0 24px;
+    outline: none;
+    @extend %ff--Montserrat;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    border: none;
+    transition: box-shadow 1s;
+
+    @include Tablet {
+      height: $h-btn;
+      width: 374px;
+    }
+
+    @include Desktop {
+      padding: 0 32px;
+      width: 470px;
+    }
+
+    &::placeholder {
+      color: $color-date-text;
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 4px 4px $color-orange;
+
+      @include Tablet {
+        box-shadow: 7px 7px 4px $color-orange;
+      }
+
+      @include Desktop {
+        box-shadow: 10px 10px 4px $color-orange;
+      }
+    }
+  }
+
+  &__btn {
+    outline: none;
+    border: none;
+    @include square($h-btn-mobile);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-orange;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 1s;
+
+    @include Tablet {
+      @include square($h-btn);
+    }
+
+    &::after {
+      content: "";
+      background-image: url(../images/icon/sub-vect.svg);
+      height: 12px;
+      width: 8px;
+      z-index: 2;
+    }
+
+    &::before {
+      content: "";
+      background-color: #fff;
+      position: absolute;
+      left: -30px;
+      bottom: 0;
+      transform: skew(35deg);
+      width: 0;
+      height: 100%;
+      transition: width 1s;
+    }
+
+    &:hover::before {
+      width: 200%;
+    }
+
+    &:active {
+      box-shadow: 4px 4px 4px $color-orange;
+
+      @include Tablet {
+        box-shadow: 7px 7px 4px $color-orange;
+      }
+
+      @include Desktop {
+        box-shadow: 10px 10px 4px $color-orange;
+      }
+    }
+  }
+}
