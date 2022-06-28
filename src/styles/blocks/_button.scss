@@ -1,0 +1,43 @@
+.button {
+  position: relative;
+  width: calc(100% - 50px);
+  height: 50px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  border: 1px $secondaryColor solid;
+  background-color: #fff;
+  color: $black;
+  cursor: pointer;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0;
+  @include onTablet {
+    width: 200px;
+    height: 70px;
+  }
+  &:hover {
+    @include hover(transition, 0.3s);
+    background-color: $secondaryColor;
+    color: #fff;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: $secondaryColor;
+    background-image: url(../images/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    top: -1px;
+    right: -50px;
+    @include onTablet {
+      height: 70px;
+      width: 70px;
+      right: -70px;
+    }
+  }
+}

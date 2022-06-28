@@ -1,0 +1,59 @@
+.gallery {
+  &__title {
+    margin-top: 42px;
+    text-align: center;
+    @include onTablet {
+      text-align: start;
+      margin-top: -62px;
+    }
+    @include onDesktop {
+      margin-top: 96px;
+    }
+  }
+  &__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+  &__art {
+    display: none;
+    margin-top: 0;
+    @include onTablet {
+      display: grid;
+      margin-top: 46px;
+    }
+    @include onDesktop {
+      margin-top: 56px;
+    }
+    &-item {
+      width: 100%;
+      height: 543px;
+      object-fit: cover;
+      &:hover {
+        transform: scale(1.05);
+        @include hover(transition, 0.3s);
+      }
+      @include onDesktop {
+        height: 600px;
+      }
+      &--desktop {
+        @include onDesktop {
+          display: none;
+        }
+      }
+      &--tablet {
+        @include onTablet {
+          display: none;
+        }
+        @include onDesktop {
+          display: block;
+        }
+      }
+      &--small {
+        height: 360px;
+        margin-top: 30px;
+      }
+    }
+  }
+}

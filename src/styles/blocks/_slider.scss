@@ -1,0 +1,37 @@
+.slider {
+  width: 87.5vw;
+  display: flex;
+  box-sizing: border-box;
+  margin: 41px auto 0;
+  @include onTablet {
+    display: none;
+  }
+  &__controls {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    @include onTablet {
+      display: none;
+    }
+    & label {
+      color: #e0e0e0;
+      transition-duration: 3s;
+      cursor: pointer;
+      margin-left: 6px;
+      height: 10px;
+      width: 24px;
+      transform: scale(0.7);
+    }
+  }
+}
+
+#i_1:checked ~ .slider .slide__content-1,
+#i_2:checked ~ .slider .slide__content-2 {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#i_1:checked ~ .slider__controls label[for="i_1"],
+#i_2:checked ~ .slider__controls label[for="i_2"] {
+  color: $secondaryColor;
+}
