@@ -1,0 +1,56 @@
+.galery {
+  &__grid {
+    margin-bottom: 32px;
+    gap: 30px;
+    display: flex;
+    justify-content: left;
+    overflow: hidden;
+    @include onLaptop {
+      display: grid;
+      margin-bottom: 0;
+    }
+  }
+  &__img-container {
+    overflow: hidden;
+  }
+  &__img {
+    object-fit: cover;
+    object-position: 0 50%;
+
+    max-height: 410px;
+    @include onTablet {
+      max-height: 543px;
+    }
+    @include onLaptop {
+      max-height: 600px;
+      &--min {
+        height: 360px;
+      }
+    }
+  }
+  &__slider-dots {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 102px;
+    height: 9px;
+    @include onLaptop {
+      display: none;
+    }
+  }
+  &__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: $c-g;
+    &:hover,
+    &:focus {
+      outline: 2px solid $c-g;
+      outline-offset: 5px;
+    }
+    &:active {
+      background-color: $c-gb;
+    }
+  }
+}
