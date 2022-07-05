@@ -1,0 +1,180 @@
+.header {
+  height: 300px;
+  margin-bottom: 20px;
+  z-index: -1;
+  background-image: url(../images/header_h200.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @include onTablet {
+    height: 384px;
+    margin-bottom: 88px;
+    background-image: url(../images/header_h1200.png);
+    background-size: 50%;
+    background-position: top right;
+  }
+
+  @include onDesktop {
+    height: 656px;
+    margin-bottom: 200px;
+    background-size: 56%;
+  }
+
+  @media (min-width: 1600px) {
+    background-size: 52%;
+  }
+
+  &__desktop {
+    display: none;
+
+    @include onTablet {
+      // grid-column: 1 / 4;
+      display: grid;
+      justify-content: start;
+      width: 50%;
+    }
+
+    &--img {
+      height: 384px;
+    }
+  }
+
+  &__content {
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      width: 1%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    color: #000;
+    text-align: center;
+
+    &--mobile {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+      }
+    }
+
+    @include onTablet {
+      margin-bottom: 40px;
+      font-weight: 700;
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-bottom: 92px;
+      font-size: 72px;
+      text-align: left;
+    }
+  }
+
+  &__actions {
+    display: none;
+    margin-top: 50px;
+    transform: rotate(-90deg);
+
+    @include onDesktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &--actions {
+      margin-bottom: 80%;
+      margin-left: 20px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: $colorShow;
+      text-decoration: none;
+
+      @include hover (color, #f14a27);
+    }
+
+    &--line {
+      display: block;
+      content: "";
+      margin-bottom: 80%;
+      width: 70px;
+      height: 1px;
+      background-color: $colorShowData;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 72px;
+
+    &--mobile {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+        justify-content: start;
+      }
+
+      @include onDesktop {
+        justify-content: end;
+      }
+    }
+
+    &--field {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $colorShowData;
+      width: 230px;
+      height: 50px;
+      text-align: center;
+
+      @include onTablet {
+        width: 200px;
+        height: 70px;
+      }
+
+      @include onTablet {
+        width: 160px;
+        height: 70px;
+      }
+    }
+
+    &--button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      background-color: $colorShowData;
+      transition: 0.3s;
+
+      @include hover (background-color, #f14a27);
+
+      @include onTablet {
+        width: 70px;
+        height: 70px;
+      }
+
+      &-arrow {
+        width: 8px;
+        height: 12px;
+      }
+    }
+  }
+}
