@@ -1,0 +1,134 @@
+.header {
+  padding-top: 12px;
+  height: 478px;
+
+  @include onTablet {
+    padding-top: 20px;
+    height: 384px;
+  }
+
+  @include onDesktop {
+    height: 656px;
+  }
+
+  &__background {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../images/backgrounds/header.jpg);
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    @include onTablet {
+      height: 384px;
+      left: calc(50% + 10px);
+    }
+
+    @include onDesktop {
+      height: 656px;
+      left: calc(50% - 85px);
+    }
+  }
+
+  &__content {
+    margin-top: 254px;
+
+    @include onTablet {
+      margin-top: 44px;
+    }
+
+    @include onDesktop {
+      margin-top: 124px;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: $c-black;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin-bottom: 88px;
+    }
+  }
+
+  &__button {
+    display: block;
+    height: 50px;
+    width: 100%;
+    border: 1px solid $c-green;
+    padding-right: 50px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 50px;
+    color: $c-dark;
+    text-align: center;
+    text-decoration: none;
+
+    background-size: contain;
+    background-image: url(../images/buttons/green-button.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 70px;
+      width: 270px;
+      line-height: 70px;
+      padding-right: 70px;
+    }
+
+    @include onDesktop {
+      float: right;
+    }
+
+    @include hover(transform scale(1.1), background-color $c-green);
+  }
+
+  &__link {
+    display: none;
+    margin-top: 88px;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: $c-darkGray;
+    text-decoration: none;
+    transform: rotate(-90deg);
+    transform-origin: 20% top;
+
+    @include onDesktop {
+      display: inline-block;
+    }
+
+    @include hover (transform (scale(1.2) rotate(-90deg)));
+
+    &::before {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 1px;
+      background-color: $c-green;
+      margin: 0 0 -8px -90px;
+    }
+  }
+}

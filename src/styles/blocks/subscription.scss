@@ -1,0 +1,128 @@
+.subscription {
+  height: 386px;
+  padding: 88px 0;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../images/backgrounds/subscription.jpg);
+
+  @include onTablet {
+    height: 380px;
+    padding: 82px 0;
+  }
+
+  @include onDesktop {
+    height: 550px;
+    padding: 163px 0;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    color: $c-white;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+    color: $c-white;
+
+    @include onTablet {
+      line-height: 100%;
+    }
+  }
+
+  &__form {
+    position: absolute;
+    bottom: 88px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      bottom: 82px;
+    }
+
+    @include onDesktop {
+      bottom: 163px;
+    }
+  }
+
+  &__email {
+    height: 50px;
+    width: calc(100% - 50px);
+    border: none;
+    background-color: $c-white;
+    color: $c-dark;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    padding-left: 24px;
+
+    @include onTablet {
+      height: 70px;
+      width: 374px;
+      margin-right: 16px;
+    }
+
+    @include onDesktop {
+      width: 470px;
+      margin-right: 30px;
+      padding-left: 32px;
+    }
+
+    &::placeholder {
+      color: $c-darkGray;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-font-feature-settings: off;
+      font-feature-settings: off;
+      -webkit-text-fill-color: $c-dark;
+      -webkit-box-shadow: 0 0 0 1000px $c-white inset;
+      box-shadow: 0 0 0 1000px $c-white inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  &__button {
+    height: 50px;
+    width: 50px;
+    border: none;
+    cursor: pointer;
+    background-size: cover;
+    background-image: url(../images/buttons/red-button.svg);
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 70px;
+      width: 70px;
+    }
+
+    @include hover(transform scale(1.1), background-image url(../images/buttons/green-button.svg));
+  }
+}
