@@ -1,0 +1,97 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  column-gap: rem(20);
+
+  @include md-device {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: rem(30);
+
+    // &--footer {
+    //   grid-template-rows: (auto 40px auto auto 48px auto);
+    //   grid-template-areas: "lg lg . . tl tl tl tl"
+    //     ". . . . . . . ."
+    //     "mn mn . . cl cl cl cl"
+    //     ". . . . el el el el"
+    //     ". . . . . . . ."
+    //     "sc sc . . cp cp cp cp";
+
+    //   @include md-device {
+    //     grid-template-rows: (auto 40px auto auto 48px auto);
+    //     grid-template-areas: "lg lg . . tl tl tl tl"
+    //       ". . . . . . . ."
+    //       "mn mn . . cl cl cl cl"
+    //       ". . . . el el el el"
+    //       ". . . . . . . ."
+    //       "sc sc . . cp cp cp cp";
+    //   }
+
+    //   @include lg-device {
+    //     grid-template-rows: (auto 40px auto 48px auto);
+    //     grid-template-areas: "lg lg . . tl tl tl tl"
+    //       ". . . . . . . ."
+    //       "mn mn . . cl cl el el"
+    //       ". . . . . . . ."
+    //       "sc sc . . cp cp cp cp";
+    //   }
+    // }
+  }
+
+  @include lg-device {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &--md-device {
+    display: block;
+
+    @include md-device {
+      display: grid;
+    }
+  }
+
+  &--lg-device {
+    display: block;
+
+    @include lg-device {
+      display: grid;
+    }
+  }
+
+  &__item {
+
+    &--visible-on-xs-devices {
+      @include md-device {
+        display: none;
+      }
+    }
+
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @for $start from 1 through 8 {
+      @for $end from $start through 8 {
+        &--md-device--#{$start}-#{$end} {
+          @include md-device {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--lg-device--#{$start}-#{$end} {
+          @include lg-device {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}

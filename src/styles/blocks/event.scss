@@ -1,0 +1,134 @@
+.event {
+
+  &__image-wrapper {
+    height: 210px;
+    margin-bottom: rem(16);
+    overflow: hidden;
+
+    @include md-device {
+      height: 520px;
+      margin-bottom: rem(40);
+    }
+
+    @include lg-device {
+      height: 520px;
+      margin: 0;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: rem(10);
+
+    @include md-device {
+      justify-content: flex-start;
+      margin-bottom: rem(30);
+      gap: rem(27);
+    }
+  }
+
+  &__category {
+    color: $g-color-gray;
+  }
+
+  &__date {
+    color: $g-color-main-accent;
+  }
+
+  &__link {
+    margin: 0 0 rem(11);
+
+    @include md-device {
+      margin: 0 0 rem(15);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    animation: 0.3s ease titleColorBack forwards;
+
+    &--mouseover {
+      animation: 0.3s ease 0.3s titleColorStart forwards;
+
+      span {
+        &::after {
+          animation: 0.6s ease-in-out squareMove forwards;
+        }
+      }
+    }
+
+    span {
+      position: relative;
+      white-space: nowrap;
+  
+      &::after {
+        content: "";
+        position: relative;
+        right: -15px;
+        vertical-align: middle;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: $g-color-second-accent;
+      }
+  
+      @include md-device {
+        &::after {
+          right: -24px;
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+  }
+
+  &__description {
+    margin: 0;
+  }
+}
+
+@keyframes squareMove {
+  0% {
+    right: -24px;
+  }
+
+  50% {
+    right: 0;
+  }
+
+  100% {
+    right: -24px;
+  }
+}
+
+@keyframes titleColorStart {
+  100% {
+    color: $g-color-second-accent;
+  }
+}
+
+@keyframes titleColorBack {
+  0% {
+    color: $g-color-second-accent;
+  }
+
+  100% {
+    color: $g-color-dark;
+  }
+}

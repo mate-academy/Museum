@@ -1,0 +1,70 @@
+.button {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+
+  border: 1px solid $g-color-main-accent;
+  background-color: transparent;
+  color: $g-color-dark;
+
+  transition: color 0.3s;
+
+  &__txt {
+    position: relative;
+    font-weight: 500;
+    font-size: rem(16);
+    line-height: 100%;
+    text-align: center;
+    flex: 1;
+    z-index: 1;
+  }
+
+  &__icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 100%;
+    background-color: $g-color-main-accent;
+    transform-origin: left;
+
+    svg {
+      fill: $g-color-light;
+      width: 8px;
+    }
+
+    @include md-device {
+      width: 70px;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: $g-color-main-accent;
+    transform-origin: left;
+    transition: width 0.3s;
+    z-index: 0;
+  }
+
+  &:hover {
+    color: $g-color-light;
+
+    &::before {
+      width: 100%;
+    }
+  }
+
+  @include md-device {
+    height: 70px;
+    max-width: 270px;
+  }
+}
