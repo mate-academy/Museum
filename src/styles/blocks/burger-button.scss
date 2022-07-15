@@ -1,0 +1,214 @@
+.burger-button {
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+  position: relative;
+  width: 18px;
+  height: 12px;
+
+  transition: all 0.9s;
+  z-index: 1;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: $g-color-dark;
+  }
+
+  &::before {
+    animation: animationOneReverse 1s ease forwards;
+  }
+
+  &::after {
+    animation: animationTwoReverse 1s ease forwards;
+  }
+
+  span {
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      background: $g-color-dark;
+      transition: all 0.6s;
+    }
+
+    &::before {
+      top: 0;
+      animation: animationBurgerTopReverse 1s ease forwards;
+    }
+
+    &::after {
+      bottom: 0;
+      animation: animationBurgerBottomReverse 1s ease forwards;
+    }
+  }
+
+  &--is-active {
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      margin-top: -1px;
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      background: $g-color-dark;
+    }
+
+    &::before {
+      animation: animationOne 1s ease forwards;
+    }
+
+    &::after {
+      animation: animationTwo 1s ease forwards;
+    }
+
+    span {
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        background: $g-color-dark;
+      }
+
+      &::before {
+        top: 0;
+        animation: animationBurgerTop 1s ease forwards;
+      }
+
+      &::after {
+        bottom: 0;
+        animation: animationBurgerBottom 1s ease forwards;
+      }
+    }
+  }
+}
+
+@keyframes animationOneReverse {
+  0% {
+    transform: rotate(315deg);
+  }
+  25% {
+    transform: rotate(360deg);
+  }
+  50%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes animationOne {
+  0%,
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(315deg);
+  }
+}
+
+@keyframes animationTwoReverse {
+  0% {
+    transform: rotate(405deg);
+  }
+  25% {
+    transform: rotate(450deg);
+  }
+  50%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes animationTwo {
+  0%,
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(450deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+
+@keyframes animationBurgerTopReverse {
+  0%,
+  50% {
+    transform: translateY(5px);
+    opacity: 0;
+  }
+  51% {
+    transform: translateY(5px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animationBurgerTop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(5px);
+    opacity: 1;
+  }
+  51%,
+  100% {
+    transform: translateY(5px);
+    opacity: 0;
+  }
+}
+
+@keyframes animationBurgerBottomReverse {
+  0%,
+  50% {
+    transform: translateY(-5px);
+    opacity: 0;
+  }
+  51% {
+    transform: translateY(-5px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animationBurgerBottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-5px);
+    opacity: 1;
+  }
+  51%,
+  100% {
+    transform: translateY(-5px);
+    opacity: 0;
+  }
+}

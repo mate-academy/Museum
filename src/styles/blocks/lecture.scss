@@ -1,0 +1,82 @@
+.lecture {
+
+  &__image-fluid {
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+
+    @include md-device {
+      height: 390px;
+    }
+
+    @include lg-device {
+      height: 550px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: rem(20) 0;
+    @include adaptiveValue("padding-left", 55, 10, 640, 320, 0);
+    @include adaptiveValue("padding-right", 55, 10, 640, 320, 0);
+    margin: 0 auto;
+    background-color: $g-color-light;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+    transform: translateY(-50%);
+
+    @include md-device {
+      max-width: 570px;
+      padding: rem(45) rem(55);
+    }
+
+    @include lg-device {
+      padding: rem(45) rem(100);
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: rem(20);
+    @include adaptiveValue("padding-left", 0, 15, 640, 320, 0);
+    @include adaptiveValue("padding-right", 0, 15, 640, 320, 0);
+
+    @include md-device {
+      margin-bottom: rem(16);
+      padding: 0;
+    }
+  }
+
+  &__category {
+    color: $g-color-gray;
+  }
+
+  &__date {
+    color: $g-color-main-accent;
+  }
+
+  &__title {
+    text-align: center;
+    margin: 0;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $g-color-second-accent;
+    }
+
+    @include md-device {
+      text-align: left;
+    }
+  }
+}

@@ -1,6 +1,86 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin md-device {
+  @media (min-width: em($md-device-size)) {
+    @content;
+  }
+}
+
+@mixin lg-device {
+  @media (min-width: em($lg-device-size)) {
+    @content;
+  }
+}
+
+@mixin xl-device {
+  @media (min-width: em($xl-device-size)) {
+    @content;
+  }
+}
+
+@function percent($px, $from) {
+  $result: ($px / $from) * 100%;
+  @return $result;
+}
+
+@function rem($px) {
+  $result: ($px / 16) + rem;
+  @return $result;
+}
+
+@function em($px, $current: 16) {
+  $result: ($px / $current) + em;
+  @return $result;
+}
+
+@mixin adaptiveValue(
+  $property,
+  $startSize,
+  $minSize,
+  $widthFrom: $containerWidth,
+  $widthTo: $minWidth,
+  $keepSize: 0
+) {
+
+  @if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
+    $widthFrom: $maxWidth;
+  }
+  @if ($minSize <= 0) {
+    $minSize: 0.01;
+  }
+  @if ($startSize <= 0) {
+    $startSize: 0.01;
+  }
+
+  $widthFromMedia: em($widthFrom);
+  $widthToMedia: em($widthTo);
+
+  $slope: (($startSize - $minSize) / ($widthFrom - $widthTo));
+  $yIntersection: -$widthTo * $slope + $minSize;
+  $flyValue: #{rem($yIntersection)} + #{$slope * 100}vw;
+
+  $propertyValue: 
+    #{"clamp(" rem($minSize) "," $flyValue "," rem($startSize) ")"};
+
+  @if ($minSize > $startSize) {
+    $propertyValue:
+      #{"clamp(" rem($startSize) "," $flyValue "," rem($minSize) ")"};
+  }
+
+  @if $widthFrom == $containerWidth
+    or $widthFrom == $maxWidth
+    or $keepSize == 1
+    or $keepSize == 2 {
+    @media (min-width: $widthFromMedia) {
+      #{$property}: rem($startSize);
+    }
+  }
+
+  @media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
+    #{$property}: $propertyValue;
+  }
+
+  @if $widthTo == $minWidth or $keepSize == 1 or $keepSize == 3 {
+    @media (max-width: $widthToMedia) {
+      #{$property}: rem($minSize);
+    }
   }
 }
