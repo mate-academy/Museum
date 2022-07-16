@@ -1,0 +1,63 @@
+.grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  &--disable {
+    display: block;
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &--up {
+    align-items: flex-start;
+  }
+
+  &__item {
+    grid-template-columns: 1fr 1fr;
+    @include grid-min;
+  }
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+    &__item-tablet {
+      @include grid;
+    }
+  }
+  @include onLaptop {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    column-gap: 20px;
+    &__item-laptop {
+      @include grid;
+    }
+  }
+  @include onDecktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+    &__item-decktop {
+      @include grid;
+    }
+  }
+  &__row {
+    @include onTablet {
+      grid-template-rows: repeat(12, 132px);
+      &-tablet {
+        @include gridRow;
+      }
+    }
+    @include onLaptop {
+      grid-template-rows: repeat(5, 1fr);
+      &-laptop {
+        @include gridRow;
+      }
+    }
+    @include onDecktop {
+      &-decktop {
+        @include gridRow;
+      }
+    }
+  }
+}

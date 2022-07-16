@@ -1,0 +1,51 @@
+.page {
+  scroll-behavior: smooth;
+  &__body {
+    font-family: "IBM", sans-serif;
+    background: $c-w;
+    @extend %text;
+  }
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: all 0.3s ease-in-out;
+
+    &:target {
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 70px;
+    @include onTablet {
+      margin-bottom: 88px;
+    }
+    @include onLaptop {
+      margin-bottom: 200px;
+    }
+    &-title {
+      margin-bottom: 40px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 100%;
+      text-align: center;
+      color: $t-but;
+      @include onTablet {
+        margin-bottom: 48px;
+        font-size: 48px;
+        line-height: 48px;
+      }
+      @include onLaptop {
+        margin-bottom: 56px;
+        font-size: 48px;
+        line-height: 48px;
+      }
+    }
+  }
+}
