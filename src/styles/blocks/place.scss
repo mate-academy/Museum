@@ -1,0 +1,167 @@
+.place {
+  display: flex;
+  flex-direction: column;
+
+  &:last-child {
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 112px;
+    }
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 70px);
+    gap: 30px;
+    align-items: center;
+  }
+
+  &__photos {
+    position: relative;
+    padding-bottom: 210px;
+    grid-column: 1/8;
+
+    @include onTablet {
+      padding-bottom: 520px;
+    }
+  }
+
+  &__photo-container {
+    margin-bottom: 16px;
+    position: relative;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__photo {
+    margin-bottom: 20px;
+    display: block;
+    position: absolute;
+    height: 210px;
+    width: 280px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s;
+
+    @include onTablet {
+      height: 520px;
+      width: 690px;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 104px;
+      height: 520px;
+      width: 670px;
+    }
+
+    &:hover {
+      position: absolute;
+      z-index: 1;
+
+      transform: scale(1.1);
+    }
+  }
+
+  &__description {
+
+    @include onDesktop {
+      grid-column: 9/13;
+    }
+  }
+
+  &__schedule {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+
+    @include onTablet {
+      justify-content: start;
+      gap: 30px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__name {
+    font-family: $fontIbn;
+    font-weight: 500;
+    line-height: 100%;
+    color: #687480;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__date {
+    font-family: $fontIbn;
+    font-weight: 700;
+    line-height: 150%;
+    color: $colorGreen;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+  // &__content {
+
+  // }
+
+  &__title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+
+    @include onTablet {
+      font-size: 36px;
+    }
+  }
+
+  &__title-image {
+    height: 10px;
+    width: 10px;
+
+    @include onTablet {
+      height: 15px;
+      width: 15px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 60px;
+    font-family: $fontIbn;
+    font-weight: 300;
+    line-height: 150%;
+    color: #4e4e4e;
+
+    @include onTablet {
+      width: 460px;
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      width: 370px;
+    }
+  }
+}
