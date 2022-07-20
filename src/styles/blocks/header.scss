@@ -1,0 +1,224 @@
+.header {
+  position: relative;
+  margin-bottom: 70px;
+
+  &__grid {
+    row-gap: unset;
+  }
+
+  @include on768 {
+    margin-bottom: 88px;
+    min-height: 384px;
+  }
+
+  @include on1280 {
+    margin-bottom: 200px;
+    min-height: 655px;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background-image: url(../images/header-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: -1;
+
+    @include on768 {
+      height: 384px;
+      right: -39px;
+    }
+
+    @include on1280 {
+      height: 655px;
+      right: -55px;
+    }
+
+    &-grid {
+      @include on768 {
+        position: relative;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    margin-bottom: 250px;
+
+    @include on768 {
+      margin-bottom: 40px;
+    }
+
+    @include on1280 {
+      margin-bottom: 119px;
+    }
+  }
+
+  &__menu-opener {
+    display: inline-block;
+    margin: 33px 0 275px;
+    width: 18px;
+    height: 12px;
+    background-image: url(../images/menu-opener.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include on768 {
+      margin: 45px 0 70px;
+    }
+
+    @include on1280 {
+      margin-bottom: 149px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include on768 {
+      margin-top: 15px;
+      display: block;
+      position: static;
+      top: unset;
+      left: unset;
+      transform: none;
+
+      &-wrapper {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__info-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on768 {
+      align-items: flex-start;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+
+    @include on768 {
+      margin-bottom: 38px;
+      font-size: 54px;
+      line-height: 65px;
+      text-align: unset;
+    }
+
+    @include on1280 {
+      margin-bottom: 90px;
+      font-size: 72px;
+      line-height: 86px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    text-decoration: none;
+
+    &-text {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 230px;
+      height: 50px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      color: $color-black;
+      text-transform: uppercase;
+      border: 1px solid $color-green;
+
+      @include on768 {
+        width: 200px;
+        height: 70px;
+      }
+    }
+
+    &-arrow {
+      width: 50px;
+      height: 50px;
+      background-color: $color-green;
+      background-image: url(../images/arrow-button.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 8px 12px;
+
+      @include on768 {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    @include on1280 {
+      &--on1280 {
+        align-self: flex-end;
+      }
+    }
+
+    &:hover {
+      .header__button-text {
+        font-size: 104%;
+        border-color: $color-red;
+      }
+
+      .header__button-arrow {
+        background-size: 10px 14px;
+        background-color: $color-red;
+      }
+    }
+  }
+
+  &__events {
+    margin: 113px 0 -14px;
+    display: none;
+    align-items: center;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: $color-grey;
+    text-decoration: none;
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+
+    &::before {
+      margin-right: 20px;
+      content: "";
+      width: 70px;
+      height: 1px;
+      background-color: $color-green;
+    }
+
+    @include on1280 {
+      display: flex;
+    }
+
+    &:hover {
+      transform: scale(1.04) rotate(-90deg);
+    }
+  }
+}
