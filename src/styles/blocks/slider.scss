@@ -1,0 +1,84 @@
+.slider {
+  width: 100%;
+  height: 410px;
+
+  overflow-x: hidden;
+
+  @include onIpad {
+    height: 543px;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__slides {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+
+    @include onIpad {
+      column-gap: 20px;
+    }
+  }
+
+  &__img {
+    width: 280px;
+    height: 410px;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.8s;
+
+    @include onIpad {
+      width: 340px;
+      height: 543px;
+    }
+  }
+
+  &__radio {
+    display: none;
+  }
+
+  &__controls {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include onIpad {
+      bottom: -42px;
+    }
+  }
+
+  &__controls-lable {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-right: 22px;
+
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    border: 1px solid;
+  }
+}
+
+.slider__r1:checked ~ .slider__controls .slider__controls-lable--1,
+.slider__r2:checked ~ .slider__controls .slider__controls-lable--2,
+.slider__r3:checked ~ .slider__controls .slider__controls-lable--3,
+.slider__r4:checked ~ .slider__controls .slider__controls-lable--4 {
+  background-color: $colorGreen;
+}
+
+@for $index from 1 through 4 {
+  .slider__r#{$index}:checked ~ .slider__slides .slider__img {
+    transform: translateX(calc(#{$index - 1} * (-100% - 16px)));
+  }
+
+  @include onIpad {
+    .slider__r#{$index}:checked ~ .slider__slides .slider__img {
+      transform: translateX(calc(#{$index - 1} * (-100% - 20px)));
+    }
+  }
+}

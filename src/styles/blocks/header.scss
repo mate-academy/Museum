@@ -1,0 +1,91 @@
+.header {
+  position: relative;
+
+  &__content {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 484px;
+    padding-top: 10px;
+
+    @include onIpad {
+      display: block;
+      height: 384px;
+      padding-top: 16px;
+    }
+
+    @include onDesktop {
+      height: 656px;
+    }
+  }
+
+  &__top-actions {
+    @include onIpad {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 120px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    height: 300px;
+    width: 100%;
+
+    object-position: center;
+    object-fit: cover;
+
+    @include onIpad {
+      left: 52%;
+      width: 48%;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      left: 42%;
+      width: 58%;
+      height: 656px;
+    }
+  }
+
+  &__text-events {
+    display: none;
+
+    @include onDesktop {
+      position: absolute;
+      left: 0;
+      bottom: 68px;
+      display: flex;
+      align-items: center;
+
+      font-family: $fontPrimary;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      text-transform: uppercase;
+      color: $colorLight;
+      text-decoration: none;
+
+      transform: rotate(-90deg);
+
+      &::before {
+        content: "";
+
+        display: inline-block;
+        width: 70px;
+        height: 1px;
+        margin-right: 20px;
+
+        background-color: $colorGreen;
+      }
+    }
+  }
+}
