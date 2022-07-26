@@ -1,0 +1,131 @@
+
+.header {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+
+  @include onTablet {
+    display: grid;
+    height: 384px;
+    grid-template-columns: repeat(6, 1fr);
+    align-content: start;
+
+    @include onDesctop {
+      grid-template-columns: repeat(12, 1fr);
+      height: 665px;
+    }
+  }
+
+  &__picture {
+    background-image: url(../images/header.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+
+    padding: 20px ;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 329px;
+
+    @include onTablet {
+      height: 384px;
+      grid-column: 4/ span 3;
+    }
+
+    @include onDesctop {
+      height: 100%;
+      grid-column: 6 / span 7;
+      background-size: cover;
+      background-position: 20% 95%;;
+    }
+  }
+
+  &__menu {
+    display: block;
+    width: 88px;
+
+    &--tablet {
+      display: none;
+    }
+
+    @include onTablet {
+     display: none;
+     &--tablet {
+       display: block;
+       margin-bottom: 64px;
+     }
+    }
+  }
+
+  &__title-block {
+    width: 100%;
+    padding: 0 20px;
+    position: relative;
+
+    @include onTablet {
+      grid-column: 1/ span 3;
+      padding: 20px;
+      margin-bottom: 70px;
+    }
+    @include onDesctop {
+      height: 655px;
+      grid-column: 1/ span 5;
+      padding: 40 50px;
+    }
+  }
+
+  &__title{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 65px;
+      text-align: left;
+      margin-bottom: 38px;
+    }
+    @include onDesctop {
+      font-size: 72px;
+      line-height: 86px;
+      text-align: left;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__supplement {
+    display: none;
+
+    @include onDesctop {
+    display: block;
+    font-family: 'IBM Plex Sans', sans-serif;
+    position: absolute;
+    left: 20px;
+    bottom: 15px;
+    height: 14px;
+    color: #687480;
+    font-weight: 700;
+    font-size: 14px;
+    transform: rotate(-90deg);
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+
+      right: 85px;
+      bottom: -32px;
+      width: 1px;
+      height: 70px;
+      background: #1A5A4C;
+      transform: rotate(-90deg);
+    }
+    }
+
+  }
+
+ }
+
