@@ -1,0 +1,92 @@
+.slider {
+  width: 100%;
+  padding: 5px;
+  height: 410px;
+  margin-bottom: 100px;
+  overflow: hidden;
+
+  @include onTablet {
+    height: 543px;
+  }
+
+  @include onDesctop {
+    display: none;
+  }
+
+  &__sliders {
+    width: 100%;
+    display: flex;
+  }
+
+  &__slide {
+    width: 100%;
+    margin-left: 10px;
+
+    transition: 2s;
+
+    @include onTablet {
+      width: 100%;
+    }
+  }
+
+  &__img {
+    width: 280px;
+    height: 100%;
+    overflow: hidden;
+
+    @include onTablet {
+      width: 340px;
+    }
+  }
+
+  &__radio-btn{
+    display: none;
+  }
+
+  &__navigation-manual {
+    position: absolute;
+    width: 100%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  &__manual-btn {
+    width: 9px;
+    height: 9px;
+    border: 1px solid #E0E0E0;
+    background-color: #E0E0E0;
+    padding: 2px;
+    border-radius: 9px;
+    cursor: pointer;
+
+    transition: 1s;
+
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+
+    &:hover {
+      background-color: #1A5A4C;
+    }
+  }
+}
+
+#radio1:checked ~ .first {
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+  margin-left: -280px;
+}
+
+#radio3:checked ~ .first {
+  margin-left: -580px;
+}
+
+#radio4:checked ~ .first {
+  margin-left: -850px;
+}
+
+

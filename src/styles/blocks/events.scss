@@ -1,4 +1,4 @@
-.galery{
+.events{
   height: fit-content;
   margin-bottom: 60px;
 
@@ -17,12 +17,33 @@
     margin-bottom: 104px;
   }
 
+  &--big {
+    position: relative;
+    margin-bottom: 150px;
+
+    @include onTablet {
+      margin-bottom: 200px;
+      padding: 0 34px;
+    }
+  }
+
+  &--big {
+    @include onDesctop {
+      width: 100%;
+      padding:0;
+    }
+  }
 
   &__photo {
     width: 100%;
     max-height: 700px;
     margin-bottom: 20px;
     position: relative;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
 
     &::after {
       content: "";
@@ -43,18 +64,37 @@
     }
   }
 
+  &__big-photo {
+    height: 210px;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      grid-column: 1 / 7;
+     height: 390px;
+    }
+    @include onDesctop {
+      height: 550px;
+      grid-column: 1 / -1;
+     }
+  }
+
   &__photo-img {
     position: absolute;
     display: block;
     height: 100%;
     width: 100%;
+    &--big {
+      grid-column: 1 / -1;
+    }
   }
 
   &__description {
-
     @include onTablet {
       grid-column: 1 / 5;
-
       padding-bottom: 0;
     }
 
@@ -63,9 +103,36 @@
       padding-bottom: 0;
       padding-top: 50%;
     }
+
+    &--big {
+      position: absolute;
+      width: 280px;
+      height: 140px;
+      background-color: #fff;
+      top: 70%;
+      left: 50%;
+      box-shadow: 0px 2px 0px rgba(26, 90, 76, 0.25);
+      margin-left: -140px;
+
+      @include onTablet {
+        width: 100%;
+        grid-column: 2 / span 4;
+        margin-left: 0;
+        left: 0;
+        height: 204px;
+        padding: 45px 55px 0 ;
+      }
+      @include onDesctop {
+        grid-column: 4 / 10;
+        margin-left: 0;
+        left: 0;
+        top: 75%;
+      }
+    }
   }
+
   &__exhibition-date {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: $secondFont;
     text-transform: uppercase;
     display: flex;
     justify-content: space-between;
@@ -78,11 +145,21 @@
 
   }
 
+  &__lecture-date {
+    font-family: $secondFont;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+
+    @include onTablet {
+      padding-left: 0;
+      width: 70%;
+    }
+  }
+
   &__text {
-    font-weight: 500;
-     font-size: 16px;
-     line-height: 16px;
-     color: #687480;
+    @extend %descriptionBolder-text;
 
      @include onTablet {
       font-size: 14px;
@@ -91,10 +168,8 @@
   }
 
   &__date {
-    font-weight: 700;
-    font-size: 16px;
-    color: #1A5A4C;
-    line-height: 24px;
+    @extend %descriptionBold-text;
+    color: $green-color;
 
     @include onTablet {
       font-size: 14px;
@@ -106,10 +181,7 @@
   &__exhibition-name {
     width: 280px;
     position: relative;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 28px;
+    @extend %lectureMonserrat;
 
     &::after {
       content: "";
@@ -120,6 +192,10 @@
       background-color:  #F14A27;
       right: 5px;
       top: 12px;
+    }
+
+    &--2 {
+      width: 245px;
     }
 
     @include onTablet {
@@ -138,12 +214,17 @@
     }
   }
 
-  &__description-text {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 24px;
-    color: #4E4E4E;
+  &__lecture-name {
+    @extend %lectureMonserrat;
+    text-align: center;
 
+    @include onTablet {
+      width: 65%;
+      text-align: left;
+    }
+  }
+
+  &__description-text {
+    @extend %description-text;
   }
 }
