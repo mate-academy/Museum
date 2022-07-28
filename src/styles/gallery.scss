@@ -1,0 +1,75 @@
+.gallery {
+  position: relative;
+  height: 100vh;
+
+  &__title {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: #0F0E08;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      text-align: left;
+      padding-left: 34px;
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      text-align: left;
+      padding-left: 55px;
+      font-size: 48px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    @include onTablet {
+      padding: 0 34px 34px;
+    }
+
+    @include onDesktop {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__image {
+    width: max-content;
+
+    &:not(:first-child) {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &:nth-child(2){
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+  }
+
+  &__selector {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+    padding-top: 20px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}
