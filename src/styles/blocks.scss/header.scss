@@ -1,21 +1,17 @@
 .header {
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  box-sizing: border-box;
 
   &::after {
     content: "";
     display: block;
-    background-image: url(../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.jpg);
     position: absolute;
     top: 0;
     right: 0;
     width: 100%;
     height: 300px;
+    z-index: -1;
+    background-image: url(../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.jpg);
     background-position: top;
     background-size: cover;
-    z-index: -1;
 
     @include onTable {
       height: 380px;
@@ -24,28 +20,18 @@
 
     @include onDesktop {
       height: 655px;
-      width: 725px;
     }
   }
 
   &__top {
-    box-sizing: border-box;
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: start;
-    gap: 20px;
-    padding-top: 9px;
+    @include header-top;
     margin-bottom: 250px;
 
     @include onTable {
-      gap: 0 30px;
-      grid-template-columns: repeat(6, 1fr);
       margin-bottom: 70px;
     }
 
     @include onDesktop {
-      grid-template-columns: repeat(12, 1fr);
       margin-bottom: 150px;
     }
   }
@@ -55,19 +41,6 @@
     display: block;
     width: 18px;
     height: 12px;
-  }
-
-  &__logo {
-    transform: translate(-40px, 0);
-
-    @include onTable {
-      grid-column: 5 / 6;
-    }
-
-    @include onDesktop {
-      grid-column: 7 / 8;
-      font-size: 72px;
-    }
   }
 
   &__content {
@@ -99,28 +72,13 @@
     }
 
     @include onDesktop {
-      grid-column: 1 / 6;
+      grid-column: 1 / 5;
       margin-bottom: 90px;
       font-size: 72px;
     }
   }
 
   &__tickets-button {
-    box-sizing: border-box;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 230px;
-    height: 50px;
-    text-decoration: none;
-    font-family: "IBM Plex Sans", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 100%;
-    color: #0f0e08;
-    border: 1px solid #1a5a4c;
 
     @include onTable {
       height: 70px;
@@ -133,18 +91,6 @@
     }
 
     &::after {
-      content: ">";
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      right: -50px;
-      height: 100%;
-      width: 50px;
-      background-color: #1a5a4c;
-      color: #fff;
-      border: 1px solid #1a5a4c;
-
       @include onTable {
         width: 70px;
       }

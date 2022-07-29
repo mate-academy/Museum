@@ -1,0 +1,58 @@
+.menu {
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.7);
+
+  &__top {
+    @include header-top;
+    margin-bottom: 10px;
+  }
+
+  &__icon-cross {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-image: url(../images/icon_cross.svg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__list {
+    padding: 20px;
+    list-style: none;
+    background-color: #1a5a4c;
+
+    @include onDesktop {
+      padding: 40px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 10px 0;
+    font-weight: 400;
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+
+    @include onTable {
+      font-size: 18px;
+    }
+
+    @include onDesktop {
+      font-size: 24px;
+    }
+
+    &::after {
+      content: " ";
+      display: block;
+      border-bottom: 1px solid #fff;
+      width: 100% ;
+      opacity: 0;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}

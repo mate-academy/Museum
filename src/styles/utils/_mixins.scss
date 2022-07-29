@@ -16,3 +16,28 @@
     @content;
   }
 }
+
+@mixin design {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin header-top {
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  justify-content: start;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding-top: 9px;
+
+  @include onTable {
+    gap: 0 30px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
