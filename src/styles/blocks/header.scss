@@ -1,0 +1,103 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 20px 20px;
+  position: relative;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  &__content {
+    grid-column: 1 / 3;
+    grid-row: 4 / 7;
+    @include onTablet {
+      grid-row: 2 / 5;
+      grid-column: 1 / 3;
+      margin-left: 30px;
+    }
+    @include onDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__image {
+    grid-row: 1 / 4;
+    grid-column: 1 / 3;
+    background-image: url(../images/header_img.png);
+    background-size: cover;
+    background-position: center;
+    @include onTablet {
+      grid-row: 1 / 6;
+      grid-column: 4 / 7;
+    }
+    @include onDesktop {
+      grid-row: 1 / 5;
+      grid-column: 6 / 13;
+    }
+  }
+  &__menu {
+    background-image: url(../images/menu.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 33px;
+    left: 23px;
+    @include onTablet {
+      top: 45px;
+      left: 37px;
+    }
+    @include onDesktop {
+      top: 45px;
+      left: 58px;
+    }
+  }
+  &__cross {
+    background-image: url(../images/cross.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 33px;
+    left: 23px;
+    @include onTablet {
+      top: 45px;
+      left: 37px;
+    }
+    @include onDesktop {
+      top: 45px;
+      left: 58px;
+    }
+
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    color: #000;
+    text-align: center;
+    @include onTablet {
+      text-align: start;
+      font-size: 54px;
+      line-height: 120%;
+    }
+    @include onDesktop {
+      text-align: start;
+      font-size: 72px;
+      line-height: 120%;
+    }
+  }
+}
