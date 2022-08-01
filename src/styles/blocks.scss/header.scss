@@ -58,6 +58,7 @@
   }
 
   &__title {
+    position: relative;
     font-family: Monserat, sans-serif;
     width: 100%;
     margin-bottom: 20px;
@@ -76,6 +77,40 @@
       grid-column: 1 / 5;
       margin-bottom: 90px;
       font-size: 72px;
+    }
+
+    &::after {
+      position: absolute;
+      content: " ";
+      display: block;
+      width: 1px;
+      height: 70px;
+      bottom: -207px;
+      background-color: #1a5a4c;
+      opacity: 0;
+
+      @include onDesktop {
+        opacity: 1;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      bottom: -100px;
+      left: -20px;
+      content: "ПОДІЇ";
+      display: block;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      color: #687480;
+      transform: rotate(-90deg);
+      opacity: 0;
+
+      @include onDesktop {
+        opacity: 1;
+      }
     }
   }
 
