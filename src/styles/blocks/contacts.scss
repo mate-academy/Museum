@@ -5,20 +5,30 @@
 
   display: grid;
   grid-auto-flow: column;
-  // gap: 0 20px;
+  gap: 0 20px;
 
-  // grid-template-areas:
-  // 'header    header'
-  // 'tickets   tickets'
-  // 'actual    actual'
-  // 'gallery   gallery'
-  // 'subscribe subscribe';
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+  'contacts__logo            contacts__soc'
+  'contacts__plan            contacts__info'
+  'contacts__line            contacts__line'
+  'contacts__menu-min-part1  contacts__menu-min-part2'
+  'contacts__author          contacts__author'
+  'contacts__copiright       contacts__copiright';
 
   &__logo {
     grid-area: contacts__logo;
+    margin-bottom: 40px;
   }
 
   &__soc {
+    display: flex;
+    justify-content:space-between;
+    justify-self: flex-end;
+    align-self: center;
+    width: 62px;
+    height: 24px;
+
     grid-area: contacts__soc;
   }
 
@@ -29,6 +39,7 @@
 
   &__plan {
     grid-area: contacts__plan;
+    margin-bottom: 70px;
   }
 
   &__info {
@@ -40,24 +51,38 @@
     line-height: 1.5;
   }
 
+  &__line {
+    margin-bottom: 40px;
+    height: 1px;
+    width: 100%;
+    background-color: #1a5a4c80;
+    opacity: 0.5;
+    grid-area: contacts__line;
+  }
+
   &__menu-min-txt {
     @extend %h5;
     line-height: 1;
+    margin-bottom: 20px;
   }
 
-  &__menu-min-paert-1 {
+  &__menu-min-part-1 {
     grid-area: contacts__menu-min-part1;
+    margin-bottom: 80px;
   }
 
-  &__menu-min-paert-2 {
+  &__menu-min-part-2 {
     grid-area: contacts__menu-min-part2;
   }
 
   &__author {
+    text-align: center;
     grid-area: contacts__author;
+    margin-bottom: 10px;
   }
 
   &__copiright {
+    text-align: center;
     grid-area: contacts__copiright;
   }
 }
