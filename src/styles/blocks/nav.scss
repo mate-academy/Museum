@@ -1,0 +1,58 @@
+.nav {
+  // padding: calc(var(--h1-font-size) * 0.5 + #{$nav-opener-h} * 0.5) var(--padding-h);
+  padding: calc(var(--padding-v) + var(--h1-font-size) / 1.5) var(--padding-h);
+  position: absolute;
+
+
+
+  &__opener, &__x {
+    width: $nav-opener-w;
+    height: $nav-opener-h;
+  }
+
+  &__x {
+    opacity: 0;
+    display: none;
+  }
+
+  &__menu {
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    top: 100px;
+    width: 280px;
+  }
+
+  &__checkbox {
+    display: none;
+
+    &:checked {
+      & ~ .nav > .nav__menu > .nav__menu-item > li > p {
+        opacity: 1;
+        transform: scaleX(100%);
+      }
+
+      & ~ .nav > .nav__opener img {
+        opacity: 0;
+      }
+
+      & ~ .nav > .nav__opener .nav__x {
+        opacity: 1;
+        display: block;
+      }
+
+      @include onTablet {
+        & ~ .tickets {
+          opacity: 0;
+        }
+      }
+
+      @include onPC {
+        & ~ .tickets {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

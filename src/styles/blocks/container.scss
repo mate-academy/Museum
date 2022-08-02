@@ -1,0 +1,30 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: #fff;
+  display: grid;
+  grid-auto-flow: column;
+
+  grid-template-areas:
+  'header  header'
+  'tickets tickets'
+  'actual  actual';
+
+  gap: 0 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0 30px;
+    grid-template-areas:
+    'tickets tickets tickets header header header'
+    'actual  actual  actual  actual actual actual';
+  }
+
+  @include onPC {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+    'tickets tickets tickets tickets tickets header header header header header header header'
+    'actual  actual  actual  actual  actual  actual actual actual actual actual actual actual';
+  }
+}
+
