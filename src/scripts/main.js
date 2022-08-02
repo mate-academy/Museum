@@ -1,8 +1,6 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/swiper.min.css';
 import 'swiper/swiper-bundle.min.css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
 
 // eslint-disable-next-line no-new
 // eslint-disable-next-line no-new
@@ -11,4 +9,12 @@ new Swiper('.swiper', {
   pagination: {
     el: '.swiper-pagination',
   },
+});
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
 });

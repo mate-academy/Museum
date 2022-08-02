@@ -2,15 +2,7 @@
 
   &__event {
 
-    @include onTablet {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      column-gap: 30px;
-    }
-
-    @include onDesktop {
-      grid-template-columns: repeat(12, 1fr);
-    }
+    @extend %grid;
 
     &--first {
       margin-top: 40px;
@@ -40,6 +32,7 @@
   &__picture {
     width: 100%;
     height: 100%;
+    transition: transform 0.3s;
 
     @include onTablet {
       grid-column: 1 / 7;
@@ -47,6 +40,10 @@
 
     @include onDesktop {
       grid-column: 1 / 8;
+    }
+
+    &:hover {
+      transform: scale(1.05);
     }
   }
 

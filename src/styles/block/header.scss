@@ -38,6 +38,8 @@
       background-position: center;
       background-size: cover;
 
+      justify-content: flex-start;
+
     }
 
     @include onDesktop {
@@ -66,6 +68,7 @@
       position: absolute;
       top: 45px;
       left: 35px;
+      transition: transform 0.3s linear;
 
       @include onTablet {
         display: block;
@@ -73,6 +76,10 @@
 
       @include onDesktop {
         left: 55px;
+      }
+
+      &:hover {
+        transform: rotate(-90deg);
       }
     }
   }
@@ -156,6 +163,39 @@
     }
   }
 
+  &__button-buy {
+    display: flex;
+    border: 1px solid #1a5a4c;
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: #0f0e08;
+
+    justify-content: center;
+    align-items: center;
+    flex-basis: 85%;
+
+    @include onTablet {
+      flex-basis: 80%;
+    }
+
+  }
+
+  &__button-click {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a5a4c;
+    color: #d7dde3;
+    flex-basis: 20%;
+
+    @include onTablet {
+      flex-basis: 25%;
+    }
+
+  }
+
   &__button {
     display: flex;
     justify-content: center;
@@ -196,37 +236,12 @@
       }
 
     }
-  }
 
-  &__button-buy {
-    display: flex;
-    border: 1px solid #1a5a4c;
-    background-color: #fff;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 100%;
-    color: #0f0e08;
-
-    justify-content: center;
-    align-items: center;
-    flex-basis: 85%;
-
-    @include onTablet {
-      flex-basis: 80%;
-    }
-
-  }
-
-  &__button-click {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1a5a4c;
-    color: #d7dde3;
-    flex-basis: 20%;
-
-    @include onTablet {
-      flex-basis: 25%;
+    &:hover .header__button-click,
+    &:hover .header__button-buy {
+      background-color: #f14a27;
+      border: transparent;
+      color: #fff;
     }
 
   }
