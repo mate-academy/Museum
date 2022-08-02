@@ -3,19 +3,10 @@
   margin: 70px 0 0;
   grid-area: actual;
 
-
-
-  &__card-title {
-    color: #0f0e08;
-    box-shadow: 0px 2px 0px 0px #1A5A4C40;
-    box-shadow: 0px 2px 0px 0px #1A5A4C40;
-  }
-
   &__card {
     margin-bottom: 60px;
     display: grid;
     grid-auto-flow: column;
-    // gap: 0 20px;
 
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
@@ -32,23 +23,17 @@
     grid-area: actual__img;
   }
 
-  &__img--last {
-    top: -150px;
-    left: -20px;
-    width: 320px;
-    position: absolute;
-  }
+
 
   &__type {
-    z-index: 1;
     grid-area: actual__type;
     @extend %p;
+    font-weight: 500;
     color: #687480;
     text-transform: uppercase;
   }
 
   &__date {
-    z-index: 1;
     grid-area: actual__date;
     @extend %p;
     font-weight: 700;
@@ -57,13 +42,12 @@
   }
 
   &__title {
+    position: relative;
     display: flex;
     margin: 10px 0;
-    position: relative;
     justify-self: start;
     grid-area: actual__title;
     align-items: center;
-    justify-content: end;
     color: #0f0e08;
 
     &::after {
@@ -76,29 +60,60 @@
     }
   }
 
-  &__title--last {
-    text-align: center;
-    &::after {
-      content: '';
-      background-color: red;
-      width: 100%;
-      height: 100px;
-      left: 0;
-      bottom: 0;
-      }
-  }
-
   &__description {
     grid-area: actual__description;
     @extend %p;
     color: #4e4e4e;
   }
 
-  &__card--last {
-    position: relative;
-    grid-template-columns: auto;
+  &__card-last {
+    margin: 0 -20px;
+    padding: 0 20px;
+    display: flex;
+    height: 210px;
+    background-image: url("../images/3.jpg");
+    background-size: cover;
+    align-items: end;
+  }
 
-    box-shadow: 0px 2px 0px 0px #1A5A4C40;
-    padding: 20px 0;
+  &__card-frame {
+    padding-top: 20px;
+    position: relative;
+    bottom: -70px;
+    display: grid;
+    grid-template-areas:
+    'actual__type--last  actual__date--last'
+    'actual__title--last actual__title--last';
+
+    grid-template-columns: min-content;
+    grid-template-rows: min-content;
+
+    background-color: #fff;
+    box-shadow: 0px 2px 0px 0px #1a5a4c40;
+  }
+
+  &__type--last {
+    grid-area: actual__type--last;
+    margin-left: 21px;
+    grid-column: 1 / 2;
+  }
+
+  &__date--last {
+    grid-area: actual__date--last;
+    grid-column: 2 / -1;
+    margin-right: 21px;
+  }
+
+  &__title--last {
+    grid-area: actual__title--last;
+    grid-column: 1 / -1;
+    margin-top: 20px;
+    color: #0f0e08;
+
+    text-align: center;
+
+    &::after {
+      content: none;
+    }
   }
 }
