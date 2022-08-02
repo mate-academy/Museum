@@ -1,0 +1,98 @@
+.gallery {
+
+  &__block {
+    @extend %grid;
+
+    margin-top: 40px;
+
+    @include onTablet {
+      margin-top: 48px;
+    }
+
+    @include onDesktop {
+      margin-top: 56px;
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onDesktop {
+        display: grid;
+      }
+    }
+
+  }
+
+  &__image {
+    transition: transform 0.3s;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      width: 100%;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 5;
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        width: 100%;
+        display: block;
+        grid-column: 4 / 7;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--desktop-2 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 5 / 13;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &--desktop-3 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 1 / 9;
+        width: 100%;
+      }
+    }
+
+    &--desktop-4 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 9 / 13;
+        width: 100%;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__image-mobile {
+    transition: transform 0.3s;
+    width: 100%;
+    height: 100%;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+
+}

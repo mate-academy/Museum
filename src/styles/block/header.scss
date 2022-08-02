@@ -1,0 +1,249 @@
+.container {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    @include onTablet {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: center;
+    background-image: url(../images/pictures/namu_mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    height: 50vh;
+    width: 100%;
+    padding: 9px 20px 0;
+
+    @include onTablet {
+      background-image: url(../images/pictures/namu_tablet.png);
+      height: 100vh;
+      flex-basis: 50%;
+      padding-top: 15px;
+      padding-right: 35px;
+      background-position: center;
+      background-size: cover;
+
+      justify-content: flex-start;
+
+    }
+
+    @include onDesktop {
+      background-image: url(../images/pictures/namu_desktop.png);
+      padding-right: 55px;
+      padding-left: 55px;
+      flex-basis: 65%;
+    }
+  }
+
+  &__menu-icon {
+    display: inline-block;
+    background-image: url(../images/menu-icon.svg);
+    height: 12px;
+    width: 18px;
+    position: absolute;
+    top: 35px;
+    left: 20px;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &--tablet {
+      display: none;
+      position: absolute;
+      top: 45px;
+      left: 35px;
+      transition: transform 0.3s linear;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        left: 55px;
+      }
+
+      &:hover {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  &__logo {
+    margin: 0 auto;
+
+    @include onTablet {
+      margin-left: 50px;
+    }
+
+    @include onDesktop {
+      margin-left: 0;
+    }
+  }
+
+  &__logo-pic {
+    height: 61px;
+
+    @include onTablet {
+      height: 72px;
+    }
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @include onTablet {
+      padding-left: 35px;
+      padding-right: 0;
+    }
+
+    @include onDesktop {
+      padding-left: 55px;
+      padding-right: 30px;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+    text-transform: uppercase;
+
+    margin-top: 20px;
+
+    @include onTablet {
+      text-align: start;
+      font-size: 54px;
+      line-height: 120%;
+      margin-top: 0;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+    }
+
+    &::after {
+      display: none;
+      content: "події";
+      position: absolute;
+      bottom: 110px;
+      left: 40px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: #687480;
+      transform: rotate(-90deg);
+      text-transform: uppercase;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+
+  &__button-buy {
+    display: flex;
+    border: 1px solid #1a5a4c;
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: #0f0e08;
+
+    justify-content: center;
+    align-items: center;
+    flex-basis: 85%;
+
+    @include onTablet {
+      flex-basis: 80%;
+    }
+
+  }
+
+  &__button-click {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a5a4c;
+    color: #d7dde3;
+    flex-basis: 20%;
+
+    @include onTablet {
+      flex-basis: 25%;
+    }
+
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    height: 50px;
+    width: 100%;
+
+    margin-top: 20px;
+
+    @include onTablet {
+      height: 70px;
+      margin-top: 38px;
+      justify-content: flex-start;
+      width: 270px;
+    }
+
+    @include onDesktop {
+      margin-top: 89px;
+      align-self: flex-end;
+    }
+
+    &::before {
+      display: none;
+      border-left: 1px solid #1a5a4c;
+      height: 70px;
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 61px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: #687480;
+      cursor: none;
+
+      @include onDesktop {
+        display: block;
+      }
+
+    }
+
+    &:hover .header__button-click,
+    &:hover .header__button-buy {
+      background-color: #f14a27;
+      border: transparent;
+      color: #fff;
+    }
+
+  }
+
+}
