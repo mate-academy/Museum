@@ -1,0 +1,53 @@
+.gallery {
+  @include onMobile {
+    display: none;
+  }
+
+  @include onTablet() {
+    display: none;
+  }
+
+  @include onDesktop() {
+    display: block;
+    width: 100%;
+    margin: 0 55px 200px;
+  }
+
+  &__title {
+    @extend %Montserrat;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include onTablet() {
+      text-align: left;
+      margin: 0 20px 40px;
+    }
+    @include onDesktop() {
+      text-align: left;
+      margin: 0 20px 40px;
+    }
+  }
+
+  &__first {
+    display: flex;
+    gap: 50px;
+    margin: 0 0 30px;
+  }
+
+  &__second {
+    display: flex;
+    gap: 50px;
+  }
+
+  &__image {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
