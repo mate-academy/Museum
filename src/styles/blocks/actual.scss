@@ -1,0 +1,221 @@
+.actual {
+  padding: 0 var(--padding-h);
+  margin-top: var(--margin-top-sections);
+  grid-area: actual;
+
+  &__card {
+    margin-bottom: 60px;
+    display: grid;
+    grid-auto-flow: column;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    'actual__img          actual__img'
+    'actual__type         actual__date'
+    'actual__title        actual__title'
+    'actual__description  actual__description';
+
+    @include onTablet {
+      margin-bottom: 64px;
+      gap: 0 30px;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-areas:
+      'actual__img          actual__img          actual__img          actual__img          actual__img          actual__img'
+      'actual__type         actual__type         .                    .                    .                    .'
+      'actual__title        actual__title        actual__title        actual__title        actual__title        actual__title'
+      'actual__description  actual__description  actual__description  actual__description  actual__description  actual__description';
+    }
+
+    @include onPC {
+      margin-bottom: 104px;
+      gap: 0 30px;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 1fr auto calc(var(--actual__title-margin-b) + var(--actual__title-margin-t) + var(--h4-font-size)) auto 1fr;
+      grid-template-areas:
+      '.            .            .            .            .            .            .            .  .                    .                    .                    .'
+      'actual__img  actual__img  actual__img  actual__img  actual__img  actual__img  actual__img  .  actual__type         actual__date         actual__date         actual__date'
+      'actual__img  actual__img  actual__img  actual__img  actual__img  actual__img  actual__img  .  actual__title        actual__title        actual__title        actual__title'
+      'actual__img  actual__img  actual__img  actual__img  actual__img  actual__img  actual__img  .  actual__description  actual__description  actual__description  actual__description'
+      '.            .            .            .            .            .            .            .  .                    .                    .                    .';
+    }
+  }
+
+  &__img {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+    grid-area: actual__img;
+    transition: transform var(--dflt-trnst-time);
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onPC {
+      margin-bottom: 0;
+    }
+  }
+
+  &__type {
+    grid-area: actual__type;
+    @extend %p;
+    font-weight: 500;
+    color: #687480;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+
+    @include onPC {
+      font-size: 14px;
+      align-self: end;
+    }
+  }
+
+  &__date {
+    grid-area: actual__date;
+    @extend %p;
+    font-weight: 700;
+    text-align: right;
+    color: #1a5a4c;
+
+    @include onTablet {
+      grid-area: actual__type;
+      font-size: 14px;
+    }
+
+    @include onPC {
+      grid-area: actual__date;
+      font-size: 14px;
+      align-self: end;
+      text-align: left;
+    }
+
+
+  }
+
+  &__title {
+    position: relative;
+    display: flex;
+    margin-top: var(--actual__title-margin-t);
+    margin-bottom: var(--actual__title-margin-b);
+    justify-self: start;
+    grid-area: actual__title;
+    align-items: center;
+    color: #0f0e08;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -20px;
+      width: 10px;
+      height: 10px;
+      background-color: #f14a27;
+    }
+  }
+
+  &__description {
+    grid-area: actual__description;
+    @extend %p;
+    color: #4e4e4e;
+  }
+
+  &__card-last {
+    margin: 0 calc(var(--padding-h) * -1);
+  }
+
+  &__img--last {
+    margin: 0;
+  }
+
+  &__card-frame {
+    height: 140px;
+    width: 280px;
+    padding-top: 20px;
+    margin: 0 auto;
+    position: relative;
+    bottom: 60px;
+    display: grid;
+    grid-template-areas:
+    'actual__type--last  actual__date--last'
+    'actual__title--last actual__title--last';
+
+    grid-template-columns: min-content;
+
+    background-color: #fff;
+    box-shadow: 0px 2px 0px 0px #1a5a4c40;
+
+    @include onTablet {
+      grid-template-columns: 1fr 1fr;
+      height: 204px;
+      width: 570px;
+      padding: 20px 55px 50px;
+    }
+
+    @include onPC {
+      grid-template-columns: 1fr 1fr;
+      height: 204px;
+      width: 570px;
+      padding: 20px 55px 50px;
+      bottom: 102px;
+    }
+
+
+  }
+
+  &__type--last {
+    grid-area: actual__type--last;
+    margin-left: 20px;
+
+    @include onTablet {
+      margin-left: 0;
+    }
+
+    @include onPC {
+      margin-left: 0;
+    }
+
+
+  }
+
+  &__date--last {
+    grid-area: actual__date--last;
+    margin-right: 20px;
+
+    @include onTablet {
+      margin-left: 0;
+      text-align: left;
+    }
+
+    @include onPC {
+      margin-left: 0;
+      text-align: left;
+    }
+  }
+
+  &__title--last {
+    grid-area: actual__title--last;
+    margin: 20px 0;
+    place-self: center;
+    text-align: center;
+
+    &::after {
+      content: none;
+    }
+
+    @include onTablet {
+      text-align: left;
+    }
+
+    @include onPC {
+      text-align: left;
+    }
+
+
+  }
+}

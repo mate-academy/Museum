@@ -1,0 +1,183 @@
+.contacts {
+  padding: 0 var(--padding-h);
+  margin-top: var(--margin-top-sections);
+  grid-area: contacts;
+
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0 20px;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+  'contacts__logo            contacts__soc'
+  'contacts__plan            contacts__info'
+  'contacts__line            contacts__line'
+  'contacts__menu-min-part1  contacts__menu-min-part2'
+  'contacts__author          contacts__author'
+  'contacts__copiright       contacts__copiright';
+
+  @include onTablet {
+    grid-template-rows: auto 1fr auto auto auto;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0 30px;
+    grid-template-areas:
+    'contacts__logo       contacts__plan            contacts__plan            contacts__info            contacts__info            .'
+    'contacts__soc        contacts__plan            contacts__plan            contacts__info            contacts__info            .'
+    '.                    contacts__line            contacts__line            contacts__line            contacts__line            .'
+    '.                    contacts__menu-min-part1  contacts__menu-min-part1  contacts__menu-min-part2  contacts__menu-min-part2  .'
+    'contacts__copiright  contacts__copiright       contacts__copiright       .                         contacts__author          contacts__author';
+  }
+
+  @include onPC {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 30px;
+    grid-template-areas:
+    'contacts__logo       contacts__logo       contacts__plan       contacts__plan       contacts__info       contacts__info  contacts__line    contacts__menu-min-part1  contacts__menu-min-part1  contacts__menu-min-part2  contacts__menu-min-part2  .'
+    'contacts__soc        contacts__soc        contacts__plan       contacts__plan       contacts__info       contacts__info  contacts__line    contacts__menu-min-part1  contacts__menu-min-part1  contacts__menu-min-part2  contacts__menu-min-part2  .'
+    'contacts__copiright  contacts__copiright  contacts__copiright  contacts__copiright  contacts__copiright  .               contacts__author  contacts__author          contacts__author          contacts__author          contacts__author          contacts__author';
+  }
+
+  &__logo {
+    grid-area: contacts__logo;
+    margin-bottom: 62px;
+    height: min-content;
+
+    @include onTablet {
+
+    }
+
+    @include onPC {
+
+    }
+  }
+
+  &__soc {
+    display: flex;
+    justify-content:space-between;
+    justify-self: flex-end;
+    align-self: center;
+    width: 64px;
+    height: 24px;
+    margin-bottom: 40px;
+
+    grid-area: contacts__soc;
+
+    @include onTablet {
+      width: 74px;
+      justify-self: flex-start;
+      align-self: flex-start;
+    }
+
+    @include onPC {
+      width: 64px;
+    }
+  }
+
+  &__img {
+    transition: opacity var(--dflt-trnst-time);
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    text-align: left;
+  }
+
+  &__plan {
+    grid-area: contacts__plan;
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onPC {
+      margin-bottom: 0;
+    }
+  }
+
+  &__info {
+    grid-area: contacts__info;
+  }
+
+  &__txt {
+    @extend %h5;
+    line-height: 1.5;
+  }
+
+  &__line {
+    margin-bottom: 40px;
+    height: 1px;
+    width: 100%;
+    background-color: #1a5a4c80;
+    opacity: 0.5;
+    grid-area: contacts__line;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onPC {
+      height: 100%;
+      width: 1px;
+      justify-self: center;
+    }
+  }
+
+  &__menu-min-txt {
+    @extend %h5;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  &__menu-min-part-1 {
+    grid-area: contacts__menu-min-part1;
+    margin-bottom: 60px;
+
+    @include onTablet {
+      margin-bottom: 100px;
+    }
+
+    @include onPC {
+      margin-bottom: 0;
+    }
+  }
+
+  &__menu-min-part-2 {
+    grid-area: contacts__menu-min-part2;
+  }
+
+  &__author {
+    text-align: center;
+    grid-area: contacts__author;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      text-align: right;
+    }
+
+    @include onPC {
+      margin-top: 100px;
+      margin-bottom: 35px;
+    }
+  }
+
+  &__copiright {
+    margin-bottom: 60px;
+    text-align: center;
+    grid-area: contacts__copiright;
+
+    @include onTablet {
+      margin-bottom: 36px;
+      text-align: left;
+    }
+
+    @include onPC {
+      margin-top: 100px;
+      margin-bottom: 35px;
+    }
+  }
+}
