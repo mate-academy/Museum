@@ -1,7 +1,5 @@
 .footer {
   &__logo {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 40px;
 
     &-links {
@@ -21,6 +19,7 @@
     &-contacts {
       display: block;
       max-width: 128px;
+      margin: 0;
     }
 
     &-link {
@@ -37,5 +36,32 @@
     margin-bottom: 20px;
     background-image: url(../images/arrow.png);
     background-repeat: no-repeat;
+    background-position: center;
+
+    @include onDeskTop {
+      display: none;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    color: #0f0e08;
+  }
+
+  &__line {
+    &-desktop {
+      display: none;
+
+      @include onDeskTop {
+        display: block;
+      }
+    }
+
+    &-mobile {
+      @include onDeskTop {
+        display: none;
+      }
+    }
   }
 }
