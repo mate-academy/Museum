@@ -17,7 +17,7 @@
   'contacts__copiright       contacts__copiright';
 
   @include onTablet {
-    grid-template-rows: 135px 90px auto 1fr auto;
+    grid-template-rows: auto 1fr auto auto auto;
     grid-template-columns: repeat(6, 1fr);
     gap: 0 30px;
     grid-template-areas:
@@ -25,16 +25,22 @@
     'contacts__soc        contacts__plan            contacts__plan            contacts__info            contacts__info            .'
     '.                    contacts__line            contacts__line            contacts__line            contacts__line            .'
     '.                    contacts__menu-min-part1  contacts__menu-min-part1  contacts__menu-min-part2  contacts__menu-min-part2  .'
-    'contacts__copiright  contacts__copiright       .                         .                         contacts__author          contacts__author';
+    'contacts__copiright  contacts__copiright       contacts__copiright       .                         contacts__author          contacts__author';
   }
 
   @include onPC {
-
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 30px;
+    grid-template-areas:
+    'contacts__logo       contacts__logo       contacts__plan       contacts__plan       contacts__info       contacts__info  contacts__line    contacts__menu-min-part1  contacts__menu-min-part1  contacts__menu-min-part2  contacts__menu-min-part2  .'
+    'contacts__soc        contacts__soc        contacts__plan       contacts__plan       contacts__info       contacts__info  contacts__line    contacts__menu-min-part1  contacts__menu-min-part1  contacts__menu-min-part2  contacts__menu-min-part2  .'
+    'contacts__copiright  contacts__copiright  contacts__copiright  contacts__copiright  contacts__copiright  .               contacts__author  contacts__author          contacts__author          contacts__author          contacts__author          contacts__author';
   }
 
   &__logo {
     grid-area: contacts__logo;
-    margin-bottom: 40px;
+    margin-bottom: 62px;
+    height: min-content;
 
     @include onTablet {
 
@@ -50,19 +56,20 @@
     justify-content:space-between;
     justify-self: flex-end;
     align-self: center;
-    width: 62px;
+    width: 64px;
     height: 24px;
     margin-bottom: 40px;
 
     grid-area: contacts__soc;
 
     @include onTablet {
+      width: 74px;
       justify-self: flex-start;
       align-self: flex-start;
     }
 
     @include onPC {
-
+      width: 64px;
     }
   }
 
@@ -74,6 +81,14 @@
   &__plan {
     grid-area: contacts__plan;
     margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onPC {
+      margin-bottom: 0;
+    }
   }
 
   &__info {
@@ -94,11 +109,13 @@
     grid-area: contacts__line;
 
     @include onTablet {
-      margin: 64px 0;
+      margin-bottom: 64px;
     }
 
     @include onPC {
-
+      height: 100%;
+      width: 1px;
+      justify-self: center;
     }
   }
 
@@ -110,7 +127,15 @@
 
   &__menu-min-part-1 {
     grid-area: contacts__menu-min-part1;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
+
+    @include onTablet {
+      margin-bottom: 100px;
+    }
+
+    @include onPC {
+      margin-bottom: 0;
+    }
   }
 
   &__menu-min-part-2 {
@@ -127,20 +152,24 @@
     }
 
     @include onPC {
-
+      margin-top: 100px;
+      margin-bottom: 35px;
     }
   }
 
   &__copiright {
+    margin-bottom: 60px;
     text-align: center;
     grid-area: contacts__copiright;
 
     @include onTablet {
+      margin-bottom: 36px;
       text-align: left;
     }
 
     @include onPC {
-
+      margin-top: 100px;
+      margin-bottom: 35px;
     }
   }
 }
