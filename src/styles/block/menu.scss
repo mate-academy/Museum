@@ -1,5 +1,6 @@
 .menu {
   background-color: $green-color;
+  padding-top: 50px;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -13,54 +14,57 @@
     overflow: hidden;
     transform: translateX(0);
   }
-  &__actions {
-    display: flex;
-    align-items: baseline;
-    padding-top: 61px;
-    padding-left: 20px;
 
+  @include on768 {
+    padding-top: 70px;
+  }
+
+  &__logo {
+    display: block;
+    width: 55px;
+    height: 61px;
+    margin: 0 auto;
+    
+  
+    background-image: url(../images/NAMU.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  
     &:hover {
-      transform: scale(0.9);
-    }
-
-    @include on768 {
-      padding-left: 39px;
-    }
-
-    @include on1280 {
-      padding-left: 55px;
+      transform: scale(1.2);
     }
   }
 
-  &__nav {
+  &__nav  {
+    width: 280px;
+    margin: 0 auto;
+    margin-top: 60px;
+  
     display: flex;
     flex-direction: column;
-    padding-left: 20px;
-    padding-top: 41px;
-
+    align-items: center;
+  
     @include on768 {
-      padding-left: 39px;
+      margin-top: 80px;
+      width: 320px;
     }
-
-    @include on1280 {
-      padding-left: 55px;
-    }
-
-    &__link {
-      padding-right: 40px;
-      padding-top: 64px;
+  
+    &--link {
+      margin-bottom: 40px;
       text-decoration: none;
-      font-family: "IBM Plex Sans", sans-serif;
+      font-family: 'IBM Plex Sans';
       font-style: normal;
       font-weight: 400;
-      font-size: 14px;
+      font-size: 28px;
       line-height: 100%;
-      color: $black-color;
-      text-transform: uppercase;
-
+      color: #fff;
+    
       &:hover {
-        color: #fff;
-        transform: scale(0.9);
+        border-bottom: 1px solid #fff;
+      }
+    
+      @include on768 {
+        font-size: 36px;
       }
     }
   }

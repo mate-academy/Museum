@@ -1,65 +1,93 @@
 .classic {
-  display: flex;
-  flex-direction: column;
+  margin-top: 60px;
 
-  &__image {
-    padding-top: 60px;
-    flex-grow: 1;
+  @include on768 {
+    margin-top: 112px;
+  }
 
-    &:hover {
-      border-bottom-left-radius: 30%;
-      border-top-right-radius: 30%;
-    }
+  @include on1280 {
+    margin-top: 104px;
+  }
+
+  &__container {
+    width: 320px;
+    margin: 0 auto;
   
     @include on768 {
-      padding: 112px 39px 0;
+      width: 690px;
+    }
+  
+    @include on1280 {
+      width: 1280px;
+    }
+  }
+
+  &__photo {
+    width: 320px;
+    height: 210px;
+  
+    @include on768 {
+      width: 690px;
       height: 390px;
     }
   
     @include on1280 {
-      padding: 104px 0 0;
+      width: 1280px;
       height: 550px;
+    }
+  
+    &--image {
+      width: 100%;
+      height: 100%;
     }
   }
 
-  &__card {
-    align-self: center;
-    padding-top: 24px;
+  &__wrapper {
     background-color: #fff;
-    transform: translateY(-50%);
-    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
-  
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: baseline;
-    gap: 24px;
-    max-width: 280px;
-
+    transform: translateY(-40%);
+    width: 280px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    box-shadow: 0px 2px 0px rgba(26, 90, 76, 0.25);
   
     @include on768 {
-      max-width: 570px;
-      justify-content: flex-start;
+      width: 570px;
+      padding-top: 45px;
+      padding-bottom: 50px;
+      transform: translateY(-50%);
     }
+  }
 
+  &__data {
+    width: 240px;
+    margin: 0 auto;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  
+    @include on768 {
+      width: 460px;
+    }
+  
+  
     &--name {
       font-family: "IBM Plex Sans", sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 16px;
       line-height: 100%;
-      color: $grey-color;
-
-      &:hover {
-        color: $black-color;
-      }
-    
+      color: $gray-color;
+  
       @include on768 {
         font-size: 14px;
-        padding-left: 55px;
       }
     }
-
+  
     &--date {
       font-family: "IBM Plex Sans", sans-serif;
       font-style: normal;
@@ -67,42 +95,28 @@
       font-size: 16px;
       line-height: 150%;
       color: $green-color;
-
-      &:hover {
-        color: red;
-      }
-    
+  
       @include on768 {
         font-size: 14px;
-        padding-left: 165px;
-      }
-    
-      @include on1280 {
-        padding-left: 125px;
+        width: 220px;
       }
     }
+  }
 
-    &--title {
-      font-family: "Montserrat", sans-serif;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 28px;
-      line-height: 100%;
-      text-align: center;
-      color: $black-color;
-      padding-bottom: 20px;
+  &__title {
+    @include h3;
+    text-align: center;
+    margin-top: 20px;
 
-      &:hover {
-        color: $grey-color;
-      }
-      
-    
-      @include on768 {
-        font-size: 36px;
-        padding-bottom: 50px;
-        text-align: unset;
-        padding-left: 55px;
-      }
+    &:hover {
+      color: $green-color;
+    }
+  
+    @include on768 {
+      width: 460px;
+      margin: 0 auto;
+      text-align: unset;
+      margin-top: 16px;
     }
   }
 }
