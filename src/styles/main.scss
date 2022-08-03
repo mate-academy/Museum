@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 p,
@@ -14,18 +16,32 @@ li,
 ul {
   margin: 0;
   padding: 0;
+  list-style: none;
+}
+
+@mixin onMobile {
+  @media (min-width: 320px) {
+    @content;
+  }
 }
 
 @mixin onTablet {
-  @media (min-width: 690px) {
+  @media (min-width: 744px) {
     @content;
   }
 }
 
 @mixin onDesktop {
-  @media (min-width: 1170px) {
+  @media (min-width: 1024px) {
     @content;
   }
+}
+
+$duration: 300ms;
+
+.container {
+  // max-width: 1170px;
+
 }
 
 .page {
@@ -39,24 +55,21 @@ ul {
 
 .header {
   max-width: 1280px;
-
-  // max-width: 100%;
-  // height: 300px;
   display: flex;
   flex-direction: column-reverse;
-  // flex-direction: column-reverse;
-  margin: 0 auto px;
+  margin: 0 0 70px;
 
   @include onTablet {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    height: 384px;
+    margin: 0 34px 80px;
+  }
 
-    @include onDesktop() {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      height: 655px;
-    }
+  @include onDesktop() {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    height: 655px;
+    margin: 0 55px 200px;
   }
 
   &__block {
@@ -245,94 +258,652 @@ ul {
   }
 }
 
-.current-events {
-  height: 210px;
+.event {
+  &__wrapper {
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &--bottom {
+    margin-bottom: 0;
+  }
+
+  &__photo {
+    display: block;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      width: auto;
+      margin-bottom: 20px;
+    }
+
+    &--first {
+      margin: 20px;
+      transition: transform $duration;
+
+      &:hover {
+        transform: scale(1.04);
+      }
+
+      @include onDesktop {
+        margin: 20px 130px 35px 55px;
+      }
+    }
+
+    &--second {
+      margin: 20px;
+      transition: transform $duration;
+
+      &:hover {
+        transform: scale(1.04);
+      }
+
+      @include onDesktop {
+        margin: 20px 130px 35px 55px;
+      }
+    }
+  }
+
+  &__bottom-image {
+    width: 320px;
+    height: 210px;
+    position: relative;
+    background-image: url(/images/bottom.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+
+    @include onTablet() {
+      width: 100%;
+      height: 390px;
+    }
+    @include onDesktop() {
+      width: 100%;
+      height: 550px;
+      margin-bottom: 200px;
+
+    }
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__info {
+    margin: 20px;
+    @include onTablet {
+      width: 370px;
+    }
+
+    &--bottom {
+      position: absolute;
+      background-color: white;
+      box-shadow: 0 2px rgba(26, 90, 76, 0.25);
+      width: 280px;
+      padding: 25px 20px 30px;
+      margin: 100px 20px 0;
+      z-index: 1;
+
+      @include onTablet {
+        position: absolute;
+        margin: 20px 20px 40px 50px;
+        width: 570px;
+        padding: 50px 100px;
+      }
+      @include onDesktop() {
+        position: absolute;
+        margin: 440px 400px;
+        width: 570px;
+        padding: 50px 100px;
+      }
+    }
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      justify-content: start;
+      margin-bottom: 30px;
+    }
+
+    &--bottom {
+      justify-content: space-between;
+    }
+  }
+
+  &__type {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    margin: 0;
+    text-transform: uppercase;
+    @include onTablet {
+      font-size: 14px;
+      line-height: 14px;
+      margin-right: 26px;
+    }
+  }
+
+  &__date {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: green;
+    margin: 0;
+    @include onTablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__link {
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 28px;
+    color: black;
+    position: relative;
+    transition: color $duration;
+
+    &:hover {
+      color: green;
+    }
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    &--exhibition::after {
+      position: absolute;
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      top: 14px;
+      right: -20px;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+        top: 18px;
+        right: -30px;
+      }
+    }
+  }
 
   &__text {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    color: grey;
+  }
+}
+
+.events {
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    color: #0f0e08;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 50px;
+      text-align: left;
+
+    }
+
+    @include onDesktop {
+      text-align: left;
+      margin: 0 0 0 55px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 60px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 100px;
+    }
+
+    &--bottom {
+      margin-bottom: 100px;
+
+      @include onTablet {
+        margin-bottom: 90px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 200px;
+      }
+    }
+  }
+}
+
+.swiper {
+  @include onTablet() {
+    display: none;
+  }
+  @include onDesktop() {
+    display: none;
+  }
+
+  &__slide {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__img {
+    width: 280px;
+    height: 410px;
+    position: cover;
+    margin-bottom: 129px;
+
+  }
+}
+
+.gallery {
+  @include onMobile {
+    display: none;
+  }
+
+  @include onTablet() {
+    display: none;
+  }
+
+  @include onDesktop() {
+    display: block;
+    width: 100%;
+    margin: 0 55px 200px;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    color: #0f0e08;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include onTablet() {
+      text-align: left;
+      margin: 0 20px 40px;
+    }
+    @include onDesktop() {
+      text-align: left;
+      margin: 0 20px 40px;
+    }
+  }
+
+  &__first {
+    display: flex;
+    gap: 50px;
+    margin: 0 0 30px;
+  }
+
+  &__second {
+    display: flex;
+    gap: 50px;
+  }
+
+  &__image {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
+.subscription {
+  width: 320px;
+  height: 386px;
+  position: relative;
+  background-image: url(/images/sub.jpg);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 50px;
+
+  @include onTablet() {
+    width: 100%;
+    height: 390px;
+  }
+  @include onDesktop() {
+    width: 100%;
+    height: 550px;
+  }
+
+  &__title {
     font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
     line-height: 100%;
     text-align: center;
-    margin-bottom: 40px;
+    color: #fff;
+
+    padding: 88px 0 20px;
   }
 
-  &__image {
-    width: 280px;
-    height: 210px;
-    margin: 0 20px 20px;
+  &__text {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+    color: #fff;
+    padding: 20px 0 50px;
+    margin: 0 15px;
+  }
 
-    &-pic {
-      width: 100%;
-      height: 100%;
+  &__input {
+    width: 280px;
+    height: 50px;
+    margin: 0 auto;
+
+    @include onTablet() {
+      width: 460px;
+      height: 70px;
+    }
+    @include onDesktop() {
+      width: 570px;
+      height: 70px;
+    }
+  }
+
+  &__form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
+
+  &__email {
+    height: 100%;
+    width: 230px;
+    padding: 18px 24px;
+
+    @include onTablet() {
+      width: 374px;
+
+    }
+    @include onDesktop() {
+      width: 470px;
+
+    }
+  }
+
+  &__icon {
+    width: 50px;
+    height: 50px;
+    background: #f14a27;
+
+    @include onTablet() {
+      width: 70px;
+      height: 70px;
+    }
+    @include onDesktop() {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+
+.sub {
+  &__media {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 32px;
+    align-items: center;
+
+    @include onTablet() {
+      display: flex;
+
+    }
+    @include onTablet() {
+      display: flex;
     }
   }
 
   &__description {
-    width: 280px;
-    margin: 0 20px 20px;
-  }
-
-  &__date {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 15px;
+    flex-direction: column;
+    margin: 0 20px 32px;
+    padding-bottom: 30px;
+
+    &-title {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140.62%;
+      color: #0f0e08;
+      margin-bottom: 20px;
+    }
+
+    &-content {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      line-height: 150%;
+      color: #0f0e08;
+    }
   }
 
-  &__text-grey {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 100%;
-    color: #687480;
-  }
-
-  &__text-date {
-    font-family: "IBM Plex Sans", sans-serif;
+  &__logo {
+    font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
-    line-height: 150%;
-    color: #1a5a4c;
+    font-size: 36px;
+    line-height: 100%;
+    color: #0f0e08;
+    text-decoration: none;
+  }
+  &__socialMedia {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+
+.footer {
+  padding: 50px 20px 48px;
+
+  @include onTablet() {
+    padding: 0 20px 36px;
+  }
+
+  &__wrapper {
+    @include onTablet() {
+      width: 460px;
+    }
+    @include onDesktop() {
+      display: flex;
+      width: auto;
+    }
+  }
+
+  &__information {
+    @include onTablet() {
+      display: flex;
+      margin-bottom: 54px;
+    }
+    @include onDesktop() {
+      margin-bottom: 84px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    @include onTablet() {
+      flex-direction: column;
+      width: auto;
+      margin: 0 0 0 36px;
+      height: 158px;
+    }
+    @include onDesktop() {
+      margin: 0 0 0 54px;
+    }
+
+    &__logo {
+      display: block;
+      width: 63px;
+      height: 72px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid #1a5a4c;
+    margin: 15px 40px 0 230px;
+
+    &-img {
+      text-align: center;
+      justify-content: center;
+    }
+
+    @include onTablet() {
+      display: none;
+    }
+    @include onDesktop() {
+      display: none;
+    }
+  }
+}
+
+.media {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70px;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0 70px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #0f0e08;
+
+  @include onTablet() {
+    padding: 51px 0 46px;
+    justify-content: start;
+  }
+  @include onDesktop() {
+    padding: 0;
+  }
+
+  &:first-of-type {
+    border-bottom: 1px solid #1a5a4c80;
+
+    @include onTablet() {
+      padding-top: 0;
+
+    }
+    @include onDesktop() {
+      border-bottom: none;
+      border-right: 1px solid #1a5a4c80;
+      padding: 0 0 0 100px;
+    }
+  }
+
+  &__box {
+    width: 100%;
+    max-width: 175px;
+
+    &:first-of-type {
+      @include onTablet() {
+        width: 160px;
+        margin-right: 20px;
+      }
+      @include onDesktop() {
+        min-width: 170px;
+        margin-right: 31px;
+      }
+    }
   }
 
   &__title {
-    font-family: "Montserrat", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 100%;
-    color: #0f0e08;
     margin-bottom: 20px;
   }
 
-  &__text-description {
+  &__time {
     font-family: "IBM Plex Sans", sans-serif;
     font-style: normal;
-    font-weight: 300;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 14px;
     line-height: 150%;
-    color: #4e4e4e;
+    color: #0f0e08;
   }
 
-  &__bottom {
-    display: block;
+  &__list {
+    &:first-of-type {
+      min-width: 150px;
 
-    &__bottom--image {
-      width: 320px;
-      height: 210px;
-      margin-bottom: 150px;
-
-      &__bottom--image-pic {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 150px;
-        object-fit: property;
-
+      @include onTablet() {
+        min-width: 160px;
+        margin-right: 20px;
+      }
+      @include onDesktop() {
+        min-width: 160px;
+        margin-right: 30px;
       }
     }
+    &:last-of-type {
+      min-width: 90px;
+    }
+  }
+
+  &__link {
+    color: black;
+    text-decoration: none;
+  }
+
+  &__item {
+    margin-bottom: 20px;
   }
 }
