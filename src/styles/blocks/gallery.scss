@@ -2,11 +2,84 @@
   padding: 0 var(--padding-h);
   margin-top: var(--margin-top-sections);
   grid-area: gallery;
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-areas:
+  'gallery__title'
+  'gallery__img'
+  'gallery__next-prev';
+
+
+  @include onTablet {
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+    grid-template-areas:
+    'gallery__title     gallery__titlec'
+    'gallery__img       gallery__img--tab'
+    'gallery__next-prev gallery__next-prev';
+  }
+
+  @include onPC {
+    gap: 30px 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    'gallery__title      gallery__title     gallery__title'
+    'gallery__img        gallery__img--pc1  gallery__img--pc1'
+    'gallery__img--pc2   gallery__img--pc2  gallery__img--pc3';
+  }
+
+  &__title {
+    grid-area: gallery__title;
+  }
 
   &__img {
     display: flex;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     grid-area: gallery__img;
+  }
+
+  &__img--tab {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    grid-area: gallery__img--tab;
+
+    @include onTablet {
+      display: flex;
+    }
+
+    @include onPC {
+      display: none;
+    }
+  }
+
+  &__img--pc {
+    grid-area: gallery__img--pc;
+    display: none;
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onPC {
+      display: flex;
+    }
+  }
+
+  .gallery__img--pc1 {
+    grid-area: gallery__img--pc1;
+  }
+
+  .gallery__img--pc2 {
+    grid-area: gallery__img--pc2;
+  }
+
+  .gallery__img--pc3 {
+    grid-area: gallery__img--pc3;
   }
 
   &__next-prev {
@@ -14,6 +87,15 @@
     width: 102px;
     justify-content: space-between;
     margin: 20px auto 0;
+    grid-area: gallery__next-prev;
+
+    @include onTablet {
+      margin: 32px auto 0;
+    }
+
+    @include onPC {
+      display: none;
+    }
   }
 
   &__next-prev-btn {

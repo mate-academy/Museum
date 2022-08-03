@@ -14,6 +14,30 @@
     'actual__type         actual__date'
     'actual__title        actual__title'
     'actual__description  actual__description';
+
+    @include onTablet {
+      margin-bottom: 64px;
+      gap: 0 30px;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-areas:
+      'actual__img          actual__img          actual__img          actual__img          actual__img          actual__img'
+      'actual__type         actual__type         .                    .                    .                    .'
+      'actual__title        actual__title        actual__title        actual__title        actual__title        actual__title'
+      'actual__description  actual__description  actual__description  actual__description  actual__description  actual__description';
+    }
+
+    @include onPC {
+      margin-bottom: 104px;
+      gap: 0 30px;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 1fr auto calc(var(--actual__title-margin-b) + var(--actual__title-margin-t) + var(--h4-font-size)) auto 1fr;
+      grid-template-areas:
+      '.            .            .            .            .            .            .            .  .                    .                    .                    .'
+      'actual__img  actual__img  actual__img  actual__img  actual__img  actual__img  actual__img  .  actual__type         actual__date         actual__date         actual__date'
+      'actual__img  actual__img  actual__img  actual__img  actual__img  actual__img  actual__img  .  actual__title        actual__title        actual__title        actual__title'
+      'actual__img  actual__img  actual__img  actual__img  actual__img  actual__img  actual__img  .  actual__description  actual__description  actual__description  actual__description'
+      '.            .            .            .            .            .            .            .  .                    .                    .                    .';
+    }
   }
 
   &__img {
@@ -21,6 +45,14 @@
     width: 100%;
     margin-bottom: 20px;
     grid-area: actual__img;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onPC {
+      margin-bottom: 0;
+    }
   }
 
   &__type {
@@ -29,6 +61,15 @@
     font-weight: 500;
     color: #687480;
     text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+
+    @include onPC {
+      font-size: 14px;
+      align-self: end;
+    }
   }
 
   &__date {
@@ -37,12 +78,27 @@
     font-weight: 700;
     text-align: right;
     color: #1a5a4c;
+
+    @include onTablet {
+      grid-area: actual__type;
+      font-size: 14px;
+    }
+
+    @include onPC {
+      grid-area: actual__date;
+      font-size: 14px;
+      align-self: end;
+      text-align: left;
+    }
+
+
   }
 
   &__title {
     position: relative;
     display: flex;
-    margin: 10px 0;
+    margin-top: var(--actual__title-margin-t);
+    margin-bottom: var(--actual__title-margin-b);
     justify-self: start;
     grid-area: actual__title;
     align-items: center;
@@ -65,7 +121,7 @@
   }
 
   &__card-last {
-    margin: 0 -20px;
+    margin: 0 calc(var(--padding-h) * -1);
   }
 
   &__img--last {
@@ -73,8 +129,10 @@
   }
 
   &__card-frame {
+    height: 140px;
+    width: 280px;
     padding-top: 20px;
-    margin: 0 20px;
+    margin: 0 auto;
     position: relative;
     bottom: 60px;
     display: grid;
@@ -86,16 +144,53 @@
 
     background-color: #fff;
     box-shadow: 0px 2px 0px 0px #1a5a4c40;
+
+    @include onTablet {
+      grid-template-columns: 1fr 1fr;
+      height: 204px;
+      width: 570px;
+      padding: 20px 55px 50px;
+    }
+
+    @include onPC {
+      grid-template-columns: 1fr 1fr;
+      height: 204px;
+      width: 570px;
+      padding: 20px 55px 50px;
+      bottom: 102px;
+    }
+
+
   }
 
   &__type--last {
     grid-area: actual__type--last;
     margin-left: 20px;
+
+    @include onTablet {
+      margin-left: 0;
+    }
+
+    @include onPC {
+      margin-left: 0;
+    }
+
+
   }
 
   &__date--last {
     grid-area: actual__date--last;
     margin-right: 20px;
+
+    @include onTablet {
+      margin-left: 0;
+      text-align: left;
+    }
+
+    @include onPC {
+      margin-left: 0;
+      text-align: left;
+    }
   }
 
   &__title--last {
@@ -107,5 +202,15 @@
     &::after {
       content: none;
     }
+
+    @include onTablet {
+      text-align: left;
+    }
+
+    @include onPC {
+      text-align: left;
+    }
+
+
   }
 }

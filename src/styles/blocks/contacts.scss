@@ -16,9 +16,33 @@
   'contacts__author          contacts__author'
   'contacts__copiright       contacts__copiright';
 
+  @include onTablet {
+    grid-template-rows: 135px 90px auto 1fr auto;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0 30px;
+    grid-template-areas:
+    'contacts__logo       contacts__plan            contacts__plan            contacts__info            contacts__info            .'
+    'contacts__soc        contacts__plan            contacts__plan            contacts__info            contacts__info            .'
+    '.                    contacts__line            contacts__line            contacts__line            contacts__line            .'
+    '.                    contacts__menu-min-part1  contacts__menu-min-part1  contacts__menu-min-part2  contacts__menu-min-part2  .'
+    'contacts__copiright  contacts__copiright       .                         .                         contacts__author          contacts__author';
+  }
+
+  @include onPC {
+
+  }
+
   &__logo {
     grid-area: contacts__logo;
     margin-bottom: 40px;
+
+    @include onTablet {
+
+    }
+
+    @include onPC {
+
+    }
   }
 
   &__soc {
@@ -31,6 +55,15 @@
     margin-bottom: 40px;
 
     grid-area: contacts__soc;
+
+    @include onTablet {
+      justify-self: flex-start;
+      align-self: flex-start;
+    }
+
+    @include onPC {
+
+    }
   }
 
   &__title {
@@ -59,6 +92,14 @@
     background-color: #1a5a4c80;
     opacity: 0.5;
     grid-area: contacts__line;
+
+    @include onTablet {
+      margin: 64px 0;
+    }
+
+    @include onPC {
+
+    }
   }
 
   &__menu-min-txt {
@@ -80,10 +121,26 @@
     text-align: center;
     grid-area: contacts__author;
     margin-bottom: 10px;
+
+    @include onTablet {
+      text-align: right;
+    }
+
+    @include onPC {
+
+    }
   }
 
   &__copiright {
     text-align: center;
     grid-area: contacts__copiright;
+
+    @include onTablet {
+      text-align: left;
+    }
+
+    @include onPC {
+
+    }
   }
 }
