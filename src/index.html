@@ -20,7 +20,7 @@
         class="nav__checkbox"
       >
 
-      <!-- <nav class="nav">
+      <nav class="nav">
         <div class="nav__opener">
           <label for="checkbox">
             <img
@@ -45,15 +45,15 @@
           </a>
 
           <a
-            href="#"
+            href="#actual"
             class="nav__menu-item"
-            alt="Актуальні події"
+            alt="Виставки та події"
           >
-            <li><p class="p--menu2">Актуальні події</p></li>
+            <li><p class="p--menu2">Виставки та події</p></li>
           </a>
 
           <a
-            href="#"
+            href="#gallery"
             class="nav__menu-item"
             alt="Галерея"
           >
@@ -61,22 +61,23 @@
           </a>
 
           <a
-            href="#"
+            href="https://namumuseum.business.site/?utm_source=gmb&utm_medium=referral#summary"
             class="nav__menu-item"
-            alt="Підписка"
+            alt="Про Нас"
+            target="_blank"
           >
-            <li><p class="p--menu4">Підписка</p></li>
+            <li><p class="p--menu4">Про Нас</p></li>
           </a>
 
           <a
-            href="#"
+            href="#contacts"
             class="nav__menu-item"
             alt="Контакти"
           >
             <li><p class="p--menu5">Контакти</p></li>
           </a>
         </ul>
-      </nav> -->
+      </nav>
       <div class="header">
         <a href="#" class="header__logo">
           <h1>
@@ -98,11 +99,11 @@
           class="tickets__btn"
           alt="Buy ticket"
         >
-          <p class="tickets__btn-txt">
+          <p class="tickets__btn-txt" id="tickets__tuda">
             квитки
           </p>
           <div class="tickets__tuda">
-            <img src="../src/images/tuda.svg" alt="Buy ticket">
+            <img src="../src/images/tuda.svg" alt="Buy ticket" id="tickets__tuda">
           </div>
         </a>
       </section>
@@ -182,7 +183,7 @@
         </div>
       </section>
 
-      <section class="gallery">
+      <section class="gallery" id="gallery">
         <h3 class="gallery__title">
           Галерея
         </h3>
@@ -234,19 +235,25 @@
           Бути в курсі всіх актуальних подій та останніх новин.
         </p>
 
-        <form action="" class="subscribe__form">
+        <form
+          action="https://mate-academy-form-lesson.herokuapp.com/create-application"
+          method="post"
+          class="subscribe__form"
+        >
           <input
             type="email"
             name="email"
-            id="email"
+            required="required"
             placeholder="E-mail"
+            minlength="5"
+            maxlength="100"
             class="subscribe__email"
           >
 
           <label class="subscribe__submit-label">
             <input
-              type="submit"
-              value=">"
+              type="reset"
+              value="Reset"
               class="subscribe__submit"
             >
 
@@ -259,7 +266,7 @@
         </form>
       </section>
 
-      <section class="contacts">
+      <section class="contacts" id="contacts">
         <a href="#" class="contacts__logo">
           <h1 class="contacts__title">
             na<br>mu
@@ -267,16 +274,28 @@
         </a>
 
         <div class="contacts__soc">
-          <img
-            src="../src/images/f.png"
-            alt="Facebook"
-            class="contacts__img"
+          <a
+            href="https://facebook.com/namu.museum"
+            alt="Електронна пошта"
+            target="_blank"
           >
-          <img
-            src="../src/images/insta.png"
-            alt="Instagam"
-            class="contacts__img"
+            <img
+              src="../src/images/f.png"
+              alt="Facebook"
+              class="contacts__img"
+            >
+          </a>
+          <a
+            href="https://www.instagram.com/namu.museum"
+            alt="Електронна пошта"
+            target="_blank"
           >
+            <img
+              src="../src/images/insta.png"
+              alt="Instagam"
+              class="contacts__img"
+            >
+          </a>
         </div>
 
         <div class="contacts__plan">
@@ -295,7 +314,40 @@
           </h5>
 
           <p class="contacts__txt">
-            вул. М. Грушевського, 6; Київ, 01001<br>тел. +38 (044) 278-13-57<br>факс +38 (044) 278-74-54<br>e-mail: info@namu.kiev.ua
+            <a
+              href="https://goo.gl/maps/qvpFPRNerEHnQooo7"
+              alt="Адреса"
+              target="_blank"
+            >
+              вул. М. Грушевського, 6; Київ, 01001
+            </a>
+          </p>
+
+          <p class="contacts__txt">
+            <a
+              href="tel: +380442781357"
+              alt="Тлефон"
+            >
+              тел. +38 (044) 278-13-57
+            </a>
+          </p>
+
+          <p class="contacts__txt">
+            <a
+              href="tel: +380442787454"
+              alt="Факс"
+            >
+              факс +38 (044) 278-74-54
+            </a>
+          </p>
+
+          <p class="contacts__txt">
+            <a
+              href="mailto: info@namu.kiev.ua"
+              alt="Електронна пошта"
+              target="_blank"
+            >
+              e-mail: info@namu.kiev.ua</a>
           </p>
         </div>
 
@@ -303,32 +355,58 @@
 
         <div class="contacts__menu-min-part-1">
           <p class="contacts__menu-min-txt">
-            Галерея
+            <a
+              href="#gallery"
+              alt="Електронна пошта"
+            >
+              Галерея
+            </a>
           </p>
           <p class="contacts__menu-min-txt">
-            Виставки та події
+            <a
+              href="#actual"
+              alt="Електронна пошта"
+            >
+              Виставки та події
+            </a>
           </p>
         </div>
 
         <div class="contacts__menu-min-part-2">
           <p class="contacts__menu-min-txt">
-            Про Нас
+            <a
+              href="https://namumuseum.business.site/?utm_source=gmb&utm_medium=referral#summary"
+              alt="Про Нас"
+              target="_blank"
+            >
+              Про Нас
           </p>
           <p class="contacts__menu-min-txt">
-            Контакти
+            <a
+              href="#contacts"
+              alt="Електронна пошта"
+            >
+              Контакти
+            </a>
           </p>
         </div>
 
         <p class="contacts__author">
-          Designed by Zhyriada Marina
+          <a
+            href="https://www.behance.net/zhyriadatmar"
+            alt="Жиряда Марина Георгіївна"
+            target="_blank"
+          >
+            Designed by Zhyriada Marina
+          </a>
         </p>
 
         <p class="contacts__copiright">
           Copyright © 2019. All Rights Reserved.
         </p>
-
       </section>
     </div>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/main.js">
+    </script>
   </body>
 </html>
