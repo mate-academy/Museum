@@ -1,5 +1,4 @@
 .header {
-
   height: 100vh;
   background-image: url(../images/header-mobile.png);
   background-position: top;
@@ -14,10 +13,13 @@
   }
 
   @include onTablet {
-    height: 50vh;
     background-image: url(../images/header-tablet.png);
     background-position: top right;
     background-size: 55%;
+
+    @media (min-height: 900px) {
+      height: 60vh;
+    }
   }
 
   @include onDesktop {
@@ -90,5 +92,14 @@
     }
     position: absolute;
     transform: rotate(-90deg);
+  }
+
+  &__form {
+    &-button {
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: #1a8a5c;
+      }
+    }
   }
 }
