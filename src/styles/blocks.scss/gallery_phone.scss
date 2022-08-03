@@ -1,0 +1,182 @@
+.gallery-phone {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  &__slideshow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400%;
+    height: 100%;
+    margin-bottom: 30px;
+    position: relative;
+    animation: slideshow 20s infinite;
+
+    @include onTable {
+      width: 200%;
+    }
+  }
+
+  &__photo {
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__photo-item {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+    transition: transform, 0.3s;
+
+    @include onTable {
+      border: 10px solid #fff;
+    }
+
+    &:hover {
+      position: relative;
+      transform: scale(120%);
+    }
+  }
+
+  &__button {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #e5e6eb;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    right: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 70;
+    border: 1px solid #e5e6eb;
+
+    @for $var from 1 to 5 {
+      &--#{$var} {
+        left: 37% + $var * 5%;
+      }
+    }
+  }
+
+  &__button--1:focus ~ &__slideshow {
+    animation: none;
+    right: 0;
+  }
+
+  &__button--2:focus ~ &__slideshow {
+    animation: none;
+    right: 100%;
+
+    @include onTable {
+      right: 50%;
+    }
+  }
+
+  &__button--3:focus ~ &__slideshow {
+    animation: none;
+    right: 200%;
+
+    @include onTable {
+      right: 100%;
+    }
+  }
+
+  &__button--4:focus ~ &__slideshow {
+    animation: none;
+    right: 300%;
+
+    @include onTable {
+      right: 150%;
+    }
+  }
+
+  &__button:focus {
+    background-color: #1a5a4c;
+  }
+}
+
+@keyframes slideshow {
+  0% {
+    left: 0;
+  }
+  10% {
+    left: 0;
+  }
+  15% {
+    left: -100%;
+  }
+  25% {
+    left: -100%;
+  }
+  30% {
+    left: -200%;
+  }
+  40% {
+    left: -200%;
+  }
+  45% {
+    left: -300%;
+  }
+  55% {
+    left: -300%;
+  }
+  60% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -100%;
+  }
+  85% {
+    left: -100%;
+  }
+  90% {
+    left: 0%;
+  }
+}
+
+@include onTable {
+  @keyframes slideshow {
+    0% {
+      left: 0;
+    }
+    10% {
+      left: -50%;
+    }
+    20% {
+      left: -50%;
+    }
+    30% {
+      left: -50%;
+    }
+    40% {
+      left: -100%;
+    }
+    50% {
+      left: -100%;
+    }
+    60% {
+      left: -50%;
+    }
+    70% {
+      left: -50%;
+    }
+    80% {
+      left: -50%;
+    }
+    90% {
+      left: 0;
+    }
+  }
+}

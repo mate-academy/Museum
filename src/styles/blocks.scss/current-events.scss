@@ -1,0 +1,114 @@
+.current-events {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include onDesktop {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &__foto {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__foto-item {
+    width: 100%;
+    height: 100%;
+
+    margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(120%);
+    }
+  }
+
+  &__content {
+    @include onDesktop {
+      grid-column: 9 / 13;
+    }
+  }
+
+  &__exhibition {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    @include onTable {
+      justify-content: start;
+    }
+  }
+
+  &__exhibition-link {
+    margin-right: 30px;
+
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    color: #687480;
+  }
+
+  &__exhibition-date {
+    font-weight: 700;
+    font-size: 16px;
+    color: #1a5a4c;
+  }
+
+  &__title {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    color: #0f0e08;
+
+    @include onTable {
+      font-size: 36px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      right: -30px;
+      top: 50%;
+      transform: translateY(-25%);
+      background-color: #f14a27;
+
+      @include onTable {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  &__describe {
+    display: block;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: #4e4e4e;
+
+    @include onTable {
+      max-width: 460px;
+    }
+
+    @include onDesktop {
+      max-width: 370px;
+    }
+  }
+}
