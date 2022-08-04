@@ -1,0 +1,68 @@
+.menu {
+  background-color: $darkGreen;
+  height: 100vh;
+  z-index: 1;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    padding: 20px $menu-padding 0;
+    margin-bottom: 100px;
+
+    @include onTablet {
+      padding: 20px $menu-padding-tab 0;
+    }
+
+    @include onDesktop {
+      padding: 20px $menu-padding-desk 0;
+    }
+  }
+
+  &__closer {
+    display: block;
+    justify-self: flex-start;
+    background-image: url(../images/cross.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: $cross-size;
+    width: $cross-size;
+  }
+
+  &__logo {
+    margin-left: calc(50% - #{$menu-padding} - #{$cross-size});
+
+    @include onTablet {
+      margin-left: calc(50% - #{$menu-padding-tab} - #{$cross-size});
+    }
+
+    @include onDesktop {
+      margin-left: calc(50% - #{$menu-padding-desk} - #{$cross-size});
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 40px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.5s;
+
+    &:hover {
+      border-color: #fff;
+    }
+  }
+}

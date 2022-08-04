@@ -1,0 +1,199 @@
+.header {
+  box-sizing: border-box;
+
+  @include onTablet {
+    display: flex;
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__text-block {
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      order: 1;
+      width: 50%;
+      align-items: flex-start;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 24px 0;
+
+    @include onTablet {
+      padding-top: 15px;
+    }
+  }
+
+  &__img-box {
+    height: 300px;
+    margin-bottom: 20px;
+    background-image: url(../images/museum-s.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include onTablet {
+      background-image: url(../images/museum-m.png);
+      order: 2;
+      width: 50%;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/museum-l.png);
+      grid-column: 6 / -1;
+      height: 655px;
+      width: 100%;
+    }
+  }
+
+  &__menu-opener {
+    justify-self: start;
+    background-image: url(../images/menu.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: block;
+    height: 12px;
+    width: 18px;
+
+    @include onTablet {
+      position: absolute;
+      top: 45px;
+      left: 34px;
+    }
+
+    @include onDesktop {
+      position: absolute;
+      left: 55px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      margin-top: 128px;
+      margin-left: 34px;
+      margin-bottom: 38px;
+      text-align: start;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin-top: 206px;
+      margin-left: 55px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    @include onTablet {
+      margin-left: 34px;
+      width: max-content;
+    }
+
+    @include onDesktop {
+      align-self: flex-start;
+      margin-top: 90px;
+      margin-left: 200px;
+    }
+
+    &-button {
+      text-decoration: none;
+    }
+
+    &-button-text {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color: $almostBlack;
+      width: 230px;
+      height: 50px;
+      border: 1px solid $darkGreen;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.5s;
+
+      &:hover {
+        background-color: $darkGreen;
+        color: #fff;
+      }
+
+      @include onTablet {
+        height: 70px;
+      }
+    }
+
+    &-link {
+      display: block;
+      width: 50px;
+      height: 50px;
+      background: $darkGreen;
+      background-image: url(../images/more.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: background-size 1s;
+
+      @include onTablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  &__notice {
+    align-items: center;
+    transform: rotate(-90deg);
+    gap: 20px;
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      position: absolute;
+      top: 580px;
+    }
+
+    &-line {
+      width: 70px;
+      height: 1px;
+      background-color: $darkGreen;
+    }
+
+    &-text {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: $grey;
+    }
+  }
+}
