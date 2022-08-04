@@ -1,0 +1,235 @@
+.events {
+  height: fit-content;
+  margin-bottom: 60px;
+
+  @include onTablet {
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: repeat(6, minmax(70px, 1fr));
+
+    margin-bottom: 64px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    column-gap: 24px;
+    grid-template-columns: repeat(12, minmax(70px, 1fr));
+    margin-bottom: 104px;
+  }
+
+  &--big {
+    max-width: 1280px;
+    position: relative;
+    margin: 0 auto 150px;
+
+    @include onTablet {
+      margin-bottom: 200px;
+      padding: 0 34px;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    max-height: 700px;
+    margin-bottom: 20px;
+    position: relative;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    @include onTablet {
+      grid-column: 1 / span 6;
+      height: 700px;
+      padding-bottom: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+      height: 520px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__big-photo {
+    height: 210px;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      grid-column: 1 / 7;
+      height: 390px;
+    }
+
+    @include onDesktop {
+      height: 550px;
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__photo-img {
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+
+    &--big {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      grid-column: 1 / 5;
+      padding-bottom: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+      padding-bottom: 0;
+      padding-top: 50%;
+    }
+
+    &--big {
+      position: absolute;
+      width: 280px;
+      height: 140px;
+      background-color: #fff;
+      top: 70%;
+      left: 50%;
+      box-shadow: 0px 2px 0px rgba(26, 90, 76, 0.25);
+      margin-left: -140px;
+
+      @include onTablet {
+        width: 100%;
+        grid-column: 2 / span 4;
+        margin-left: 0;
+        left: 0;
+        height: 204px;
+        padding: 45px 55px 0;
+      }
+
+      @include onDesktop {
+        grid-column: 4 / 10;
+        margin-left: 0;
+        left: 0;
+        top: 75%;
+      }
+    }
+  }
+
+  &__exhibition-date {
+    font-family: $ff-IBM;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+
+    @include onTablet {
+      width: 50%;
+    }
+
+    @include onDesktop {
+      width: 100%;
+    }
+
+  }
+
+  &__lecture-date {
+    font-family: $ff-IBM;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+
+    @include onTablet {
+      padding-left: 0;
+      width: 70%;
+    }
+  }
+
+  &__text {
+    @extend %descriptionBolder-text;
+
+    @include onTablet {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &__date {
+    @extend %descriptionBold-text;
+    color: #1a5a4c;
+
+    @include onTablet {
+      font-size: 14px;
+      line-height: 14px;
+      justify-content: baseline;
+    }
+  }
+
+  &__exhibition-name {
+    width: 280px;
+    position: relative;
+    @extend %lectureMonserrat;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #f14a27;
+      right: 5px;
+      top: 12px;
+    }
+
+    &--2 {
+      width: 245px;
+    }
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 36px;
+      width: 360px;
+
+      &--2 {
+        width: 310px;
+      }
+    }
+
+    @include onDesktop {
+      &--2 {
+        width: 310px;
+      }
+    }
+  }
+
+  &__lecture-name {
+    @extend %lectureMonserrat;
+    text-align: center;
+
+    @include onTablet {
+      width: 65%;
+      text-align: left;
+    }
+  }
+
+  &__description-text {
+    @extend %description-text;
+  }
+}
