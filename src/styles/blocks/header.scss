@@ -6,6 +6,11 @@
     justify-content: space-between;
   }
 
+  @include onDesktop {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
   &__icons {
     width: 100%;
     display: flex;
@@ -151,6 +156,10 @@
 
       color: $colorBlack;
 
+      &:hover {
+        background-color: $colorOrange;
+      }
+
       @include onTablet {
         width: 218px;
         height: 68px;
@@ -163,7 +172,12 @@
       display: inline-block;
       width: 15%;
       height: 50px;
+      cursor: pointer;
       background-color: $colorGreen;
+
+      &:hover {
+        background-color: $colorOrange;
+      }
 
       @include onTablet {
         width: 67px;
@@ -178,8 +192,13 @@
 
     margin-top: 55px;
     bottom: 340px;
+    transition: transform 0.8s;
 
     display: none;
+
+    &:hover {
+      transform: rotate(90deg);
+    }
 
     @include onDesktop {
       display: block;
@@ -194,6 +213,7 @@
       color: $colorBlack;
       text-transform: uppercase;
       text-decoration: none;
+      scroll-behavior: smooth;
 
       &::before {
         display: block;

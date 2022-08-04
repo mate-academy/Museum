@@ -17,3 +17,10 @@ new Swiper('.swiper', {
     el: '.swiper-scrollbar',
   },
 });
+
+const form = document.getElementById('formID');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  event.target.reset();
+});
