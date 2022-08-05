@@ -25,7 +25,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <script src="./scripts/main.js"></script>
   </head>
-  <body>
+  <body class="page__content">
     <header id="header" class="header">
       <a href="#menu" class="header__menu">
         <img src="./images/menu-button.png" alt="menu">
@@ -206,17 +206,18 @@
           action="#"
           method="get"
           class="subscription__form form form--sub"
+          id="myForm"
         >
           <input
-            type="text"
+            type="email"
             class="form-input"
             placeholder="E-mail"
-            required
           >
           <input
-            type="reset"
+            type="button"
             class="subscription__form-button button button--red"
             value=" "
+            onclick="resetForm()"
           >
         </form>
       </section>
@@ -227,18 +228,26 @@
             na <br> mu
           </h1>
           <div class="info__emblems-logos">
-            <a href="https://www.facebook.com/namu.museum/" target="_blank">
+            <a
+            href="https://www.facebook.com/namu.museum/"
+            target="_blank"
+            class="info__emblems-logos-link"
+            >
               <img
                 src="./images/Facebook.png"
                 alt="facebook"
                 class="info__logos-image info__logos-image--fb"
               >
             </a>
-            <a href="https://www.instagram.com/namu.museum/" target="_blank">
+            <a
+              href="https://www.instagram.com/namu.museum/"
+              target="_blank"
+              class="info__emblems-logos-link"
+            >
               <img
                 src="./images/Insta.png"
                 alt="instagram"
-                class="info__logos-image"
+                class="info__logos-image info__logos-image--insta"
               >
             </a>
           </div>
@@ -319,5 +328,11 @@
         </div>
       </footer>
     </main>
+
+    <script>
+      function resetForm() {
+        document.getElementById("myForm").reset();
+      }
+    </script>
   </body>
 </html>
