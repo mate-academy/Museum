@@ -1,20 +1,16 @@
 .header {
+
   &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 1024px;
-    width: 100%;
-    position: relative;
 
     @include onTablet {
-      display: flex;
-
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 30px;
     }
 
     @include onDesktop() {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
+      grid-template-columns: repeat(11, 1fr);
       column-gap: 30px;
     }
   }
@@ -28,11 +24,12 @@
     height: 300px;
 
     @include onTablet {
-      width: 50%;
+      grid-column: 3 / -1;
+      width: 100%;
       height: 384px;
     }
     @include onDesktop {
-      grid-column: 6 / -1;
+      grid-column: 12 / 6;
       width: 100%;
       height: 655px;
     }
@@ -61,15 +58,29 @@
     margin: 0 auto;
 
     @include onTablet() {
-      margin-left: 34px;
-      width: max-content;
-    }
-    @include onDesktop() {
+      position: absolute;
+
+      right: 60%;
+      top: 30%;
+
       width: 270px;
       height: 70px;
-      align-self: flex-start;
-      margin-top: 90px;
-      margin-left: 140px;
+      margin-top: 190px;
+      margin-left: 0;
+      margin-right: 50px;
+    }
+    @include onDesktop() {
+      position: absolute;
+
+      right: 60%;
+      top: 30%;
+
+      width: 270px;
+      height: 70px;
+      margin-top: 260px;
+      margin-left: 0;
+      margin-right: 50px;
+
     }
 
     &-button {
@@ -134,7 +145,8 @@
     display: none;
     @include onDesktop() {
       display: flex;
-      margin-top: 400px;
+      margin-top: 555px;
+      margin-left: 50px;
       transform-origin: 0 0;
       transform: rotate(-90deg);
       font-family: "IBM Plex Sans", sans-serif;
@@ -149,8 +161,8 @@
         display: block;
         position: absolute;
 
-        right: 130px;
-        top: -27px;
+        right: 90px;
+        top: -26px;
         width: 1px;
         height: 70px;
         background: #1a5a4c;
@@ -171,7 +183,7 @@
 
     @include onTablet {
       height: 384px;
-      grid-column: 4 / 3;
+      grid-column: 3 / 3;
     }
 
     @include onDesktop() {
@@ -210,9 +222,7 @@
 
   &__text-block {
     @include onTablet {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
+      // grid-column: 2 / -1;
     }
 
     @include onDesktop {
@@ -228,14 +238,18 @@
     text-align: center;
 
     @include onTablet {
+      position: relative;
+
       font-weight: 700;
       font-size: 54px;
       line-height: 120%;
-      margin-bottom: 38px;
+      margin-left: 30px;
+      bottom: 280px;
     }
+    
     @include onDesktop() {
       position: relative;
-      bottom: 600px;
+      bottom: 550px;
       font-weight: 700;
       font-size: 72px;
       line-height: 120%;
