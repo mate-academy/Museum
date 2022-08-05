@@ -206,18 +206,18 @@
           action="#"
           method="get"
           class="subscription__form form form--sub"
-          id="myForm"
+          id="form"
         >
           <input
             type="email"
             class="form-input"
             placeholder="E-mail"
+            required
           >
           <input
-            type="button"
+            type="submit"
             class="subscription__form-button button button--red"
             value=" "
-            onclick="resetForm()"
           >
         </form>
       </section>
@@ -328,11 +328,12 @@
         </div>
       </footer>
     </main>
-
     <script>
-      function resetForm() {
-        document.getElementById("myForm").reset();
-      }
+      const form = document.getElementById('form');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        form.reset();
+      });
     </script>
   </body>
 </html>
