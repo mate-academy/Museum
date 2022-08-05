@@ -22,8 +22,9 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-// eslint-disable-next-line max-len
-document.querySelector('#form-subscribe').addEventListener('click', function(event) {
+const form = document.getElementById('form-subscribe');
+
+form.addEventListener('submit', (event) => {
   event.preventDefault();
-  document.getElementById('form-subscribe').reset();
-}, false);
+  form.reset();
+});
