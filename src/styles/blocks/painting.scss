@@ -1,0 +1,63 @@
+.painting {
+  display: none;
+
+  @include onDesktop {
+    display: block;
+  }
+  
+  &__photo-container {
+    position: relative;
+    width: 100%;
+    height: 410px;
+    max-height: 600px;
+    overflow: hidden;
+    transition: transform $animationSpeed;
+
+    margin-bottom: 16px;
+
+    &:hover {
+      transform: scale(1.04);
+    }
+
+    display: block;
+
+    @include onTablet {
+      height: 550px;
+      padding-bottom: 0;
+    }
+
+    @include onDesktop {
+      height: 600px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__photo-container--small {
+    max-height: 360px;
+  }
+
+  &__photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: top;
+
+    @include onTablet {
+      object-position: center;
+    }
+
+    @include onDesktop {
+      object-position: center;
+    }
+  }
+
+  &__photos {
+    margin-bottom: 16px;
+
+    @include onDesktop {
+      margin-bottom: 16px;
+    }
+  }
+}

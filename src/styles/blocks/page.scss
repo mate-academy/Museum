@@ -1,0 +1,118 @@
+.page {
+  font-family: IBM Plex Sans, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4e4e4e;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    box-sizing: border-box;
+    margin: initial;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__section {
+    margin-bottom: 100px;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__section-title {
+    margin: 0 20px;
+    margin-bottom: 40px;
+
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 36px;
+    text-align: center;
+    color: #0f0e08;
+
+    @include onTablet {
+      margin: 0;
+      margin-bottom: 48px;
+      font-size: 48px;
+      line-height: 48px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin: 0;
+      margin-bottom: 56px;
+      font-size: 48px;
+      line-height: 48px;
+      text-align: left;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform $animationSpeed;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &--blur {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='blur'><feGaussianBlur stdDeviation='3'/></filter></svg>#blur");
+  }
+
+  &__back-to-top {
+    display: block;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 10vh;
+    right: 20px;
+    z-index: 2;
+    outline: none;
+    border: 1px solid $color-main;
+    border-radius: 50%;
+    color: $color-main;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-size: 20px;
+
+    transition: all $animationSpeed;
+
+    @include onTablet {
+      right: calc(20px + (100vw - 710px) / 2);
+    }
+
+    @include onDesktop {
+      right: calc(60px + (100vw - 1105px) / 2);
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.6);
+      box-shadow: 1px 0 8px $color-main;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__bold-text {
+    font-weight: bold;
+  }
+}
