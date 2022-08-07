@@ -1,4 +1,4 @@
-/*.footer {
+.footer {
   display: flex;
   justify-content: space-between;
   padding: 48px 54px;
@@ -58,6 +58,14 @@
     }
   }
 
+  &__schedule-hours {
+    font-weight: 700;
+  }
+
+  &__schedule-off {
+    margin-top: 50px;
+  }
+
   &__return {
     display: flex;
     justify-content: center;
@@ -71,6 +79,11 @@
     @include onDeskTop {
       display: none;
     }
+  }
+
+  &__link-container {
+    margin: 0 auto;
+    float: none;
   }
 
   &__nav {
@@ -97,9 +110,29 @@
       }
     }
   }
-}*/
+}
 
-.footer {
+.bold {
+  font-weight: 700;
+}
+
+/*.footer {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(2, minmax(95px, 1fr));
+  height: 300px;
+  font-weight: 400;
+  font-size: 14px;
+
+  @include onTablet {
+    grid-gap: 24px;
+    grid-template-columns: repeat(6, minmax(70px, 1fr));
+  }
+
+  @include onDeskTop {
+    grid-gap: 24px;
+    grid-template-columns: repeat(12, minmax(70px, 1fr));
+  }
   &__content {
     padding-top: 50px;
     padding-bottom: 80px;
@@ -107,9 +140,23 @@
   }
 
   &__logo-wrapper {
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    grid-column: 1 / span 2 ;
+
+    @include onTablet {
+      flex-direction: column;
+      height: 70%;
+      grid-column: 1;
+    }
+
+    @include onDeskTop {
+      flex-direction: column;
+      height: 20%;
+      grid-column: 1;
+    }
   }
 
   &__icon-wrapper {
@@ -118,18 +165,35 @@
   }
 
   &__schedule-wrapperr {
-    display: flex;
-    padding-top: 40px;
-    padding-bottom: 70px;
+    width: 110px;
+    grid-column: 1;
+
+    @include onTablet {
+      width: 100%;
+      grid-column: 2 / span 2;
+    }
 
     @include onDeskTop {
-      grid-column: 3 / 7;
-      border-bottom: none;
+      width: 100%;
+      grid-column: 3 / span 2;
     }
   }
 
+
   &__schedule-content {
-    padding-top: 20px;
+    margin: 0;
+    padding: 0;
+    align-self: start;
+    grid-column: 1;
+
+    @include onTablet {
+      grid-column: 2 / span 2;
+    }
+
+    @include onDeskTop {
+      width: 100%;
+      grid-column: 3 / span 2;
+    }
   }
 
   &__schedule-slot {
@@ -146,6 +210,12 @@
     font-size: 14px;
     line-height: 140.62%;
     color: #0f0e08;
+  }
+
+  &__contacts{
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 25px;
   }
 
   &__schedule-time {
@@ -167,7 +237,23 @@
   }
 
   &__nav-item {
+    line-height: 21px;
+    grid-row: 2;
+    grid-column: 2;
+    color: black;
+    text-decoration: none;
     list-style: none;
+
+    @include onTablet {
+      grid-row: 1;
+      grid-column: 4 / span 2;
+    }
+
+    @include onDeskTop {
+      width: 100%;
+      grid-column: 5 / span 2;
+    }
+    /*list-style: none;
     &:last-child {
       margin-top: 20px;
     }
@@ -182,7 +268,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /*border: 1px solid #1a5a4c;*/
     border-radius: 50%;
     height: 50px;
     width: 50px;
@@ -199,4 +284,4 @@
     color: #1a5a4c;
     padding: 100%;
   }
-}
+}*/
