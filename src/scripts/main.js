@@ -18,3 +18,11 @@ new Swiper('.swiper', {
     el: '.swiper-scrollbar',
   },
 });
+
+document
+  .querySelector('#form')
+  .addEventListener('click', (event) => {
+    document.getElementById('output-box')
+      .innerHTML += 'Sorry! Enter your E-mail, please';
+    event.preventDefault();
+  }, false);
