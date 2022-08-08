@@ -1,0 +1,70 @@
+.menu {
+  background-color: $green-color;
+  padding-top: 50px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateX(-100%);
+  overflow-y: auto;
+  z-index: 1;
+
+  &:target {
+    overflow: hidden;
+    transform: translateX(0);
+  }
+
+  @include on768 {
+    padding-top: 70px;
+  }
+
+  &__logo {
+    display: block;
+    width: 55px;
+    height: 61px;
+    margin: 0 auto;
+    
+    background-image: url(../images/NAMU.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__nav {
+    width: 280px;
+    margin: 0 auto;
+    margin-top: 60px;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    @include on768 {
+      margin-top: 80px;
+      width: 320px;
+    }
+  
+    &--link {
+      margin-bottom: 40px;
+      text-decoration: none;
+      font-family: "IBM Plex Sans", serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 100%;
+      color: #fff;
+    
+      &:hover {
+        border-bottom: 1px solid #fff;
+      }
+    
+      @include on768 {
+        font-size: 36px;
+      }
+    }
+  }
+}
