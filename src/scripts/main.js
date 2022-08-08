@@ -7,3 +7,11 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page__menu-on');
   }
 });
+
+function stopDefAction(evt) {
+  evt.preventDefault();
+}
+
+document.getElementById('send').addEventListener(
+  'click', stopDefAction, false
+);
