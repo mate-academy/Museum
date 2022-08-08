@@ -12,6 +12,6 @@ function stopDefAction(evt) {
   evt.preventDefault();
 }
 
-document.getElementById('send').addEventListener(
+document.querySelector('#send').addEventListener(
   'click', stopDefAction, false
 );
