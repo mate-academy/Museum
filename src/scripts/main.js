@@ -8,8 +8,8 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-const form = document.querySelector('.subscribe__container');
-const inputs = document.querySelectorAll('.subscribe__container-input');
+const form = document.querySelector('.subscribe__form');
+const inputs = document.querySelectorAll('.subscribe__form--input');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
