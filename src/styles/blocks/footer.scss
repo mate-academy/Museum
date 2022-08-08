@@ -12,33 +12,28 @@
   }
 
   &__link-container {
-    /*position: absolute;*/
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     margin: 0 auto;
     float: none;
-    /*display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-
-    @include onDeskTop {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-    }*/
   }
 
   &__link {
     text-decoration: none;
     color: #0f0e08;
-    padding: 20px;
-
-    @include onDeskTop {
-      padding-bottom: 20px;
-      padding-right: 132px;
-    }
   }
+
+  &__link-bottom {
+    margin-top: 20px;
+  }
+
+  &__link--obercontainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
   &__logo {
     display: flex;
     justify-content: space-between;
@@ -128,4 +123,24 @@
 
 .bold {
   font-weight: 700;
+}
+
+.border {
+  &::before {
+    content: " ";
+    position: absolute;
+    height: 1px;
+    width: 280px;
+    background-color: #1a5a4c80;
+    bottom: 0;
+    left: -7;
+  }
+
+  @include onDeskTop {
+    &::after {
+      content: " ";
+      height: 260px;
+      width: 1px;
+    }
+  }
 }
