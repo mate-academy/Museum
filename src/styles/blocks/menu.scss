@@ -1,16 +1,31 @@
 .menu {
+  display: flex;
+  flex-wrap: wrap;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background-color: #1a5a4c;
-  width: 100vw;
-  height: 100vh;
+  height: 60vh;
 
-  transform: translateX(-100%);
+  @include onDeskTop {
+    height: 50vh;
+  }
+
+  font-family: "IBM Plex Sans", sans-serif;
+
+  transform: translateY(-100%);
 
   &:target {
-    transform: translateX(0);
+    transform: translateY(0);
+  }
+
+  &--container {
+    @include onDeskTop {
+      display: flex;
+      justify-content: space-between;
+      width: 100vw;
+    }
   }
 
   &__content {
@@ -19,15 +34,11 @@
     box-sizing: border-box;
   }
 
-  &__logo {
-    padding: 50px;
-  }
-
   &__close {
     padding: 50px;
     font-weight: 700;
     text-decoration: none;
-    color: #0f0e08;
+    color: #fff;
 
     &:hover {
       color: #f14a27;
@@ -37,9 +48,20 @@
   &__list {
     display: inline-block;
     list-style: none;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 48px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    columns: 2;
+    gap: 28px;
+
+    border-bottom: 1px solid #fff;
+
+    @include onDeskTop {
+      font-size: 22px;
+      line-height: 22px;
+      border-bottom: 1px solid transparent;
+      margin-top: 40px;
+    }
   }
 
   &__item {
@@ -48,10 +70,46 @@
 
   &__item-a {
     text-decoration: none;
-    color: #0f0e08;
+    color: #fff;
 
     &:hover {
       color: #f14a27;
+    }
+  }
+
+  &__schedule {
+    color: #fff;
+    margin-left: 20px;
+
+    @include onDeskTop {
+      padding-left: 102px;
+      border-left: 1px solid #fff;
+      height: 50%;
+      margin-top: 40px;
+      margin-right: 155px;
+    }
+  }
+
+  &__schedule-title {
+    margin-bottom: 20px;
+  }
+
+  &__schedule-off {
+    margin-top: 16px;
+  }
+
+  &__schedule-container {
+    @include onDeskTop {
+      display: flex;
+      flex-direction: row;
+      column-gap: 30px;
+    }
+  }
+
+  &__schedule-hours {
+    @include onDeskTop {
+      display: flex;
+      flex-direction: column;
     }
   }
 }

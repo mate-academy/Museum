@@ -1,22 +1,29 @@
 .footer {
   display: flex;
-  justify-content: space-between;
-  padding: 48px 54px;
+  flex-wrap: wrap;
+
+  @include onDeskTop {
+    display: flex;
+    justify-content: space-between;
+    padding: 48px 54px;
+  }
 
   &__logo-container {
-    grid-column: 1/12;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
     @include onDeskTop {
-      grid-column: 1/2;
+      flex-direction: column;
+      width: 150px;
     }
   }
 
   &__link-container {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     margin: 0 auto;
-    float: none;
+    gap: 20px;
   }
 
   &__link {
@@ -24,20 +31,35 @@
     color: #0f0e08;
   }
 
-  &__link-bottom {
-    margin-top: 20px;
-  }
-
   &__link--obercontainer {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-left: 20px;
     gap: 20px;
+    margin-bottom: 80px;
+
+    @include onDeskTop {
+      display: flex;
+      flex-direction: row;
+      gap: 70px;
+      margin-right: 30%;
+    }
+
   }
 
   &__logo {
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 150px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    @include onDeskTop {
+      flex-direction: column;
+    }
 
     &-pic {
       margin-bottom: 62px;
@@ -46,7 +68,6 @@
     &--links {
       flex-direction: row;
       height: 24px;
-      margin-top: 62px;
     }
   }
 
@@ -80,18 +101,20 @@
     margin-top: 50px;
   }
 
-  &__return {
+  &__schedule-container {
+    position: relative;
     display: flex;
-    justify-content: center;
-    height: 50px;
-    width: 50px;
-    margin-bottom: 20px;
-    background-image: url(../images/arrow.png);
-    background-repeat: no-repeat;
-    background-position: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 20px;
+    border-bottom: 1px solid #1a5a4c80;
+    padding-bottom: 70px;
 
     @include onDeskTop {
-      display: none;
+      flex-wrap: wrap;
+      padding-right: 65px;
+      border-right: 1px solid #1a5a4c80;
+      border-bottom: 1px solid transparent;
     }
   }
 
@@ -104,43 +127,50 @@
     }
   }
 
-  &__line {
-    &-desktop {
-      display: none;
+  &__toTheTop {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 12px;
+    padding: 19px;
+    border: 1px solid #1a5a4c;
+    border-radius: 50%;
+    margin-bottom: 20px;
 
-      @include onDeskTop {
-        display: block;
-      }
+    &--img {
+      padding-bottom: 100%;
     }
 
-    &-mobile {
-      @include onDeskTop {
-        display: none;
-      }
+    @include onDeskTop {
+      display: none;
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    gap: 10px;
+
+    margin: auto;
+    padding-bottom: 100px;
+    padding-top: 80px;
+
+    @include onDeskTop {
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 0;
+      padding-bottom: 35px;
     }
   }
 }
 
 .bold {
   font-weight: 700;
-}
-
-.border {
-  &::before {
-    content: " ";
-    position: absolute;
-    height: 1px;
-    width: 280px;
-    background-color: #1a5a4c80;
-    bottom: 0;
-    left: -7;
-  }
-
-  @include onDeskTop {
-    &::after {
-      content: " ";
-      height: 260px;
-      width: 1px;
-    }
-  }
 }
