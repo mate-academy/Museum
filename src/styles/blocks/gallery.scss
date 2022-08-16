@@ -1,0 +1,73 @@
+.gallery {
+  @include onMobile {
+    display: none;
+  }
+
+  @include onTablet() {
+    display: none;
+  }
+
+  @include onDesktop() {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+  }
+
+  &__title {
+    @extend %Montserrat;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include onTablet() {
+      text-align: center;
+      margin: 0 20px 40px;
+    }
+    @include onDesktop() {
+      text-align: left;
+      margin: 50px 50px 40px;
+      // max-width: 1920px;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    // display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-left: 50px;
+  }
+
+  &__first {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+
+    gap: 50px;
+    margin: 0 0 30px;
+
+    // width: 1920px;
+  }
+
+  &__second {
+    display: flex;
+    box-sizing: border-box;
+
+    gap: 50px;
+    margin: 0 0 30px;
+
+    // width: 1920px;
+  }
+
+  &__image {
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
