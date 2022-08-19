@@ -1,0 +1,98 @@
+.header {
+  background-image: url(../images/header_background.jpg);
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  @include onDesktop {
+    max-height: 655px;
+  }
+  &__title {
+    padding-top: 80vw;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 100%;
+    padding-bottom: 20px;
+
+    @media (min-width: 495px) {
+      padding-top: 85vw;
+    }
+
+    @include onTablet {
+      padding-top: 40px;
+      text-align: left;
+      position: relative;
+      left: 0;
+      font-size: 54px;
+      line-height: 120%;
+      padding-bottom: 38px;
+    }
+
+    @include onDesktop {
+      padding-top: 120px;
+      font-size: 72px;
+      padding-bottom: 89px;
+    }
+  }
+  &__tickets {
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      justify-content: start;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 6;
+    }
+
+    &--title {
+      border: 1px solid #1a5a4c;
+      width: 230px;
+      height: 50px;
+      @include onTablet {
+        width: 200px;
+        height: 70px;
+      }
+    }
+
+    &--button {
+      background: #1a5a4c;
+    }
+  }
+  &__vertical {
+    display: none;
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: 1 / 1;
+      transform: translate(-70%, -50%);
+    }
+  }
+  &__vertical--link {
+    display: inline-block;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 100%;
+    text-align: left;
+    color: transparent;
+    transform: rotate(-90deg);
+    text-decoration: none;
+
+    &::before {
+      display: block;
+      content: "";
+      width: 1px;
+      height: 70px;
+      background: #1a5a4c;
+      transform: translate(-60px, 42px) rotate(-90deg);
+    }
+
+    @include onDesktop {
+      color: #687480;
+    }
+  }
+}
