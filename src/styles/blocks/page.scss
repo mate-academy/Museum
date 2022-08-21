@@ -1,0 +1,42 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.page {
+  background: $c-gray;
+
+  &__body {
+    margin: 0 auto;
+    max-width: 1280px;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 100px;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+}
