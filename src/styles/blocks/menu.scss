@@ -1,0 +1,74 @@
+.menu {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  width: 300px;
+
+  background-color: #f5f5f5;
+  border-radius: 0 0 15px;
+
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+
+  &:target {
+    transform: translateY(0);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.6);
+
+  }
+
+  &__menu-closer {
+
+    display: flex;
+    z-index: 4;
+    margin-top: 20px;
+
+    width: 16px;
+    height: 16px;
+
+    background-image: url(../images/cross.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include hover (background-image, url(../images/cross-hover.svg));
+
+  }
+
+  &__list {
+
+    padding: 0 0 0 30px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 0 20px;
+  }
+
+  &__item {
+    padding: 8px 0;
+  }
+
+  &__link {
+
+    display: inline-block;
+
+    padding: 5px;
+
+    font-family: IBM Plex Sans, sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 100%;
+    text-decoration: none;
+    color: $c-text;
+
+    transition: color 0.3s;
+
+    &:hover {
+      color: $c-red;
+    }
+
+  }
+
+}

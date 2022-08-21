@@ -1,0 +1,157 @@
+.art-museum {
+
+  @include onTablet {
+    margin-bottom: 110px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 280px;
+  }
+
+  &__photo {
+
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: url(/images/photo.png);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include onMobile {
+      background-position: top;
+      width: 100%;
+      height: 300px;
+
+      margin: 0 0 20px;
+    }
+
+    @include onTablet {
+      height: 384px;
+      right: -38px;
+    }
+
+    @include onDesktop {
+      height: 655px;
+      right: -54px;
+    }
+
+  }
+
+  &__content {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding-top: 320px;
+
+    @include onMobile {
+      align-items: center;
+    }
+
+    @include onTablet {
+      padding-top: 127px;
+    }
+
+    @include onDesktop {
+      padding-top: 210px;
+    }
+  }
+
+  &__title {
+
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 100%;
+    text-transform: uppercase;
+    text-align: center;
+
+    color: #000;
+
+    margin: 0 0 20px;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+      margin-bottom: 38px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin-bottom: 90px;
+    }
+
+  }
+
+  &__button {
+
+    --button-height: 70px;
+    --button-width: 200px;
+
+    @include onMobile {
+      --button-height: 50px;
+      --button-width: 230px;
+    }
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: IBM Plex Sans, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    text-decoration: none;
+    color: $c-text;
+    box-sizing: border-box;
+
+    height: var(--button-height);
+    width: var(--button-width);
+
+    margin-right: var(--button-height);
+    border: 1px solid $c-button;
+
+    transition: all 0.3s;
+  
+    @include onDesktop {
+      align-self: flex-end;
+    }
+  
+    &::after {
+
+      display: block;
+      position: absolute;
+      left: calc(var(--button-width) - 1px);
+      box-sizing: border-box;
+      content: "";
+      height: var(--button-height);
+      width: var(--button-height);
+
+      background-image: url(/images/arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: $c-button;
+  
+      transition: background-color 0.3s;
+  
+    }
+  
+    &:hover::after {
+      background-color: $c-red;
+    }
+
+    &:hover {
+      border-color: $c-red;
+      transform: scale(101%);
+    }
+
+  }
+
+}
