@@ -1,0 +1,143 @@
+.header {
+  position: relative;
+
+  @include onDesktop {
+    // height: 100vh;
+  }
+
+  &__menu-opener--mobile {
+    display: block;
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__menu-opener--tablet {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      margin-bottom: 70px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
+  }
+
+  &__logo {
+    align-self: start;
+    margin: 0 auto;
+
+    @include onTablet {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+
+      width: 220px;
+    }
+
+    @include onDesktop {
+      width: 170px;
+    }
+  }
+
+  &__image {
+    background-image: url(../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 9px 20px 0;
+    width: 100%;
+    height: 300px;
+
+    @include onTablet {
+      align-items: left;
+
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50%;
+      height: 380px;
+    }
+
+    @include onDesktop {
+      width: 55%;
+      height: 655px;
+    }
+
+    @include onTheDesign{
+      left: 50%;
+      max-width: 725px;
+    }
+  }
+
+  &__flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include onTablet {
+      align-items: start;
+    }
+
+  }
+
+  &__title {
+    @extend %h1;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 38px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 89px;
+    }
+  }
+
+  &__button {
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      margin-left: 170px;
+    }
+  }
+
+  &__events {
+    display: none;
+    text-decoration: none;
+    color: $gray;
+    transform: rotate(-90deg);
+    position: relative;
+
+    &:hover {
+      color: $black;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      background-color: $grean;
+      width: 70px;
+      margin-left: -90px;
+      top: 50%;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}
