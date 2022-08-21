@@ -1,0 +1,92 @@
+.header {
+  box-sizing: border-box;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 9px;
+    min-width: 100px;
+
+    @include On768 {
+      position: absolute;
+      top: 0;
+      padding-top: 16px;
+    }
+  }
+
+  &__title-container {
+    width: 340px;
+    padding: 4px;
+    margin: 0 auto 20px;
+
+    @include On768 {
+      margin: 0 0 40px;
+    }
+
+    @include On1280 {
+      width: 470px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    font-size: 45px;
+    line-height: 120%;
+
+    @include On768 {
+      text-align: start;
+      font-size: 54px;
+    }
+
+    @include On1280 {
+      font-size: 72px;
+    }
+  }
+
+  &__add-info {
+    display: none;
+
+    @include On1280 {
+      display: block;
+      position: absolute;
+      transform: rotate(-90deg) translate(-110px, -20px);
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: #687480;
+      margin-left: 20px;
+      // @include hover(color, #f14a27);
+
+      &-line {
+        display: block;
+        width: 1px;
+        height: 70px;
+        background-color: $green-col;
+        transform: rotate(90deg) translate(-43px, 60px);
+        position: absolute;
+        @include hover(background-color, #f14a27);
+      }
+
+      &:hover > &-line {
+        background-color: #f14a27;
+      }
+
+      // &:hover {
+      //   color: #f14a27;
+      // }
+    }
+  }
+
+  &__tiquets {
+    margin: 0 auto;
+
+    @include On768 {
+      margin: 0;
+    }
+  }
+}
