@@ -1,0 +1,119 @@
+.nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 399px;
+  background: #1a5a4c;
+  transform: translate(-100%);
+  transition: transform 1s;
+  
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include onTable {
+      flex-direction: row;
+    }
+  }
+
+  &__container {
+
+    &:first-child {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+      @include onTable {
+        border-bottom: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
+        margin-right: 38px;
+        height: 50%;
+        margin-top: 40px;
+      }
+    }
+
+    @include onTable {
+      width: 50%;
+      &:last-child {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    gap: 24px;
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+  &__link {
+    @extend %text;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    text-decoration: none;
+    color: #fff;
+
+    @include onDesctop {
+      font-size: 22px;
+    }
+  }
+
+  &__days {
+    display: block;
+
+    @include onTable {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  &__work {
+    margin-bottom: 20px;
+    @extend %text;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140.62%;
+    color: #fff;
+    
+    @include onTable {
+      margin-top: 40px;
+    }
+  }
+
+  &__list-day {
+    margin-bottom: 16px;
+    width: max-content;
+    @extend %text;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    list-style: none;
+    color: #fff;
+  }
+
+  &__off {
+    width: 50%;
+    @extend %text;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #fff;
+
+    @include onTable {
+      margin-top: 80px;
+      margin-left: 38px;
+    }
+  }
+}

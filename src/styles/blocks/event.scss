@@ -1,0 +1,187 @@
+.event {
+  margin-bottom: 83px;
+
+  @include onTable {
+    margin-bottom: 88px;
+  }
+  
+  &__content {
+    display: block;
+
+    @include onTable {
+      margin-bottom: 112px;
+    }
+
+    @include onDesctop {
+      display: flex;
+      align-items: center;
+      gap: 120px;
+      margin-bottom: 104px;
+    }
+
+    &--last-child {
+      text-align: center;
+      width: 80%;
+      top: 80%;
+      left: 50%;
+      position: absolute;
+      background-color: #fff;
+
+      transform: translate(-50%);
+
+      @include onTable {
+        text-align: start;
+        padding: 50px 56px;
+      }
+
+      @include onDesctop {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 50%;
+        top: 90%;
+        padding: 0;
+        text-align: start;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    @extend %title;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    color: $color-text;
+
+    @include onTable {
+      text-align: start;
+      font-size: 48px;
+      margin-bottom: 48px;
+    }
+
+    @include onDesctop {
+      font-size: 56px;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__photos {
+    margin-bottom: 20px;
+  }
+
+  &__photo {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    @include onTable {
+      height: 520px;
+    }
+  }
+
+  &__description {
+    width: 100%;
+
+    @include onDesctop {
+      width: 50%;
+    }
+
+    &--last-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    @include onTable {
+      justify-content: flex-start;
+      gap: 40px;
+    }
+
+    &--last-child {
+      gap: 50px;
+      padding: 20px;
+
+      @include onDesctop {
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__show {
+    @extend %text;
+    font-size: 16px;
+    line-height: 100%;
+    color: #687480;
+
+    @include onTable {
+      font-size: 14px;
+    }
+  }
+
+  &__date {
+    @extend %text;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: #1a5a4c;
+
+    @include onTable {
+      font-size: 14px;
+    }
+  }
+
+  &__sub-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @extend %title;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    color: $color-text;
+
+    &:not(:last-child) {
+      &::after {
+        display: block;
+        content: "";
+        width: 10px;
+        height: 10px;
+        background: #f14a27;
+
+        @include onTable {
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+
+    &:last-child {
+      
+      padding-bottom: 20px;
+    }
+
+    @include onTable {
+      gap: 20px;
+      font-size: 36px;
+    }
+  }
+
+  &__text {
+    @extend %text;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 60px;
+    color: #4e4e4e;
+  }
+}
