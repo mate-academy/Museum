@@ -1,6 +1,45 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin OnPhone {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin OnDesctopAndLaptop {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin OnLaptop {
+  @media (min-width: 640px) and (max-width: 1020px) {
+    @content;
+  }
+}
+
+@mixin OnDesctop {
+  @media (min-width: 1020px) {
+    @content;
+  }
+}
+
+@mixin OnDesign {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin button {
+  display: flex;
+  height: 50px;
+  width: 50px;
+
+  @include OnDesctopAndLaptop {
+    height: 70px;
+    width: 70px;
+  }
+
+  &-image {
+    height: 15px;
+    margin: auto;
   }
 }
