@@ -1,0 +1,112 @@
+.menu {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 27px 0;
+
+    @include smartphone {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 39px 0 40px;
+    }
+
+    @include notebook {
+      padding: 40px 0 48px;
+    }
+  }
+
+  &__phone-top {
+    display: flex;
+    justify-content: space-between;
+
+    @include smartphone {
+      display: contents;
+    }
+  }
+
+  &__cross {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+
+    background-image: url(../images/menu_cross.png);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__links-container {
+    display: contents;
+
+    @include smartphone {
+      display: flex;
+      gap: 20px;
+    }
+
+    @include tablet {
+      gap: 42px;
+    }
+
+    @include notebook {
+      display: contents;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 100px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-decoration: none;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      background-color: transparent;
+      margin-top: 4px;
+    }
+
+    &:hover {
+      &::after {
+        background-color: #fff;
+        transition: 0.3s;
+      }
+    }
+
+    @include tablet {
+      font-size: 22px;
+      line-height: 22px;
+    }
+
+    @include notebook {
+      width: 168px;
+      margin-bottom: 26px;
+      padding-left: 27px;
+    }
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    opacity: 0.5;
+
+    @include smartphone {
+      width: 1px;
+      height: 145px;
+    }
+
+    @include notebook {
+      margin-left: 100%;
+    }
+  }
+}

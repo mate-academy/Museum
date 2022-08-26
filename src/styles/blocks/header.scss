@@ -1,0 +1,200 @@
+.header {
+  position: relative;
+  height: 480px;
+  padding-top: 9px;
+  background-color: #fff;
+
+  &--transparent {
+    opacity: 0.5;
+  }
+
+  @include smartphone {
+    height: 384px;
+    padding-top: 15px;
+  }
+
+  @include tablet {
+    height: 500px;
+  }
+
+  @include notebook {
+    height: 655px;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 180px;
+    padding-top: 12px;
+
+    background-image: url(../images/header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include smartphone {
+      left: calc(50% + 15px);
+      bottom: 0;
+      padding-top: 21px;
+    }
+
+    @include tablet {
+      left: calc(50% + 20px);
+    }
+
+    @include notebook {
+      left: calc(41.1% + 30px);
+    }
+  }
+
+  &__logo {
+    display: block;
+    margin: 0 auto;
+
+    &--phone {
+      @include smartphone {
+        display: none;
+      }
+    }
+
+    &--bigger-screen {
+      display: none;
+
+      @include smartphone {
+        position: relative;
+        display: block;
+        z-index: 1;
+      }
+    }
+  }
+
+  &__menu-icon {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+
+    width: 24px;
+    height: 24px;
+    margin: 18px 0 269px;
+    padding: 6px 0;
+    border-radius: 10%;
+    z-index: 1;
+
+    &:hover {
+      box-shadow: 0 0 3px 3px rgba(84, 80, 80, 0.2);
+    }
+
+    &:active {
+      box-shadow: inset 0 0 3px 3px rgba(84, 80, 80, 0.2);
+
+    }
+
+    @include smartphone {
+      margin: 24px 0 70px;
+    }
+
+    @include notebook {
+      margin-bottom: 143px;
+    }
+  }
+
+  &__icon-line {
+    width: 18px;
+    height: 2px;
+    background-color: $main-color;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include smartphone {
+      font-size: 54px;
+      line-height: 65px;
+      text-align: left;
+      margin-bottom: 38px;
+    }
+
+    @include tablet {
+      font-size: 72px;
+      line-height: 86px;
+    }
+
+    @include notebook {
+      margin-bottom: 89px;
+    }
+  }
+
+  &__tickets-block {
+    display: flex;
+    height: 50px;
+    background-color: #000;
+
+    @include smartphone {
+      width: 270px;
+      height: 70px;
+    }
+
+    @include notebook {
+      margin-bottom: 104px;
+    }
+  }
+
+  &__tickets-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $colorfull;
+    flex-grow: 1;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: $main-color;
+    background-color: #fff;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    background-color: $colorfull;
+  }
+
+  &__events {
+    display: none;
+    transform-origin: bottom left;
+
+    @include notebook {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 133px;
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__events-line {
+    width: 70px;
+    height: 1px;
+    background-color: $colorfull;
+  }
+
+  &__events-word {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: $secondary-color;
+  }
+}
