@@ -1,0 +1,131 @@
+.menu {
+  background-color: $colorGreen;
+
+  &__content {
+    @include on768 {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 40px;
+    }
+
+    @include on1280 {
+      padding-bottom: 48px;
+    }
+  }
+
+  &__nav {
+    padding: 27px 0 24px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    margin-bottom: 24px;
+
+    @include on768 {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+
+  &__close {
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-image: url("../images/svg/close.svg");
+    background-position: center;
+
+    @include on768 {
+      margin-right: 38px;
+    }
+
+    @include on1280 {
+      margin-right: 102px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include on768 {
+      margin-right: 20px;
+    }
+
+    @include on1280 {
+      margin-bottom: 30px;
+      margin-right: 35px;
+    }
+    transition: 300ms;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-weight: 500;
+    line-height: 100%;
+    color: #fff;
+  }
+
+  &__schedule {
+    @include on768 {
+      font-size: 16px;
+      display: flex;
+    }
+
+    @include on1280 {
+      font-size: 22px;
+      padding-right: 155px;
+    }
+  }
+
+  &__schedule-time {
+    margin-bottom: 16px;
+
+    @include on768 {
+      position: relative;
+      margin-bottom: 0;
+      padding-top: 40px;
+
+      &::before {
+        position: absolute;
+        left: -38px;
+        content: "";
+        display: block;
+        height: 145px;
+        width: 1px;
+        background-color: rgba(255, 255, 255, 0.5);
+
+        @include on1280 {
+          left: -102px;
+        }
+      }
+    }
+  }
+
+  &__schedule-holiday {
+    padding-bottom: 27px;
+
+    @include on768 {
+      width: 144px;
+      padding-bottom: 0;
+      padding-top: 80px;
+      margin-left: 26px;
+    }
+
+    @include on1280 {
+      width: 170px;
+    }
+  }
+}

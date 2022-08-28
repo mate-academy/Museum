@@ -1,0 +1,178 @@
+.header {
+
+  &__image-container {
+    position: relative;
+    max-width: 768px;
+    margin: 0 auto;
+    
+    @include on768 {
+      max-width: 1024px;
+    }
+
+    @include on1280 {
+      max-width: 1280px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    background-image: url("../images/header.jpg");
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include on768 {
+      background-position: left;
+      background-size: cover;
+      width: 374px;
+      height: 384px;
+    }
+
+    @include on1280 {
+      background-position: right top;
+      background-size: auto;
+      height: 655px;
+      width: 765px;
+    }
+  }
+
+  &__content {
+    padding-top: 9px;
+    display: block;
+
+    @include on768 {
+      padding-top: 15px;
+      display: grid;
+    }
+  }
+
+  &__burger {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    background-image: url("../images/svg/burger.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    padding-top: 7px;
+
+    @include on768 {
+      display: block;
+      padding-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    @include on1280 {
+      margin-bottom: 143px;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    color: #000;
+    margin: 0 0 20px;
+
+    @include on768 {
+      text-align: start;
+      font-size: 54px;
+
+      margin: 0 0 38px;
+    }
+
+    @include on1280 {
+      font-size: 72px;
+      line-height: 120%;
+      margin: 0 0 89px;
+    }
+  }
+
+  &__button {
+    text-decoration: none;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    //width: 100%;
+    max-width: 350px;
+    border: 1px solid $colorGreen;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: $colorBlack;
+    margin: 0 auto;
+    transition: 300ms;
+
+    &:hover {
+      background-color: $colorGreen;
+      color: #fff;
+    }
+
+    @include on768 {
+      width: 270px;
+    }
+  }
+
+  &__button-text {
+    padding: 27px 0 0 68px;
+  }
+
+  &__square {
+    width: 70px;
+    height: 70px;
+    background-color: $colorGreen;
+    background-image: url("../images/svg/arrowsvg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__logo {
+    text-align: center;
+    margin-top: -32px;
+    margin-bottom: 250px;
+
+    @include on768 {
+      margin: 0;
+    }
+  }
+
+  &__aside-text {
+    display: none;
+
+    @include on1280 {
+      display: block;
+      position: absolute;
+      transform: rotate(-90deg);
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: #687480;
+      top: 522px;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        height: 1px;
+        width: 70px;
+        background-color: black;
+        transform: translateX(-50%);
+        color: $colorGreen;
+      }
+    }
+  }
+}
