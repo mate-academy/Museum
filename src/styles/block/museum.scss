@@ -1,0 +1,127 @@
+.museum {
+  @include onTablet {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+  }
+
+  &__img {
+    width: 100%;
+
+    @include onTablet {
+      min-width: 374px;
+    }
+
+    @include onDesktop {
+      min-width: 725px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @include onTablet {
+      margin-top: 127px;
+      margin-left: 34px;
+    }
+
+    @include onDesktop {
+      margin: 206px 30px 0 55px;
+    }
+  }
+
+  &__title-text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: $colorBlack;
+    margin: 20px 0 0;
+
+    @include onTablet {
+      margin: 0;
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__title-tiket {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    justify-content: center;
+
+    @include onTablet {
+      margin-left: 0;
+      justify-content: left;
+    }
+
+    @include onDesktop {
+      margin: 0;
+      justify-content: end;
+    }
+
+    &--before {
+      display: none;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: #687480;
+      left: 0;
+
+      @include onDesktop {
+        position: absolute;
+        display: inline-block;
+        top: 555px;
+        transform: rotate(270deg);
+
+        &::before {
+          content: "";
+          position: relative;
+          display: inline-block;
+          width: 70px;
+          height: 1px;
+          top: -5px;
+          left: -20px;
+          background-color: $colorGreen;
+        }
+      }
+    }
+
+    &--text {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color: $colorBlack;
+      border: 1px solid $colorGreen;
+      padding: 18px 80px;
+
+      @include onTablet {
+        width: 40px;
+      }
+    }
+
+    &--arrow {
+      border: 1px solid $colorGreen;
+      padding: 18px 26px;
+      background-color: $colorGreen;
+      transition: 0.5s;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+  }
+}
