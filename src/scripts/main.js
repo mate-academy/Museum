@@ -2,9 +2,9 @@
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
-    document.body.classList.add('page--with-menu');
+    document.body.classList.add('header--with-menu');
   } else {
-    document.body.classList.remove('page--with-menu');
+    document.body.classList.remove('header--with-menu');
   }
 });
 
