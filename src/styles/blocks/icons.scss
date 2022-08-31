@@ -13,44 +13,30 @@
 
   &__networks {
     display: flex;
-    width: 65px;
+    width: 68px;
     justify-content: space-between;
   }
 
   &__link {
+    position: relative;
+    display: flex;
+    justify-content: center;
     height: 24px;
     width: 24px;
+    perspective: 1000px;
 
-    &--rounded {
-      position: relative;
-      display: grid;
-      place-items: center;
-      background-color: #000;
-      border-radius: 7px;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 4px;
-        left: 18px;
-        width: 3px;
-        height: 3px;
-        box-sizing: border-box;
-        border: 1px solid #fff;
-        border-radius: 40px;
-      }
+    &--hover {
+      position: absolute;
+      opacity: 0;
     }
-  }
 
-  &__facebook {
-    object-fit: contain;
-    object-position: center;
-  }
+    &:hover .icons__image {
+      opacity: 0;
+    }
 
-  &__instagram {
-    width: 13px;
-    height: 13px;
-    border: 2px solid #fff;
-    border-radius: 45px;
+    &:hover &--hover {
+      opacity: 1;
+      transform: translateZ(230px);
+    }
   }
 }
