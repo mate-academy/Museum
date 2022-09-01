@@ -1,0 +1,63 @@
+.page {
+  @extend %ibm-plex-sans;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 150%;
+  color: #4e4e4e;
+
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  &__header {
+    margin-bottom: 68px;
+  }
+
+  &__sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    transform: translateX(-100%);
+    transition: transform $transition-time;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section-title {
+    @extend %montserrat;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    color: $c-title;
+
+    @include onTablet {
+      font-size: 48px;
+      text-align: start;
+    }
+  }
+
+  &__actual-events {
+    margin-bottom: 48px;
+  }
+
+  &__gallery {
+    margin-bottom: 100px;
+  }
+
+  &__subscription {
+    margin-bottom: 52px;
+  }
+
+  &__footer {
+    padding-bottom: 60px;
+
+    @include onTablet {
+      padding-bottom: 36px;
+    }
+  }
+}

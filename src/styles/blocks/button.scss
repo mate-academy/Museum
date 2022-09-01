@@ -1,0 +1,98 @@
+.button {
+  display: flex;
+
+  &--tickets {
+    @include onTablet {
+      max-width: 40%;
+    }
+    
+    @include onDesktop {
+      width: 272px;
+    }
+
+    @include hover(transform, scale(1.05));
+    
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  &--email {
+    @include onTablet {
+      width: 460px;
+    }
+    
+    @include onDesktop {
+      width: 570px;
+    }
+  }
+
+  &__name {
+    flex-basis: 100%;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 48px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $c-title;
+
+    @include onTablet {
+      line-height: 68px;
+    }
+
+    &--tickets {
+      border-width: 1px 0 1px 1px;
+      border-style: solid;
+      border-color: $c-back-sidebar;
+    }
+
+    &--email {
+      &:focus {
+        border: 1px solid $c-email-button;
+      }
+    }
+  }
+
+  &__arrow {
+    position: relative;
+
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &--tickets {
+      background-color: $c-back-sidebar;
+    }
+
+    &--email {
+      background-color: $c-email-button;
+
+      @include hover(transform, scale(1.1));
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &--tickets {
+      fill: #d7dde3;
+    }
+
+    &--email {
+      fill: #000;
+    }
+  }
+}
