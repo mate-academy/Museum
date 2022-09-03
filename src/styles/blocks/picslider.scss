@@ -1,0 +1,113 @@
+.picslider {
+  @include onDesktop {
+    display: none;
+  }
+
+  &__wrapper {
+    height: 410px;
+    margin: auto;
+    position: relative;
+    top: -60px;
+    width: calc(100vw - 60px);
+
+    @include onTablet {
+      height: 550px;
+    }
+  }
+
+  &__slider {
+    background-color: $color-main;
+    height: inherit;
+    overflow: hidden;
+    position: relative;
+    width: inherit;
+  }
+
+  &__wrapper > input {
+    display: none;
+  }
+
+  &__slide1 {
+    background-image: url("../images/1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__slide2 {
+    background-image: url("../images/2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__slide3 {
+    background-image: url("../images/3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+  }
+
+  &__slide4 {
+    background-image: url("../images/4.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__wrapper &__controls {
+    left: 50%;
+    margin-left: -80px;
+    position: absolute;
+  }
+
+  &__wrapper label {
+    cursor: pointer;
+    display: inline-block;
+    height: 8px;
+    margin: 25px 12px 0 16px;
+    position: relative;
+    width: 8px;
+    border-radius: 50%;
+    transition: background-color ease-in-out 0.5s;
+  }
+
+  &__wrapper label:after {
+    border: 2px solid $color-main;
+    content: "";
+    display: block;
+    height: 12px;
+    left: -4px;
+    position: absolute;
+    top: -4px;
+    width: 12px;
+    border-radius: 50%;
+  }
+
+  &__wrapper label:hover,
+  #slide1:checked ~ &__controls label:nth-of-type(1),
+  #slide2:checked ~ &__controls label:nth-of-type(2),
+  #slide3:checked ~ &__controls label:nth-of-type(3),
+  #slide4:checked ~ &__controls label:nth-of-type(4) {
+    background-color: $color-main;
+  }
+
+  &__slides {
+    height: inherit;
+    opacity: 0;
+    position: absolute;
+    width: inherit;
+    z-index: 0;
+    transform: scale(0.8);
+    transition: transform ease-in-out 0.5s, opacity ease-in-out 0.5s;
+  }
+
+  #slide1:checked ~ &__slider > &__slide1,
+  #slide2:checked ~ &__slider > &__slide2,
+  #slide3:checked ~ &__slider > &__slide3,
+  #slide4:checked ~ &__slider > &__slide4 {
+    opacity: 1;
+    z-index: 1;
+    transform: scale(1);
+  }
+}
