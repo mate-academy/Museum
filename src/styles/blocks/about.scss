@@ -77,19 +77,6 @@
     }
   }
 
-  &__tickets {
-    display: flex;
-    flex-direction: row;
-
-    @include OnPhone {
-      margin: 0 23px;
-    }
-
-    @include OnLaptop {
-      width: 270px;
-    }
-  }
-
   &__content {
     display: flex;
     box-sizing: border-box;
@@ -104,15 +91,42 @@
     font-size: 16px;
     color: $colorMidBlack;
     border: 1px solid $colorDarkGreen;
+
+    transition: 0.3s;
     
     @include OnDesctopAndLaptop {
       height: 70px;
     }
   }
-
+  
   &__button {
     @include button;
 
     background-color: $colorDarkGreen;
+
+    transition: 0.3s;
+  }
+
+  &__tickets {
+    display: flex;
+    flex-direction: row;
+
+    @include OnPhone {
+      margin: 0 23px;
+    }
+
+    @include OnLaptop {
+      width: 270px;
+    }
+
+    &:hover {
+      .about__content {
+        border-color: $colorDarkYellow;
+      }
+
+      .about__button {
+        background-color: $colorDarkYellow;
+      }
+    }
   }
 }
