@@ -1,0 +1,282 @@
+.actual {
+  width: 100%;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet() {
+      width: 100%;
+    }
+
+    @include onDesktop() {
+      align-items: unset;
+    }
+  }
+
+  &__title {
+    width: 270px;
+
+    margin-bottom: 40px;
+
+    @include ibmPlex();
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+
+    @include onTablet() {
+      width: 460px;
+      text-align: unset;
+      align-self: flex-start;
+      font-size: 48px;
+    }
+  }
+
+  &__cards {
+    margin-bottom: 60px;
+
+    @include onTablet() {
+      margin-bottom: 112px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+
+    @include onDesktop() {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    margin-bottom: 60px;
+
+    &-image {
+      margin-bottom: 20px;
+
+      height: 210px;
+
+      @include onTablet() {
+        height: 520px;
+      }
+
+      @include onDesktop() {
+        width: 570px;
+        height: 520px;
+      }
+
+      @include iconRules();
+
+      &--one {
+        background-image: url(../images/actual-photo-1.svg);
+      }
+
+      &--two {
+        background-image: url(../images/actual-photo-2.svg);
+      }
+
+      transition: $transitionTime;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 20px 20px 15px rgba(50, 50, 50, 1.5);
+        border-radius: 50px 10px;
+      }
+    }
+
+    &-info {
+
+      @include onDesktop() {
+        width: 370px;
+      }
+    }
+
+    &-event {
+      margin-bottom: 15px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include onTablet() {
+        width: 220px;
+      }
+
+      &-name {
+        @include ibmPlex();
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+        color: $greyColor;
+
+        @include onTablet() {
+          font-size: 14px;
+        }
+      }
+
+      &-data {
+        @include ibmPlex();
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 150%;
+        color: $greenColor;
+
+        @include onTablet() {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &-title {
+      display: flex;
+      align-items: center;
+
+      @include montserrat();
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 100%;
+
+      @include onTablet() {
+        font-size: 36px;
+      }
+
+      &::after {
+        content: "";
+        display: inline-block;
+        margin-left: 10px;
+
+        width: 10px;
+        height: 10px;
+
+        background-color: #f14a27;
+      }
+    }
+
+    &-text {
+      @include ibmPlex();
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 150%;
+      color: $greyColor;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    height: 210px;
+    margin-bottom: 183px;
+
+    @include onTablet() {
+      margin: 0 auto;
+      max-width: 700px;
+      height: 390px;
+
+      margin-bottom: 208px;
+    }
+
+    @include onDesktop() {
+      max-width: unset;
+      height: 550px;
+
+      margin-bottom: 302px;
+    }
+
+    @include iconRules();
+    background-image: url(../images/actual-footer.svg);
+
+    &-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin: 0 auto;
+
+      width: 280px;
+      height: 140px;
+
+      background-color: #fff;
+      box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+      transform: translateY(110%);
+
+      @include onTablet() {
+        width: 570px;
+        height: 204px;
+
+        transform: translateY(140%);
+      }
+
+      @include onDesktop() {
+        transform: translateY(220%);
+      }
+
+      transition: $transitionTime;
+
+      &:hover {
+        box-sizing: border-box;
+        box-shadow: 20px 20px 15px rgba(50, 50, 50, 1.5);
+        border: 1px solid black;
+        border-radius: 50px 10px;
+      }
+    }
+
+    &-info {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      @include onTablet() {
+        justify-content: unset;
+        gap: 140px;
+        align-items: center;
+
+        margin-top: 45px;
+      }
+    }
+
+    &-event {
+      @include ibmPlex();
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color: $greyColor;
+
+      @include onTablet() {
+        margin-left: 55px;
+        font-size: 14px;
+      }
+    }
+
+    &-date {
+      @include ibmPlex();
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 150%;
+      color: $greenColor;
+
+      @include onTablet() {
+        font-size: 14px;
+      }
+    }
+
+    &-name {
+      @include montserrat();
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 100%;
+      text-align: center;
+
+      @include onTablet() {
+        width: 460px;
+        text-align: unset;
+
+        margin-left: 55px;
+        margin-bottom: 50px;
+
+        font-size: 36px;
+      }
+    }
+  }
+}

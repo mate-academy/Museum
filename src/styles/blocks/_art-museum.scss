@@ -1,0 +1,173 @@
+.art-museum {
+  display: flex;
+
+  &__content {
+    height: 100%;
+
+    @include onTablet() {
+      margin-top: 45px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  &__menu-opener {
+
+    @include onMobile() {
+      display: none;
+    }
+
+    @include onTablet() {
+      display: flex;
+    }
+
+    width: 18px;
+    height: 12px;
+
+    @include iconRules();
+    background-image: url(../images/header-menu.svg);
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet() {
+      align-items: unset;
+      margin-bottom: 80px;
+    }
+
+    @include onDesktop() {
+      align-items: unset;
+      margin-bottom: 180px;
+    }
+  }
+
+  &__title {
+    width: 280px;
+
+    margin-bottom: 20px;
+
+    @include montserrat();
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+
+    @include onTablet() {
+      margin-bottom: 38px;
+
+      width: 340px;
+
+      text-align: unset;
+
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop() {
+      margin-bottom: 89px;
+
+      width: 470px;
+
+      font-size: 72px;
+    }
+  }
+
+  &__links {
+    display: flex;
+
+    @include onDesktop() {
+      margin-right: 45px;
+      justify-content: space-between;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    display: none;
+    align-self: flex-end;
+    gap: 20px;
+    transform: rotate(-90deg);
+    height: 25px;
+
+    @include ibmPlex();
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: $greyColor;
+
+    @include onDesktop() {
+      display: flex;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 70%;
+      right: 150%;
+
+      width: 70px;
+      height: 2px;
+
+      background-color: $greenColor;
+    }
+  }
+
+  &__button {
+    display: flex;
+
+    @include onDesktop() {
+      align-self: flex-end;
+    }
+
+    &-text {
+      box-sizing: border-box;
+
+      width: 230px;
+      height: 50px;
+
+      @include onTablet() {
+        width: 200px;
+        height: 70px;
+      }
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: 1px solid $greenColor;
+
+      @include ibmPlex();
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+    }
+
+    &-arrow {
+      width: 50px;
+      height: 50px;
+
+      @include onTablet() {
+        width: 70px;
+        height: 70px;
+      }
+
+      background-color: $greenColor;
+
+      background-image: url(../images/right-arrow.svg);
+      @include iconRules();
+      background-size: auto;
+
+      transition: $transitionTime;
+    }
+
+    &:hover > &-arrow {
+      transform: scale(-100%) rotate(360deg) translateX(-30px);
+    }
+  }
+}

@@ -1,0 +1,164 @@
+.gallery {
+  overflow: hidden;
+  margin-bottom: 100px;
+
+  &__title {
+    @include montserrat();
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+
+    margin-bottom: 40px;
+
+    @include onTablet() {
+      text-align: unset;
+      font-size: 48px;
+    }
+
+    @include onDesktop() {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__images {
+    display: flex;
+    gap: 20px;
+
+    margin-bottom: 20px;
+
+    @include onDesktop() {
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 200px;
+    }
+
+    &--action-2 {
+      transform: translateX(-90%);
+
+      @include onTablet() {
+        transform: translateX(-30%);
+      }
+    }
+
+    &--action-3 {
+      transform: translateX(-180%);
+
+      @include onTablet() {
+        transform: translateX(-80%);
+      }
+    }
+
+    &--action-4 {
+      transform: translateX(-275%);
+
+      @include onTablet() {
+        transform: translateX(-130%);
+      }
+    }
+  }
+
+  &__row-1 {
+    display: flex;
+    gap: 20px;
+
+    @include onDesktop() {
+      gap: 30px;
+    }
+  }
+
+  &__row-2 {
+    display: flex;
+    gap: 20px;
+
+    @include onDesktop() {
+      gap: 30px;
+    }
+  }
+
+  &__image {
+    width: 280px;
+    height: 410px;
+    object-fit: cover;
+    @include iconRules();
+
+    @include onTablet() {
+      width: 340px;
+      height: 543px;
+    }
+
+    &--1 {
+      background-image: url(../images/gallery-img-1.svg);
+      @include onDesktop() {
+        width: 370px;
+        height: 600px;
+      }
+    }
+
+    &--2 {
+      background-image: url(../images/gallery-img-2.svg);
+      @include onDesktop() {
+        width: 770px;
+        height: 600px;
+        background-image: url(../images/desktop-gallery-2.svg);
+      }
+    }
+
+    &--3 {
+      background-image: url(../images/desktop-gallery-3.svg);
+      @include onDesktop() {
+        width: 770px;
+        height: 360px;
+      }
+    }
+
+    &--4 {
+      background-image: url(../images/desktop-gallery-4.svg);
+      @include onDesktop() {
+        width: 370px;
+        height: 360px;
+      }
+    }
+
+    transition: $transitionTime;
+
+    &:hover {
+      border-radius: 50px 10px;
+      transform: scale(1.1);
+      box-shadow: 20px 20px 15px rgba(50, 50, 50, 1.5);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-self: center;
+    gap: 22px;
+
+    @include onDesktop() {
+      display: none;
+    }
+  }
+
+  &__button {
+    margin-bottom: 100px;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background-color: #e0e0e0;
+
+    transition: $transitionTime;
+
+    &:hover {
+      background-color: $greenColor;
+    }
+  }
+}
