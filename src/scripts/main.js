@@ -4,7 +4,7 @@ document.querySelector('#form').addEventListener('submit', function() {
   const checkForm = document.querySelector('#form').reportValidity();
 
   if (checkForm === true) {
-    document.getElementById('form').reset() || window.scrollTo(0, 0);
+    document.getElementById('form').reset() || window.location.reload();
   };
 }, false);
 
