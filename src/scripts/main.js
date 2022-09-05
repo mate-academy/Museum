@@ -1,7 +1,8 @@
 'use strict';
 
-document.getElementById('my-form').addEventListener('click', function(event) {
+document.getElementById('my-form').addEventListener('submit', (event) => {
   event.preventDefault();
+  event.target[0].value = '';
 });
 
 window.addEventListener('hashchange', () => {
