@@ -1,0 +1,87 @@
+.button {
+  display: flex;
+  justify-content: center;
+
+  @include onDesctop {
+    justify-content: space-between;
+  }
+
+  &__event {
+    display: none;
+    @extend %text;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+    transform: rotate(-90deg) translate(-100%);
+    text-decoration: none;
+    
+
+    @include onDesctop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &::before {
+        display: block;
+        content: "";
+        width: 1px;
+        height: 70px;
+        background: #1a5a4c;
+        transform: rotate(-90deg) translateY(-100%);
+      }
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    @include onDesctop {
+      width: 230px;
+    }
+  }
+
+  &__ticket {
+    @extend %text;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 100%;
+    border: 1px solid #1a5a4c;
+    color: $color-text;
+    cursor: pointer;
+    text-decoration: none;
+
+    @include onTable {
+      height: 70px;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: #1a5a4c;
+
+    @include onTable {
+      height: 70px;
+      width: 70px;
+    }
+  }
+
+  &__img {
+    width: 8px;
+    height: 12px;
+    background-image: url(../images/arrow.svg);
+    background-size: cover;
+    background-position: center;
+  }
+}

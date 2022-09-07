@@ -1,0 +1,130 @@
+.gallery {
+
+  &__title {
+    margin-bottom: 40px;
+    text-align: center;
+    @extend %title;
+    font-size: 36px;
+    line-height: 100%;
+    color: $color-text;
+
+    @include onTable {
+      text-align: start;
+      margin-bottom: 48px;
+      font-size: 48px;
+    }
+
+    @include onTable {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__slider {
+    margin-bottom: 32px;
+  }
+
+  &__desktop {
+    display: flex;
+    overflow: hidden;
+
+    @include onTable {
+      display: flex;
+      gap: 20px;
+    }
+    
+    @include onDesctop {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 30px;
+    }
+  }
+
+  &__images {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include onTable {
+      width: 50%;
+    }
+
+    @include onDesctop {
+      width: 30%;
+      height: 600px;
+    }
+
+    &--two {
+     
+      @include onTable {
+        width: 50%;
+        transform: translate(0);
+      }
+
+      @include onDesctop {
+        width: 70%;
+        height: 600px;
+        position: relative;
+        transform: translate(0);
+      }
+    }
+
+    &--three {
+      display: none;
+
+      @include onDesctop {
+        display: block;
+        width: 70%;
+        height: 360px;
+      }
+    }
+
+    &--four {
+      display: none;
+
+      @include onDesctop {
+        display: block;
+        width: 30%;
+        height: 360px;
+        margin-bottom: 200px;
+      }
+    }
+
+    &--table {
+      @include onDesctop {
+        display: none;
+      }
+    }
+  }
+
+  &__input {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin-bottom: 100px;
+
+    @include onDesctop {
+      display: none;
+      margin-bottom: 92px;
+    }
+  }
+
+  &__link {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    transition: 30ms;
+    background: black;
+    scroll-behavior: smooth;
+
+    &:active {
+      background: #1a5a4c;
+    }
+  }
+}
