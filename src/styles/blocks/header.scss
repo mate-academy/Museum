@@ -1,20 +1,24 @@
 .header {
-  box-sizing: border-box;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-
-  padding: 20px 20px 0;
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url(../images/header_background.png);
+  background-color: #3f5252;
+
+  &__content {
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 20px;
+  }
 
   &__nav {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 30px;
     margin-bottom: 80px;
-    justify-content: space-between;
+    justify-items: auto;
     align-items: center;
   }
 
@@ -39,17 +43,6 @@
     }
   }
 
-  &__menu--opener {
-    display: block;
-
-    height: 30px;
-    width: 30px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url(../images/menu_opener.png);
-  }
-
   &__title {
     display: block;
     margin-bottom: 30px;
@@ -59,6 +52,14 @@
     font-family: "Playfair Display", serif;
 
     color: #f1f5f4;
+
+    @include onTablets {
+      font-size: 72px;
+    }
+
+    @include onDesctop {
+      font-size: 96px;
+    }
   }
 
   &__paragraph {
