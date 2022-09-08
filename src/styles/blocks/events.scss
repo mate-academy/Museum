@@ -1,0 +1,121 @@
+.events {
+  &__event {
+    margin-bottom: 100px;
+
+    @include tablet {
+      margin-bottom: 50px;
+    }
+
+    @include smartphone {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.event {
+  display: flex;
+  justify-content: flex-start;
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  &__image {
+    height: 520px;
+    max-width: 670px;
+    object-fit: cover;
+    @extend %image-hover;
+
+    @include largeScreen {
+      max-width: 870px;
+    }
+
+    @include tablet {
+      max-width: unset;
+    }
+
+    @include smartphone {
+      height: auto;
+      min-height: 210px;
+    }
+  }
+
+  &__description {
+    width: 370px;
+    padding: 50px 0 0 130px;
+
+    &--reverse {
+      padding: 50px 130px 0 0;
+    }
+
+    @include largeScreen {
+      padding: 150px 130px;
+    }
+
+    @include tablet {
+      padding: 30px 0 0;
+    }
+
+    @include smartphone {
+      display: flex;
+      flex-direction: column;
+      max-width: 280px;
+    }
+  }
+
+  &__type-and-date {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+
+    @include smartphone {
+      font-size: 16px;
+    }
+  }
+
+  &__type {
+    color: $type-color;
+    font-weight: 500;
+  }
+
+  &__date {
+    padding-left: 26px;
+    color: $color-green;
+    font-weight: 700;
+  }
+
+  &__title {
+    display: block;
+    position: relative;
+    width: max-content;
+    margin: 30px 0 15px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 34px;
+    font-weight: 400;
+
+    @include smartphone {
+      font-size: 28px;
+    }
+
+    &::after {
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+      content: "";
+      height: 15px;
+      width: 15px;
+      background-color: $color-orange;
+    }
+  }
+
+  &__about {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: $about-color;
+  }
+}
