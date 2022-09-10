@@ -1,5 +1,16 @@
 .menu {
   background-color: #3f5252;
+  background-repeat: no-repeat;
+
+  @include onTablets {
+    background-image: url(../images/menu_image-tablet.png);
+    background-position: bottom;
+  }
+
+  @include onDesctop {
+    background-image: url(../images/menu_image-desktop.png);
+    background-position: right bottom;
+  }
 
   &__content {
     box-sizing: border-box;
@@ -13,10 +24,21 @@
     margin-bottom: 80px;
     justify-items: auto;
     align-items: center;
+
+    @include onTablets {
+      margin-bottom: 50px;
+    }
   }
 
   &__info {
+    display: flex;
+    flex-direction: column;
     margin: 0 0 20px;
+
+    @include onTablets {
+      flex-direction: row;
+      gap: 123px;
+    }
 
     &--last {
       margin-bottom: 40px;
@@ -29,6 +51,7 @@
       display: flex;
       align-items: center;
       color: #f1f5f4;
+
     }
 
     &-link {
@@ -39,6 +62,7 @@
       display: flex;
       align-items: center;
       color: #f1f5f4;
+      margin-bottom: 20px;
     }
   }
 
@@ -50,9 +74,19 @@
 
   &__item {
     margin-bottom: 20px;
+
+    @include onTablets {
+      margin-bottom: 50px;
+    }
+
     &:last-child {
       padding-bottom: 45px;
+      box-sizing: border-box;
       border-bottom: 1px solid #f1f5f4;
+
+      @include onDesctop {
+        width: 530px;
+      }
     }
   }
 
@@ -64,5 +98,10 @@
     font-size: 20px;
     align-items: center;
     color: #f1f5f4;
+
+    @include onTablets {
+      font-size: 48px;
+      line-height: 120%;
+    }
   }
 }

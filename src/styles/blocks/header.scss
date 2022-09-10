@@ -1,5 +1,19 @@
 .header {
+  box-sizing: border-box;
   background-color: #3f5252;
+  background-image: url(../images/header_image.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  @include onTablets {
+    background-image: url(../images/header_image-tablet.png);
+    background-position: bottom;
+  }
+
+  @include onDesctop {
+    background-image: url(../images/header_image-desktop.png);
+    background-position: right bottom;
+  }
 
   &__content {
     box-sizing: border-box;
@@ -11,8 +25,8 @@
   }
 
   &__nav {
-    display: grid;
-    grid-template-columns: 1fr 30px;
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 80px;
     justify-items: auto;
     align-items: center;
@@ -20,7 +34,8 @@
 
   &__nav--content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row-reverse;
+    gap: 40px;
     align-items: center;
   }
 
@@ -30,12 +45,25 @@
     font-family: "Raleway", sans-serif;
     font-weight: 500;
     font-size: 20px;
-    margin-right: 43px;
     text-decoration: none;
 
-    &::before {
-      height: 5px;
-      background-image: url(../images/languages_before.png);
+    &::after {
+      content: "";
+      display: flex;
+      align-items: center;
+      height: 4px;
+      width: 8px;
+
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url(../images/language_after.png);
+    }
+
+    @include onTablets {
+      display: flex;
+      align-items: center;
+      text-align: center;
     }
   }
 
@@ -58,7 +86,7 @@
     }
   }
 
-  &__paragraph {
+  &__subtitle {
     display: block;
     font-weight: 400;
     font-size: 14px;
@@ -66,15 +94,47 @@
 
     color: #f1f5f4;
     margin-bottom: 40px;
+
+    @include onDesctop {
+      margin-bottom: 80px;
+    }
   }
 
-  &__image {
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 245px;
-    height: 273px;
+  &__paragraph {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #f1f5f4;
+    margin-bottom: 10px;
+
+  }
+
+  &__date {
+    display: none;
+
+    @include onDesctop {
+      display: block;
+      position: absolute;
+      bottom: 50px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 125%;
+
+      color: #f1f5f4;
+
+      opacity: 0.7;
+
+      &::after {
+        display: block;
+        content: "";
+        height: 1px;
+        width: 470px;
+        background: #f1f5f4;
+        opacity: 0.3;
+        transform: translate(100px, -8px);
+      }
+    }
   }
 }
