@@ -1,0 +1,42 @@
+.icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+
+  @include smartphone {
+    flex-direction: column;
+    justify-content: start;
+    gap: 62px;
+    align-items: start;
+  }
+
+  &__networks {
+    display: flex;
+    width: 68px;
+    justify-content: space-between;
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    perspective: 1000px;
+
+    &--hover {
+      position: absolute;
+      opacity: 0;
+    }
+
+    &:hover .icons__image {
+      opacity: 0;
+    }
+
+    &:hover &--hover {
+      opacity: 1;
+      transform: translateZ(230px);
+    }
+  }
+}
