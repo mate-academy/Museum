@@ -29,3 +29,16 @@ prev.addEventListener('click', () => {
 
   list.style.transform = `translateX(${-position * 100}%)`;
 });
+
+const form = document.querySelector('.subscription__form');
+const inputs = document.querySelectorAll('.subscription__form-field');
+
+function handler(event) {
+  event.preventDefault();
+
+  inputs.forEach(input => {
+    input.value = '';
+  });
+}
+
+form.addEventListener('submit', handler);
