@@ -3,7 +3,7 @@
 
   &--content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     margin-left: 20px;
@@ -17,6 +17,14 @@
   &--container {
     max-width: 370px;
     margin: auto;
+
+    @include onTablet {
+      margin: 0;
+    }
+
+    @include onDeskTop {
+      margin-top: 200px;
+    }
   }
 
   &-title {
@@ -45,9 +53,23 @@
     margin-bottom: 20px;
     transition: transform 0.2s;
 
+    @include onTablet {
+      width: 700px;
+      height: 520px;
+    }
+
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
       cursor: pointer;
+    }
+
+    &-painting-container {
+      display: flex;
+      justify-content: center;
+
+      @include onDeskTop {
+        justify-content: space-between;
+      }
     }
 
     @include onDeskTop {
