@@ -1,0 +1,140 @@
+.header {
+  box-sizing: border-box;
+  background-color: #3f5252;
+  background-image: url(../images/header_image.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  @include onTablets {
+    background-image: url(../images/header_image-tablet.png);
+    background-position: bottom;
+  }
+
+  @include onDesctop {
+    background-image: url(../images/header_image-desktop.png);
+    background-position: right bottom;
+  }
+
+  &__content {
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 20px;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+    justify-items: auto;
+    align-items: center;
+  }
+
+  &__nav--content {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+  }
+
+  &__languages {
+    display: none;
+    color: #f1f5f4;
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      display: flex;
+      align-items: center;
+      height: 8px;
+      width: 8px;
+
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url(../images/language_after.png);
+    }
+
+    @include onTablets {
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__title {
+    display: block;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    font-family: "Playfair Display", serif;
+
+    color: #f1f5f4;
+
+    @include onTablets {
+      font-size: 72px;
+    }
+
+    @include onDesctop {
+      font-size: 96px;
+    }
+  }
+
+  &__subtitle {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #f1f5f4;
+    margin-bottom: 40px;
+
+    @include onDesctop {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__paragraph {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #f1f5f4;
+    margin-bottom: 10px;
+
+  }
+
+  &__date {
+    display: none;
+
+    @include onDesctop {
+      display: block;
+      position: absolute;
+      bottom: 50px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 125%;
+
+      color: #f1f5f4;
+
+      opacity: 0.7;
+
+      &::after {
+        display: block;
+        content: "";
+        height: 1px;
+        width: 470px;
+        background: #f1f5f4;
+        opacity: 0.3;
+        transform: translate(100px, -8px);
+      }
+    }
+  }
+}
