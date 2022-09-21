@@ -1,6 +1,6 @@
 'use strict';
 
-const form = document.getElementsByTagName('form');
+const form = document.getElementById('form');
 
 form.addEventListener('submit', function handleSubmit(event) {
   event.preventDefault();
