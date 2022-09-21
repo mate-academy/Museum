@@ -1,0 +1,242 @@
+@import "../utils";
+@import "../fonts";
+
+
+.container {
+  display: grid;
+  object-fit: cover;
+  box-sizing: border-box;
+  grid-template-columns: repeat(12, 70px);
+  padding-left: 58px;
+  padding-bottom: 200px;
+  gap: 30px;
+
+  @include ipad {
+    grid-template-columns: repeat(6, 90px);
+    padding-left: 37px;
+    padding-bottom: 88px;
+  }
+
+  @include mobile {
+    display: flex;
+    padding: 0;
+    flex-direction: column-reverse;
+  }
+
+
+  &__blocks {
+    display: grid;
+    grid-column: 1/6;
+    grid-template-columns: repeat(5, 1fr);
+    padding-top: 45px;
+
+    @include ipad {
+      grid-column: 1/4;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__img {
+    display: block;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__img_slide {
+    display: none;
+
+    @include mobile {
+      display: block;
+      position: relative;
+      left: 20px;
+      top: 50px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    grid-column: 1/6;
+    font-family: $font_mont;
+    font-weight: 700;
+    font-size: 72px;
+
+    @include ipad {
+      font-size: 54px;
+    }
+
+    @include mobile {
+      font-size: 45px;
+      margin-top: 0;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  &__block1 {
+    display: flex;
+    grid-column: 3/6;
+    height: fit-content;
+    border: 1px solid $number_color;
+    box-sizing: border-box;
+
+    @include ipad {
+      grid-column: 1/4;
+    }
+
+    @include mobile {
+      display: flex;
+      position: relative;
+      left: 50px;
+      margin-bottom: 70px;
+    }
+  }
+
+  &__ticket {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 16px;
+    color: $primary_color;
+    font-family: $font_ibm;
+  }
+
+  &__arrow_con {
+    display: flex;
+    width: 70px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    background-color: $number_color;
+    transition: ease-in-out 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__block2 {
+    display: flex;
+    grid-row: 3/4;
+    margin-top: 60%;
+
+    @include ipad {
+      display: none;
+    }
+  }
+
+  &__event {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-weight: 700;
+    font-family: $font_ibm;
+    font-size: 14px;
+    margin: 0;
+
+    &::before {
+      display: inline-block;
+      align-items: center;
+      content: "";
+      width: 2px;
+      height: 70px;
+      background: $number_color;
+    }
+  }
+
+  &__bg {
+    display: block;
+    background: url("../images/header/head.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 655px;
+    grid-column: 6/14;
+
+    @include ipad {
+      grid-column: 4/8;
+      height: 384px;
+    }
+
+    @include mobile {
+      background-size: cover;
+      grid-column: auto;
+
+    }
+  }
+
+  &__logo {
+    display: flex;
+    width: 170px;
+    height: 72px;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+      margin-top: 0.3rem;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  &__slider {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    box-sizing: border-box;
+    height: 100vh;
+    background: skyblue;
+    transition: transform 0.3s;
+    padding-left: 58px;
+    padding-right: 58px;
+    padding-top: 45px;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    @include mobile {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+
+  &__holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__close {
+    width: 30px;
+    height: 30px;
+  }
+
+  &__holder2 {
+    display: flex;
+    margin-top: 50px;
+    gap: 50px;
+    flex-direction: column;
+  }
+
+  &__links {
+    font-family: $font_mont;
+    width: 0;
+    color: $primary_color;
+    text-transform: uppercase;
+    transition: ease-in-out 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
