@@ -1,0 +1,166 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 35px;
+
+  @include onTablet {
+    height: 384px;
+    padding: 0 0 44px;
+  }
+
+  @include onDesktop {
+    height: 655px;
+    padding: 0 0 100px;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    background-image: url(../images/header.jpg);
+    @extend %image-sets;
+    width: 100vw;
+    height: 300px;
+
+    @include onTablet {
+      height: 384px;
+      width: 50vw;
+      right: 0;
+    }
+
+    @include onDesktop {
+      height: 655px;
+      width: 60vw;
+      right: 0;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    padding: 9px 3px;
+  }
+
+  &__logo {
+    position: relative;
+    top: 9px;
+    display: block;
+    background-image: url(../images/logo.svg);
+    @extend %image-sets;
+    width: 55px;
+    height: 61px;
+    margin: 0 auto;
+
+    @include onTablet {
+      margin: 0;
+      top: 15px;
+      left: 60px;
+    }
+  }
+  
+  &__content {
+    padding: 320px 0 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 23px;
+
+    @include onTablet {
+      max-width: 45%;
+      padding: 128px 0 0;
+    }
+
+    @include onDesktop {
+      padding: 206px 0 0;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+
+    @include onTablet {
+      text-align: start;
+    }
+
+    @include onDesktop {
+      max-width: 470px;
+      font-weight: 700;
+      font-size: 55px;
+      margin: 0 0 89px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      justify-content: start;
+    }
+
+    @include onDesktop {
+      justify-content: center;
+    }
+  }
+
+  &__links {
+    justify-content: space-between;
+  }
+
+  &__ticket {
+    font-weight: 500;
+    font-size: 16px;
+    padding: 11px 67px;
+    border: 1px solid $colorGreen;
+    text-decoration: none;
+    color: #000;
+
+    @include onTablet {
+      padding: 22px 67px;
+    }
+  }
+
+  &__button-ticket {
+    background-color: $colorGreen;
+    width: 50px;
+    height: 50px;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__button-image {
+    padding: 19px;
+
+    @include onTablet {
+      padding: 29px;
+    }
+  }
+
+  &__events {
+    display: none;
+    font-weight: 700;
+    font-size: 14px;
+    color: $colorGreen;
+    align-items: center;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    text-decoration: none;
+    position: absolute;
+    top: 580px;
+    left: 0;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 1px;
+      background-color: $colorGreen;
+      margin-right: 20px;
+    }
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+}
