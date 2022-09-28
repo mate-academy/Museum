@@ -1,0 +1,65 @@
+.grid {
+  margin: 0 auto;
+
+  @include onMobile {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    width: 100%;
+  }
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+    width: 100%;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+    max-width: 1170px;
+    width: 100%;
+  }
+
+  &--mobile {
+    display: grid;
+  }
+
+  &--tablet {
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &--desktop {
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--mobile-#{$start}-#{$end} {
+          @include onMobile {
+            display: grid;
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--tablet-#{$start}-#{$end} {
+          @include onTablet {
+            display: grid;
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--desktop-#{$start}-#{$end} {
+          @include onDesktop {
+            display: grid;
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
