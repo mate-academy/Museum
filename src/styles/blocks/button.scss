@@ -1,0 +1,48 @@
+.button {
+  display: flex;
+  @include hover(opacity, 0.8);
+  @include hover(transform, scale(1.05));
+
+  &__body {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid $greenColor;
+    text-decoration: none;
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    background-image: url(../images/green_arrow.svg);
+    background-position: center;
+
+    @include square(50px);
+
+    @include onTablet {
+      @include square(70px);
+
+    }
+
+    &--color_red {
+      padding: 0;
+      border-width: 0;
+      background-image: url(../images/red_arrow.svg);
+
+      @include hover(transform, scale(1.2));
+
+    }
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+
+    color: $mainDarkColor;
+  }
+}

@@ -1,0 +1,49 @@
+.menu-button {
+  position: absolute;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  width: 18px;
+  height: 12px;
+
+  cursor: pointer;
+
+  @include hover(opacity, 0.6);
+  @include hover(scale, 1.2);
+
+  &__burger {
+    @extend %burgerPropperty;
+
+    &::before {
+      content: "";
+      position: absolute;
+      @extend %burgerPropperty;
+
+      transform: translateY(-5px);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      @extend %burgerPropperty;
+
+      transform: translateY(5px);
+    }
+  }
+}
+
+.open .menu-button__burger {
+  transform: translateX(-18px);
+  background-color: transparent;
+
+  &::before {
+    background-color: $whiteColor;
+    transform: rotate(45deg) translate(13px, -13px);
+  }
+
+  &::after {
+    background-color: $whiteColor;
+    transform: rotate(-45deg) translate(13px, 13px);
+  }
+}

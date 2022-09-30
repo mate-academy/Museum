@@ -1,0 +1,58 @@
+.slider {
+  overflow: hidden;
+  margin-bottom: 20px;
+
+  @include onTablet {
+    margin-bottom: 32px;
+  }
+
+  &__line {
+    height: 410px;
+
+    display: flex;
+    gap: 16px;
+
+    @include onTablet {
+      gap: 20px;
+      height: 540px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      height: auto;
+    }
+  }
+
+  &__image {
+    object-position: center;
+    object-fit: cover;
+    height: 100%;
+
+    @include hover(scale, 1.01);
+    @include onDesktop {
+      width: 100%;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+  }
+
+  &__dot {
+    background-color: $textColor;
+    border-radius: 50%;
+
+    @include square(9px);
+    @include hover(scale, 1.2);
+
+    &--active {
+      background-color: $greenColor;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}
