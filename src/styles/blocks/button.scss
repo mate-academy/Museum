@@ -1,0 +1,52 @@
+.button {
+  grid-row: 3 / 4;
+  grid-column: 3 / 6;
+
+  @include onTablet {
+    grid-row: 3 / 4;
+    grid-column: 1 / 4;
+  }
+
+  display: flex;
+  align-items: center;
+
+  width: 270px;
+  height: 70px;
+
+  border: 1px solid $green;
+
+  transition: transform $smooth-transition;
+
+  &:hover {
+    transform: translateX(5%);
+  }
+
+  &__text {
+    display: inline-block;
+
+    width: 200px;
+
+    color: $dark;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    text-transform: uppercase;
+  }
+
+  &__arrow {
+    display: inline-block;
+
+    width: 70px;
+    height: 68px;
+
+    background-color: $green;
+
+    &::after {
+      content: "\203A";
+      @extend %montserrat-bold;
+      color: $white;
+      font-size: 24px;
+      line-height: 68px;
+    }
+  }
+}
