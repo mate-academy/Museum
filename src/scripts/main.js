@@ -1,11 +1,12 @@
+'use strict';
 
-import Swiper, { Navigation } from 'swiper';
-import 'swiper/swiper-bundle.min.css';
+const checkbox = document.querySelector('#id-checkbox');
 
-window.swiper = new Swiper('.swiper', {
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  modules: [Navigation],
-});
+checkbox.addEventListener('click', checkboxClick, false);
+
+function checkboxClick(event) {
+  const warn = "preventDefault() won't let you check this!<br>";
+
+  document.getElementById('output-box').innerHTML += warn;
+  event.preventDefault();
+}
