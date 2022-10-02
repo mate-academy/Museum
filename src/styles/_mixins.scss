@@ -1,0 +1,29 @@
+@mixin onTablet {
+  @media (min-width: 744px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1260px) {
+    @content;
+  }
+}
+
+@mixin top-action {
+  --icon-width: 18px;
+  padding: $headerTopPadding 0 0;
+  margin-bottom: 250px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  justify-content: start;
+  align-items: center;
+  gap: 30px;
+
+  @include onTablet {
+    --icon-width: 24px;
+    margin-bottom: 119px;
+    gap: 40px;
+  }
+}

@@ -1,0 +1,71 @@
+.icon {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 12px;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+
+  &__tooltip {
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: block;
+    width: max-content;
+    padding-right: 12px;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    color: #292929;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  @include onDesktop {
+    &:hover &__tooltip {
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+
+  &--menu {
+    background-image: url(../images/menu.svg);
+
+    &:hover {
+      background-image: url(../images/menu_hover.svg);
+    }
+  }
+
+  &--cross {
+    background-image: url(../images/cross.svg);
+  }
+
+  &--facebook {
+    background-image: url(../images/facebook.png);
+    height: 24px;
+    transition: transform 300ms;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &--instagram {
+    background-image: url(../images/instagram.png);
+    height: 24px;
+    transition: transform 300ms;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
