@@ -1,20 +1,136 @@
 .header {
-  height: 300px;
-  margin-bottom: 20px;
-  background-image: url(../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png);
+  position: relative;
+  margin-bottom: 70px;
 
-  @include iPadMini {
-    width: 374px;
-    height: 385px;
-    background-repeat: no-repeat;
-    background-size: cover;
+  @include onTablet {
+    margin-bottom: 88px;
   }
 
-  @include onDesctop {
-    width: 725px;
-    height: 655px;
-    background-repeat: no-repeat;
-    background-size: cover;
+  @include onDesktop {
     margin-bottom: 200px;
+  }
+
+  &__menu {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 320px;
+    height: 300px;
+    padding: 10px 24px;
+    background-image: url(../images/Museum.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      width: 374px;
+      height: 384px;
+      padding: 0;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      width: 725px;
+      height: 655px;
+    }
+  }
+
+  &__nav {
+    @include onTablet {
+      display: none;
+    }
+
+    &--burger {
+      @include onTablet {
+        display: inherit;
+        padding-top: 45px;
+      }
+
+      @include onDesktop {
+        padding-top: 0;
+        margin-bottom: 150px;
+      }
+    }
+  }
+
+  &__logo {
+    @include onTablet {
+      padding: 15px 80px 0;
+    }
+  }
+
+  &__content {
+    padding: 0 20px;
+    @include onTablet {
+      width: 340px;
+      padding-left: 34px;
+    }
+
+    @include onDesktop {
+      width: 470px;
+      padding: 45px 30px 0 55px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: start;
+      padding: 70px 0 38px;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 120%;
+      padding: 0;
+      margin-bottom: 90px;
+    }
+  }
+
+  @include onTablet {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  &__event {
+    position: absolute;
+    top: 580px;
+    left: 0;
+    width: max-content;
+    transform: rotate(-90deg);
+    
+    @include onDesktop {
+      display: inherit;
+    }
+  
+    &-link {
+      text-decoration: none;
+      font-family: $fonts-2;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: $color-3;
+      
+      
+      &::before {
+        display: inline-block;
+        margin: 0 20px 4px 0;
+        content: "";
+        width: 70px;
+        height: 1px;
+        background-color: $color-1;
+      }
+    }
   }
 }

@@ -1,29 +1,125 @@
 .events {
-  display: none;
-  width: 43px;
-  transform: rotate(-90deg);
-  font-family: $fonts-2;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 14px;
-  color: #687480;
-  
+  margin-bottom: 150px;
 
-  @include onDesctop {
-    display: inherit;
-    position: absolute;
-    top: 500px;
-    left: 55px;
+  @include onTablet {
+    padding: 0 34px;
   }
-}
 
-.events::after {
-  position: absolute;
-  content: "";
-  top: -27px;
-  right: 95px;
-  width: 1px;
-  height: 70px;
-  background-color: #1a5a4c;
-  transform: rotate(-90deg);
+  @include onDesktop {
+    padding: 0;
+  }
+
+  &__container {
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0;
+    }
+
+    @include onDesktop {
+      padding: 0 55px;
+    }
+  }
+
+  &__block {
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      gap: 130px;
+      margin-bottom: 104px;
+    }
+  }
+
+  &__block-content {
+    @include onDesktop {
+      display: block;
+      width: 370px;
+    }
+  }
+ 
+  &__image {
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+
+    @include onTablet {
+      margin-bottom: 40px;
+      width: 700px;
+      height: 520px;
+    }
+
+    @include onDesktop {
+      width: 670px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__text {
+    font-family: $fonts-2;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: $color-4;
+    margin-bottom: 60px;
+
+    @include onTablet {
+      width: 460px;
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      width: 370px;
+    }
+
+    &--bottom {
+      @include onTablet {
+        margin-bottom: 112px;
+      }
+    }
+  }
+
+  &__lecture {
+    position: relative;
+    background-image: url(../images/Rectangle5.png);
+    background-size: cover;
+    background-position: center;
+    height: 210px;
+
+    @include onTablet {
+      height: 390px;
+      margin-bottom: 208px;
+    }
+
+    @include onDesktop {
+      height: 550px;
+      margin-bottom: 300px;
+    }
+  }
+
+  &__lecture-content {
+    position: absolute;
+    top: 150px;
+    left: 20px;
+    width: 280px;
+    height: 140px;
+    background-color: #fff;
+    border-bottom: 1px solid #1a5a4c40;
+    margin-bottom: 100px;
+
+    @include onTablet {
+      width: 570px;
+      height: 204px;
+      top: 300px;
+      left: 65px;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      top: 470px;
+      left: 355px;
+      margin-bottom: 0;
+    }
+  }
 }
