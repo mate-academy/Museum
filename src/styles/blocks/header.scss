@@ -1,0 +1,108 @@
+.header {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    height: 500px;
+
+    @include onTablet {
+      min-height: 50vh;
+      height: auto;
+    }
+
+    @include onDesktop {
+      min-height: 100vh;
+    }
+  }
+
+  &__nav {
+    flex-grow: 1;
+  }
+
+  &__background {
+    position: absolute;
+    right: 0;
+
+    width: 100%;
+    height: 50%;
+    min-height: 300px;
+
+    background-image: url(/images/header_picture.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include onTablet {
+      height: 55%;
+      min-height: 384px;
+      width: 50%;
+    }
+
+    @include onDesktop {
+      height: 100%;
+      min-height: 655px;
+      width: 55%;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+
+    @include onTablet {
+      margin-bottom: 40px;
+      text-align: left;
+      font-size: 54px;
+      line-height: 1.2;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+      font-size: 72px;
+    }
+  }
+
+  &__button {
+    @include onDesktop {
+      margin-bottom: 120px;
+    }
+  }
+
+  &__event {
+    display: none;
+
+    @include onDesktop {
+      position: relative;
+      left: 0;
+      bottom: 0;
+      display: block;
+
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1;
+      text-transform: uppercase;
+
+      color: $eventNameColor;
+
+      transform-origin: left bottom;
+      transform: rotate(-90deg);
+
+      &::before {
+        content: "";
+        display: inline-block;
+        height: 1px;
+        width: 70px;
+        margin: 3px 20px 3px 0;
+
+        background-color: $greenColor;
+      }
+    }
+  }
+}

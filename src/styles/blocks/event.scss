@@ -1,0 +1,85 @@
+.event {
+  &__grid-container {
+    @include onDesktop {
+      display: grid;
+      align-content: center;
+      margin-bottom: 104px;
+    }
+  }
+
+  &__image {
+    object-fit: contain;
+    width: 100%;
+    margin-bottom: 16px;
+
+    @include hover(scale, 1.02);
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 104px;
+    }
+  }
+
+  &__date {
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    position: relative;
+
+    margin-bottom: 10px;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1;
+
+    color: $mainDarkColor;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-40%);
+
+      display: inline-block;
+
+      margin-left: 10px;
+      background-color: $redColor;
+
+      @include square(10px);
+    }
+
+    @include onTablet {
+      margin-bottom: 15px;
+      font-size: 36px;
+
+      &::after {
+        margin-left: 15px;
+
+        @include square(15px);
+      }
+    }
+  }
+
+  &__footnote {
+    margin-bottom: 60px;
+    line-height: 1.5;
+    color: $textColor;
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+
+    &--last {
+      margin-bottom: 0;
+    }
+  }
+}
