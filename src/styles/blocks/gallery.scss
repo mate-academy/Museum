@@ -1,4 +1,5 @@
 .gallery {
+  width: 100%;
   margin-bottom: 100px;
 
   @include onTablet {
@@ -9,10 +10,17 @@
     margin-bottom: 200px;
     padding: 0 55px;
   }
+
+  @include onDesign {
+    padding: 0 215px;
+  }
   
   &__image {
     padding-left: 20px;
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
     
 
     @include onTablet {
@@ -22,19 +30,20 @@
 
     @include onDesktop {
       margin-bottom: 0;
+      gap: 30px;
     }
   }
 
   &__image-painting {
-    transition: transform 0.3s;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 
     @include onTablet {
       width: 344px;
       height: 543px;
-    }
-
-    &:hover {
-      transform: translateZ(20px);
     }
   }
 

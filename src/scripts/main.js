@@ -1,7 +1,8 @@
 'use strict';
 
-const button = document.querySelector('.header__nav');
+const form = document.querySelector('.form');
 
-button.addEventListener('click', () => {
-
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  event.target.reset();
 });
