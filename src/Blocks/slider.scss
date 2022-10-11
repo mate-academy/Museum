@@ -1,0 +1,126 @@
+.slider {
+  width: 100%;
+
+  @include onDesktop {
+    display: none;
+  }
+
+
+  &__control {
+    display: none;
+  }
+
+  &__slides-overflow {
+    width: calc(100% + 20px);
+    overflow: hidden;
+    height: 100%;
+
+    @include onTablet {
+      width: calc(100% + 34px);
+    }
+  }
+
+  &__slides {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__image {
+    width: 400%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+
+    transition: all 800ms;
+  }
+
+  &__photo {
+    height: 100%;
+    width: 280px;
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+    }
+
+    margin-right: 16px;
+
+    @include onTablet {
+      margin-right: 20px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__switch {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__switch-label {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #e5e6eb;
+    margin-right: 22px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  #switch-1:checked ~ &__switch &__switch-label[for="switch-1"] {
+    background-color: $color-menu;
+  }
+  #switch-2:checked ~ &__switch &__switch-label[for="switch-2"] {
+    background-color: $color-menu;
+  }
+  #switch-3:checked ~ &__switch &__switch-label[for="switch-3"] {
+    background-color: $color-menu;
+  }
+
+  #switch-4:checked ~ &__switch &__switch-label[for="switch-4"] {
+    background-color: $color-menu;
+  }
+
+  #switch-1::before ~ &__slides &__image {
+    margin-left: 0;
+  }
+
+  #switch-2:checked ~ &__slides &__image {
+    margin-left: -296px;
+
+    @include onTablet {
+      margin-left: -360px;
+    }
+  }
+
+  #switch-3:checked ~ &__slides &__image {
+    margin-left: -592px;
+
+    @include onTablet {
+      margin-left: -720px;
+    }
+  }
+
+  #switch-4:checked ~ &__slides &__image {
+    margin-left: -888px;
+
+    @include onTablet {
+      margin-left: -1080px;
+    }
+  }
+}
