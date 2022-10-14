@@ -10,4 +10,4 @@ Adaptive landing page project
 
 
 - Technologies: HTML, SCSS, JS
-- Methodologies: BEM,adaptive layout
+- Methodologies: BEM, adaptive layout
