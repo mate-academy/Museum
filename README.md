@@ -9,5 +9,5 @@ Adaptive landing page project
 - Mobile (> 320px)
 
 
-- Technologies: HTML, SCSS
+- Technologies: HTML, SCSS, JS
 - Methodologies: BEM,adaptive layout
