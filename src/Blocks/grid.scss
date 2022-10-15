@@ -1,11 +1,41 @@
 .grid {
   display: grid;
-  gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 20px;
+
+
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 30px;
+  }
+
+  &__disable {
+
+  }
 
   &__item {
     @for $start from 1 through 12 {
       @for $end from 1 through 12 {
+
         @include onDesktop {
+          &--desktop-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        @include onTablet {
+          &--tablet-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        @include onMobile {
           &--#{$start}-#{$end} {
             grid-column: #{$start} / #{$end + 1};
           }
