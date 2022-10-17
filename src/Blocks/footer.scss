@@ -6,7 +6,7 @@
     line-height: 20px;
     color: $color-subtitle;
     font-weight: 400;
-    font-size:  14px;
+    font-size: 14px;
 
     &--title {
       margin-bottom: 20px;
@@ -18,7 +18,7 @@
     font-family: "IBM Plex Sans", sans-serif;
     font-style: normal;
     color: $color-subtitle;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 21px;
     font-size: 14px;
 
@@ -28,11 +28,23 @@
 
     &--note {
       margin-bottom: 70px;
+
+      @include onDesktop {
+        margin-bottom: 0;
+      }
     }
 
     &--bold {
       display: inline-block;
       font-weight: 600;
+
+      @include onDesktop  {
+        font-weight: 600;
+      }
+    }
+
+    &--normal {
+      display: inline-block;
     }
   }
 
@@ -65,6 +77,8 @@
       width: 1px;
       height: 260px;
       left: 35px;
+
+      margin-bottom: 0;
     }
 
     &::before {
@@ -89,7 +103,7 @@
 
   &__menu {
     width: 100%;
-    margin-bottom: 0px; // tablet 80px descktop 87px
+    margin-bottom: 0; // tablet 80px descktop 87px
 
     @include onDesktop {
       position: relative;
@@ -101,26 +115,26 @@
     width: 130px;
     margin-right: 20px;
     margin-bottom: 20px;
-
-
   }
 
   &__menu-list {
 
-    
-      padding: 0;
-      margin: 0;
+    padding: 0;
+    margin: 0;
 
+    @include onTablet {
+      margin-bottom: 120px;
+    }
   }
 
   &__menu-link {
     font-weight: 400;
     font-size: 14px;
-    color:  $color-subtitle;
+    color: $color-subtitle;
   }
 
   &__bottom {
-    font-family: 'IBM Plex Sans';
+    font-family: "IBM Plex Sans", sans-serif;
     font-style: normal;
     font-weight: 300;
     font-size: 12px;
@@ -146,7 +160,7 @@
     }
   }
 
-  &__top {
+  &__topp {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -176,7 +190,6 @@
     display: inline-block;
     justify-self: end;
 
-
     @include onTablet {
       display: block;
     }
@@ -188,6 +201,12 @@
 
     @include onDesktop {
       margin-right: 28px;
+    }
+  }
+
+  &__grid {
+    @include onDesktop {
+      margin-bottom: 87px;
     }
   }
 }
