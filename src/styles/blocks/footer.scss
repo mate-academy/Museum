@@ -1,0 +1,119 @@
+.footer {
+  @include container(50px, 50px, 48px);
+
+  @include onTablet {
+    padding-bottom: 35px;
+  }
+
+  &__main {
+    @extend .grid;
+
+    margin-bottom: 80px;
+
+    @include onTablet {
+      flex-direction: row;
+
+      margin-bottom: 120px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 87px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 40px;
+
+    @extend .grid__item--tablet-1-1;
+    @extend .grid__item--desktop-1-1;
+
+    @include onTablet {
+      flex-direction: column;
+      gap: 62px;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      margin-bottom: 0;
+    }
+  }
+
+  &__page-logo {
+    font-family: $titleFont;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+
+    color: $blackColor;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__social-media {
+    display: flex;
+    gap: 26px;
+
+    @include onTablet {
+      gap: 38px;
+    }
+
+    @include onDesktop {
+      gap: 28px;
+    }
+  }
+
+  &__fb-img {
+    width: 12px;
+    height: 24px;
+
+    @include hover(transform, scale(1.1));
+
+    &:active {
+      box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    }
+  }
+
+  &__inst-img {
+    width: 24px;
+    height: 24px;
+
+    @include hover(transform, scale(1.1));
+
+    &:active {
+      box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    }
+  }
+
+  &__menu {
+    @extend .grid__item--tablet-2-5;
+    @extend .grid__item--desktop-3-11;
+
+    @extend .grid;
+    width: 100%;
+  }
+
+  &__copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    @include onTablet {
+      width: 100%;
+
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  &__copyright-item {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 140%;
+
+    color: $blackColor;
+  }
+}

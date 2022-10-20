@@ -1,0 +1,107 @@
+.nav {
+  $icon-width: 18px;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  display: grid;
+  grid-template-columns: $icon-width 1fr $icon-width;
+  justify-items: center;
+  align-items: center;
+  padding-top: 9px;
+
+  z-index: 2;
+
+  @include onTablet {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: start;
+    padding-top: 15px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: 1fr 57%;
+  }
+
+  &__menu-toggle {
+    display: inline-block;
+    width: 18px;
+    height: 12px;
+    background-image: url(../images/menu-sign.png);
+    background-position: center;
+    background-size: 18px 12px;
+    background-repeat: no-repeat;
+
+    position: relative;
+    z-index: 4;
+    margin-left: 23px;
+
+    cursor: pointer;
+
+    transition: all 0.3s;
+
+    @include hover(transform, scale(1.1));
+
+    @include onTablet {
+      margin-left: 37px;
+    }
+
+    @include onDesktop {
+      margin-left: 58px;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    z-index: 3;
+  }
+
+  &__toggle {
+    display: none;
+
+    &:checked ~ .nav__menu {
+      transform: translateY(0);
+    }
+
+    &:checked ~ .nav__menu-toggle {
+      background-image: url(../images/cross.png);
+      background-size: 13px 13px;
+      background-position: center center;
+    }
+  }
+
+  &__page-logo {
+    display: inline-block;
+    width: 55px;
+    text-align: center;
+
+    @include onTablet {
+      width: 220px;
+    }
+
+    @include onDesktop {
+      width: 170px;
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__logo-text {
+    font-family: $titleFont;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 100%;
+    color: $blackColor;
+
+    @include onTablet {
+      font-size: 36px;
+    }
+  }
+}
