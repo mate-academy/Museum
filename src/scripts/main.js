@@ -1,6 +1,6 @@
 'use strict';
 
-const page = document.getElementById('page');
+const page = document.querySelector('.page');
 const toggle = document.getElementById('nav__toggle');
 const listLinks = document.querySelectorAll('.menu-list__link');
 
@@ -15,6 +15,7 @@ toggle.addEventListener('change', function() {
 listLinks.forEach(listLink =>
   listLink.addEventListener('click', function() {
     page.classList.remove('page--disabled');
+    toggle.checked = false;
   })
 );
 
@@ -52,9 +53,8 @@ function getCurrentWidth(el) {
 }
 
 const form = document.querySelector('.subscription__form');
-const formSubmit = document.querySelector('.subscription__form-submit');
 
-formSubmit.addEventListener('click', function() {
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
   form.reset();
-  form.preventDefault();
 });
