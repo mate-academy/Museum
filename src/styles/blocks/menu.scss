@@ -1,0 +1,92 @@
+.menu {
+  height: 100vh;
+  background-color: #ccc8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateX(-100%);
+  transition: transform 300ms;
+
+  &:target {
+    transform: translateX(0%);
+  }
+
+  &__content {
+    padding: 20px 0;
+    background-color: $color-green;
+  }
+
+  &__container {
+    @include tablet {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: auto;
+    }
+  }
+
+  &__wrapper {
+    &--footer {
+      display: flex;
+      justify-content: center;
+    }
+
+    @include desktop {
+      display: flex;
+      gap: 20px;
+    }
+  }
+
+  &-timetable {
+    &__title {
+      margin-top: 20px;
+      color: white;
+
+      &--footer {
+        color: black;
+      }
+    }
+
+    &__list {
+      list-style: none;
+      padding: 0;
+      color: white;
+
+      &--footer {
+        color: black;
+      }
+    }
+
+    &__weekend {
+      color: white;
+
+      &--footer {
+        color: black;
+      }
+
+      @include tablet {
+        width: 200px;
+      }
+
+      @include desktop {
+        margin-top: 40px;
+      }
+    }
+
+    &__contact {
+      &-title {
+        margin-top: 20px;
+      }
+
+      &-link {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+          border-bottom: 1px solid black;
+        }
+      }
+    }
+  }
+}
