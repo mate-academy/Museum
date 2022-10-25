@@ -1,0 +1,98 @@
+.menu-footer {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+
+  @include onDesktop {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      gap: 32px;
+    }
+  }
+
+  &__schedule {
+    width: 100%;
+
+    color: $blackColor;
+
+    @include onDesktop {
+      width: 170px;
+    }
+  }
+
+  &__contacts {
+    width: 170px;
+  }
+
+  &__home-link {
+    display: block;
+    width: 50px;
+    height: 50px;
+
+    border: 1px solid $darkGreenColor;
+    border-radius: 50%;
+    background-image: url(../images/top-arrow.png);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    right: 0;
+    bottom: 120px;
+
+    transition: all 0.3s;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      border-width: 2px;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__distribution-line {
+    width: 100%;
+    height: 1px;
+
+    background-color: rgba($color: $darkGreenColor, $alpha: 0.5);
+
+    margin-bottom: 40px;
+
+    @extend .grid__item--desktop-7-7;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      width: 1px;
+      height: 100%;
+
+      margin-bottom: 0;
+    }
+  }
+
+  &__menu-list {
+    @extend .grid__item--desktop-8-11;
+  }
+}

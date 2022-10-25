@@ -1,0 +1,134 @@
+.national-museum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include onTablet {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+  }
+
+  &__photo {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      width: 50%;
+      height: 384px;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      width: 57%;
+      height: 655px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      align-items: flex-start;
+      position: absolute;
+      left: 34px;
+      bottom: 19px;
+    }
+
+    @include onDesktop {
+      left: 55px;
+      bottom: 119px;
+
+      width: 470px;
+    }
+  }
+
+  &__title {
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+
+      margin-bottom: 38px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+
+      margin-bottom: 89px;
+    }
+  }
+
+  &__button-arrow-sign {
+    width: 7.4px;
+    height: 12px;
+  }
+
+  &__ticket-button {
+    position: relative;
+
+    display: block;
+    width: 280px;
+    height: 50px;
+    border: 1px solid $darkGreenColor;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 48px;
+    padding-left: 80px;
+
+    color: $blackColor;
+
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $darkGreenColor;
+      font-weight: 700;
+      color: #fff;
+
+      .national-museum__button-arrow-sign {
+        transform: scale(1.2);
+      }
+    }
+
+    @include onTablet {
+      width: 270px;
+      height: 70px;
+
+      line-height: 70px;
+    }
+
+    @include onDesktop {
+      align-self: flex-end;
+    }
+  }
+
+  &__button-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 100%;
+    background-color: $darkGreenColor;
+
+    @include onTablet {
+      width: 70px;
+    }
+  }
+}

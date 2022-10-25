@@ -1,0 +1,72 @@
+.gallery-slider {
+  display: flex;
+  flex-direction: column;
+
+  overflow-x: hidden;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__images {
+    display: flex;
+    gap: 16px;
+
+    width: 296px;
+    height: 410px;
+
+    margin-bottom: 20px;
+    transition: all 0.3s;
+
+    @include onTablet {
+      gap: 20px;
+
+      width: 360px;
+      height: 543px;
+
+      margin-bottom: 32px;
+    }
+  }
+
+  &__image {
+    width: 280px;
+    height: 410px;
+    object-fit: cover;
+    object-position: center;
+
+    flex-shrink: 0;
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+    }
+  }
+
+  &__toggles {
+    align-self: center;
+
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+  }
+
+  &__toggle-block {
+    display: block;
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+    background-color: #e0e0e0;
+
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  &__toggle {
+    display: none;
+
+    &:checked ~ .gallery-slider__toggle-block {
+      background-color: $darkGreenColor;
+    }
+  }
+}

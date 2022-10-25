@@ -1,6 +1,34 @@
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin container(
+  $mobileVerticalPaddings,
+  $tabletVerticalPaddings,
+  $desktopVerticalPaddings
+) {
+  padding: $mobileVerticalPaddings 20px;
+
+  @include onTablet {
+    padding: $tabletVerticalPaddings 34px;
+  }
+
+  @include onDesktop {
+    padding: $desktopVerticalPaddings 55px;
   }
 }
