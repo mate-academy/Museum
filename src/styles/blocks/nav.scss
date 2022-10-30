@@ -1,18 +1,11 @@
 .nav {
   box-sizing: border-box;
-  width: 320px;
-  background-color: $color-1;
+  @extend %center;
+  background-color: $colorGreen;
   z-index: 1;
 
   @include onTablet {
-    width: 100%;
-    height: 225px;
-    display: flex;
     padding-top: 40px;
-  }
-
-  @include onDesktop {
-    width: 100%;
   }
 
   @include onDesign {
@@ -20,20 +13,14 @@
     padding: 40px 215px;
   }
 
-  &--background {
-    background-color: $color-5;
-    margin-bottom: 80px;
-
-    @include onTablet {
-      margin-bottom: 120px;
-    }
-  }
-
   &__content {
-    padding: 0 20px;
-
     @include onTablet {
-      padding: 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      width: 100%;
     }
   }
 
@@ -46,59 +33,56 @@
       border-bottom: none;
       border-right: 1px solid #ffffff80;
       height: 145px;
-    }
-
-    @include onDesktop {
       margin: 0;
     }
+  }
+
+  &__link-cross {
+    height: max-content;
   }
 
   &__cross {
     padding: 32px 40px 0 0;
     @include onTablet {
-      padding: 0 40px;
+      padding: 0 40px 0 0;
     }
 
     @include onDesktop {
-      padding: 0 100px 0 50px;
+      padding: 0 100px 0 0;
     }
   }
 
   &__menu-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 230px;
     list-style: none;
-    padding: 27px 20px 24px 0;
+    padding: 27px 0 24px;
+
     @include onTablet {
-      padding: 0 20px 0 0;
+      padding: 0 30px 0 0;
+      gap: 20px;
+      height: max-content;
     }
 
     @include onDesktop {
-      padding: 0 102px 0 0;
-    }
-
-    &--right {
-      @include onDesktop {
-        padding: 0;
-      }
+      width: 370px;
+      padding: 0 50px 0 0;
     }
   }
 
   &__item {
-    margin-bottom: 20px;
+    width: 100px;
+    height: max-content;
 
-    @include onTablet {
-      width: 100px;
+    @include onDesktop {
+      width: 170px;
     }
 
     &:last-child {
       margin-bottom: 0;
-    }
-  }
-
-  &__item-bottom {
-    width: 130px;
-
-    @include onTablet {
-      width: 220px;
     }
   }
 
@@ -107,37 +91,16 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 100%;
-    color: $color-5;
+    color: $colorWhite;
     text-decoration: none;
-    transition-duration: 0.3s;
 
-    &:hover {
-      color: $color-6;
-    }
-
-    &--color {
-      font-weight: 400;
-      font-size: 14px;
+    @include onDesktop {
+      font-size: 22px;
       line-height: 100%;
-      color: $color-2;
-      transition-duration: 0.3s;
-
-      &:hover {
-        color: $color-6;
-      }
     }
   }
 
-  &__bottom {
-    @include onTablet {
-      padding: 0 154px;
-      height: max-content;
-    }
-
-    @include onDesktop {
-      padding: 0;
-      margin: 0;
-      width: max-content;
-    }
+  &__link-color {
+    @include hover(color, $colorRed);
   }
 }

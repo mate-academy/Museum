@@ -1,139 +1,73 @@
 .gallery {
-  width: 100%;
   margin-bottom: 100px;
 
-  @include onTablet {
-    padding-left: 34px;
-  }
-
-  @include onDesktop {
-    margin-bottom: 200px;
-    padding: 0 55px;
-  }
-
-  @include onDesign {
-    padding: 0 215px;
-  }
-  
-  &__image {
-    padding-left: 20px;
-    margin-bottom: 20px;
+  &__slider {
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    
-
-    @include onTablet {
-      padding: 0;
-      margin-bottom: 32px;
-    }
-
+    flex-direction: column;
+    overflow: hidden;
     @include onDesktop {
-      margin-bottom: 0;
-      gap: 30px;
+      display: none;
     }
   }
 
-  &__image-painting {
-    transition: transform 0.5s;
-
-    &:hover {
-      transform: scale(1.05);
-    }
+  &__images {
+    display: flex;
+    gap: 16px;
+    width: 296px;
+    height: 410px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
 
     @include onTablet {
-      width: 344px;
+      gap: 20px;
+      margin-bottom: 32px;
+      width: 360px;
       height: 543px;
     }
   }
 
-  &__image-painting-goose {
+  &__image {
+    width: 280px;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0;
+    @include hover(transform, scale(1.1));
+
     @include onTablet {
-      display: inherit;
-    }
-
-    @include onDesktop {
-      display: none;
+      width: 340px;
     }
   }
 
-  &__image-stripe1 {
-    @include onTablet {
-      display: none;
-    }
-  }
-
-  &__image-stripe2 {
-    @include onTablet {
-      display: inherit;
-    }
-
-    @include onDesktop {
-      display: none;
-    }
-  }
-
-  &__block {
-    display: flex;
-    gap: 16px;
-    perspective: 400px;
-    @include onDesktop {
-      gap: 30px;
-      margin-bottom: 30px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  &__image-painting-bride {
-    @include onDesktop {
-      width: 370px;
-      height: 600px;
-    }
-  }
-
-  &__image-painting-winter {
-    @include onDesktop {
-      display: inherit;
-      width: 770px;
-      height: 600px;
-    }
-  }
-
-  &__image-painting-park {
-    @include onDesktop {
-      display: inherit;
-      width: 770px;
-      height: 360px;
-    }
-  }
-
-  &__image-painting-sea {
-    @include onDesktop {
-      display: inherit;
-      width: 370px;
-      height: 360px;
-    }
-  }
-
-  &__carousel {
+  &__toggles {
     display: flex;
     justify-content: center;
     gap: 22px;
+  }
 
-    @include onDesktop {
-      display: none;
+  &__toggle-button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    cursor: pointer;
+  }
+
+  &__toggle {
+    display: none;
+
+    &:checked ~ .gallery__toggle-button {
+      background-color: $colorGreen;
     }
   }
 
-  &__button {
-    background-image: url(../images/Ellipse3.1.png);
-    width: 10px;
-    height: 10px;
-    &:hover {
-      background-image: url(../images/Ellipse3.png);
+  &__paintings-desktop {
+    display: none;
+    @include onDesktop {
+      display: initial;
     }
+  }
+
+  &__image-desktop {
+    @include hover(transform, scale(1.1));
   }
 }
