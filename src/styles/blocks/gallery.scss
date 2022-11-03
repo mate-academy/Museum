@@ -1,0 +1,104 @@
+.gallery {
+  margin-bottom: 90px;
+
+  &__title {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: #0F0E08;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      font-style: 48px;
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__photos {
+    display: flex;
+    gap: 16px;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      flex-direction: column;
+    }
+
+    &-block1 {
+      display: flex;
+      column-gap: 16px;
+
+      @include onDesktop {
+        display: grid;
+        grid-template-columns: 30% auto;
+        column-gap: 30px;
+        height: 600px;
+      }
+    }
+
+    &-block2 {
+      display: flex;
+      column-gap: 16px;
+
+      @include onDesktop {
+        display: grid;
+        grid-template-columns: 70% auto;
+        column-gap: 30px;
+        height: 360px;
+      }
+    }
+  }
+
+  &__photo-container {
+    position: relative;
+    box-sizing: border-box;
+    min-width: 280px;
+    min-height: 410px;
+  }
+
+  &__photo {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  &__photo-links {
+    display: flex;
+    justify-content: center;
+    column-gap: 22px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__photo-link {
+    width: 9px;
+    height: 9px;
+    background-image: url(../images/dots/dot-gray.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &-1 {
+      background-image: url(../images/dots/dot-black.svg);
+    }
+  }
+}
