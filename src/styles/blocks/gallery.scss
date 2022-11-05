@@ -33,9 +33,32 @@
     display: flex;
     overflow: hidden;
 
+    &::before {
+      transition: 0.5s;
+      display: inline-block;
+      position: absolute;
+      z-index: 2;
+      right: 2rem;
+      top: 2rem;
+      @include mon;
+      font-size: 1rem;
+      font-weight: bold;
+      content: attr(data-author);
+      padding: 15px;
+      color: $green;
+      background-color: #fff;
+      border: 1px solid $orange;
+      border-radius: 8px;
+      opacity: 0;
+    }
+
     &:hover {
       transform: scale(1.01);
       box-shadow: 0 5px 15px -3px $title;
+
+      &::before {
+        opacity: 1;
+      }
     }
   }
 
@@ -58,9 +81,5 @@
   &__img {
     width: 100%;
     object-fit: cover;
-
-    // &:hover {
-    //   transform: scale(1.1);
-    // }
   }
 }

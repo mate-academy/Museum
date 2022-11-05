@@ -17,9 +17,31 @@
     position: relative;
     overflow: hidden;
 
+    &::before {
+      transition: 0.5s;
+      display: inline-block;
+      position: absolute;
+      z-index: 2;
+      right: 2rem;
+      top: 2rem;
+      @include mon;
+      font-size: 1rem;
+      font-weight: bold;
+      content: attr(data-author);
+      padding: 15px;
+      color: $green;
+      background-color: #fff;
+      border: 1px solid $orange;
+      border-radius: 8px;
+      opacity: 0;
+    }
+
     &:hover {
       transform: scale(1.05);
       z-index: 100;
+      &::before {
+        opacity: 1;
+      }
     }
 
   }
