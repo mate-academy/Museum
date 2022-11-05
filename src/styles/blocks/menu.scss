@@ -1,0 +1,204 @@
+.container-menu {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  @include grid;
+  padding-top: 40px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  transform: translateY(-100%);
+
+  .menu-box {
+    position: relative;
+    grid-column: 1 / 13;
+    display: flex;
+    z-index: 100;
+    padding: 40px 0 48px;
+    height: min-content;
+    color: #fff;
+    background-color: $green;
+    transform: translateY(-100%);
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 55px;
+      top: 0;
+      background-color: $green;
+
+      @media (max-width: 768px) {
+        width: 39px;
+      }
+
+      @media (max-width: 460px) {
+        width: 20px;
+      }
+    }
+
+    &::before {
+      left: -55px;
+
+      @media (max-width: 768px) {
+        left: -39px;
+      }
+
+      @media (max-width: 460px) {
+        left: -20px;
+      }
+    }
+
+    &::after {
+      right: -55px;
+
+      @media (max-width: 768px) {
+        right: -39px;
+      }
+
+      @media (max-width: 460px) {
+        right: -20px;
+      }
+    }
+  }
+
+  &:target {
+    transform: translateY(0);
+    .menu-box {
+      transition: 0.5s;
+      transform: translateY(0);
+    }
+  }
+
+}
+
+.close {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 0;
+  top: 37px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../images/close.svg);
+}
+
+.menu {
+  width: 50%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  &__list {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    @media (max-width: 460px) {
+      gap: 20px;
+    }
+  }
+
+  &__item {
+    width: 45%;
+  }
+
+  &__link {
+    position: relative;
+    @include ibm;
+    display: inline-block;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      z-index: -1;
+      left: -5px;
+      bottom: -10px;
+      right: -5px;
+      height: 0;
+      border-bottom: 1px solid transparent;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      font-weight: bold;
+      color: $orange;
+      &:before {
+        border-color: $orange;
+        height: calc(100% + 20px);
+      }
+    }
+  }
+}
+
+.schedule {
+  @include ibm;
+  display: flex;
+  max-width: 50%;
+  padding-left: 102px;
+  height: min-content;
+  border-left: 1px solid #fff;
+  gap: 30px;
+  font-size: 14px;
+  line-height: 150%;
+
+  span {
+    font-weight: 600;
+  }
+
+  @media (max-width: 1024px) {
+    padding-left: 50px;
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding-top: 24px;
+    padding-left: 0;
+    margin-top: 24px;
+    border-left: none;
+    border-top: 1px solid #fff;
+  }
+}
+
+.schedule__list {
+  width: 50%;
+
+  @media (max-width: 1024px) {
+    width: 60%;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.schedule__exeptions {
+  width: 30%;
+
+  @media (max-width: 1024px) {
+    width: 40%;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 20px;
+  }
+}
