@@ -38,33 +38,9 @@
     margin-bottom: 104px;
 
     .event__image-block {
+      @extend .author;
       position: relative;
       grid-column: 1 / 8;
-
-      &::before {
-        transition: 0.5s;
-        display: inline-block;
-        position: absolute;
-        z-index: 2;
-        right: 2rem;
-        top: 2rem;
-        @include mon;
-        font-size: 1rem;
-        font-weight: bold;
-        content: attr(data-author);
-        padding: 15px;
-        color: $green;
-        background-color: #fff;
-        border: 1px solid $orange;
-        border-radius: 8px;
-        opacity: 0;
-      }
-
-      &:hover {
-        &::before {
-          opacity: 1;
-        }
-      }
 
       @media (max-width: 1024px) {
         grid-column: 1 / 13;
@@ -82,6 +58,7 @@
     }
 
     &:last-child {
+
       @media (max-width: 768px) {
         margin-top: 112px;
       }
@@ -93,6 +70,9 @@
       .event__image-block {
         grid-column: 1 / 13;
         margin-bottom: 0;
+        &::before {
+          top: 2rem;
+        }
       }
 
     }
