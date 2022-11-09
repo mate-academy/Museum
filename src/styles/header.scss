@@ -1,0 +1,109 @@
+.header {
+  height: 100vh;
+  background-image: url(../images/header-mobile.png);
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  align-items: center;
+
+  @include fixHeader {
+    margin-bottom: 50px;
+  }
+
+  &__menu {
+    position: relative;
+    left: 5%;
+    top: 5%;
+  }
+
+  @include onTablet {
+    background-image: url(../images/header-tablet.png);
+    background-position: top right;
+    background-size: 55%;
+
+    @media (min-height: 900px) {
+      height: 60vh;
+    }
+  }
+
+  @include onDesktop {
+    background-image: url(../images/header.png);
+    background-position: top right;
+    background-size: 60%;
+  }
+
+  &__title {
+    padding-top: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 100%;
+    text-align: center;
+    color: $title-black;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 36px;
+      margin-left: 200px;
+
+    }
+
+    &-bottom {
+      margin-top: 90%;
+      font-size: 45px;
+
+      @include onTablet {
+        text-align: left;
+        margin-top: 120px;
+        margin-left: 34px;
+        line-height: 120%;
+      }
+
+      @include onDesktop {
+        text-align: left;
+        margin-top: 15%;
+        margin-left: 55px;
+        font-size: 72px;
+        line-height: 120%;
+      }
+    }
+  }
+
+  &__optional {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      color: #687480;
+
+      &::before {
+        content: " ";
+        position: absolute;
+        top: -25px;
+        right: 100px;
+        transform: rotate(-90deg);
+
+        width: 1px;
+        height: 70px;
+        background-color: #687480;
+        color: #687480;
+      }
+    }
+    position: absolute;
+    transform: rotate(-90deg);
+  }
+
+  &__form {
+    &-button {
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: #1a8a5c;
+      }
+    }
+  }
+}

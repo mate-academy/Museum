@@ -1,6 +1,23 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onDesktop {
+  @media (min-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 767px) and (max-width: 1278px) {
+    @content;
+  }
+}
+
+@mixin menu {
+  @media (max-height: 500px) {
+    @content;
+  }
+}
+
+@mixin fixHeader {
+  @media (max-height: 650px) {
+    @content;
   }
 }
