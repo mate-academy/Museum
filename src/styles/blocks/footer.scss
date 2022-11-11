@@ -1,0 +1,245 @@
+.footer {
+
+  &__container {
+    margin: 0 auto;
+    max-width: 1170px;
+    padding: 50px 20px 56px;
+
+    @include on768 {
+      padding: 50px 34px 36px;
+    }
+
+    @include on1280 {
+      padding: 47px 55px 35px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include on768 {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
+    }
+
+    @include on1280 {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__logo-and-social {
+    width: content;
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on768 {
+      grid-column: 1 / 2;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__logo {
+    @extend %mont-700;
+    font-size: 36px;
+    line-height: 36px;
+    color: $mainColor;
+    text-decoration: none;
+  }
+
+  &__social {
+
+    @include on768 {
+      margin-top: 62px;
+    }
+
+    & > a {
+      display: inline-block;
+      height: 24px;
+      width: 24px;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      & > svg {
+        transition: 0.4s;
+
+        &:hover {
+          fill: #1a5a4c;
+        }
+      }
+    }
+  }
+
+  &__work-schedule {
+    grid-column: 1 / 2;
+
+    @include on768 {
+      grid-column: 2 / 4;
+    }
+
+    @include on1280 {
+      grid-column: 3 / 5;
+    }
+
+    &--title {
+      @extend %ibm-400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &--container {
+      margin-top: 20px;
+    }
+
+    &--time {
+      @extend %ibm-400;
+      font-size: 14px;
+      line-height: 21px;
+
+      &:last-child {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &__contacts {
+    grid-column: 2 / 3;
+
+    @include on768 {
+      grid-column: 4 / 6;
+    }
+
+    @include on1280 {
+      grid-column: 5 / 7;
+    }
+
+    &--title {
+      @extend %ibm-400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &--addresses {
+      margin-top: 20px;
+      @extend %ibm-400;
+      font-size: 14px;
+      line-height: 21px;
+      color: $mainColor;
+      text-decoration: none;
+      transition: 0.4s;
+
+      &:hover {
+        color: #f14a27;
+      }
+    }
+  }
+
+  &__home-arrow {
+    grid-column: 2 / 3;
+    justify-self: end;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #1a5a4c;
+    border-radius: 50%;
+    transition: 0.4s;
+
+    &:hover,
+
+    &:hover .logo {
+      border-color: #f14a27;
+      fill: #f14a27;
+    }
+
+    &--svg {
+      transition: 0.4s;
+    }
+
+    @include on768 {
+      display: none;
+    }
+  }
+
+  &__decoration {
+    margin: 20px 0 40px;
+    grid-column: 1 / 3;
+    width: 100%;
+    height: 1px;
+    background: rgba(26, 90, 76, 0.5);
+
+    @include on768 {
+      margin: 64px 0;
+      grid-column: 2 / 6;
+    }
+
+    @include on1280 {
+      margin: 0;
+      grid-column: 7 / 8;
+      justify-self: center;
+      width: 1px;
+      height: 260px;
+    }
+  }
+
+  &__menu-list {
+    grid-column: 1 / 3;
+    min-width: 280px;
+    list-style: none;
+    display: grid;
+    grid-template: repeat(2, 1em) / repeat(2, 1fr);
+    gap: 20px;
+
+    @include on768 {
+      grid-column: 2 / 5;
+    }
+
+    @include on1280 {
+      grid-column: 8 / 11;
+    }
+  }
+
+  &__menu-link {
+    @extend %ibm-400;
+    font-size: 14px;
+    line-height: 14px;
+    text-decoration: none;
+    color: $mainColor;
+    transition: 0.4s;
+
+    &:hover {
+      color: #f14a27;
+    }
+  }
+
+  &__designed-by {
+    margin-top: 80px;
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    @extend %ibm-300;
+    font-size: 12px;
+    line-height: 17px;
+
+    @include on768 {
+      margin-top: 120px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include on1280 {
+      margin-top: 100px;
+    }
+
+    &--item {
+      text-align: center;
+    }
+  }
+}

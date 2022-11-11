@@ -1,0 +1,220 @@
+.header {
+  position: relative;
+
+  @include on768 {
+    display: grid;
+    grid-template-columns: 1fr repeat(4, 1fr) 1fr;
+    gap: 30px;
+  }
+
+  @include on1280 {
+    grid-template-columns: 1fr repeat(10, 70px) 1fr;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    @extend %mont-700;
+    font-size: 30px;
+    line-height: 30px;
+    color: $mainColor;
+    text-align: center;
+    text-decoration: none;
+
+    @include on768 {
+      grid-column: 4 / 6;
+      top: 15px;
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    @include on1280 {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__menu-opener {
+    display: block;
+    width: 18px;
+    height: 12px;
+    background-image: url(../images/from_figma/menu_opener.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &--container {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 18px;
+      height: 60px;
+
+      @include on768 {
+        height: 72px;
+        left: auto;
+      }
+    }
+  }
+
+  &__background {
+    width: 100%;
+    height: 300px;
+    background-image: url(../images/from_figma/header__background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include on768 {
+      height: 384px;
+      grid-column: 4 / 7;
+    }
+
+    @include on1280 {
+      height: 655px;
+      grid-column: 6 / 13;
+    }
+  }
+
+  &__tickets {
+    margin: 0 auto;
+    padding: 20px 20px 0;
+    max-width: 470px;
+    justify-self: end;
+
+    @include on768 {
+      margin: 0;
+      padding: 0 0 0 34px;
+      grid-column: 1 / 4;
+      grid-row: 1;
+      align-self: end;
+    }
+
+    @include on1280 {
+      padding-left: 55px;
+      grid-column: 1 / 6;
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    @extend %mont-700;
+    font-size: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #000;
+
+    @include on768 {
+      text-align: start;
+      font-size: 54px;
+      line-height: 65px;
+    }
+
+    @include on1280 {
+      font-size: 72px;
+      line-height: 86px;
+    }
+  }
+
+  &__ticket-box {
+    margin: 20px auto 0;
+    display: flex;
+    box-sizing: border-box;
+    width: 280px;
+    height: 50px;
+    
+    @include on768 {
+      margin: 38px 0 0;
+      width: 270px;
+      height: 70px;
+    }
+
+    @include on1280 {
+      margin-top: 90px;
+      align-self: flex-end;
+    }
+
+    &--link {
+      position: relative;
+      box-sizing: border-box;
+      display: block;
+      width: 230px;
+      height: 50px;
+      border: 1px solid #1a5a4c;
+      text-decoration: none;
+      @extend %ibm-500;
+      font-size: 16px;
+      line-height: 50px;
+      color: $mainColor;
+      text-align: center;
+      transition: 0.4s;
+
+      @include on768 {
+        width: 200px;
+        height: 70px;
+        line-height: 70px;
+      }
+
+      &::after {
+        position: absolute;
+        right: -51px;
+        top: -1px;
+        box-sizing: border-box;
+        display: inline-block;
+        content: "";
+        width: 50px;
+        height: 50px;
+        background-color: #1a5a4c;
+        transition: 0.4s;
+        background-image: url(../images/from_figma/arrow.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+
+        @include on768 {
+          width: 70px;
+          height: 70px;
+          right: -71px;
+        }
+      }
+
+      &:hover {
+        border-color: #38a890;
+
+        &::after {
+          background-color: #38a890;
+        }
+      }
+    }
+  }
+
+  &__decoration {
+    position: absolute;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    gap: 20px;
+    @extend %ibm-700;
+    font-size: 14px;
+    line-height: 14px;
+    color: #687480;
+    transform-origin: left center;
+    transform: rotate(-90deg);
+
+    &::before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 70px;
+      background-color: #1a5a4c;
+    }
+
+    @include on1280 {
+      display: flex;
+    }
+  }
+}

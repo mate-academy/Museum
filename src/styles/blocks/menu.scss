@@ -1,0 +1,156 @@
+.menu {
+  background-color: #1a5a4c;
+
+  &__container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 970px;
+    padding: 27px 20px;
+
+    @include on768 {
+      padding: 40px 34px;
+    }
+
+    @include on1280 {
+      max-width: 1170px;
+      padding: 40px 55px 48px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on768 {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  &__menu-closer {
+    display: block;
+    width: 18px;
+    height: 12px;
+    background-image: url(../images/from_figma/menu_closer.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &--container {
+      position: absolute;
+      top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 18px;
+      height: 60px;
+
+      @include on768 {
+        height: 72px;
+      }
+    }
+  }
+
+  &__list {
+    margin-left: 52px;
+    height: 72px;
+    width: 228px;
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;
+    row-gap: 24px;
+    column-gap: 28px;
+    list-style: none;
+
+    @include on768 {
+      align-self: flex-start;
+    }
+
+    @include on1280 {
+      width: 370px;
+    }
+  }
+
+  &__item {
+    @extend %ibm-500;
+    font-size: 16px;
+    line-height: 16px;
+    width: 100px;
+
+    @include on1280 {
+      font-size: 22px;
+      line-height: 22px;
+      width: 170px;
+    }
+  }
+
+  &__link {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: 0.4s;
+
+    &:hover {
+      border-bottom-color: #fff;
+    }
+  }
+
+  &__decoration {
+    align-self: center;
+    margin: 24px 0;
+    width: 280px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+
+    @include on768 {
+      width: 1px;
+      height: 145px;
+      margin: 0 38px;
+    }
+
+    @include on1280 {
+      margin: 0 102px;
+    }
+  }
+
+  &__work-schedule {
+
+    &--title {
+      @extend %ibm-400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #fff;
+    }
+
+    &--container {
+      margin-top: 20px;
+
+      @include on768 {
+        display: flex;
+        justify-content: space-between;
+        width: 340px;
+        gap: 38px;
+      }
+    }
+
+    &--time {
+      @extend %ibm-400;
+      font-size: 14px;
+      line-height: 21px;
+      color: #fff;
+
+      &:last-child {
+        margin-top: 16px;
+
+        @include on768 {
+          width: 144px;
+          margin-top: 0;
+        }
+
+        @include on1280 {
+          width: 170px;
+        }
+      }
+    }
+  }
+}
