@@ -1,0 +1,152 @@
+.header {
+  margin-bottom: 70px;
+
+  @include onTablet {
+    margin-bottom: 90px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__nav {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 10px 23px;
+
+    @include onTablet {
+      padding: 15px 37px;
+    }
+
+    @include onDesktop {
+      padding: 15px 55px;
+    }
+  }
+
+  &__nav-opener {
+    background-image: url(../images/burger.svg);
+    width: 18px;
+    height: 12px;
+    @include hover(transform, scale(1.2));
+    margin-right: 90px;
+
+    @include onTablet {
+      margin-right: 400px;
+    }
+
+    @include onDesktop {
+      margin-right: 550px;
+    }
+  }
+
+  &__logo {
+    background-image: url(../images/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 55px;
+    height: 61px;
+    @include hover(transform, scale(1.2));
+
+    @include onTablet {
+      width: 72px;
+      height: 72px;
+    }
+  }
+
+  &__image {
+    background-image: url(../images/Museum.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      height: 384px;
+      width: 374px;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      height: 655px;
+      width: 725px;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      text-align: start;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__block {
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      width: min-content;
+      padding: 134px 0 0 34px;
+    }
+  }
+
+  &__button {
+    @include onTablet {
+      width: min-content;
+    }
+
+    @include onDesktop {
+      padding-left: 0;
+    }
+  }
+
+  &__subtitle {
+    display: none;
+    position: absolute;
+    align-items: center;
+    gap: 10px;
+    transform: rotate(180deg);
+    margin-right: 60px;
+  
+    justify-self: start;
+    align-self: start;
+    writing-mode: vertical-rl;
+    font-family: $fonts-2;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: $colorLightGray;
+    cursor: pointer;
+  
+    @include onDesktop {
+      display: flex;
+    }
+  
+    &::before {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 70px;
+      background-color: $colorGreen;
+    }
+  }
+}

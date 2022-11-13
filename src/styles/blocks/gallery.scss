@@ -1,0 +1,74 @@
+.gallery {
+  margin-bottom: 100px;
+
+  &__slider {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__images {
+    display: flex;
+    gap: 16px;
+    width: 296px;
+    height: 410px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+
+    @include onTablet {
+      gap: 20px;
+      margin-bottom: 32px;
+      width: 360px;
+      height: 543px;
+    }
+  }
+
+  &__image {
+    width: 280px;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0;
+    @include hover(transform, scale(1.1));
+
+    @include onTablet {
+      width: 340px;
+    }
+  }
+
+  &__toggles {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+  }
+
+  &__toggle-button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    cursor: pointer;
+  }
+
+  &__toggle {
+    display: none;
+
+    &:checked ~ .gallery__toggle-button {
+      background-color: $colorGreen;
+    }
+  }
+
+  &__paintings-desktop {
+    display: none;
+    @include onDesktop {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__image-desktop {
+    @include hover(transform, scale(1.07));
+  }
+}
