@@ -1,87 +1,82 @@
 .header {
-  @extend %center;
   margin-bottom: 70px;
 
   @include onTablet {
-    width: 100%;
-    margin-bottom: 88px;
+    margin-bottom: 90px;
   }
 
   @include onDesktop {
-    width: 100%;
     margin-bottom: 200px;
   }
 
-  @include onDesign {
-    width: 100%;
-  }
-
-  &__menu {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    width: 100%;
-    height: 300px;
-    padding: 10px 24px;
-    background-image: url(../images/Museum.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-bottom: 20px;
-
-    @include onTablet {
-      width: 374px;
-      height: 384px;
-      padding: 0;
-      margin-bottom: 0;
-    }
-
-    @include onDesktop {
-      width: 725px;
-      height: 655px;
-    }
+  &__container {
+    position: relative;
   }
 
   &__nav {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 10px 23px;
+
     @include onTablet {
-      display: none;
+      padding: 15px 37px;
     }
 
-    &--burger {
-      @include onTablet {
-        display: inherit;
-        padding-top: 45px;
-      }
+    @include onDesktop {
+      padding: 15px 55px;
+    }
+  }
 
-      @include onDesktop {
-        padding-top: 0;
-        margin-bottom: 220px;
-      }
+  &__nav-opener {
+    background-image: url(../images/burger.svg);
+    width: 18px;
+    height: 12px;
+    @include hover(transform, scale(1.2));
+    margin-right: 90px;
+
+    @include onTablet {
+      margin-right: 400px;
+    }
+
+    @include onDesktop {
+      margin-right: 550px;
     }
   }
 
   &__logo {
+    background-image: url(../images/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 55px;
+    height: 61px;
+    @include hover(transform, scale(1.2));
+
     @include onTablet {
-      padding: 15px 80px 0;
+      width: 72px;
+      height: 72px;
     }
   }
 
-  &__content {
-    padding: 0 20px;
+  &__image {
+    background-image: url(../images/Museum.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
 
     @include onTablet {
-      width: 340px;
-      padding-left: 34px;
+      height: 384px;
+      width: 374px;
+      margin-bottom: 0;
     }
 
     @include onDesktop {
-      width: 470px;
-      padding: 0 30px 0 55px;
-    }
-
-    @include onDesign {
-      padding: 45px 155px 0 200px;
+      height: 655px;
+      width: 725px;
     }
   }
 
@@ -90,58 +85,68 @@
     margin-bottom: 20px;
 
     @include onTablet {
-      font-size: 54px;
-      line-height: 120%;
       text-align: start;
-      padding: 70px 0 38px;
-      margin-bottom: 0;
+      margin-bottom: 40px;
     }
 
     @include onDesktop {
-      font-size: 72px;
-      line-height: 120%;
-      padding: 0;
       margin-bottom: 90px;
     }
   }
 
-  @include onTablet {
-    display: flex;
-    flex-direction: row-reverse;
+  &__block {
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
   }
 
-  &__event {
-    position: absolute;
-    top: 580px;
-    left: 0;
-    width: max-content;
-    transform: rotate(-90deg);
-    
-    @include onDesktop {
-      display: inherit;
+  &__content {
+    @include onTablet {
+      width: min-content;
+      padding: 134px 0 0 34px;
+    }
+  }
+
+  &__button {
+    @include onTablet {
+      width: min-content;
     }
 
-    @include onDesign {
-      left: 190px;
+    @include onDesktop {
+      padding-left: 0;
+    }
+  }
+
+  &__subtitle {
+    display: none;
+    position: absolute;
+    align-items: center;
+    gap: 10px;
+    transform: rotate(180deg);
+    margin-right: 60px;
+  
+    justify-self: start;
+    align-self: start;
+    writing-mode: vertical-rl;
+    font-family: $fonts-2;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: $colorLightGray;
+    cursor: pointer;
+  
+    @include onDesktop {
+      display: flex;
     }
   
-    &-link {
-      text-decoration: none;
-      font-family: $fonts-2;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 100%;
-      color: $colorLightGray;
-      
-      
-      &::before {
-        display: inline-block;
-        margin: 0 20px 4px 0;
-        content: "";
-        width: 70px;
-        height: 1px;
-        background-color: $colorGreen;
-      }
+    &::before {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 70px;
+      background-color: $colorGreen;
     }
   }
 }
