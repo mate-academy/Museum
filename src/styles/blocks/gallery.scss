@@ -1,44 +1,41 @@
 .gallery {
-  overflow-x: hidden;
-  
   @include onDesktop {
-    overflow-x: visible;
-  }
-
-  &__title {
-    margin-bottom: 40px;
-  }
-
-  & .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  &__images {
-    margin-bottom: 20px;
-
-    @include onDesktop {
-      margin-bottom: 0;
+    &__title {
+      margin-bottom: 40px;
     }
-  }
-
-  &__image {
-    width: 280px;
-    height: 100%;
-
-    object-fit: cover;
-
-    @include onDesktop {
-      width: 100%;
+  
+    & .grid {
+      grid-template-columns: repeat(4, 1fr);
     }
-
-    @include hover(transform, scale(1.1));
-
-    @include onTablet {
+  
+    &__images {
+      margin-bottom: 20px;
+  
+      @include onDesktop {
+        display: initial;
+        margin-bottom: 0;
+      }
+    }
+  
+    &__image {
+      width: 280px;
+      height: 100%;
+  
+      object-fit: cover;
+  
+      @include onDesktop {
+        width: 100%;
+      }
+  
       @include hover(transform, scale(1.1));
-    }
-
-    @include onDesktop {
-      @include hover(transform, scale(1.06));
+  
+      @include onTablet {
+        @include hover(transform, scale(1.1));
+      }
+  
+      @include onDesktop {
+        @include hover(transform, scale(1.06));
+      }
     }
   }
 }

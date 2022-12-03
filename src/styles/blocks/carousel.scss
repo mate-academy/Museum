@@ -1,0 +1,74 @@
+.carousel {
+  @media (max-width: 1279px) {
+    width: 100%;
+
+    &__container {
+      align-items: center;
+      display: flex;
+      min-height: $carousel-height;
+      margin: 0 auto;
+      max-width: $carousel-width;
+      position: relative;
+    }
+    
+    &__item {
+      height: $carousel-item-height;
+      opacity: 0;
+      position: absolute;
+      transform: translateX(-50%);
+      transition: width 0.5s ease-in-out,
+        height 0.5s ease-in-out,
+        transform 0.5s ease-in-out,
+        left 0.5s ease-in-out,
+        opacity 0.5s ease-in-out,
+        box-shadow 0.5s ease-in-out,
+        z-index 0.5s ease-in-out;
+      width: $carousel-item-width;
+      z-index: 0;
+      cursor: pointer;
+      object-fit: cover;
+
+      &--1 {
+        left: 15%;
+        opacity: 0.4;
+      }
+      
+      &--2,
+      &--4 {
+        height: $carousel-item-height * 1.5;
+        opacity: 1;
+        width: $carousel-item-width * 1.5;
+        z-index: 1;
+      }
+      
+      &--2 {
+        left: 30%;
+      }
+      
+      &--3 {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+          0 0 60px rgba(255, 255, 255, 0.45),
+          0 0 110px rgba(255, 255, 255, 0.25),
+          0 0 100px rgba(255, 255, 255, 0.1);
+        height: $carousel-item-height * 2;
+        opacity: 1;
+        left: 50%;
+        width: $carousel-item-width * 2;
+        z-index: 2;
+      }
+      
+      &--4 {
+        left: 70%;
+      }
+      
+      &--5 {
+        left: 85%;
+        opacity: 0.4;
+      }
+
+      &[data-scroll-point="0"] {
+        object-position: 76% center;
+      }
+    }
+  }
+}
