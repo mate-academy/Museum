@@ -1,13 +1,30 @@
 .footer {
+  @include onMobile {
+    position: relative;
+  }
+
   &__logo-container {
     grid-column: 1 / 2;
     display: flex;
     flex-direction: column;
     row-gap: 62px;
+
+    @include onMobile {
+      grid-column: 1 / 3;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 40px;
+    }
   }
 
   &__logo-link {
     width: 70px;
+
+    @include onMobile {
+      width: 60px;
+    }
   }
 
   &__logo {
@@ -38,6 +55,10 @@
 
   &__text {
     @include small-text--black;
+
+    @include onMobile {
+      font-size: 14px;
+    }
   }
 
   &__schedule {
@@ -54,6 +75,10 @@
 
       margin-bottom: 64px;
     }
+
+    @include onMobile {
+      grid-column: 1 / 2;
+    }
   }
 
   &__contacts {
@@ -65,6 +90,11 @@
 
     @include onTablet {
       grid-column: 4 / 6;
+    }
+
+    @include onMobile {
+      position: relative;
+      grid-column: 2 / 3;
     }
   }
 
@@ -98,6 +128,10 @@
       border-top: solid 1px $light-grey;
       padding-top: 60px;
     }
+
+    @include onMobile {
+      grid-column: 1 / 3;
+    }
   }
 
   &__list {
@@ -116,6 +150,10 @@
     @include onTablet {
       max-width: 100px;
     }
+
+    @include onMobile {
+      max-width: fit-content;
+    }
   }
 
   &__link {
@@ -129,6 +167,10 @@
     &:hover {
       @include hovered-red-text;
     }
+
+    @include onMobile {
+      font-size: 14px;
+    }
   }
 
   &__copyrights {
@@ -141,10 +183,49 @@
     @include onTablet {
       grid-column: 1 / 7;
     }
+
+    @include onMobile {
+      grid-column: 1 / 3;
+
+      flex-direction: column-reverse;
+      row-gap: 10px;
+    }
   }
 
   &__copyrights-text {
     font-size: 12px;
     font-weight: 300;
+
+    @include onMobile {
+      text-align: center;
+    }
+  }
+
+  &__top-button {
+    display: none;
+
+    width: 50px;
+    height: 50px;
+    border: 1px solid $green;
+    border-radius: 50%;
+
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+
+    @include onMobile {
+      display: block;
+    }
+
+    &::after {
+      content: "↑";
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      font-size: 18px;
+      line-height: 50px;
+      color: $green;
+    }
   }
 }
