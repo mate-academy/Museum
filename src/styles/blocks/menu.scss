@@ -1,0 +1,205 @@
+.menu {
+  &__container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    height: 248px;
+    padding: $desktop-side-padding 0 0;
+
+    @include onTablet {
+      height: 224px;
+      padding: $tablet-side-padding 0 0;
+    }
+
+    @include onMobile {
+      height: 400px;
+      padding: $mobile-side-padding 0 0;
+    }
+
+    transform: translateY(-100%);
+    transition: transform $smooth-transition;
+
+    background-color: $green;
+
+    &:target {
+      position: absolute;
+      z-index: 3;
+      transform: translateY(0);
+    }
+  }
+
+  &__grid-item {
+    grid-column: 1 / 6;
+
+    display: flex;
+    justify-content: space-between;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onMobile {
+      grid-column: 1 / 3;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__icon-box {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+
+    max-width: $desktop-max-width;
+
+    @include onTablet {
+      max-width: $tablet-max-width;
+    }
+  }
+
+  &__icon-link {
+    position: absolute;
+    top: 45px;
+    left: $desktop-side-padding;
+
+    width: 35px;
+    height: 25px;
+
+    padding: 5px;
+
+    @include onTablet {
+      left: $tablet-side-padding;
+    }
+
+    @include onMobile {
+      width: 30px;
+      height: 20px;
+      top: 25px;
+      left: $mobile-side-padding;
+    }
+  }
+
+  &__icon {
+    width: 100%;
+
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__close-link {
+    display: flex;
+    width: 25px;
+    height: 25px;
+
+    padding: 5px;
+    margin-right: 100px;
+
+    @include onTablet {
+      margin-right: 40px;
+    }
+  }
+
+  &__close-icon {
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+
+    width: 100%;
+  }
+
+  &__item {
+    max-width: 160px;
+    height: max-content;
+
+    @include onTablet {
+      max-width: 100px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding-bottom: 10px;
+
+    color: $white;
+    font-size: 22px;
+    line-height: 22px;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 16px;
+    }
+
+    &:after {
+      content: "";
+      background: $white;
+      display: block;
+      position: relative;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      transition: all $smooth-transition ease-in-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+
+      @include onMobile {
+        width: 0;
+      }
+    }
+  }
+
+  &__schedule {
+    grid-column: 6 / 12;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+
+    border-left: 1px solid $white;
+    padding-left: 100px;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+      padding-left: 40px;
+    }
+
+    @include onMobile {
+      display: flex;
+      flex-direction: column;
+
+      grid-column: 1 / 3;
+      padding-left: 0;
+      padding-top: 24px;
+      border-left: none;
+      border-top: 1px solid $white;
+      width: 100%;
+    }
+  }
+
+  &__schedule-title {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+
+    margin-bottom: 20px;
+
+    @include small-text--white;
+  }
+
+  &__working-hours,
+  &__weekends {
+    @include small-text--white;
+
+    @include onMobile {
+      margin-bottom: 20px;
+    }
+  }
+}

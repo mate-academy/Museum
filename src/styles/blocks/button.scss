@@ -1,0 +1,88 @@
+.button {
+  grid-row: 3 / 4;
+  grid-column: 3 / 6;
+
+  display: flex;
+  align-items: center;
+
+  width: $button-width;
+  height: $button-height;
+
+  border: 1px solid $green;
+
+  transition: transform $smooth-transition, box-shadow $smooth-transition;
+
+  @include onTablet {
+    grid-row: 3 / 4;
+    grid-column: 1 / 4;
+  }
+
+  @include onMobile {
+    grid-column: 1 / 3;
+    height: $mobile-button-height;
+  }
+
+  &:hover {
+    transform: translate(2%, -2%);
+    @include button-shadow;
+  }
+
+  &:active {
+    transform: translate(2%, 0);
+    box-shadow: $green 0 0 0 2px inset;
+  }
+
+  &__text {
+    display: inline-block;
+
+    width: #{$button-width - $button-height};
+    height: 100%;
+
+    color: $dark;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: #{$button-height - 2};
+    text-transform: uppercase;
+
+    transition: background-color $smooth-transition,
+      color $smooth-transition,
+      border-right $smooth-transition;
+
+    @include onMobile {
+      line-height: #{$mobile-button-height - 2};
+      width: #{$button-width - $mobile-button-height};
+    }
+  }
+
+  &:hover > &__text {
+    background-color: $green;
+    color: $white;
+    border-right: 2px solid $white;
+  }
+
+  &__arrow {
+    display: inline-block;
+
+    width: $button-height;
+    height: #{$button-height - 2};
+
+    background-color: $green;
+
+    @include onMobile {
+      width: $mobile-button-height;
+      height: #{$mobile-button-height - 2};
+    }
+
+    &::after {
+      content: "\203A";
+      @extend %montserrat-bold;
+      color: $white;
+      font-size: 24px;
+      line-height: #{$button-height - 2};
+
+      @include onMobile {
+        line-height: #{$mobile-button-height - 2};
+      }
+    }
+  }
+}

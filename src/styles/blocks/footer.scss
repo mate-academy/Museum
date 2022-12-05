@@ -1,0 +1,231 @@
+.footer {
+  @include onMobile {
+    position: relative;
+  }
+
+  &__logo-container {
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    row-gap: 62px;
+
+    @include onMobile {
+      grid-column: 1 / 3;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 40px;
+    }
+  }
+
+  &__logo-link {
+    width: 70px;
+
+    @include onMobile {
+      width: 60px;
+    }
+  }
+
+  &__logo {
+    width: 100%;
+    transition: transform $smooth-transition;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__social-box {
+    display: flex;
+    justify-content: space-between;
+
+    width: 70px;
+  }
+
+  &__social-icon {
+    height: 25px;
+    transition: transform $smooth-transition;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__text {
+    @include small-text--black;
+
+    @include onMobile {
+      font-size: 14px;
+    }
+  }
+
+  &__schedule {
+    grid-column: 3 / 5;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    max-width: 200px;
+
+    @include onTablet {
+      grid-column: 2 / 4;
+
+      margin-bottom: 64px;
+    }
+
+    @include onMobile {
+      grid-column: 1 / 2;
+    }
+  }
+
+  &__contacts {
+    grid-column: 5 / 8;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    @include onTablet {
+      grid-column: 4 / 6;
+    }
+
+    @include onMobile {
+      position: relative;
+      grid-column: 2 / 3;
+    }
+  }
+
+  &__fax {
+    display: block;
+  }
+
+  &__adress,
+  &__phone,
+  &__email {
+    display: block;
+    transition: $hovered-red-text-transition;
+
+    &:hover {
+      @include hovered-red-text;
+    }
+  }
+
+  &__container {
+    grid-column: 8 / 12;
+
+    border-left: solid 1px $light-grey;
+    padding-left: 60px;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+
+      border-left: none;
+      padding-left: 0;
+
+      border-top: solid 1px $light-grey;
+      padding-top: 60px;
+    }
+
+    @include onMobile {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+
+    height: fit-content;
+  }
+
+  &__item {
+    max-width: 160px;
+    height: max-content;
+
+    @include onTablet {
+      max-width: 100px;
+    }
+
+    @include onMobile {
+      max-width: fit-content;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding-bottom: 10px;
+
+    @include small-text--black;
+
+    transition: $hovered-red-text-transition;
+
+    &:hover {
+      @include hovered-red-text;
+    }
+
+    @include onMobile {
+      font-size: 14px;
+    }
+  }
+
+  &__copyrights {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 80px;
+
+    grid-column: 1 / 13;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+    }
+
+    @include onMobile {
+      grid-column: 1 / 3;
+
+      flex-direction: column-reverse;
+      row-gap: 10px;
+    }
+  }
+
+  &__copyrights-text {
+    font-size: 12px;
+    font-weight: 300;
+
+    @include onMobile {
+      text-align: center;
+    }
+  }
+
+  &__top-button {
+    display: none;
+
+    width: 50px;
+    height: 50px;
+    border: 1px solid $green;
+    border-radius: 50%;
+
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+
+    @include onMobile {
+      display: block;
+    }
+
+    &::after {
+      content: "↑";
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      font-size: 18px;
+      line-height: 50px;
+      color: $green;
+    }
+  }
+}

@@ -1,0 +1,114 @@
+.gallery {
+  &__grid {
+    grid-template-rows: 600px 360px;
+    row-gap: 30px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / 6;
+
+    margin-bottom: 56px;
+
+    @extend %montserrat-bold;
+    font-size: 48px;
+    line-height: 48px;
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+
+    @include onMobile {
+      grid-column: 1 / 3;
+
+      font-size: 36px;
+      line-height: 36px;
+      text-align: center;
+
+      margin-bottom: 40px;
+    }
+  }
+
+  &__image-box {
+    width: 100%;
+
+    overflow: hidden;
+
+    transition: box-shadow $image-transition;
+
+    &:hover {
+      @include box-shadow;
+    }
+
+    &--1 {
+      grid-row: 1 / 2;
+      grid-column: 1 / 5;
+    }
+
+    &--2 {
+      grid-row: 1 / 2;
+      grid-column: 5 / 13;
+    }
+
+    &--3 {
+      grid-row: 2 / 3;
+      grid-column: 1 / 9;
+    }
+
+    &--4 {
+      grid-row: 2 / 3;
+      grid-column: 9 / 13;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform $image-transition;
+
+    &:hover {
+      transform: scale(1.1);
+
+      @include onTablet {
+        transform: none;
+      }
+    }
+  }
+
+  &__swiper {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      grid-column: 1 / 7;
+
+      width: 100%;
+      height: 600px;
+    }
+
+    @include onMobile {
+      grid-column: 1 / 3;
+
+      height: 460px;
+    }
+  }
+
+  &__swiper-slide {
+    padding-bottom: 60px;
+
+    @include onMobile {
+      padding-bottom: 40px;
+    }
+  }
+}
+
+// to fix default style for pagination-bullet from swiper:
+.swiper-pagination-bullet-active {
+  background: $green !important;
+}

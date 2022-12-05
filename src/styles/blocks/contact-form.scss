@@ -1,0 +1,158 @@
+.contact-form {
+  width: 100%;
+  height: 550px;
+  margin-bottom: 48px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* stylelint-disable-next-line max-line-length */
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("../../src/images/contact-form-image.png") center/cover no-repeat;
+
+  @include onTablet {
+    height: 380px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 570px;
+
+    @include onTablet {
+      width: 470px;
+    }
+
+    @include onMobile {
+      padding: 0 $mobile-side-padding;
+    }
+  }
+
+  &__title {
+    @extend %montserrat-bold;
+    color: $white;
+    font-size: 48px;
+    line-height: 48px;
+    margin-bottom: 16px;
+
+    @include onMobile {
+      font-size: 36px;
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    color: $white;
+    font-size: 18px;
+    line-height: 18px;
+    margin-bottom: 72px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onMobile {
+      line-height: 27px;
+      text-align: center;
+
+      margin-bottom: 50px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+
+    @include onMobile {
+      max-width: 320px;
+    }
+  }
+
+  &__input {
+    width: 470px;
+    height: 70px;
+    padding: 28px 24px;
+
+    transition: transform $smooth-transition, box-shadow $smooth-transition;
+
+    @include onTablet {
+      width: 370px;
+    }
+
+    @include onMobile {
+      width: 230px;
+      height: 50px;
+      padding: 18px 24px;
+    }
+
+    &::placeholder {
+      color: $light-grey;
+      @extend %montserrat-bold;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    &:hover {
+      transform: translate(2%, -2%);
+      @include grey-input-shadow;
+
+      outline: 0;
+    }
+
+    &:focus {
+      transform: translate(2%, -2%);
+      @include grey-input-shadow;
+
+      outline: 0;
+    }
+  }
+
+  &__button {
+    width: 70px;
+    height: 70px;
+
+    border: 1px solid $red;
+    background-color: $red;
+
+    transition: transform $smooth-transition, box-shadow $smooth-transition;
+
+    @include onMobile {
+      width: 50px;
+      height: 50px;
+    }
+
+    &::after {
+      content: "\203A";
+      @extend %montserrat-bold;
+      color: $black;
+      font-size: 24px;
+      line-height: 68px;
+
+      transition: color $smooth-transition;
+
+      @include onMobile {
+        font-size: 24px;
+        line-height: 48px;
+      }
+    }
+
+    &:hover {
+      transform: translate(2%, -2%);
+      @include red-button-shadow;
+    }
+
+    &:hover::after {
+      color: $white;
+    }
+
+    &:active {
+      transform: translate(2%, 0);
+      box-shadow: $red 0 0 0 2px inset;
+    }
+  }
+}

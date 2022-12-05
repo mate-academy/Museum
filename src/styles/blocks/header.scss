@@ -1,0 +1,146 @@
+.header {
+  &__grid {
+    grid-template-rows: repeat(3, 1fr);
+    height: $desktop-header-heigth;
+
+    @include onTablet {
+      height: $tablet-header-heigth;
+    }
+
+    @include onMobile {
+      grid-template-rows: 1fr;
+      height: max-content;
+    }
+  }
+
+  &__title {
+    grid-row: 2 / 3;
+    grid-column: 1 / 6;
+
+    @include onTablet {
+      grid-row: 2 / 3;
+      grid-column: 1 / 4;
+
+      font-size: 54px;
+      line-height: 64px;
+    }
+
+    @include onMobile {
+      font-size: 45px;
+      line-height: 45px;
+      text-align: center;
+
+      grid-column: 1 / 3;
+      padding-top: #{$mobile-header-heigth + 20};
+      margin-bottom: 20px;
+    }
+
+    @extend %montserrat-bold;
+    color: $black;
+    font-size: 72px;
+    line-height: 86px;
+    text-transform: uppercase;
+  }
+
+  &__button {
+    position: relative;
+    top: 20%;
+
+    @include onMobile {
+      grid-column: 1 / 3;
+      position: initial;
+      margin: 0 auto;
+    }
+  }
+
+  &__side-comment {
+    grid-row: 3 / 4;
+    grid-column: 1 / 3;
+    align-self: flex-end;
+
+    display: inline-block;
+    height: max-content;
+
+    color: $grey;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    transform: rotate(-90deg) translateY(50%);
+    transform-origin: left;
+
+    transition: transform $smooth-transition;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+
+      display: inline-block;
+      position: relative;
+      bottom: 5px;
+      margin-right: 20px;
+
+      width: 70px;
+      height: 1px;
+
+      background-color: $green;
+    }
+
+    &:hover {
+      transform: rotate(-90deg) translate(-15%, 50%);
+    }
+  }
+
+  &__image-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+
+    width: 55%;
+
+    overflow: hidden;
+
+    @include onTablet {
+      width: 50%;
+    }
+
+    @include onMobile {
+      width: 100%;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 15px;
+    left: 60px;
+    z-index: 2;
+
+    width: 70px;
+
+    @include onMobile {
+      width: 50px;
+      left: 100px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-height: $desktop-header-heigth;
+
+    object-fit: cover;
+    object-position: bottom;
+
+    @include onTablet {
+      max-height: $tablet-header-heigth;
+    }
+
+    @include onMobile {
+      max-height: $mobile-header-heigth;
+    }
+  }
+}

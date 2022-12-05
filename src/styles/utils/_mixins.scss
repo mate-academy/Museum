@@ -1,6 +1,87 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onTablet {
+  @media (max-width: 1169px) {
+    @content;
   }
+}
+
+@mixin onMobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin grid {
+  display: grid;
+  margin: 0 auto;
+}
+
+@mixin grid-desktop {
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+  max-width: $desktop-max-width;
+  padding: 0 $desktop-side-padding;
+}
+
+@mixin grid-tablet {
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 30px;
+  max-width: $tablet-max-width;
+  padding: 0 $tablet-side-padding;
+}
+
+@mixin grid-mobile {
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  padding: 0 $mobile-side-padding;
+}
+
+@mixin box-shadow {
+  box-shadow: 3px 3px $green, -0.4em 0 0.4em $grey;
+}
+
+@mixin button-shadow {
+  /* stylelint-disable-next-line max-line-length */
+  box-shadow: $green 0 0 0 2px inset, $white -5px 5px 0 -2px, $light-grey -5px 5px, $white -10px 10px 0 -2px, $grey -10px 10px;
+}
+
+@mixin red-button-shadow {
+  /* stylelint-disable-next-line max-line-length */
+  box-shadow: $red 0 0 0 2px inset, $black -5px 5px 0 -2px, $light-grey -5px 5px, $black -10px 10px 0 -2px, $grey -10px 10px;
+}
+
+@mixin grey-input-shadow {
+  /* stylelint-disable-next-line max-line-length */
+  box-shadow: $black -5px 5px 0 -2px, $light-grey -5px 5px, $black -10px 10px 0 -2px, $grey -10px 10px;
+}
+
+@mixin small-text--black {
+  color: $black;
+  font-size: 14px;
+  line-height: 21px;
+
+  @include onTablet {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@mixin small-text--white {
+  color: $white;
+  font-size: 14px;
+  line-height: 21px;
+
+  @include onTablet {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  @include onMobile {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+@mixin hovered-red-text {
+  color: $red;
+  transform: scale(1.05);
 }
