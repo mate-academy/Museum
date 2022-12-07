@@ -9,6 +9,7 @@ Used 2 font styles. IBM Plex Sans and Montserrat.
 - Mobile design
 - Tablet 640px
 - Desktop 1280px
+- The design 1440px
 
 1. Implemented the header with hamburger menu. Here is the site navigation.
 2. Implemented `Художній Музей` block.
