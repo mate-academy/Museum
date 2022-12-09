@@ -1,0 +1,217 @@
+.header {
+  position: relative;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: 1fr repeat(4, 1fr) 1fr;
+    gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: 1fr repeat(10, 70px) 1fr;
+
+  }
+
+  &__logo {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 30px;
+    color: $c-black;
+    text-align: center;
+    text-decoration: none;
+
+    @include onTablet {
+      grid-column: 4 / 6;
+      top: 15px;
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__menu-opener {
+    display: block;
+    width: 18px;
+    height: 12px;
+    background-image: url(../images/menu_opener.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &--container {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 18px;
+      height: 60px;
+
+      @include onTablet {
+        height: 72px;
+        left: auto;
+      }
+    }
+  }
+
+  &__background {
+    width: 100%;
+    height: 300px;
+    background-image: url(../images/photos/header__background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include onTablet {
+      height: 384px;
+      grid-column: 4 / 7;
+    }
+
+    @include onDesktop {
+      height: 655px;
+      grid-column: 6 / 13;
+    }
+  }
+
+  &__tickets {
+    margin: 0 auto;
+    padding: 20px 20px 0;
+    max-width: 470px;
+    justify-self: end;
+
+    @include onTablet {
+      margin: 0;
+      padding: 0 0 0 34px;
+      grid-column: 1 / 4;
+      grid-row: 1;
+      align-self: end;
+    }
+
+    @include onDesktop {
+      padding-left: 55px;
+      grid-column: 1 / 6;
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: $c-dark;
+
+    @include onTablet {
+      text-align: start;
+      font-size: 54px;
+      line-height: 65px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 86px;
+    }
+  }
+
+  &__ticket-box {
+    margin: 20px auto 0;
+    display: flex;
+    box-sizing: border-box;
+    width: 280px;
+    height: 50px;
+
+    @include onTablet {
+      margin: 38px 0 0;
+      width: 270px;
+      height: 70px;
+    }
+
+    @include onDesktop {
+      margin-top: 90px;
+      align-self: flex-end;
+    }
+
+    &--link {
+      position: relative;
+      box-sizing: border-box;
+      display: block;
+      width: 230px;
+      height: 50px;
+      border: 1px solid $c-grin;
+      text-decoration: none;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 50px;
+      color: $c-black;
+      text-align: center;
+      transition: 0.4s;
+
+      @include onTablet {
+        width: 200px;
+        height: 70px;
+        line-height: 70px;
+      }
+
+      &::after {
+        position: absolute;
+        right: -51px;
+        top: -1px;
+        box-sizing: border-box;
+        display: inline-block;
+        content: "";
+        width: 50px;
+        height: 50px;
+        background-color: $c-grin;
+        transition: 0.4s;
+        background-image: url(../images/arrow.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+
+        @include onTablet {
+          width: 70px;
+          height: 70px;
+          right: -71px;
+        }
+      }
+    }
+  }
+
+  &__decoration {
+    position: absolute;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    gap: 20px;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: $c-grey;
+    transform-origin: left center;
+    transform: rotate(-90deg);
+
+    &::before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 70px;
+      background-color: $c-grin;
+    }
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+}
