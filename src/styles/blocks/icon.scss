@@ -1,0 +1,38 @@
+.icon {
+  display: inline-block;
+  @include square ($size-icon);
+
+  transition: transform 0.3s;
+
+  &__menu {
+    align-self: center;
+    background-image: url(../images/icon/menu.svg);
+  }
+
+  &__close {
+    display: none;
+    background-image: url(../images/icon/close-menu.svg);
+
+    @include onTablet {
+      display: block;
+    }
+
+    &--mobile {
+      background-image: url(../images/icon/close-menu.svg);
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &:hover {
+    transform: scale(1.15);
+  }
+
+  &__social {
+    &:hover {
+      fill: $c-orange;
+    }
+  }
+}

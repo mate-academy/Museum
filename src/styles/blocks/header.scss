@@ -1,0 +1,137 @@
+.header {
+  height: min-content;
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-image: url(../images/header.png);
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @include onTablet {
+    height: 384px;
+
+    &::after {
+      height: 384px;
+      top: 0;
+      left: 51.5%;
+    }
+  }
+
+  @include onDesktop {
+    height: 654px;
+
+    &::after {
+      height: 654px;
+      left: 44.3%;
+    }
+  }
+
+  &__content {
+    padding-top: 10px;
+
+    @include onTablet {
+      padding-top: 15px;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    color: $c-true-black;
+    margin: 250px 0 20px;
+    text-align: center;
+
+    @include onTablet {
+      text-align: initial;
+      line-height: 120%;
+      font-size: 54px;
+      margin: 40px 0;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin: 120px 0 90px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    text-decoration: none;
+
+    &-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $c-green;
+      width: 100%;
+      height: $size-btn-small;
+
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: $c-black;
+
+      transition: all 0.3s;
+
+      @include onTablet {
+        height: $size-btn-big;
+        width: 200px;
+      }
+
+      &:hover {
+        background-color: $c-green;
+        color: $c-white;
+      }
+    }
+  }
+
+  &__empty-box {
+    width: $size-icon;
+  }
+
+  &__event-link {
+    display: none;
+
+    @include onDesktop {
+      display: inline-block;
+      width: max-content;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: $c-grey;
+      text-decoration: none;
+      transform: rotate(-90deg);
+      position: relative;
+      top: -8px;
+      transition: color 0.3s;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 64px;
+        width: 70px;
+        height: 1px;
+        background-color: $c-green;
+      }
+
+      &:hover {
+        color: $c-green;
+      }
+    }
+  }
+}
