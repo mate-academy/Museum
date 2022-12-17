@@ -2,6 +2,124 @@
 @import "fonts";
 @import "typography";
 
+* {
+  // border: 1px solid #347111;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: $text;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+
+  @include onTablet {
+
+    &--tablet {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @for $i from 1 through 13 {
+    @for $j from $i through 13 {
+      &-item--#{$i}-#{$j} {
+        grid-column: #{$i} / #{$j};
+      }
+    }
+  }
+
+  @for $i from 1 through 6 {
+    @for $j from $i through 6 {
+      &-item-row--#{$i}-#{$j} {
+        grid-row: #{$i} / #{$j};
+      }
+    }
+  }
+}
+
 body {
+  overflow-x: hidden;
   background: $c-gray;
 }
+
+main {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 55px;
+
+  @include onTablet {
+    padding: 0 39px;
+  }
+
+  @include onPhone {
+    padding: 0 20px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 120%;
+  color: $text;
+
+  @include onTablet {
+    font-size: 54px;
+  }
+
+  @include onPhone {
+    font-size: 45px;
+  }
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 100%;
+  margin-bottom: 56px;
+  color: $text;
+
+  @include onPhone {
+    font-size: 36px;
+  }
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 100%;
+  color: $text;
+  margin-bottom: 15px;
+
+  @include onPhone {
+    font-size: 28px;
+  }
+}
+
+button,
+input {
+  outline: none;
+  border: none;
+}
+
+@import "./blocks/blocks";
+@import "./blocks/nav";
+@import "./blocks/header";
+@import "./blocks/events";
+@import "./blocks/art";
+@import "./blocks/gallery";
+@import "./blocks/subscribe";
+@import "./blocks/footer";

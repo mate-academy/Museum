@@ -1,0 +1,156 @@
+.header {
+  display: flex;
+  gap: 30px;
+  margin: 0 auto 200px;
+  padding: 0 0 0 55px;
+  max-width: 1280px;
+  height: max-content;
+
+  @include onPhone {
+    flex-direction: column;
+    padding: 0;
+    margin-bottom: 70px;
+    position: relative;
+  }
+
+  &__open-nav {
+
+    margin: 45px 0 140px;
+
+    @include onTablet {
+      padding-bottom: 70px;
+    }
+
+    @include onPhone {
+      margin: 0;
+      z-index: 10;
+      position: absolute;
+      top: 50px;
+      left: 20px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    position: relative;
+
+    @include onPhone {
+      position: static;
+    }
+  }
+
+  &__title {
+    padding-bottom: 90px;
+
+    @include onTablet {
+      padding-bottom: 40px;
+    }
+
+    @include onPhone {
+      text-align: center;
+    }
+  }
+
+  &__img {
+    position: relative;
+
+    &__item {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    @include onPhone {
+      order: -1;
+    }
+
+  }
+
+  &__logo {
+    top: 20px;
+    left: 70px;
+    position: absolute;
+
+    @include onPhone {
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__tikets {
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    align-items: center;
+    height: 70px;
+    border: 1px solid $green;
+    transition: 0.3s;
+
+    &:hover {
+      background: #fafafa;
+    }
+
+    &__text {
+      text-align: center;
+      flex-grow: 2;
+
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color: $text;
+    }
+
+    &__arrow {
+      transition: 0.3s;
+      width: 70px;
+      height: 100%;
+      background: $green;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include onTablet {
+      margin-left: 0;
+    }
+
+    @include onPhone {
+      width: 95%;
+      margin: 0 20px;
+    }
+  }
+
+  &__events {
+    position: absolute;
+    transform: rotate(-90deg) translateX(20px);
+    bottom: 0;
+    left: 0;
+    gap: 20px;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+
+    color: #687480;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 1px;
+      background: $green;
+    }
+
+        
+    @include onTablet {
+      display: none;
+    }
+  }
+}
