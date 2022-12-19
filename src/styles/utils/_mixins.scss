@@ -1,6 +1,71 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin logo ($font-size) {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: $font-size;
+  line-height: 100%;
+
+  color: $black-color;
+}
+
+@mixin title ($font-size) {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: $font-size;
+  line-height: 100%;
+
+  text-align: center;
+
+  color: $black-color;
+}
+
+@mixin text ($font-size) {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $font-size;
+  line-height: 150%;
+
+  text-align: center;
+
+  color: $black-color;
+}
+
+@mixin text-start ($font-size, $weight, $line-height) {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: $weight;
+  font-size: $font-size;
+  line-height: $line-height;
+
+  text-align: start;
+}
+
+@mixin mobile {
+  @media (min-width: 320px) and (max-width: 767px) {
+    @content;
   }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin hover {
+  transform: scale(1.1);
+  transition: transform 1s;
+}
+
+@mixin square ($width-height) {
+  width: $width-height;
+  height: $width-height;
 }

@@ -1,0 +1,111 @@
+.museum {
+  &__picture {
+    @include tablet {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    @include laptop {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__name {
+    margin: 20px;
+    @include title(45px);
+
+    color: #000;
+
+    @include tablet {
+      margin-left: $margin-tab;
+      margin-bottom: 0;
+      @include title(54px);
+      text-align: start;
+
+      position: relative;
+      bottom: 288px;
+    }
+
+    @include laptop {
+      margin-left: $margin-lap;
+      margin-bottom: 0;
+      margin-top: 0;
+      @include title(72px);
+      text-align: start;
+
+      position: relative;
+      bottom: 510px;
+    }
+  }
+
+  &__button {
+    margin-left: calc((100vw / 2) - ($button-width-max / 2));
+
+    @include tablet {
+      position: relative;
+      margin: 0 0 0 34px;
+      transform: translateY(-258px);
+    }
+
+    @include laptop {
+      position: relative;
+      margin: 0 0 0 256px;
+      transform: translateY(-420px);
+
+      &:hover {
+        margin-left: 156px;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    height: 300px;
+
+    @include tablet {
+      object-position: right;
+
+      height: 384px;
+      width: 374px;
+    }
+
+    @include laptop {
+      object-position: right;
+
+      height: 655px;
+      width: 725px;
+    }
+  }
+
+  &__events-link {
+    display: none;
+
+    @include laptop {
+      display: block;
+      position: absolute;
+
+      left: $margin-lap;
+      top: 522px;
+
+      @include text-start (14px, 700, 100%);
+
+      color: $light-gray-color;
+
+      transform: rotate(-90deg);
+
+      &::before {
+        content: "";
+        position: absolute;
+        right: calc(100% + 20px);
+        bottom: 50%;
+        display: block;
+        height: 1px;
+        width: 70px;
+        background-color: $green-color;
+      }
+    }
+  }
+}

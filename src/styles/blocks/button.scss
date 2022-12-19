@@ -1,0 +1,119 @@
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+
+  width: calc(100% - 40px);
+  height: 50px;
+  border: 1px solid $green-color;
+  text-decoration: none;
+
+  @include tablet {
+    height: 70px;
+    max-width: 270px;
+  }
+
+  @include laptop {
+    box-sizing: content-box;
+    height: 70px;
+    max-width: 270px;
+
+    &:hover {
+      width: 370px;
+      max-width: 370px;
+
+      transition: all 0.5s;
+
+      background-color: $green-color;
+
+      .button__text::before {
+        content: "КУПИТИ";
+        margin-right: 5px;
+      }
+
+      .button__text {
+        color: $white-color;
+      }
+
+      .button__arrow {
+        background-color: $white-color;
+        box-sizing: border-box;
+        border: 1px solid $green-color;
+        transition: background-color 0.5s;
+        color: $green-color;
+      }
+
+      .button__arrow-img {
+        background-image: url(../images/arrow-green.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 2;
+
+        scale: 1.5;
+        transition: scale 0.5s;
+      }
+    }
+  }
+
+  &__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 50px);
+    text-decoration: none;
+    box-sizing: border-box;
+
+    @include text-start (16px, 500, 100%);
+
+    color: $black-color;
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+
+    @include square(50px);
+    background-color: #1a5a4c;
+
+    @include tablet {
+      @include square(70px);
+    }
+
+    @include laptop {
+      @include square(70px);
+    }
+  }
+
+  &__arrow-img {
+    object-fit: none;
+  }
+
+  &__home {
+    display: none;
+
+    @include mobile {
+      display: block;
+
+      position: absolute;
+      right: 20px;
+
+      background-image: url(../images/arrow-up.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+
+      transition: 0.3s;
+      @include square (50px);
+
+      border: 1px solid $green-color;
+      border-radius: 50%;
+
+      &:hover {
+        background-image: url(../images/arrow-up-green.svg);
+        background-color: $dark-green-color;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}

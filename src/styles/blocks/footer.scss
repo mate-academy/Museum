@@ -1,0 +1,131 @@
+.footer {
+  @include laptop {
+    display: flex;
+  }
+
+  &__soc-media {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    @include tablet {
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      position: relative;
+      margin-top: 134px; // logo height 72px + margin-to-logo 62px
+    }
+
+    @include laptop {
+      justify-content: flex-start;
+    }
+  }
+
+  &__logo {
+    @include logo (36px);
+  }
+
+  &__facebook {
+    background-image: url(../images/Facebook.svg);
+    @extend %soc-media;
+
+    width: 12px;
+    height: 24px;
+    margin-right: 26px;
+
+    &:hover {
+      transform: scale(1.4);
+      transition: transform 1s;
+    }
+  }
+
+  &__instagram {
+    background-image: url(../images/instagram.svg);
+    @extend %soc-media;
+
+    @include square(24px);
+
+    &:hover {
+      transform: scale(1.4);
+      transition: transform 1s;
+    }
+  }
+
+  &__shedule {
+    @include text (14px);
+    text-align: start;
+
+    color: $black-color;
+
+    @include mobile {
+      margin-top: $margin-footer-mob;
+    }
+  }
+
+  &__contacts {
+    @include text (14px);
+    text-align: start;
+
+    color: $black-color;
+
+    @include mobile {
+      margin-top: $margin-footer-mob;
+    }
+
+    @include tablet {
+      height: 105px;
+    }
+  }
+
+  &__contacts-link {
+    text-decoration: none;
+    color: inherit;
+
+    transition: 0.3s;
+
+    &:hover {
+      text-shadow: $text-shadow;
+    }
+  }
+
+  &__border-container {
+    display: none;
+
+    @include laptop {
+      display: block;
+      height: 100%;
+      width: 1px;
+      border-left: $footer-border-line;
+
+      margin: 0 35px;
+      object-position: center;
+    }
+  }
+
+  &__nav {
+    margin-top: 40px;
+    padding: 0;
+
+    list-style: none;
+
+    @include text-start (14px, 400, 100%);
+
+    color: $black-color;
+
+    @include tablet {
+      margin-top: 0;
+    }
+
+    @include laptop {
+      margin-top: 10px;
+    }
+  }
+
+  &__nav-item {
+    margin-bottom: 20px;
+
+    &:hover {
+      text-shadow: $text-shadow;
+    }
+  }
+}
