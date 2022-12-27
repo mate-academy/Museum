@@ -10,7 +10,7 @@ new Swiper('.slider__container', {
   },
 
   // grabCursor: true,
-  autoheight: true,
+  autoHeight: true,
   slidesPerView: 1,
   loop: true,
   keybord: {
@@ -28,3 +28,7 @@ new Swiper('.slider__container', {
     },
   },
 });
+
+document.querySelector('.subscribe__button').onclick = function(e) {
+  document.querySelector('.subscribe__input').value = '';
+};
