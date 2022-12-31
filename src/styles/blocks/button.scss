@@ -5,11 +5,18 @@
   box-sizing: border-box;
 
   width: calc(100% - 40px);
+  max-width: 270px;
   height: 50px;
   border: 1px solid $green-color;
   text-decoration: none;
 
-  max-width: 270px;
+  transition: all 0.5s;
+
+  @include mobile {
+    &:hover {
+      @include museum-button--hover;
+    }
+  }
 
   @include tablet {
     height: 70px;
@@ -25,36 +32,7 @@
       width: 370px;
       max-width: 370px;
 
-      transition: all 0.5s;
-
-      background-color: $green-color;
-
-      .button__text::before {
-        content: "КУПИТИ";
-        margin-right: 5px;
-      }
-
-      .button__text {
-        color: $white-color;
-      }
-
-      .button__arrow {
-        background-color: $white-color;
-        box-sizing: border-box;
-        border: 1px solid $green-color;
-        transition: background-color 0.5s;
-        color: $green-color;
-      }
-
-      .button__arrow-img {
-        background-image: url(../images/arrow-green.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        z-index: 2;
-
-        scale: 1.5;
-        transition: scale 0.5s;
-      }
+      @include museum-button--hover;
     }
   }
 
