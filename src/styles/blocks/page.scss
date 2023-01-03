@@ -1,0 +1,29 @@
+.page {
+  scroll-behavior: smooth;
+  
+  &__body {
+    user-select: none;
+    
+    &--with-menu {
+      overflow: hidden;
+    }
+
+    @include onDesktopAndTablet {
+      position: relative;
+    }
+  }
+  
+  &__menu {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    transition: transform $animation-time ease 0s;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+}

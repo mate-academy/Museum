@@ -1,0 +1,51 @@
+.galery {
+  overflow: hidden;
+  margin-bottom: 100px;
+
+  &--desktop {
+    @include onTablet {
+      display: none;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &--tablet {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    color: $color-main-black;
+    margin-bottom: 56px;
+  }
+
+  &__img {
+    // display: flex;
+    object-fit: cover;
+    min-width: 100%;
+
+    @include onDesktop {
+      object-position: center;
+      height: 100%;
+    }
+
+    @include onTablet {
+      min-width: 48%;
+      &:not(:last-child) {
+        padding-right: 4%;
+      }
+    }
+
+    @include onMobile {
+      padding-right: 4%;
+    }
+  }
+}
