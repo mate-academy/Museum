@@ -1,6 +1,12 @@
 'use strict';
 
-// const { render } = require("node-sass");
+// #region ***Form***
+document.querySelector('.about__email').addEventListener('submit', e => {
+  e.preventDefault();
+  document.querySelector('.about__email').reset();
+  window.location.reload();
+});
+// #endregion
 
 // #region ***Menu***
 const menu = document.getElementById('menu');
