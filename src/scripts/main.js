@@ -1,7 +1,6 @@
 'use stict';
 
 const form = document.querySelector('.subscribe__form');
-const email = document.querySelector('.subscribe__email');
 const overlay = document.querySelector('.page__overlay');
 
 window.addEventListener('hashchange', () => {
@@ -12,7 +11,7 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-form.addEventListener('submit', () => {
-  window.location.hash = '';
-  email.value = '';
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  form.reset();
 });
