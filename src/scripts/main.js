@@ -2,12 +2,13 @@
 
 const form = document.querySelector('.subscribe__form');
 const email = document.querySelector('.subscribe__email');
+const overlay = document.querySelector('.page__overlay');
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
-    document.body.classList.add('page__body--with-menu');
+    overlay.classList.add('page__overlay-active');
   } else {
-    document.body.classList.remove('page__body--with-menu');
+    overlay.classList.remove('page__overlay-active');
   }
 });
 
