@@ -1,4 +1,4 @@
-'use stict';
+'use strict';
 
 const form = document.querySelector('.subscribe__form');
 const overlay = document.querySelector('.page__overlay');
