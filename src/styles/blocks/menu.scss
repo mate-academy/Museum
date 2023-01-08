@@ -1,0 +1,132 @@
+.menu {
+  height: 100vh;
+  background-color: rgba(100, 100, 100, 0.8);
+
+  &__container {
+    height: 400px;
+    background-color: $color-main-green;
+
+    @include onDesktopAndTablet {
+      display: flex;
+      height: 225px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #fff;
+
+    @include onDesktopAndTablet {
+      border-bottom: 0;
+      margin-bottom: 0;
+      
+      &::after {
+        content: "";
+        width: 1px;
+        background-color: #fff;
+        margin: 40px 38px;
+
+        @include onDesktop {
+          margin: 40px 102px;
+        }
+      }
+    }
+
+    &--links {
+      display: grid;
+      grid-template-columns: 100px 100px;
+
+      grid-template-rows: max-content;
+      column-gap: 28px;
+      padding-top: 16px;
+
+      @include onDesktop {
+        grid-template-columns: 170px 170px;
+      }
+
+      @include onDesktopAndTablet {
+        padding-top: 40px;
+      }
+
+      
+      &--link {
+        display: block;
+        width: fit-content;
+        height: max-content;
+        text-decoration: none;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: 500;
+        font-family: "IBM Plex Sans", sans-serif;
+        color: #fff;
+        margin-bottom: 4px;
+
+        position: relative;
+        padding: 10px;
+        top: -10px;
+        // left: -10px;
+
+        @include onDesktop {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    &--cross-icon {
+      width: 14px;
+      height: 14px;
+      padding: 32px 34px 0 6px;
+
+      @include onTablet {
+        padding: 45px 42px 0 6px;
+      }
+
+      @include onDesktop {
+        padding: 45px 108px 0 6px;
+      }
+    }
+  }
+
+  &__schedule {
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 20px;
+    font-family: "IBM Plex Sans", sans-serif;
+
+    &--desk-and-tablet {
+      @include onDesktopAndTablet {
+        padding-top: 40px;
+  
+        display: grid;
+        grid-template-columns: 170px 170px;
+      }
+    }
+    
+    &--workday {
+      
+      &--title {
+        font-size: 14px;
+        margin-bottom: 20px;
+        font-weight: 400;
+      }
+  
+      &--time {
+        margin-bottom: 16px;
+      }
+  
+      &--dayoff {
+        font-size: 14px;
+        font-weight: 400;
+        
+        &--desk-and-tablet {
+          @include onDesktopAndTablet {
+            padding-left: 36px;
+            padding-top: 40px;
+          }
+        }
+      }
+    }
+  }
+}
