@@ -4,7 +4,6 @@
 document.querySelector('.about__email').addEventListener('submit', e => {
   e.preventDefault();
   document.querySelector('.about__email').reset();
-  window.location.reload();
 });
 // #endregion
 
