@@ -1,0 +1,119 @@
+.header {
+  position: relative;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 70px;
+
+    @include onTablet {
+      height: 384px;
+      margin-bottom: 88px;
+    }
+
+    @include onDesktop {
+      height: 655px;
+      margin-bottom: 200px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    margin-bottom: 250px;
+    padding: 9px 3px 0;
+
+    @include onTablet {
+      display: grid;
+      margin-bottom: 40px;
+      padding-top: 15px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 119px;
+    }
+  }
+
+  &__nav-logo {
+    margin: 0 auto;
+  }
+
+  &__image {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+
+    background-repeat: no-repeat;
+    background-image: url(./../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png);
+
+    @include onTablet {
+      width: 48%;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      width: 55%;
+      height: 655px;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 45px;
+    line-height: 45px;
+    text-align: center;
+    margin: 0 0 20px;
+
+    @include onTablet {
+      margin-bottom: 38px;
+      font-size: 54px;
+      line-height: 65px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-bottom: 89px;
+      font-size: 72px;
+      line-height: 86px;
+      text-align: left;
+    }
+  }
+
+  &__side {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    transform: rotate(-90deg);
+    transform-origin: left;
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+
+    @include onDesktop {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &__line {
+    display: inline-block;
+    width: 70px;
+    height: 1px;
+    background-color: $c-green;
+    margin-right: 20px;
+  }
+
+  &__events {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: $c-gray;
+    @include hover(color, $c-dark);
+  }
+}
