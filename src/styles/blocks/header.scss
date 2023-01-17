@@ -1,7 +1,7 @@
 .header {
   box-sizing: border-box;
   min-height: 300px;
-  padding: 9px 20px;
+  max-height: 655px;
 
   background-size: contain;
   background-repeat: no-repeat;
@@ -39,9 +39,34 @@
     font-size: 45px;
     line-height: 100%;
     color: #000;
+
+    @include onDesktop {
+      padding: 119px 0 89px;
+      text-align: start;
+
+      font-size: 72px;
+      line-height: 120%;
+    }
+
+    @include onTablet {
+      padding: 70px 0 38px;
+      text-align: start;
+
+      font-size: 54px;
+      line-height: 120%;
+    }
+  }
+
+  &__wrap-ticket {
+    padding-bottom: 70px;
+
+    @include onDesktop {
+      padding: 0 0 110px 250px;
+    }
   }
 
   &__ticket {
+
     display: block;
     height: $ticket-field-height;
     max-width: 270px;
@@ -63,8 +88,41 @@
       position: absolute;
       right: 0;
       background-color: $colorGreen;
-      padding: calc(#{$ticket-field-height} / 2 - 6px) 0
+      padding: calc(#{$ticket-field-height} / 2 - 6px)
         calc(#{$ticket-field-height} / 2 - 3px);
+    }
+  }
+
+  &__vertical {
+    display: none;
+
+    @include onDesktop {
+      display: inline-block;
+      position: relative;
+      left: -60px;
+      top: -60px;
+      transform: rotate(270deg);
+      margin-right: -20px;
+      
+      &-text {
+        position: relative;
+        padding-left: 90px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 100%;
+        color: #687480;
+        
+        &::before {
+          position: absolute;
+          content: "";
+          display: block;
+          width: 70px;
+          height: 1px;
+          background-color: $colorGreen;
+          left: 0;
+          top: 50%;
+        }
+      }
     }
   }
 }
