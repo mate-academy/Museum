@@ -1,21 +1,33 @@
 .menu {
-  margin-bottom: 80px;
-
-  &__list {
-    list-style: none;
-    padding: 0;
-
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  font-size: 14px;
+  
+  & a, li, span {
+    color: #fff;
+  }
+  
+  &__container {
+    background-color: $c-greenny;
+    padding: 27px $content-padding;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "menu__burger-close header__nav"
+    "header__schedule header__schedule";
   }
 
-  &::before {
+  &__burger-close {
+    margin-right: 34px;
+  }
+
+  &::after {
     display: block;
     content: "";
-    height: 1px;
-    background: rgba(26, 90, 76, 0.5);
-    margin-bottom: 40px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
   }
 }
