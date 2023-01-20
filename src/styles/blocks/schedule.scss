@@ -9,9 +9,55 @@
     &-item:last-of-type {
       margin-bottom: 10px;
     }
+  }
   
-    &-time {
-      font-weight: 600;
+  &__highlighted {
+    font-weight: 600;
+  }
+
+  &--header {
+    grid-area: schedule--header;
+    
+    &::before {
+      display: block;
+      content: "";
+      height: 1px;
+      background: #fff;
+      margin-bottom: 40px;
     }
+  }
+
+
+  @media (min-width: 640px) {
+    grid-template-columns: 38px 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "line schedule__title schedule__title"
+    "line schedule__list schedule__list-item--header"
+    ;
+
+    &--header {
+      &::before {
+        height: 100%;
+        width: 1px;
+        grid-area: line;
+      }
+    }
+
+    &__title {
+      grid-area: schedule__title;
+    }
+
+    &__list {
+      grid-area: schedule__list;
+
+      &-item--header {
+        grid-area: schedule__list-item--header;
+      }
+    }
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: 102px 1fr 1fr;
   }
 }

@@ -1,5 +1,13 @@
 'use strict';
 
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('body--with-menu');
+  } else {
+    document.body.classList.remove('body--with-menu');
+  }
+});
+
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
@@ -11,3 +19,4 @@ const swiper = new Swiper('.swiper', {
     clickable: true,
   },
 });
+
