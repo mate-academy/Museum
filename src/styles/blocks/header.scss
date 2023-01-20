@@ -1,43 +1,23 @@
 .header {
-  display: grid;
-  gap: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 
   margin-bottom: 70px;
-  
-  &__half-1 {
-    min-height: 300px;
-    background-image: url(../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+
+  &__event-badge-desktop {
+    display: none
   }
-  
-  &__half-2 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    line-height: 45px;
-    text-align: center;
-    
-    display: grid;
-    gap: 20px;
+
+  &__burger-open {
+    position: absolute;
+    top: 34px;
+    left: 24px;
   }
-  
+
   &__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    
     width: 100%;
     padding-top: 27px;
-  }
-  
-  &__burger-open {
-    grid-column: 1 / 2;
-  }
-  
-  &__logo {
-    justify-self: center;
-    grid-column: 2 / 3;
   }
 
   &__menu {
@@ -49,20 +29,42 @@
     }
   }
 
-  // &__nav {
-  //   grid-area: header__nav;
-  //   margin-bottom: 24px;
-  // }
+  @media (min-width: 640px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
-  // &__schedule {
-  //   grid-area: header__schedule;
-    
-  //   &::before {
-  //     display: block;
-  //     content: "";
-  //     height: 1px;
-  //     background: #fff;
-  //     margin-bottom: 40px;
-  //   }
-  // }
+    &__burger-open {
+      top: 46px;
+      left: 36px;
+    }
+  }
+
+  @media (min-width: 1120px) {
+    &__burger-open {
+      left: 58px;
+    }
+
+    &__event-badge-desktop {
+      position: absolute;
+      bottom: 60px;
+      left: 0;
+      transform: rotate(-90deg);
+
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      font-size: 14px;
+      font-weight: 700;
+      color: #687480;
+
+      &::before {
+        display: block;
+        content: "";
+        background-color: $c-greenny;
+        height: 1px;
+        width: 70px;
+      }
+    }
+  }
 }
