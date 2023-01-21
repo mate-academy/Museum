@@ -13,6 +13,12 @@
   background-position: center;
   background-repeat: no-repeat;
 
+  &__content {
+    padding: 20px;
+    width: 100%;
+    max-width: 460px;
+  }
+
   &__title {
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
@@ -26,6 +32,7 @@
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 18px;
     font-weight: 400;
+    line-height: 26px;
     color: #fff;
 
     margin-bottom: 50px;
@@ -33,7 +40,7 @@
 
   &__form {
     display: grid;
-    grid-template-columns: 1fr $button-arrow-size;
+    grid-template-columns: 1fr $button-arrow-size-S;
 
     &-input {
       border: none;
@@ -49,8 +56,8 @@
 
     &-button {
       display: block;
-      height: $button-arrow-size;
-      width: $button-arrow-size;
+      height: $button-arrow-size-S;
+      width: $button-arrow-size-S;
       display: grid;
       align-items: center;
       justify-content: center;
@@ -63,6 +70,44 @@
         cursor: pointer;
         transform: translateX(5px);
       }
+    }
+  }
+
+  @media (min-width: 640px) {
+
+    &__title {
+      font-size: 48px;
+      line-height: 48px;
+  
+      margin-bottom: 16px;
+    }
+
+    &__text {
+      margin-bottom: 64px;
+    }
+
+    &__form {
+      $gap-translate-hover: 16px;
+
+      gap: $gap-translate-hover;
+
+      &-button {
+        display: block;
+        height: $button-arrow-size-L;
+        width: $button-arrow-size-L;
+
+        &:hover {
+          transform: translateX(-$gap-translate-hover);
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1120px) {
+    height: 550px;
+
+    &__content {
+      max-width: 570px;
     }
   }
 }
