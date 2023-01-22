@@ -1,0 +1,179 @@
+.header {
+  height: min-content;
+  position: relative;
+
+  &::after {
+    content: "";
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-image: url("../images/background2.jpg");
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @include onTablet {
+    height: 384px;
+
+    &::after {
+      height: 384px;
+      top: 0;
+      left: 50%;
+    }
+  }
+
+  @include onDesktop {
+    height: 654px;
+
+    &::after {
+      height: 654px;
+      left: 45%;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    color: black;
+    margin: 250px 0 20px;
+    text-align: center;
+
+    @include onTablet {
+      text-align: start;
+      line-height: 120%;
+      font-size: 54px;
+      margin: 40px 0;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin: 150px 0 70px;
+    }
+  }
+
+  &__empty {
+    width: 18px;
+    height: 18px;
+  }
+
+  &__button {
+    display: flex;
+
+    &-text {
+      display: flex;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      color: #0f0e08;
+      text-transform: uppercase;
+      width: 100%;
+      border: 1px solid #1a5a4c;
+      height: 50px;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s;
+
+      &:hover {
+        color: #fff;
+        background-color: #1a5a4c;
+      }
+
+      @include onTablet {
+        height: 70px;
+      }
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
+  text-align: center;
+  color: black;
+  text-shadow: white 0 0 20px;
+  text-decoration: none;
+
+  transition: all 0.3s;
+  &:hover {
+    color: red;
+    text-shadow: #fff 0 0 40px;
+
+  }
+
+  @include onTablet {
+    font-size: 36px;
+    height: 72px;
+
+  }
+}
+
+.button__green {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #1a5a4c;
+  background-color: #1a5a4c ;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+
+  @include onTablet {
+    height: 70px;
+    width: 70px;
+  }
+
+}
+
+.arrow {
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.4);
+  }
+}
+
+.event__link {
+  display: none;
+
+  &::before {
+    content: "";
+    display: block;
+    background-color: #687480;
+    height: 2px;
+    position: relative;
+    top: 8px;
+    left: -50px;
+  }
+
+  @include onDesktop {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 100%;
+    color: #687480;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s;
+
+    transform: rotate(-90deg);
+    &:hover {
+      color: black;
+    }
+  }
+}
