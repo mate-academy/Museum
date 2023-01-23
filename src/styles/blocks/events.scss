@@ -1,50 +1,100 @@
 .events {
   display: flex;
-  gap: 130px;
-  align-items: center;
+  flex-direction: column;
+  gap: 20px;
   justify-content: space-between;
-  padding-bottom: 104px;
+  padding-bottom: 62px;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+  
+  @include onTablet {
+    gap: 44px;
+  }
+
+  @include onDesktop {
+    align-items: center;
+    padding-bottom: 104px;
+    flex-direction: row;
+    gap: 130px;
+  }
 
   &__photo {
-    width: 55%;
+    width: 100%;
+
+    @include onDesktop {
+      width: 55%;
+    }
   }
 
   &__top-info {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding-bottom: 30px;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    font-size: 16px;
+    line-height: 100%;
+
+    @include onTablet {
+      justify-content: start;
+      gap: 20px;
+      padding-bottom: 32px;
+      font-size: 14px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 32px;
+      font-size: 14px;
+    }
 
     &--name {
       font-weight: 500;
-      font-size: 14px;
-      line-height: 100%;
       color: #687480;
     }
 
     &--date {
       font-weight: 700;
-      font-size: 14px;
       line-height: 150%;
       color: $colorGreen;
     }
   }
 
   &__title {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
-    font-size: 36px;
+    font-size: 28px;
     line-height: 100%;
     color: $colorBlack;
+
+    @include onDesktop {
+      padding-bottom: 15px;
+      font-size: 36px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 15px;
+      font-size: 36px;
+    }
 
     &::after {
       content: "";
       background-image: url(../images/orange_square.svg);
       display: inline-block;
-      margin: 0 0 2px 10px;
-      height: 15px;
-      width: 15px;
+      margin-bottom: 2px;
+      height: 10px;
+      width: 10px;
+
+      @include onDesktop {
+        height: 15px;
+        width: 15px;
+      }
+  
+      @include onDesktop {
+        height: 15px;
+        width: 15px;
+      }
     }
   }
 
