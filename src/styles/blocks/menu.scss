@@ -21,7 +21,7 @@
     grid-template-rows: auto auto;
     grid-template-areas: 
     "menu__burger-close nav--header"
-    "schedule--header schedule--header";
+    "menu__schedule menu__schedule";
   }
 
   &__burger-close {
@@ -36,6 +36,18 @@
     background-color: rgba(0, 0, 0, 0.7);
   }
 
+  &__schedule {
+    grid-area: menu__schedule;
+    
+    &::before {
+      display: block;
+      content: "";
+      height: 1px;
+      background: #fff;
+      margin-bottom: 40px;
+    }
+  }
+
   @media (min-width: 640px) {
     &__burger-close {
       margin-top: 16px;
@@ -47,7 +59,33 @@
       grid-template-columns: min-content 1fr 55%;
       grid-template-rows: auto;
       grid-template-areas: 
-        "menu__burger-close nav--header schedule--header"
+        "menu__burger-close nav--header menu__schedule"
+    }
+
+    &__schedule {
+      grid-template-columns: 38px 1fr 1fr;
+      grid-template-rows: auto auto;
+      grid-template-areas: 
+        "line menu__schedule-title menu__schedule-title"
+        "line menu__schedule-list menu__schedule-list-item";
+
+      &::before {
+        grid-area: line;
+        height: 100%;
+        width: 1px;
+      }
+
+      &-title {
+        grid-area: menu__schedule-title;
+      }
+  
+      &-list {
+        grid-area: menu__schedule-list;
+      }
+  
+      &-list-item {
+        grid-area: menu__schedule-list-item;
+      }
     }
   }
 

@@ -2,21 +2,22 @@
   font-size: 14px;
   line-height: 21px;
 
-  &__container {
+  &__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 72px auto 70px auto auto;
+    grid-template-rows: 112px auto 70px auto auto;
   
     grid-template-areas: 
       "footer__logo footer__social"
       "footer__schedule footer__contacts"
       "go-up go-up"
-      "footer__menu footer__menu"
+      "footer__nav footer__nav"
       "footer__rights footer__rights";
   }
 
   &__logo {
     grid-area: footer__logo;
+    align-self: center;
   }
 
   &__social {
@@ -30,6 +31,10 @@
 
   &__schedule {
     grid-area: footer__schedule;
+
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 64px;
   }
 
   &__contacts {
@@ -46,7 +51,7 @@
   }
 
   &__nav {
-    grid-area: footer__menu;
+    grid-area: footer__nav;
 
     &::before {
       display: block;
@@ -65,9 +70,78 @@
     text-align: center;
     font-size: 12px;
 
+    margin-bottom: 18px;
+
     &-item {
       display: block;
     }
   }
 
+  @media (min-width: 640px) {
+    &__content {
+      grid-template-columns: 154px 1fr 1fr 154px;
+      grid-template-rows: 132px auto auto auto;
+  
+      grid-template-areas: 
+        "footer__logo footer__schedule footer__contacts ."
+        "footer__social footer__schedule footer__contacts ."
+        ". footer__nav footer__nav ."
+        "footer__rights footer__rights footer__rights footer__rights";
+    }
+
+    &__go-up {
+      display: none;
+    }
+
+    &__logo {
+      align-self: flex-start;
+    }
+
+    &__social {
+      align-self: flex-start;
+      justify-self: start;
+      gap: 38px;
+    }
+    
+    &__rights {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  @media (min-width: 1120px) {
+    &__content {
+      grid-template-columns: 154px 1fr 1fr 3fr;
+      grid-template-rows: 132px auto auto;
+  
+      grid-template-areas: 
+        "footer__logo footer__schedule footer__contacts footer__nav"
+        "footer__social footer__schedule footer__contacts footer__nav"
+        "footer__rights footer__rights footer__rights footer__rights";
+    }
+
+    &__nav {
+      display: flex;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 14px;
+
+      &::before {
+        grid-area: footer-line;
+        height: 100%;
+        width: 1px;
+        margin: 0 65px;
+      }
+
+      &-list {
+        width: 100%;
+        height: min-content;
+        gap: 20px;
+      }
+
+      &-item {
+        display: flex;
+      }
+    }
+  }
 }
