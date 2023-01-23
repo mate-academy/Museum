@@ -1,0 +1,155 @@
+.header {
+  position: relative;
+  background: $color-white;
+  z-index: 5;
+
+  &__content {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    padding: 27px 0 0 0;
+
+    @include Tablet {
+      padding: 40px 0 0 0;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+    }
+
+    @include Dektop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__line {
+    display: none;
+    position: absolute;
+    left: -50px;
+    bottom: 0;
+    font-family: "IBM Plex Sans";
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+
+    transform: rotate(-90deg);
+    transition: all 0.3s linear;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: 70px;
+      background: #1A5A4C;
+      transform: rotate(90deg) translate(30px, 55px);
+    }
+
+    @include Dektop {
+      display: block;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    background-image: url(/images/header/header-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+
+    z-index: -100;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    @include Tablet {
+      height: 384px;
+      max-width: 374px;
+      left: calc(100vw - 374px);
+    }
+
+    @include Dektop {
+      left: calc(100vw - 725px);
+      max-width: 725px;
+      height: 655px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    left: calc(50% - 55px / 2);
+    padding: 9px 0 0 0;
+
+    @include Tablet {
+      left: calc((220px - 55px) / 2);
+      padding: 15px 0 0 0;
+    }
+
+    @include Dektop {
+      left: calc((170px - 55px) / 2);
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    color: #000;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    grid-column: 1 / 3;
+
+    @include Tablet {
+      font-size: 54px;
+      line-height: 120%;
+      grid-column: 1 / 4;
+      text-align: left;
+    }
+
+    @include Dektop {
+      font-size: 72px;
+      grid-column: 1 / 6;
+    }
+
+    &--top {
+      margin: 270px 0 0 0;
+
+      @include Tablet {
+        margin: 64px 0 0 0;
+      }
+
+      @include Dektop {
+        margin: 143px 0 0 0;
+      }
+    }
+  }
+
+  &__button {
+    grid-column: 1 / 3;
+
+    @include Tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include Dektop {
+      grid-column: 3 / 6;
+    }
+
+    &--top {
+      margin: 20px 0 0 0;
+
+      @include Tablet {
+        margin: 38px 0 0 0;
+      }
+
+      @include Dektop {
+        margin: 116px 0 0 0;
+      }
+    }
+  }
+}

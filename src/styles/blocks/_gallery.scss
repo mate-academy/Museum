@@ -1,0 +1,129 @@
+.gallery {
+  &__title {
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: $color-dark;
+
+    text-align: center;
+
+    @include Tablet {
+      font-size: 48px;
+      text-align: left;
+    }
+  }
+
+
+  .gallery__img {
+    object-fit: cover;
+    height: 410px;
+    width: 280px;
+
+    @include Tablet {
+      width: 340px;
+      height: 540px;
+    }
+
+    @include Dektop {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__section {
+    display: flex;
+    position: relative;
+    left: 0;
+    gap: 16px;
+    
+    transition: all 1s ease;
+
+    &--top {
+      margin: 40px 0 0 0;
+
+      @include Tablet {
+        margin: 48px 0 0 0;
+      }
+
+      @include Dektop {
+        margin: 56px 0 0 0;
+      }
+    }
+
+    @include Dektop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      row-gap: 30px;
+    }
+  }
+
+  &__photo {
+    background: transparent;
+    transition: all 0.3s linear;
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0px 0px 17px 0px rgba(166,153,166,1);
+    }
+
+    &--1 {
+      grid-column: 1 / 5;
+    }
+
+    &--2 {
+      grid-column: 5 / 13;
+
+      display: none;
+
+      @include Dektop {
+        display: block;
+      }
+    }
+
+    &--3 {
+      grid-column: 1 / 9;
+
+      display: none;
+
+      @include Dektop {
+        display: block;
+      }
+    }
+
+    &--4 {
+      grid-column: 9 / 13;
+
+      display: none;
+
+      @include Dektop {
+        display: block;
+      }
+    }
+  }
+
+  &__elipse {
+
+    &:hover circle {
+      fill: $color-green;
+      transition: all 0.3s linear;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+
+    &--top {
+      margin: 20px 0 0 0;
+    }
+
+    @include Dektop {
+      display: none;
+    }
+  }
+}
