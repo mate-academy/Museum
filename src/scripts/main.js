@@ -9,17 +9,14 @@ window.addEventListener('hashchange', () => {
 });
 
 const swiper = new Swiper('.swiper', {
-  // Optional parameters
   direction: 'horizontal',
   loop: true,
-  slidesPerView: 1.05,
-
+  slidesPerView: 'auto',
   effect: 'slide',
   grabCursor: true,
   centeredSlides: true,
   spaceBetween: 16,
 
-  // If we need pagination
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
