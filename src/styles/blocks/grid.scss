@@ -33,10 +33,18 @@
 
   &--gallery {
     grid-template-rows: 600px 360px;
-    grid-row-gap: 30px;
+    row-gap: 30px;
   }
 
   &__item {
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--mobile-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
     @for $start from 1 through $columnsTablet {
       @for $end from $start through $columnsTablet {
         &--tablet-#{$start}-#{$end} {
