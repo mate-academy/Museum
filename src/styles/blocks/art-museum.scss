@@ -48,9 +48,9 @@
     border: 1px solid $c-green;
 
     @include onTablet {
-      margin: 38px 0 0;
       width: 270px;
       height: 70px;
+      margin: 38px 0 0;
     }
 
     @include onDesktop {
@@ -82,8 +82,8 @@
 
   &__arrow {
     display: block;
-    width: 49px;
-    height: 48px;
+
+    @include square(50px);
 
     background-color: $c-green;
     background-image: url(../images/tickets-arrow.svg);
@@ -91,42 +91,40 @@
     background-repeat: no-repeat;
 
     @include onTablet {
-      width: 69px;
-      height: 68px;
+      @include square(70px);
     }
   }
 
   &__events {
     display: none;
-
-    @include onDesktop {
-      display: flex;
-    }
-
     align-items: center;
     width: 133px;
 
     transform: rotate(-90deg) translateX(-100px);
     transform-origin: left;
 
-    &-line {
-      margin-right: 20px;
-      width: 70px;
-      height: 1px;
-
-      background-color: $c-green;
+    @include onDesktop {
+      display: flex;
     }
+  }
 
-    &-link {
-      font-family: "IBM Plex Sans", sans-serif;
-      font-style: normal;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 14px;
+  &__events-line {
+    width: 70px;
+    height: 1px;
+    margin-right: 20px;
 
-      text-decoration: none;
+    background-color: $c-green;
+  }
 
-      color: $c-grey;
-    }
+  &__events-link {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+
+    text-decoration: none;
+
+    color: $c-grey;
   }
 }

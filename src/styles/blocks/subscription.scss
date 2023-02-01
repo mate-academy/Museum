@@ -1,5 +1,4 @@
 .subscription {
-  box-sizing: border-box;
   padding: 88px 0;
 
   background-image: url(../images/photos/subscription-bg-mobile.jpg);
@@ -22,40 +21,24 @@
   &__title {
     margin-bottom: 20px;
 
-    font-family: "Montserrat", sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 36px;
+    @include section-title-text;
+
     text-align: center;
 
     color: $c-white;
 
     @include onTablet {
       margin-bottom: 16px;
-
-      font-size: 48px;
-      line-height: 48px;
     }
   }
 
   &__subtitle {
     margin-bottom: 50px;
 
-    font-family: "IBM Plex Sans", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-
-    text-align: center;
-
-    color: $c-white;
+    @include subscription-main-text;
 
     @include onTablet {
       margin-bottom: 64px;
-
-      line-height: 18px;
     }
 
     @include onDesktop {
@@ -101,35 +84,29 @@
   }
 
   &__arrow {
-    width: 50px;
-    height: 50px;
+    @include square(50px);
+
     border: none;
 
-    background-color: #f14a27;
+    background-color: $c-orange;
+
     background-image: url(../images/subscription-arrow.svg);
     background-position: center;
     background-repeat: no-repeat;
 
+    cursor: pointer;
+
     @include onTablet {
-      width: 70px;
-      height: 70px;
+      @include square(70px);
     }
   }
 
   &__form-message {
-    margin-top: 16px;
+    position: absolute;
     left: 0;
     right: 0;
-    position: absolute;
+    margin-top: 16px;
 
-    font-family: "IBM Plex Sans", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-
-    text-align: center;
-
-    color: $c-white;
+    @include subscription-main-text;
   }
 }
