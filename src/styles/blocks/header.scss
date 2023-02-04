@@ -1,0 +1,172 @@
+.header {
+  position: relative;
+  box-sizing: border-box;
+  height: min-content;
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: 300px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: url(../images/nav/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+
+    @include onTablet {
+      height: 384px;
+      left: 50%;
+      background-position: bottom;
+    }
+
+    @include onDesktop {
+      height: 654px;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    @include onTablet {
+      height: 384px;
+    }
+
+    @include onDesktop {
+      height: 654px;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 250px 0 20px;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    color: #000;
+    text-align: center;
+
+    @include onTablet {
+      margin: 40px 0 38px;
+      font-size: 54px;
+      line-height: 65px;
+      text-align: start;
+      max-width: 500px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 86px;
+      margin: 120px 0 90px;
+    }
+  }
+
+  &__form {
+    display: flex;
+
+    @include onTablet {
+      max-width: 270px;
+    }
+  }
+
+  &__item {
+    font-family: "IBM Plex Sans", sans-serif;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $btn-header-sise;
+    flex-grow: 1;
+    border: 1px solid $c-active;
+    transition: 500ms;
+    overflow: hidden;
+
+    @include onTablet {
+      height: $btn-header-sise-tablet;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: $c-active;
+      left: -100%;
+      opacity: 50%;
+      transition: $transition-speed;
+      z-index: -1;
+    }
+
+    &::after {
+      opacity: 1;
+      transition-delay: 150ms;
+    }
+
+    &:hover {
+      border: transparent;
+      color: $c-text-title-active;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      left: 0;
+    }
+  }
+
+  &__button {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $btn-header-sise;
+    width: $btn-header-sise;
+    background-color: $c-active;
+    transition: 500ms;
+
+    @include onTablet {
+      height: $btn-header-sise-tablet;
+      width: $btn-header-sise-tablet;
+    }
+  }
+
+  &__image {
+    height: 12px;
+    width: 8px;
+  }
+
+  &__event {
+    display: none;
+
+    @include onDesktop {
+      font-family: "IBM Plex Sans", sans-serif;
+      display: flex;
+      position: absolute;
+      align-items: center;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 14px;
+      gap: 20px;
+      bottom: 60px;
+      left: -60px;
+      color: $c-text-events;
+      transform: rotate(-90deg);
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &::before {
+        content: "";
+        align-items: center;
+        display: block;
+        width: 70px;
+        height: 1px;
+        background-color: $c-active;
+      }
+    }
+  }
+}

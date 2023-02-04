@@ -1,0 +1,82 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 88px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transform: translateY(-100%);
+    transition: transform 300ms;
+
+    &:target {
+      transform: translateY(0);
+
+      &::after {
+        content: "";
+        left: 0;
+        right: 0;
+        position: absolute;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+
+  &__lecture {
+    margin-bottom: 180px;
+
+    @include onTablet {
+      margin-bottom: 208px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 300px;
+    }
+  }
+
+  &__events {
+    margin-bottom: 60px;
+
+    @include onTablet {
+      margin-bottom: 112px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 104px;
+    }
+  }
+
+  &__gallery {
+    margin-bottom: 100px;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+}
