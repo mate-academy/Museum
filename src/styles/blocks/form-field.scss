@@ -1,0 +1,143 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+
+  &__bilets {
+    box-sizing: border-box;
+    height: 50px;
+    width: 100%;
+    transition: all 0.3s;
+
+    @include onTablet {
+      height: 70px;
+    }
+
+    &::placeholder {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color: #0f0e08;
+      text-align: center;
+    }
+
+    &:hover {
+      outline: none;
+      background-color: $colorGreen;
+      border: 1px solid $colorGreen;
+      &::placeholder {
+        color: #fff;
+      }
+    }
+
+    &:focus {
+      outline: none;
+      border: 1px solid $colorGreen;
+    }
+  }
+
+  &__search {
+    display: block;
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    background-color: $colorGreen;
+    border: 1px solid $colorGreen;
+
+    transition: all 0.3s;
+
+    background-image: url("/images/icons/arrow_white.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onTablet {
+      height: 70px;
+      width: 70px;
+    }
+
+    &:hover {
+      outline: none;
+      background-color: $colorOrange;
+      border: 1px solid $colorOrange;
+      background-image: url("/images/icons/arrow_black.svg");
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &-p {
+      background-color: $colorOrange;
+      border: 1px solid $colorOrange;
+      background-image: url("/images/icons/arrow_black.svg");
+
+      @include onTablet {
+        margin-left: 16px;
+      }
+
+      @include onNotebook {
+        margin-left: 30px;
+      }
+
+      &:hover {
+        outline: none;
+        margin-left: 0;
+        background-image: url("/images/icons/arrow_white.svg");
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+    }
+  }
+
+  &__email {
+    box-sizing: border-box;
+    height: 50px;
+    width: 100%;
+    transition: all 0.3s;
+
+    @include onTablet {
+      height: 70px;
+    }
+
+    &::placeholder {
+      font-family: $fontTitles;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 100%;
+      color: #687480;
+      padding: 18px 24px;
+    }
+
+    &:hover {
+      outline: none;
+      background-color: #fff;
+      border-color: transparent;
+      &::placeholder {
+        color: $colorDark;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #000;
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+}
