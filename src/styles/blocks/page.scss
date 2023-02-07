@@ -4,7 +4,7 @@
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 400;
     font-size: 16px;
-    background: $c-gray;
+    background: #fff;
     color: $colorDark;
 
     &--with-menu {
@@ -17,12 +17,31 @@
     top: 0;
     left: 0;
     right: 0;
+    z-index: 1;
 
     transform: translateY(-100%);
-    transition: transform 0.3s;
+    transition: all 0.3s;
 
     &:target {
       transform: translateY(0);
+
+      &::after {
+        content: "";
+        top: $heightMobileMenu;
+        left: 0;
+        right: 0;
+        position: absolute;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        @include onTablet {
+          top: $heightTabletMenu;
+        }
+
+        @include onNotebook {
+          top: $heightNotebookMenu;
+        }
+      }
     }
   }
 
