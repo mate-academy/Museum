@@ -18,3 +18,12 @@ form.addEventListener('submit', (event) => {
     input.value = '';
   }
 });
+
+// const form = document.querySelector('form');
+
+// function submit(event) {
+//   event.preventDefault();
+//   form.reset();
+// }
+
+// form.addEventListener('submit', submit);
