@@ -1,11 +1,24 @@
 .list-nav {
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 20px;
+  grid-column-gap: 28px;
   list-style: none;
+
+  @include onTablet {
+    grid-column-gap: 20px;
+  }
+
+  @include onDesktop {
+    grid-column-gap: 32px;
+  }
   
   &__item {
     padding-bottom: 24px;
+
+    @include onDesktop {
+      padding-bottom: 30px;
+    }
 
     &--footer {
       padding-bottom: 20px;
@@ -18,6 +31,10 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 100%;
+
+    @include onDesktop {
+      font-size: 22px;
+    }
 
     &--footer {
       color: $colorBlack;
