@@ -1,0 +1,101 @@
+.lection {
+  --height-about: 140px;
+
+  position: relative;
+  height: 210px;
+  padding-bottom: calc(var(--height-about) / 2 + 4px);
+
+  @include onTablet {
+    height: 390px;
+    --height-about: 204px;
+  }
+
+  @include onNotebook {
+    height: 550px;
+  }
+
+  &__img {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
+    object-position: center;
+    object-fit: cover;
+    transition: all 0.3s;
+  }
+
+  &__about {
+    position: absolute;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    left: 50%;
+
+    width: 280px;
+    height: var(--height-about);
+    background: #fff;
+    box-shadow: 0 2px 0 #1a5a4c40;
+    transition: all 0.3s;
+
+    @include onTablet {
+      width: 570px;
+    }
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(110%);
+      box-shadow: 5px 5px 5px #1a5a4c40;
+    }
+
+    &-data {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      line-height: 16px;
+      font-weight: 500;
+      padding: 20px 21px;
+
+      @include onTablet {
+        justify-content: start;
+        font-size: 14px;
+        padding: 45px 55px 23px;
+        gap: 200px;
+      }
+
+      @include onNotebook {
+        font-size: 14px;
+        padding: 45px 100px 23px;
+        gap: 140px;
+      }
+    }
+
+    &-podiya {
+      color: #687480;
+      
+    }
+
+    &-dt {
+      font-weight: 700;
+      line-height: 150%;
+      color: $colorGreen;
+    }
+
+    &-title {
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 100%;
+      text-align: center;
+
+      @include onTablet {
+        font-size: 36px;
+        text-align: start;
+        padding: 0 55px;
+      }
+
+      @include onNotebook {
+        font-size: 36px;
+        text-align: start;
+        padding: 0 100px;
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+.page {
+  &__body {
+    margin: 0;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    background: #fff;
+    color: $colorDark;
+    scroll-behavior: smooth;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    transform: translateY(-100%);
+    transition: all 0.3s;
+
+    &:target {
+      transform: translateY(0);
+
+      &::after {
+        content: "";
+        top: $heightMobileMenu;
+        left: 0;
+        right: 0;
+        position: absolute;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        @include onTablet {
+          top: $heightTabletMenu;
+        }
+
+        @include onNotebook {
+          top: $heightNotebookMenu;
+        }
+      }
+    }
+  }
+
+  &__section {
+    margin-bottom: 100px;
+
+    @include onTablet {
+      margin-bottom: 88px;
+    }
+
+    @include onTablet {
+      margin-bottom: 200px;
+    }
+
+    &-title {
+      font-size: 36px;
+      line-height: 100%;
+      text-align: center;
+    }
+  }
+}
