@@ -1,0 +1,183 @@
+.menu {
+  background-color: $color-green;
+  z-index: 1;
+
+  &__wrapper {
+    padding-top: 27px;
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 40px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    position: relative;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+
+    &::after {
+        content: "";
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        top: 94px;
+        width: 100%;
+        border: 0.5px solid #fff;
+        opacity: 0.5;
+
+        @include onTablet {
+          width: 0;
+          height: 145px;
+          top: 0;
+          right: 0;
+        }
+      }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 24px;
+    height: fit-content;
+    width: 250px;
+
+    @include onTablet {
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    width: 100px;
+
+    @extend%p;
+
+    @include hover(translate, +10%);
+
+    &--link {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &--footer {
+      color: $color-main-text;
+      align-items: start;
+      grid-row: 1 / 1;
+    }
+
+    &--footer-2-row {
+      grid-row: 2 / 2;
+      width: fit-content;
+    }
+  }
+
+  &__item {
+    font-size: 14px;
+    line-height: 21px;
+    color: #fff;
+    font-weight: bold;
+    grid-column: 1 / 1;
+
+    @extend%p;
+
+    &--regular {
+      font-weight: normal;
+    }
+
+    &--first {
+      margin-bottom: 20px;
+    }
+
+    &--last {
+      margin-top: 16px;
+      margin-bottom: 27px;
+      grid-column: 2 / -2;
+      grid-row: 1 / 6;
+
+      @include onTablet {
+        margin: 0;
+        width: 144px;
+      }
+    }
+
+    &--footer {
+      color: $color-main-text;
+      text-decoration: none;
+    }
+
+    &--footer-last {
+      margin-top: 20px;
+      width: fit-content;
+    }
+  }
+
+  &__schedule {
+    margin-top: 24px;
+
+    @include onTablet {
+      margin: 0 auto 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 87px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 38px;
+    }
+
+    &--footer {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__footer {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    position: relative;
+    padding: 0;
+    margin-bottom: 80px;
+
+    @include onTablet {
+      grid-template-rows: repeat(2, 18px);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      border: 0.5px solid $color-green;
+      width: 100%;
+
+      @include onDesktop {
+        top: 0;
+        height: 100%;
+        left: -65px;
+        width: 0;
+      }
+    }
+  }
+}

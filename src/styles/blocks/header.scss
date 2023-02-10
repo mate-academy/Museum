@@ -1,0 +1,104 @@
+.header {
+  margin-bottom: 70px;
+
+  @include onTablet {
+      margin-bottom: 136px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 318px;
+    }
+
+  &__image {
+    position: absolute;
+    background-image: url(../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    z-index: -100;
+
+    @include onTablet {
+      top: 0;
+      right: 0;
+      width: 374px;
+      height: 380px;
+    }
+
+    @include onDesktop {
+      width: 725px;
+      height: 655px;
+    }
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    align-items: center;
+    margin-bottom: 250px;
+    padding-top: 10px;
+
+    @include onTablet {
+      grid-template-columns: auto 374px;
+      justify-items: start;
+      margin-bottom: 40px;
+      padding-top: 16px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: auto 710px;
+      margin-bottom: 120px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    @include onTablet {
+      align-items: flex-start;
+    }
+
+    @include onDesktop {
+      max-width: calc(100% - 725px);
+    }
+  }
+
+  &__title {
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include onDesktop {
+      margin-bottom: 89px;
+    }
+  }
+
+  &__line {
+    display: none;
+    position: absolute;
+    left: -50px;
+    bottom: -50px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #687480;
+    transform: rotate(-90deg);
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      height: 70px;
+      width: 1px;
+      background: $color-green;
+      transform: rotate(90deg) translate(30px, 55px);
+    }
+  }
+
+}
