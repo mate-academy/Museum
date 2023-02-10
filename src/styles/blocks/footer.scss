@@ -1,13 +1,33 @@
 .footer {
+  padding-top: 50px;
+
+  &__content {
+    @include onTablet {
+      display: flex;
+      gap: 40px;
+    }
+  }
+
   &__social-media {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 40px;
+
+    @include onTablet {
+      flex-direction: column;
+      justify-content: start;
+      gap: 62px;
+
+      &--icon {
+        display: flex;
+      }
+    }
   }
 
   &__info {
     display: grid;
+    padding-bottom: 50px;
     grid-column-gap: 20px;
     grid-template-columns: repeat(2, 1fr);
     border-bottom: 1px solid rgba(26, 90, 76, 0.5);
@@ -42,5 +62,10 @@
     line-height: 140%;
     color: $colorBlack;
     text-align: center;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
