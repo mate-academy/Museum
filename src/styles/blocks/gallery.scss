@@ -1,6 +1,32 @@
 .gallery {
   min-width: 0;
-   &__swiper {
+
+  &__desktop {
+    display: none;
+    row-gap: 30px;
+    margin-bottom: 200px;
+
+    @include onDesktop {
+      display: grid;
+    }
+
+    &--image {
+      width: 100%;
+      background-size: contain;
+
+      @include hover (scale, 110%);
+    }
+  }
+
+  &__title {
+    @include onTablet {
+      font-size: 48px;
+      line-height: 48px;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__swiper {
     display: block;
     margin-bottom: 100px;
 
@@ -11,15 +37,15 @@
     @include onDesktop {
       display: none;
     }
-   }
+  }
 
   &__wrapper {
-      margin-bottom: 30px;
+    margin-bottom: 30px;
 
-      @include onTablet {
-        margin-bottom: 42px;
-      }
+    @include onTablet {
+      margin-bottom: 42px;
     }
+  }
 
   &__slide {
     max-width: 340px;
@@ -37,7 +63,8 @@
     }
   }
 
-  &__pagination, .swiper-pagination {
+  &__pagination,
+  .swiper-pagination {
     position: relative;
     display: flex;
     justify-content: center;
@@ -46,33 +73,7 @@
     &-bullet {
       height: 9px;
       width: 9px;
-      --swiper-theme-color: #1a5a4c;;
-    }
-  }
-
-  &__desktop {
-  display: none;
-  row-gap: 30px;
-  margin-bottom: 200px;
-
-  @include onDesktop {
-    display: grid;
-  }
-
-  &--image {
-    width: 100%;
-    background-size: contain;
-
-    @include hover (scale, 110%);
-    }
-  }
-
-  &__title {
-    @include onTablet {
-      font-size: 48px;
-      line-height: 48px;
-      margin-bottom: 56px;
+      --swiper-theme-color: #1a5a4c;
     }
   }
 }
-
