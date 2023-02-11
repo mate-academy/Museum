@@ -1,0 +1,102 @@
+@import "../utils/mixins";
+
+.menu {
+  background-color: $colorGreen;
+
+  &__content {
+    padding: 27px 0;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    column-gap: 34px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      border-bottom: 0;
+      flex: 1 1 46%;
+    }
+  }
+
+  &__menu-icon {
+    margin-top: 5px;
+    width: 18px;
+    height: 13px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 24px;
+
+    @include onDesctopLarge {
+      width: 50%;
+    }
+  }
+
+  &__item {
+    width: 50%;
+    box-sizing: border-box;
+
+    &:nth-child(even) {
+      padding-left: 10px;
+
+      @media(min-width: 372px) {
+        padding-left: 0;
+      }
+    }
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  &__schedule {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #fff;
+
+    @include onTablet {
+      flex: 1 1 54%;
+    }
+  }
+
+  &__schedule-title {
+    margin: 0 0 20px;
+    font-weight: inherit;
+    line-height: 140%;
+  }
+
+  &__days-wrapper {
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__days {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__day-bold {
+    font-weight: 600;
+  }
+}
