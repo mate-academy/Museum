@@ -1,0 +1,137 @@
+.menu {
+  position: fixed;
+  height: 100vh;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.6) ;
+  transform: translateX(-100%);
+
+  transition: transform $duration;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__cross {
+    @extend %menuPosition;
+    z-index: 4;
+  }
+
+  &__container {
+    background-color: $green;
+  }
+
+  &__list {
+    position: relative;
+    margin: 0 auto;
+    list-style: none;
+    padding: 27px 0;
+
+    @include onTablet {
+      padding: 40px 0;
+    }
+
+    @include onDesktop {
+      padding-bottom: 48px;
+    }
+  }
+
+  &__item {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140.62%;
+    color: $white;
+    margin: 0 0 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--gallery {
+      transform: translateX(45px);
+
+      &-events {
+        @include onTablet {
+          order: 1;
+        }
+      }
+    }
+
+    &--about {
+      justify-self: center;
+
+      @include onTablet {
+        transform: translateX(45px);
+      }
+
+      @include onDesktop {
+        transform: none;
+      }
+
+      &-contacts {
+        @include onTablet {
+          order: 1;
+        }
+      }
+    }
+
+    &--line {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.5);
+
+      margin-bottom: 24px;
+
+      @include onTablet {
+        position: absolute;
+        top: 115px;
+        transform: rotate(-90deg);
+        width: 145px;
+      }
+
+      @include onDesktop {
+        justify-self: end;
+      }
+    }
+
+    &--shedule {
+      margin-bottom: 20px;
+
+      @include onTablet {
+        order: 0;
+      }
+
+      &-hours {
+        margin-bottom: 16px;
+        @include onTablet {
+          order: 1;
+        }
+      }
+    }
+
+    &--dayoff {
+      @include onTablet {
+        width: 150%;
+        transform: translateX(-35px);
+        order: 1;
+      }
+
+      @include onDesktop {
+        transform: none;
+        width: 100%;
+      }
+    }
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    text-decoration: none;
+    color: $white;
+  }
+}

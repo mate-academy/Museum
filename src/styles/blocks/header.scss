@@ -1,0 +1,164 @@
+.header {
+  display: block;
+  position: relative;
+  padding-bottom: 70px;
+
+  @include onTablet {
+    padding-bottom: 88px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 200px;
+  }
+
+  &__menu {
+    @extend %menuPosition;
+  }
+
+  &__photo {
+    display: flex;
+    height: 300px;
+    padding-top: 10px;
+    justify-content: center;
+    background-image: url(/images/header320.png);
+    @extend %bacgroundPosition;
+
+    @include onTablet {
+      height: 384px;
+      padding-top: 15px;
+      background-image: url(/images/header768.png);
+      justify-content: start;
+      order: 2;
+    }
+
+    @include onDesktop {
+      height: 655px;
+      background-image: url(/images/header1280.png);
+    }
+
+  }
+
+  &__logo {
+    height: min-content;
+
+    @include onTablet {
+      text-align: center;
+      width: 220px;
+    }
+
+    @include onDesktop {
+      width: 170px;
+    }
+  }
+  &__main {
+    display: flex;
+    position: relative;
+    margin-top: 20px ;
+    flex-direction: column;
+
+    @include onTablet {
+      margin-top: 126px;
+      padding-right: 0;
+    }
+
+    @include onDesktop {
+      margin-top: 206px;
+    }
+
+    &-title {
+      display: block;
+      margin: 0 0 20px;
+      @extend %mon36px700;
+      font-size: 45px;
+      text-align: center;
+
+      @include onTablet {
+        font-size: 54px;
+        line-height: 120%;
+        margin-bottom: 38px;
+        text-align: left;
+      }
+
+      @include onDesktop {
+        font-size: 72px;
+        margin-bottom: 90px;
+      }
+    }
+
+    &-tickets {
+      --height: 50px;
+
+      display: flex;
+      text-decoration: none;
+
+      @include onTablet {
+        --height: 70px;
+      }
+
+      @include onDesktop {
+        align-self: flex-end;
+      }
+
+      &--box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        height: var(--height);
+        border: 1px solid $green;
+        box-sizing: border-box;
+        margin: 0;
+        @extend %ibm16px300;
+        font-weight: 500;
+        color: $black;
+        text-align: center;
+        text-transform: uppercase;
+
+        @include onTablet {
+          flex-grow: 0;
+          width: 270px;
+        }
+      }
+
+      &--arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: var(--height);
+        width: var(--height);
+        margin: 0;
+        background-color: $green;
+      }
+    }
+
+    &-span {
+      display: none;
+      position: absolute;
+      bottom: 70px;
+      left: 0;
+      transform: rotate(-90deg);
+      line-height: 14px;
+
+      @include onDesktop {
+        display: flex;
+        align-items: center;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-style: normal;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 100%;
+        color: $grey;
+
+        &::before {
+          content: "";
+          display: inline-block;
+          margin-right: 20px;
+          height: 1px;
+          width: 70px;
+          background-color: $grey;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,143 @@
+.gallery {
+  padding-bottom: 100px;
+
+  @include onTablet {
+    padding-bottom: 92px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 200px;
+  }
+
+  &__container {
+    padding-right: 0;
+  }
+
+  &__title {
+    @extend %mon36px700;
+    font-size: 48px;
+    text-align: center;
+    margin: 0 0 40px;
+
+    @include onTablet {
+      text-align: left;
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__slider {
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    scroll-snap-type: mandatory;
+
+    &-container {
+      --width: calc(100vw - 2 * var(--margin-left));
+      --height: calc(var(--width) * 1.46);
+      --margin: 12px;
+      --margin-left: 20px;
+
+      width: calc((var(--width) + 2px) * 4 + 5 * var(--margin));
+      margin-bottom: 20px;
+
+      @include onTablet {
+        --width: calc((100vw - 2 * var(--margin-left)
+        - var(--margin) + 8px) / 2);
+        --height: calc(var(--width) * 1.6);
+        --margin: 18px;
+        --margin-left: 39px;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+
+      &--photo {
+        display: inline-block;
+        height: var(--height);
+        width: var(--width);
+        margin-right: var(--margin);
+        @extend %bacgroundPosition;
+
+        &-1 {
+          background-image: url(../images/gallery1.jpg);
+        }
+
+        &-2 {
+          background-image: url(../images/gallery11.jpg);
+        }
+
+        &-3 {
+          background-image: url(../images/gallery2.jpg);
+        }
+
+        &-4 {
+          background-image: url(../images/gallery3.jpg);
+        }
+      }
+    }
+
+    &-buttons {
+      text-align: center;
+
+      @include onDesktop {
+        display: none;
+      }
+
+      &--dot {
+        display: inline-block;
+        height: 9px;
+        width: 9px;
+        border-radius: 50%;
+        background-color: #e0e0e0;
+        margin-right: 22px;
+
+        &:active {
+          background-color: $green;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &__desktop {
+    display: none;
+
+    @include onDesktop {
+      display: grid;
+    }
+
+    &--photoTop {
+      margin-bottom: 30px;
+      @extend %bacgroundPosition;
+      height: 600px;
+    }
+
+    &--photoBottom {
+      @extend %bacgroundPosition;
+      height: 360px;
+    }
+
+    &--photo1 {
+      background-image: url(../images/gallery1.jpg);
+    }
+
+    &--photo2 {
+      background-image: url(../images/gallery2.jpg);
+    }
+
+    &--photo3 {
+      background-image: url(../images/gallery3.jpg);
+    }
+
+    &--photo4 {
+      background-image: url(../images/gallery4.jpg);
+    }
+  }
+}
