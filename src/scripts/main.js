@@ -1,6 +1,12 @@
-/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 'use strict';
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  form.reset();
+});
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
@@ -10,13 +16,7 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-const form = document.querySelector('form');
-
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  form.reset();
-});
-
+// eslint-disable-next-line no-undef
 const swiper = new Swiper('.gallery__swiper', {
   direction: 'horizontal',
   loop: true,
