@@ -1,0 +1,37 @@
+.tickets {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+
+  @include onTablet {
+    justify-content: start;
+  }
+
+  &__name {
+    order: -1;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    display: flex;
+    height: 50px;
+    width: 230px;
+    border: 1px solid $c-green;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      height: 70px;
+      line-height: 70px;
+    }
+  }
+
+  &__button {
+    background-color: $c-green;
+    @include hover(background-color, $c-red);
+
+    &:hover + .tickets__name {
+      border-color: $c-red;
+    }
+  }
+}
