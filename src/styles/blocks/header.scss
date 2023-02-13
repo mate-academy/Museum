@@ -1,0 +1,243 @@
+.header {
+  position: relative;
+
+  margin-bottom: 70px;
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+
+  @include onTablet {
+    margin-bottom: 88px;
+  }
+
+  &__events {
+    display: none;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 70px;
+      background-color: #1a5a4c;
+    }
+
+    @include onDesktop {
+      position: absolute;
+      
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      bottom: 0;
+      
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      line-height: 14px;
+
+      color: #687480;
+        
+      transform-origin: left;
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    text-align: center;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include onDesktop {
+      position: relative;
+    
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    @include onTablet {
+      position: relative;
+
+      font-size: 36px;
+      line-height: 36px;
+      
+      margin-top: 15px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    color: #000;
+    text-align: center;
+      
+    margin-bottom: 20px;
+  
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      font-size: 66px;
+      line-height: 120%;
+      text-align: left;
+      margin-top: 149px;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__menu-opener {
+    position: absolute;
+    background-image: url(../images/burger-menu.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 18px;
+    height: 12px;
+
+    margin-top: 20px;
+    left: 20px;
+
+    @include onTablet {
+      margin-top: 40px;
+      left: auto;
+    }
+
+    @include onDesktop {
+      margin-top: 40px;
+      left: auto;
+    }
+  }
+      
+  &__image {
+    object-fit: contain;
+    object-position: center;
+
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      position: absolute;
+
+      width: 374px;
+    }
+
+    @include onDesktop {
+      position: absolute;
+
+      margin-bottom: 0;
+
+      width: 725px;
+    }
+  }
+}
+
+.header__button {
+  margin-bottom: 70px;
+
+  @include onTablet {
+    margin-bottom: 107px;
+  }
+
+  &--container {
+    margin: 0 auto;
+
+    width: 230px;
+    height: 50px;
+    display: flex;
+ 
+    @include onDesktop {
+      margin: 0;
+      justify-content: flex-end;
+
+      width: 200px;
+      height: 70px;
+    }
+
+    @include onTablet {
+      margin: 0;
+      height: 70px;
+      margin-bottom: 104px;
+    }
+  }
+ 
+  &-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    width: 100%;
+    height: 50px;
+
+    border: 1px solid #1a5a4c;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
+    color: black;
+    transition: 0.4s;
+
+    @include onDesktop {
+      height: 70px;
+    }
+
+    @include onTablet {
+      width: 200px;
+      height: 70px;
+    }
+
+    &::after {
+      position: absolute;
+        
+      content: "";
+      background-image: url(../images/arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #1a5a4c;
+      border: 1px solid #1a5a4c;
+
+      right: -51px;
+      
+
+      width: 50px;
+      height: 50px;
+
+      @include onDesktop {
+        transition: 0.4s;
+        right: -69px;
+
+        width: 69px;
+        height: 70px;
+      }
+
+      @include onTablet {
+        right: -70px;
+
+        width: 70px;
+        height: 70px;
+      }
+    }
+  
+    @include onDesktop {
+      &:hover {
+        border-color: #8bc2b6;
+
+        &::after {
+          border-color: #8bc2b6;
+          background-color: #8bc2b6;
+        }
+      }
+    }
+  }
+}

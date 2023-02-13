@@ -1,0 +1,58 @@
+.gallery {
+  &__image {
+    @include onDesktop {
+      width: 100%;
+      transition: 0.2s;
+
+      &--1 {
+        grid-column: 1 / 5;
+      }
+   
+      &--2 {
+        grid-column: 5 / 13;
+      }
+   
+      &--3 {
+        grid-column: 1 / 9;
+      }
+   
+      &--4 {
+        grid-column: 9 / 13;
+      }
+        
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__images {
+    display: grid;
+    gap: 30px;
+
+    &-section {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__content {
+    display: none;
+    
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: block;
+      width: 100%;
+        
+      margin-bottom: 200px;
+    }
+    
+    &__container {
+      width: 100%;
+    }
+  }
+}
