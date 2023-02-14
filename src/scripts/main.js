@@ -1,15 +1,17 @@
 'use strict';
 
-const formSubmit = document.querySelector('#form');
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
 
-formSubmit.addEventListener('submit', formSubmitSuccess, false);
+const subscriptionForm = document.querySelector('#form');
 
-function formSubmitSuccess(event) {
-  const warn = 'Дякуємо! Ви успішно підписались на наші новини!<br>';
-
-  document.getElementById('output-box').innerHTML = warn;
-
-  document.getElementById('subscription__form').reset();
-
+subscriptionForm.addEventListener('submit', (event) => {
   event.preventDefault();
-}
+
+  subscriptionForm.reset();
+});
