@@ -1,0 +1,190 @@
+.events {
+  &__title {
+    @extend %mon36px700;
+    margin: 0 0 40px;
+    text-align: center;
+
+    @include onTablet {
+      font-size: 48px;
+      text-align: left;
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__grid {
+    display: block;
+    padding-bottom: 60px;
+
+    @include onTablet {
+      padding-bottom: 64px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      padding-bottom: 104px;
+    }
+  }
+
+  &__photo {
+    justify-self: center;
+    height: 210px;
+    background-image: url(../images/events1.jpg);
+    @extend %bacgroundPosition;
+    margin-bottom: 16px;
+
+    @include onTablet {
+      height: 520px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin: 0;
+    }
+
+    &--second {
+      background-image: url(../images/events2.jpg);
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+
+      @include onTablet {
+        width: 220px;
+        margin-bottom: 32px;
+      }
+
+      &--inscription {
+        @extend %ibm16px300;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin: 0;
+
+        @include onTablet {
+          font-size: 14px;
+        }
+      }
+
+      &--date {
+        @extend %ibm16px300;
+        font-weight: 700;
+        color: $green;
+        margin: 0;
+
+        @include onTablet {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &-title {
+      --box: 10px;
+
+      display: flex;
+      height: max-content;
+      @extend %mon36px700;
+      font-weight: 400;
+      font-size: 28px;
+      margin: 0 0 15px;
+
+      &::after {
+        content: "";
+        display: inline-block;
+        height: var(--box);
+        width: var(--box);
+        margin-left: var(--box);
+        align-self: center;
+        background-color: $orange;
+      }
+
+      @include onTablet {
+        font-size: 36px;
+        --box: 15px;
+      }
+    }
+
+    &-p {
+      max-width: 460px;
+      @extend %ibm16px300;
+      margin: 0;
+    }
+  }
+
+  &__lection {
+    max-width: 1440px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    height: 210px;
+    @extend %bacgroundPosition;
+    background-image: url(../images/lection.jpg);
+    margin-bottom: 180px;
+
+    @include onTablet {
+      height: 390px;
+      margin: 0 39px 210px;
+    }
+
+    @include onDesktop {
+      height: 550px;
+      margin: 0 auto 300px;
+    }
+
+    &--grid {
+      display: block;
+
+      @include onDesktop {
+        display: grid;
+      }
+    }
+
+    &-box {
+      padding: 20px 0;
+      background-color: $backgound;
+      box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+      transform: translateY(50%);
+      margin: 0 20px;
+
+      @include onTablet {
+        padding: 45px 55px 50px;
+        margin: 0 65px;
+      }
+
+      @include onDesktop {
+        margin: 0;
+      }
+
+      &--container {
+        margin: 0 20px 24px;
+
+        @include onTablet {
+          margin-left: 0;
+          width: 380px;
+        }
+      }
+
+      &--title {
+        text-align: center;
+        &::after {
+          display: none;
+        }
+
+        @include onTablet {
+          text-align: left;
+        }
+      }
+    }
+  }
+}

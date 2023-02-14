@@ -1,0 +1,123 @@
+.subscribe {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 88px 0;
+  background-image: url(../images/subscribe.jpg);
+  @extend %bacgroundPosition;
+
+  @include onTablet {
+    padding: 82px 0;
+  }
+
+  @include onDesktop {
+    padding: 163px 0;
+  }
+
+  &__grid {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &__title {
+    @extend %mon36px700;
+    text-align: center;
+    margin: 0 0 20px;
+    color: $white;
+
+    @include onTablet {
+      margin-bottom: 16px;
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__subtitle {
+    @extend %ibm16px300;
+    font-weight: 400;
+    font-size: 18px;
+    color: $white;
+    text-align: center;
+    margin: 0 0 50px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__form {
+    --height: 50px;
+
+    display: flex;
+    text-decoration: none;
+
+    @include onTablet {
+      --height: 70px;
+    }
+
+    @include onDesktop {
+      align-self: flex-end;
+    }
+
+    &--email {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      height: var(--height);
+      border: 1px solid $orange;
+      box-sizing: border-box;
+      margin: 0;
+      @extend %ibm16px300;
+      font-weight: 400;
+      color: $black;
+      text-align: center;
+      padding-left: 24px;
+      outline: none;
+
+      &::placeholder {
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        color: $grey;
+        text-align: left;
+        text-transform: none;
+      }
+
+      @include onTablet {
+        margin-right: 16px;
+      }
+
+      @include onDesktop {
+        margin-right: 30px;
+      }
+    }
+
+    &--button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: var(--height);
+      width: var(--height);
+      margin: 0;
+      background-color: $orange;
+      border: none;
+      transition: opacity $duration;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}
