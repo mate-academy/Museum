@@ -1,6 +1,5 @@
 .header {
   position: relative;
-
   margin-bottom: 70px;
 
   @include onDesktop {
@@ -11,6 +10,39 @@
     margin-bottom: 88px;
   }
 
+  &__top-actions {
+    display: flex;
+    margin-bottom: 250px;
+    
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__menu-opener {
+    display: block;
+    background-image: url(../images/burger-menu.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 18px;
+    height: 12px;
+
+    margin-top: 20px;
+
+    @include onTablet {
+      margin-top: 40px;
+    }
+
+    @include onDesktop {
+      margin: 40px 0;
+    }
+  }
+  
   &__events {
     display: none;
 
@@ -24,62 +56,67 @@
 
     @include onDesktop {
       position: absolute;
-      
+     
       display: flex;
       align-items: center;
       gap: 20px;
 
-      bottom: 0;
-      
+      bottom: -100px;
+     
       font-family: "IBM Plex Sans", sans-serif;
       font-size: 14px;
       line-height: 14px;
 
       color: #687480;
-        
+       
       transform-origin: left;
       transform: rotate(-90deg);
     }
   }
 
-  &__logo {
+  &__image {
     position: absolute;
-    text-align: center;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 300px;
 
-    @include onDesktop {
-      position: relative;
-    
-      font-size: 36px;
-      line-height: 36px;
-    }
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/header.png);
 
     @include onTablet {
-      position: relative;
+      position: absolute;
+      z-index: -1;
 
-      font-size: 36px;
-      line-height: 36px;
-      
-      margin-top: 15px;
+      width: 47%;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      position: absolute;
+      z-index: -1;
+
+      width: 52%;
+      height: 655px;
     }
   }
-
+  
   &__title {
     font-weight: 700;
     font-size: 45px;
     line-height: 100%;
     color: #000;
     text-align: center;
-      
+    
     margin-bottom: 20px;
-  
+ 
     @include onTablet {
       font-size: 54px;
       line-height: 120%;
       text-align: left;
-    
+   
       margin-bottom: 38px;
     }
 
@@ -91,154 +128,115 @@
       margin-bottom: 90px;
     }
   }
-
-  &__menu-opener {
-    position: absolute;
-    background-image: url(../images/burger-menu.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-
-    width: 18px;
-    height: 12px;
-
-    margin-top: 20px;
-    left: 20px;
-
-    @include onTablet {
-      margin-top: 40px;
-      left: auto;
-    }
-
-    @include onDesktop {
-      margin-top: 40px;
-      left: auto;
-    }
-  }
-      
-  &__image {
-    object-fit: contain;
-    object-position: center;
-
-    width: 100%;
-    margin-bottom: 20px;
-
-    @include onTablet {
-      position: absolute;
-
-      width: 374px;
-    }
-
-    @include onDesktop {
-      position: absolute;
-
-      margin-bottom: 0;
-
-      width: 725px;
-    }
-  }
-}
-
-.header__button {
-  margin-bottom: 70px;
-
-  @include onTablet {
-    margin-bottom: 0;
-  }
-  @include onDesktop {
-    margin-bottom: 0;
-  }
-  &--container {
-    margin: 0 auto;
-
-    width: 230px;
-    height: 50px;
-    display: flex;
- 
-    @include onDesktop {
-      margin: 0;
-      justify-content: flex-end;
-
-      width: 200px;
-      height: 70px;
-    }
-
-    @include onTablet {
-      margin: 0;
-      height: 70px;
-    }
-  }
- 
-  &-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-
-    width: 100%;
-    height: 50px;
-
-    border: 1px solid #1a5a4c;
-
-    font-family: "IBM Plex Sans", sans-serif;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 100%;
-
-    color: black;
-    transition: 0.4s;
-
-    @include onDesktop {
-      height: 70px;
-    }
-
-    @include onTablet {
-      width: 200px;
-      height: 70px;
-    }
-
-    &::after {
-      position: absolute;
-        
-      content: "";
-      background-image: url(../images/arrow.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-color: #1a5a4c;
-      border: 1px solid #1a5a4c;
-
-      right: -51px;
-      
-
-      width: 50px;
-      height: 50px;
-
+  
+  &__button {
+   
+    &--container {
+      width: 228px;
+      height: 48px;
+     
       @include onDesktop {
-        transition: 0.4s;
-        right: -69px;
-
-        width: 69px;
+        margin: 0;
+        justify-content: flex-end;
+  
+        width: 200px;
         height: 70px;
       }
-
+  
       @include onTablet {
-        right: -70px;
-
-        width: 70px;
+        margin: 0;
         height: 70px;
       }
     }
   
-    @include onDesktop {
-      &:hover {
-        border-color: #8bc2b6;
-
-        &::after {
+    @include onTablet {
+      justify-content: start;
+    }
+   
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      position: relative;
+  
+      width: 100%;
+      height: 48px;
+  
+      border: 1px solid #1a5a4c;
+  
+      font-family: "IBM Plex Sans", sans-serif;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+  
+      color: black;
+      transition: 0.4s;
+  
+  
+      @include onDesktop {
+        height: 70px;
+      }
+  
+  
+      @include onTablet {
+        width: 200px;
+        height: 70px;
+      }
+  
+      &::after {
+        position: absolute;
+         
+        content: "";
+        background-image: url(../images/arrow.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #1a5a4c;
+        border: 1px solid #1a5a4c;
+  
+        right: -51px;
+       
+        width: 48px;
+        height: 48px;
+  
+        @include onDesktop {
+          transition: 0.4s;
+          right: -70px;
+  
+          width: 70px;
+          height: 70px;
+        }
+  
+        @include onTablet {
+          right: -70px;
+  
+          width: 70px;
+          height: 70px;
+        }
+      }
+   
+      @include onDesktop {
+        &:hover {
           border-color: #8bc2b6;
-          background-color: #8bc2b6;
+  
+          &::after {
+            border-color: #8bc2b6;
+            background-color: #8bc2b6;
+          }
         }
       }
     }
   }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onDesktop {
+      align-items: start;
+    }
+  }
 }
+
