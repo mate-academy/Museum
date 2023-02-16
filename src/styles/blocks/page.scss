@@ -10,4 +10,36 @@
     max-width: 1440px;
     margin: 0 auto;
   }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateY(0);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: $height-menu-mobile;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        background-color: $c-true-black;
+        opacity: 0.5;
+
+        @include onTablet {
+          top: $height-menu-tablet;
+        }
+        
+        @include onDesktop {
+          top: $height-menu-desktop;
+        }
+      }
+    }
+  }
 }
