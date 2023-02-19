@@ -25,16 +25,15 @@
     }
   }
 
-  &--gallery {
-    display: flex;
-    gap: 10px;
-
-    @include onDesktop {
-      display: grid;
-    }
-  }
-
   &__item {
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--mono-#{$start}-#{$end} {
+          grid-column: #{$start}/#{$end+1};
+        }
+      }
+    }
+
     @for $start from 1 through 6 {
       @for $end from $start through 6 {
         &--tablet-#{$start}-#{$end} {
