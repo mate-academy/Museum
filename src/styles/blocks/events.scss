@@ -1,0 +1,148 @@
+@import "../utils/mixins";
+
+.events {
+  margin-bottom: 183px;
+
+  @include onTablet {
+    margin-bottom: 208px;
+  }
+
+  @include onDesctop {
+    margin-bottom: 302px;
+  }
+
+  &__title {
+    margin: 0 0 40px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    color: #0f0e08;
+
+    @include onTablet {
+      margin: 0 0 48px;
+      text-align: start;
+      font-size: 48px;
+    }
+
+    @include onDesctop {
+      margin: 0 0 56px;
+    }
+  }
+
+  &__item {
+    &--last {
+      position: relative;
+
+      @include onDesctop {
+        margin-bottom: 0;
+      }
+    }
+
+    @include onDesctop {
+      margin-bottom: 104px;
+      display: flex;
+      align-items: center;
+      column-gap: 130px;
+    }
+  }
+
+  &__image {
+    margin-bottom: 20px;
+    width: 100%;
+    max-height: 720px;
+    overflow: hidden;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &--last {
+      position: relative;
+      max-height: 350px;
+
+      &:hover {
+        transform: scale(1);
+      }
+
+      @include onTablet {
+        max-height: 390px;
+        width: 90%;
+        margin: 0 auto;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+
+        @media(min-width: 750px) {
+          width: 92%;
+        }
+
+        @media(min-width: 980px) {
+          width: 93%;
+        }
+
+        @include onDesctop {
+          margin: 0;
+          width: 100%;
+          max-height: 550px;
+          
+          &:hover {
+            transform: scale(1);
+          }
+        }
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        margin-bottom: 68%;
+
+        @include onDesctop {
+          display: none;
+        }
+      }
+    }
+
+    @include onDesctop {
+      margin: 0;
+      flex: 1 1 58%;
+      height: 520px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    &--last {
+      position: absolute;
+    }
+  }
+
+  &__information {
+    margin-bottom: 60px;
+    background-color: #fff;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    &--last {
+      margin: 0;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 55%);
+    }
+
+    @include onDesctop {
+      margin-bottom: 0;
+      flex: 1 1 33%;
+    }
+  }
+}
