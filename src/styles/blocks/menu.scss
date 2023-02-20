@@ -1,0 +1,164 @@
+@import "../utils/mixins";
+
+.menu {
+  background-color: $colorGreen;
+
+  &__content {
+    padding: 27px 0;
+
+    @include onTablet {
+      display: flex;
+      padding: 42px 0 40px;
+    }
+
+    @include onDesctop {
+      padding: 42px 0 48px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    column-gap: 34px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      border-bottom: 0;
+      flex: 1 1 45%;
+      border-right: 0;
+    }
+
+    @include onDesctop {
+      flex: 1 1 50%;
+      column-gap: 107px;
+    }
+  }
+
+  &__menu-icon {
+    margin-top: 5px;
+    width: 16px;
+    height: 16px;
+
+    @include onTablet {
+      margin-top: 0;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 24px;
+    height: min-content;
+  }
+
+  &__item {
+    width: 50%;
+    box-sizing: border-box;
+
+    &:nth-child(even) {
+      padding-left: 14px;
+
+      @media(min-width: 372px) {
+        padding-left: 0;
+      }
+    }
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    text-decoration: none;
+    color: #fff;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s;
+
+    &:hover {
+      border-bottom: 1px solid #fff;
+    }
+  }
+
+  &__schedule {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #fff;
+
+    @include onTablet {
+      flex: 1 1 55%;
+      padding-left: 20px;
+      border-left: 1px solid rgba(255, 255, 255, 0.5);
+
+      @media(min-width: 690px) {
+        padding-left: 38px;
+      }
+
+      @include onDesctop {
+        padding-left: 102px;
+      }
+    }
+
+    @include onDesctop {
+      flex: 1 1 50%;
+    }
+  }
+
+  &__schedule-title {
+    margin: 0 0 20px;
+    font-weight: inherit;
+    line-height: 140%;
+  }
+
+  &__days-wrapper {
+
+    @include onTablet {
+      display: flex;
+      column-gap: 12px;
+
+      @media(min-width: 690px) {
+        column-gap: 38px;
+      }
+    }
+
+    @include onDesctop {
+      column-gap: 40px;
+    }
+  }
+
+  &__days {
+    margin: 0 0 16px;
+    padding: 0;
+    list-style: none;
+
+    @include onTablet {
+      margin: 0;
+      width: 158px;
+    }
+  }
+
+  &__day-bold {
+    font-weight: 600;
+  }
+
+  &__day-info {
+    margin: 0;
+
+    @include onTablet {
+      width: 134px;
+
+      @media(min-width: 690px) {
+        width: 144px;
+      }
+
+      @media(min-width: 800px) {
+        width: 170px;
+      }
+    }
+  }
+}
