@@ -1,0 +1,83 @@
+.developments {
+  margin-bottom: 60px;
+
+  @include onTablet {
+    margin-bottom: 64px;
+
+    &:last-child {
+      margin-bottom: 112px;
+    }
+  }
+
+  @include onDesktop {
+    margin-bottom: 104px;
+
+    &:last-child {
+      margin-bottom: 104px;
+    }
+  }
+
+  &__picture {
+    width: 100%;
+    margin-bottom: 16px;
+    @include hover(scale, 1.05);
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__description {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      justify-content: start;
+      gap: 30px;
+    }
+  }
+
+  &__name {
+    @extend %name-event;
+  }
+
+  &__date {
+    @extend %date-event;
+  }
+
+  &__title {
+    @extend %event-title;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 15px;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      background-color: #f14a27;
+      transform: translateY(-20%);
+    }
+  }
+
+  &__par {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: $c-gray;
+  }
+
+  &__grid {
+    align-self: center;
+  }
+}
