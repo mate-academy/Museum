@@ -47,13 +47,13 @@
           <div class="button__container">
             <a class="button button__tickets-buy" href="#events">
               <p class="button button__tickets"> КВИТКИ </p>
-              <div class="button__ticket--arrow">
+              <button class="button__ticket--arrow">
                 <img
                   class="button__img"
                   src="./images/Vecto.png"
                   alt="arrow icon"
                 >
-              </div>
+              </button>
             </a>
           </div>
           <a href="#events" class="vertical-text"> ПОДІЇ </a>
@@ -223,46 +223,65 @@
           <h2 class="page__section-title" >
             Галерея
           </h2>
-
-
-          <div class="swiper">
-
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="./images/gallery1.png" alt="photo1">
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/gallery2.png" alt="photo2">
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/gallery3.png" alt="photo3">
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/gallery4.png" alt="photo4">
-              </div>
-
+          <div class="slideshow-container">
+            <div class="mySlides fade">
+              <img
+                class="img_slides"
+                src="./images/gallery1.png"
+                alt="photo1"
+              >
             </div>
-
-            <div class="swiper__bullet">
-              <span class="swiper__item swiper__item--active"></span>
-              <span class="swiper__item"></span>
-              <span class="swiper__item"></span>
-              <span class="swiper__item"></span>
+            <div class="mySlides fade">
+              <img
+                class="img_slides"
+                src="./images/gallery2.png" alt="photo2">
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-
-            <!-- If we need scrollbar -->
-            <div class="swiper-scrollbar"></div>
+            <div class="mySlides fade">
+              <img
+                class="img_slides"
+                src="./images/gallery3.png" alt="photo3">
+            </div>
+            <div class="mySlides fade">
+              <img
+                class="img_slides"
+                src="./images/gallery4.png" alt="photo4">
+            </div>
+          </div>
+          <div class="dot_item">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
           </div>
 
+          <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
 
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
 
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
 
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              if (n > slides.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";
+              }
+              for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";
+              dots[slideIndex-1].className += " active";
+            }
+          </script>
           <div class="gallery__place">
             <div class="gallery__photos">
               <div class="grid">
