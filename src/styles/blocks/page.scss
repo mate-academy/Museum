@@ -1,0 +1,51 @@
+.page {
+  font-family: $font-text;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: $text-color;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    background-color: #e5e5e5;
+
+    &--with-menu {
+      overflow: hidden;
+      background-color: rgba(0,0,0,0.5);
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform $time-animation;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section--title {
+    margin-bottom: 40px;
+    @include h2Title;
+  
+    text-align: center;
+  
+    @include onTablet {
+      text-align: left;
+  
+      margin-bottom: 48px;
+    }
+  
+    @include onDesktop {
+      text-align: left;
+
+      margin-bottom: 56px;
+    }
+  }
+}
