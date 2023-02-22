@@ -7,43 +7,33 @@
   }
 
   &__content {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
     @include onTablet {
-      display: flex;
-      gap: 77px;
+      flex-direction: row;
+      gap: 38px;
     }
     @include onDesktop {
-      gap: 300px;
+      gap: 102px;
+    }
+  }
+
+  &__line {
+    height: 1px;
+    background: #fff;
+
+    @include onTablet {
+      height: auto;
+      width: 1px;
     }
   }
 
   &__section1 {
-    margin-bottom: 24px;
 
     @include onTablet {
       display: flex;
-      margin-bottom: 0;
-    }
-
-    &::after {
-      content: "";
-      display: block;
-      height: 1px;
-      width: 100%;
-      margin-top: 24px;
-      background-color: rgba(255, 255, 255, 0.5);
-
-      @include onTablet {
-        width: 1px;
-        height: 100%;
-        margin-top: 0;
-        margin-left: 38px;
-      }
-
-      @include onDesktop {
-        position: absolute;
-        left: 50%;
-      }
     }
   }
 
@@ -67,19 +57,8 @@
     background-image: url(../images/header/cross.svg);
     background-position: center;
     background-repeat: no-repeat;
-  }
 
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-  }
-
-  &__link {
-    font-family: "IBM Plex Sans Devanagari", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    color: #fff;
+    @include hover (transform, scale(1.3));
   }
 
   &__title {
