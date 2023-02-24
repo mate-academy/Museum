@@ -1,0 +1,126 @@
+.header {
+  background-image: url("../images/1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 100% center;
+  position: relative;
+
+  height: 300px;
+
+  &__content {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include tablet {
+      display: grid;
+    }
+  }
+
+  @include tablet {
+    background-size: contain;
+    height: 384px;
+  }
+
+  @include desktop {
+    height: 655px;
+  }
+
+  &__icon-menu {
+    @include tablet {
+      margin: 45px 3px 0;
+      &--desctop {
+        display: block;
+      }
+    }
+
+    @include mobile {
+      &--phone {
+        display: block;
+        margin: 33px 3px 0;
+      }
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin: 20px auto;
+
+    @include tablet {
+      margin: 127px 0 38px;
+      text-align: left;
+    }
+
+    @include desktop {
+      margin: 206px 0 89px;
+      text-align: left;
+    }
+  }
+
+  &__ticket {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+
+    border: 1px solid $color-green;
+    background-color: $color-white;
+    color: $text-color-fe8;
+
+    &--name {
+      text-align: center;
+      flex: 1 1 auto;
+    }
+
+    @include tablet {
+      height: 70px;
+      width: 270px;
+    }
+
+    @include mobile {
+      order: -1;
+    }
+  }
+
+  &__image {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    grid-row: 1 / 3;
+  }
+
+  &__logo {
+    position: absolute;
+    display: block;
+    margin: 10px auto;
+    left: 0;
+    right: 0;
+
+    @include tablet {
+      margin: 15px 74px;
+    }
+
+    @include desktop {
+      margin: 15px 50px;
+    }
+  }
+
+  &__events {
+    display: none;
+    @extend %events;
+    font-weight: 700;
+
+    @include desktop {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      width: max-content;
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+
+      &--rectangle {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

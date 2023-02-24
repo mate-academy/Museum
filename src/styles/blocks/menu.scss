@@ -1,0 +1,141 @@
+.menu {
+  margin: 0 auto;
+  background-color: $color-green;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+
+  transform: translateY(-100%);
+  transition: all 1s;
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__content {
+    font-family: "Plex", sans-serif;
+    color: $color-white;
+
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: center;
+    }
+    padding: 24px 0 27px;
+
+    @include tablet {
+      padding: 40px 0;
+    }
+
+    @include desktop {
+      padding: 40px 0 48px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: end;
+    padding: 27px 0 24px;
+
+    border-bottom: 1px solid $color-white-05;
+
+    @include tablet {
+      padding: 27px 38px;
+      border-bottom: 0;
+      border-right: 1px solid $color-white-05;
+    }
+
+    @include desktop {
+      padding: 40px 102px;
+    }
+  }
+
+  &__list {
+    width: 100px;
+
+    @include desktop {
+      width: 170px;
+    }
+
+    &:first-child {
+      margin-right: 30px;
+    }
+  }
+
+  &__item {
+
+    &:first-child {
+      margin-bottom: 24px;
+
+      @include desktop {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: rem(16px);
+    line-height: rem(16px);
+
+    @include desktop {
+      font-size: rem(22px);
+      line-height: rem(22px);
+    }
+
+    &:hover {
+      color: $color-white-05;
+    }
+  }
+
+  &__schedule {
+    font-weight: 400;
+    font-size: rem(14px);
+    line-height: rem(21px);
+
+    @include tablet {
+      display: flex;
+      align-items: end;
+      padding-left: 38px;
+    }
+
+    @include desktop {
+      padding-left: 102px;
+    }
+
+  }
+
+  &__time {
+    @include tablet {
+      margin-right: 30px;
+    }
+
+    &--title {
+      min-width: 158px;
+      margin-bottom: 20px;
+    }
+
+    &--timetable {
+      margin-bottom: 16px;
+
+      @include tablet {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__weekend {
+    min-width: 122px;
+    max-width: 170px;
+  }
+
+}
+
+.bold {
+  font-weight: 600;
+}
