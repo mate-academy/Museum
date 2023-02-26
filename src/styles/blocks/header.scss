@@ -1,0 +1,188 @@
+.header {
+  position: relative;
+  margin-bottom: 70px;
+
+  @include onTablet {
+    margin-bottom: 88px;
+    height: 384px;
+  }
+
+  @include onDesktop {
+    height: 655px;
+    margin-bottom: 200px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    background-image: url(/images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 300px;
+    z-index: -1;
+
+    @include onTablet {
+      left: 50%;
+      height: 100%;
+      background-position: bottom;
+    }
+
+    @include onDesktop {
+      height: 100%;
+      left: 48%;
+    }
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(2, 48% 52%);
+    align-items: center;
+    padding: 8px 0 0;
+    margin-bottom: 232px;
+
+    @include onTablet {
+      padding: 16px 0 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__burger {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-image: url(/images/burger.svg);
+    background-repeat: no-repeat;
+
+    @include hover (scale, 1.05);
+  }
+
+  &__logo {
+    @include onTablet {
+      width: 220px;
+    }
+  }
+
+  &__information {
+    position: relative;
+
+    @include onTablet {
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 470px;
+    }
+  }
+
+  &__title {
+    padding: 20px 0;
+    @extend %montserrat-bold;
+    font-size: 45px;
+    text-align: center;
+
+    @include onTablet {
+      padding: 40px 0;
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      padding: 120px 0 90px;
+
+      font-size: 72px;
+    }
+  }
+
+  &__events {
+    @include onDesktop {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__tikets {
+    display: flex;
+
+    @include onTablet {
+      width: 270px;
+    }
+  }
+
+  &__tiket-text {
+    flex: 1 1 auto;
+    padding: 16px;
+
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    color: $c-black;
+
+    border: 1px solid $c-green;
+
+    @include onTablet {
+      padding: 26px;
+      font-size: 16px;
+    }
+
+    @include hover (background-color, $c-green);
+    @include hover (color, #fff);
+  }
+
+  &__tiket-arrow {
+    flex: 0 0 50px;
+    display: block;
+    width: 50px;
+    padding: 18px 0;
+
+    background-image: url(/images/arrow-left.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $c-green;
+
+    box-sizing: unset;
+
+    @include hover (background-color, $c-orange);
+
+    @include onTablet {
+      padding: 29px 10px;
+    }
+  }
+
+  &__wrapper-events {
+    display: none;
+
+    @include onDesktop {
+      display: inline-block;
+      position: relative;
+      left: -60px;
+      top: 40px;
+      transform: rotate(270deg);
+    }
+  }
+
+  &__event {
+    position: relative;
+    padding-left: 90px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #687480;
+
+    @include hover (color, $c-orange);
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 70px;
+      height: 1px;
+      background-color: $c-green;
+      top: 50%;
+    }
+  }
+}

@@ -1,0 +1,111 @@
+.gallery {
+
+  &__title {
+    @extend %title-main;
+  }
+
+  &__images {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__top-images {
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      margin-bottom: 30px;
+
+      & img:first-of-type {
+        grid-column: 1 / 5;
+      }
+
+      & img:last-of-type {
+        grid-column: 5 / 13;
+      }
+    }
+  }
+
+  &__bottom-images {
+    display: none;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+
+      & img:first-of-type {
+        grid-column: 1 / 9;
+      }
+
+      & img:last-of-type {
+        grid-column: 9 / 13;
+      }
+    }
+  }
+
+  &__image {
+    display: grid;
+    height: 410px;
+    width: 100%;
+
+    &:nth-child(2) {
+      display: none;
+    }
+
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+
+    @include hover (scale, 1.02);
+
+    @include onTablet {
+      height: 543px;
+
+      &:nth-child(2) {
+        display: block;
+      }
+    }
+
+    @include onDesktop {
+      height: 600px;
+    }
+  }
+
+  &__slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__link-slider {
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+
+    &:first-child {
+      background-color: $c-green;
+    }
+
+    &:not(:first-child) {
+      background-color: #b5aaaa;
+    }
+  }
+}
