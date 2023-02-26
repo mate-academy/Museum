@@ -1,9 +1,13 @@
 .header {
-  margin-bottom: 400px;
+  margin-bottom: 80px;
   height: 455px;
 
-  @include onMobile {
-    margin-bottom: 140px;
+  @include onTablet {
+    margin-bottom: 90px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 400px;
   }
 
   &__bg {
@@ -18,6 +22,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+
+    @include onTablet {
+      height: 384px;
+      left: calc(50% + 10px);
+    }
 
     @include onDesktop {
       height: 655px;
@@ -41,6 +50,13 @@
     text-transform: uppercase;
     color: $colorBlack;
 
+    @include onTablet {
+      margin-bottom: 40px;
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
     @include onDesktop {
       margin-bottom: 90px;
       text-align: left;
@@ -56,6 +72,10 @@
     align-items: center;
     margin-bottom: 250px;
 
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
     @include onDesktop {
       margin-bottom: 120px;
     }
@@ -65,8 +85,8 @@
     display: block;
     height: 50px;
     width: 100%;
-    padding-right: 50px;
     margin-bottom: 70px;
+    padding-right: 50px;
 
     font-family: "IBM Plex Sans", sans-serif;
     font-style: normal;
@@ -74,20 +94,28 @@
     font-size: 16px;
     line-height: 50px;
     color: $colorBlack;
+    border: 1px solid $colorGreen;
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
+
     transition: all 0.3s;
 
-    background-image: url(../images/icongreen40.png);
+    background-image: url(../images/greenqua.svg);
     background-size: contain;
     background-position: right;
     background-repeat: no-repeat;
-    border: 1px solid $colorGreen;
 
     &:hover {
       background-color: $colorGreen;
       color: $colorWhite;
+    }
+
+    @include onTablet {
+      height: 70px;
+      width: 270px;
+      margin-bottom: 0;
+      line-height: 70px;
     }
 
     @include onDesktop {
