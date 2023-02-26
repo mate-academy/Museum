@@ -4,7 +4,7 @@
   background-image: url(/images/heroSection.jpg);
   background-position: top right;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100% 300px;
 
   @include onTablet {
     background-size: 374px 384px;
@@ -58,10 +58,11 @@
     font-weight: 700;
     font-size: 14px;
     line-height: 100%;
+    text-transform: uppercase;
 
     color: $colorGray;
 
-    text-transform: uppercase;
+    visibility: hidden;
 
     &::after {
       display: block;
@@ -74,6 +75,14 @@
       right: 150%;
 
       background-color: $colorGray;
+    }
+
+    @include onTablet {
+      visibility: hidden;
+    }
+
+    @include onDesktop {
+      visibility: visible;
     }
   }
 }
