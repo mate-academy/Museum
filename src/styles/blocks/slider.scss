@@ -1,0 +1,78 @@
+.slider {
+  display: flex;
+  width: 280px;
+
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include onTablet {
+    width: 690px;
+    margin: 0 auto 32px;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__slide {
+    margin-right: 16px;
+
+    transform-origin: center center;
+    transform: scale(1);
+    scroll-snap-align: center;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    &:last-child {
+      margin-right: 20px;
+    }
+
+    @include onTablet {
+      margin-right: 20px;
+
+      &:last-child {
+        margin-right: 39px;
+      }
+    }
+  }
+
+  &__photo {
+    width: 280px;
+    height: 410px;
+
+    object-fit: cover;
+    object-position: center;
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    @include circle(9px);
+
+    background-color: #e0e0e0;
+  }
+}
+
+.active {
+  background-color: $c-green;
+}
