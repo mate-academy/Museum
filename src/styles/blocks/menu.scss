@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 5;
+  z-index: 10;
 
   transform: translateY(-100%);
   transition: all 1s;
@@ -18,40 +18,30 @@
   &__content {
     font-family: "Plex", sans-serif;
     color: $color-white;
+    padding: 24px 0 27px;
 
     display: flex;
     flex-direction: column;
 
     @include tablet {
+      margin-left: 20px;
       flex-direction: row;
-      justify-content: center;
-    }
-    padding: 24px 0 27px;
-
-    @include tablet {
-      padding: 40px 0;
-    }
-
-    @include desktop {
-      padding: 40px 0 48px;
+      justify-content: space-around;
     }
   }
 
   &__nav {
     display: flex;
-    justify-content: end;
+    justify-content: center;
     padding: 27px 0 24px;
+  }
 
+  &__span {
     border-bottom: 1px solid $color-white-05;
 
     @include tablet {
-      padding: 27px 38px;
-      border-bottom: 0;
       border-right: 1px solid $color-white-05;
-    }
-
-    @include desktop {
-      padding: 40px 102px;
+      margin: 0 10px;
     }
   }
 
@@ -97,15 +87,12 @@
     font-weight: 400;
     font-size: rem(14px);
     line-height: rem(21px);
+    margin-top: 24px;
+    align-self: center;
 
     @include tablet {
       display: flex;
-      align-items: end;
-      padding-left: 38px;
-    }
-
-    @include desktop {
-      padding-left: 102px;
+      margin-top: 0;
     }
 
   }
@@ -131,7 +118,12 @@
 
   &__weekend {
     min-width: 122px;
-    max-width: 170px;
+    max-width: 280px;
+    align-self: end;
+
+    @include tablet {
+      max-width: 170px;
+    }
   }
 
 }
