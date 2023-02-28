@@ -1,0 +1,148 @@
+.menu {
+  position: fixed;
+  top: 33px;
+  left: 23px;
+  color: #fff;
+  z-index: 1;
+
+  @include onTablet {
+    top: 45px;
+    left: 40px;
+  }
+
+  @include onDesktop {
+    left: 58px;
+  }
+
+  &__span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    margin-bottom: 3px;
+    position: relative;
+
+    background-color: #0f0e08;
+    z-index: 1;
+    transition: transform 0.3s,
+      background-color 0.3s,
+      opacity 0.3s ease;
+
+    &:nth-last-child(2) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 27px 20px;
+
+    background-color: #1a5a4c;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    @include onTablet {
+      display: flex;
+      height: 225px;
+      padding: 40px;
+    }
+
+    @include onDesktop {
+      height: 233px;
+      padding-bottom: 48px;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 18px;
+    height: 12px;
+    margin: 0;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+
+    &:checked ~ .menu__span {
+      opacity: 1;
+      transform: rotate(45deg) translate(3px, 3px);
+      background-color: #fff;
+    }
+
+    &:checked ~ .menu__span:nth-last-child(3) {
+      opacity: 0;
+      transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    &:checked ~ .menu__span:nth-last-child(2) {
+      transform: rotate(-45deg) translate(4px, -4px);
+    }
+
+    &:checked ~ .menu__nav {
+      transform: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 0 24px 52px;
+    list-style-type: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    & > :nth-child(2n + 1) {
+      margin-right: 33px;
+    }
+
+    @include onTablet {
+      padding: 0 68px 0 57px;
+
+      border-bottom: 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.5);
+
+      & > :nth-child(2n + 1) {
+        margin-right: 25px;
+      }
+    }
+
+    @include onDesktop {
+      padding: 0 132px 0 127px;
+
+      & > :nth-child(2n + 1) {
+        margin-right: 71px;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    & > :not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+    @include onDesktop {
+      & > :not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: #fff;
+    text-decoration: none;
+
+    @include onDesktop {
+      font-size: 22px;
+    }
+  }
+}
