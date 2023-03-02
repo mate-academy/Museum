@@ -1,5 +1,5 @@
 .header {
-  height: 100vh;
+  height: 485px;
 
   background-image: url(/images/heroSection.jpg);
   background-position: top right;
@@ -7,11 +7,66 @@
   background-size: 100% 300px;
 
   @include onTablet {
+    height: 384px;
     background-size: 374px 384px;
   }
 
   @include onDesktop {
+    height: 655px;
     background-size: 725px 655px;
+  }
+
+  &__top-actions {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    justify-items: center;
+    align-items: center;
+
+    padding-top: 8px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 90px);
+      column-gap: 30px;
+
+      grid-column: 1 / 7;
+
+      padding-top: 15px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 70px);
+      column-gap: 30px;
+
+      grid-column: 1 / 13;
+
+      padding-top: 15px;
+    }
+  }
+
+  &__logo {
+
+    @include onTablet {
+      grid-column: 4 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__logo-image {
+    display: block;
+    height: 61px;
+
+    @include onTablet {
+      height: 72px;
+    }
+
+    @include onDesktop {
+      height: 72px;
+    }
   }
 
   &__title {
