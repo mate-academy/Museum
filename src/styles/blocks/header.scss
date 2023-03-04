@@ -1,0 +1,190 @@
+.header {
+
+  &__background {
+    min-height: 300px;
+    background-image: url(../images/background/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      background-size: 50% 100%;
+      background-position: right center;
+      min-height: 384px;
+      margin-bottom: 88px;
+    }
+
+    @include onDesktop {
+      background-size: 58% 100%;
+      min-height: 655px;
+      margin-bottom: 200px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 9px;
+    width: 100%;
+
+    @include onTablet {
+      padding-top: 15px;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 119px;
+    }
+
+    &--logo {
+      margin: 0 auto;
+    }
+
+    &--link {
+      cursor: pointer;
+      text-decoration: none;
+      
+      &--logo {
+        margin-left: auto;
+        
+        @include onTablet {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  &__title {
+    @extend %Montserrat;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-weight: 700;
+      font-size: 54px;
+      line-height: 120%;
+      margin-bottom: 38px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    max-width: 350px;
+    margin: 0 auto;
+    text-decoration: none;
+    margin-bottom: 70px;
+    transition: all 0.5s ease-in-out;
+
+    @include onTablet {
+      width: 270px;
+      margin: 0;
+    }
+
+    @include onDesktop {
+      margin-left: auto;
+    }
+
+    &:hover {
+      scale: 1.1;
+      background-color: $colorGreen;
+      @include BtnTicketsHover;
+    }
+
+    &--tickets {
+      box-sizing: border-box;
+      display: flex;
+      height: 50px;
+      width: 100%;
+      border: 1px solid $colorGreen;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color: $colorBlack;
+      text-transform: uppercase;
+
+      @include onTablet {
+        height: 70px;
+      }
+    }
+
+    &--arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      width: 50px;
+      height: 50px;
+      background-color: $colorGreen;
+      fill: #d7dde3;
+
+      @include onTablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  &__blockTablet {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__blockMobile {
+    
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__decorLine {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      position: relative;
+      padding-bottom: 70px;
+    }
+
+    &--events {
+
+      @include onDesktop {
+        position: absolute;
+        display: flex;
+        font-weight: 700;
+        font-size: 14px;
+        color: #687480;
+        text-transform: uppercase;
+        align-items: center;
+        transform: rotate(-90deg);
+        transform-origin: bottom left;
+        bottom: 0;
+  
+        &::before {
+          content: "";
+          height: 1px;
+          width: 70px;
+          background-color: $colorGreen;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
