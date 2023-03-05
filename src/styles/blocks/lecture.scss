@@ -1,64 +1,65 @@
 .lecture {
   margin-top: 60px;
-  height: 293px;
+
+  height: 210px;
 
   background-image: url(/images/LectureSection.jpg);
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 210px;
 
   @include onTablet {
-    height: 510px;
+    margin-top: 112px;
 
-    background-size: 100% 390px;
+    height: 390px;
   }
 
   @include onDesktop {
-    height: 655px;
-    background-size: 100% 550px;
+    margin-top: 104px;
+
+    height: 550px;
   }
 
   &__content {
-    position: relative;
-    top: 215px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 150px);
 
     padding: 20px 0;
+    width: 280px;
 
     background-color: $colorWhite;
-    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+    box-shadow: $lectureShadow;
 
     @include onTablet {
       width: 570px;
-      padding: 45px 50px;
-      top: 365px;
+      padding: 45px 55px 50px;
 
-      transform: translateX(10%);
+      transform: translate(-50%, 300px);
     }
 
     @include onDesktop {
-      grid-column: 4 / 10;
+      width: 570px;
+      padding: 45px 100px 50px;
 
-      padding: 45px 50px;
-
-      position: relative;
-      top: 500px;
+      transform: translate(-50%, 450px);
     }
   }
 
   &__additional {
     display: flex;
-    gap: 23px;
     justify-content: center;
     align-items: center;
+    gap: 24px;
 
     @include onTablet {
       justify-content: flex-start;
-      gap: 186px;
+      gap: 166px;
     }
 
     @include onDesktop {
       justify-content: flex-start;
-      gap: 146px;
+      gap: 166px;
     }
   }
 
@@ -68,7 +69,16 @@
     line-height: 100%;
 
     text-transform: uppercase;
+
     color: $colorGray;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+
+    @include onDesktop {
+      font-size: 14px;
+    }
   }
 
   &__date {
@@ -77,6 +87,14 @@
     line-height: 150%;
 
     color: $colorGreen;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+    
+    @include onDesktop {
+      font-size: 14px;
+    }
   }
 
   &__title {
@@ -87,6 +105,7 @@
     line-height: 100%;
 
     text-align: center;
+
     color: $colorBlackSecond;
 
     @include onTablet {
@@ -95,7 +114,6 @@
     }
 
     @include onDesktop {
-      margin-top: 16px;
       font-size: 36px;
       text-align: left;
     }

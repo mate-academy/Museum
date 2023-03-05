@@ -8,12 +8,12 @@
 
   @include onTablet {
     height: 384px;
-    background-size: 374px 384px;
+    background-size: contain;
   }
 
   @include onDesktop {
     height: 655px;
-    background-size: 725px 655px;
+    background-size: contain;
   }
 
   &__top-actions {
@@ -25,34 +25,15 @@
     padding-top: 8px;
 
     @include onTablet {
-      display: grid;
-      grid-template-columns: repeat(6, 90px);
-      column-gap: 30px;
-
       grid-column: 1 / 7;
 
       padding-top: 15px;
     }
 
     @include onDesktop {
-      display: grid;
-      grid-template-columns: repeat(12, 70px);
-      column-gap: 30px;
-
       grid-column: 1 / 13;
 
       padding-top: 15px;
-    }
-  }
-
-  &__logo {
-
-    @include onTablet {
-      grid-column: 4 / 6;
-    }
-
-    @include onDesktop {
-      grid-column: 6 / 8;
     }
   }
 
@@ -105,8 +86,10 @@
   }
 
   &__item {
-    position: absolute;
-    top: 535px;
+    grid-column: 1 / 1;
+    
+    position: relative;
+    left: -24px;
 
     transform: rotate(-90deg);
 
@@ -130,10 +113,6 @@
       right: 150%;
 
       background-color: $colorGray;
-    }
-
-    @include onTablet {
-      visibility: hidden;
     }
 
     @include onDesktop {

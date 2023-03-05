@@ -12,36 +12,39 @@
   background-color: $colorGreen;
   transition: all $animationDuration;
 
-  &:target {
-    transform: translateY(0);
+  &::after {
+    position: absolute;
+    top: 400px;
+
+    content: "";
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+
+    background-color: $menuDarkColor;
+    opacity: 0.5;
+
+    &::after:target {
+      transform: translateY(100%);
+    }
+
+    @include onTablet {
+      top: 225px;
+    }
+
+    @include onDesktop {
+      top: 235px;
+    }
   }
 
-  // &::after {
-  //   position: absolute;
-  //   top: 400px;
-
-  //   display: block;
-  //   content: "";
-  //   width: 100vw;
-  //   height: 100vh;
-
-  //   // transform: translateY(-100%);
-
-  //   background-color: $menuDarkColor;
-  //   opacity: 0.5;
-
-  //   &::after:target {
-  //     transform: translateY(100%);
-  //   }
-
-  //   @include onTablet {
-  //     top: 225px;
-  //   }
-
-  //   @include onDesktop {
-  //     top: 235px;
-  //   }
-  // }
+  &:target {
+    transform: translateY(0);
+    
+    &::after {
+      display: block;
+    }
+  }
 
   @include onTablet {
     height: 225px;
@@ -104,6 +107,7 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    flex-grow: 0;
     margin-left: 28px;
 
     @include onDesktop {
@@ -202,12 +206,12 @@
 
     @include onTablet {
       margin-top: 40px;
-      max-width: 131px;
+      max-width: 135px;
     }
 
     @include onDesktop {
       margin-top: 40px;
-      max-width: 131px;
+      max-width: 170px;
     }
   }
 }
