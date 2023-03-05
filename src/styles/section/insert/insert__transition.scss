@@ -1,0 +1,61 @@
+@import "../../utils/animation/animation";
+
+.insert {
+  margin-bottom: 100px;
+  &__transition {
+    position: relative;
+
+    &__picture {
+      max-width: 100%;
+      width: 100vw;
+      margin: 0 auto;
+      object-position: center;
+    }
+
+    &__text {
+      position: absolute;
+      left: calc(50% - 570px / 2);
+      bottom: -150px;
+      width: 570px;
+      padding: 45px 100px;
+      background-color: white;
+      box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+      transition: 1s;
+
+      &:hover {
+        transform: scale(0.9, 0.7);
+      }
+    }
+  }
+}
+
+.lecture {
+  display: flex;
+  justify-content: space-between;
+}
+
+@include onIpadMini {
+  .insert__transition__picture {
+    max-width: 100%;
+  }
+
+  .insert__transition__text {
+    left: calc(50% - 450px / 2);
+    width: 450px;
+  }
+}
+
+@include forGallery {
+  .insert__transition__picture {
+    height: 210px;
+  }
+
+  .insert__transition__text {
+    padding: 25px 20px;
+    left: calc(50% - 280px / 2);
+    bottom: -100px;
+    width: 280px;
+    height: 150px;
+  }
+}
