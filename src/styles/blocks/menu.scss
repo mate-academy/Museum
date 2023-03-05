@@ -1,0 +1,127 @@
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transform: translateX(-100%);
+
+  &:target {
+    transform: translateX(0);
+  }
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: 27px 20px;
+    background-color: $color-green;
+    
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 39px 34px 40px;
+    }
+
+    @include desktop {
+      padding: 39px 155px 40px 55px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    @include tablet {
+      justify-content: flex-start;
+      margin-bottom: 0;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    background: no-repeat center url("../images/icons/cross.svg");
+
+    @include tablet {
+      margin-right: calc((100vw - 616px) / 4);
+    }
+
+    @include desktop {
+      margin-right: calc((100vw - 974px) / 3);
+    }
+  }
+
+  &__line {
+    margin-bottom: 24px;
+    width: 100%;
+    height: 1px;
+    background-color: $color-white;
+    opacity: 0.5;
+
+    
+    @include tablet {
+      display: none;
+    }
+
+    @include header {
+      display: block;
+      margin-bottom: 0;
+      width: 1px;
+      height: 100%;
+    }
+  }
+
+  &__container {
+    font-size: $size-main;
+    line-height: $lineheight-bigger;
+    font-weight: $weight-main;
+    color: $color-white;
+  }
+  
+  &__subtitle {
+    margin-bottom: 20px;
+    line-height: 20px;
+  }
+
+  &__shedule {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include tablet {
+      flex-direction: row;
+      gap: calc((100vw - 616px) / 4);
+    }
+
+    @include desktop {
+      gap: 30px;
+    }
+  }
+
+  &__text {
+    &--1 {
+      @include tablet {
+        width: 158px;
+      }
+    }
+
+    &--2 {
+      @include tablet {
+        width: 144px;
+      }
+    }
+  }
+
+  &__time {
+    font-weight: $weight-major;
+  }
+
+  &__background {
+    height: 100%;
+    background-color: #18181a;
+    opacity: 0.5;
+  }
+}
