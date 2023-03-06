@@ -1,34 +1,76 @@
 .button {
   border: 1px solid $color-green;
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 
   align-items: center;
-  height: 50px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+
+  font-family: "Plex", sans-serif;
+  font-weight: 500;
+  font-size: rem(16px);
+  line-height: rem(16px);
+
+  &:active {
+    color: $color-silver;
+  }
 
   @include tablet {
     max-width: 270px;
     height: 70px;
   }
 
-  &__name {
-    flex: 1 1 200px;
-
-    text-align: center;
-    color: $text-color-fe8;
-    background-color: #fff;
+  &::after {
+    content: "квитки";
+    text-transform: uppercase;
+    position: absolute;
+    right: 50%;
   }
 
   &__img {
     width: 50px;
+    height: 50px;
 
     @include tablet {
       width: 70px;
+      height: 70px;
     }
 
-    height: 100%;
     background-color: $color-green;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 50%;
+      right: 50%;
+      transform: translate(50%, 50%);
+      background-image: url("../images/icons/btn.svg");
+      background-repeat: no-repeat;
+      width: 8px;
+      height: 12px;
+    }
+
+    &:hover {
+      background-color: rgb(3, 83, 65);
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
+
+    &--orange {
+      background-color: $color-orange;
+
+      &:hover {
+        background-color: rgb(214, 41, 6);
+      }
+    }
   }
 }

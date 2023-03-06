@@ -1,4 +1,10 @@
 .grid {
+  @include mobile {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+  }
+
   @include tablet {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -13,8 +19,10 @@
 
   @for $start from 1 through 13 {
     @for $end from $start through 13 {
-      &--#{$start}-#{$end} {
-        grid-column: #{$start} / #{$end};
+      @include mobile {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end};
+        }
       }
 
       @include tablet {
