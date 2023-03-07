@@ -4,3 +4,35 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onMobile {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin square ($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin hover ($properties...) {
+  transition: all 0.3s;
+  &:hover {
+    @each $property, $value in $properties {
+      #{$property}: #{$value};
+    }
+  }
+}
