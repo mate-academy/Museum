@@ -6,14 +6,13 @@
   &__main-block {
     @include onTablet() {
       display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
       column-gap: 30px;
     }
 
     @include onDesktop() {
       display: grid;
-      grid-template-columns: 1fr 2fr 2fr;
-      column-gap: 30px;
+      justify-content: start;
+      column-gap: 0;
     }
   }
 
@@ -31,6 +30,10 @@
       gap: 64px;
       padding-bottom: 0;
     }
+
+    @include onDesktop() {
+      margin-right: 130px;
+    }
   }
 
   &__social {
@@ -43,12 +46,32 @@
   }
 
   &__content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 20px;
+    display: flex;
+    gap: 20px;
+    width: 100%;
 
     @include onTablet() {
+      width: 460px;
+      justify-content: space-between;
       padding-bottom: 64px;
+    }
+
+    @include onDesktop() {
+      width: 370px;
+      margin-right: 65px;
+    }
+  }
+
+  &__timetable,
+  &__contacts {
+    width: 170px;
+
+    @include onTablet() {
+      width: 220px;
+    }
+
+    @include onDesktop() {
+      width: 170px;
     }
   }
 
@@ -65,6 +88,10 @@
 
   &__time {
     font-weight: 600;
+  }
+
+  &__day {
+    font-weight: 400;
   }
 
   &__days-off {
@@ -89,42 +116,44 @@
   }
 
   &__links-wrapper {
-    &::before {
-      content: "";
-      display: block;
-      min-width: 280px;
-      height: 1px;
-
-      background-color: $green-color;
-      opacity: 0.5;
-      margin-bottom: 40px;
-
-      @include onDesktop() {
-        display: none;
-        transform: rotate(-90deg);
-      }
-    }
+    border-top: 1px solid rgba($green-color, 0.5);
+    padding-top: 40px;
+    width: 100%;
 
     @include onTablet() {
+      width: 460px;
       grid-column: 2 / 2;
     }
 
     @include onDesktop() {
+      height: 260px;
+      border-left: 1px solid rgba($green-color, 0.5);
+      border-top: none;
+      padding-top: 0;
+      padding-left: 65px;
       grid-column: 3 /3;
     }
   }
 
   &__useful-links {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 20px;
 
+
+    @include onTablet() {
+      width: 460px;
+      justify-content: space-between;
+    }
   }
 
   &__links-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @include onTablet() {
+      width: 220px;
+    }
   }
 
   &__nav-link {

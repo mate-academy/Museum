@@ -36,28 +36,38 @@
     @include onTabletAndDesktop() {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      justify-items: start;
+      justify-content: start;
     }
 
     @include onTablet() {
-      column-gap: 77px;
+      column-gap: 38px;
     }
 
     @include onDesktop() {
-      column-gap: 205px;
+      column-gap: 102px;
     }
   }
 
   &__top {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid rgba($text-on-dark, 0.5);
+    padding-bottom: 24px;
 
     @include onTablet() {
       gap: 38px;
+      padding-right: 38px;
     }
 
     @include onDesktop() {
       gap: 102px;
+      padding-right: 102px;
+    }
+
+    @include onTabletAndDesktop() {
+      padding-bottom: 0;
+      border-bottom: none;
+      border-right: 1px solid rgba($text-on-dark, 0.5);
     }
   }
 
@@ -83,33 +93,12 @@
   }
 
   &__timetable {
-    position: relative;
-    padding-top: 24px;
-
     @include onTabletAndDesktop() {
-      padding-top: 0;
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(144px, 170px));
+      column-gap: 30px;
     }
 
-    &::before {
-      content: "";
-      position: absolute;
-      display: block;
-      width: 100%;
-      height: 1px;
-
-      background-color: $text-on-dark;
-      opacity: 0.5;
-      margin-bottom: 24px;
-
-      @include onTabletAndDesktop() {
-        transform: rotate(-90deg);
-        transform-origin: left;
-        width: 145px;
-        margin-bottom: 0;
-        bottom: 0;
-      }
-    }
   }
 
   &__title {
@@ -126,5 +115,9 @@
 
   &__days-off {
     padding-top: 16px;
+
+    @include onTabletAndDesktop() {
+      padding-top: 37px;
+    }
   }
 }
