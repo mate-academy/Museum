@@ -1,0 +1,101 @@
+.events {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 60px;
+
+    @include onTablet() {
+      padding-bottom: 64px;
+    }
+
+    @include onDesktop() {
+      gap: 104px;
+    }
+  }
+
+  &__item {
+    @include onDesktop() {
+      display: flex;
+      align-items: center;
+      gap: 130px;
+    }
+  }
+
+  &__image {
+    padding-bottom: 20px;
+    width: 100%;
+
+    @include onTablet() {
+      padding-bottom: 40px;
+    }
+
+    @include onDesktop() {
+      width: 670px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include onTablet() {
+      gap: 15px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+
+    @include onTabletAndDesktop() {
+      justify-content: flex-start;
+      gap: 15px;
+      padding-bottom: 15px;
+    }
+  }
+
+  &__type {
+    font-family: "IBM Plex Sans", serif;
+    color: $events-type-color;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  &__date {
+    font-family: "IBM Plex Sans", serif;
+    font-weight: 700;
+    color: $green-color;
+  }
+
+  &__name {
+    font-size: 28px;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: "";
+      display: block;
+
+      transform: translate(-50% -50%);
+      width: 10px;
+      height: 10px;
+      background-color: $aftel-elements-color;
+      margin-left: 15px;
+    }
+  }
+
+  &__description {
+    font-family: "IBM Plex Sans", serif;
+    font-weight: 300;
+    color: $text-description-color;
+    line-height: 150%;
+
+    @include onTablet() {
+      max-width: 460px;
+    }
+  }
+}

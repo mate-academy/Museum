@@ -1,0 +1,150 @@
+.footer {
+  padding: 50px 0;
+  font-size: 14px;
+  font-family: "IBM Plex Sans", sans-serif;
+
+  &__main-block {
+    @include onTablet() {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      column-gap: 30px;
+    }
+
+    @include onDesktop() {
+      display: grid;
+      grid-template-columns: 1fr 2fr 2fr;
+      column-gap: 30px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+
+    @include onTabletAndDesktop() {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 64px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 20px;
+
+    @include onTabletAndDesktop() {
+      gap: 32px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+
+    @include onTablet() {
+      padding-bottom: 64px;
+    }
+  }
+
+  &__title {
+    line-height: 140.62%;
+    padding-bottom: 20px;
+  }
+
+  &__open-hours,
+  &__days-off,
+  &__adress {
+    line-height: 150%;
+  }
+
+  &__time {
+    font-weight: 600;
+  }
+
+  &__days-off {
+    padding-top: 14px;
+  }
+
+  &__go-up {
+    position: relative;
+    left: calc(100% - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid #1a5a4c;
+    border-radius: 50%;
+
+    @include onTabletAndDesktop() {
+      display: none;
+    }
+  }
+
+  &__links-wrapper {
+    &::before {
+      content: "";
+      display: block;
+      min-width: 280px;
+      height: 1px;
+
+      background-color: $green-color;
+      opacity: 0.5;
+      margin-bottom: 40px;
+
+      @include onDesktop() {
+        display: none;
+        transform: rotate(-90deg);
+      }
+    }
+
+    @include onTablet() {
+      grid-column: 2 / 2;
+    }
+
+    @include onDesktop() {
+      grid-column: 3 /3;
+    }
+  }
+
+  &__useful-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+  }
+
+  &__links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__nav-link {
+    color: $accent-text-color;
+  }
+
+  &__copyrights-block {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 140.62%;
+    padding-top: 80px;
+
+    @include onTabletAndDesktop() {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: 120px;
+    }
+  }
+}

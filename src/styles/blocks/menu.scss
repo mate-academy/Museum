@@ -1,0 +1,130 @@
+.menu {
+  font-size: 14px;
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: rgba(0, 0, 0, 0.75);
+  height: 100vh;
+  color: $text-on-dark;
+  overflow-y: auto;
+
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+
+  &__container {
+    padding: 27px 0;
+    background-color: $green-color;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    @include onTabletAndDesktop() {
+      padding: 39px 0;
+    }
+  }
+
+  &:target {
+    transform: translateX(0);
+
+    .menu__container {
+      transform: translateX(0);
+    }
+  }
+
+  &__content {
+    @include onTabletAndDesktop() {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: start;
+    }
+
+    @include onTablet() {
+      column-gap: 77px;
+    }
+
+    @include onDesktop() {
+      column-gap: 205px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+
+    @include onTablet() {
+      gap: 38px;
+    }
+
+    @include onDesktop() {
+      gap: 102px;
+    }
+  }
+
+  &__useful-links {
+    display: flex;
+    gap: 28px;
+  }
+
+  &__links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__nav-link {
+    font-weight: 500;
+    font-size: 16px;
+    color: $text-on-dark;
+
+    @include onDesktop() {
+      font-size: 22px;
+    }
+  }
+
+  &__timetable {
+    position: relative;
+    padding-top: 24px;
+
+    @include onTabletAndDesktop() {
+      padding-top: 0;
+      display: flex;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 1px;
+
+      background-color: $text-on-dark;
+      opacity: 0.5;
+      margin-bottom: 24px;
+
+      @include onTabletAndDesktop() {
+        transform: rotate(-90deg);
+        transform-origin: left;
+        width: 145px;
+        margin-bottom: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  &__title {
+    padding-top: 24px;
+
+    @include onTabletAndDesktop() {
+      padding-top: 0;
+    }
+  }
+
+  &__open-hours {
+    padding-top: 20px;
+  }
+
+  &__days-off {
+    padding-top: 16px;
+  }
+}
