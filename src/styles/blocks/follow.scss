@@ -56,11 +56,17 @@
     border: none;
     outline: none;
     padding-left: 24px;
+    color: $accent-text-color;
 
     &::placeholder {
       color: $events-type-color;
       font-family: "Montserrat", sans-serif;
       font-size: 14px;
+    }
+
+    &:hover::placeholder,
+    &:focus::placeholder {
+      color: $accent-text-color;
     }
 
     @include onTablet() {
@@ -80,15 +86,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
     background-color: $aftel-elements-color;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 
     @include onTabletAndDesktop() {
-      height: 70px;
-      width: 70px;
+      min-width: 70px;
+    }
+
+    &:hover {
+      background-color: $send-form-color;
     }
   }
 }
