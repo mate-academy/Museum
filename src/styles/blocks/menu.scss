@@ -1,37 +1,51 @@
 .menu {
   background-color: $colorMainGreen;
-  height: 100vh;
-  padding: 9px 0 0;
 
-  @include onTablet {
-    padding: 15px 0 0;
-  }
+  &__content {
+    padding: 27px 0;
 
-  &__list {
-    list-style: none;
-    height: 100%;
-    margin-top: 60px;
-  }
-
-  &__item {
-    &:not(:last-child) {
-      margin-bottom: 24px;
+    @include onTablet {
+      display: grid;
+      grid-template-areas: "menu__nav nav menu__line timetable";
+      gap: 38px;
+      padding: 40px 0;
     }
   }
 
-  &__link {
-    display: inline-block;
-    border-bottom: 1px solid transparent;
-    text-decoration: none;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 150%;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: $colorDark;
+  &__cross {
+    padding: 6px;
+    width: min-content;
 
-    @include hover (color #fff);
+    @include onTablet {
+      margin-right: 18px;
+    }
 
+    @include onDesktop {
+      margin-right: 72px;
+    }
+
+    &-icon {
+      display: block;
+      background-image: url(../images/icons&logo/cross.svg);
+      width: 12px;
+      height: 12px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  &__line {
+    margin: 24px 0;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      height: 145px;
+      width: 1px;
+      display: block;
+      margin: 0;
+    }
   }
 }
