@@ -1,4 +1,8 @@
 .events {
+  &__higlited {
+    margin-top: 130px;
+  }
+
   &__list {
     display: flex;
     flex-direction: column;
@@ -19,41 +23,58 @@
 
     &--highlighted-event {
       position: relative;
+      display: block;
+      align-items: center;
+      width: 100%;
+      right: 0;
 
       @include onDesktop() {
-        display: block  ;
+        display: block;
         align-items: center;
-        gap: 130px;
-        width: 100vw;
-        right: 0;
       }
 
     }
   }
 
+  &__image-container {
+    overflow: hidden;
+  }
+
   &__image {
     padding-bottom: 20px;
     width: 100%;
+    min-height: 210px;
+    transition: transform $transition-timing ease-in-out;
+
+    &:hover {
+      @extend %hover-increase;
+    }
 
     @include onTablet() {
       padding-bottom: 40px;
+      min-height: 520px;
     }
 
     @include onDesktop() {
       width: 670px;
       padding-bottom: 0;
+      height: 520px;
     }
 
     &--full-screen {
       position: relative;
-      left: -20px;
-      width: 100vw;
+
+      width: 100%;
+      min-height: 210px;
       z-index: 0;
 
-      // @include onDesktop() {
-      //   width: calc(100% - 40px);
-      //   left: 0;
-      // }
+      @include onTablet() {
+        height: 390px;
+      }
+
+      @include onDesktop() {
+        height: 550px;
+      }
     }
   }
 
@@ -73,9 +94,13 @@
       gap: 20px;
       max-width: 570px;
       margin: 0 auto;
-      padding-bottom: 20px;
+      padding: 24px 0 20px;
       background-color: #fff;
       box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+      @include onTabletAndDesktop() {
+        padding: 45px 55px 50px;
+      }
     }
   }
 
@@ -86,13 +111,18 @@
     @include onTabletAndDesktop() {
       justify-content: flex-start;
       gap: 15px;
-      padding-bottom: 15px;
     }
 
     &--highlighted-event {
       width: 250px;
       margin: 0 auto;
       padding: 20px 0 0;
+
+      @include onTabletAndDesktop() {
+        width: 400px;
+        margin: 0;
+        justify-content: space-between;
+      }
     }
   }
 
@@ -136,6 +166,7 @@
 
       @include onTabletAndDesktop() {
         text-align: left;
+        justify-content: flex-start;
       }
     }
   }

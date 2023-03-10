@@ -1,12 +1,20 @@
 .section {
-  padding-bottom: 100px;
+  padding: 50px 0;
+
+  &.events {
+    padding-bottom: 0;
+  }
+
+  &.gallery {
+    padding-top: 0;
+  }
 
   @include onTablet() {
-    padding-bottom: 88px;
+    padding: 44px 0;
   }
 
   @include onDesktop() {
-    padding-bottom: 200px;
+    padding: 100px 0;
   }
 
   &:last-of-type {
@@ -28,11 +36,24 @@
 
     @include onTabletAndDesktop() {
       font-size: 48px;
+      text-align: left;
     }
 
     &--follow {
       color: $text-on-dark;
       margin-bottom: 20px;
+    }
+  }
+
+  &--reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+
+    &.active {
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 }
