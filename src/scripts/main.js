@@ -15,3 +15,11 @@ form.addEventListener('submit', (event) => {
 
   form.reset();
 });
+
+// eslint-disable-next-line
+new Swiper('.slider__slider', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
