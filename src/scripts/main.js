@@ -18,6 +18,7 @@ form.addEventListener('submit', (event) => {
 
 // eslint-disable-next-line
 new Swiper('.slider__slider', {
+  loop: true,
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
