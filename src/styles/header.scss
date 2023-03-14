@@ -1,0 +1,181 @@
+.header {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    padding-top: $headerTopShift;
+
+    @include onTablet {
+      height: 384px;
+      padding-top: 45px;
+    }
+
+    @include onDesktop {
+      height: 655px;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    z-index: -1;
+    display: flex;
+    height: 300px;
+    margin: #{-$headerTopShift} -20px 20px;
+    
+    background-image: url(../images/header/header1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 374px;
+      height: 384px;
+      margin: 0;
+      background-image: url(../images/header/header2.jpg);
+    }
+
+    @include onDesktop {
+      width: 725px;
+      height: 655px;
+
+      background-image: url(../images/header/header3.jpg);
+    }
+  }
+
+  &__logo {
+    margin: 9px auto 0;
+  }
+
+  &__menu-opener {
+    position: absolute;
+    top: 33px;
+    left: 23px;
+
+    display: block;
+    width: 18px;
+    height: 12px;
+
+    background-image: url(../images/header/menu.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:hover {
+      background-image: url(../images/header/menu_hover.svg);
+    }
+
+    @include onTablet {
+      position: static;
+      margin-bottom: 70px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 149px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #000;
+
+    @include onTablet {
+      margin-bottom: 38px;
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-bottom: 89px;
+      font-size: 72px;
+    }
+  }
+
+  &__tickets-box {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    align-items: center;
+    box-sizing: border-box;
+    height: 50px;
+    border: 1px solid #1a5a4c;
+
+    @include onTablet {
+      grid-template-columns: 1fr 70px;
+      height: 70px;
+      max-width: 270px;
+    }
+  }
+
+  &__tickets-text {
+    justify-self: center;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: #0f0e08;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    height: 48px;
+    width: 50px;
+    background-color: #1a5a4c;
+    transition: all 0.3s;
+
+    @include onTablet {
+      height: 68px;
+      width: 70px;
+    }
+
+    &:hover {
+      background-color: #326a5d;
+      cursor: pointer;
+    }
+  }
+
+  &__events {
+    position: relative;
+    
+    display: none;
+    width: max-content;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+    text-decoration: none;
+    transform: rotate(-90deg) translate(-40px, -60px);
+    transition: all 0.3s;
+    
+    &::before {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 1px;
+      margin-right: 20px;
+      background-color: #1a5a4c;
+      transform: translate(0, 7px);
+    }
+
+    @include onDesktop {
+      display: flex;
+    }
+
+    &:hover {
+      color: #9eaab5;
+    }
+  }
+}
