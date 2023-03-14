@@ -1,7 +1,12 @@
 .button {
   position: relative;
 
-  width: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+  width: 280px;
   height: 50px;
 
   border: 1px solid $green-color;
@@ -10,30 +15,40 @@
   &::after {
     content: "";
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    left: 230px;
 
     width: 50px;
-    
+    height: 50px;
+
     background-image: url(../images/Vector.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-color: $green-color;
 
     @include onTablet {
+      left: 199px;
       width: 70px;
+      height: 70px;
     }
   }
 
-  &--text {
-    font-family: "IBM Plex Sans", sans-serif;
+  @include onDesktop {
+    margin-left: 130px;
+  }
+
+  &__positional {
+    margin: 0 auto;
+  }
+
+  &__text {
     font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
     color: $text-color;
   }
 
   @include onTablet {
-    width: 250px;
+    width: 200px;
     height: 70px;
   }
 }

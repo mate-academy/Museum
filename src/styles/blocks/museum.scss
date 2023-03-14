@@ -2,16 +2,20 @@
 @import "../utils/mixins";
 
 .museum {
-  padding: 20px;
-  
+  padding: 0 50px;
+
   @include onTablet {
     position: absolute;
     top: 127px;
+
+    padding: 0 40px;
   }
 
   @include onDesktop {
     position: absolute;
     top: 200px;
+
+    padding: 0 55px;
   }
 
   &__title {
@@ -22,7 +26,6 @@
 
     @include onTablet {
       margin-bottom: 40px;
-      width: 340px;
       font-size: 50px;
       line-height: 60px;
       text-align: left;
@@ -35,25 +38,32 @@
     }
   }
 
+  &__positional {
+    display: flex;
+    margin: 50px -55px;
+  }
+
+  &__positional--button {
+    margin: 0 auto;
+  }
+
   &__events {
-    margin-top: 80px;
+    display: flex;
+    align-items: center;
 
-    &--text {
-      display: inline-block;
-      // margin-bottom: 20px;
+    gap: 20px;
+    transform: rotate(-90deg);
+    opacity: 0;
 
-      font-family: "IBM Plex Sans", sans-serif;
-      font-style: bold;
-      font-size: 14px;
-      color: $grey-color;
-
-      transform: rotate(-90deg);
+    @include onDesktop {
+      opacity: 1;
     }
 
-    &--line {
-      width: 2px;
-      height: 70px;
-      background-color: $green-color;
+    &--text {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 14px;
+      color: $grey-color;
     }
   }
 }
