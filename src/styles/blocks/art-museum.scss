@@ -4,6 +4,21 @@
   justify-content: center;
   align-content: center;
 
+  @include onTablet {
+    flex-grow: 0;
+    margin: 0;
+    display: block;
+  }
+
+  &__icon-menu {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      margin-top: 45px;
+    }
+  }
+
   &__title {
     margin-bottom: 20px;
 
@@ -20,7 +35,8 @@
     color: $c-black;
 
     @include onTablet {
-      margin-top: 127px;
+      width: 340px;
+      margin-top: 70px;
       margin-bottom: 0;
 
       font-size: 54px;
@@ -30,7 +46,8 @@
     }
 
     @include onDesktop {
-      margin-top: 206px;
+      width: 470px;
+      margin-top: 149px;
 
       font-size: 72px;
       line-height: 86px;
@@ -54,7 +71,7 @@
     }
 
     @include onDesktop {
-      justify-self: flex-end;
+      align-self: flex-end;
       margin: 89px 0 0;
     }
   }
@@ -126,5 +143,7 @@
     text-decoration: none;
 
     color: $c-grey;
+
+    @include hover(color, $c-orange);
   }
 }

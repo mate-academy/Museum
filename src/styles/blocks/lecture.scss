@@ -1,51 +1,51 @@
 .lecture {
-  &__photo-container {
-    width: 320px;
-    height: 210px;
-    margin: 0 -20px;
+  height: 210px;
+  padding: 0 20px;
 
-    @include onTablet {
-      width: 100%;
-      height: 390px;
-      margin: 0;
-    }
+  background-image: url(../images/photos/lecture.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
-    @include onDesktop {
-      height: 550px;
-    }
+  @include onTablet {
+    height: 390px;
   }
 
-  &__photo {
-    width: 100%;
-    height: 100%;
+  @include onDesktop {
+    height: 550px;
   }
 
   &__info {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 570px;
+    width: 280px;
     height: 140px;
     padding: 20px 0;
+    margin: 0 auto;
 
-    @include hover(transform, scale(105%) translateY(-40%));
+    --translate-info: 153px;
 
-    cursor: pointer;
+    @include hover(transform, scale(105%) translateY(var(--translate-info)));
 
-    transform: translateY(-40%);
+    transform: translateY(var(--translate-info));
 
     background: $c-white;
     box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
 
     @include onTablet {
+      width: 570px;
       height: 204px;
       margin: 0 auto;
       padding: 45px 0 0 55px;
+
+      --translate-info: 306px;
     }
 
     @include onDesktop {
       padding-left: 100px;
+
+      --translate-info: 448px;
     }
   }
 

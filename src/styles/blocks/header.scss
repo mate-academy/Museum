@@ -1,30 +1,49 @@
 .header {
-  &__bg {
+  @include onTablet {
     display: flex;
-    align-content: center;
-    height: 300px;
+    flex-direction: row-reverse;
+    gap: 20px;
+  }
 
+  @include onDesktop {
+    gap: 30px;
+  }
+
+  &__bg {
+    padding-top: 9px;
+    height: 300px;
     background-image: url(../images/photos/header-bg-mobile.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     @include onTablet {
+      flex-grow: 1;
+      width: 50%;
       height: 384px;
-
       background-image: url(../images/photos/header-bg-tablet.jpg);
     }
 
     @include onDesktop {
       height: 655px;
-
       background-image: url(../images/photos/header-bg-desktop.jpg);
     }
   }
 
-  &__logo {
-    margin: 8px auto 0;
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(50% + 20px);
+  }
 
+  &__icon-menu {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__logo {
     @include onTablet {
       margin: 15px 0 0 78px;
     }
