@@ -126,14 +126,25 @@
     font-size: rem(14px);
     line-height: rem(14px);
     color: $text-color-fe8;
-    border-bottom: 0 solid $color-white;
+    display: inline-block;
 
-    transition: all 0.3s linear;
+    transition: color 0.3s linear;
+
+    &::after {
+      content: "";
+      display: block;
+      border-bottom: 1px solid $color-orange;
+      width: 0;
+      height: 2px;
+
+      transition: width 0.3s linear;
+    }
 
     &:hover {
       color: $color-orange;
-      border-width: 2px;
-      border-color: $color-orange;
+      &::after {
+        width: 100%;
+      }
     }
   }
 
