@@ -1,14 +1,19 @@
 'use strict';
 
-// const menu = document.querySelector('.menu-dimmer');
-
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
-    document.body.classList.add('menu-dimmer--active', 'page__body--with-menu');
+    document.body.classList.add('page__body--with-menu');
+
+    document.querySelector('.menu-dimmer').classList.add(
+      'menu-dimmer--active'
+    );
   } else {
     document.body.classList.remove(
-      'menu-dimmer--active',
       'page__body--with-menu'
+    );
+
+    document.querySelector('.menu-dimmer').classList.remove(
+      'menu-dimmer--active'
     );
   }
 });
