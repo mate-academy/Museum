@@ -1,0 +1,151 @@
+.art-museum {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-content: center;
+
+  @include onTablet {
+    flex-grow: 0;
+    margin: 0;
+    display: block;
+  }
+
+  &__icon-menu {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      margin-top: 45px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+
+    text-align: center;
+    text-decoration: none;
+    text-transform: capitalize;
+
+    color: $c-black;
+
+    @include onTablet {
+      width: 340px;
+      margin-top: 70px;
+      margin-bottom: 0;
+
+      font-size: 54px;
+      line-height: 65px;
+
+      text-align: left;
+    }
+
+    @include onDesktop {
+      width: 470px;
+      margin-top: 149px;
+
+      font-size: 72px;
+      line-height: 86px;
+    }
+  }
+
+  &__tickets {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 280px;
+    height: 50px;
+    margin: 0 auto;
+
+    border: 1px solid $c-green;
+
+    @include onTablet {
+      width: 270px;
+      height: 70px;
+      margin: 38px 0 0;
+    }
+
+    @include onDesktop {
+      align-self: flex-end;
+      margin: 89px 0 0;
+    }
+  }
+
+  &__tickets-link {
+    width: 229px;
+    padding: 17px 0;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: $c-main-black;
+
+    @include onTablet {
+      width: 199px;
+      padding: 27px 0;
+    }
+  }
+
+  &__arrow {
+    display: block;
+
+    @include square(50px);
+
+    background-color: $c-green;
+    background-image: url(../images/tickets-arrow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      @include square(70px);
+    }
+  }
+
+  &__events {
+    display: none;
+    align-items: center;
+    width: 133px;
+
+    transform: rotate(-90deg) translateX(-100px);
+    transform-origin: left;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__events-line {
+    width: 70px;
+    height: 1px;
+    margin-right: 20px;
+
+    background-color: $c-green;
+  }
+
+  &__events-link {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+
+    text-decoration: none;
+
+    color: $c-grey;
+
+    @include onDesktop {
+      @include hover(color, $c-orange);
+    }
+  }
+}

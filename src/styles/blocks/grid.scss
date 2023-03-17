@@ -1,0 +1,76 @@
+.grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat($columnsTablet, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat($columnsDesktop, 1fr);
+    column-gap: 30px;
+  }
+
+  &--tablet {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &--desktop {
+    display: block;
+
+    @include onDesktop {
+      display: grid;
+      align-items: center;
+    }
+  }
+
+  &--gallery {
+    grid-template-rows: 600px 360px;
+    row-gap: 30px;
+  }
+
+  &__item {
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--mobile-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @for $start from 1 through $columnsTablet {
+      @for $end from $start through $columnsTablet {
+        &--tablet-#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through $columnsDesktop {
+      @for $end from $start through $columnsDesktop {
+        &--desktop-#{$start}-#{$end} {
+          @include onDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    &--desktop-r-1 {
+      grid-row: 1 / 2;
+    }
+
+    &--desktop-r-2 {
+      grid-row: 2 / 3;
+    }
+  }
+}

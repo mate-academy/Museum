@@ -1,0 +1,87 @@
+.lecture {
+  height: 210px;
+  padding: 0 20px;
+
+  background-image: url(../images/photos/lecture.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include onTablet {
+    height: 390px;
+  }
+
+  @include onDesktop {
+    height: 550px;
+  }
+
+  &__info {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 140px;
+    padding: 20px 0;
+    margin: 0 auto;
+
+    --translate-info: 153px;
+
+    transform: translateY(var(--translate-info));
+
+    background: $c-white;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+    @include onTablet {
+      width: 570px;
+      height: 204px;
+      margin: 0 auto;
+      padding: 45px 0 0 55px;
+
+      --translate-info: 306px;
+    }
+
+    @include onDesktop {
+      padding-left: 100px;
+
+      --translate-info: 448px;
+
+      @include hover(transform, scale(105%) translateY(var(--translate-info)));
+    }
+  }
+
+  &__top-info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      align-self: start;
+      margin-bottom: 16px;
+      gap: 190px;
+    }
+
+    @include onDesktop {
+      gap: 140px;
+    }
+  }
+
+  &__type {
+    @include event-text-type;
+  }
+
+  &__date {
+    @include event-text-date;
+  }
+
+  &__title {
+    @include event-text-title;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 15px;
+
+      text-align: left;
+    }
+  }
+}

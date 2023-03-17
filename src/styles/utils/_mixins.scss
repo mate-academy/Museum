@@ -4,3 +4,110 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin square($_size) {
+  width: $_size;
+  height: $_size;
+}
+
+@mixin circle($_size) {
+  width: $_size;
+  height: $_size;
+  border-radius: 50%;
+}
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin section-title-text {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 36px;
+
+  @include onTablet {
+    font-size: 48px;
+    line-height: 48px;
+  }
+}
+
+@mixin event-text-type {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+
+  color: $c-grey;
+
+  @include onTablet {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+
+@mixin event-text-date {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: $c-green;
+
+  @include onTablet {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+@mixin event-text-title {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 28px;
+
+  color: $c-main-black;
+
+  @include onTablet {
+    font-size: 36px;
+    line-height: 36px;
+  }
+}
+
+@mixin subscription-main-text {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+
+  text-align: center;
+
+  color: $c-white;
+
+  @include onTablet {
+    line-height: 18px;
+  }
+}
+
+@mixin contacts-text {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+
+  color: $c-main-black;
+}

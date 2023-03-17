@@ -1,0 +1,105 @@
+.menu {
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.75);
+
+  &__wrapper {
+    padding: 27px 0;
+
+    background-color: $c-green;
+
+    @include onTablet {
+      padding: 40px 0;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__cross {
+    display: block;
+
+    @include onTablet {
+      margin-right: 44px;
+    }
+
+    &--mobile {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tab {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__list {
+    margin: 0 0 24px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+
+    color: $c-white;
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 24px;
+
+    background-color: rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      align-self: center;
+      width: 1px;
+      height: 145px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__schedule {
+    color: $c-white;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 158px 144px;
+      grid-template-rows: 2;
+      grid-row-gap: 20px;
+      grid-column-gap: 38px;
+    }
+  }
+
+  &__schedule-item {
+    &:first-child {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    &:nth-child(2) {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+
+    &:last-child {
+      grid-area: 2 / 2 / 3 / 2;
+    }
+  }
+}
