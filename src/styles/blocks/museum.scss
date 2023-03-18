@@ -2,6 +2,7 @@
 @import "../utils/mixins";
 
 .museum {
+  position: relative;
   padding: 0 50px;
 
   @include onTablet {
@@ -21,6 +22,8 @@
   &__title {
     margin-bottom: 20px;
     font-size: 45px;
+    font-weight: 700;
+    font-family: Montserrat, sans-serif;
     line-height: 45px;
     text-align: center;
 
@@ -34,13 +37,13 @@
     @include onDesktop {
       margin-bottom: 90px;
       font-size: 72px;
+      font-weight: 700;
       line-height: 85px;
     }
   }
 
   &__positional {
-    display: flex;
-    margin: 50px -55px;
+    margin-bottom: 70px;
   }
 
   &__positional--button {
@@ -48,30 +51,34 @@
   }
 
   &__events {
-    display: flex;
-    align-items: center;
-
-    gap: 20px;
-    transform: rotate(-90deg);
-    opacity: 0;
-
-    @include onDesktop {
-      opacity: 1;
-    }
-
+  
     &--text {
       font-weight: 700;
       font-size: 14px;
       line-height: 14px;
       color: $grey-color;
+      opacity: 0;
     }
-  }
 
-  @include onDesktop {
-    &__line {
-      width: 70px;
-      height: 1px;
-      background-color: $green-color;
+    @include onDesktop {
+      position: absolute;
+      top: 400px;
+      left: 0;
+      display: flex;
+      align-items: center;
+  
+      gap: 20px;
+      transform: rotate(-90deg);
+
+      &--line {
+        width: 70px;
+        height: 1px;
+        background-color: $green-color;
+      }
+
+      &--text {
+        opacity: 1;
+      }
     }
   }
 }

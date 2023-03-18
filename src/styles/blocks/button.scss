@@ -11,6 +11,8 @@
 
   border: 1px solid $green-color;
   background-color: $page-color;
+  transition: background-color 0.5s;
+  cursor: pointer;
 
   &::after {
     content: "";
@@ -32,19 +34,33 @@
     }
   }
 
-  @include onDesktop {
-    margin-left: 130px;
+  &:hover {
+    background-color: $green-color;
   }
 
   &__positional {
     margin: 0 auto;
+
+    @include onTablet {
+      margin: 0;
+    }
+
+    @include onDesktop {
+      margin-left: 160px;
+    }
   }
 
   &__text {
+    padding-right: 30px;
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
     color: $text-color;
+    transition: color 0.5s;
+
+    &:hover {
+      color: $just-white;
+    }
   }
 
   @include onTablet {
