@@ -1,0 +1,94 @@
+.header {
+  position: relative;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 23px;
+    padding: 9px 0 0;
+    grid-column: 1 / -1;
+    margin-bottom: 250px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
+      margin: 0 39px 40px;
+      padding: 15px 0 0;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+      margin: 0 55px 119px;
+    }
+  }
+
+  &__link {
+    background-image: url(../images/menu-open.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 18px;
+    height: 12px;
+  }
+
+  &__logo-center {
+    width: 18px;
+    height: 12px;
+  }
+
+  &__logo {
+    font-family: $fontMontserrat;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 100%;
+    text-align: center;
+
+    @include onTablet {
+      grid-column: 4 / span 2;
+      font-size: 36px;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / span 2;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-image: url(../images/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / -1;
+      height: 655px;
+    }
+  }
+}
