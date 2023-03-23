@@ -1,0 +1,76 @@
+.button {
+  position: relative;
+  display: block;
+  margin-top: 20px;
+  padding: 18px 80px;
+  height: 50px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+
+  border: 1px solid $colorGreen;
+
+  color: $colorBlackSecond;
+
+  text-transform: uppercase;
+  text-decoration: none;
+
+  transition: border-color $animationDuration;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    display: block;
+    width: 50px;
+    height: 100%;
+    content: "";
+
+    background-image: url(/images/icons/buttonArrow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-color: $colorGreen;
+
+    transition: background-color $animationDuration;
+  }
+
+  &:hover {
+    border-color: $colorOrange;
+
+    &::after {
+      background-color: $colorOrange;
+    }
+  }
+
+  @include onTablet {
+    grid-column: 1 / 4;
+    margin-top: 38px;
+
+    width: 270px;
+    height: 70px;
+    padding: 27px 68px;
+
+    &::after {
+      width: 70px;
+      height: 100%;
+    }
+  }
+
+  @include onDesktop {
+    grid-column: 3 / 6;
+    margin-top: 90px;
+
+    width: 270px;
+    height: 70px;
+    padding: 27px 68px;
+
+    &::after {
+      width: 70px;
+      height: 100%;
+    }
+  }
+}

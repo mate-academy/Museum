@@ -1,0 +1,219 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  transform: translateY(-100%);
+
+  height: 400px;
+  padding: 27px 0;
+
+  z-index: 2;
+  background-color: $colorGreen;
+  transition: all $animationDuration;
+
+  &::after {
+    position: absolute;
+    top: 400px;
+
+    content: "";
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+
+    background-color: $menuDarkColor;
+    opacity: 0.5;
+
+    &::after:target {
+      transform: translateY(100%);
+    }
+
+    @include onTablet {
+      top: 225px;
+    }
+
+    @include onDesktop {
+      top: 235px;
+    }
+  }
+
+  &:target {
+    transform: translateY(0);
+
+    &::after {
+      display: block;
+    }
+  }
+
+  @include onTablet {
+    height: 225px;
+    padding: 40px 0;
+  }
+
+  @include onDesktop {
+    height: 235px;
+    padding: 40px 0;
+  }
+
+  &__top-actions {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+    }
+
+    &::after {
+      grid-column: 1 / 3;
+      margin-top: 24px;
+
+      display: block;
+      content: "";
+      width: 100%;
+      height: 1px;
+
+      background-color: $separatorColor;
+
+      @include onTablet {
+        grid-column: 3 / 3;
+        margin-top: 0;
+
+        position: relative;
+        right: 20px;
+
+        height: 100%;
+        width: 1px;
+      }
+
+      @include onDesktop {
+        grid-column: 7 / 7;
+        margin-top: 0;
+
+        position: relative;
+        left: 30px;
+
+        height: 100%;
+        width: 1px;
+      }
+    }
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 28px;
+
+    height: min-content;
+
+    @include onDesktop {
+      margin-left: 102px;
+    }
+  }
+
+  &__list-item {
+    width: 100px;
+    height: min-content;
+  }
+
+  &__list-item:nth-child(2n + 1) {
+    margin-right: 28px;
+
+    @include onDesktop {
+      margin-right: 115px;
+    }
+  }
+
+  &__list-item:nth-last-child(-n + 2) {
+    margin-top: 24px;
+
+    @include onDesktop {
+      margin-top: 30px;
+    }
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
+    color: $colorWhite;
+
+    text-decoration: none;
+
+    @include onDesktop {
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 100%;
+
+      color: $colorWhite;
+    }
+  }
+
+  &__scheldue {
+    margin-top: 24px;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+      margin-top: 0;
+
+      display: flex;
+      gap: 38px;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 12;
+      margin-top: 0;
+
+      display: flex;
+      gap: 30px;
+    }
+  }
+
+  &__scheldue-title {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+
+    color: $colorWhite;
+  }
+
+  &__scheldue-list {
+    margin-top: 20px;
+    list-style: none;
+  }
+
+  &__scheldue-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: $colorWhite;
+  }
+
+  &__scheldue-info {
+    margin-top: 16px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: $colorWhite;
+
+    @include onTablet {
+      margin-top: 40px;
+      max-width: 135px;
+    }
+
+    @include onDesktop {
+      margin-top: 40px;
+      max-width: 170px;
+    }
+  }
+}
