@@ -1,0 +1,62 @@
+.grid {
+  display: grid;
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &--desktop {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+    }
+  }
+  &__header {
+    padding: 10px 0 70px;
+    @include onTablet {
+      padding: 15px 0 108px;
+      grid-template-rows: repeat(3, auto);
+      row-gap: 40px;
+      align-items: center;
+    }
+    @include onDesktop {
+      row-gap: 104px;
+      padding-bottom: 318px;
+    }
+  }
+
+  &__item {
+    display: grid;
+    @include onTablet {
+      @for $start from 1 through 6 {
+        @for $end from $start through 6 {
+          &--#{$start}-#{$end}--tablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+      @for $start from 1 through 3 {
+        @for $end from $start through 3 {
+          &--#{$start}-#{$end}--row {
+            grid-row: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+    @include onDesktop {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--#{$start}-#{$end}--desktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
