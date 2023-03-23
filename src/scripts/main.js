@@ -1,11 +1,16 @@
-'use strict';
-const swiper = new swiper('.swiper', {
+// 'use strict';
 
-  direction: 'vertical',
-  loop: true,
+// const swiper = new swiper('.swiper', {
 
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-});
+//   direction: 'horizontally',
+//   loop: true,
+
+//   pagination: {
+//     el: '.swiper-pagination',
+//     clickable: true,
+//   },
+
+//   scrollbar: {
+//     el: '.swiper-scrollbar',
+//   },
+// });
