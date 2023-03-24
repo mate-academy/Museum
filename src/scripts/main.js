@@ -1,5 +1,7 @@
 'use strict';
 
+/* global Swiper */
+
 // menu
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
@@ -39,3 +41,5 @@ const swiper = new Swiper('.slider', {
     },
   },
 });
+
+swiper.enable();
