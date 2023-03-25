@@ -1,0 +1,70 @@
+.information {
+  &__title {
+    margin-bottom: 20px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: $white-text-color;
+  }
+
+  &__content {
+    @include onTablet {
+      display: flex;
+      gap: 0 38px;
+    }
+
+    @include onDesktop {
+      gap: 0 30px;
+    }
+  }
+
+  &__list {
+    margin: 0 0 16px;
+    list-style-type: none;
+
+    @include onTablet {
+      width: 158px;
+      margin: 0;
+    }
+  }
+
+  &__item {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: $white-text-color;
+
+    &:nth-child(n) {
+      &::before {
+        content: "12:00 - 20:00 ";
+        font-weight: 600;
+      }
+    }
+
+    &:nth-child(n + 4) {
+      &::before {
+        content: "11:00 - 19:00 ";
+      }
+    }
+  }
+
+  &__text {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: $white-text-color;
+
+    &::before {
+      content: "Вихідні: ";
+      font-weight: 600;
+    }
+
+    @include onTablet {
+      width: 144px;
+    }
+  }
+}

@@ -1,4 +1,16 @@
 .page {
+  scroll-behavior: smooth;
+  &__body {
+    &--with-menu {
+      overflow: hidden;
+
+      .header__icon {
+        display: none;
+        position: static;
+      }
+    }
+  }
+
   &__header {
     margin-bottom: 70px;
 
@@ -8,6 +20,29 @@
 
     @include onDesktop {
       margin-bottom: 200px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    &::after {
+      content: "";
+      position: fixed;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
     }
   }
 }
