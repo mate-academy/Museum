@@ -16,6 +16,11 @@
     padding: 40px 35px 40px 40px;
     height: 233px;
     min-width: 768px;
+  overflow-y: auto;
+
+  @include onTablet {
+    padding: 40px 35px;
+    height: 233px;
   }
 
   @include onDesktop {
@@ -35,6 +40,7 @@
 
     @include onTablet {
       margin-left: 45px;
+      margin-left: 40px;
     }
   }
 
@@ -79,65 +85,66 @@
     }
   }
 
-  &__link {
-    font-family: Montserrat, sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 100%;
-    color: #fff;
-    text-decoration: none;
-    text-align: left;
-
-    transition: text-shadow $animationSpeed;
-
-    &:hover {
-      text-shadow: 5px 0 20px #fff;
-      &::after {
-        content: "";
-        display: inline-block;
-        position: absolute;
-
-        width: 10px;
-        height: 15px;
-        margin: 4px 10px 0;
-        color: #fff;
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-        transform: translateY(10%);
-      }
-    }
-
-    @include onDesktop {
+    &__link {
+      font-family: Montserrat, sans-serif;
       font-weight: 500;
-      font-size: 22px;
-    }
-  }
+      font-size: 16px;
+      line-height: 100%;
+      color: #fff;
+      text-decoration: none;
+      text-align: left;
 
-  &__grid {
-    display: block;
-    @include onTablet {
-      grid-row: 1/3;
-    }
+      transition: text-shadow $animationSpeed;
 
-    &--tablet {
+      &:hover {
+        text-shadow: 5px 0 20px #fff;
+        &::after {
+          content: "";
+          display: inline-block;
+          position: absolute;
 
-      @include onTablet {
-        grid-row: 1;
+          width: 10px;
+          height: 15px;
+          margin: 4px 10px 0;
+          color: #fff;
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+          transform: translateY(10%);
+        }
+      }
+
+      @include onDesktop {
+        font-weight: 500;
+        font-size: 22px;
       }
     }
 
-    &--cross {
-      grid-row: 1/1;
+    &__grid {
+      display: block;
       @include onTablet {
+        grid-row: 1/3;
+      }
+
+      &--tablet {
+
+        @include onTablet {
+          grid-row: 1;
+        }
+      }
+
+      &--cross {
         grid-row: 1/1;
+        @include onTablet {
+          grid-row: 1/1;
+        }
       }
     }
-  }
 
-  &__br {
-    @include onDesktop {
-      display: none;
+    &__br {
+      @include onDesktop {
+        display: none;
+      }
     }
   }
 }
