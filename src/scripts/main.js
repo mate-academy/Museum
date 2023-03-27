@@ -28,6 +28,15 @@ for (let i = 1; i <= 4; i++) {
   }
 }
 
+const form = document.querySelector('.subscription__form');
+
+function stopRefreshing(event) {
+  event.preventDefault();
+  form.reset();
+}
+
+form.addEventListener('submit', stopRefreshing);
+
 // document.addEventListener('touchstart', handleTouchStart, false);
 // document.addEventListener('touchmove', handleTouchMove, false);
 
