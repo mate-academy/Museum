@@ -37,9 +37,14 @@
     width: 24px;
     height: 24px;
     background: no-repeat center url("../images/icons/burger-menu.svg");
+    transition: background $transition;
 
     @include tablet {
       margin-top: 24px;
+    }
+
+    &:hover {
+      background: no-repeat center url("../images/icons/burger-menu-hover.svg");
     }
   }
 
@@ -59,12 +64,17 @@
       width: 220px;
       font-size: $size-subtitle;
       line-height: $lineheight-smaller;
+      transition: color $transition;
     }
 
     @include desktop {
       grid-column: 6 / 8;
       margin-bottom: 119px;
       width: auto;
+    }
+
+    &:hover {
+      color: $color-hover-main;
     }
   }
 
@@ -122,6 +132,10 @@
     color: $color-main;
     text-align: center;
     border: 1px solid $color-green;
+    transition:
+      color $transition,
+      border-color $transition,
+      background-color $transition;
 
     @include header {
       padding: 26px;
@@ -135,6 +149,7 @@
     width: 50px;
     height: 50px;
     background-color: $color-green;
+    transition: background-color $transition;
 
     @include header {
       width: 70px;
@@ -147,6 +162,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  &__link:hover &__square {
+    background-color: $color-hover-green;
+  }
+
+  &__link:hover &__text {
+    color: $color-hover-main;
+    background-color: $color-hover-white;
+    border-color: $color-hover-green;
   }
 
   &__subtitle {
@@ -162,6 +187,7 @@
       line-height: $lineheight-smaller;
       color: $color-gray;
       transform: rotate(-90deg);
+      transition: color $transition;
 
       &::before {
         content: "";
@@ -170,10 +196,19 @@
         width: 70px;
         height: 1px;
         background-color: $color-green;
+        transition: background-color $transition;
       }
 
       @include design {
         top: 665px;
+      }
+
+      &:hover {
+        color: $color-hover-green;
+
+        &::before {
+          background-color: $color-hover-green;
+        }
       }
     }
   }

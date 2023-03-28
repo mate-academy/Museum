@@ -81,6 +81,10 @@
     height: 50px;
     color: $color-main;
     border: 0;
+    transition: 
+      color $transition,
+      background-color $transition;
+      border: $transition;
 
     @include header {
       padding: 28px 24px;
@@ -98,10 +102,17 @@
       font-size: $size-main;
       line-height: $lineheight-smaller;
       color: $color-gray;
+      transition: color $transition;
     }
 
     &:focus {
       outline: none;
+      border: 1px solid $color-hover-orange;
+    }
+
+    &:hover {
+      color: $color-hover-main;
+      background-color: $color-hover-white;
     }
   }
 
@@ -115,11 +126,16 @@
     width: 50px;
     height: 50px;
     background-color: $color-orange;
+    transition: background-color $transition;
 
     @include header {
       width: 70px;
       height: 70px;
     }
+  }
+
+  &__button:hover &__square {
+    background-color: $color-hover-orange;
   }
 
   &__arrow {
