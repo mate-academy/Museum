@@ -1,0 +1,124 @@
+.menu {
+  display: flex;
+
+  background-color: $border-color;
+  padding: 27px 20px;
+
+  @include  onTablet {
+    padding: 40px 34px;
+  }
+
+  @include onDesctop {
+    padding: 40px 55px 48px;
+  }
+
+  &__top {
+    display: flex;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 24px;
+
+    @include onTablet {
+      border: none;
+      padding: 0;
+    }
+
+    @include onDesctop {
+      justify-content: space-between;
+    }
+  }
+
+  &__cross-container {
+    display: flex;
+
+    padding: 6px 33px 0 3px;
+
+    @include onTablet {
+      padding: 5px 43px 0 5px;
+    }
+
+    @include onDesctop {
+      padding: 5px 107px 0 6px;
+    }
+  }
+
+  &__cross {
+    background-image: url(../images/icon/cross.svg);
+    width: 13px;
+    height: 13px;
+    @include iconPosition;
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    width: 100px;
+    color: $text-color-4;
+
+    @include onDesctop {
+      font-size: 22px;
+      width: 170px;
+    }
+  }
+
+  &__container {
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -38px;
+        width: 1px;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+
+        @include onDesctop {
+          left: -102px;
+        }
+      }
+    }
+  }
+
+  &__title {
+    @include fontFooter;
+    line-height: 140%;
+    color: $text-color-4;
+
+    padding: 24px 0 20px;
+
+    @include onTablet {
+      padding: 0 0 20px;
+    }
+  }
+
+  &__text {
+    @include fontFooter;
+    line-height: 150%;
+    color: $text-color-4;
+  }
+
+  &__content {
+    &--first {
+      @include onTablet {
+        width: 57%;
+      }
+    }
+
+    &--second {
+      padding-top: 16px;
+
+      @include onTablet {
+        width: 43%;
+        padding-top: 40px;
+      }
+    }
+
+    @include onDesctop {
+      width: 170px;
+    }
+  }
+}

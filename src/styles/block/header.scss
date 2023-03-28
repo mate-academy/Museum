@@ -1,0 +1,73 @@
+.header {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  @include onTablet {
+    padding-bottom: 88px;
+  }
+
+  &__container {
+    height: 100%;
+    max-height: 655px;
+    display: flex;
+    background-image: url(../images/heaeder.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &::after {
+      content: "";
+      padding-bottom: 100%;
+    }
+
+    @include onTablet {
+      background-size: cover;
+    }
+  }
+
+  &__menu {
+    background-image: url(../images/icon/menu.svg);
+    width: 18px;
+    height: 12px;
+    @include iconPosition;
+
+    z-index: 1;
+    position: absolute;
+    top: 33px;
+    left: 23px;
+
+    @include onTablet {
+      top: 45px;
+      left: 37px;
+    }
+
+    @include onDesctop {
+      left: 58px;
+    }
+  }
+
+  &__logo {
+    background-image: url(../images/icon/logo.svg);
+    width: 47px;
+    height: 51px;
+    @include iconPosition;
+
+    position: relative;
+    left: calc(50% - 47px);
+    top: 9px;
+
+    @include onTablet {
+      width: 58px;
+      height: 60px;
+      top: 15px;
+      left: 20%;
+
+      @include onDesctop {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-30px);
+      }
+    }
+  }
+}
