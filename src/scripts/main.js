@@ -9,7 +9,7 @@ window.addEventListener('hashchange', () => {
 });
 
 const sliderWrapper = document.querySelector('.slider__wrapper');
-// const galleryTitle = document.querySelector('.gallery__title');
+const galleryTitle = document.querySelector('.gallery__title');
 
 for (let i = 1; i <= 4; i++) {
   const point = document.querySelector(`.slider__point--${i}`);
@@ -19,13 +19,13 @@ for (let i = 1; i <= 4; i++) {
     sliderWrapper.style.transform = `translateX(-${translate}%)`;
   });
 
-  // if (window.getComputedStyle(galleryTitle).fontSize === '48px') {
-  //   if (translate === 75) {
-  //     point.addEventListener('click', () => {
-  //       sliderWrapper.style.transform = `translateX(-50%)`;
-  //     });
-  //   }
-  // }
+  if (window.getComputedStyle(galleryTitle).fontSize === '48px') {
+    if (translate === 75) {
+      point.addEventListener('click', () => {
+        sliderWrapper.style.transform = `translateX(-50%)`;
+      });
+    }
+  }
 }
 
 const form = document.querySelector('.subscription__form');
