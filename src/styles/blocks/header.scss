@@ -1,9 +1,12 @@
 .header {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 20px;
 
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+  }
+  
   @include desktop {
     grid-template-columns: repeat(12, 1fr);
     column-gap: 30px;
@@ -30,27 +33,33 @@
       max-height: 735px;
     }
   }
-
+  
   &__icon {
-    grid-column: 1 / 2;
-    margin-top: 18px;
+    display: none;
     width: 24px;
     height: 24px;
     background: no-repeat center url("../images/icons/burger-menu.svg");
     transition: background $transition;
-
+    
     @include tablet {
+      grid-column: 1 / 2;
+      display: block;
       margin-top: 24px;
     }
-
+    
+    &--container {
+      display: block;
+      grid-column: 1 / 2;
+    }
+    
     &:hover {
       background: no-repeat center url("../images/icons/burger-menu-hover.svg");
     }
   }
-
+  
   &__logo {
+    display: none;
     width: 55px;
-    margin-bottom: 250px;
     font-family: $font-major;
     font-size: 30px;
     line-height: 30px;
@@ -60,6 +69,7 @@
 
     @include tablet {
       grid-column: 2 / 3;
+      display: block;
       margin-bottom: 40px;
       width: 220px;
       font-size: $size-subtitle;
@@ -73,8 +83,26 @@
       width: auto;
     }
 
+    &--container {
+      display: block;
+      grid-column: 2 / 3;
+    }
+
     &:hover {
       color: $color-hover-main;
+    }
+  }
+
+  &__phone-container {
+    display: grid;
+    grid-template-columns: 24px 1fr 24px;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 250px;
+    padding: 10px 20px 0;
+
+    @include tablet {
+      display: none;
     }
   }
 
