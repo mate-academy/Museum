@@ -4,7 +4,7 @@
   width: 500%;
 
   @include onTablet {
-    width: 250%;
+    width: 100%;
     gap: 20px;
   }
 
@@ -13,6 +13,7 @@
     grid-template-columns: repeat(12, 1fr);
     column-gap: 30px;
     width: 100%;
+    gap: 30px;
   }
 
   &__navigator {
@@ -50,12 +51,22 @@
     width: 20%;
     transition: $transition-time;
 
-    @include onDesctop {
+    @include onTablet {
       width: 100%;
 
       &:hover {
         transform: scale(105%);
         transition: $transition-time;
+      }
+    }
+
+    &--tablet-hidden {
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesctop {
+        display: block;
       }
     }
 
