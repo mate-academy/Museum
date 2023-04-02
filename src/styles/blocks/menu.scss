@@ -3,6 +3,27 @@
   background-color: $colorgreen;
   height: 399px;
   padding: 27px 20px;
+  z-index: 1;
+  &::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    z-index: 0;
+    @include onMobile {
+      top: 453px;
+    }
+    @include onTablet {
+      top: 294px;
+    }
+    @include onDesktop {
+      top: 273px;
+    }
+  }
+
   @include onTablet {
     height: 255px;
     padding: 39px 20px 0 0;
