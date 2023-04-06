@@ -1,0 +1,97 @@
+.galery {
+  &__title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: $black;
+    margin-bottom: 40px;
+    @include onTablet {
+      text-align: left;
+      font-size: 48px;
+    }
+    @include onDesktop {
+      text-align: left;
+      font-size: 48px;
+    }
+  }
+
+  &__images {
+    @include onMobile {
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      overflow-x: scroll;
+      white-space: nowrap;
+      width: 100%;
+    }
+    @include onTablet {
+      box-sizing: border-box;
+      margin-bottom: 32px;
+      overflow-x: scroll;
+      white-space: nowrap;
+      width: 100%;
+    }
+    @include onDesktop {
+      margin-bottom: 200px;
+      overflow: visible;
+    }
+
+    &--image {
+      @include onMobile {
+        display: inline-block;
+        height: 410px;
+        width: 280px;
+      }
+      @include onTablet {
+        height: 543px;
+        width: 340px;
+      }
+      @include onDesktop {
+        transition: transform 0.3s;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+        height: inherit;
+        width: inherit;
+      }
+    }
+
+    &--invisible {
+      @include onMobile {
+        display: none;
+      }
+      @include onTablet {
+        display: none;
+      }
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &--block {
+
+      @include onDesktop {
+        display: block;
+        height: 600px;
+        width: 100%;
+        overflow: hidden;
+        &:nth-child(2) {
+          display: none;
+        }
+        &:nth-child(n +4) {
+          height: 360px;
+        }
+      }
+    }
+  }
+
+  &__scroll {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+    @include onDesktop {
+      display: none;
+    }
+  }
+}

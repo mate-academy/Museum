@@ -1,0 +1,179 @@
+.header {
+  @include onTablet {
+    padding-bottom: 88px;
+  }
+  @include onDesktop {
+    padding-bottom: 200px;
+  }
+
+  &__top {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../images/header.png);
+    height: 300px;
+    z-index: -1;
+    @include onTablet {
+      height: 384px;
+    }
+    @include onDesktop {
+      height: 655px;
+    }
+  }
+
+  &__top-content {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 9px;
+    position: absolute;
+    max-width: 1020px;
+    @include onMobile {
+      padding-left: 23px;
+    }
+    @include onTablet {
+      width: 65%;
+      justify-content: space-between;
+      padding-top: 15px;
+      padding-left: 0;
+    }
+    @include onDesktop {
+      width: 50%;
+      justify-content: space-between;
+      padding-top: 15px;
+      padding-left: 0;
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 18px;
+  }
+
+  &__logo {
+    height: 61px;
+  }
+
+  &__text {
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    @include onTablet {
+      margin-bottom: 38px;
+    }
+    @include onDesktop {
+      margin-bottom: 90px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      justify-content: start;
+      text-align: start;
+      font-weight: 700;
+      font-size: 72px;
+      line-height: 120%;
+    }
+    @include onTablet {
+      display: flex;
+      justify-content: start;
+      text-align: start;
+      font-weight: 700;
+      font-size: 54px;
+      line-height: 120%;
+    }
+  }
+
+  &__sendform {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 20px 70px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: start;
+      margin: 0;
+    }
+    @include onDesktop {
+      display: flex;
+      justify-content: end;
+      margin: 0;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: $size;
+    text-decoration: none;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: $black;
+
+    @include onDesktop {
+      height: $desktop;
+      width: 200px;
+    }
+    @include onTablet {
+      height: $desktop;
+      width: 200px;
+    }
+    border: 1px solid $colorgreen;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__button {
+    display: flex;
+    @include square ($size);
+    @include onDesktop {
+      @include square ($desktop);
+    }
+    @include onTablet {
+      @include square ($desktop);
+    }
+    justify-content: center;
+    align-items: center;
+    background-color: $colorgreen;
+    transition: all 0.3s;
+  }
+
+  &__sendform:hover &__button {
+    background-color: #278b76;
+  }
+  &__events {
+    @include onMobile {
+      display: none;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: center;
+      gap: 20px;
+      transform-origin: 0 100%;
+      transform: rotate(90deg);
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+    }
+    &--line {
+      width: 70px;
+      border-bottom: 1px solid $colorgreen;
+    }
+  }
+}
