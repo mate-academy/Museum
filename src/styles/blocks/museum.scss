@@ -1,0 +1,84 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.museum {
+  position: relative;
+  padding: 0 50px;
+
+  @include onTablet {
+    position: absolute;
+    top: 127px;
+
+    padding: 0 40px;
+  }
+
+  @include onDesktop {
+    position: absolute;
+    top: 200px;
+
+    padding: 0 55px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 45px;
+    font-weight: 700;
+    font-family: Montserrat, sans-serif;
+    line-height: 45px;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 40px;
+      font-size: 50px;
+      line-height: 60px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+      font-size: 70px;
+      font-weight: 700;
+      line-height: 85px;
+    }
+  }
+
+  &__positional {
+    margin-bottom: 70px;
+  }
+
+  &__positional--button {
+    margin: 0 auto;
+  }
+
+  &__events {
+  
+    &--text {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 14px;
+      color: $grey-color;
+      opacity: 0;
+    }
+
+    @include onDesktop {
+      position: absolute;
+      top: 400px;
+      left: 0;
+      display: flex;
+      align-items: center;
+  
+      gap: 20px;
+      transform: rotate(-90deg);
+
+      &--line {
+        width: 70px;
+        height: 1px;
+        background-color: $green-color;
+      }
+
+      &--text {
+        opacity: 1;
+      }
+    }
+  }
+}
