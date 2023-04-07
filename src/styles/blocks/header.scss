@@ -1,20 +1,12 @@
 .header {
-  &__container {
-    @include onDesktop {
-      height: 655px;
-    }
+  &__content {
+    position: relative;
   }
 
-  &__content {
-    @include onTablet {
-      display: flex;
-    }
-  }
   &__icon {
     position: absolute;
     top: 27px;
     left: 20px;
-    z-index: 1;
 
     @include onTablet {
       top: 39px;
@@ -22,66 +14,74 @@
     }
 
     @include onDesktop {
-      left: 55px;
+      top: 45px;
+      left: 58px;
     }
   }
 
   &__block {
-    height: 300px;
-    margin-bottom: 20px;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 20px;
 
     @include onTablet {
       display: flex;
-      height: 384px;
+      margin-left: 34px;
+    }
+
+    @include onDesktop {
+      margin-left: 55px;
+      gap: 30px;
     }
   }
 
   &__image {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 320px;
+    display: block;
     height: 300px;
+    min-width: 320px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding-top: 9px;
 
     background-image: url(/images/photos/header__image.png);
-    background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
 
     @include onTablet {
-      left: auto;
-      right: 0;
-
-      width: 374px;
       height: 384px;
+      max-width: 400px;
+      margin-bottom: 0;
     }
 
     @include onDesktop {
-      width: 725px;
       height: 655px;
+      min-width: 725px;
+      max-width: 800px;
     }
   }
 
   &__logo {
-    position: absolute;
-    top: 9px;
-    left: 132px;
-
+    display: block;
     width: 55px;
     height: 61px;
+    margin: 0 auto;
+
     background-image: url(/images/logo.svg);
     background-size: contain;
-    background-position: center;
     background-repeat: no-repeat;
-    cursor: pointer;
+    background-position: center;
 
     @include onTablet {
-      top: 15px;
-      left: 60px;
-
-      width: 66px;
-      height: 72px;
+      width: 220px;
+      margin: 0;
     }
+
+    @include onDesktop {
+      width: 170px;
+    }
+  }
+
+  &__art-museum {
+    z-index: -1;
   }
 }
