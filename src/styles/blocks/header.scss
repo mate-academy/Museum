@@ -1,37 +1,51 @@
 .header {
   &__content {
     position: relative;
+    width: 320px;
+    margin: 0 auto;
+
+    @include onTablet {
+      width: 768px;
+    }
+
+    @include onDesktop {
+      width: 1280px;
+    }
   }
 
   &__icon {
     position: absolute;
     top: 27px;
     left: 20px;
+    z-index: 1;
 
     @include onTablet {
       top: 39px;
-      left: 34px;
+      left: 0;
     }
 
     @include onDesktop {
       top: 45px;
-      left: 58px;
+      left: 0;
     }
   }
 
   &__block {
+    position: relative;
     flex-direction: row-reverse;
     justify-content: center;
     gap: 20px;
 
     @include onTablet {
+      position: static;
+
       display: flex;
-      margin-left: 34px;
+      padding-left: 34px;
     }
 
     @include onDesktop {
-      margin-left: 55px;
       gap: 30px;
+      padding-left: 55px;
     }
   }
 
@@ -51,6 +65,7 @@
       height: 384px;
       max-width: 400px;
       margin-bottom: 0;
+      padding-top: 15px;
     }
 
     @include onDesktop {
@@ -79,9 +94,5 @@
     @include onDesktop {
       width: 170px;
     }
-  }
-
-  &__art-museum {
-    z-index: -1;
   }
 }

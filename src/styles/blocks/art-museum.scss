@@ -1,5 +1,7 @@
 .art-museum {
-  position: relative;
+  @include onTablet {
+    position: relative;
+  }
 
   @include onDesktop {
     width: 470px;
@@ -42,27 +44,6 @@
     }
   }
 
-  &__button {
-    display: flex;
-
-    height: 50px;
-    width: 280px;
-    margin: 0 auto;
-
-    border: 1px solid $green-button-color;
-    text-decoration: none;
-
-    @include onTablet {
-      height: 70px;
-      width: 270px;
-      margin: 0 70px 0 0;
-    }
-
-    @include onDesktop {
-      margin: 0 0 0 200px;
-    }
-  }
-
   &__text {
     display: flex;
     justify-content: center;
@@ -76,9 +57,44 @@
     line-height: 100%;
     color: $black-text-color;
     text-transform: uppercase;
+    transition: color 0.3s;
 
     @include onTablet {
       width: 200px;
+    }
+  }
+
+  &__button {
+    display: flex;
+
+    height: 50px;
+    width: 280px;
+    margin: 0 auto;
+
+    border: 1px solid $green-button-color;
+    text-decoration: none;
+    transition: border-color 0.3s, color 0.3s;
+
+    &:hover {
+      border-color: $red-square-color;
+
+      .art-museum__text {
+        color: $red-square-color;
+      }
+
+      .button--first-type {
+        background-color: $red-square-color;
+      }
+    }
+
+    @include onTablet {
+      height: 70px;
+      width: 270px;
+      margin: 0 70px 0 0;
+    }
+
+    @include onDesktop {
+      margin: 0 0 0 200px;
     }
   }
 
