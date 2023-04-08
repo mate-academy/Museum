@@ -1,0 +1,55 @@
+.button {
+  position: relative;
+  display: block;
+  width: 270px;
+  height: 70px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  padding: 27px 68px;
+  color: $color-dark;
+  border: 1px solid $color-green;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "";
+    display: block;
+    width: 70px;
+    height: 100%;
+    background-image: url(../images/arrow_white.svg);
+    background-color: $color-green;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__item-on-desktop {
+    display: none;
+    padding-left: 20px;
+
+    @include onDesktop {
+      display: inline-block;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 14px;
+      color: #687480;
+      transform: rotate(-90deg) translateX(-120%);
+      transform-origin: top left;
+
+      &::before {
+        content: "";
+        position: relative;
+        top: 7px;
+        left: -20px;
+        display: block;
+        height: 1px;
+        width: 70px;
+        transform: translate(-100%, -50%);
+        background-color: $color-green;
+      }
+    }
+  }
+}
