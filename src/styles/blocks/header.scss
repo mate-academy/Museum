@@ -1,16 +1,16 @@
 .header {
   &__content {
-    position: relative;
-    width: 320px;
+    max-width: 1170px;
     margin: 0 auto;
 
     @include onTablet {
-      width: 768px;
+      max-width: 700px;
     }
 
     @include onDesktop {
-      width: 1280px;
+      max-width: 1170px;
     }
+
   }
 
   &__icon {
@@ -31,29 +31,28 @@
   }
 
   &__block {
-    position: relative;
     flex-direction: row-reverse;
     justify-content: center;
     gap: 20px;
 
     @include onTablet {
-      position: static;
-
       display: flex;
-      padding-left: 34px;
     }
 
     @include onDesktop {
       gap: 30px;
-      padding-left: 55px;
     }
   }
 
   &__image {
+    position: static;
+    top: 0;
+    left: 0;
+    right: 0;
+
     display: block;
     height: 300px;
     min-width: 320px;
-    width: 100%;
     margin-bottom: 20px;
     padding-top: 9px;
 
@@ -62,16 +61,17 @@
     background-repeat: no-repeat;
 
     @include onTablet {
+      position: absolute;
+      left: 52%;
+
       height: 384px;
-      max-width: 400px;
       margin-bottom: 0;
       padding-top: 15px;
     }
 
     @include onDesktop {
       height: 655px;
-      min-width: 725px;
-      max-width: 800px;
+      left: 44%;
     }
   }
 
@@ -93,6 +93,19 @@
 
     @include onDesktop {
       width: 170px;
+    }
+  }
+
+  &__art-museum {
+    width: 100%;
+
+    @include onTablet {
+      position: relative;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      height: 655px;
     }
   }
 }
