@@ -1,0 +1,105 @@
+.gallery {
+
+  padding-bottom: 60px;
+
+  &__images {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__image {
+    display: grid;
+    height: 410px;
+    width: 100%;
+    object-position: top;
+    object-fit: cover;
+
+    &:nth-child(2) {
+      display: none;
+    }
+
+    @include onTablet {
+      height: 543px;
+
+      &:nth-child(2) {
+        display: block;
+      }
+    }
+
+    @include onDesktop {
+      height: 600px;
+    }
+  }
+
+  &__top-images {
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      margin-bottom: 30px;
+
+      & img:first-of-type {
+        grid-column: 1 / 5;
+      }
+
+      & img:last-of-type {
+        grid-column: 5 / 13;
+      }
+    }
+  }
+
+  &__bottom-images {
+    display: none;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+
+      & img:first-of-type {
+        grid-column: 1 / 9;
+      }
+
+      & img:last-of-type {
+        grid-column: 9 / 13;
+      }
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+
+    gap: 20px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+    
+    background-color: #e0e0e0;
+
+    &:hover {
+      background-color: #1a5a4c;
+    }
+  }
+}
