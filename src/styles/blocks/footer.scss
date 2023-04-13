@@ -1,0 +1,173 @@
+.footer {
+  position: absolute;
+
+  width: 100%;
+
+  @include onDesktop {
+    height: 457px;
+  }
+
+  &__contact {
+    position: relative;
+    margin-top: 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      position: absolute;
+
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__logo {
+    font-size: 35px;
+
+    @include onTablet {
+      margin-bottom: 62px;
+    }
+  }
+
+  &__socials {
+    display: block;
+
+    &--logo {
+      &:last-child {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  &__headline {
+    margin: 40px 0 20px;
+
+    @include secondary-font (14px, 140%, 400);
+  }
+
+  &__info {
+    margin: 0;
+    @include secondary-font (14px, 150%, 400);
+    color: $main-color;
+
+    &--bold {
+      font-weight: 600;
+    }
+
+    &--container {
+      display: flex;
+      flex-direction: column;
+
+      @include onTablet {
+        flex-direction: row;
+      }
+    }
+
+    &--time {
+      font-weight: bold;
+      @include secondary-font (14px, 150%, 600);
+      color: $main-color;
+
+      @include onTablet {
+        margin-right: 2px;
+      }
+    }
+
+    &--day {
+      @include secondary-font (14px, 150%, 600);
+      color: $main-color;
+    }
+
+    &--email {
+      font-style: italic;
+
+      transition: $standard-transition;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $main-color;
+
+    transition: $standard-transition;
+
+    &:hover {
+      color: $orange-color;
+    }
+  }
+
+  &__line {
+    margin: 70px 0 40px;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: rgba(26, 90, 76, 0.5);
+
+    @include onDesktop {
+      position: relative;
+      top: 175px;
+
+      margin: 0;
+
+      width: 260px;
+      transform: rotate(90deg);
+    }
+  }
+
+  &__return-button {
+    position: absolute;
+    bottom: 220px;
+    right: 20px;
+
+    display: block;
+    width: 50px;
+    height: 50px;
+
+    border: 1px solid $green-color;
+    border-radius: 50%;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__return-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    background-image: url(../../src/images/footer/return-button.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__links {
+    display: block;
+
+    @include secondary-font (14px, 100%, 400);
+
+    transition: $standard-transition;
+
+    &:hover {
+      color: $orange-color;
+    }
+
+    &:first-child {
+      margin-bottom: 20px;
+
+      @include onDesktop {
+        margin-top: 40px;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 50px;
+    }
+  }
+}

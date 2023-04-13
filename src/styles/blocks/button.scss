@@ -1,0 +1,66 @@
+.button {
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 50px;
+  width: 100%;
+  padding: 0;
+
+  background-color: $white-color;
+
+  @include onTablet {
+    height: 70px;
+  }
+
+  &__text {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    @include secondary-font (16px, 100%, 500);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $main-color;
+  }
+
+  &__press {
+    box-sizing: border-box;
+    border: 1px solid $green-color;
+
+    position: relative;
+    width: 50px;
+    height: 100%;
+    background-color: $green-color;
+
+    transition: $standard-transition;
+
+    @include onTablet {
+      width: 70px;
+    }
+
+    &:hover {
+      background-color: $orange-color;
+      border-color: $orange-color;
+    }
+  }
+
+  &__press::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    background-image: url(../../src/images/header/go2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

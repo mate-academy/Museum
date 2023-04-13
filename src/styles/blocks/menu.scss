@@ -1,0 +1,170 @@
+.menu {
+  height: 400px;
+  width: 100%;
+
+  background-color: $green-color;
+
+  @include onTablet {
+    height: 225px;
+  }
+
+  @include onDesktop {
+    height: 233px;
+  }
+
+  position: fixed;
+  top: 0;
+  z-index: 100;
+
+  transform: translateY(-100%);
+  transition: transform $transition-time;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__cross {
+    position: absolute;
+    top: 33px;
+    display: block;
+
+    width: 13px;
+    height: 13px;
+
+    background-image: url(../../src/images/menu/menu__cross.png);
+
+    @include onTablet {
+      top: 45px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $main-color;
+
+    transition: $standard-transition;
+
+    &:hover {
+      color: $orange-color;
+    }
+  }
+
+  &__links {
+    position: relative;
+    top: 27px;
+    left: 52px;
+
+    margin-bottom: 24px;
+
+    display: block;
+
+    @include secondary-font (16px, 100%, 500);
+    color: #fff;
+
+    @include onTablet {
+      top: 39px;
+      left: 67px;
+    }
+
+    @include onDesktop {
+      top: 40px;
+      left: 97px;
+
+      font-size: 22px;
+    }
+  }
+
+  &__line {
+    margin: 24px 0;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      position: relative;
+      top: 115px;
+
+      margin: 0;
+
+      width: 145px;
+
+      transform: rotate(90deg);
+    }
+
+    @include onDesktop {
+      top: 115px;
+    }
+  }
+
+  &__headline {
+    margin: 0 0 20px;
+    @include secondary-font (14px, 140%, 400);
+    color: #fff;
+
+    @include onTablet {
+      margin-top: 40px;
+    }
+  }
+
+  &__info {
+    margin: 0;
+    @include secondary-font (14px, 150%, 400);
+    color: #fff;
+
+    &--container {
+      display: flex;
+      flex-direction: row;
+
+      @include onTablet {
+        flex-direction: row;
+      }
+    }
+
+    &--additional {
+      margin-top: 16px;
+
+      @include onTablet {
+        display: block;
+        width: 144px;
+
+        position: absolute;
+        top: 80px;
+        right: 40px;
+
+        margin: 0;
+      }
+
+      @include onDesktop {
+        position: initial;
+
+        margin-top: 80px;
+      }
+    }
+
+    &--bold {
+      font-weight: 600;
+    }
+
+    &--time {
+      @include secondary-font (14px, 150%, 600);
+      color: #fff;
+
+      margin-right: 1px;
+
+      @include onTablet {
+        margin-right: 2px;
+      }
+    }
+
+    &--day {
+      @include secondary-font (14px, 150%, 600);
+      color: $main-color;
+    }
+
+    &--email {
+      font-style: italic;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+.header {
+  &__burger {
+    position: absolute;
+    top: 33px;
+
+    width: 18px;
+    height: 12px;
+
+    background-image: url(../../src/images/header/burger.png);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onTablet {
+      top: 45px;
+    }
+  }
+
+  &__logo {
+    margin-top: 9px;
+
+    @include onTablet {
+      margin-top: 15px;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    z-index: -1;
+
+    height: 300px;
+    width: 100%;
+
+    background-image: url(../../src/images/header/background-image.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+
+    @include onTablet {
+      height: 384px;
+      width: 48%;
+    }
+
+    @include onDesktop {
+      height: 655px;
+      width: 53%;
+      background-position: left;
+    }
+  }
+
+  &__headline {
+    margin: 250px 0 0;
+
+    @include main-font (45px, 100%, 700);
+    text-transform: uppercase;
+    text-align: center;
+
+    @include onTablet {
+      margin-top: 40px;
+
+      @include main-font (54px, 120%, 700);
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-top: 120px;
+      font-size: 72px;
+    }
+  }
+
+  &__button {
+    margin-top: 20px;
+
+    @include onTablet {
+      margin-top: 38px;
+    }
+
+    @include onDesktop {
+      margin-top: 89px;
+    }
+  }
+
+  &__2events {
+    position: absolute;
+    display: none;
+    margin: 480px 0 0;
+    text-decoration: none;
+    color: $secondary-color;
+
+    &:hover {
+      color: $main-color;
+    }
+
+    transform: rotate(-90deg);
+    transform-origin: top left;
+
+    @include secondary-font (14px, 100%, 700);
+    text-transform: uppercase;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__2events::before {
+    position: absolute;
+    right: 125%;
+    top: 50%;
+    content: "";
+    display: block;
+    width: 70px;
+    height: 1px;
+    background-color: $main-color;
+  }
+}
