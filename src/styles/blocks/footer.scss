@@ -34,7 +34,7 @@
   &__socials {
     display: block;
 
-    &--logo {
+    &--link {
       &:last-child {
         margin-left: 20px;
       }
@@ -49,12 +49,8 @@
 
   &__info {
     margin: 0;
-    @include secondary-font (14px, 150%, 400);
+    @include secondary-font (14px, 140%, 400);
     color: $main-color;
-
-    &--bold {
-      font-weight: 600;
-    }
 
     &--container {
       display: flex;
@@ -66,7 +62,11 @@
     }
 
     &--time {
+      margin: 0;
+      white-space: nowrap;
+
       font-weight: bold;
+
       @include secondary-font (14px, 150%, 600);
       color: $main-color;
 
@@ -76,6 +76,7 @@
     }
 
     &--day {
+
       @include secondary-font (14px, 150%, 600);
       color: $main-color;
     }
@@ -88,6 +89,7 @@
   }
 
   &__link {
+    @include secondary-font (14px, 140%, 400);
     text-decoration: none;
     color: $main-color;
 
@@ -106,14 +108,19 @@
 
     background-color: rgba(26, 90, 76, 0.5);
 
-    @include onDesktop {
-      position: relative;
-      top: 175px;
+    @include onTablet {
+      margin: 64px 0;
+    }
 
+    @include onDesktop {
+      position: absolute;
+      top: 37%;
+      left: 43%;
+
+      transform: rotate(90deg);
       margin: 0;
 
       width: 260px;
-      transform: rotate(90deg);
     }
   }
 
@@ -168,6 +175,11 @@
 
     &:last-child {
       margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      position: absolute;
+      top: 40px;
     }
   }
 }

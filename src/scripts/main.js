@@ -12,6 +12,7 @@ window.addEventListener('hashchange', () => {
 });
 
 // email for reset
+
 const form = document.querySelector('#form');
 
 form.addEventListener('submit', buttonClick, false);
