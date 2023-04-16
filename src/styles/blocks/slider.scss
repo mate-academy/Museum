@@ -1,0 +1,48 @@
+.slider {
+
+  &__element {
+    &--none {
+      &:nth-child(1),
+      &:nth-child(2) {
+        display: none;
+      }
+
+      @include onTablet {
+        &:nth-child(3) {
+          display: none;
+        }
+      }
+
+      @include onDesktop {
+        &:nth-child(n) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 410px;
+    object-fit: cover;
+  }
+
+  &__dots {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 9px);
+    column-gap: 22px;
+  }
+
+  &__dot {
+    width: 100%;
+    height: 9px;
+    background-color: $color-6;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $second-bg;
+    }
+  }
+}

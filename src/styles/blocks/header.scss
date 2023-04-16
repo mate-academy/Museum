@@ -1,0 +1,93 @@
+.header {
+
+  &__title {
+    margin: 0;
+    text-transform: uppercase;
+    @extend %montserrat;
+    @include text-decoration ($font-w-xl, $font-t-s-m, $lh13, $color-1);
+
+    @include onTablet {
+      @include text-decoration ($font-w-xl, $font-t-s-xl, $lh15, $color-1);
+    }
+
+    @include onDesktop {
+      @include text-decoration ($font-w-xl, $font-t-s-xxl, $lh16, $color-1);
+    }
+
+    &--margins {
+      margin: 20px 0;
+
+      @include onTablet {
+        margin: 70px 0 40px;
+      }
+
+      @include onDesktop {
+        margin: 150px 0 90px;
+      }
+    }
+  }
+
+  &__block {
+    width: 100%;
+    box-sizing: border-box;
+
+    &--bg {
+      background-image: url(../images/header-1.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      @include paddings-header (30px, 20px, 20px, 0);
+
+      @include onTablet {
+        height: 384px;
+        @include paddings-header (15px, 0, 0, 0);
+      }
+
+      @include onDesktop {
+        height: 655px;
+      }
+    }
+
+    &--content {
+      @include paddings-header (20px, 20px, 20px, 0);
+
+      @include onTablet {
+        @include paddings-header (45px, 40px, 0, 0);
+      }
+    }
+  }
+
+  &__event-block {
+    display: none;
+
+    @include onDesktop {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  &__line {
+    width: 70px;
+    height: 1px;
+    background-color: $second-bg;
+
+    &--margin-right {
+      margin-right: 20px;
+    }
+  }
+
+  &__event {
+    margin: 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    @extend %ibm;
+    @include text-decoration ($font-w-xl, $font-s-s, $lh14, $color-3);
+    transition: 0.3s;
+
+    &:hover {
+      box-shadow: 0 0 13px 4px $second-bg;
+    }
+  }
+}

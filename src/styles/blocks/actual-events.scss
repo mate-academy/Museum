@@ -1,0 +1,122 @@
+.actual-events {
+  --square-width: 10px;
+  @extend %paddings;
+
+  @include onTablet {
+    --square-width: 15px;
+  }
+
+  &__subtitle {
+    margin: 0;
+    text-align: center;
+    @extend %montserrat;
+    @include text-decoration ($font-w-xl, $font-t-s-s, $lh12, $color-2);
+
+    @include onTablet {
+      text-align: left;
+      @include text-decoration ($font-w-xl, $font-t-s-l, $lh14, $color-2);
+    }
+
+    &--margins {
+      margin: 70px 0 40px;
+
+      @include onTablet {
+        margin: 88px 0 48px;
+      }
+
+      @include onDesktop {
+        margin: 200px 0 56px;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__info {
+    display: grid;
+    align-content: center;
+  }
+
+  &__info-block {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+
+    @include onTablet {
+      justify-content: start;
+      column-gap: 20px;
+    }
+
+    &--margins {
+      margin: 16px 0 10px;
+
+      @include onTablet {
+        margin: 40px 0 30px;
+      }
+
+      @include onDesktop {
+        margin: 0 0 30px;
+      }
+    }
+  }
+
+  &__type {
+    margin: 0;
+    @extend %ibm;
+    @include text-decoration ($font-w-m, $font-s-m, $lh2, $color-3);
+
+    @include onTablet {
+      @include text-decoration ($font-w-m, $font-s-s, $lh2, $color-3);
+    }
+  }
+
+  &__date {
+    margin: 0;
+    @extend %ibm;
+    @include text-decoration ($font-w-xl, $font-s-m, $lh2, $second-bg);
+
+    @include onTablet {
+      @include text-decoration ($font-w-xl, $font-s-s, $lh2, $second-bg);
+    }
+  }
+
+  &__subtitle-block {
+    display: grid;
+    grid-template-columns: max-content var(--square-width);
+    align-items: center;
+    column-gap: 15px;
+  }
+
+  &__secondary-subtitle {
+    box-sizing: border-box;
+    margin: 0;
+    @extend %montserrat;
+    @include text-decoration ($font-w-s, $font-t-s-xxs, $lh10, $color-2);
+
+    @include onTablet {
+      @include text-decoration ($font-w-s, $font-t-s-s,$lh12, $color-2);
+    }
+  }
+
+  &__square {
+    width: var(--square-width);
+    height: var(--square-width);
+    background-color: $color-5;
+  }
+
+  &__description {
+    margin: 0;
+    @extend %ibm;
+    @include text-decoration ($font-w-xs, $font-s-m, $lh8, $color-4);
+
+    &--margin-top {
+      margin-top: 11px;
+
+      @include onTablet {
+        margin-top: 15px;
+      }
+    }
+  }
+}
