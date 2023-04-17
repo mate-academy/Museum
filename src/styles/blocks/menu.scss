@@ -1,0 +1,104 @@
+.menu {
+  box-sizing: border-box;
+  height: 100vh;
+  z-index: 1;
+
+  @media (max-height: 550px) {
+    overflow-y: scroll;
+  }
+
+  &__container {
+    @extend %page_container;
+    background-color: $c-green;
+  }
+
+  &__content {
+    padding: 27px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      padding: 40px 0;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 36px;
+    }
+    
+    @include onSmDesktop {
+      padding-bottom: 48px;
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 25px repeat(2, 1fr);
+    column-gap: 28px;
+
+    @include onTablet {
+      grid-template-columns: 42px repeat(2, 1fr);
+      column-gap: $gr-gap-tab;
+    }
+    
+    @include onDesktop {
+      grid-template-columns: 72px repeat(2, 1fr);
+      column-gap: $gr-gap-desk;
+    }
+  }
+
+  &__icon {
+    display: block;
+
+    @extend %icon;
+
+    background-size: 18px 12px;
+    background-image: url(./../images/menu-close.svg);
+
+    @include hover(opacity, 0.7);
+  }
+
+  &__list {
+    width: 100px;
+
+    @include onSmDesktop {
+      width: 170px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onSmDesktop {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__link {
+    font-size: 16px;
+    line-height: 100%;
+    font-weight: 500;
+    color: $c-white;
+
+    @include hover(opacity, 0.7);
+
+    @include onSmDesktop {
+      font-size: 22px;
+    }
+  }
+
+  &__line {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      border-right: 1px solid rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &__bottom {
+    color: $c-white;
+  }
+}

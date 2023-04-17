@@ -1,0 +1,213 @@
+.footer {
+  &__container {
+    @extend %page_container;
+  }
+
+  &__content {
+    padding: 52px 0 80px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: $gr-gap;
+
+    @include onTablet {
+      padding-bottom: 120px;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include onSmDesktop {
+      padding: 48px 0 88px;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: $gr-gap-desk;
+    }
+  }
+
+  &__top {
+    margin-bottom: 40px;
+
+    @include flexDJI($fd: row, $jc: space-between, $ai: center);
+
+    grid-column: 1 / 3;
+
+    @include onTablet {
+      grid-column: 1 / 2;
+      margin-bottom: 0;
+
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 62px;
+    }
+
+    @include onSmDesktop {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__schedule {
+    grid-column: 1 / 2;
+    margin-bottom: 64px;
+    color: $c-dark;
+
+    @include onTablet {
+      grid-column: 2 / 4;
+    }
+
+    @include onSmDesktop {
+      margin-bottom: 0;
+      grid-column: 3 / 5;
+    }
+  }
+
+  &__logo {
+    padding: 0;
+    font-size: 36px;
+  }
+
+  &__social-link {
+    display: inline-block;
+
+    @extend %icon;
+
+    background-size: contain;
+
+    @include hover(opacity, 0.7);
+
+    &--fb {
+      background-image: url(./../images/social/sl-fb.svg);
+    }
+
+    &--ins {
+      background-image: url(./../images/social/sl-ins.svg);
+    }
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  &__contact {
+    grid-column: 2 / 3;
+    color: $c-dark;
+
+    @include onTablet {
+      grid-column: 4 / 6;
+    }
+
+    @include onSmDesktop {
+      grid-column: 5 / 7;
+    }
+  }
+
+  &__contact-title {
+    margin-bottom: 20px;
+  }
+
+  &__contact-info {
+    &--link {
+      color: $c-dark;
+      @include hover(color, $c-button-form);
+    }
+  }
+
+  &__line {
+    position: relative;
+    grid-column: 1 / 3;
+
+    height: 1px;
+    margin-bottom: 40px;
+    background-color: rgba(26, 90, 76, 0.5);
+
+    @include onTablet {
+      grid-column: 2 / 6;
+      margin-bottom: 64px;
+    }
+
+    @include onSmDesktop {
+      width: 1px;
+      height: 260px;
+      margin-bottom: 0;
+
+      grid-column: 7 / 8;
+      justify-self: center;
+    }
+  }
+
+  &__menu-events {
+    grid-column: 1 / 2;
+
+    @include onTablet {
+      grid-column: 2 / 4;
+    }
+
+    @include onSmDesktop {
+      grid-column: 8 / 10;
+    }
+  }
+
+  &__menu-about {
+    grid-column: 2 / 3;
+
+    @include onTablet {
+      grid-column: 4 / 6;
+    }
+
+    @include onSmDesktop {
+      grid-column: 10 / 11;
+    }
+  }
+
+  &__menu-item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__menu-link {
+    color: $c-dark;
+
+    @include hover(color, $c-button-form);
+  }
+
+  &__to-start {
+    position: absolute;
+    right: 0;
+
+    display: block;
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+
+    background-position: center;
+    background-image: url(./../images/arrow-up.svg);
+    transition: background-image $act-time;
+
+    &:hover {
+      background-image: url(./../images/arrow-up-hover.svg);
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__copyright {
+    margin-bottom: 52px;
+
+    font-size: 12px;
+    line-height: 140.62%;
+    font-weight: 300;
+    text-align: center;
+    color: $c-dark;
+
+    @include onTablet {
+      margin-bottom: 36px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__copyright-desinger {
+    margin-bottom: 8px;
+    order: 2;
+  }
+}

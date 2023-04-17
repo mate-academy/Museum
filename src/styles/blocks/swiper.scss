@@ -1,0 +1,53 @@
+.swiper {
+  --swiper-height: 440px;
+
+  @media (min-width: 400px) {
+    --swiper-height: 560px;
+  }
+
+  @include onTablet {
+    --swiper-height: 584px;
+
+  }
+
+  --swiper-theme-color: #{$c-slider-active};
+  --swiper-pagination-bullet-size: 9px;
+  --swiper-pagination-bullet-width: 9px;
+  --swiper-pagination-bullet-height: 9px;
+  --swiper-pagination-right: 0;
+  --swiper-pagination-bottom: 0;
+  --swiper-pagination-bullet-inactive-color: #{$c-slider-inactive};
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-opacity: 1;
+  --swiper-pagination-top: var(--swiper-height) -
+    var(--swiper-pagination-bullet-height);
+
+  width: 100%;
+  height: var(--swiper-height);
+
+  &__img-container {
+    position: relative;
+    height: 93%;
+  }
+
+  &__img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__pagination {
+    width: 100%;
+    margin: 0 auto;
+    @include flexDJI($fd: row, $jc: center, $ai: 0);
+
+    gap: 16px;
+
+    @include onTablet {
+      gap: 24px;
+    }
+  }
+}

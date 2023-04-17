@@ -1,0 +1,40 @@
+.button {
+  box-sizing: border-box;
+
+  @include flexDJI($fd: 0, $jc: space-between, $ai: center);
+
+  border: 1px solid $c-buy-link;
+
+  &__text {
+    width: 100%;
+
+    @include flexDJI($fd: 0, $jc: center, $ai: center);
+
+    font-size: 16px;
+    line-height: 100%;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    color: $c-dark;
+  }
+
+  &__arrow {
+    --button-size: 50px;
+    background-color: $c-buy-link;
+
+    &:before {
+      content: "";
+      display: block;
+      width: var(--button-size);
+      padding-bottom: 100%;
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url(./../images/arrow.svg);
+    }
+
+    @include onTablet {
+      --button-size: 70px;
+    }
+  }
+}

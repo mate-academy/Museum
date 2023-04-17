@@ -1,0 +1,126 @@
+.events {
+  &__container {
+    @extend %page_container;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    text-align: center;
+    color: $c-h2;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 60px;
+
+    @include onTablet {
+      gap: 64px;
+    }
+
+    @include onSmDesktop {
+      gap: 104px;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    width: 100%;
+    max-height: 520px;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 75%;
+    }
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onSmDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    @include onSmDesktop {
+      @include hover(transform, scale(1.1));
+    }
+  }
+
+  &__item-info {
+    align-items: center;
+  }
+
+  &__info {
+    margin-bottom: 15px;
+
+    @include flexDJI($fd: row, $jc: space-between, $ai: center);
+
+    font-size: 16px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      justify-content: flex-start;
+      gap: 30px;
+      font-size: 14px;
+    }
+  }
+
+  &__type {
+    line-height: 100%;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $c-card-name;
+  }
+
+  &__date {
+    line-height: 150%;
+    font-weight: 700;
+    color: $c-card-date;
+  }
+
+  &__subtitle {
+    position: relative;
+
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 12px;
+    padding-right: 12px;
+
+    color: $c-h3;
+
+    &--decor::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      display: block;
+      width: 10px;
+      height: 10px;
+      transform: translateY(-50%);
+      background-color: $c-decor;
+    }
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 300;
+    color: $c-text;
+  }
+}
