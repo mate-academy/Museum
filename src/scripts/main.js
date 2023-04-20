@@ -2,6 +2,7 @@
 
 /* eslint-disable no-undef */
 /* eslint-disable no-new */
+
 new Swiper('.slider__container', {
   pagination: {
     el: '.swiper-pagination',
@@ -33,13 +34,6 @@ document.querySelector('.subscribe__button').onclick = function(e) {
   document.querySelector('.subscribe__input').value = '';
 };
 
-// при відкритті меню приховуємо прокрутку сторінки
-const menu = document.querySelector('.menu');
-
-menu.addEventListener('click', () => {
-  document.body.classList.toggle('no-scroll');
-});
-
 const form = document.getElementById('form');
 // const subscribeButton = document.getElementById('subscribe');
 const message = document.getElementById('message');
@@ -67,4 +61,19 @@ form.addEventListener('submit', function(event) {
   } else {
     message.textContent = 'Будь ласка, введіть правильний email';
   }
+});
+
+// при відкритті меню приховуємо прокрутку сторінки
+const nav = document.getElementById('nav');
+const headerBurger = document.querySelector('.header__burger');
+const closedMenu = document.querySelector('.nav__close-button');
+
+headerBurger.addEventListener('click', function(event) {
+  nav.classList.toggle('active');
+  document.body.classList.toggle('no-scroll');
+});
+
+closedMenu.addEventListener('click', function(event) {
+  nav.classList.toggle('active');
+  document.body.classList.toggle('no-scroll');
 });
