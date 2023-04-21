@@ -2,37 +2,28 @@
   position: relative;
 
   &__container {
-    position: relative;
-    max-width: $mx-width-content;
-    margin: 0 auto;
-    padding: 0 $pdd-x-mob;
-
-    @include onTablet {
-      min-height: $hgt-header-img-tab;
-      padding: 0 $pdd-x-tab;
-    }
-
-    @include onSmDesktop {
-      height: min-content;
-      padding: 0 $pdd-x-desk;
-    }
-
-    @include onDesktop {
-      min-height: $hgt-header-img-desk;
-    }
+    @extend %page_container;
   }
 
   &__content {
-    padding: $pdd-header-y 0 0;
+    position: relative;
+    display: grid;
+    gap: 20px 20px;
 
     @include onTablet {
-      padding: $pdd-header-y-desk 0 0;
+      grid-template-columns: repeat(6, 1fr);
+      gap: $gr-gap-tab $gr-gap-tab;
+    }
+
+    @include onSmDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      gap: $gr-gap-desk $gr-gap-desk;
     }
   }
 
   &__top {
-    margin-bottom: 250px;
-    width: 60%;
+    position: absolute;
+    width: 53%;
 
     @include flexDJI($fd: row, $jc: space-between, $ai: center);
 
@@ -48,50 +39,64 @@
   }
 
   &__bottom {
+
     @include onTablet {
-      width: 45%;
+      padding-top: 40px;
+
+      grid-column: 1 / 4;
+      grid-row-start: 1;
+      grid-row-end: 2;
     }
 
     @include onSmDesktop {
-      display: grid;
-      width: 100%;
-      grid-template-columns: repeat(12, 1fr);
-      column-gap: $gr-gap-desk;
+      grid-column: 1 / 6;
     }
   }
 
   &__image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
+    position: relative;
+    margin: 0 -#{$pdd-x-mob};
+    height: 100%;
+    max-height: $hgt-header-img-tab;
 
-    height: $hgt-header-img;
-    z-index: -1;
-
-    @include bgImg(cover, center);
+    @include bgImg(cover, left);
 
     background-image: url(./../images/header/header-img-mob.jpg);
 
-    @include onTablet {
-      height: 100%;
-      left: 51%;
-      bottom: 0;
-      background-image: url(./../images/header/header-img-tab.jpg);
-    }
-
-    @include onDesktop {
-      left: 45%;
+    @media (min-width: 450px) {
+      max-height: 450px;
       background-image: url(./../images/header/header-img-desk.jpg);
     }
 
-    @media (min-width: 2000px) {
-      left: 47%;
-      max-width: 1200px;
+    @include onTablet {
+      margin-left: 0;
+      margin-right: -#{$pdd-x-tab};
+      max-height: $hgt-header-img-desk;
+
+      grid-column: 4 / 7;
+      background-image: url(./../images/header/header-img-tab.jpg);
+    }
+
+    @include onSmDesktop {
+      margin-right: -#{$pdd-x-desk};
+      grid-column: 6 / 13;
+      background-image: url(./../images/header/header-img-desk.jpg);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 94%;
+
+      @include onTablet {
+        padding-bottom: 103%;
+      }
     }
   }
 
   &__menu-opener {
+    position: absolute;
+    top: 24px;
     display: block;
 
     @extend %icon;
@@ -103,14 +108,36 @@
     &:hover {
       background-image: url(./../images/menu-hov.webp);
     }
+
+    @include onTablet {
+      position: relative;
+      top: 0;
+      margin-bottom: 64px;
+    }
+
+    @include onSmDesktop {
+      margin-bottom: 140px;
+    }
   }
 
   &__logo {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: block;
     text-align: center;
     font-size: 30px;
 
     @include onTablet {
+      left: 30%;
       font-size: 36px;
+    }
+
+    @include onSmDesktop {
+      top: 16px;
+      left: 12%;
     }
   }
 
@@ -147,20 +174,20 @@
     }
 
     @include onSmDesktop {
-      grid-column: 3 / 6;
+      margin-left: auto;
+      margin-right: 0;
     }
   }
 
   &__events-container {
     position: absolute;
-    left: $pdd-x-desk;
+    left: 0;
     bottom: 0;
 
     display: none;
-    width: min-content;
-    height: min-content;
 
     @include onSmDesktop {
+      grid-column: 1 / 2;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -172,11 +199,8 @@
   }
 
   &__events-line {
-    top: 585px;
-    left: 61px;
     width: 70px;
     height: 1px;
-
     background-color: $c-green;
   }
 
