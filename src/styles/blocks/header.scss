@@ -1,0 +1,69 @@
+.header {
+  box-sizing: border-box;
+
+  &__background {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-image: url("../images/header/header-image-s.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    height: $header-height;
+
+    @include onTablet {
+      background-image: url("../images/header/header-image-m.png");
+      background-size: contain;
+      left: auto;
+      width: 374px;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      background-image: url("../images/header/header-image.png");
+      width: 725px;
+      height: 655px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    padding-top: $header-padding-top;
+
+    @include onTablet {
+      padding-top: 15px;
+    }
+  }
+
+  &__top {
+    height: getHeight($header-height, $header-padding-top);
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      height: inherit;
+
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 119px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0;
+  }
+
+  &__logo {
+    position: relative;
+  }
+}
