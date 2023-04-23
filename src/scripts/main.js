@@ -1,36 +1,43 @@
 'use strict';
 
-let slideIndex = 1;
+const forgrid = document.querySelector('.forgrid');
+const slider = document.querySelector('.slider');
+const line = slider.querySelector('.slider__line');
+const items = slider.querySelectorAll('.slider__item');
+const dot = slider.querySelectorAll('.slider__dot');
+const formfield = document.querySelector('.form-field');
 
-showSlides(slideIndex);
-
-const dots = document.querySelectorAll('.slider__dot');
-
-for (let i = 0; i < dots.length; i++) {
-  dots[i].addEventListener('click', function() {
-    currentSlide(i + 1);
+for (let i = 0; i < dot.length; i++) {
+  dot[i].addEventListener('click', function myCount() {
+    if (window.innerWidth < 768) {
+      line.style.cssText = `transform: translateX(-${i * 100}%)`;
+    } else if (window.innerWidth > 768 && window.innerWidth < 1279) {
+      line.style.cssText = `transform: translateX(-${i * 30}%)`;
+    }
   });
+};
+
+function handleResize() {
+  if (window.innerWidth > 1279) {
+    forgrid.classList.add('grid');
+    forgrid.classList.add('grid--row-gap');
+    forgrid.classList.remove('slider__line');
+
+    for (const item of items) {
+      item.classList.add('grid__item');
+    }
+  } else {
+    forgrid.classList.remove('grid');
+    forgrid.classList.remove('grid--row-gap');
+    forgrid.classList.add('slider__line');
+  }
 }
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+window.addEventListener('resize', handleResize);
 
-function showSlides(n) {
-  let i;
-  const slides = document.querySelectorAll('.slider__element--none');
+formfield.addEventListener('submit', (e) => {
+  e.preventDefault();
+  e.target.reset();
+});
 
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = 'none';
-  }
-
-  slides[slideIndex - 1].style.display = 'block';
-}
+handleResize();

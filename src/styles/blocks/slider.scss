@@ -1,23 +1,29 @@
 .slider {
+  width: 100%;
+  box-sizing: border-box;
 
-  &__element {
-    &--none {
-      &:nth-child(1),
-      &:nth-child(2) {
-        display: none;
-      }
+  &__outline {
+    overflow-x: scroll;
+  }
 
-      @include onTablet {
-        &:nth-child(3) {
-          display: none;
-        }
-      }
+  &__line {
+    display: flex;
+    transition: 0.3s;
+  }
 
-      @include onDesktop {
-        &:nth-child(n) {
-          display: block;
-        }
-      }
+  &__item {
+    width: 100%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin-right: 20px;
+    overflow: hidden;
+
+    @include onTablet {
+      width: 50%;
+    }
+
+    @include onDesktop {
+      width: 100%;
     }
   }
 
@@ -25,6 +31,19 @@
     width: 100%;
     height: 410px;
     object-fit: cover;
+    transition: 0.3s;
+
+    @include onTablet {
+      height: 543px;
+    }
+
+    @include onDesktop {
+      height: 600px;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   &__dots {
@@ -32,6 +51,10 @@
     justify-content: center;
     grid-template-columns: repeat(4, 9px);
     column-gap: 22px;
+
+    @include onDesktop {
+      display: none;
+    }
   }
 
   &__dot {

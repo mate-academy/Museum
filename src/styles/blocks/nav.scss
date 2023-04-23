@@ -1,4 +1,5 @@
 .nav {
+  box-sizing: border-box;
 
   &__list {
     display: grid;
@@ -33,10 +34,46 @@
   &__link {
     text-decoration: none;
     @extend %ibm;
-    @include text-decoration ($font-w-m, $font-s-m, $lh2, $main-bg);
+
+    &--text-top {
+      @include text-decoration ($font-w-m, $font-s-m, $lh2, $main-bg);
+
+      @include onDesktop {
+        @include text-decoration ($font-w-m, $font-s-xl, $lh7, $main-bg);
+      }
+    }
+
+    &--text-bottom {
+      @include text-decoration ($font-w-s, $font-s-s, $lh1, $color-2);
+    }
+  }
+
+  &--border {
+    padding-top: 40px;
+    border-top: 1px solid $second-bg;
+
+    @include onTablet {
+      padding-top: 64px;
+    }
 
     @include onDesktop {
-      @include text-decoration ($font-w-m, $font-s-xl, $lh7, $main-bg);
+      padding-top: 0;
+      border-top: none;
+      padding-left: 65px;
+      border-left: 1px solid $second-bg;
+      margin-left: 20px;
+    }
+  }
+
+  &--margins {
+    margin: 20px 0 80px;
+
+    @include onTablet {
+      margin: 64px 0 120px;
+    }
+
+    @include onDesktop {
+      margin: 0 0 100px;
     }
   }
 }
