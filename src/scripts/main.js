@@ -7,6 +7,14 @@ const items = slider.querySelectorAll('.slider__item');
 const dot = slider.querySelectorAll('.slider__dot');
 const formfield = document.querySelector('.form-field');
 
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#navigation') {
+    document.body.classList.add('page__body--with-navigation');
+  } else {
+    document.body.classList.remove('page__body--with-navigation');
+  }
+});
+
 for (let i = 0; i < dot.length; i++) {
   dot[i].addEventListener('click', function myCount() {
     if (window.innerWidth < 768) {
