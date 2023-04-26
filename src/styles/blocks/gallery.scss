@@ -1,0 +1,98 @@
+.gallery {
+  display: flex;
+  margin: 0 auto;
+
+  @include onDesktop {
+    display: grid;
+  }
+
+  &__none {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+
+    &--height {
+      height: 410px;
+      margin-bottom: 30px;
+
+      @include onTablet {
+        height: 543px;
+      }
+
+      @include onDesktop {
+        height: 600px;
+      }
+    }
+  }
+
+  &__small {
+    position: relative;
+    
+    @include onTablet {
+      display: block;
+      margin: 0 auto;
+      column-gap: none;
+    }
+
+  }
+
+  &__slider {
+    width: 100%;
+    height: 510px;
+    position: relative;
+    text-align: center;
+  }
+
+  &__phone {
+    position: absolute;
+    height: 410px;
+    width: 280px;
+    margin: 0 auto;
+
+    @include onTablet {
+      position: relative;
+    }
+
+    @include onDesktop {
+      height: 600px;
+      width: 100%;
+    }
+
+    &--none {
+      display: none;
+
+      @include onDesktop {
+        display: grid;
+      }
+    }
+  }
+
+  &__dot {
+    content: "";
+    cursor: pointer;
+    height: 9px;
+    width: 9px;
+    margin: 0 5px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    display: inline-block;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}
+
+.active,
+.gallery__dot:hover {
+  background-color: $green;
+}

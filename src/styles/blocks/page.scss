@@ -1,0 +1,70 @@
+.page {
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+
+      &::after {
+        content: "";
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 0;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+
+  &__section {
+    margin-bottom: 100px;
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+
+    &--title {
+      font-family: "Montserrat", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 36px;
+      text-align: center;
+      color: #0f0e08;
+
+      @include onTablet {
+        font-size: 48px;
+        line-height: 48px;
+
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      @include onDesktop {
+        font-size: 48px;
+        line-height: 48px;
+
+        display: flex;
+        justify-content: flex-start;
+      }
+    }
+  }
+}
