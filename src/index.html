@@ -320,25 +320,28 @@
             grid__item--desctop-1-4
             gallery__small"
             >
-              <img
-                src="./images/photos/9.png"
-                alt="Image 2"
-                class="
-                  gallery__none
-                  gallery__img
-                  gallery__phone"
-                id="img-2"
+              <picture>
+                <source
+                  media="(max-width: 900px)"
+                  srcset="./images/photos/9.png"
                 >
+                <img
+                  src="./images/photos/9.png"
+                  alt="Image 2"
+                  class=" gallery__all--none"
+                  id="img-2"
+              >
+              </picture>
 
               <img
-              src="./images/photos/4.png"
-              alt="Image 1"
-              class="
-                gallery__img
-                gallery__img--height
-                gallery__phone"
-              id="img-1"
-            >
+                src="./images/photos/4.png"
+                alt="Image 1"
+                id="img-1"
+                class="
+                  gallery__img
+                  gallery__phone
+                  gallery__img--height"
+              >
             </div>
 
             <div class="
@@ -380,10 +383,10 @@
         </div>
 
         <div class="gallery__slider">
-          <span class="gallery__dot active" onclick="changeSlide()"></span>
-          <span class="gallery__dot" onclick="changeSlide()"></span>
-          <span class="gallery__dot" onclick="changeSlide()"></span>
-          <span class="gallery__dot" onclick="changeSlide()"></span>
+          <span class="gallery__dot " onclick="changeSlide(0)"></span>
+          <span class="gallery__dot " onclick="changeSlide(0)"></span>
+          <span class="gallery__dot " onclick="changeSlide(0)"></span>
+          <span class="gallery__dot " onclick="changeSlide(0)"></span>
         </div>
       </section>
 
@@ -405,6 +408,7 @@
               class=
               "subscripte__field
                form-field"
+               required
              >
               <button
                 class="subscripte__send"
@@ -625,5 +629,65 @@
         </div>
       </div>
     </footer>
+    <script>
+    //   const imgs = document.querySelectorAll('.gallery__phone img, .gallery__phone picture img');
+    //   const dots = document.querySelectorAll('.gallery__dot');
+
+    //   let currentImg = 0;
+
+    //       function changeSlide(n) {
+    //   for (let i = 0; i < imgs.length; i++) {
+    //     const img = imgs[i];
+    //     if (img.tagName.toLowerCase() === 'img') {
+    //       img.style.opacity = 0;
+    //     } else if (img.parentNode.tagName.toLowerCase() === 'picture') {
+    //       img.parentNode.style.opacity = 0;
+    //     }
+
+    //     dots[i].className = dots[i].className.replace(' active', '');
+    //   }
+
+    //   currentImg = n;
+
+    //   imgs[currentImg].style.opacity = 1;
+    //   dots[currentImg].className += ' active';
+
+    // function changeSlide(n) {
+    //     for (let i = 0; i < imgs.length; i++) {
+    //       imgs[i].style.opacity = 0;
+    //       dots[i].className = dots[i].className.replace(' active', '');
+    //     }
+
+    //     currentImg = n;
+
+    //     imgs[currentImg].style.opacity = 1;
+    //     dots[currentImg].className += ' active';
+    //   }
+    // }
+
+    const imgs = document.querySelectorAll('img.gallery__phone, picture.gallery__phone');
+    const dots = document.querySelectorAll('.gallery__dot');
+
+    let currentImg = 0;
+
+    function changeSlide(n) {
+      for (let i = 0; i < imgs.length; i++) {
+        if (imgs[i].nodeName.toLowerCase() === 'img') {
+          imgs[i].style.opacity = 0;
+        } else if (imgs[i].nodeName.toLowerCase() === 'picture') {
+          imgs[i].querySelector('img').style.opacity = 0;
+        }
+        dots[i].className = dots[i].className.replace(' active', '');
+      }
+      currentImg = n;
+
+      if (imgs[currentImg].nodeName.toLowerCase() === 'img') {
+        imgs[currentImg].style.opacity = 1;
+      } else if (imgs[currentImg].nodeName.toLowerCase() === 'picture') {
+        imgs[currentImg].querySelector('img').style.opacity = 1;
+      }
+      dots[currentImg].className += ' active';
+    }
+    </script>
   </body>
 </html>

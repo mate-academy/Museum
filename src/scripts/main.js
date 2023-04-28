@@ -21,18 +21,16 @@ form.addEventListener('submit', (event) => {
 
 // let currentImg = 0;
 
-//  function changeSlide(n) {
-//   // for (let i = 0; i < imgs.length; i++) {
-//   //   imgs[i].style.opacity = 0;
-//   //   dots[i].className = dots[i].className.replace(' active', '');
-//   // }
+// function changeSlide(n) {
+//   for (let i = 0; i < imgs.length; i++) {
+//     imgs[i].style.opacity = 0;
+//     dots[i].className = dots[i].className.replace(' active', '');
+//   }
 
-//   // currentImg = n;
+//   currentImg = n;
 
-//   // imgs[currentImg].style.opacity = 1;
-//   // dots[currentImg].className += ' active';
-
-//   console.log(555);
+//   imgs[currentImg].style.opacity = 1;
+//   dots[currentImg].className += ' active';
 // }
 
 // module.exports = changeSlide;
