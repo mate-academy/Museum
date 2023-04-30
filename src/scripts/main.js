@@ -15,22 +15,3 @@ form.addEventListener('submit', (event) => {
 
   form.reset();
 });
-
-// const imgs = document.querySelectorAll('.gallery__phone');
-// const dots = document.querySelectorAll('.gallery__dot');
-
-// let currentImg = 0;
-
-// function changeSlide(n) {
-//   for (let i = 0; i < imgs.length; i++) {
-//     imgs[i].style.opacity = 0;
-//     dots[i].className = dots[i].className.replace(' active', '');
-//   }
-
-//   currentImg = n;
-
-//   imgs[currentImg].style.opacity = 1;
-//   dots[currentImg].className += ' active';
-// }
-
-// module.exports = changeSlide;
