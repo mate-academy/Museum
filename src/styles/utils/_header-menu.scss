@@ -1,0 +1,144 @@
+.menu {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $colorGreen;
+  z-index: 1;
+
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__container {
+    margin: 27px 20px 0;
+    display: flex;
+
+    @include onTablet {
+      margin: 40px 35px;
+    }
+  }
+
+  &__cross {
+    display: flex;
+
+    &__item {
+      width: 32px;
+      height: 32px;
+      background-image: url(../images/signs/cross.svg);
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+    @include onTablet {
+      flex-direction: row;
+    }
+
+    &__container {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+
+      @include onTablet {
+        flex-direction: row;
+      }
+    }
+
+    &__left {
+      min-width: max-content;
+      padding-right: 20px;
+    }
+  }
+
+  &__item {
+    list-style-type: none;
+    margin-bottom: 24px;
+  }
+
+  &__link {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &__stick {
+    @include onTablet {
+      display: flex;
+      min-width: 65px;
+    }
+
+    &__item {
+      width: 100%;
+      height: 1px;
+      margin-bottom: 24px;
+      background-color: #fff;
+
+      @include onTablet {
+        flex-shrink: 0;
+        margin-bottom: 0;
+        width: 145px;
+        transform: rotate(90deg) translateX(75px);
+      }
+    }
+  }
+
+  &__block {
+    @include onTablet {
+      display: flex;
+      flex-shrink: 1;
+    }
+
+    &__container {
+      @include onTablet {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &__schedule {
+      @include schedule;
+      margin-bottom: 20px;
+      font-weight: 400;
+      line-height: 20px;
+    }
+
+    &__time {
+      @include onTablet {
+        display: flex;
+        min-width: max-content;
+      }
+
+      &__items {
+        @include schedule;
+        margin-bottom: 16px;
+        padding-right: 38px;
+        font-weight: 600;
+        line-height: 21px;
+      }
+    }
+
+    &__days {
+      @include schedule;
+      font-weight: 600;
+      line-height: 21px;
+
+      @include onTablet {
+        margin-top: 40px;
+        min-width: 140px;
+      }
+    }
+  }
+}
