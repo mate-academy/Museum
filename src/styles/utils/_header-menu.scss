@@ -15,17 +15,22 @@
   }
 
   &__container {
-    margin: 27px 20px 0;
+    margin: 27px 20px;
     display: flex;
-    justify-content: space-between;
 
     @include onTablet {
       margin: 40px 35px;
+    }
+
+    @include onDesktop {
+      margin: 40px 60px 48px;
     }
   }
 
   &__cross {
     display: flex;
+    justify-content: center;
+
     &__item {
       width: 32px;
       height: 32px;
@@ -34,31 +39,42 @@
     }
   }
 
+  &__center {
+    @include onTablet {
+      justify-content: center;
+      flex-grow: 1;
+    }
+  }
+
   &__list {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     padding: 0;
+    max-width: 1080px;
 
     @include onTablet {
       flex-direction: row;
+      justify-content: space-between;
+      flex-grow: 1;
     }
 
-    &__container {
+    &__block {
       padding: 0;
       margin: 0;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-grow: 1;
 
       @include onTablet {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
       }
     }
 
     &__left {
       min-width: max-content;
-      padding-right: 20px;
+      padding-right: 15px;
     }
   }
 
@@ -80,7 +96,6 @@
     @include onTablet {
       display: flex;
       justify-content: center;
-      min-width: 15px;
     }
 
     &__item {
@@ -90,7 +105,6 @@
       background-color: #fff;
 
       @include onTablet {
-        flex-shrink: 0;
         margin-bottom: 0;
         width: 145px;
         transform: rotate(90deg) translateX(75px);
@@ -127,7 +141,7 @@
       &__items {
         @include schedule;
         margin-bottom: 16px;
-        padding-right: 38px;
+        padding-right: 15px;
         font-weight: 600;
         line-height: 21px;
       }
@@ -137,10 +151,11 @@
       @include schedule;
       font-weight: 600;
       line-height: 21px;
+      width: 280px;
 
       @include onTablet {
         margin-top: 40px;
-        min-width: 140px;
+        width: 170px;
       }
     }
   }
