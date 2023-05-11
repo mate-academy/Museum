@@ -30,23 +30,31 @@
   }
 
   &__slideshow-container {
-    max-width: 340px;
     position: relative;
     margin: auto;
 
     &__photo {
+      height: 460px;
       width: 100%;
+
+      @include onTablet {
+        height: 543px;
+      }
+
+      @include onDesktop {
+        height: 600px;
+      }
     }
 
-    &__mySlides {
-      display: none;
-    }
+    // &__mySlides {
+    //   display: none;
+    // }
   }
 
-  &__fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
+  // &__fade {
+  //   animation-name: fade;
+  //   animation-duration: 1.5s;
+  // }
 
   // @keyframes fade {
   //   from {opacity: .4}
@@ -56,6 +64,10 @@
   &__items {
     margin-top: 20px;
     text-align: center;
+
+    @include onTablet {
+      align-items: center;
+    }
   }
 
   &__dot {
@@ -72,5 +84,29 @@
   &__dot:active,
   &__dot:hover {
     background-color: $colorGreen;
+  }
+}
+
+.phone {
+  display: none;
+
+  @include onTablet {
+    display: block;
+  }
+}
+
+.tablet {
+  @include onTablet {
+    display: none;
+  }
+
+  @include onDesktop {
+    display: block;
+  }
+}
+
+.desktop {
+  @include onDesktop {
+    display: none;
   }
 }
