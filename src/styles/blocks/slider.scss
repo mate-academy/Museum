@@ -1,9 +1,58 @@
 .slider {
+  --slidesGap: 16px;
+
+  @include onTablet {
+    --slidesGap: 20px;
+  }
+
   @include onDesktop {
     display: none;
   }
 
+  &__slides {
+    display: flex;
+
+    width: calc(400% + 4 * var(--slidesGap));
+    margin-bottom: 20px;
+
+    @include onTablet {
+      width: calc(200% + 2 * var(--slidesGap));
+      margin-bottom: 32px;
+    }
+
+    transition: transform 0.3s;
+  }
+
+  &__slide {
+    flex-grow: 1;
+    margin-right: var(--slidesGap);
+  }
+
   &__image {
+    display: block;
     width: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__indicators {
+    display: flex;
+    justify-content: center;
+    column-gap: 22px;
+  }
+
+  &__indicator {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+    background-color: #e0e0e0;
+
+    transition: background-color 0.3s;
+
+    &--active {
+      background-color: $darkGreenColor;
+    }
   }
 }
