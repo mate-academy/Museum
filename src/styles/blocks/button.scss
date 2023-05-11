@@ -11,6 +11,15 @@
   text-decoration: none;
   color: $color-text-main;
   border: 1px solid $color-green;
+  transition: all $transition;
+
+  &:hover {
+    color: $color-green;
+
+    > .button__arrow {
+      background-color: lighten($color: $color-green, $amount: 10%);
+    }
+  }
 
   @include onTablet {
     grid-template-columns: 200px 70px;
@@ -18,12 +27,12 @@
     height: 70px;
   }
 
-
   &__text {
     place-self: center;
   }
 
   &__arrow {
     background: url(../images/icons/arrow_right.svg) $color-green no-repeat center;
+    box-sizing: border-box;
   }
 }
