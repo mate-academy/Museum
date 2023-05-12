@@ -4,7 +4,7 @@ const isTablet = window.innerWidth >= 768;
 const menu = document.querySelector('.menu');
 const menuOpener = document.querySelector('.header__menu-opener');
 const menuCross = document.querySelector('.menu__cross');
-const menuLinks = document.querySelectorAll('.menu__link');
+const menuLinks = document.querySelectorAll('.menu__nav .nav-link');
 const form = document.querySelector('.subscribe__form');
 const slider = document.querySelector('.slider');
 const slidesContainer = document.querySelector('.slider__slides');
