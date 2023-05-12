@@ -1,6 +1,56 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onMobileLess320 {
+  @media (max-width: 320px) {
+    @content;
   }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onDesign {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin fontMontserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+@mixin fontIBMPlexSans {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+@mixin gridMobile {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+}
+
+@mixin gridTablet {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 30px;
+}
+
+@mixin gridDesktop {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+}
+
+@mixin iconsBackgrounds {
+  display: block;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }

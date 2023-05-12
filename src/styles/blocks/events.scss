@@ -1,0 +1,331 @@
+.events {
+  &__title {
+    margin: 0 0 40px;
+    color: $black-color;
+
+    @include onTablet {
+      text-align: left;
+      margin: 0 0 48px;
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      margin: 0 0 56px;
+    }
+  }
+
+  &__about-event {
+    margin-bottom: 60px;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+      margin-bottom: 64px;
+
+      @include gridTablet;
+
+      &:nth-child(2) {
+        margin-bottom: 112px;
+      }
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 13;
+      @include gridDesktop;
+      margin-bottom: 104px;
+
+      &:nth-child(2) {
+        margin-bottom: 104px;
+      }
+    }
+  }
+
+  &__left-grid {
+    @include onTablet {
+      grid-column: 1 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__right-grid {
+    @include onTablet {
+      grid-column: 1 / 7;
+
+      @include gridTablet;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / 13;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+      margin: auto;
+    }
+  }
+
+  &__photo-container {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 13;
+    }
+
+    &--mobile_1 {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tablet_1 {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+
+    &--mobile_2 {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tablet_2 {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+
+    &--3 {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding-bottom: 210px;
+      background-image: url(../images/event-photo-mobile-3.jpg);
+      margin: 0 -20px;
+
+      @include onTablet {
+        margin: 0;
+        background-image: url(../images/event-photo-tablet-3.jpg);
+        padding-bottom: 390px;
+      }
+
+      @include onDesktop {
+        margin: 0 -136px;
+        padding-bottom: 550px;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__exhibition {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      justify-content: flex-start;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      gap: 25px;
+    }
+  }
+
+  &__exhibition-title {
+    margin: 0;
+    @include fontIBMPlexSans;
+    font-weight: 500;
+    font-size: 16px;
+    color: $gray-color;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__exhibition-date {
+    @include fontIBMPlexSans;
+    font-weight: 700;
+    line-height: 150%;
+    color: $green-color;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__event-title {
+    margin: 0 0 10px;
+    font-weight: 400;
+    font-size: 28px;
+    box-sizing: border-box;
+    line-height: 100%;
+    color: $black-color;
+    display: flex;
+    
+    &::after {
+      content: "";
+      margin: 2px 0 0 10px;
+      background-image: url(../images/orange-square-mobile.svg);
+      @include iconsBackgrounds;
+      width: 10px;
+
+      @include onTablet {
+        width: 15px;
+        background-image: url(../images/orange_square_tablet.svg);
+        margin: 2px 0 0 18px;
+      }
+    }
+
+    @include onTablet {
+      margin: 0 0 15px;
+      grid-column: 1 / 5;
+      font-size: 36px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__info {
+    margin: 0;
+    @include fontIBMPlexSans;
+    font-weight: 300;
+    line-height: 150%;
+    color: #4e4e4e;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__about-last-event {
+    position: relative;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+
+      @include gridTablet;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 13;
+
+      @include gridDesktop;
+    }
+  }
+
+  &__last-info-container {
+    width: 100%;
+    position: absolute;
+    bottom: -43%;
+    background-color: $white-color;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+    padding: 20px 0;
+
+    @include onTablet {
+      bottom: -34%;
+      grid-column: 2 / 6;
+      margin: 0 -60px;
+      padding: 50px 60px;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+    }
+
+    @include onDesktop {
+      bottom: -20%;
+      grid-column: 4 / 10;
+      margin: 0;
+      padding: 50px 0;
+      
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+    }
+  }
+
+  &__last-exhibition {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+      margin-bottom: 16px;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__last-exhibition-title {
+    margin: 0;
+    @include fontIBMPlexSans;
+    font-weight: 500;
+    font-size: 16px;
+    color: $gray-color;
+
+    @include onTablet {
+      grid-column: 1 / 2;
+      font-size: 14px;
+    }
+  }
+
+  &__last-exhibition-date {
+    @include fontIBMPlexSans;
+    font-weight: 700;
+    line-height: 150%;
+    color: $green-color;
+
+    @include onTablet {
+      grid-column: 3 / 5;
+      font-size: 14px;
+    }
+  }
+
+  &__event-last-title {
+    margin: 0 0 10px;
+    font-weight: 400;
+    font-size: 28px;
+    box-sizing: border-box;
+    line-height: 100%;
+    color: $black-color;
+    text-align: center;
+
+    @include onTablet {
+      text-align: left;
+      grid-column: 1 / 5;
+      font-size: 36px;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+      font-size: 36px;
+    }
+  }
+}

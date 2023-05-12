@@ -1,0 +1,240 @@
+.footer {
+  &__content {
+    padding: 50px 0 64px;
+
+    @include onTablet {
+      padding: 51px 0 36px;
+    }
+
+    @include onDesktop {
+      padding: 47px 0 35px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      grid-column: 1 / 2;
+      display: block;
+      margin-bottom: 0;
+    }
+  }
+
+  &__first-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(26, 90, 76, 0.5);
+
+    @include onTablet {
+      padding-bottom: 64px;
+      margin-bottom: 64px;
+      grid-column: 2 / 6;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 7;
+      border-bottom: none;
+      margin-bottom: 87px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__second-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 120px;
+      grid-column: 2 / 5;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 30px;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 11;
+      margin-bottom: 0;
+    }
+  }
+
+  &__working-graphics {
+    grid-column: 1 / 2;
+
+    @include onTablet {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__working-graphics-title {
+    margin: 0 0 20px;
+    @include fontIBMPlexSans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140.62%;
+    color: $black-color;
+  }
+
+  &__working-graphics-info {
+    margin: 0 0 20px;
+    font-size: 14px;
+    line-height: 150%;
+    color: $black-color;
+
+    &--bold {
+      font-weight: 600;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__image-container-arrow-up {
+    grid-column: 2 / 3;
+    display: flex;
+    justify-content: flex-end;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__image-arrow-up {
+    background-image: url(../images/arrow-up-icon.jpg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 50px;
+    padding-bottom: 50px;
+  }
+
+  &__menu {
+    grid-column: 1 / 3;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include gridMobile;
+
+    @include onTablet {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 30px;
+    }
+  }
+
+  &__menu-item {
+    margin: 0 0 20px;
+
+    @for $child-index from 3 through 4 {
+      &:nth-child(#{$child-index}) {
+        margin: 0;
+      }
+    }
+
+    &--gallery {
+      grid-column: 1 / 2;
+    }
+
+    &--about-us {
+      grid-column: 2 / 3;
+
+      @include onTablet {
+        grid-column: 3 / 4;
+      }
+    }
+
+    &--events {
+      grid-column: 1 / 2;
+
+      @include onTablet {
+        grid-column: 1 / 3;
+      }
+    }
+
+    &--contacts {
+      grid-column: 2 / 3;
+
+      @include onTablet {
+        grid-column: 3 / 4;
+      }
+    }
+  }
+
+  &__menu-link {
+    text-decoration: none;
+    @include fontIBMPlexSans;
+    font-size: 14px;
+    color: $black-color;
+    transition: text-shadow 0.3s;
+
+    &:hover {
+      text-shadow: 3px 5px 6px $black-color;
+    }
+  }
+
+  &__copyright-cover {
+    @include onTablet {
+      grid-column: 1 / 7;
+
+      @include gridTablet;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 13;
+      @include gridDesktop;
+    }
+  }
+
+  &__copyright {
+    margin: 0 0 10px;
+    @include fontIBMPlexSans;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 140.62%;
+    text-align: center;
+    color: $black-color;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    &--1 {
+      @include onTablet {
+        grid-column: 5 / 7;
+        margin: 0;
+      }
+
+      @include onDesktop {
+        grid-column: 11 / 13;
+      }
+    }
+
+    &--2 {
+      @include onTablet {
+        grid-column: 1 / 3;
+        position: absolute;
+      }
+    }
+  }
+}
