@@ -1,0 +1,222 @@
+.header {
+  @media (min-width: 767px) {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  &__flex {
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 0;
+    }
+
+    @include onDesktop {
+      display: grid;
+      // column-gap: 30px;
+      grid-template-columns: repeat(12, 1fr);
+      align-items: center;
+    }
+   
+  }
+
+  &__block {
+    padding: 9px 20px;
+    height: 100vw;
+    background-image: url(../images/NAMU.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+
+    @media (min-width: 767px) {
+      grid-column: 4 / span 3;
+      height: 50vw;
+      background-position: right top;
+    }
+
+    &-title {
+      @media (min-width: 767px) {
+        grid-column: 1 / span 3;
+        grid-row: 1;
+        align-self: center;
+      }
+    }
+
+    &-mob {
+      background-image: none;
+      height: 400px;
+      background-color: #1a5a4c;
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      margin-bottom: 0;
+      z-index: 1000;
+
+      transform: translateX(-200%);
+      transition: transform 0.5s;
+    
+      &:target {
+        transform: translateX(0);
+      }
+
+      @include onDesktop {
+        height: 233px;
+      }
+    }
+  
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &-mob {
+      border-bottom: 1px solid #fff;
+      
+
+      @include onTablet {
+        border-right: 1px solid #fff;
+        border-bottom: none;
+        margin-right: 20px;
+      }
+
+      @include onDesktop {
+        grid-column: 2 / span 5;
+        border-bottom: 0;
+        border-right: 1px solid #fff;
+      }
+    }
+    
+  }
+
+  &__menu-opener {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-image: url(../images/menu-opener.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media (min-width: 767px) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 45px 37px;
+    }
+  }
+
+  &__cross {
+    position: absolute;
+    top: 2rem;
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-image: url(../images/cross.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  
+
+    @include onTablet {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 13px 32px;
+
+    }
+
+    @include onDesktop {
+      margin-top: 0.5rem;
+      margin-left: 1rem;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+
+    @media (min-width: 767px) {
+      margin-top: 120px;
+      font-weight: 700;
+      font-size: 54px;
+      line-height: 54px;
+      text-align: left;
+      margin-left: 36px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 72px;
+      margin-left: 55px;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+    height: 50px;
+    border: 1px solid #1a5a4c;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 50px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #0f0e08;
+    margin-bottom: 70px;
+
+    @media (min-width: 767px) {
+      width: 270px;
+      height: 70px;
+      line-height: 70px;
+      margin-left: 42px;
+    }
+
+    @media (min-width: 1280px) {
+      margin-left: 321px;
+    }
+
+    &-item {
+      margin: 0 auto;
+    }
+  }
+
+  &__text {
+    display: none;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+    transform: rotate(-90deg);
+    position: absolute;
+    width: 6rem;
+    text-align: right;
+
+    @media (min-width: 1280px) {
+      display: block;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 1px;
+      border-radius: 4px;
+      background-color: #2060f6;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: -40%;
+    }
+  }
+}

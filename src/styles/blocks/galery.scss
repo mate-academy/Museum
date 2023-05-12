@@ -1,0 +1,149 @@
+.galery {
+
+  overflow: hidden;
+
+  &-section {
+    padding: 0 20px;
+    margin-bottom: 20px;
+    perspective: 400px;
+   
+   
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 90px);
+      gap: 20px;
+      padding: 0 34px;
+    }
+   
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      row-gap: 30px;
+      grid-template-rows: auto 1fr;
+      padding: 0 55px;
+      max-width: 1170px;
+      margin: 0 auto 200px;
+    }
+   
+    &__title {
+      text-align: center;
+      font-family: "Montserrat", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 100%;
+      color: #0f0e08;
+      margin-bottom: 56px;
+
+      @include onDesktop {
+        font-size: 48px;
+      }
+    }
+   
+    &__woman {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      transition: transform 0.4s;
+
+      &:hover {
+        transform: translateZ(+25px);
+      }
+   
+      @include onTablet {
+        grid-column: 1 / span 3;
+        margin: 0;
+        height: 30rem;
+      }
+   
+      @include onDesktop {
+        grid-column: 1 / span 4;
+        grid-row: 1;
+        width: 100%;
+      }
+    }
+   
+    &__goose {
+      display: none;
+   
+      @include onTablet {
+        display: block;
+        grid-column: 4 / span 3;
+        height: 30rem;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+   
+    &__house {
+      display: none;
+      transition: transform 0.4s;
+
+      &:hover {
+        transform: translateZ(+25px);
+      }
+   
+      @include onTablet {
+        display: block;
+        height: 30rem;
+        grid-column: 7 / span 6;
+      }
+   
+      @include onDesktop {
+        display: block;
+        grid-column: 5 / span 8;
+        grid-row: 1;
+        width: 100%;
+      }
+    }
+   
+    &__park {
+      display: none;
+      transition: transform 0.4s;
+
+      &:hover {
+        transform: translateZ(+25px);
+      }
+   
+      @include onDesktop {
+        display: block;
+        grid-column: 1 / span 8;
+        grid-row: 2;
+        width: 100%;
+      }
+    }
+   
+    &__sea {
+      display: none;
+      transition: transform 0.4s;
+
+      &:hover {
+        transform: translateZ(+25px);
+      }
+   
+      @include onDesktop {
+        display: block;
+        grid-column: 9 / span 4;
+        grid-row: 2;
+        width: 100%;
+      }
+    }
+   
+    &__scroll {
+   
+      display: flex;
+      justify-content: center;
+   
+      &-item {
+        display: block;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        color: #e0e0e0;
+      }
+    }
+  }
+}
