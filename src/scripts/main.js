@@ -10,7 +10,7 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-const form = document.querySelector('form');
+const form = document.querySelector('.form--subscription');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
