@@ -16,18 +16,18 @@ window.addEventListener('hashchange', function() {
   }
 });
 
-const form = document.querySelector('.contact-us__form');
+// const form = document.querySelector('.contact-us__form');
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  form.reset();
-});
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const form = document.querySelector('.contact-us__form');
-
-//   form.addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     form.reset();
-//   });
+// form.addEventListener('submit', (e) => {
+//   e.preventDefault();
+//   form.reset();
 // });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('.contact-us__form');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.reset();
+  });
+});
