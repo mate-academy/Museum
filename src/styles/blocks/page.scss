@@ -1,0 +1,80 @@
+.page {
+  font-family: "IBM Plex Sans", "Montserrat", sans-serif;
+  background-color: #fff;
+  scroll-behavior: smooth;
+
+  &__content {
+    margin: 0;
+  }
+
+  &__content--with-menu {
+    overflow: hidden;
+  }
+
+  &__header {
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 88px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateY(0);
+
+      &::after {
+        content: "";
+        left: 0;
+        right: 0;
+        position: absolute;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+
+  &__current-events {
+    margin-bottom: 240px;
+
+    @include onTablet {
+      margin-bottom: 228px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 340px;
+    }
+  }
+
+  &__gallety {
+    margin-bottom: 100px;
+
+    @include onTablet {
+      margin-bottom: 92px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__subscription {
+    margin-bottom: 50px;
+  }
+
+  &__footer {
+    margin-bottom: 36px;
+  }
+}
