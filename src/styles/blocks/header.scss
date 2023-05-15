@@ -58,15 +58,42 @@
       transform: translateX(-200%);
       transition: transform 0.5s;
     
-      &:target {
-        transform: translateX(0);
-      }
+      // &:target {
+      //    transform: translateX(0);
+      //  }
 
       @include onDesktop {
         height: 233px;
       }
     }
-  
+
+    &-overlay {
+      height: 0;
+      background: rgba(0,0,0,0);
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      
+      z-index: 1000;
+
+      transition: background 0.5s, transform 0.5s;
+      
+      //transform: translateX(-200%);
+      //transition: transform 0.5s;
+
+      &:target {
+        //transform: translateX(0);
+
+        height: auto;
+        background: rgba(0,0,0,0.5);
+        
+        .header__block-mob {
+          transform: translateX(0);
+        }
+      }
+    }
   }
 
   &__nav {
@@ -126,8 +153,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      margin: 13px 32px;
-
+      margin: 41px 39px;
     }
 
     @include onDesktop {
@@ -174,6 +200,11 @@
     font-size: 16px;
     color: #0f0e08;
     margin-bottom: 70px;
+    text-decoration: none;
+
+    &:hover {
+      border-color: #2eae5b;
+    }
 
     @media (min-width: 767px) {
       width: 270px;
@@ -212,7 +243,7 @@
       width: 70px;
       height: 1px;
       border-radius: 4px;
-      background-color: #2060f6;
+      background-color: #1a5a4c;
       position: absolute;
       top: 50%;
       right: 0;
