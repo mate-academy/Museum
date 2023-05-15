@@ -4,9 +4,20 @@
   font-family: $fontIBM;
 }
 
+.container {
+  box-sizing: content-box;
+  max-width: 1170px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
 .header {
   height: 482px;
-  padding: 10px 20px 0;
+  padding: 10px 0 0;
+
+  @include onDesktop {
+    height: 100vh;
+  }
 
   &__bg {
     position: absolute;
@@ -19,12 +30,24 @@
     background-position: center;
     height: 300px;
     width: 100%;
+
+    @include onDesktop {
+      height: 655px;
+      width: 55%;
+    }
   }
 
   &__top {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 250px;
+    width: 60%;
+
+    @include onDesktop {
+      margin-bottom: 119px;
+      width: 60%;
+    }
   }
 
   &__menu-opener {
@@ -35,10 +58,14 @@
     background-image: url(../images/icons/menu.svg);
   }
 
-  &__logo {
-    margin-left: 88px;
-    width: 55px;
-    height: 61px;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @include onDesktop {
+      max-width: 470px;
+    }
   }
 
   &__title {
@@ -52,15 +79,55 @@
     color: #000;
 
     margin-bottom: 20px;
+
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 120%;
+      text-align: left;
+      margin-bottom: 89px;
+    }
   }
 
   &__events {
     display: none;
+    align-self: flex-start;
+    position: relative;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    padding-left: 20px;
+    color: #687480;
+
+    transform: rotate(-90deg);
+
+    &::after {
+      display: block;
+      content: "";
+      height: 1px;
+      width: 70px;
+      background-color: $colorGreen;
+      position: absolute;
+      right: 100%;
+      top: 50%;
+    }
+
+    @include onDesktop {
+      display: flex;
+    }
   }
 
   &__button {
     display: flex;
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    @include onDesktop {
+      align-self: flex-end;
+      width: 270px;
+    }
   }
 
   &__btn {
@@ -73,20 +140,24 @@
     line-height: 100%;
     text-transform: uppercase;
     height: 50px;
-    width: 230px;
 
     padding: 18px 80px;
 
     border: 1px solid $colorGreen;
+
+    @include onDesktop {
+      min-height: 70px;
+      padding: 27px 68px;
+    }
   }
 }
 
 .btn {
-  height: 50px;
-  width: 50px;
+  display: flex;
+  min-height: 50px;
+  min-width: 50px;
   background-color: $colorGreen;
   position: relative;
-  display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -97,5 +168,25 @@
     background-image: url(../images/icons/arrow-white.svg);
     width: 24px;
     height: 24px;
+  }
+
+  @include onDesktop {
+    min-height: 70px;
+    min-width: 70px;
+  }
+}
+
+.logo {
+  &__image {
+    width: 55px;
+    height: 61px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include onDesktop {
+      height: 72px;
+      width: 170px;
+    }
   }
 }
