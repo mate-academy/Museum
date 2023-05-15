@@ -1,0 +1,197 @@
+.header {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    @include onTablet {
+      height: 100%;
+      padding-top: 127px;
+    }
+
+    @include onDesktop {
+      height: 100%;
+      padding-top: 206px;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    display: flex;
+    height: 300px;
+    margin: 0 -20px 20px;
+
+    background-image: url(../images/header-img-big.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onTablet {
+      margin: 0 -20px;
+      position: absolute;
+      right: 20px;
+      top: 0;
+      width: 50%;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      position: absolute;
+      right: 20px;
+      top: 0;
+      width: 50%;
+      height: 655px;
+    }
+  }
+
+  &__menu-opener {
+    position: absolute;
+    top: 33px;
+    left: 23px;
+
+    display: block;
+    width: 18px;
+    height: 12px;
+
+    background-image: url(../images/menu.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+
+    &:hover {
+      background-image: url(../images/menu-hover.svg);
+    }
+
+    @include onTablet {
+      top: 45px;
+      left: 37px;
+    }
+
+    @include onDesktop {
+      top: 45px;
+      left: 58px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    text-align: center;
+
+    color: #000;
+
+    @include onTablet {
+      margin: 0 0 38px;
+      font-size: 54px;
+      line-height: 65px;
+      text-align: start;
+    }
+
+    @include onDesktop {
+      margin: 0 0 89px;
+      font-size: 72px;
+      line-height: 86px;
+      text-align: start;
+    }
+  }
+
+  &__tickets-box {
+    --button-width: 50px;
+
+    display: grid;
+    grid-template-columns: 1fr var(--button-width);
+    align-items: center;
+    justify-items: center;
+    border: 1px solid #1a5a4c;
+    height: 50px;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 5px 5px 5px 0 rgba(26, 90, 76, 0.3);
+    }
+
+    @include onTablet {
+      --button-width: 70px;
+      height: 70px;
+      width: 270px;
+
+    }
+
+    @include onDesktop {
+      --button-width: 70px;
+      height: 70px;
+      width: 270px;
+
+    }
+  }
+
+  &__tickets-text {
+    text-decoration: none;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+
+    color: #0f0e08;
+  }
+
+  &__button--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 48px;
+    background-color: #1a5a4c;
+
+    @include onTablet {
+      width: 70px;
+      height: 68px;
+    }
+
+    @include onDesktop {
+      width: 70px;
+      height: 68px;
+    }
+  }
+
+  &__events {
+    position: relative;
+
+    display: none;
+    width: max-content;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+    text-decoration: none;
+    transform: rotate(-90deg) translate(-20px, -60px);
+    transition: all 0.3s;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 1px;
+      margin-right: 20px;
+      background-color: #1a5a4c;
+      transform: translate(0, 7px);
+    }
+
+    @include onDesktop {
+      display: flex;
+    }
+
+    &:hover {
+      color: #9eaab5;
+    }
+  }
+}
+
