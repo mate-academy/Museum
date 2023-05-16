@@ -1,132 +1,131 @@
 .header {
-  height: 482px;
-  padding: 10px 0 0;
+  position: relative;
+  box-sizing: border-box;
+  height: min-content;
 
-  @include onDesktop {
-    height: 100vh;
-  }
-
-  &__bg {
+  &::after {
+    content: "";
     position: absolute;
+    height: 300px;
     top: 0;
+    left: 0;
     right: 0;
-    z-index: -1;
     background-image: url(../images/header.jpg);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
-    height: 300px;
-    width: 100%;
+    z-index: -5;
+
+    @include onTablet {
+      height: 384px;
+      left: 50%;
+      background-position: bottom;
+    }
 
     @include onDesktop {
       height: 655px;
-      width: 55%;
-    }
-  }
-
-  &__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 250px;
-    width: 60%;
-
-    @include onDesktop {
-      margin-bottom: 119px;
-      width: 60%;
     }
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    position: relative;
+
+    @include onTablet {
+      height: 384px;
+    }
 
     @include onDesktop {
-      max-width: 470px;
+      height: 655px;
     }
   }
 
   &__title {
+    display: flex;
     font-family: $fontMontserrat;
+    justify-content: center;
     font-weight: 700;
     font-size: 45px;
     line-height: 100%;
-
     text-align: center;
-
     color: #000;
 
-    margin-bottom: 20px;
+    margin: 250px 0 20px;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 65px;
+      text-align: start;
+      max-width: 500px;
+
+      margin: 40px 0 38px;
+    }
 
     @include onDesktop {
       font-size: 72px;
-      line-height: 120%;
-      text-align: left;
-      margin-bottom: 89px;
-    }
-  }
+      line-height: 86px;
 
-  &__events {
-    display: none;
-    align-self: flex-start;
-    position: relative;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 100%;
-    text-transform: uppercase;
-    padding-left: 20px;
-    color: #687480;
-
-    transform: rotate(-90deg);
-
-    &::after {
-      display: block;
-      content: "";
-      height: 1px;
-      width: 70px;
-      background-color: $colorGreen;
-      position: absolute;
-      right: 100%;
-      top: 50%;
-    }
-
-    @include onDesktop {
-      display: flex;
+      margin: 120px 0 90px;
     }
   }
 
   &__button {
     display: flex;
     cursor: pointer;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
 
-    @include onDesktop {
-      align-self: flex-end;
-      width: 270px;
+    @include onTablet {
+      max-width: 270px;
     }
+
+    @include hover(transform, scale(1.1));
   }
 
-  &__btn {
+  &__tickets {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #0f0e08;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 100%;
-    text-transform: uppercase;
+    position: relative;
+    box-sizing: border-box;
     height: 50px;
+    flex-grow: 1;
 
-    padding: 18px 80px;
-
+    font-weight: 500;
     border: 1px solid $colorGreen;
+    transition: 0.5s;
+    overflow: hidden;
+    text-transform: uppercase;
+
+    @include onTablet {
+      height: 70px;
+    }
+  }
+
+  &__events {
+    display: none;
 
     @include onDesktop {
-      min-height: 70px;
-      padding: 27px 68px;
+      display: flex;
+      position: absolute;
+      align-items: center;
+      gap: 20px;
+
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 14px;
+      left: -60px;
+      bottom: 60px;
+      color: #687480;
+      transform: rotate(-90deg);
+      text-transform: uppercase;
+
+      &::before {
+        display: block;
+        content: "";
+        align-items: center;
+        height: 1px;
+        width: 70px;
+
+        background-color: $colorGreen;
+      }
     }
   }
 }

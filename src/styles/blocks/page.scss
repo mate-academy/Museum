@@ -2,11 +2,31 @@
   font-family: $fontIBM;
   scroll-behavior: smooth;
 
+  &__body {
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 88px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+
   &__menu {
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
+    left: 0;
     z-index: 1;
 
     transform: translateY(-100%);
@@ -16,21 +36,13 @@
       transform: translateY(0);
 
       &::after {
+        position: absolute;
+        height: 100vh;
         content: "";
         left: 0;
         right: 0;
-        position: absolute;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.4);
       }
-    }
-  }
-
-  &__body {
-    margin: 0;
-
-    &--with-menu {
-      overflow: hidden;
     }
   }
 }
