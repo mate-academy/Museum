@@ -25,7 +25,7 @@
       }
 
       @include onDesktop {
-        width: 60%;
+        width: 58%;
         height: 655px;
       }
     }
@@ -146,69 +146,77 @@
     }
 
     &__tickets {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 23px;
+      height: 50px;
+      border: 1px solid $colorGreen;
+
+      padding-left: 50px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: $colorText;
       text-decoration: none;
+
+      &:hover {
+        color: $colorOrange;
+      }
+
+      @include onTablet {
+        margin: 0 0 0 35px;
+        width: 260px;
+        height: 70px;
+      }
+
+      @include onDesktop {
+        margin: 0;
+        margin-left: 218px;
+        width: 260px;
+      }
+
       &__container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 23px;
-        border: 1px solid $colorGreen;
+        position: absolute;
+        background-color: $colorGreen;
+        background-repeat: no-repeat;
+        height: 50px;
+        width: 50px;
+        right: 0;
+        z-index: 0;
+        transition: transform 300ms;
 
         @include onTablet {
-          margin: 0 0 0 35px;
-          width: 260px;
+          height: 70px;
+          width: 70px;
         }
 
-        @include onDesktop {
-          margin: 0;
-          margin-left: 218px;
-          width: 260px;
-        }
-
-        &__item {
-          padding-left: 50px;
-          font-family: "IBM Plex Sans", sans-serif;
-          font-weight: 500;
-          font-size: 16px;
-          color: $colorText;
-          text-decoration: none;
-        }
-
-        &__right {
-          margin: 0;
-          position: relative;
-          background-image: url(../images/signs/Rectangle.svg);
-          background-repeat: no-repeat;
+        &:hover {
+          background-color: $colorOrange;
           height: 50px;
           width: 50px;
-          z-index: 0;
-          transition: transform 300ms;
-
-          &:hover {
-            background-image: none;
-            background-color: red;
-          }
 
           @include onTablet {
             height: 70px;
             width: 70px;
           }
+        }
 
-          &::after {
-            content: "";
-            display: inline-block;
-            position: absolute;
-            top: 40%;
-            right: 42%;
-            background-image: url(../images/signs/right-white.svg);
-            background-repeat: no-repeat;
-            width: 7px;
-            height: 12px;
-            z-index: 1;
+        &::after {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          top: 40%;
+          right: 42%;
+          background-image: url(../images/signs/right-white.svg);
+          background-repeat: no-repeat;
+          width: 7px;
+          height: 12px;
+          z-index: 1;
 
-            @include onTablet {
-              top: 43%;
-            }
+          @include onTablet {
+            top: 43%;
           }
         }
       }
@@ -222,6 +230,7 @@
 
       @include onDesktop {
         &__actions {
+          display: inline-block;
           position: relative;
           margin-left: 45px;
           writing-mode: tb-rl;
