@@ -21,24 +21,30 @@
   }
 
   &__nav {
+    position: relative;
     display: flex;
     max-width: calc(50vw + 30px - 24px);
     justify-content: space-between;
     align-items: center;
     padding-bottom: 250px;
 
-    @include onTablet() {
-      max-width: calc(50vw + 50px + 24px);
-      padding-bottom: 40px;
-    }
-
-    @include onDesktop() {
-      max-width: calc(50vw + 65px + 24px);
+    @include onTabletAndDesktop {
+      max-width: calc(50vw + 24px);
       padding-bottom: 40px;
     }
 
     &--btn {
       @include hoverTransform;
+    }
+  }
+
+  &__menu-opener{
+    &--item {
+      @include onDesktop {
+        position: absolute;
+        top: 45px;
+        left: -5px;
+      }
     }
   }
 
