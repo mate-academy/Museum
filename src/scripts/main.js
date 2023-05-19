@@ -15,5 +15,18 @@ form.addEventListener('submit', buttonClick, false);
 function buttonClick(event) {
   event.preventDefault();
   form.reset();
-  alert('Ваша підписка успішно оформлена!');
 };
+
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    const loader = document.querySelector('.page-loader');
+
+    if (loader) {
+      loader.style.opacity = '0';
+
+      setTimeout(function() {
+        loader.style.display = 'none';
+      }, 1000); // Збільшено затримку до 1 секунди
+    }
+  }, 500); // Затримка 500 мс
+});
