@@ -1,21 +1,28 @@
 .footer {
   box-sizing: border-box;
   overflow: hidden;
-  margin: 0 20px 100px;
+  margin: 0 20px 80px;
 
   @include onTablet {
-    margin: 0 35px 173px;
+    margin: 0 35px 35px;
   }
 
   @include onDesktop {
-    margin: 0 55px 140px;
+    margin: 0 55px 35px;
   }
 
-  &__box__item {
+  &__box {
     margin-bottom: 40px;
 
     @include onTablet {
       margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1300px;
+      margin-bottom: 87px;
     }
   }
 
@@ -220,10 +227,6 @@
       margin-bottom: 64px;
     }
 
-    @include onDesktop {
-      transform: translateY(-100%);
-    }
-
     &__item {
       display: flex;
       height: 1px;
@@ -245,25 +248,26 @@
   &__list {
     display: flex;
     justify-content: center;
+    margin-bottom: 80px;
 
     @include onTablet {
-      justify-content: center;
+      margin-bottom: 100px;
     }
 
-    @include onDesktop {
-      transform: translateY(-75%);
+    &__container {
+      display: flex;
+      // justify-content: space-between;
     }
 
     &__left {
-      margin-right: 90px;
-
-      @include onTablet {
+      margin-right: 40px;
+      @include onDesktop {
         margin-right: 30px;
       }
     }
 
     &__right {
-      margin-right: 140px;
+      // margin-right: 140px;
 
       @include onTablet {
         margin-right: 0;
@@ -293,6 +297,25 @@
 
     &:hover {
       color: $colorGreen;
+    }
+  }
+
+  &__down {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__paragraph {
+      @include schedule;
+      font-size: 12px;
+      line-height: 17px;
+      color: $colorFooter;
     }
   }
 }
