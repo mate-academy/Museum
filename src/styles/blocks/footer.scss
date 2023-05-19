@@ -1,5 +1,58 @@
 .footer {
   position: relative;
+  padding-top: 50px;
+
+  &__head {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 40px;
+
+    &--socials {
+      @include onMobile {
+        text-align: end;
+      }
+
+      @include onDesktop {
+        display: flex;
+      }
+    }
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+      margin: 0;
+      height: 170px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__logo {
+    &:not(:last-child) {
+      margin-right: 25px;
+
+      @include onTablet {
+        margin-right: 20px;
+        margin-bottom: 64px;
+      }
+
+      @include onDesktop {
+        margin-right: 20px;
+        margin-bottom: 62px;
+      }
+    }
+
+    &-icon {
+      @include hoverTransform;
+    }
+  }
 
   &__line {
     height: 1px;
@@ -41,30 +94,26 @@
   &__authors {
     margin: 80px auto 26px;
 
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+    }
+
     &--item {
       font-weight: 300;
       font-size: 12px;
       line-height: 140%;
       text-align: center;
-      color: #0f0e08;
-
-      &:not(:last-child) {
-        padding-bottom: 10px;
-      }
-    }
-  }
-}
-
-.socials {
-  @include onTablet {
-    margin-top: 62px;
-  }
-
-  &__item {
-    @include hoverTransform;
-
-    &:not(:last-child) {
-      margin-right: 26px;
+      padding-bottom: 10px;
     }
   }
 }

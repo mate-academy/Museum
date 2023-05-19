@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   padding: 9px 0;
   height: 100%;
 
@@ -8,12 +9,15 @@
   background-image: url(../images/header-image.png);
 
   @include onTablet {
-    height: 384px;
     padding: 15px 0;
+    background-size: 50% ;
+  }
 
-    background-size: 374px 384px;
-    background-repeat: no-repeat;
-    background-position: right top;
+  @include onDesktop {
+    margin: auto;
+    max-width: 1400px;
+    height: 660px;
+    background-size: 50% 654px;
   }
 
   &__nav {
@@ -25,6 +29,11 @@
 
     @include onTablet() {
       max-width: calc(50vw + 50px + 24px);
+      padding-bottom: 40px;
+    }
+
+    @include onDesktop() {
+      max-width: calc(50vw + 65px + 24px);
       padding-bottom: 40px;
     }
 
@@ -53,6 +62,7 @@
       font-size: 72px;
       line-height: 120%;
       padding-bottom: 89px;
+      text-align: left;
     }
   }
 
@@ -60,12 +70,15 @@
     display: flex;
     justify-content: space-between;
     min-width: 280px;
-    width: 100%;
     cursor: pointer;
     @include hoverTransform;
 
     @include onTablet {
       max-width: 270px;
+      height: 70px;
+    }
+
+    @include onDesktop {
       height: 70px;
     }
 
@@ -87,6 +100,10 @@
       @include onTablet {
         height: 70px;
       }
+
+      @include onDesktop {
+        height: 70px;
+      }
     }
 
     &__button {
@@ -101,6 +118,44 @@
       @include onTablet {
         min-width: 70px;
       }
+
+      @include onDesktop {
+        min-width: 70px;
+      }
+    }
+  }
+
+  &--link-to-events {
+    position: absolute;
+    top: 552px;
+    display: none;
+    width: max-content;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+    text-decoration: none;
+    transform: rotate(-90deg) translate(-20px, -60px);
+    transition: all 0.3s;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 1px;
+      margin-right: 20px;
+      background-color: #1a5a4c;
+      transform: translate(0, 7px);
+    }
+
+    @include onDesktop {
+      display: flex;
+    }
+
+    &:hover {
+      color: #9eaab5;
     }
   }
 }
