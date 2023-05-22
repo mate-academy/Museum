@@ -1,33 +1,153 @@
 .header {
-  height: 300px;
+  padding-top: 15px;
+  padding-bottom: 318px;
 
-  background-image: url("../images/header.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  @include tablet {
+    padding-bottom: 107px;
+  }
+
+  @include mobile {
+    padding-top: 9px;
+    padding-bottom: 70px;
+  }
 
   &__nav {
+    width: 52%;
     display: flex;
-    margin-left: 24px;
-    padding-top: 9px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 120px;
+
+    @include tablet {
+      width: 69%;
+      margin-bottom: 40px;
+    }
+
+    @include mobile {
+      width: 60%;
+      margin-bottom: 250px;
+
+    }
   }
 
-  &__menu-link {
-    margin-right: 90px;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    max-width: 470px;
 
+    @include mobile {
+      max-width: 100%;
+    }
   }
 
-  &__menu-icon {
-    display: block;
-    position: relative;
-    top: 50%;
-  }
-
-  &__logo {
-    font-family: Montserrat, sans-serif;
+  &__title {
+    font-family: "Montserrat", Arial, sans-serif;
     font-weight: 700;
-    font-size: 30px;
-    line-height: 100%;
-    color: $color-black;
+    font-size: 72px;
+    line-height: 120%;
+    margin-bottom: 89px;
+    text-transform: uppercase;
+
+    @include tablet {
+      font-size: 54px;
+      margin-bottom: 38px;
+    }
+
+    @include mobile {
+      font-size: 45px;
+      line-height: 100%;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  }
+
+  &__button {
+    display: flex;
+    width: 270px;
+    align-self: flex-end;
+    transition: box-shadow 0.3s;
+
+    @include tablet {
+      align-self: flex-start;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+
+    @include hover {
+      &:hover {
+        box-shadow: 5px 5px 5px 0 rgba(26, 90, 76, 0.3);
+      }
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    border: 1px solid $green-color;
+    border-right: none;
+    font-weight: 500;
+    font-size: 16px;
+    flex-grow: 1;
+    color: $dark-color;
+    text-transform: uppercase;
+
+    @include mobile {
+      height: 50px;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 56%;
+    height: 655px;
+    background-image: url(../images/header-bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include tablet {
+      width: 48%;
+      max-height: 384px;
+    }
+
+    @include mobile {
+      width: 100%;
+      max-height: 300px;
+    }
+  }
+
+  &__events {
+    position: relative;
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #687480;
+    transform: rotate(-90deg);
+    left: -27px;
+    padding-left: 20px;
+    align-self: flex-start;
+    text-transform: uppercase;
+
+    @include tablet {
+      display: none;
+    }
+
+    &::after {
+      display: block;
+      position: absolute;
+      content: "";
+      width: 70px;
+      height: 1px;
+      background-color: $green-color;
+      right: 100%;
+      top: 50%;
+    }
   }
 }
