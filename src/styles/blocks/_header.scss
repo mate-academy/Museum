@@ -1,0 +1,166 @@
+.header {
+  &__bg {
+    position: relative;
+    height: 100vh;
+    max-height: 300px;
+    margin-bottom: 20px;
+    background-image: url("../images/museum.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+
+    @include onTablet {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      max-height: 384px;
+    }
+
+    @include onDesktop {
+      width: 57%;
+      max-height: 655px;
+    }
+  }
+
+  &__container {
+    margin-bottom: 70px;
+  }
+
+  &__top {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 0 0;
+    width: 50%;
+
+    @include onTablet {
+      width: 60%;
+      padding: 15px 0 0;
+    }
+
+    @include onDesktop {
+      width: 47%;
+    }
+
+    &-link {
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__action {
+    display: none;
+
+    @include onDesktop {
+      position: relative;
+      display: inline-block;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: #687480;
+      transform: rotate(270deg) translateY(-50px);
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 70px;
+        background: $main-color;
+        transform: rotate(90deg) translateX(-28px);
+      }
+
+      &-title {
+        margin-left: 60px;
+      }
+    }
+  }
+
+  &__logo {
+    width: 55px;
+    height: 61px;
+  }
+
+  &__tickets {
+    @include onTablet {
+      position: absolute;
+      top: 127px;
+      width: 340px;
+
+      @include onDesktop {
+        top: 206px;
+        width: 470px;
+      }
+    }
+
+    &-block {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      @include onTablet {
+        width: 270px;
+      }
+
+      @include onDesktop {
+        margin: 0 0 30px auto;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    &-title {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      line-height: 100%;
+      font-size: 45px;
+      color: #000;
+      text-align: center;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 38px;
+        font-size: 54px;
+        line-height: 120%;
+        text-align: left;
+      }
+
+      @include onDesktop {
+        font-size: 72px;
+      }
+    }
+
+    &-name {
+      box-sizing: border-box;
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      border-right: none;
+      border: 1px solid $main-color;
+      color: $main-color-title;
+
+      @include onTablet {
+        height: 70px;
+      }
+    }
+
+    &--right-block {
+      border: 1px solid $main-color;
+      background-color: $main-color;
+    }
+  }
+}
