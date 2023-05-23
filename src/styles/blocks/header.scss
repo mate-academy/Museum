@@ -1,0 +1,229 @@
+.header {
+  margin-bottom: 70px;
+
+  @include onTablet {
+    margin-bottom: 90px;
+    height: 384px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+    height: 655px;
+  }
+
+  &__background-container {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      flex-direction: row;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      height: 655px;
+    }
+  }
+
+  &__background-image {
+    background-image: url(/src/images/header-background-image.jpg);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    height: 300px;
+
+    @include onTablet {
+      order: 1;
+      width: 48.7%;
+      height: 100%;
+    }
+
+    @include onDesktop {
+      width: 55%;
+    }
+  }
+
+  &__background-white-area {
+    @include onTablet {
+      order: 0;
+      width: 51.3%;
+      height: 100%;
+    }
+
+    @include onDesktop {
+      width: 45%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 45px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+
+    &::after {
+      margin-top: 130px;
+      position: absolute;
+      content: 'події';
+      display: block;
+
+      font-family: 'IBM Plex Sans';
+      font-weight: 700;
+      font-size: 14px;
+      color: #687480;
+      transform: rotate(-90deg);
+
+      @media (max-width: 1279px) {
+        display: none;
+      }
+    }
+
+    @include onTablet {
+      text-align: left;
+      width: 340px;
+      font-size: 54px;
+      line-height: 120%;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      width: 470px;
+      font-size: 72px;
+      line-height: 120%;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+  }
+
+  &__tickets-title {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 50px;
+    width: 230px;
+    border: 1px #1a5a4c solid;
+
+    text-transform: uppercase;
+    font-family: 'IBM Plex Sans';
+    font-weight: 500;
+    font-size: 16px;
+    color: #0F0E08;
+
+    @include onTablet {
+      height: 70px;
+      width: 200px;
+    }
+
+    @include onDesktop {
+      height: 70px;
+      width: 230px;
+    }
+  }
+
+  &__tickets-arrow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    background-color: #1a5a4c;
+
+    @include onTablet {
+      height: 70px;
+      width: 70px;
+    }
+  }
+
+  &__tickets-arrow {
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-image: url(/src/images/tickets-arrow.svg);
+
+    height: 12px;
+    width: 12px;
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 18px 1fr 18px;
+    align-items: center;
+    padding-top: 9px;
+    margin-bottom: 250px;
+
+    @include onTablet {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+      padding-top: 15px;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      margin-bottom: 120px;
+    }
+  }
+
+  &__line {
+    position: relative;
+    height: 70px;
+    width: 1px;
+    background-color: #687480;
+    left: -564px;
+    top: 45px;
+
+    @media (max-width: 1279px) {
+      display: none;
+    }
+  }
+
+  // &__vertical-left-block {
+  //   display: flex;
+  //   align-items: center;
+
+  //   transform: translateY(-60px) rotate(-90deg);
+  //   position: absolute;
+  //   left: 0;
+  //   bottom: 0;
+
+    // @media (max-width: 1279px) {
+    //   display: none;
+    // }
+  // }
+
+  // &__vertical-left-block-line {
+    // width: 70px;
+    // height: 1px;
+
+    // background-color: #687480;
+  // }
+
+  // &__vertical-left-block-text {
+  //   font-family: 'IBM Plex Sans';
+  //   font-weight: 700;
+  //   font-size: 14px;
+  //   line-height: 100%;
+  //   text-transform: uppercase;
+  //   padding-left: 20px;
+
+  //   color: #687480;
+  // }
+}
