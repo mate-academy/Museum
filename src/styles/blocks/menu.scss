@@ -1,10 +1,29 @@
 .menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   &__content {
     display: flex;
     flex-direction: column;
     background-color: $mainGreen;
     height: 400px;
     box-sizing: border-box;
+
+    @include onTablet {
+
+      height: 230px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include onTablet {
+      flex-direction: row;
+    }
   }
 
   &__top {
@@ -22,7 +41,7 @@
 
   &__transparency {
     width: 100%;
-    height: 400px;
+    height: calc(100vh - 400px);
     backdrop-filter: brightness(0.5);
   }
 }
