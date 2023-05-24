@@ -33,6 +33,10 @@
 
   &__icon {
     margin-right: 34px;
+
+    @include onTablet {
+      margin-right: 44px;
+    }
   }
 
   &__content {
@@ -40,8 +44,17 @@
   }
 
   &__transparency {
+    --block-height: 400px;
     width: 100%;
-    height: calc(100vh - 400px);
+    height: calc(100vh - var(--block-height));
     backdrop-filter: brightness(0.5);
+
+    @include onTablet {
+      --block-height: 225px;
+    }
+
+    @include onDesktop {
+      --block-height: 233px;
+    }
   }
 }
