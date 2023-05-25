@@ -3,8 +3,16 @@
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page__body--menu-opener');
+
+    document.querySelector('.menu__background').classList.add(
+      'menu__background-is--active'
+    );
   } else {
     document.body.classList.remove('page__body--menu-opener');
+
+    document.querySelector('.menu__background').classList.remove(
+      'menu__background-is--active'
+    );
   }
 });
 
