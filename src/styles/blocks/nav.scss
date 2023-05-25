@@ -1,18 +1,35 @@
 .nav {
-  display: flex;
-  justify-content: space-between;
-  width: 228px;
-  height: 80px;
-  gap: 28px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 40px);
+  column-gap: 15vw;
+  row-gap: 5px;
+
+  @include onTablet {
+    // column-gap: 40px;
+    row-gap: 5px;
+  }
+
+  @include onDesktop {
+    // column-gap: 180px;
+    row-gap: 30px;
+  }
 
   &__link {
-    width: 100px;
     text-transform: capitalize;
     color: #fff;
     font-family: "IBM Plex Sans";
     font-weight: 500;
     font-size: 16px;
     line-height: 100%;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $mainBlack;
+    }
+
+    @include onDesktop {
+      font-size: 22px;
+    }
   }
 }
