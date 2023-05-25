@@ -52,10 +52,41 @@
   &__press::before {
     content: "";
     position: absolute;
-    background-image: url(/images/Vector.png);
+    background-image: url(../images/Vector.png);
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  &__up {
+    @include onMobile {
+      margin-left: 220px;
+      bottom: 120px;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      width: 50px;
+      transition: opacity 0.15s ease-in-out, transform 0.3s ease-in-out;
+      transform: translateY(0);
+
+      &::before {
+        content: "";
+        width: 50px;
+        height: 50px;
+        background: transparent no-repeat center center;
+        background-size: 100% 100%;
+        background-image: url(/images/up.svg);
+      }
+
+      &:hover {
+        background-color: #36a58d;
+        z-index: -1;
+        border-radius: 50%;
+      }
+    }
   }
 }
