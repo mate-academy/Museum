@@ -1,0 +1,40 @@
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 744px) and (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin forPhoto {
+  @media (min-width: 960px) {
+    @content;
+  }
+}
+
+@mixin h2-pageTitle {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 100%;
+  text-align: center;
+  color: $blackTextColor;
+  margin-bottom: 40px;
+
+  @include onTablet {
+    font-size: 48px;
+    text-align: left;
+    white-space: nowrap;
+    margin-bottom: 48px;
+  }
+
+  @include onDesktop {
+    font-size: 48px;
+    text-align: left;
+    white-space: nowrap;
+    margin-bottom: 56px;
+  }
+}
