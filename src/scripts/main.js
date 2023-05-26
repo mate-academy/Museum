@@ -15,10 +15,10 @@ const sliderNumber = (dot) => {
       return imgSize;
 
     case dots[2]:
-      return imgSize * 2;
+      return (imgSize * 2) + 20;
 
     case dots[3]:
-      return imgSize * 3;
+      return (imgSize * 3) + 40;
 
     default:
       break;
