@@ -72,6 +72,10 @@
     }
   }
 
+  &__buttons-wrap {
+    position: relative;
+  }
+
   &__link-button {
     display: inline-block;
     box-sizing: border-box;
@@ -96,6 +100,55 @@
     @include onTablet {
       height: 70px;
       width: 70px;
+    }
+  }
+
+  &__events-wrap {
+    position: absolute;
+    left: -215px;
+    bottom: -15px;
+    display: none;
+    transform: rotate(270deg);
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: #0040 14px 28px, #0038 10px 10px;
+      transform: scale(1.1) rotate(270deg);
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__events-click {
+    position: relative;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+
+    &::before {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 70px;
+      content: "";
+      width: 70px;
+      height: 1px;
+      background-color: #687480;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      &::before {
+        right: 90px;
+      }
     }
   }
 }
