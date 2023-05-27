@@ -3,38 +3,37 @@
 
   @include onTablet {
     margin-bottom: 90px;
-    height: 384px;
+    height: $header-height-tablet;
   }
 
   @include onDesktop {
     margin-bottom: 200px;
-    height: 655px;
+    height: $header-height-desktop;
   }
 
   &__background-container {
+    display: flex;
+    flex-direction: column;
+
     position: absolute;
     z-index: -1;
     width: 100%;
 
-    display: flex;
-    flex-direction: column;
-
     @include onTablet {
       flex-direction: row;
-      height: 384px;
+      height: $header-height-tablet;
     }
 
     @include onDesktop {
-      height: 655px;
+      height: $header-height-desktop;
     }
   }
 
   &__background-image {
+    @extend %background-image-cover;
     background-image: url(/src/images/header-background-image.jpg);
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-    height: 300px;
+
+    height: $header-height-mobile;
 
     @include onTablet {
       order: 1;
@@ -63,15 +62,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
     width: 100%;
   }
 
   &__title {
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 45px;
+    @extend %h1;
     text-align: center;
-    color: #000000;
+    color: $font-color__total-black;
     margin-bottom: 20px;
 
     &::after {
@@ -83,10 +81,10 @@
       font-family: 'IBM Plex Sans';
       font-weight: 700;
       font-size: 14px;
-      color: #687480;
+      color: $font-color__light-grey;
       transform: rotate(-90deg);
 
-      @media (max-width: 1279px) {
+      @media (max-width: ($desktop-width - 1)) {
         display: none;
       }
     }
@@ -112,60 +110,58 @@
   }
 
   &__tickets-title {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 50px;
-    width: 230px;
-    border: 1px #1a5a4c solid;
+    @extend %flex-row-center-center;
 
+    box-sizing: border-box;
+    height: $subscribe-form-size-mobile;
+    width: $subscribe-form-length-mobile;
+    border: 1px solid $green-color;
+
+    text-align: center;
     text-transform: uppercase;
     font-family: 'IBM Plex Sans';
     font-weight: 500;
     font-size: 16px;
-    color: #0F0E08;
+    color: $font-color__semi-black;
 
     @include onTablet {
-      height: 70px;
+      height: $subscribe-form-size-tablet;
       width: 200px;
     }
 
     @include onDesktop {
       height: 70px;
-      width: 230px;
+      width: $subscribe-form-length-mobile;
     }
   }
 
   &__tickets-arrow-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    width: 50px;
-    background-color: #1a5a4c;
+    @extend %flex-row-center-center;
+
+    height: $subscribe-form-size-mobile;
+    width: $subscribe-form-size-mobile;
+    background-color: $green-color;
 
     @include onTablet {
-      height: 70px;
-      width: 70px;
+      height: $subscribe-form-size-tablet;
+      width: $subscribe-form-size-tablet;
     }
   }
 
   &__tickets-arrow {
-    background-size: contain;
-    background-position: top center;
-    background-repeat: no-repeat;
+    @extend %background-image-contain;
     background-image: url(/src/images/tickets-arrow.svg);
 
-    height: 12px;
-    width: 12px;
+    height: $subscribe-form-size-arrow;
+    width: $subscribe-form-size-arrow;
   }
 
   &__top {
     display: grid;
     grid-template-columns: 18px 1fr 18px;
+
     align-items: center;
+
     padding-top: 9px;
     margin-bottom: 250px;
 
@@ -186,44 +182,12 @@
     position: relative;
     height: 70px;
     width: 1px;
-    background-color: #687480;
+    background-color: $font-color__light-grey;
     left: -564px;
     top: 45px;
 
-    @media (max-width: 1279px) {
+    @media (max-width: ($desktop-width - 1)) {
       display: none;
     }
   }
-
-  // &__vertical-left-block {
-  //   display: flex;
-  //   align-items: center;
-
-  //   transform: translateY(-60px) rotate(-90deg);
-  //   position: absolute;
-  //   left: 0;
-  //   bottom: 0;
-
-    // @media (max-width: 1279px) {
-    //   display: none;
-    // }
-  // }
-
-  // &__vertical-left-block-line {
-    // width: 70px;
-    // height: 1px;
-
-    // background-color: #687480;
-  // }
-
-  // &__vertical-left-block-text {
-  //   font-family: 'IBM Plex Sans';
-  //   font-weight: 700;
-  //   font-size: 14px;
-  //   line-height: 100%;
-  //   text-transform: uppercase;
-  //   padding-left: 20px;
-
-  //   color: #687480;
-  // }
 }

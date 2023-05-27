@@ -1,13 +1,13 @@
 .lection {
   position: relative;
-  margin-bottom: 183px;
+  margin-bottom: 180px;
 
   @include onTablet {
-    margin-bottom: 208px;
+    margin-bottom: 210px;
   }
 
   @include onDesktop {
-    margin-bottom: 302px;
+    margin-bottom: 300px;
   }
 
   &__container {
@@ -23,10 +23,9 @@
   }
 
   &__photo {
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
+    @extend %background-image-cover;
     background-image: url(/src/images/Rectangle20.jpg);
+
     height: 210px;
     width: 100%;
 
@@ -41,6 +40,10 @@
   }
 
   &__description-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     position: absolute;
     bottom: 0%;
     left: 50%;
@@ -48,11 +51,9 @@
 
     height: 140px;
     width: 280px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fff;
-    box-shadow: 0px 2px 0px rgba(26, 90, 76, 0.25);
+
+    background-color: $white-color;
+    box-shadow: 0px 2px 0px $dark-green-color;
 
     text-decoration: none;
 
@@ -81,6 +82,7 @@
   &__date-block {
     display: flex;
     justify-content: space-between;
+
     font-family: 'IBM Plex Sans';
     font-size: 16px;
     margin-bottom: 20px;
@@ -95,23 +97,19 @@
 
   &__name {
     font-weight: 500;
-    color: #687480;
+    color: $font-color__light-grey;
   }
 
   &__date {
     font-weight: 700;
-    color: #1a5a4c;
-  }
-
-  &__details-block {
-
+    color: $green-color;
   }
 
   &__title {
     font-family: 'Montserrat';
     font-weight: 400;
     font-size: 28px;
-    color: #0f0e08;
+    color: $font-color__semi-black;
     text-align: center;
 
     @include onTablet {

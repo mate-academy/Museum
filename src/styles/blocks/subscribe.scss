@@ -1,17 +1,15 @@
 .subscribe {
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %flex-row-center-center;
   flex-direction: column;
+
+  box-sizing: border-box;
+
   width: 100%;
   padding: 88px 20px;
   margin-bottom: 50px;
 
   background-image: url(/src/images/subscribe.jpg);
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
+  @extend %background-image-cover;
 
   @include onTablet {
     padding: 82px 154px;
@@ -22,7 +20,7 @@
   }
 
   &__description {
-    color: #FFFFFF;
+    color: $white-color;
     text-align: center;
     margin-bottom: 50px;
 
@@ -61,19 +59,18 @@
   }
 
   &__input-container {
-
     position: relative;
-    height: 50px;
-    width: 230px;
+    height: $subscribe-form-size-mobile;
+    width: $subscribe-form-length-mobile;
 
     @include onTablet {
-      height: 70px;
-      width: 374px;
+      height: $subscribe-form-size-tablet;
+      width: $subscribe-form-length-tablet;
       margin-right: 16px;
     }
 
     @include onDesktop {
-      width: 470px;
+      width: $subscribe-form-length-desktop;
       margin-right: 30px;
     }
   }
@@ -96,43 +93,38 @@
   }
 
   &__button-container {
+    @extend %flex-row-center-center;
+
     height: 100%;
     width: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   &__button {
+    @extend %background-image-cover;
+    background-image: url(/src/images/RectangleForm.jpg);
+
     border: none;
     box-sizing: border-box;
     padding: 0;
-    height: 50px;
-    width: 50px;
 
-    background-image: url(/src/images/RectangleForm.jpg);
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
+    height: $subscribe-form-size-mobile;
+    width: $subscribe-form-size-mobile;
 
     :hover {
       cursor: pointer;
     }
 
     @include onTablet {
-      height: 70px;
-      width: 70px;
+      height: $subscribe-form-size-tablet;
+      width: $subscribe-form-size-tablet;
     }
   }
 
   &__button-arrow {
-    height: 12px;
-    width: 12px;
-
+    @extend %background-image-contain;
     background-image: url(/src/images/FormArrow.svg);
-    background-size: contain;
-    background-position: top center;
-    background-repeat: no-repeat;
+
+    height: $subscribe-form-size-arrow;
+    width: $subscribe-form-size-arrow;
   }
 }
