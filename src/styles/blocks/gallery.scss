@@ -1,0 +1,90 @@
+.gallery {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 20px;
+
+
+  @include onTablet {
+    flex-direction: row;
+    margin-bottom: 32px;
+  }
+
+  @include onDesktop {
+    height: 100%;
+    flex-direction: column;
+  }
+
+  &__photo-row {
+    width: 100%;
+    display: flex;
+    height: 410px;
+
+    @include onTablet {
+      height: 543px;
+    }
+
+    @include onDesktop {
+      height: 600px;
+      margin-bottom: 30px;
+
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+    }
+
+    &--second {
+      height: 360px;
+    }
+  }
+
+  &__photo-container {
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    height: 410px;
+    width: 280px;
+    margin-right: 16px;
+
+    @include onTablet {
+      height: 543px;
+      width: 340px;
+      margin-right: 20px;
+    }
+
+    @include onDesktop {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &--photo-1 {
+    background-image: url(/src/images/photo1_for-all.jpg);
+  }
+
+  &--photo-2 {
+    background-image: url(/src/images/photo2_for-tabl.jpg);
+
+    @include onDesktop {
+      background-image: url(/src/images/photo2_for-desk.jpg);
+    }
+  }
+
+  &--photo-3 {
+    background-image: url(/src/images/photo3_for-desk.jpg);
+
+    @include onTablet {
+      background-position: top 0px right -200px;
+    }
+
+    @include onDesktop {
+      background-position: top center;
+    }
+  }
+
+  &--photo-4 {
+    background-image: url(/src/images/photo4_for-all.jpg);
+  }
+}
