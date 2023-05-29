@@ -2,19 +2,16 @@
   position: relative;
   height: 100vh;
 
+  @include onTablet {
+    margin-bottom: 88px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+
   &__top-nav {
-    // display: flex;
-    // flex-direction: column;
     margin: 0;
-
-    // @include onTablet {
-    //   display: grid;
-    //   grid-template-columns: repeat(6, 1fr);
-    // }
-
-    // @include onDesktop {
-    //   grid-template-columns: repeat(12, 1fr);
-    // }
 
     &__museum {
       position: absolute;
@@ -28,13 +25,8 @@
 
       @include onTablet {
         position: relative;
-        height: 100%;
-        // grid-area: 4 / 6;
-        margin-bottom: 88px;
-      }
-
-      @include onDesktop {
-        height: 100%;
+        grid-row: 1 / 5;
+        height: 100vh;
       }
     }
 
@@ -46,16 +38,8 @@
       line-height: 61px;
 
       @include onTablet {
-        // display: grid;
-        // grid-template-columns: repeat(6, 1fr);
-        margin: 0 0 40px;
-        line-height: 72px;
-      }
-
-      @include onDesktop {
-        // grid-template-columns: repeat(12, 1fr);
+        grid-row-start: 1;
         margin: 0;
-        line-height: 72px;
       }
     }
 
@@ -82,14 +66,11 @@
       z-index: 1;
 
       @include onTablet {
-        // display: grid;
-        margin: 15px auto 0;
-        // justify-content: center;
-        // align-items: center;
+        margin: 15px 45% 0;
       }
 
       @include onDesktop {
-        margin: 15px auto 80px;
+        margin: 15px 70% 119px;
       }
 
       &__NAMU {
@@ -97,10 +78,6 @@
 
         @include onTablet {
           height: 72px;
-        }
-
-        @include onDesktop {
-          height: 100%;
         }
       }
     }
@@ -113,12 +90,10 @@
 
       @include onTablet {
         margin: 0 0 0 35px;
-        // display: grid;
       }
 
       @include onDesktop {
         margin: 0 0 0 45px;
-        // display: grid;
       }
 
       &--h {
@@ -169,13 +144,12 @@
     &__tickets {
       position: relative;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       margin: 0 23px;
       height: 50px;
       border: 1px solid $colorGreen;
 
-      padding-left: 50px;
+      padding: 0 0 0 70px;
       font-family: "IBM Plex Sans", sans-serif;
       font-weight: 500;
       font-size: 16px;
@@ -188,14 +162,14 @@
 
       @include onTablet {
         margin: 0 0 0 35px;
-        width: 260px;
+        width: 200px;
         height: 70px;
       }
 
       @include onDesktop {
+        grid-row-start: 3;
         margin: 0;
-        margin-left: 218px;
-        width: 260px;
+        margin-left: 200px;
       }
 
       &__container {
@@ -248,6 +222,11 @@
       text-decoration: none;
       color: transparent;
       cursor: none;
+
+      @include onDesktop {
+        margin-top: 70px;
+        grid-row-start: 3;
+      }
 
       @include onDesktop {
         &__actions {
