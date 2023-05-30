@@ -220,62 +220,52 @@
           Галерея
         </h1>
         <div class="gallery__slideshow grid grid--desktop">
-          <div class="gallery__wrapper grid__item--desktop-1-4">
+          <div class="gallery__mySlides grid__item--desktop-1-4">
             <div class="
               gallery__photo
-              gallery__mySlides
-              gallery__mySlides--1
               gallery__fade">
-              <img src="./images/photos/gallery/1.svg" alt="mySlides--1">
+              <img src="./images/photos/gallery/1.svg" alt="mySlides--1"></img>
             </div>
           </div>
 
-          <div class="gallery__wrapper grid__item--desktop-5-12">
+          <div class="gallery__mySlides grid__item--desktop-5-12">
             <div class="
               gallery__photo
-              gallery__mySlides
-              gallery__mySlides--2
               gallery__fade">
-              <img src="./images/photos/gallery/1.svg" alt="mySlides--2">
+              <img src="./images/photos/gallery/1.svg" alt="mySlides--2"></img>
             </div>
           </div>
 
-          <div class="gallery__wrapper grid__item--desktop-1-8">
+          <div class="gallery__mySlides grid__item--desktop-1-8">
             <div class="
               gallery__photo
-              gallery__mySlides
-              gallery__mySlides--3
               gallery__fade">
-              <img src="./images/photos/gallery/1.svg" alt="mySlides--3">
+              <img src="./images/photos/gallery/1.svg" alt="mySlides--3"></img>
             </div>
           </div>
 
-          <div class="gallery__wrapper grid__item--desktop-9-12">
+          <div class="gallery__mySlides grid__item--desktop-9-12">
             <div class="
               gallery__photo
-              gallery__mySlides
-              gallery__mySlides--4
               gallery__fade">
-              <img src="./images/photos/gallery/1.svg" alt="mySlides--4">
+              <img src="./images/photos/gallery/1.svg" alt="mySlides--4"></img>
             </div>
           </div>
 
-          <div class="gallery__wrapper">
+          <div class="gallery__mySlides">
             <div class="
               gallery__photo
-              gallery__mySlides
-              gallery__mySlides--5
               gallery__fade">
-              <img src="./images/photos/gallery/1.svg" alt="mySlides--5">
+              <img src="./images/photos/gallery/1.svg" alt="mySlides--5"></img>
             </div>
           </div>
         </div>
         <div class="gallery__items">
-          <span class="gallery__dot" onclick="currentSlide(1)"></span>
-          <span class="gallery__dot" onclick="currentSlide(2)"></span>
-          <span class="gallery__dot" onclick="currentSlide(3)"></span>
-          <span class="gallery__dot" onclick="currentSlide(4)"></span>
-          <span class="gallery__dot gallery__dot--tablet" onclick="currentSlide(5)"></span>
+          <span class="gallery__dot" onclick="slideActive(1)"></span>
+          <span class="gallery__dot" onclick="slideActive(2)"></span>
+          <span class="gallery__dot" onclick="slideActive(3)"></span>
+          <span class="gallery__dot" onclick="slideActive(4)"></span>
+          <span class="gallery__dot gallery__dot--tablet" onclick="slideActive(5)"></span>
         </div>
       </div>
 
@@ -434,5 +424,40 @@
         <p class="footer__down__paragraph footer__down__paragraph--last">Copyright © 2019. All Rights Reserved.</p>
       </div>
     </footer>
+
+    <script>
+      let slideIndex = 1;
+
+      currentSlide(slideIndex);
+
+      function slideActive(a) {
+        currentSlide(slideIndex = a);
+      }
+
+      function currentSlide(n) {
+        let i;
+        const slides = document.getElementsByClassName('gallery__mySlides');
+        const dots = document.getElementsByClassName('gallery__dot');
+
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(' active', '');
+        }
+
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].className += ' active';
+      }
+    </script>
   </body>
 </html>
