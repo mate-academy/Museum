@@ -232,7 +232,7 @@
             <div class="
               gallery__photo
               gallery__fade">
-              <img src="./images/photos/gallery/1.svg" alt="mySlides--2"></img>
+              <img src="./images/photos/gallery/2.svg" alt="mySlides--2"></img>
             </div>
           </div>
 
@@ -240,7 +240,7 @@
             <div class="
               gallery__photo
               gallery__fade">
-              <img src="./images/photos/gallery/1.svg" alt="mySlides--3"></img>
+              <img src="./images/photos/gallery/3.svg" alt="mySlides--3"></img>
             </div>
           </div>
 
@@ -248,7 +248,7 @@
             <div class="
               gallery__photo
               gallery__fade">
-              <img src="./images/photos/gallery/1.svg" alt="mySlides--4"></img>
+              <img src="./images/photos/gallery/4.svg" alt="mySlides--4"></img>
             </div>
           </div>
 
@@ -256,16 +256,16 @@
             <div class="
               gallery__photo
               gallery__fade">
-              <img src="./images/photos/gallery/1.svg" alt="mySlides--5"></img>
+              <img src="./images/photos/gallery/5.svg" alt="mySlides--5"></img>
             </div>
           </div>
         </div>
         <div class="gallery__items">
-          <span class="gallery__dot" onclick="slideActive(1)"></span>
-          <span class="gallery__dot" onclick="slideActive(2)"></span>
-          <span class="gallery__dot" onclick="slideActive(3)"></span>
-          <span class="gallery__dot" onclick="slideActive(4)"></span>
-          <span class="gallery__dot gallery__dot--tablet" onclick="slideActive(5)"></span>
+          <span class="gallery__dot" onclick="currentSlide(1)"></span>
+          <span class="gallery__dot" onclick="currentSlide(2)"></span>
+          <span class="gallery__dot" onclick="currentSlide(3)"></span>
+          <span class="gallery__dot" onclick="currentSlide(4)"></span>
+          <span class="gallery__dot gallery__dot--tablet" onclick="currentSlide(5)"></span>
         </div>
       </div>
 
@@ -430,34 +430,43 @@
 
       currentSlide(slideIndex);
 
-      function slideActive(a) {
-        currentSlide(slideIndex = a);
-      }
-
       function currentSlide(n) {
+        const screenWidth = window.screen.width;
         let i;
         const slides = document.getElementsByClassName('gallery__mySlides');
         const dots = document.getElementsByClassName('gallery__dot');
 
-        if (n > slides.length) {
+        console.log("length", slides.length)
+
+        if (n > slides.length && screenWidth >= 640) {
+          slideIndex = 2;
+        } else {
           slideIndex = 1;
         }
 
-        if (n < 1) {
+        if (n > 1) {
           slideIndex = slides.length;
         }
 
+        slideIndex = n;
+
         for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = 'none';
-        }
+            slides[i].style.display = 'none';
+          }
 
         for (i = 0; i < dots.length; i++) {
           dots[i].className = dots[i].className.replace(' active', '');
         }
 
-        slides[slideIndex - 1].style.display = 'block';
-        dots[slideIndex - 1].className += ' active';
+        if (screenWidth >= 640) {
+          slides[slideIndex - 2].style.display = 'block';
+          dots[slideIndex - 2].className += ' active';
+        } else {
+          slides[slideIndex - 1].style.display = 'block';
+          dots[slideIndex - 1].className += ' active';
+        }
       }
+
     </script>
   </body>
 </html>
