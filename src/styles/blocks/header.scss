@@ -1,0 +1,151 @@
+.header {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  // justify-content: space-between;
+  flex-direction: column;
+  // gap: 10px;
+
+  @include onTabletAndDesktop {
+    flex-direction: row-reverse;
+  }
+
+  &__menu {
+    position: absolute;
+    top: 33px;
+    left: 23px;
+    width: 18px;
+    height: 12px;
+    background-image: url(../images/menu.svg);
+    @include hover(transform, scale(120%));
+    
+    @include onTablet {
+      top: 45px;
+      left: 37px;
+    }
+
+    @include onDesktop {
+      top: 45px;
+      left: 58px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55px;
+    height: 61px;
+    font-family: $montserrat;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: $black;
+    @include hover(top, 20px);
+
+    @include onTabletAndDesktop {
+      top: 15px;
+      left: 60%;
+      width: 80px;
+      height: 72px;
+      font-size: 36px;
+    }
+
+    @include onDesktop {
+      left: 50%;
+    }
+  }
+
+  &__image {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+
+    @include onTablet {
+      width: 50%;
+      margin: 0;
+      object-fit: cover;
+    }
+
+    @include onDesktop {
+      width: 725px;
+    }
+  }
+
+  &__wrraper {
+    @include onTablet {
+      // width: 50%;
+      margin: 0 auto 30px 34px;
+    }
+    
+    @include onDesktop {
+      width: 470px;
+      margin-left: 55px;
+      margin-right: 30px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 45px;
+    line-height: 45px;
+    text-align: center;
+
+    @include onTablet {
+      margin-top: 110px;
+      margin-bottom: 38px;
+      font-size: 54px;
+      line-height: 64px;
+      text-align: start;
+    }
+
+    @include onDesktop {
+      margin-top: 206px;
+      margin-bottom: 89px;
+      font-size: 72px;
+      line-height: 86px;
+      text-align: left;
+    }
+  }
+
+  &__button {
+    @include onDesktop {
+      margin-left: auto;
+    }
+  }
+  
+  &__events-link {
+    display: none;
+
+    @include onDesktop {
+      display: inline;
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      position: absolute;
+      left: 55px;
+      bottom: 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: $title-gray;
+      padding: 5px;
+
+      &::before {
+        display: inline-block;
+        content: "";
+        width: 70px;
+        height: 1px;
+        background-color: $green;
+        transform: translateY(-5px);
+        margin-right: 20px;
+      }
+
+      @include hover(transform,
+      translateY(-5px) rotate(-90deg) translateX(-15px));
+    }
+  }
+}
