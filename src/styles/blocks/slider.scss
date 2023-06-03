@@ -1,0 +1,130 @@
+.slider {
+  position: relative;
+  width: 280px;
+  height: 440px;
+  overflow: hidden;
+  margin-bottom: 100px;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__radio {
+    display: none;
+  }
+
+  &__slides {
+    width: 400%;
+  }
+
+  &__slide {
+    display: flex;
+    transition: all 0.3s;
+
+    &--image {
+      height: 410px;
+      width: 280px;
+
+      transition: all 0.5s;
+
+      &:hover {
+        transition: all 0.5s;
+        transform: scale(1.05);
+      }
+      
+      &--1 {
+        background-image: url(../images/gallery1.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top left;
+      }
+  
+      &--2 {
+        background-image: url(../images/gallery2.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top left;
+      }
+  
+      &--3 {
+        background-image: url(../images/gallery3.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top left;
+      }
+  
+      &--4 {
+        background-image: url(../images/gallery4.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top left;
+      }
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+  
+  &__dot {
+    width: 9px;
+    height: 9px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $colorGreen;
+    }
+
+    @include onTablet {
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+}
+
+#point1:checked ~ .slider__slide--go {
+  margin-left: 0;
+}
+
+#point2:checked ~ .slider__slide--go {
+  margin-left: -25%;
+}
+
+#point3:checked ~ .slider__slide--go {
+  margin-left: -50%;
+}
+
+#point4:checked ~ .slider__slide--go {
+  margin-left: -75%;
+}
+
+#point1:checked ~ .slider__dots .slider__dot--1 {
+  background-color: $colorGreen;
+}
+
+#point2:checked ~ .slider__dots .slider__dot--2 {
+  background-color: $colorGreen;
+}
+
+#point3:checked ~ .slider__dots .slider__dot--3 {
+  background-color: $colorGreen;
+}
+
+#point4:checked ~ .slider__dots .slider__dot--4 {
+  background-color: $colorGreen;
+}
