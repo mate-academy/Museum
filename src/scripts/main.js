@@ -16,12 +16,12 @@ function submitForm(event) {
 
 document.querySelector('#form').addEventListener('submit', submitForm);
 
-const swiper = new Swiper('.swiper', {
-  slidesPerView: 'auto',
-  spaceBetween: 16,
-  loop: true,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-});
+// const swiper = new Swiper('.swiper', {
+//   slidesPerView: 'auto',
+//   spaceBetween: 16,
+//   loop: true,
+//   pagination: {
+//     el: '.swiper-pagination',
+//     clickable: true,
+//   },
+// });
