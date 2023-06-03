@@ -1,5 +1,7 @@
 'use strict';
 
+document.body.classList.remove('page__body--with-menu');
+
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page__body--with-menu');
