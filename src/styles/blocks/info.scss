@@ -1,0 +1,116 @@
+.info {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+
+  &__title {
+    margin: 0 0 20px;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: 20px;
+  }
+
+  &__list {
+    @extend %list-reset;
+    margin-bottom: 16px;
+
+    @include onTablet {
+      grid-column-start: 1;
+    }
+  }
+
+  &__paragraph {
+    margin: 0;
+  }
+
+  &__list,
+  &__paragraph {
+    @include onTablet {
+      max-width: 170px;
+    }
+  }
+
+  &__time {
+    font-weight: 600;
+  }
+
+  &--menu {
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 24px;
+    }
+
+    @include onTablet {
+      position: relative;
+      margin-bottom: 40px;
+      padding-left: 40px;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 30px;
+
+      &::before {
+        position: absolute;
+        width: 1px;
+        height: 100%;
+      }
+    }
+
+    @include onDesktop {
+      column-gap: 30px;
+      padding-left: 102px;
+    }
+  }
+
+  &--footer {
+    position: relative;
+    padding-bottom: 70px;
+
+    @include grid;
+
+    @include onTablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include onDesktop {
+      padding-bottom: 0;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: rgba(26, 90, 76, 0.5);
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      @include onDesktop {
+        width: 1px;
+        height: 100%;
+        left: 118%;
+      }
+    }
+  }
+
+  &__schedule {
+    grid-column: 1 / 2;
+  }
+
+  &__contacts {
+    grid-column: 2 / 3;
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+  }
+}
