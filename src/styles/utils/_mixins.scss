@@ -4,3 +4,25 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media screen and (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin grid( $columns ) {
+  @for $start from 1 through $columns {
+    @for $end from $start through $columns {
+      &--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end + 1};
+      }
+    }
+  }
+}

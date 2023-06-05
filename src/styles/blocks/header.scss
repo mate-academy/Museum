@@ -1,0 +1,136 @@
+.header {
+  position: relative;
+  &__image {
+    width: 100%;
+    height: 300px;
+
+    @include onTablet {
+      height: 384px;
+    }
+
+    @include onDesktop {
+      height: 655px;
+    }
+  }
+
+  &__top {
+    margin-top: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+
+    @include onTablet {
+      width: 100%;
+    }
+  }
+
+  &__grid-image {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    width: 100%;
+    top: 0;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    margin: 0;
+    text-decoration: none;
+
+    &-block {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-small {
+      text-decoration-thickness: 1px;
+      @include hover(text-decoration, underline);
+    }
+
+    &-big {
+      margin-top: 250px;
+      font-size: 45px;
+      line-height: 100%;
+      color: $c-black;
+
+      @include onTablet {
+        font-size: 54px;
+        margin-top: 40px;
+        line-height: 120%;
+      }
+
+      @include onDesktop {
+        font-size: 72px;
+        margin-top: 120px;
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+    border: 1px solid $c-green;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    @include onTablet {
+      margin-top: 38px;
+    }
+
+    @include onDesktop {
+      margin-top: 89px;
+    }
+
+    &-text {
+      color: #0f0e08;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      flex-grow: 1;
+
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+
+      @include hover(background-color, $c-green);
+      @include hover(color, $c-white);
+
+    }
+
+    &-arrow {
+      background-color: $c-green;
+      color: $c-white;
+    }
+  }
+
+  &__link {
+    display: none;
+    color: #687480;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+
+    @include hover(color, $c-green);
+
+    transform: rotate(-90deg) translateY(-48px) translateX(90px);
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__line {
+    transform: rotate(90deg) translateY(40px) translateX(-28.5px);
+  }
+}
