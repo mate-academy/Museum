@@ -1,0 +1,147 @@
+.header {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: $title_color;
+  position: relative;
+
+  &__container {
+    @include container;
+  }
+
+  &__content {
+    padding-top: 9px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+      position: relative;
+      padding-top: 15px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      position: relative;
+      padding-top: 15px;
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr 53px 1fr;
+    align-items: center;
+    justify-items: start;
+    gap: 36px;
+
+    @include onTablet {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+      position: absolute;
+      top: 15px;
+      right: 0;
+      left: 0;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__box {
+    margin: 250px 0 70px;
+
+    @include onTablet {
+      margin: 112px 0 107px;
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 /6;
+    }
+  }
+
+  &__img {
+    background-image: url(../images/Museum.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 300px;
+    max-height: 300px;
+    width: 100%;
+    z-index: -1;
+
+    @include onTablet {
+      height: 384px;
+      max-height: max-content;
+      width: 112%;
+      position: absolute;
+      grid-column: 4 /7;
+    }
+
+    @include onDesktop {
+      grid-column: 6 /13;
+      height: 665px;
+    }
+  }
+
+  &__title {
+    @extend %font_h2;
+    font-size: 45px;
+    margin: 0 0 20px;
+
+    @include onTablet {
+      margin: 0 0 38px;
+      text-align: start;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      font-weight: 700;
+      font-size: 72px;
+      margin: 90px 0;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__events {
+    display: none;
+    @extend %font_data;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+    transform: rotate(-90deg);
+
+    @include onDesktop {
+      display: inline-block;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 70px;
+        height: 1px;
+        background-color: $green_color;
+        margin-right: 20px;
+        top: 50%;
+        right: 100%;
+      }
+    }
+  }
+
+  &__icon-box {
+    width: $icon-width;
+  }
+}
