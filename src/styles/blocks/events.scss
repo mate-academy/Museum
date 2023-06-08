@@ -1,0 +1,222 @@
+.events {
+  padding-bottom: 200px;
+
+  @include onTablet {
+    padding-bottom: 88px;
+  }
+
+  @include onMobile {
+    padding-bottom: 100px;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 104px 0;
+
+    @include onTablet {
+      gap: 64px 0;
+    }
+
+    @include onMobile {
+      gap: 60px 0;
+    }
+  }
+
+  &__card-exhibition {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px 0;
+    }
+
+    @include onMobile {
+      gap: 20px 0;
+    }
+  }
+
+  &__img {
+    width: 670px;
+    height: 520px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s;
+
+    @include onTablet {
+      width: 100%;
+    }
+
+    @include onMobile {
+      height: 210px;
+    }
+
+    @include hover {
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__title {
+    color: $dark-color;
+    margin-bottom: 56px;
+
+    @include onMobile {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__card-info {
+    max-width: 370px;
+
+    @include onTablet {
+      max-width: 460px;
+    }
+  }
+
+  &__exhibition {
+    display: flex;
+    gap: 25px;
+
+    @include onMobile {
+      justify-content: space-between;
+    }
+  }
+
+  &__type {
+    font-weight: 500;
+    font-size: 14px;
+    color: #687480;
+    text-transform: uppercase;
+    margin-bottom: 23px;
+
+    @include onMobile {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__type + time {
+    font-weight: 700;
+    font-size: 14px;
+    color: $green-color;
+
+    @include onMobile {
+      font-size: 16px;
+    }
+  }
+
+  &__card-lecture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__lecture {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__image-lecture {
+    background-image: url(../images/event_background.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 550px;
+
+    @include onTablet {
+      height: 390px;
+    }
+
+    @include onMobile {
+      height: 210px;
+    }
+  }
+
+  &__card-info-lecture {
+    max-width: 570px;
+    background-color: $white-color;
+    box-shadow: 0 2px 0 rgba(21, 23, 22, 0.25);
+    transform: translateY(-40%);
+    margin-bottom: -80px;
+    padding: 45px 100px 50px;
+    transition: box-shadow 0.3s;
+
+    @include onTablet {
+      padding: 45px 55px 50px;
+    }
+
+    @include onMobile {
+      padding: 24px 1px 20px;
+      margin-bottom: -52px;
+    }
+
+    @include hover {
+      &:hover {
+        box-shadow: 5px 5px 15px rgba(21, 23, 22, 0.25);
+      }
+    }
+  }
+
+  &__card-title-lecture {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 100%;
+    color: $dark-color;
+
+    @include onMobile {
+      font-size: 28px;
+      text-align: center;
+    }
+  }
+
+  &__card-title {
+    position: relative;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 100%;
+    color: $dark-color;
+    margin-bottom: 15px;
+    width: max-content;
+    padding-right: 20px;
+
+    @include onMobile {
+      font-size: 28px;
+      margin-bottom: 11px;
+    }
+
+    &::after {
+      display: block;
+      position: absolute;
+      content: "";
+      width: 15px;
+      height: 15px;
+      bottom: 50%;
+      left: 100%;
+      background-color: $red-color;
+      transform: translateY(50%);
+
+      @include onMobile {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+
+  &__desc {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: $main-colot-text;
+
+    & span {
+      white-space: nowrap;
+    }
+  }
+}
