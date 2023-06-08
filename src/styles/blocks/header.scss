@@ -1,0 +1,106 @@
+.header {
+  &__content {
+    padding-top: 9px;
+    position: relative;
+
+    @include onTablet {
+      padding-top: 15px;
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 18px 1fr 18px;
+    justify-items: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &__photo-info-container {
+    left: 0;
+    right: 0;
+    margin-top: -9px;
+    position: relative;
+
+    @include onTablet {
+      margin-top: -15px;
+      grid-column: 1 / 7;
+      @include gridTablet;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 13;
+      @include gridDesktop;
+    }
+  }
+
+  &__photo-container {
+    margin: 0 -20px 20px;
+    background-image: url(../images/header-mobile-image.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-bottom: 300px;
+
+    @include onTablet {
+      margin: 0 -34px 0 0;
+      grid-column: 4 / 7;
+      background-image: url(../images/header-tablet-image.jpg);
+      padding-bottom: 384px;
+    }
+
+    @include onDesktop {
+      margin: 0 -55px 0 0;
+      grid-column: 6 / 13;
+      background-image: url(../images/header-desktop-image.jpg);
+      padding-bottom: 655px;
+    }
+
+    @include onDesign {
+      margin: 0 -136px 0 0;
+    }
+  }
+
+  &__info-container {
+    @include onTablet {
+      position: absolute;
+      grid-column: 1 / 4;
+      bottom: 30px;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 40px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 30px;
+      bottom: 25%;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin: 0 0 38px;
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+      margin: 0 0 89px;
+      font-size: 72px;
+    }
+  }
+}
