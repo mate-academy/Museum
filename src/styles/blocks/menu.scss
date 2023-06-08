@@ -1,0 +1,120 @@
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #1a5a4c;
+  height: 60vh;
+  z-index: 10;
+
+  @include onDeskTop {
+    height: 100vh;
+  }
+
+  @include iPhoneSEHorizontal {
+    height: 100vh;
+  }
+
+  font-family: "IBM Plex Sans", sans-serif;
+
+  transform: translateY(-100%);
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &--container {
+    @include onDeskTop {
+      display: flex;
+      justify-content: space-between;
+      width: 100vw;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  &__close {
+    padding: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+
+    &:hover {
+      color: #f14a27;
+    }
+  }
+
+  &__list {
+    display: inline-block;
+    list-style: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    columns: 2;
+    gap: 28px;
+
+    border-bottom: 1px solid #fff;
+
+    @include onDeskTop {
+      font-size: 22px;
+      line-height: 22px;
+      border-bottom: 1px solid transparent;
+      margin-top: 40px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 32px;
+  }
+
+  &__item-a {
+    text-decoration: none;
+    color: #fff;
+
+    &:hover {
+      color: #f14a27;
+    }
+  }
+
+  &__schedule {
+    color: #fff;
+    margin-left: 20px;
+
+    @include onDeskTop {
+      padding-left: 102px;
+      border-left: 1px solid #fff;
+      height: 50%;
+      margin-top: 40px;
+      margin-right: 155px;
+    }
+  }
+
+  &__schedule-title {
+    margin-bottom: 20px;
+  }
+
+  &__schedule-off {
+    margin-top: 16px;
+  }
+
+  &__schedule-container {
+    @include onDeskTop {
+      display: flex;
+      flex-direction: row;
+      column-gap: 30px;
+    }
+  }
+
+  &__schedule-hours {
+    @include onDeskTop {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

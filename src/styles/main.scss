@@ -1,7 +1,45 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@mixin onDeskTop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width:750px) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin iPhoneSEHorizontal {
+  @media (min-width: 667px) and (max-width: 668px) {
+    @content;
+  }
+}
 
 body {
-  background: $c-gray;
+  overflow-x: hidden;
+  max-width: 1440px;
 }
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+@import "./blocks/page.scss";
+@import "./blocks/grid.scss";
+@import "./blocks/container.scss";
+@import "utils";
+@import "typography";
+@import "./blocks/header.scss";
+@import "./blocks/sections.scss";
+@import "./blocks/footer.scss";
+@import "./blocks/subscribe.scss";
+@import "./blocks/gallery.scss";
+@import "./blocks/menu.scss";

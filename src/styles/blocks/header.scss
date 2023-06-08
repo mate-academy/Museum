@@ -1,0 +1,125 @@
+.header {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    padding-top: 9px;
+    margin: auto;
+    align-content: center;
+  }
+
+  &__opener {
+    margin-left: 23px;
+    margin-top: 33px;
+    font-weight: 700;
+  }
+}
+
+.hero {
+  &__background {
+    width: 100%;
+    object-fit: cover;
+
+    &--row {
+      grid-row: 1;
+    }
+
+    @include onDeskTop {
+      width: 50vw;
+    }
+
+    @include onMobile {
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+  &__title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    padding-top: 206px;
+
+    @include onDeskTop {
+      text-align: start;
+      padding-left: 55px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    justify-content: center;
+    padding-bottom: 70px;
+    padding-top: 89px;
+
+    @include onDeskTop {
+      justify-content: end;
+    }
+
+    &--item {
+      border: 1px solid #1a5a4c;
+      text-align: center;
+      box-sizing: border-box;
+      text-transform: uppercase;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 500;
+      padding: 18px 80px;
+
+      @include onDeskTop {
+        padding: 29px 66px;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &--search {
+      background-color: #1a5a4c;
+      color: #fff;
+      margin: 0;
+      border: 1px solid transparent;
+      text-decoration: none;
+      padding: 19px;
+      box-sizing: border-box;
+      line-height: 12px;
+      font-weight: 500;
+
+      @include onDeskTop {
+        padding: 30px;
+      }
+    }
+  }
+}
+
+.header--desktop {
+  display: none;
+
+  @include onDeskTop {
+    display: block;
+  }
+}
+
+.logo-pic {
+  width: 55px;
+  height: 61px;
+
+  @include onDeskTop {
+    width: 170px;
+    height: 72px;
+    object-fit: contain;
+  }
+}
