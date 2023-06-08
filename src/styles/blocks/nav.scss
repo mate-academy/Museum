@@ -1,0 +1,65 @@
+.nav {
+  display: flex;
+  gap: 20px;
+
+  @include onTablet {
+    gap: 38px;
+  }
+
+  @include onSmall-desktop {
+    gap: 102px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+
+    @include onTablet {
+      row-gap: 24px;
+      column-gap: 20px;
+    }
+
+    @include onSmall-desktop {
+      row-gap: 30px;
+      column-gap: 60px;
+    }
+  }
+
+  &__item {
+    @extend %font_event;
+
+    color: white;
+    text-decoration: none;
+
+    @include onSmall-desktop {
+      font-size: 22px;
+    }
+
+    &--galery {
+      grid-column: 1 / 2;
+    }
+
+    &--about {
+      grid-column: 2 / 3;
+    }
+
+    &--events {
+      grid-column: 1 / 2;
+      margin-bottom: 24px;
+
+      @include onTablet {
+        margin-bottom: 66px;
+      }
+
+      @include onSmall-desktop {
+        margin-bottom: 50px;
+      }
+    }
+
+    &--contacts {
+      grid-column: 2 / 3;
+      margin-bottom: 24px;
+    }
+  }
+}
