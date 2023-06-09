@@ -32,6 +32,8 @@
     width: fit-content;
     @include fontStyle("Montserrat", 36px, 700);
     text-align: center;
+
+    @include hover(transform, scale(1.1));
   }
 
   &__social-networks {
@@ -50,14 +52,15 @@
     align-items: center;
 
     &::after {
-      transition: all 0.3s ease;
       @include pseudo();
       width: 100%;
       height: 100%;
-      padding: 7px;
       border-radius: 50%;
+      border: 2px solid transparent;
+      padding: 10px;
     }
 
+    @include hover(border-color, $color-dark-accent, $pseudo: "after");
   }
 
   &__bottom-bar {
