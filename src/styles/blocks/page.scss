@@ -1,0 +1,55 @@
+.page {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  margin-left: 0;
+
+  &__body {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    overflow-y: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateY(0);
+
+      &::after {
+        content: "";
+        left: 0;
+        right: 0;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+    @include onMobile {
+      height: 399px;
+    }
+    @include onTablet {
+      height: 225px;
+    }
+    @include onDesktop {
+      height: 233px;
+    }
+  }
+
+  &__section {
+    max-width: 1170px;
+  }
+}

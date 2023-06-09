@@ -1,0 +1,143 @@
+.subscribe {
+  @include onMobile {
+    background-image: url(/images/subMob.png);
+    background-size: cover;
+    background-position: center;
+    height: 386px;
+    margin-top: 129px;
+  }
+
+  @include onTablet {
+    background-image: url(/images/subTab.png);
+    background-size: cover;
+    background-position: center;
+    height: 380px;
+  }
+
+  @include onDesktop {
+    background-image: url(/images/subscribe.png);
+    background-size: cover;
+    background-position: center;
+    height: 550px;
+  }
+
+  &__content {
+    display: grid;
+
+    @include onMobile {
+      grid-template-columns: repeat(2,1fr);
+      gap: 20px;
+    }
+
+    @include onTablet {
+      grid-template-columns: repeat(6,1fr);
+      gap: 30px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12,1fr);
+      gap: 30px;
+    }
+  }
+
+  &__title {
+    font-family: $fontMontserrat;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 48px;
+    text-align: center;
+    color: $mainWhiteColor;
+    margin-bottom: 16px;
+
+    @include onDesktop {
+      margin-top: 163px;
+    }
+
+    @include onMobile {
+      font-size: 36px;
+      line-height: 100%;
+      margin-top: 88px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__about {
+    font-family: $fontIBMPlexSans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    text-align: center;
+    color: $mainWhiteColor;
+
+    @include onMobile {
+      margin-bottom: 50px;
+      font-size: 18px;
+      line-height: 150%;
+      text-align: center;
+    }
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__email {
+    font-family: $fontMontserrat;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+    height: 70px;
+    background: $mainWhiteColor;
+    padding-left: 32px;
+    width: 100%;
+    border: 0;
+
+    @include onTablet {
+      display: flex;
+    }
+
+    @include onMobile {
+      height: 50px;
+      width: 230px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    background-color: #f14a27;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+      width: 50px;
+      height: 50px;
+    }
+
+    &:hover {
+      background-color: #f9f9f9;
+    }
+  }
+
+  &__form {
+    display: flex;
+
+    @include onTablet {
+      gap: 16px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+    }
+  }
+}

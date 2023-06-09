@@ -1,0 +1,93 @@
+.button {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s;
+
+  &__text {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: $fontIBMPlexSans;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: $mainBlackColor;
+    padding: 0;
+    border: 1px solid $greenColor;
+
+    @include onMobile {
+      height: 50px;
+    }
+    @include onTablet {
+      height: 70px;
+    }
+    @include onDesktop {
+      height: 70px;
+    }
+  }
+
+  &__press {
+    box-sizing: border-box;
+    position: relative;
+    background-color: $greenColor;
+
+    @include onMobile {
+      height: 50px;
+      width: 50px;
+    }
+    @include onTablet {
+      height: 70px;
+      width: 70px;
+    }
+    @include onDesktop {
+      height: 70px;
+      width: 70px;
+    }
+  }
+
+  &__press::before {
+    content: "";
+    position: absolute;
+    background-image: url(../images/Vector.png);
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__up {
+    @include onMobile {
+      right: 20px;
+      margin-top: 147px;
+      margin-bottom: 20px;
+      position: absolute;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      width: 50px;
+      transition: opacity 0.15s ease-in-out, transform 0.3s ease-in-out;
+      transform: translateY(0);
+
+      &::before {
+        content: "";
+        width: 50px;
+        height: 50px;
+        background: transparent no-repeat center center;
+        background-size: 100% 100%;
+        background-image: url(/images/up.svg);
+      }
+
+      &:hover {
+        background-color: #36a58d;
+        z-index: -1;
+        border-radius: 50%;
+      }
+    }
+  }
+}
