@@ -1,0 +1,51 @@
+.nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 40px);
+  column-gap: 15vw;
+  row-gap: 5px;
+
+  @include onTablet {
+    row-gap: 5px;
+  }
+
+  @include onDesktop {
+    row-gap: 30px;
+    font-size: 22px;
+  }
+
+  &--footer {
+    @include onDesktop {
+      row-gap: 0;
+    }
+  }
+
+  &__link {
+    text-transform: capitalize;
+    color: $mainWhite;
+    font-family: "IBM Plex Sans";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    transition: color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      color: $mainBlack;
+    }
+
+    &--footer{
+      color: $mainBlack;
+      font-weight: 400;
+
+      &:hover {
+        color: $mainGreen;
+      }
+
+      @include onDesktop {
+        font-weight: 400;
+
+      }
+    }
+  }
+}

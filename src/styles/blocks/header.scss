@@ -1,0 +1,136 @@
+.header {
+  position: relative;
+
+  @include onTablet {
+    height: 384px;
+  }
+
+  @include onDesktop {
+    height: 655px;
+  }
+
+  &__background {
+    box-sizing: border-box;
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../images/photos/museum-photo.png");
+    // z-index: 1;
+
+    @include onTablet {
+      width: 50%;
+      height: 384px;
+      left: 50%;
+      background-position: right;
+    }
+
+    @include onDesktop {
+      width: 50%;
+      height: 665px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 20px;
+    left: 45%;
+    cursor: pointer;
+
+    @include onTablet {
+      left: 40px;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 0;
+
+    @include onTablet {
+      width: 50%;
+    }
+
+    @include onDesktop {
+      width: 50%;
+
+      &::before {
+        content: "Події";
+        position: absolute;
+        left: 45px;
+        bottom: 100px;
+        display: block;
+        width: 40px;
+        height: 14px;
+        font-family: "IBM Plex Sans";
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 100%;
+        text-transform: uppercase;
+        color: #687480;
+        transform: rotate(-90deg);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 60px;
+        bottom: 0;
+        display: block;
+        width: 1px;
+        height: 70px;
+        background: #1a5a4c;
+      }
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 280px;
+
+    @include onTablet {
+      margin-bottom: 70px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 148px;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 54px;
+      margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin-bottom: 88px;
+    }
+  }
+
+  &__button {
+    @include onDesktop {
+      display: flex;
+      justify-content: right;
+      margin-right: 30px;
+    }
+  }
+}

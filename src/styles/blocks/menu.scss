@@ -1,0 +1,74 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    background-color: $mainGreen;
+    height: 400px;
+    box-sizing: border-box;
+
+    @include onTablet {
+      height: 230px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__top {
+    display: flex;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $mainWhite;
+
+    @include onTablet {
+      border-bottom: none;
+      border-right: 1px solid $mainWhite;
+    }
+  }
+
+  &__icon {
+    margin-right: 34px;
+
+    @include onTablet {
+      margin-right: 44px;
+    }
+
+    @include onDesktop {
+      margin-right: 108px;
+    }
+  }
+
+  &__nav {
+    margin-right: 38px;
+  }
+
+  &__content {
+    padding: 20px 0 0;
+  }
+
+  &__transparency {
+    --block-height: 400px;
+    width: 100%;
+    height: calc(100vh - var(--block-height));
+    backdrop-filter: brightness(0.5);
+
+    @include onTablet {
+      --block-height: 225px;
+    }
+
+    @include onDesktop {
+      --block-height: 233px;
+    }
+  }
+}
