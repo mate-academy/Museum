@@ -1,0 +1,132 @@
+.menu {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  padding-bottom: 15vh;
+
+  width: 100%;
+  height: 45%;
+
+  background: #1a5a4c;
+  transform: translateY(-100%);
+  transition: transform 0.6s;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  @include onPad {
+    height: 15%;
+    padding-bottom: 5vh;
+  }
+
+  @include onDesktop {
+    height: 20%;
+  }
+
+  &__grid {
+    width: 100%;
+
+    @include onPad {
+      display: grid;
+      grid-template-columns: repeat(2, 35vh);
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(2, 75vh);
+    }
+
+    &--graphic {
+      @include onPad {
+        display: grid;
+        grid-template-columns: repeat(2, 200px);
+        justify-items: center;
+      }
+
+      @include onDesktop {
+        padding-top: 2.6vh;
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+    margin: 20px;
+    padding: 0 0 100px;
+    border-bottom: 1px solid #fff;
+
+    @include onPad {
+      margin: 50px 33px;
+      border-bottom: 0;
+      border-right: 1px solid #fff;
+    }
+
+    @include onDesktop {
+      margin: 56px 43px;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    top: -10px;
+    left: 50px;
+    margin: 0 10px;
+    padding: 0;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 120px 120px;
+
+    @include onDesktop {
+      left: 25%;
+    }
+  }
+
+  &__item {
+    list-style-type: none;
+    padding: 10px 0;
+  }
+
+  &__link {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
+    text-decoration: none;
+
+    color: #fff;
+
+    @include onDesktop {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 100%;
+    }
+  }
+
+  &__closer {
+    padding-left: 12px;
+
+    @include onPad {
+      padding-left: 0;
+    }
+
+    @include onDesktop {
+      padding-left: 12px;
+    }
+  }
+
+  &__graphic {
+    margin: 25px 0;
+  }
+
+  &__weekend {
+    padding: 0 20px;
+  }
+}

@@ -1,0 +1,116 @@
+.gallery {
+  margin-top: 100px;
+
+  &__grid {
+    margin-bottom: 30px;
+  }
+
+  &__small {
+    display: flex;
+    justify-content: center;
+
+    @include onDesktop {
+      position: absolute;
+      opacity: 0;
+    }
+  }
+
+  &__switch {
+    position: relative;
+    padding-top: 420px;
+
+    @include onPad {
+      padding: 600px 310px 0;
+    }
+
+    @include onDesktop {
+      opacity: 0;
+    }
+  }
+
+  &__image {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.6s;
+
+    &::after {
+      content: "";
+      display: block;
+    }
+
+    &--phone {
+      position: absolute;
+      height: 410px;
+      opacity: 1;
+
+      @include onPad {
+        left: 40px;
+        height: 550px;
+      }
+
+      @include onDesktop {
+        opacity: 0;
+      }
+
+      &-phantom {
+        left: 97%;
+        opacity: 1;
+
+        @include onPad {
+          display: none;
+        }
+      }
+    }
+
+    &--pad {
+      display: none;
+
+      @include onPad {
+        display: block;
+        height: 550px;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+
+      &-phantom {
+        display: none;
+        position: relative;
+        height: 550px;
+
+        @include onPad {
+          display: block;
+          left: 2%;
+          opacity: 1;
+        }
+
+        @include onDesktop {
+          display: none;
+        }
+      }
+    }
+
+    &--desktop {
+      width: 0;
+      height: 0;
+
+      @include onDesktop {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: all 0.6s;
+
+        opacity: 1;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
