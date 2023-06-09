@@ -3,7 +3,7 @@
   &__place {
     position: relative;
 
-    padding: 40px 20px;
+    padding: 20px;
 
     box-sizing: border-box;
     width: 100%;
@@ -74,6 +74,10 @@
     @include onPad {
       padding: 60px 0;
     }
+
+    @include onDesktop {
+      padding: 12vh 0;
+    }
   }
 
   &__history {
@@ -91,9 +95,27 @@
     flex-direction: column;
     align-items: center;
 
+    @include onPad {
+      padding: 0 35px;
+      height: 390px;
+    }
+
+    @include onDesktop {
+      padding: 0;
+      height: 550px;
+    }
+
     &--image {
-      margin-top: 100px;
       width: 100%;
+      height: 21vh;
+
+      @include onPad {
+        height: 40vh;
+      }
+
+      @include onDesktop {
+        height: 100%;
+      }
     }
   }
 
@@ -102,7 +124,7 @@
     flex-direction: column;
     position: absolute;
 
-    margin-top: 23vh;
+    margin-top: 15vh;
 
     max-width: 280px;
 
@@ -111,16 +133,26 @@
 
     @include onPad {
       padding: 55px;
-      margin-top: 43vh;
+      margin-top: 30vh;
       max-width: max-content;
     }
 
     @include onDesktop {
-      margin-top: 65vh;
+      margin-top: 45vh;
     }
 
     &--time {
       padding: 24px 20px;
+
+      @include onPad {
+        padding: 24px 0;
+        max-width: 390px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+      }
     }
   }
 }
