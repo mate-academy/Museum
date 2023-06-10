@@ -1,0 +1,34 @@
+.scroll {
+  display: none;
+  position: absolute;
+
+  bottom: 60px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #1a5a4c;
+  border-radius: 50px;
+  transition: all $animation-duration;
+
+  background-image: url(../images/scroll-vector.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include onMobile {
+    display: block;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border: 1px solid #1a5a4c;
+    border-radius: 50px;
+    opacity: 0;
+    animation: pulse 2s infinite;
+  }
+}

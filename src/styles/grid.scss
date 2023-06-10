@@ -1,0 +1,28 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+
+  @include onTablet {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__item {
+    @for $start from 1 to 13 {
+      @for $end from $start to 13 {
+        &--desktop-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @for $start from 1 to 7 {
+      @for $end from $start to 7 {
+        &--tablet-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+}
