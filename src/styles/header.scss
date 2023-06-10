@@ -92,8 +92,45 @@
     align-items: center;
     transition: all $animation-duration;
 
-    &:hover {
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
       background-color: #1a5a4c;
+      transition: all $animation-duration;
+      z-index: -1;
+    }
+
+    &-button {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      position: absolute;
+      right: 0;
+      width: 70px;
+      height: 70px;
+      background-color: #1a5a4c;
+      transition: all $animation-duration;
+
+      img {
+        transition: all $animation-duration;
+      }
+    }
+
+    &:hover {
+      .header__link-button {
+        img {
+          margin-left: 20%;
+          scale: 1.5;
+        }
+      }
+
+      &::before {
+        width: 100%;
+      }
       color: #fff;
     }
 
@@ -114,18 +151,6 @@
       @include onMobile {
         width: calc(100% - 70px);
       }
-    }
-
-    &-button {
-      position: absolute;
-      right: 0;
-      width: 70px;
-      height: 70px;
-      background-color: #1a5a4c;
-      background-image: url(../images/Vector.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-
     }
   }
 

@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>Museum</title>
     <link 
       rel="icon" 
@@ -17,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;700&family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" 
       rel="stylesheet">
     <link rel="stylesheet" href="./styles/main.scss">
-    <script src="scripts/main.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   </head>
   <body class="body">
     <menu class="menu" id="menu">
@@ -107,7 +109,9 @@
                 Квитки
               </div>
               
-              <div class="header__link-button"></div>
+              <div class="header__link-button">
+                <img src="./images/Vector.svg" alt="vector_img">
+              </div>
             </a>
   
             <div class="header__desktop-link">
@@ -231,12 +235,33 @@
               </div>
             </div>
           </div>
-  
-          <div class="slider">
-            <a href="#slide-1" class="slider__round"></a>
-            <a href="#slide-2" class="slider__round"></a>
-            <a href="#slide-3" class="slider__round"></a>
-            <a href="#slide-4" class="slider__round"></a>
+
+          <div class="swiper-visible">
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <img 
+                  class="swiper-slide"
+                  src="./images/gallery-1.jpg"
+                  alt="gallery.img"
+                >
+                <img 
+                  class="swiper-slide"
+                  src="./images/gallery-2.jpg"
+                  alt="gallery.img"
+                >
+                <img 
+                  class="swiper-slide"
+                  src="./images/gallery-3.jpg"
+                  alt="gallery.img"
+                >
+                <img 
+                  class="swiper-slide"
+                  src="./images/gallery-4.jpg"
+                  alt="gallery.img"
+                >
+              </div>
+            </div>
+            <div class="pagination"></div>
           </div>
         </div>
       </section>
@@ -396,6 +421,48 @@
         </div>
       </footer>
     </div>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="module">
+      import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js';
+    
+      const swiper = new Swiper('.swiper', {
+        speed: 1000,
+        loop: true,
+        spaceBetween: 16,
+        slidesPerView: 1.1,
+    
+        pagination: {
+          el: '.pagination',
+        },
+    
+        breakpoints: {
+          640: {
+            slidesPerView: 2.1,
+          },
+        },
+      });
+
+      
+      let slideIsChanged = false;
+      const swiperIsActive = document.querySelector('.swiper-visible');
+
+
+      document.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        const swiperDisplay = window.getComputedStyle(swiperIsActive).display;
+        const swiperHeight = swiperIsActive.clientHeight;
+        const swiperOffset = swiperIsActive.offsetTop - swiperHeight;
+
+        if (swiperDisplay !== 'none'
+          && scrollPosition >= swiperOffset
+          && !slideIsChanged
+        ) {
+          slideIsChanged = true;
+          swiper.slideNext();
+        }
+      });
+    </script>
+    
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>
