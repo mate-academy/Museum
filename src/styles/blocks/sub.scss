@@ -1,0 +1,96 @@
+.sub {
+  max-width: 1280px;
+  margin: 0 auto;
+  @extend %imgProperty;
+  padding: 88px 0 ;
+  background-image: url(../images/sub.png);
+  @include onDesktop {
+    padding: 162px 0;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    color: #fff;
+    @include onTablet {
+      font-size: 48px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 50px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: #fff;
+    text-align: center;
+    @include onDesktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__form-container {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    box-sizing: border-box;
+  }
+
+  &__field {
+    height: 50px;
+    flex-grow: 1;
+    padding: 18px 24px;
+    border: 0;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    outline: 0;
+    @include onTablet {
+      height: 70px;
+      margin-right: 16px;
+    }
+    @include onDesktop {
+      margin-right: 30px;
+    }
+  }
+
+  &__button {
+    position: relative;
+    width: 50px;
+    border: 0;
+    padding: 0;
+    background: #f14a27;
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover {
+      background: #9c301a;
+    }
+    @include onTablet {
+      width: 70px;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      width: 8px;
+      height: 12px;
+      background-image: url(../images/arr-black.png);
+    }
+  }
+}

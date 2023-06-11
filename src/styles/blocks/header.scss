@@ -1,0 +1,37 @@
+.header {
+  padding-top: 10px 0 70px;
+  &__image {
+    @extend %imgProperty;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    transform: scaleX(-1);
+    background-image: url(../images/museum.jpg);
+    z-index: -1;
+    @include onTablet {
+      left: auto;
+      right: 0;
+      width: calc(50% - 10px);
+      height: 384px;
+    }
+    @include onDesktop {
+      height: 655px;
+      width: 725px;
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 18px 1fr 18px;
+    align-items: center;
+    padding-bottom: 250px;
+    @include onTablet {
+      padding-bottom: 0;
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+}

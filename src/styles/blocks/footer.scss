@@ -1,0 +1,161 @@
+.footer {
+  padding: 50px 0;
+  &__container {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 20px;
+    }
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+    }
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    @include onTablet {
+      flex-direction: column;
+      justify-content: start;
+      gap: 62px;
+    }
+    & .logo {
+      font-size: 36px;
+      text-align: start;
+    }
+  }
+  &__socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+  }
+
+  &__facebook,
+  &__instagram {
+    @extend %imgProperty;
+  }
+
+  &__social svg {
+    width: 24px;
+    height: 24px;
+    fill: $black;
+    transition: all 0.3s;
+  }
+
+  &__socials svg:hover {
+    fill: #f14a27;
+  }
+
+  &__info {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(26, 90, 76, 0.5);
+    line-height: 150%;
+    @include onTablet {
+      font-size: 14px;
+      padding-bottom: 64px;
+    }
+    @include onDesktop {
+      border-bottom: 0;
+      &::after {
+        content: "";
+        position: absolute;
+        right: -65px;
+        display: block;
+        width: 1px;
+        height: 80%;
+        border-right: 1px solid rgba(26, 90, 76, 0.5);
+
+      }
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: right;
+    grid-column: 2;
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__up {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #1a5a4c;
+    border-radius: 50%;
+    text-decoration: none;
+    &::after {
+      content: "↑";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__menu-grid {
+    padding: 40px 0 80px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    @include onTablet {
+      width: 100%;
+      grid-template-columns: repeat(6, 1fr);
+      padding: 64px 0 120px;
+    }
+    @include onDesktop {
+      padding: 0;
+      display: flex;
+      & .menu__item:nth-child(2) {
+        margin-left: 65px;
+      }
+    }
+  }
+
+  &__color {
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    color: $black;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 140.62%;
+    text-align: center;
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__list-content {
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+
+    }
+  }
+
+  &__link {
+    color: #000;
+    text-decoration: none;
+    transition: all 0.5s;
+    &:hover {
+      color: #f14a27;
+    }
+  }
+}
