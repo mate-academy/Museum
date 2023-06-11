@@ -1,0 +1,251 @@
+.footer {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(2, minmax(95px, 1fr));
+  height: 300px;
+  font-family: $secondFont;
+  font-weight: 400;
+  font-size: 14px;
+
+  @include onTablet {
+    grid-gap: 24px;
+    grid-template-columns: repeat(6, minmax(70px, 1fr));
+  }
+
+  @include onDesctop {
+    grid-gap: 24px;
+    grid-template-columns: repeat(12, minmax(70px, 1fr));
+  }
+
+  &__logo {
+    transition: filter 0.3s, transform 0.3s;
+
+    &:hover {
+      filter: drop-shadow(1px 1px 0.75rem $green-color);
+      transform: scale(1.1);
+    }
+  }
+
+  &__social{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-column: 1 / span 2 ;
+
+    @include onTablet {
+      flex-direction: column;
+      height: 70%;
+      grid-column: 1;
+    }
+  }
+
+  &__facebook {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: filter 0.3s, transform 0.3s;
+
+    &:hover {
+      filter: drop-shadow(1px 1px 0.75rem $green-color);
+      transform: scale(1.1);
+    }
+  }
+
+  &__facebook-img {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__instagran {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: filter 0.3s, transform 0.3s;
+
+    &:hover {
+      filter: drop-shadow(1px 1px 0.75rem $green-color);
+      transform: scale(1.1);
+    }
+    @include onDesctop {
+      margin-left: 2px;
+    }
+  }
+
+  &__instagran-img {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__schedule{
+    width: 110px;
+    grid-column: 1;
+
+    @include onTablet {
+      width: 100%;
+      grid-column: 2 / span 2;
+    }
+
+    @include onDesctop {
+      width: 100%;
+      grid-column: 3 / span 2;
+    }
+  }
+
+  &__time-bold {
+    font-weight: 700;
+  }
+
+  &__additional-information {
+    margin: 0;
+    padding: 0;
+    align-self: start;
+    grid-column: 1;
+
+    @include onTablet {
+      grid-column: 2 / span 2;
+    }
+
+    @include onDesctop {
+      width: 100%;
+      grid-column: 3 / span 2;
+    }
+  }
+
+  &__contacts {
+    line-height: 21px;
+    grid-row: 2;
+    grid-column: 2;
+    color: black;
+    text-decoration: none;
+
+    @include onTablet {
+      grid-row: 1;
+      grid-column: 4 / span 2;
+    }
+
+    @include onDesctop {
+      width: 100%;
+      grid-column: 5 / span 2;
+    }
+  }
+
+  &__up-btn {
+    display: block;
+    border: 1px solid $green-color;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 4;
+    grid-column: 2;
+    justify-self: end;
+    align-self: flex-end;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__up-btn-img {
+    width: 18px;
+    height: 18px;
+  }
+
+  &__line {
+    grid-column: 1 / span 2;
+    grid-row: 5;
+    border-top: 1px solid $green-color;
+
+    @include onTablet {
+      grid-column: 2 / span 4;
+      grid-row: 3;
+    }
+
+    @include onDesctop {
+      transform: rotate(90deg);
+      width: 260px;
+      grid-column: 6;
+      grid-row: 1 / span 2;
+      align-self: center;
+    }
+  }
+
+  .link {
+    text-decoration: none;
+    font-family: inherit;
+    color: black;
+    transition: text-shadow 0.3s , color 0.3s;
+    
+    &:hover {
+      color: $green-color;
+      text-shadow: 3px 4px 7px rgba(81,67,21,0.8);
+    }
+  }
+
+  &__links-1 {
+    height: 70px;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    grid-row: 6;
+    grid-column: 1;
+
+    @include onTablet {
+      grid-row: 4;
+      grid-column: 2 / span 2;
+    }
+
+    @include onDesctop {
+      grid-row: 1;
+      grid-column: 8 / span 2;
+    }
+  }
+
+  &__links-2 {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-row: 6;
+    grid-column: 2;
+
+    @include onTablet {
+      grid-row: 4;
+      grid-column: 4 / span 2;
+    }
+
+    @include onDesctop {
+      grid-row: 1;
+      grid-column: 10 / span 2;
+    }
+  }
+
+  .designer {
+    width: 100%;
+    padding-bottom: 50px;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    grid-row: 7;
+    grid-column: 1 / span 2;
+
+    @include onTablet {
+      grid-row: 5;
+      grid-column: 1 / span 6;
+      flex-direction: row;
+    }
+
+    @include onDesctop {
+      height: 100px;
+      grid-row: 3;
+      grid-column: 1 / span 12;
+    }
+  }
+}
