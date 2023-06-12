@@ -1,0 +1,123 @@
+.exhibitions {
+  padding-top: 70px;
+
+  &__title {
+    margin-bottom: 40px;
+
+    font-family: $fontSecondary;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    color: #0f0e08;
+
+    @include onTablet {
+      margin-bottom: 48px;
+
+      font-size: 48px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__cards {
+    & > :not(:last-child) {
+      margin-bottom: 60px;
+    }
+
+    @include onTablet {
+      & > :not(:last-child) {
+        margin-bottom: 64px;
+      }
+    }
+
+    @include onDesktop {
+      & > :not(:last-child) {
+        margin-bottom: 104px;
+      }
+    }
+  }
+
+  &__card {
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+
+      & > :not(:last-child) {
+        margin-right: 130px;
+      }
+    }
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      &-container {
+        margin-bottom: 20px;
+
+        @include onTablet {
+          margin-bottom: 40px;
+        }
+
+        @include onDesktop {
+          margin-bottom: 0;
+
+          flex-shrink: 0;
+          width: 670px;
+          height: 520px;
+        }
+      }
+    }
+
+    &-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      font-family: $fontSecondary;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 100%;
+      color: #0f0e08;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        margin-left: 14px;
+        background: #f14a27;
+
+        @include onTablet {
+          width: 15px;
+          height: 15px;
+          margin-left: 20px;
+        }
+      }
+
+      @include onTablet {
+        margin-bottom: 15px;
+        font-size: 36px;
+      }
+    }
+
+    &-description {
+      @include onTablet {
+        max-width: 460px;
+      }
+
+      @include onDesktop {
+        max-width: 1070px;
+      }
+    }
+  }
+}
