@@ -1,0 +1,128 @@
+.header {
+  position: relative;
+
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      height: 656px;
+    }
+  }
+
+  &__background {
+    background: center / cover no-repeat url(../images/header_background-image-2x.png);
+    width: 100%;
+    height: 300px;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    z-index: -1;
+
+    @include onTablet {
+      height: 100%;
+      width: auto;
+      left: 50%;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 8px;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+      padding-top: 15px;
+    }
+  }
+
+  &__title {
+    padding-top: 250px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      padding-top: 40px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+      padding-top: 120px;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    align-items: center;
+    margin: 20px auto 0;
+    width: min-content;
+    height: min-content;
+
+    border: 1px solid $main-color;
+    pointer-events: all;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin: 38px 0 0;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 6;
+    }
+
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      color: #fff;
+      background-color: $main-color;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: $color-text-black;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    text-decoration: none;
+    text-align: center;
+    padding: 16px 80px;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    @extend %subtitle;
+    font-weight: 700;
+
+    display: none;
+    position: relative;
+    width: max-content;
+
+    transform-origin: top left;
+    transform: rotate(-90deg) translate(20px);
+
+    &::before {
+      content: "";
+      width: 70px;
+      height: 1px;
+      position: absolute;
+      top: 10%;
+      right: 100%;
+      transform: translateY(-60%);
+      background-color: $main-color;
+      margin-right: 20px;
+    }
+
+    @include onDesktop {
+      display: block;
+      grid-column: 1;
+    }
+  }
+}

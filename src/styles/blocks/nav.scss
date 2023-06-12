@@ -1,0 +1,64 @@
+.nav {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+
+  &--footer {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    color: $color-text-black;
+  }
+
+  &__list {
+    @extend %list-reset;
+
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    column-gap: 28px;
+    row-gap: 24px;
+
+    @include onTablet {
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+    }
+
+    &--footer {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: $color-text-black;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: center;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &--footer {
+      color: $color-text-black;
+
+      &::after {
+        background-color: $main-color;
+      }
+    }
+  }
+}
