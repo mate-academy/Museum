@@ -1,0 +1,247 @@
+.header {
+  display: flex;
+  padding: 0 0 70px;
+  flex-direction: column;
+  position: relative;
+
+  @include onTablet {
+    padding: 0 0 88px;
+  }
+
+  @include onDesktop {
+    padding: 0 0 400px;
+  }
+
+  &__burger-line {
+    display: block;
+    background-color: #000;
+    width: 18px;
+    height: 2px;
+    margin-bottom: 3px;
+    transition: transform 0.2s ease-in-out,
+      margin-bottom 0.2s ease-in-out,
+      width 0.2s ease-in-out;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__burger-menu {
+    top: 33px;
+    left: 23px;
+    width: 18px;
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+    transition: transform 0.2s ease-in-out, margin-bottom 0.2s ease-in-out;
+
+    @include onTablet {
+      top: 45px;
+      left: 40px;
+
+      &:hover {
+        .header__burger-line:nth-child(1) {
+          width: 10px;
+        }
+
+        .header__burger-line:nth-child(2) {
+          width: 15px;
+        }
+
+        .header__burger-line:nth-child(3) {
+          width: 9px;
+        }
+      }
+    }
+
+    @include onDesktop {
+      left: 58px;
+    }
+
+    &--active {
+      .header__burger-line:last-child {
+        transform-origin: left;
+        transform: rotate(-45deg);
+        background-color: #fff;
+      }
+
+      .header__burger-line:nth-child(2) {
+        display: none;
+      }
+
+      .header__burger-line:first-child {
+        transform-origin: left;
+        transform: rotate(45deg);
+        background-color: #fff;
+        margin-bottom: 11px;
+      }
+
+      &:hover {
+        .header__burger-line:nth-child(1) {
+          width: auto;
+        }
+
+        .header__burger-line:nth-child(2) {
+          width: auto;
+        }
+
+        .header__burger-line:nth-child(3) {
+          width: auto;
+        }
+      }
+    }
+
+  }
+
+  &__main-photo {
+    background: url("../images/img/museum.jpg") center center/cover no-repeat;
+    height: 300px;
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    @include onTablet {
+      right: 0;
+      left: 50%;
+      width: auto;
+      height: 100%;
+      max-height: 400px;
+    }
+
+    @include onDesktop {
+      min-height: 655px;
+      left: 47%;
+    }
+
+    &::after {
+      content: url("../images/img/logo-header.png");
+      position: absolute;
+      top: 9px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @include onTablet {
+        top: 15px;
+        left: 70px;
+        transform: translateX(0%);
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 320px;
+    text-align: center;
+
+    @include onTablet {
+      margin-top: 127px;
+      text-align: left;
+      max-width: 340px;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      margin-top: 206px;
+      max-width: 470px;
+      font-size: 72px;
+      line-height: 120%;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    position: relative;
+    width: max-content;
+    color: $title-color;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    @include onTablet {
+      margin-top: 38px;
+      margin-inline: 0;
+    }
+
+    @include onDesktop {
+      margin-left: 201px;
+    }
+
+    &:hover {
+      background-color: $main-color;
+      color: #fff;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 230px;
+    height: 50px;
+    border: 1px solid $main-color;
+    line-height: 50px;
+    text-align: center;
+    font-family: "IBM Plex Sans", "Arial", sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+
+    @include onTablet {
+      width: 200px;
+      height: 70px;
+      line-height: 70px;
+    }
+  }
+
+  &__button {
+    width: 50px;
+    height: 50px;
+    background: $main-color;
+    border: 0;
+    outline: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+      align-items: center;
+    }
+  }
+
+  &__subtitle {
+    display: none;
+
+    @include onDesktop {
+      margin-top: 55px;
+      display: block;
+      width: max-content;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: $subtitles-color;
+      position: relative;
+      transform-origin: top left;
+      transform: rotate(-90deg) translate(20px);
+
+      &::before {
+        content: "";
+        display: block;
+        width: 70px;
+        height: 1px;
+        background: $main-color;
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        transform: translateY(-60%);
+        margin-right: 20px;
+      }
+    }
+
+  }
+}
