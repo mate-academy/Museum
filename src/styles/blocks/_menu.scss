@@ -1,0 +1,176 @@
+.menu {
+  background: $main-color;
+
+  &__background {
+    &-is--active {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0,0,0,0.75);
+    }
+  }
+
+  &__cross {
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+
+  &__content {
+    padding: 27px 0;
+
+    @include onTablet {
+      display: flex;
+      padding: 39px 0;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: $second-color-title;
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+
+    &:target {
+      transform: translateY(0);
+    }
+
+    &-block {
+      display: flex;
+      gap: 28px;
+
+      @include onTablet {
+        gap: 20px;
+      }
+
+      @include onDesktop {
+        gap: 31px;
+      }
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      @include onDesktop {
+        gap: 30px;
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      color: $second-color-title;
+
+      @include onTablet {
+        width: 100px;
+      }
+
+      @include onDesktop {
+        width: 169px;
+      }
+    }
+
+    &-link {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      text-decoration: none;
+      color: $second-color-title;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: grey;
+        transform: scale(1.1);
+      }
+
+      @include onDesktop {
+        font-size: 22px;
+      }
+    }
+  }
+
+  &__container {
+    padding: 0 0 24px;
+    margin: 0 0 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      padding: 0 38px 0 0;
+      margin: 0 38px 0 0;
+      border-bottom: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    @include onDesktop {
+      padding: 0 102px 0 0;
+      margin: 0 102px 0 0;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: start;
+    gap: 34px;
+
+    @include onTablet {
+      gap: 44px;
+    }
+
+    @include onDesktop {
+      gap: 108px;
+    }
+  }
+
+  &__schedule {
+    &-block {
+      @include onTablet {
+        display: flex;
+        gap: 38px;
+      }
+
+      @include onDesktop {
+        gap: 30px;
+      }
+    }
+
+    &-title {
+      @include desc;
+      margin-bottom: 20px;
+      line-height: 150%;
+    }
+
+    &-info {
+      margin-bottom: 16px;
+      list-style-type: none;
+    }
+
+    &-day {
+      @include desc;
+      line-height: 140%;
+
+      &--bold {
+        font-weight: 600;
+      }
+
+      @include onTablet {
+        &--position-right {
+          width: 144px;
+        }
+      }
+
+      @include onDesktop {
+        width: 170px;
+      }
+    }
+  }
+}
