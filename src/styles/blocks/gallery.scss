@@ -1,19 +1,47 @@
 .gallery {
   &__title {
-    @extend %h2;
-    margin-top: 100px;
-    text-align: center;
     margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
   }
 
-  &__swipper {
-    width: 280px;
-    height: 410px;
+  &__slides {
+    display: none;
+
+    @include onDesktop {
+      @include pageGrid;
+      grid-template-rows: 600px 360px;
+      gap: 30px;
+    }
+  }
+
+  &__slide {
+
+    &:nth-child(1),
+    &:nth-child(4) {
+      grid-column: span 4;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      grid-column: span 8;
+    }
   }
 
   &__img {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 100px;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__swiper {
+    @include onDesktop {
+      display: none;
+    }
   }
 }

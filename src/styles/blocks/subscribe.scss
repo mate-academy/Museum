@@ -5,10 +5,19 @@
   background-size: cover;
 
   height: 386px;
+  width:  100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include onTablet {
+    height: 380px;
+  }
+
+  @include onDesktop {
+    height: 550px;
+  }
 
   &__content {
     display: flex;
@@ -16,26 +25,43 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    @include onTablet {
+      @include pageGrid;
+
+      & > * {
+        grid-column: 2 / -2;
+
+        @include onDesktop {
+          grid-column: 4 / -4;
+        }
+      }
+    }
   }
 
   &__title {
-    @extend %h2;
-    color: $color-white;
-    // padding-top: 88px;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
   }
 
   &__descr {
-    margin: 0;
-    margin-bottom: 50px;
+    margin: 0 0 50px;
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;
     color: $color-white;
-  }
 
-  &__input-label {
-    flex-grow: 1;
+    @include onTablet {
+      line-height: 100%;
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 72px;
+    }
   }
 
   &__form {
@@ -43,9 +69,18 @@
     width: 100%;
     height: 50px;
 
-    &-email {
-      padding: 0;
-      font-weight: 400;
+    @include onTablet {
+      height: 70px;
+    }
+  }
+
+  &__input-label {
+    flex-grow: 1;
+  }
+
+    &__form-field {
+      box-sizing: border-box;
+      padding: 18px 24px;
       font-size: 14px;
       line-height: 100%;
       width: 100%;
@@ -53,22 +88,21 @@
       border: none;
 
       &::placeholder {
-        padding-left: 24px;
         font-size: 14px;
         line-height: 100%;
-        color: $grey-text-color;
+        color: $color-text-grey;
+      }
+
+      @include onTablet {
+        padding: 28px 24px;
       }
     }
-  }
 
-  &__btn {
-    background-color: $red-point;
-    background-image: url(../images/icons/btn-arrow_right-black.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100%;
-    width: 50px;
+  &__button {
     border: none;
-  }
 
+    @include onTablet {
+      margin-left: 16px;
+    }
+  }
 }

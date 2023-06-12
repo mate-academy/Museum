@@ -1,10 +1,48 @@
 .page {
-  margin: 0;
-  padding: 0;
-  min-width: 320px;
   font-family: "IBM Plex Sans", sans-serif;
-  color: $main-text-color;
-  background: $c-gray;
+  color: $color-text-black;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      visibility: visible;
+      opacity: 0;
+      transition: opacity 0.2s ease-in;
+    }
+
+    &--open-menu {
+      overflow: hidden;
+
+      &::before {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__header {
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 88px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+
 
   &__menu {
     position: fixed;
@@ -14,12 +52,26 @@
 
     opacity: 0;
     pointer-events: none;
-    transition: all 0.3s;
+    transition: $transition;
     transform: translate(-100%);
     &:target {
       opacity: 1;
       transform: translateX(0);
       pointer-events: all;
+    }
+  }
+
+  &__section {
+    &:not(:last-child) {
+      margin-bottom: 100px;
+    }
+
+    &:first-child {
+      margin-bottom: 200px;
+
+      @include onDesktop {
+        margin-bottom: 300px;
+      }
     }
   }
 }

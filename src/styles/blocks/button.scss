@@ -1,16 +1,32 @@
 .button {
+  width: 50px;
+  height: 50px;
+
   background-color: $main-color;
   background-image: url(../images/icons/header_link_arrow_right.svg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 24px 24px;
 
-  width: 50px;
-  height: 50px;
+  @include onTablet {
+    width: 70px;
+    height: 70px;
+  }
+
+  &--subscribe {
+    background-color: $red-point;
+    background-image: url(../images/icons/btn-arrow_right-black.svg);
+
+    @include hover (background-color, rgb(198, 60, 29));
+  }
 
   &--up {
     background-image: url(../images/icons/btn_arrow-up.svg);
-    background-repeat: no-repeat;
-    background-position: center;
+    border: 1px solid $main-color;
+    background-color: #fff;
+    border-radius: 50%;
+
+    @include onTablet{
+      display: none;
+    }
   }
 }

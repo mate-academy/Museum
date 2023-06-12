@@ -1,18 +1,19 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  cursor: pointer;
+  transition: #{$_property} 0.4s ease-in-out;
   &:hover {
     #{$_property}: $_toValue;
   }
 }
 
 @mixin onTablet {
-  @media (min-width: $tablet-min-width) {
+  @media (min-width: 640px) {
     @content;
   }
 }
 
 @mixin onDesktop {
-  @media (min-width: $desktop-min-width) {
+  @media (min-width: 1280px) {
     @content;
   }
 }
@@ -20,30 +21,14 @@
 @mixin pageGrid {
   display: grid;
   column-gap: 20px;
-  grid-template-columns: repeat(2, 130px);
+  grid-template-columns: repeat(2, 1fr);
 
   @include onTablet {
     column-gap: 30px;
-    grid-template-columns: repeat(6, 90px);
+    grid-template-columns: repeat(6, 1fr);
   }
 
   @include onDesktop {
-    column-gap: 30px;
-    grid-template-columns: repeat(12, 70px);
-  }
-}
-
-@mixin contentPaddingInline() {
-  max-width: 320px;
-  padding-inline: 20px;
-
-  @include onTablet {
-    max-width: 768px;
-    padding-inline: 39px;
-  }
-
-  @include onDesktop {
-    max-width: 1280px;
-    padding-inline: 55px;
+    grid-template-columns: repeat(12, 1fr);
   }
 }
