@@ -1,0 +1,107 @@
+.header {
+  position: relative;
+
+  @include onTablet {
+    height: 384px;
+  }
+
+  @include onDesktop {
+    height: 655px;
+  }
+
+  &::after {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    content: "";
+    height: 300px;
+    background-image: url(../images/header_desktop.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include onTablet {
+      height: 384px;
+      left: 52%;
+    }
+
+    @include onDesktop {
+      height: 100%;
+      left: 44%;
+    }
+  }
+
+  &__nav {
+    padding-top: 9px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 250px;
+
+    @include onTablet {
+      padding-top: 15px;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 119px;
+    }
+  }
+
+  &__logo {
+    margin: 0 auto;
+    transform: translateX(-12px);
+
+    @include onTablet {
+      transform: translateX(50%);
+    }
+
+    @include onDesktop {
+      transform: translateX(0);
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    text-align: center;
+
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+      margin-bottom: 38px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 120%;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__button {
+    margin: 0 auto;
+
+    @include onTablet {
+      margin: 0;
+    }
+
+    @include onDesktop {
+      margin: 0;
+    }
+  }
+
+  &__button-wrapper {
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
