@@ -1,0 +1,52 @@
+@mixin column-count($count) {
+  grid-template-columns: repeat(var(--column-count), var(--column-width));
+}
+
+.container {
+  padding: 0 20px;
+  display: grid;
+  column-gap: 20px;
+  position: relative;
+
+  --column-count: 2;
+  --column-width: 1fr;
+
+  @include column-count(var(--column-count));
+
+  &--padding-0 {
+    padding: 0;
+  }
+
+  &--only-desktop {
+    display: none;
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &--under-1280px {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  @include onTablet {
+    max-width: 768px;
+    margin-inline: auto;
+    column-gap: 30px;
+    --column-count: 6;
+    --column-width: 1fr;
+
+    @include column-count(var(--column-count));
+  }
+
+  @include onDesktop {
+    padding: 0;
+    max-width: 1170px;
+    --column-count: 12;
+    --column-width: 1fr;
+
+    @include column-count(var(--column-count));
+  }
+}
