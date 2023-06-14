@@ -3,14 +3,13 @@
   @extend %font_main;
   line-height: 150%;
   color: $title_color;
-  position: relative;
 
   &__container {
     @include container;
+
   }
 
   &__content {
-    padding-top: 9px;
 
     @include onTablet {
       display: grid;
@@ -22,8 +21,8 @@
 
     @include onDesktop {
       grid-template-columns: repeat(12, 1fr);
-      position: relative;
-      padding-top: 15px;
+
+      height: 665px;
     }
   }
 
@@ -49,7 +48,7 @@
   }
 
   &__box {
-    margin: 250px 0 0;
+    padding: 250px 0 0;
 
     @include onTablet {
       margin: 112px 0 0;
@@ -68,8 +67,9 @@
     background-position: top;
     position: absolute;
     top: 0;
-    right: 0;
+    // right: 0;
     left: 0;
+    // bottom: 0;
     height: 300px;
     max-height: 300px;
     width: 100%;
@@ -110,8 +110,15 @@
   }
 
   &__tickets {
-    display: flex;
-    justify-content: space-between;
+
+    @include onTablet {
+      padding-bottom: 19px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__events {
@@ -119,6 +126,7 @@
     @extend %font_data;
     font-size: 14px;
     line-height: 100%;
+    text-decoration: none;
     color: #687480;
     transform: rotate(-90deg);
 
