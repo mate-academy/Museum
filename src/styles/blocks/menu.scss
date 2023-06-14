@@ -1,0 +1,86 @@
+.menu {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  top: 0;
+  // width: 75vw;
+  // height: 350px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: $color-main;
+  overflow-y: auto;
+  
+
+  &__list {
+    margin: 80px 20px 0 50px;
+    padding: 0;
+    list-style: none;
+
+    @include onTablet {
+      margin: 80px 20px 0 calc(50px + (100vw - 710px) / 2);
+    }
+
+    @include onDesktop {
+      margin: 80px 20px 0 calc(50px + (100vw - 1105px) / 2);
+    }
+  }
+
+  &__item {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding-bottom: 8px;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    text-decoration: none;
+    text-align: left;
+    color: #fff;
+
+    transition: text-shadow $animationSpeed;
+
+    &:hover {
+      text-shadow: 5px 0 20px #fff;
+      &::after {
+        content: "";
+        display: inline-block;
+        
+        width: 10px;
+        height: 15px;
+        margin: 4px 10px 0;
+        background-image: url(/images/logos/RedRectangle.png);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &__cross {
+    position: absolute;
+    background-image: url(/images/logos/cross-white.png);
+    width: 18px;
+    height: 18px;
+    top: 30px;
+    left: 23px;
+
+    @include onTablet {
+      top: 45px;
+      left: calc((100vw - 710px) / 2);
+    }
+
+    @include onDesktop {
+      top: 45px;
+      left: calc((100vw - 1105px) / 2);
+    }
+  }
+}
