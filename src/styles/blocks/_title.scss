@@ -1,0 +1,118 @@
+.title {
+  position: relative;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+  &__text {
+    font-family: $fontMontserrat;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      grid-column: 1 / span 3;
+      text-align: left;
+      font-weight: 700;
+      font-size: 54px;
+      line-height: 120%;
+      margin-bottom: 38px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / span 5;
+      font-size: 72px;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    text-align: center;
+    height: 50px;
+    max-width: 300px;
+    line-height: 50px;
+    margin: 0 auto 70px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05, 1.05);
+    }
+
+    @include onTablet {
+      grid-column: 1 / 3;
+      height: 70px;
+      width: 270px;
+      line-height: 70px;
+      margin-bottom: 107px;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / span 3;
+      margin-bottom: 347px;
+    }
+  }
+
+  &__link-text {
+    width: 100%;
+    border: 1px solid $colorGreen;
+    font-weight: 500;
+    font-size: 16px;
+    color: $colorBlack;
+    text-decoration: none;
+  }
+
+  &__link-arrow {
+    width: 50px;
+    background-color: $colorGreen;
+    flex-shrink: 0;
+
+    @include onTablet {
+      width: 70px;
+    }
+  }
+
+  &__events {
+    position: absolute;
+    left: -60px;
+    bottom: 280px;
+    display: none;
+    transform: rotate(-90deg);
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: rotate(-90deg) scale(1.5, 1.5);
+    }
+
+    @include onDesktop {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    &--line {
+      width: 70px;
+      height: 1px;
+      background-color: $colorGreen;
+
+    }
+
+    &--text {
+      font-weight: 700;
+      line-height: 100%;
+      color: $colorTitleGray;
+      text-decoration: none;
+    }
+  }
+}
