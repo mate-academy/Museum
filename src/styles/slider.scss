@@ -1,0 +1,114 @@
+.slider {
+  overflow: hidden;
+
+  &__slides-container {
+    display: flex;
+    gap: 16px;
+    width: 400%;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+      width: 100%;
+      margin-bottom: 0;
+    }
+  }
+
+  &__slide {
+    width: 280px;
+    height: 410px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+    }
+
+    &--1 {
+      background-image: url(../images/gallery/slide1-small.jpg);
+
+      @include onTablet {
+        background-image: url(../images/gallery/slide1-medium.jpg);
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 5;
+        width: 100%;
+        height: 600px;
+        background-image: url(../images/gallery/slide1-large.jpg);
+      }
+    }
+
+    &--2 {
+      background-image: url(../images/gallery/slide2-medium.jpg);
+
+      @include onDesktop {
+        grid-column: 5 / 13;
+        width: 100%;
+        height: 600px;
+        background-image: url(../images/gallery/slide3-large.jpg);
+      }
+    }
+
+    &--3 {
+      background-image: url(../images/gallery/slide3-large.jpg);
+
+      @include onDesktop {
+        grid-column: 1 / 9;
+        width: 100%;
+        height: 360px;
+        background-image: url(../images/gallery/slide4-large.jpg);
+      }
+    }
+
+    &--4 {
+      background-image: url(../images/gallery/slide4-large.jpg);
+
+      @include onDesktop {
+        grid-column: 9 / 13;
+        width: 100%;
+        height: 360px;
+        background-image: url(../images/gallery/slide5-large.jpg);
+      }
+    }
+
+    &:hover {
+      scale: 101%;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__nav-item {
+    display: block;
+    width: 9px;
+    height: 9px;
+    background-image: url(../images/gallery/slider-button.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &--active {
+      background-image: url(../images/gallery/slider-button-active.svg);
+    }
+  }
+}
