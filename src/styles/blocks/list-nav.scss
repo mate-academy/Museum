@@ -1,0 +1,81 @@
+.list-nav {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 28px;
+  list-style: none;
+
+  @include onTablet {
+    grid-column-gap: 20px;
+  }
+
+  @include onDesktop {
+    grid-column-gap: 32px;
+  }
+  
+  &__item {
+    padding-bottom: 24px;
+
+    @include onDesktop {
+      padding-bottom: 30px;
+    }
+
+    &--footer {
+      padding-bottom: 20px;
+    }
+  }
+  
+  &__link {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
+    @include onDesktop {
+      font-size: 22px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #fff;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    &--footer {
+      color: $colorBlack;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #0f0e08;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
+  }
+}

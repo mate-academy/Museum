@@ -1,0 +1,57 @@
+.page {
+  font-family: "IBM Plex Sans", sans-serif;
+  scroll-behavior: smooth;
+  
+  &__body {
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 100px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__section-title {
+    margin-bottom: 40px;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    color: $colorBlack;
+
+    @include onTablet {
+      font-size: 48px;
+      text-align: left;
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      font-size: 48px;
+      text-align: left;
+      margin-bottom: 56px;
+    }
+  }
+}
