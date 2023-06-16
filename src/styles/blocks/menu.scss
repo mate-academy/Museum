@@ -1,0 +1,132 @@
+.menu {
+  margin: 0 auto;
+  background-color: $color-green;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  transform: translateY(-100%);
+  transition: all 1s;
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__content {
+    font-family: "Plex", sans-serif;
+    color: $color-white;
+    padding: 24px 0 27px;
+
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      margin-left: 20px;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    padding: 27px 0 24px;
+  }
+
+  &__span {
+    border-bottom: 1px solid $color-white-05;
+
+    @include tablet {
+      border-right: 1px solid $color-white-05;
+      margin: 0 10px;
+    }
+  }
+
+  &__list {
+    width: 100px;
+
+    @include desktop {
+      width: 170px;
+    }
+
+    &:first-child {
+      margin-right: 30px;
+    }
+  }
+
+  &__item {
+
+    &:first-child {
+      margin-bottom: 24px;
+
+      @include desktop {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: rem(16px);
+    line-height: rem(16px);
+
+    @include desktop {
+      font-size: rem(22px);
+      line-height: rem(22px);
+    }
+    
+    border-bottom: 0 solid $color-white;
+    transition: all 0.2s linear;
+
+    &:hover {
+      border-width: 2px;
+    }
+  }
+
+  &__schedule {
+    @extend %schedule;
+    margin-top: 24px;
+    align-self: center;
+
+    @include tablet {
+      display: flex;
+      margin-top: 0;
+    }
+  }
+
+  &__time {
+    @include tablet {
+      margin-right: 30px;
+    }
+
+    &--title {
+      min-width: 158px;
+      margin-bottom: 20px;
+    }
+
+    &--timetable {
+      margin-bottom: 16px;
+
+      @include tablet {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__weekend {
+    min-width: 122px;
+    max-width: 230px;
+    align-self: end;
+
+    @include tablet {
+      max-width: 170px;
+    }
+  }
+}
+
+.bold {
+  font-weight: 600;
+}

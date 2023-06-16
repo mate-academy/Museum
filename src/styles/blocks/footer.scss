@@ -1,0 +1,168 @@
+.footer {
+  padding: 50px 0 35px;
+
+  &__main {
+    margin-bottom: 80px;
+
+    @include tablet {
+      margin-bottom: 120px;
+    }
+
+    @include desktop {
+      margin-bottom: 86px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 40px;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &__logo {
+    @include tablet {
+      margin-bottom: 62px;
+    }
+  }
+
+  &__messengers {
+    display: flex;
+  }
+
+  &__messenger {
+    &:not(:first-child) {
+      margin-left: 26px;
+    }
+
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: background-image 0.3s;
+
+    &--facebook {
+      background-image: url("../images/icons/Facebook.svg");
+
+      &:hover {
+        background-image: url("../images/icons/Facebook-hover.svg");
+      }
+    }
+
+    &--instagram {
+      background-image: url("../images/icons/instagram.svg");
+
+      &:hover {
+        background-image: url("../images/icons/instagram-hover.svg");
+      }
+    }
+  }
+
+  &__schedule {
+    font-family: "Plex", sans-serif;
+    @extend %schedule;
+    position: relative;
+    margin-bottom: 64px;
+
+    @include desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__contact {
+    font-family: "Plex", sans-serif;
+    @extend %schedule;
+  }
+
+  &__time-title {
+    margin-bottom: 20px;
+  }
+
+  &__time-item {
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-orange;
+    }
+  }
+
+  &__palka {
+    border-top: 1px solid rgba(26, 90, 76, 0.5);
+
+    @include desktop {
+      border: 0;
+      border-right: 1px solid rgba(26, 90, 76, 0.5);
+      width: 50%;
+    }
+  }
+
+  &__list {
+    margin-top: 40px;
+
+    @include tablet {
+      margin-top: 64px;
+    }
+
+    @include desktop {
+      margin-top: 0;
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    font-family: "Plex", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: rem(14px);
+    line-height: rem(14px);
+    color: $text-color-fe8;
+    display: inline-block;
+
+    transition: color 0.3s linear;
+
+    &::after {
+      content: "";
+      display: block;
+      border-bottom: 1px solid $color-orange;
+      width: 0;
+      height: 2px;
+
+      transition: width 0.3s linear;
+    }
+
+    &:hover {
+      color: $color-orange;
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__designed {
+    text-align: center;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  &__designed-text {
+    font-family: "Plex", sans-serif;
+    font-weight: 300;
+    font-size: rem(12px);
+    line-height: rem(17px);
+    color: $text-color-fe8;
+  }
+}
