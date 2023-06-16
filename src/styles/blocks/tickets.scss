@@ -1,0 +1,107 @@
+.tickets {
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 30px;
+  }
+
+  &__title {
+    font-family: $font-family-montserrat;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    text-transform: uppercase;
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 65px;
+      text-align: left;
+
+      margin-bottom: 38px;
+    }
+
+    @include onDesktop {
+      grid-column: 1/6;
+      font-size: 72px;
+      line-height: 86px;
+
+      margin-bottom: 89px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    height: 50px;
+    line-height: 50px;
+
+    @include onTablet {
+      height: 70px;
+      line-height: 70px;
+    }
+
+    @include onDesktop {
+      grid-column: 3/6;
+    }
+  }
+
+  &__label {
+    width: 230px;
+    font-family: $font-family-ibm;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+
+    color: $color-black;
+
+    border: 1px solid $color-green;
+
+    @include onTablet {
+      width: 200px;
+    }
+  }
+
+  &__button {
+    background-color: $color-green;
+    width: 50px;
+
+    text-align: center;
+
+    @include onTablet {
+      width: 70px;
+    }
+  }
+
+  &__link {
+    display: none;
+    position: relative;
+
+    font-family: $font-family-ibm;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: #687480;
+    text-transform: uppercase;
+
+    transform: rotate(-90deg);
+
+    @include onDesktop {
+      display: initial;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 1px;
+      height: 70px;
+      background-color: $color-green;
+      bottom: -200%;
+      left: -20px;
+
+      transform: rotate(-90deg) translateY(-50%);
+    }
+  }
+}
