@@ -224,7 +224,10 @@
             <div class="
               gallery__photo
               gallery__fade">
-              <img src="./images/photos/gallery/1.svg" alt="mySlides--1"></img>
+              <img
+                src="./images/photos/gallery/1.svg"
+                alt="mySlides--1"
+                class="gallery__photo__item"></img>
             </div>
           </div>
 
@@ -232,7 +235,10 @@
             <div class="
               gallery__photo
               gallery__fade">
-              <img src="./images/photos/gallery/2.svg" alt="mySlides--2"></img>
+              <img
+                src="./images/photos/gallery/2.svg"
+                alt="mySlides--2"
+                class="gallery__photo__item"></img>
             </div>
           </div>
 
@@ -240,7 +246,10 @@
             <div class="
               gallery__photo
               gallery__fade">
-              <img src="./images/photos/gallery/3.svg" alt="mySlides--3"></img>
+              <img
+                src="./images/photos/gallery/3.svg"
+                alt="mySlides--3"
+                class="gallery__photo__item"></img>
             </div>
           </div>
 
@@ -248,7 +257,10 @@
             <div class="
               gallery__photo
               gallery__fade">
-              <img src="./images/photos/gallery/4.svg" alt="mySlides--4"></img>
+              <img
+                src="./images/photos/gallery/4.svg"
+                alt="mySlides--4"
+                class="gallery__photo__item"></img>
             </div>
           </div>
 
@@ -256,7 +268,10 @@
             <div class="
               gallery__photo
               gallery__fade">
-              <img src="./images/photos/gallery/5.svg" alt="mySlides--5"></img>
+              <img
+                src="./images/photos/gallery/5.svg"
+                alt="mySlides--5"
+                class="gallery__photo__item"></img>
             </div>
           </div>
         </div>
@@ -433,7 +448,9 @@
       function currentSlide(n) {
         const screenWidth = window.innerWidth;
         let i;
-        const slides = document.getElementsByClassName('gallery__mySlides');
+        const slidesHTML = document.getElementsByClassName('gallery__mySlides');
+        const slides = Array.from(slidesHTML);
+        console.log(slides);
         const dots = document.getElementsByClassName('gallery__dot');
 
         if (n > slides.length) {
@@ -448,7 +465,8 @@
           slideIndex = slides.length;
         }
 
-        slideIndex = n;
+        slideIndex = screenWidth >= 640 ? n + 1 : n;
+
         for (i = 0; i < slides.length; i++) {
           slides[i].style.display = 'none';
         }
@@ -461,12 +479,14 @@
         dots[slideIndex - 1].className += ' active';
 
         if (screenWidth >= 640) {
-          slides[slideIndex - 2].style.display = 'block';
-          dots[slideIndex - 2].className += ' active';
+          slides[slideIndex -2].style.display = 'block';
+          dots[slideIndex -2].className += ' active';
         }
 
         if (screenWidth >= 1280) {
-          slides.style.display = 'block';
+          [...slides].splice(0, 4).forEach(slide => {
+            slide.style.display = 'block';
+          });
         }
       }
 
