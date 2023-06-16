@@ -82,24 +82,19 @@
             <div class="header__inform">
               <ul class="header__list-schedule">
                 <li class="header__item-schedule">
-                  <strong class="header__time--strong">12:00 — 20:00</strong>
-                   середа
+                  <strong class="header__time--strong">12:00 — 20:00</strong> середа
                 </li>
                 <li class="header__item-schedule">
-                  <strong class="header__time--strong">12:00 — 20:00</strong>
-                   четвер
+                  <strong class="header__time--strong">12:00 — 20:00</strong> четвер
                 </li>
                 <li class="header__item-schedule">
-                  <strong class="header__time--strong">12:00 — 20:00</strong>
-                   п’ятниця
+                  <strong class="header__time--strong">12:00 — 20:00</strong> п’ятниця
                 </li>
                 <li class="header__item-schedule">
-                  <strong class="header__time--strong">11:00 — 19:00</strong>
-                   субота
+                  <strong class="header__time--strong">11:00 — 19:00</strong> субота
                 </li>
                 <li class="header__item-schedule">
-                  <strong class="header__time--strong">11:00 — 19:00</strong>
-                   неділя
+                  <strong class="header__time--strong">11:00 — 19:00</strong> неділя
                 </li>
               </ul>
               <p class="header__menu-info">
@@ -196,7 +191,7 @@
               </div>
             </div>
           </div>
-          <div class="galery__show-max" id="galery1">
+          <div class="galery__show-max" id="myModal1">
             <img
               id="myImg1"
               src="./images/gall1.jpg"
@@ -225,12 +220,6 @@
         </div>
         <div id="myModal" class="modal">
           <span class="close">&times;</span>
-          <img
-            class="modal-content"
-            id="img01"
-            alt="image"
-            src="./"
-          >
           <div id="caption"></div>
         </div>
       </section>
@@ -327,21 +316,11 @@
                     <h4 class="contacts__menu-title">Графік роботи</h4>
                     <div class="contacts__inform">
                       <ul class="contacts__list-schedule">
-                        <li class="contacts__item-schedule">
-                          <strong class="contacts__time--strong">12:00 — 20:00</strong> середа
-                        </li>
-                        <li class="contacts__item-schedule">
-                          <strong class="contacts__time--strong">12:00 — 20:00</strong> четвер
-                        </li>
-                        <li class="contacts__item-schedule">
-                          <strong class="contacts__time--strong">12:00 — 20:00</strong> п’ятниця
-                        </li>
-                        <li class="contacts__item-schedule">
-                          <strong class="contacts__time--strong">11:00 — 19:00</strong> субота
-                        </li>
-                        <li class="contacts__item-schedule">
-                          <strong class="contacts__time--strong">11:00 — 19:00</strong> неділя
-                        </li>
+                        <li class="contacts__item-schedule"><strong class="contacts__time--strong">12:00 — 20:00</strong> середа</li>
+                        <li class="contacts__item-schedule"><strong class="contacts__time--strong">12:00 — 20:00</strong> четвер</li>
+                        <li class="contacts__item-schedule"><strong class="contacts__time--strong">12:00 — 20:00</strong> п’ятниця</li>
+                        <li class="contacts__item-schedule"><strong class="contacts__time--strong">11:00 — 19:00</strong> субота</li>
+                        <li class="contacts__item-schedule"><strong class="contacts__time--strong">11:00 — 19:00</strong> неділя</li>
                       </ul>
                       <p class="contacts__menu-info">
                         <strong>Вихідні:</strong> понеділок, вівторок<br>
@@ -437,36 +416,24 @@
       });
     </script>
     <script>
-      var modal = document.getElementById("myModal");
-      var img1 = document.getElementById("myImg1");
-      var img2 = document.getElementById("myImg2");
-      var img3 = document.getElementById("myImg3");
-      var img4 = document.getElementById("myImg4");
+      let modal = document.getElementById("myModal");
+      let modal1 = document.getElementById("myModal1");
 
-      var modalImg = document.getElementById("img01");
-      var captionText = document.getElementById("caption");
-      img1.onclick = function(){
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-      }
-      img2.onclick = function(){
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-      }
-      img3.onclick = function(){
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-      }
-      img4.onclick = function(){
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-      }
+      let modalImg = document.createElement('img');
+      let captionText = document.getElementById("caption");
 
-      var span = document.getElementsByClassName("close")[0];
+      modalImg.className = "modal-content";
+      modal.append(modalImg);
+
+      modal1.addEventListener('click', (e) => {
+        let img = e.target.closest('img');
+
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        captionText.innerHTML = img.alt;
+      })
+
+      let span = document.getElementsByClassName("close")[0];
 
       span.onclick = function() {
         modal.style.display = "none";
