@@ -431,17 +431,17 @@
       currentSlide(slideIndex);
 
       function currentSlide(n) {
-        const screenWidth = window.screen.width;
+        const screenWidth = window.innerWidth;
         let i;
         const slides = document.getElementsByClassName('gallery__mySlides');
         const dots = document.getElementsByClassName('gallery__dot');
 
-        console.log("length", slides.length)
-
-        if (n > slides.length && screenWidth >= 640) {
-          slideIndex = 2;
-        } else {
+        if (n > slides.length) {
           slideIndex = 1;
+        }
+
+        if (screenWidth >= 640) {
+          slideIndex = 2;
         }
 
         if (n > 1) {
@@ -449,21 +449,24 @@
         }
 
         slideIndex = n;
-
         for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = 'none';
-          }
+          slides[i].style.display = 'none';
+        }
 
         for (i = 0; i < dots.length; i++) {
           dots[i].className = dots[i].className.replace(' active', '');
         }
 
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].className += ' active';
+
         if (screenWidth >= 640) {
           slides[slideIndex - 2].style.display = 'block';
           dots[slideIndex - 2].className += ' active';
-        } else {
-          slides[slideIndex - 1].style.display = 'block';
-          dots[slideIndex - 1].className += ' active';
+        }
+
+        if (screenWidth >= 1280) {
+          slides.style.display = 'block';
         }
       }
 
