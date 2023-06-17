@@ -1,7 +1,42 @@
 @import "utils";
 @import "fonts";
-@import "typography";
+@import "blocks/title";
+@import "blocks/text";
+@import "blocks/main-page";
+@import "blocks/events";
+@import "blocks/gallery";
+@import "blocks/subscribe";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background: $c-gray;
+  background: #fff;
+  font-family: "IBMPlexSans", sans-serif;
+  color: #0f0e08;
+}
+
+[class$="__container"] {
+  display: grid;
+  grid-template-columns: repeat(2, 130px);
+  gap: 20px;
+  width: 320px;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(6, 90px);
+    gap: 30px;
+    width: 768px;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(12, 70px);
+    min-width: 1280px;
+  }
 }
