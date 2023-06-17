@@ -19,7 +19,6 @@
 
   &__photo-row {
     display: flex;
-
     width: 100%;
     height: $gallery-photo-height-mobile;
 
@@ -45,11 +44,14 @@
 
   &__photo-container {
     @extend %background-image-cover;
-
     height: $gallery-photo-height-mobile;
     width: $gallery-photo-width-mobile;
-
     margin-right: 16px;
+    transition: $transition-all;
+
+    &:hover {
+      transform: scale(1.02);
+    }
 
     @include onTablet {
       height: $gallery-photo-height-tablet;
@@ -66,18 +68,10 @@
 
   &--photo-1 {
     background-image: url(../images/photo1_for-all.jpg);
-
-    &:hover {
-      transform: scale(1.01);
-    }
   }
 
   &--photo-2 {
     background-image: url(../images/photo2_for-tabl.jpg);
-
-    &:hover {
-      transform: scale(1.01);
-    }
 
     @include onDesktop {
       background-image: url(../images/photo2_for-desk.jpg);
@@ -86,10 +80,6 @@
 
   &--photo-3 {
     background-image: url(../images/photo3_for-desk.jpg);
-
-    &:hover {
-      transform: scale(1.01);
-    }
 
     @include onTablet {
       background-position: top 0 right -200px;
@@ -102,9 +92,5 @@
 
   &--photo-4 {
     background-image: url(../images/photo4_for-all.jpg);
-
-    &:hover {
-      transform: scale(1.01);
-    }
   }
 }

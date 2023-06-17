@@ -11,12 +11,10 @@
 
   &__photo-container {
     position: relative;
-    overflow: hidden;
     box-sizing: border-box;
     width: 100%;
     max-height: $events-photo-hight-mobile;
     margin-bottom: 15px;
-    transition: transform 0.3s, border-radius 0.3s;
 
     @include onTablet {
       max-height: $events-photo-hight-tablet;
@@ -35,6 +33,11 @@
 
     object-fit: cover;
     object-position: center;
+    transition: $transition-all;
+
+    &:hover {
+      transform: scale(1.02);
+    }
   }
 
   &__description-container {
@@ -88,6 +91,13 @@
     font-size: 28px;
     color: $font-color__semi-black;
     margin-right: 12px;
+    transition: $transition-all;
+
+    &:hover {
+      transform: scale(1.02) translateX(3px);
+      color: $font-color__title-hover;
+      margin-right: 18px;
+    }
 
     @include onTablet {
       font-size: 36px;

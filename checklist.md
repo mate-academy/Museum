@@ -3,17 +3,17 @@
 
 ## Tech review
 
-1. Add [favicon](http://joxi.ru/1A5kM0lI4nBB3m)
-2. Add a smooth scroll for the whole page (`scroll-behavior: smooth;`)
-3. Logos in header and footer should be links to home page
-4. Make sure when you click on logo there is no 404 error (Use `href="#"` in `anchor tag`)
-5. Pictures in the gallery and exhibitions sections should increase on hover
-7. All interactive elements(*links, buttons, pictures, icons*) ***should have a hover effect and cursor pointer***. User must intuitively understand that he can interact with them
-8. When a user clicks on Address Google Maps is opened in a new tab (Use `target="_blank"`)
-9. Make sure when you click on logo there is no 404 error (Use `href="#"` in `anchor tag`)
+~ 1. Add [favicon](http://joxi.ru/1A5kM0lI4nBB3m)
++ 2. Add a smooth scroll for the whole page (`scroll-behavior: smooth;`)
++ 3. Logos in header and footer should be links to home page
++ 4. Make sure when you click on logo there is no 404 error (Use `href="#"` in `anchor tag`)
++ 5. Pictures in the gallery and exhibitions sections should increase on hover
++ 7. All interactive elements(*links, buttons, pictures, icons*) ***should have a hover effect and cursor pointer***. User must intuitively understand that he can interact with them
++ 8. When a user clicks on Address Google Maps is opened in a new tab (Use `target="_blank"`)
++ 9. Make sure when you click on logo there is no 404 error (Use `href="#"` in `anchor tag`)
 10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
-11. The form shouldn’t submit empty
-12. After autocomplete the form, change the default styles. Read more about [changing autocomplete styles](https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/)
++ 11. The form shouldn’t submit empty
++ 12. After autocomplete the form, change the default styles. Read more about [changing autocomplete styles](https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/)
 13. OPTIONAL: After everything is done, you can add a slider for viewing pictures in the gallery (for mobile version)
 
 ## HR review
