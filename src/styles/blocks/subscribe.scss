@@ -1,0 +1,129 @@
+.subscribe {
+  @extend %flex-row-center-center;
+  flex-direction: column;
+
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 88px 20px;
+  margin-bottom: 50px;
+
+  background-image: url(../images/subscribe.jpg);
+  @extend %background-image-cover;
+
+  @include onTablet {
+    padding: 82px 154px;
+  }
+
+  @include onDesktop {
+    padding: 163px 355px;
+  }
+
+  &__description {
+    color: $white-color;
+    text-align: center;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 48px;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    font-family: IBM Plex Sans, Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  &__area {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__form {
+    display: flex;
+  }
+
+  &__input-container {
+    position: relative;
+    height: $subscribe-form-size-mobile;
+    width: $subscribe-form-length-mobile;
+
+    @include onTablet {
+      height: $subscribe-form-size-tablet;
+      width: $subscribe-form-length-tablet;
+      margin-right: 16px;
+    }
+
+    @include onDesktop {
+      width: $subscribe-form-length-desktop;
+      margin-right: 30px;
+    }
+  }
+
+  &__input {
+    border: none;
+    padding-left: 24px;
+    box-sizing: border-box;
+    outline: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+
+    @include onDesktop {
+      padding-left: 32px;
+    }
+  }
+
+  &__button-container {
+    @extend %flex-row-center-center;
+    height: 100%;
+    width: 100%;
+    transition: $transition-all;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  &__button {
+    @extend %background-image-cover;
+    background-image: url(../images/button-subscribe.jpg);
+
+    border: none;
+    box-sizing: border-box;
+    padding: 0;
+
+    height: $subscribe-form-size-mobile;
+    width: $subscribe-form-size-mobile;
+
+    cursor: pointer;
+    transition: $transition-all;
+
+    &:hover {
+      transform: translateX(3px);
+    }
+
+    @include onTablet {
+      height: $subscribe-form-size-tablet;
+      width: $subscribe-form-size-tablet;
+    }
+  }
+}

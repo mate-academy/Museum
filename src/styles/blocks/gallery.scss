@@ -1,0 +1,99 @@
+.gallery {
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+
+    box-sizing: border-box;
+    overflow: hidden;
+
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      height: 100%;
+      flex-direction: column;
+    }
+  }
+
+  &__photo-row {
+    display: flex;
+    width: 100%;
+    height: $gallery-photo-height-mobile;
+
+    @include onTablet {
+      height: $gallery-photo-height-tablet;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+
+      height: $gallery-photo-row-1-height-desktop;
+      margin-bottom: 30px;
+    }
+
+    &--second {
+      @include onDesktop {
+        height: $gallery-photo-row-2-height-desktop;
+      }
+    }
+  }
+
+  &__photo-container {
+    @extend %background-image-cover;
+    height: $gallery-photo-height-mobile;
+    width: $gallery-photo-width-mobile;
+    margin-right: 16px;
+    transition: $transition-all;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    @include onTablet {
+      height: $gallery-photo-height-tablet;
+      width: $gallery-photo-width-tablet;
+
+      margin-right: 20px;
+    }
+
+    @include onDesktop {
+      height: $gallery-photo-height-desktop;
+      width: $gallery-photo-width-desktop;
+    }
+  }
+
+  &--photo-1 {
+    background-image: url(../images/photo1_for-all.jpg);
+  }
+
+  &--photo-2 {
+    background-image: url(../images/photo2_for-tabl.jpg);
+
+    @include onDesktop {
+      background-image: url(../images/photo2_for-desk.jpg);
+    }
+  }
+
+  &--photo-3 {
+    background-image: url(../images/photo3_for-desk.jpg);
+
+    @include onTablet {
+      background-position: top 0 right -200px;
+    }
+
+    @include onDesktop {
+      background-position: top center;
+    }
+  }
+
+  &--photo-4 {
+    background-image: url(../images/photo4_for-all.jpg);
+  }
+}

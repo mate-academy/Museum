@@ -1,0 +1,197 @@
+.header {
+  margin-bottom: 70px;
+
+  @include onTablet {
+    margin-bottom: 90px;
+    height: $header-height-tablet;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+    height: $header-height-desktop;
+  }
+
+  &__background-container {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+
+    @include onTablet {
+      flex-direction: row;
+      height: $header-height-tablet;
+    }
+
+    @include onDesktop {
+      height: $header-height-desktop;
+    }
+  }
+
+  &__background-image {
+    @extend %background-image-cover;
+    background-image: url(../images/header-background-image.jpg);
+
+    height: $header-height-mobile;
+
+    @include onTablet {
+      order: 1;
+      width: 48.7%;
+      height: 100%;
+    }
+
+    @include onDesktop {
+      width: 55%;
+    }
+  }
+
+  &__background-white-area {
+    @include onTablet {
+      order: 0;
+      width: 51.3%;
+      height: 100%;
+    }
+
+    @include onDesktop {
+      width: 45%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+  }
+
+  &__title {
+    @extend %h1;
+    text-align: center;
+    color: $font-color__total-black;
+    margin-bottom: 20px;
+
+    &::after {
+      margin-top: 130px;
+      position: absolute;
+      content: "події";
+      display: block;
+
+      font-family: IBM Plex Sans, Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: $font-color__light-grey;
+      transform: rotate(-90deg);
+
+      @media (max-width: ($desktop-width - 1)) {
+        display: none;
+      }
+    }
+
+    @include onTablet {
+      text-align: left;
+      width: 340px;
+      font-size: 54px;
+      line-height: 120%;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      width: 470px;
+      font-size: 72px;
+      line-height: 120%;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    text-decoration: none;
+    transition: $transition-all;
+
+    &:hover {
+      transform: translateX(5px);
+    }
+  }
+
+  &__tickets-title {
+    @extend %flex-row-center-center;
+
+    box-sizing: border-box;
+    height: $subscribe-form-size-mobile;
+    width: $subscribe-form-length-mobile;
+    border: 1px solid $green-color;
+
+    text-align: center;
+    text-transform: uppercase;
+    font-family: IBM Plex Sans, Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: $font-color__semi-black;
+
+    @include onTablet {
+      height: $subscribe-form-size-tablet;
+      width: 200px;
+    }
+
+    @include onDesktop {
+      height: 70px;
+      width: $subscribe-form-length-mobile;
+    }
+  }
+
+  &__tickets-arrow-container {
+    @extend %flex-row-center-center;
+
+    height: $subscribe-form-size-mobile;
+    width: $subscribe-form-size-mobile;
+    background-color: $green-color;
+
+    @include onTablet {
+      height: $subscribe-form-size-tablet;
+      width: $subscribe-form-size-tablet;
+    }
+  }
+
+  &__tickets-arrow {
+    @extend %background-image-contain;
+    background-image: url(../images/tickets-arrow.svg);
+
+    height: $subscribe-form-size-arrow;
+    width: $subscribe-form-size-arrow;
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 18px 1fr 18px;
+    align-items: center;
+    padding-top: 9px;
+    margin-bottom: 250px;
+
+    @include onTablet {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+      padding-top: 15px;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      margin-bottom: 120px;
+    }
+  }
+
+  &__line {
+    position: relative;
+    height: 70px;
+    width: 1px;
+    background-color: $font-color__light-grey;
+    left: -564px;
+    top: 45px;
+
+    @media (max-width: ($desktop-width - 1)) {
+      display: none;
+    }
+  }
+}
