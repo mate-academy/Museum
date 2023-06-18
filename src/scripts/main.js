@@ -12,3 +12,4 @@ form.addEventListener('submit', function(event) {
     behavior: 'smooth',
   });
 });
+
