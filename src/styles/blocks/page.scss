@@ -1,4 +1,6 @@
 .page {
+  box-sizing: border-box;
+
   font-family: "IBM Plex Sans", serif;
   font-weight: 300;
   font-size: 16px;
@@ -23,6 +25,23 @@
     @include onDesktop {
       padding: 0 40px;
       max-width: 1260px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-100%);
+    transition: transform $animationDuration, box-shadow $animationDuration ;
+
+    &:target {
+      transform: translateY(0);
+
+      box-shadow: 0 0 0 9999px rgba(0,0,0, 0.3);
     }
   }
 }
