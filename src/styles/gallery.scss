@@ -8,6 +8,10 @@
     gap: 32px;
     margin-bottom: 92px;
   }
+  @include mobile {
+    gap: 32px;
+    margin-bottom: 100px;
+  }
 
   &__slider {
     display: flex;
@@ -18,9 +22,11 @@
       display: flex;
       flex-wrap: nowrap;
       overflow-x: scroll;
-      -webkit-overflow-scrolling: touch;
-      scroll-snap-type: x mandatory;
-      -ms-scroll-snap-type: mandatory;
+    }
+    @include mobile {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
     }
   }
 
@@ -38,6 +44,14 @@
       border-radius: 50%;
       background: #e0e0e0;
     }
+
+    @include mobile {
+      display: block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #e0e0e0;
+    }
   }
 
   &__image {
@@ -48,6 +62,10 @@
       transform: scale(1.2);
 
       @include tablet {
+        transform: none;
+      }
+
+      @include mobile {
         transform: none;
       }
     }

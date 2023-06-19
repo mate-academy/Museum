@@ -1,4 +1,5 @@
 .events {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 56px;
@@ -8,6 +9,38 @@
     gap: 48px;
   }
 
+  @include mobile {
+    gap: 40px;
+  }
+
+  &__before {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    transform: rotate(270deg);
+    left: -60px;
+    top: -260px;
+    color: #687480;
+    font-weight: 700;
+    font-size: 14px;
+
+    @include tablet {
+      display: none;
+    }
+
+    @include mobile {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      border-top: 1px solid $menu-color;
+      width: 70px;
+      margin-right: 20px;
+    }
+  }
+
   &__conteiner {
     display: flex;
     flex-direction: column;
@@ -15,6 +48,10 @@
 
     @include tablet {
       gap: 64px;
+    }
+
+    @include mobile {
+      gap: 60px;
     }
   }
 
@@ -27,6 +64,11 @@
       flex-direction: column;
       align-items: initial;
     }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: initial;
+    }
   }
 
   &__depiction {
@@ -34,12 +76,21 @@
       width: 100%;
       margin-bottom: 40px;
     }
+
+    @include mobile {
+      width: 100%;
+      margin-bottom: 20px;
+    }
   }
   &__title {
     display: flex;
     align-items: center;
     gap: 20px;
     padding: 30px 0 15px;
+
+    @include mobile {
+     padding: 10px 0;
+    }
   }
 
   &__description {
@@ -48,6 +99,9 @@
     @include tablet {
       width: 460px;
     }
+    @include mobile {
+      width:  100%
+     }
   }
 
   &__exhibition-block {
@@ -55,6 +109,10 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+
+    @include mobile {
+      padding: 0 20px;
+     }
   }
 
   &__exhibition {
@@ -62,6 +120,10 @@
     font-size: 14px;
     line-height: 100%;
     color: #687480;
+
+    @include mobile {
+      font-size: 16px;
+     }
   }
 
   &__link {
@@ -69,6 +131,10 @@
     font-size: 14px;
     line-height: 150%;
     color: #1a5a4c;
+
+    @include mobile {
+      font-size: 16px;
+     }
   }
 
   &__square {
@@ -86,31 +152,29 @@
   }
 
   &__card {
-    position: relative;
     height: 550px;
-    width: 100%;
+    background-image: url(../images/current-3.png);
+    position: relative;
+    max-width: 100%;
     margin-bottom: 302px;
 
     @include tablet {
-      padding: 35px;
+      margin: 0 35px;
       height: 390px;
       margin-bottom: 208px;
     }
-  }
 
-  &__depiction-img {
-    width: 100%;
-    height: 550px;
-
-    @include tablet {
-      height: 390px;
-    }
+    @include mobile {
+      width: 100%;
+      height: 0;
+      padding-top: calc(210 / 320 * 100%);
+      margin-bottom: 183px;
+     }
   }
 
   &__description-card {
     position: absolute;
-    width: 570px;
-    height: 204px;
+    max-width: 100%;
     background-color: #fff;
     top: 448px;
     left: 50%;
@@ -127,6 +191,16 @@
       top: 306px;
       padding: 45px 55px 50px;
     }
-  }
 
+    @include mobile {
+      min-width: 90%;
+      padding: 20px 0;
+      text-align: center;
+      left: 50%;
+      top: 100%;
+      transform: translateY(-35%) translateX(-50%);
+
+     }
+  }
 }
+
