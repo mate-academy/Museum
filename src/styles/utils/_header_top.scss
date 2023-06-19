@@ -1,0 +1,259 @@
+.header {
+  position: relative;
+  height: 100vh;
+
+  @include onTablet {
+    margin-bottom: 88px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+
+  &__top-nav {
+    margin: 0;
+
+    &__museum {
+      position: absolute;
+      background-image: url(../images/photos/actual-acts/Muzej.svg);
+      width: 100%;
+      height: 350px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      z-index: 0;
+
+      @include onTablet {
+        position: relative;
+        grid-row: 1 / 5;
+        height: 100vh;
+      }
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin: 0 23px;
+      line-height: 61px;
+
+      @include onTablet {
+        grid-row-start: 1;
+        margin: 0;
+      }
+    }
+
+    &__link {
+      z-index: 1;
+
+      @include onTablet {
+        margin: 15px 160px 0 35px;
+        width: min-content;
+        height: min-content;
+      }
+
+      @include onDesktop {
+        margin: 15px 0 0 45px;
+      }
+    }
+
+    &__menu-image {
+      cursor: pointer;
+    }
+
+    &__logo {
+      margin: 9px 32% 250px;
+      z-index: 1;
+
+      @include onTablet {
+        margin: 15px 45% 0;
+      }
+
+      @include onDesktop {
+        margin: 15px 70% 119px;
+      }
+
+      &__NAMU {
+        height: 61px;
+
+        @include onTablet {
+          height: 72px;
+        }
+      }
+    }
+
+    &__name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 23px;
+
+      @include onTablet {
+        margin: 0 0 0 35px;
+      }
+
+      @include onDesktop {
+        margin: 0 0 0 45px;
+      }
+
+      &--h {
+        margin-top: 20px;
+
+        @include onTablet {
+          justify-content: start;
+          margin-top: 0;
+        }
+
+        @include onDesktop {
+          margin-top: 0;
+        }
+      }
+
+      &--m {
+        margin-bottom: 20px;
+
+        @include onTablet {
+          justify-content: start;
+          margin-bottom: 40px;
+        }
+
+        @include onDesktop {
+          margin-bottom: 89px;
+        }
+      }
+
+      &__item {
+        margin: 0;
+        font-family: "Montserrat", sans-serif;
+        font-size: 45px;
+        line-height: 45px;
+        color: $colorBlack;
+
+        @include onTablet {
+          font-size: 54px;
+          line-height: 65px;
+        }
+
+        @include onDesktop {
+          font-size: 72px;
+          line-height: 86px;
+        }
+      }
+    }
+
+    &__tickets {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 0 23px;
+      height: 50px;
+      border: 1px solid $colorGreen;
+
+      padding: 0 0 0 70px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: $colorText;
+      text-decoration: none;
+
+      &:hover {
+        color: $colorOrange;
+      }
+
+      @include onTablet {
+        margin: 0 0 0 35px;
+        width: 200px;
+        height: 70px;
+      }
+
+      @include onDesktop {
+        grid-row-start: 3;
+        margin: 0;
+        margin-left: 200px;
+      }
+
+      &__container {
+        position: absolute;
+        background-color: $colorGreen;
+        background-repeat: no-repeat;
+        height: 50px;
+        width: 50px;
+        right: 0;
+        z-index: 0;
+        transition: transform 300ms;
+
+        @include onTablet {
+          height: 70px;
+          width: 70px;
+        }
+
+        &:hover {
+          background-color: $colorOrange;
+          height: 50px;
+          width: 50px;
+
+          @include onTablet {
+            height: 70px;
+            width: 70px;
+          }
+        }
+
+        &::after {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          top: 40%;
+          right: 42%;
+          background-image: url(../images/signs/right-white.svg);
+          background-repeat: no-repeat;
+          width: 7px;
+          height: 12px;
+          z-index: 1;
+
+          @include onTablet {
+            top: 43%;
+          }
+        }
+      }
+    }
+
+    &__act {
+      margin: 0;
+      text-decoration: none;
+      color: transparent;
+      cursor: none;
+
+      @include onDesktop {
+        margin-top: 70px;
+        grid-row-start: 3;
+      }
+
+      @include onDesktop {
+        &__actions {
+          display: inline-block;
+          position: relative;
+          margin-left: 45px;
+          writing-mode: tb-rl;
+          transform: rotate(180deg);
+          font-family: "IBM Plex Sans", sans-serif;
+          font-weight: 700;
+          font-size: 14px;
+          cursor: pointer;
+          color: $colorGreyText;
+
+          &::before {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            background-image: url(../images/signs/Stick.svg);
+            background-repeat: no-repeat;
+            width: 1px;
+            height: 70px;
+            bottom: 145%;
+            left: 10px;
+          }
+        }
+      }
+    }
+  }
+}

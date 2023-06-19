@@ -1,0 +1,194 @@
+.menu {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: $colorGrey;
+    opacity: 0.7;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    padding: 27px 20px;
+    margin: 0;
+    min-width: min-content;
+    background-color: $colorGreen;
+
+    @include onTablet {
+      padding: 40px 35px;
+    }
+
+    @include onDesktop {
+      padding: 40px 50px 48px;
+    }
+  }
+
+  &__cross {
+    display: flex;
+
+    &__item {
+      width: 32px;
+      height: 32px;
+      background-image: url(../images/signs/cross.svg);
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__center {
+    @include onTablet {
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    max-width: 1200px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: center;
+      flex-grow: 1;
+    }
+
+    &__block {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-grow: 1;
+
+      @include onTablet {
+        padding-right: 10px;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+    }
+
+    &__left-right {
+      min-width: max-content;
+      padding-right: 15px;
+    }
+  }
+
+  &__item {
+    list-style-type: none;
+    margin-bottom: 24px;
+  }
+
+  &__link {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 300ms;
+
+    &:hover {
+      color: $colorText;
+    }
+  }
+
+  &__block {
+    transform: translateX(-30px);
+
+    @include onTablet {
+      display: flex;
+      flex-shrink: 1;
+      transform: translateX(0);
+    }
+
+    &__stick {
+      @include onTablet {
+        display: flex;
+        justify-content: center;
+        padding-right: 18px;
+      }
+
+      @include onDesktop {
+        padding-right: 110px;
+      }
+
+      &__item {
+        width: 100%;
+        height: 1px;
+        margin-bottom: 24px;
+        background-color: #fff;
+
+        @include onTablet {
+          margin-bottom: 0;
+          width: 1px;
+          height: 145px;
+        }
+      }
+    }
+
+    &__container {
+      @include onTablet {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &__schedule {
+      @include schedule;
+      margin-bottom: 20px;
+      font-weight: 400;
+      line-height: 20px;
+    }
+
+    &__time {
+      @include onTablet {
+        display: flex;
+        min-width: max-content;
+      }
+
+      &__items {
+        @include schedule;
+        margin-bottom: 16px;
+        padding-right: 15px;
+        font-weight: 400;
+        line-height: 21px;
+      }
+
+      @include onDesktop {
+        padding-right: 30px;
+      }
+    }
+
+    &__days {
+      @include schedule;
+      font-weight: 400;
+      line-height: 21px;
+      max-width: 280px;
+
+      @include onTablet {
+        margin-top: 40px;
+        width: 170px;
+      }
+    }
+  }
+}
