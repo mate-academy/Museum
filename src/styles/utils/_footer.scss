@@ -93,8 +93,13 @@
   }
 
   &__second {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+    }
 
     &__block {
       flex-basis: 50%;
@@ -246,17 +251,21 @@
   }
 
   &__list {
-    display: flex;
-    justify-content: center;
     margin-bottom: 80px;
 
     @include onTablet {
+      display: flex;
+      justify-content: center;
       margin-bottom: 100px;
     }
 
     &__container {
-      display: flex;
-      // justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      @include onTablet {
+        display: flex;
+      }
     }
 
     &__left {
@@ -277,7 +286,7 @@
 
   &__item {
     margin-bottom: 20px;
-    // min-width: max-content;
+    min-width: max-content;
     list-style-type: none;
 
     @include onTablet {
@@ -315,7 +324,11 @@
       @include schedule;
       font-size: 12px;
       line-height: 17px;
-      color: $colorFooter;
+      color: $colorParagraph;
+
+      &--last {
+        color: $colorParagraph;
+      }
     }
   }
 }
