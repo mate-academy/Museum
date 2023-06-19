@@ -1,4 +1,4 @@
-.page{
+.page {
   max-width: 1280px;
   margin: auto;
   position: relative;
@@ -13,7 +13,7 @@
 
   &__backdrop {
     position: fixed;
-    max-width: 1280px;
+    max-width: 100%;
     margin: auto;
     min-height: 100%;
     background-color: $backdrop-color;
@@ -24,21 +24,22 @@
 
     @include tablet {
       max-width: 768px;
+      max-width: 100%;
     }
 
     @include mobile {
       width: 100%;
+      overflow: auto;
     }
   }
 
-  &__menu {
+  &__menu-content {
+    padding: 40px 155px 32px 182px;
+    gap: 102px;
     position: relative;
     max-width: 1280px;
     margin: auto;
     display: flex;
-    background: $menu-color;
-    padding: 40px 155px 32px 182px;
-    gap: 102px;
 
     @include tablet {
       max-width: 768px;
@@ -46,12 +47,16 @@
       gap: 38px;
     }
 
-
     @include mobile {
       width: 100%;
       padding: 20px 27px;
       display: block;
+
     }
+  }
+
+  &__menu {
+    background: $menu-color;
   }
 
   &__close {
@@ -140,7 +145,7 @@
     margin: 0;
 
     @include mobile {
-      height: 0px;
+      height: 0;
       width: 100%;
       margin: 0;
     }
@@ -192,8 +197,6 @@
       margin-bottom: 16px;
     }
   }
-
-
 
   &__time-work {
     width: 170px;
