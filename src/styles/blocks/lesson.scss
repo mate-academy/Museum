@@ -1,0 +1,132 @@
+.lesson {
+  width: 100%;
+
+  &__photo-container {
+    position: relative;
+    z-index: -1;
+    margin: 0 -#{$pdd-x-mob};
+
+    --img-lesson-height: 210px;
+    --box-lesson-top: 153px;
+
+    @media (min-width: 400px) {
+      --img-lesson-height: 340px;
+      --box-lesson-top: 280px;
+    }
+    
+    @include onTablet {
+      margin: 0;
+      --img-lesson-height: 390px;
+      --box-lesson-top: 306px;
+    }
+
+    @include onSmDesktop {
+      margin: 0 -#{$pdd-x-desk};
+      --img-lesson-height: 550px;
+      --box-lesson-top: 448px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      height: var(--box-lesson-top);
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    width: 100%;
+    height: var(--img-lesson-height);
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__photo-definition {
+    z-index: 1;
+    @extend %pic-definition;
+
+    &--top {
+      top: 0;
+    }
+  
+    &--bottom {
+      bottom: 0;
+    }
+  }
+
+  &:hover &__photo-definition {
+    opacity: 0.8;
+    box-shadow: inset 0 0 50px 50px $c-white, 0 0 10px 10px $c-white;
+  }
+
+  &__information {
+    margin: 0 auto;
+    max-width: 570px;
+    background-color: $c-white;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+    transition: box-shadow $act-time;
+
+    &:hover {
+      box-shadow: 4px 4px 12px 4px rgba(26, 90, 76, 0.25);
+    }
+  }
+
+  &__info {
+    margin-bottom: 20px;
+    padding: 24px 20px 0;
+
+    @include flexDJI($fd: row, $jc: space-between, $ai: center);
+
+    font-size: 16px;
+
+    @include onTablet {
+      margin-bottom: 16px;
+      padding: 44px 56px 0;
+      justify-content: flex-start;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    @include onSmDesktop {
+      margin-bottom: 20px;
+      padding: 44px 100px 0;
+    }
+  }
+
+  &__type {
+    line-height: 100%;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $c-card-name;
+
+    @include onTablet {
+      flex-basis: 220px;
+    }
+  }
+
+  &__date {
+    line-height: 150%;
+    font-weight: 700;
+    color: $c-card-date;
+    
+    @include onTablet {
+      flex-basis: 220px;
+    }
+  }
+
+  &__subtitle {
+    padding-bottom: 20px;
+    text-align: center;
+    color: $c-h3;
+
+    @include onTablet {
+      padding: 0 56px 50px;
+      text-align: left;
+    }
+
+    @include onSmDesktop {
+      padding: 0 100px 50px;
+    }
+  }
+}

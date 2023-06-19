@@ -1,0 +1,99 @@
+.subscribe {
+  @include bgImg(cover, center);
+  background-image: url(./../images/subscribe/bg-img.jpg);
+
+  &__container {
+    @extend %page_container;
+  }
+
+  &__content {
+    padding: 88px 0;
+
+    @include onTablet {
+      padding: 82px 0;
+    }
+
+    @include onSmDesktop {
+      padding: 164px 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    text-align: center;
+    color: $c-h2-alt;
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__description {
+    margin-bottom: 52px;
+
+    font-size: 18px;
+    line-height: 150%;
+
+    text-align: center;
+    color: $c-white;
+
+    @include onTablet {
+      margin-bottom: 64px;
+      line-height: 100%;
+    }
+
+    @include onSmDesktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__form {
+    margin: 0 auto;
+    max-width: 360px;
+
+    @include flexDJI($fd: row, $jc: space-between, $ai: 0);
+
+    gap: 0;
+
+    @include onTablet {
+      width: 66%;
+      min-width: 460px;
+      gap: 16px;
+    }
+
+    @include onSmDesktop {
+      width: 50%;
+      max-width: 570px;
+      gap: 30px;
+    }
+  }
+
+  &__button {
+    padding: 0;
+    background-color: $c-button-form;
+    border: 0;
+    transition: box-shadow $act-time;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 50px;
+      padding-bottom: 100%;
+
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-image: url(./../images/arrow-dark.svg);
+    }
+
+    @include onTablet {
+      &:before {
+        width: 70px;
+      }
+    }
+
+    &:hover {
+      box-shadow: inset 0 -12px 16px -8px $c-dark;
+    }
+  }
+}

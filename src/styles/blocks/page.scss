@@ -1,0 +1,68 @@
+.page {
+  font-family: $ff-main;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: 400;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  &__body {
+    background: $c-white;
+
+    &--with-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+    }
+  }
+
+  &__section {
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 88px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__header {
+    margin-bottom: 0;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-110%);
+    transition: transform $act-time;
+
+    &:target {
+      transform: translateY(0);
+      z-index: 2;
+    }
+  }
+
+  &__mount {
+    &--active {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      display: block;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &__footer {
+    margin-bottom: 0;
+  }
+}
