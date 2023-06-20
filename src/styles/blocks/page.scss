@@ -8,25 +8,32 @@
   scroll-behavior: smooth;
 
   &__body {
-    min-width: 300px;
-    background: $c-gray;
+    min-width: 316px;
   }
 
   &__menu {
-    opacity: 0;
-    pointer-events: none;
+    // opacity: 0;
+    // pointer-events: none;
+    display: none;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
+    max-height: 100vh;
+
+    overflow-y: auto;
 
     transition: all 0.7s;
     transform: translateY(-100%);
 
     &:target {
-      opacity: 1;
       z-index: 2;
-      pointer-events: all;
+      display: block;
+      @include onTablet {
+        display: grid;
+      }
+
+
       transform: translateX(0);
     }
   }

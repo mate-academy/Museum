@@ -1,0 +1,193 @@
+.events {
+  font-family: 'IBM Plex Sans';
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+
+  @include onTablet {
+    align-items: flex-start;
+    gap: 64px;
+  }
+  @include onDesktop {
+    gap: 112px;
+  }
+
+  &__title {
+    @include paddingInline;
+    padding-bottom: 40px;
+    text-align: center;
+    @include onTablet {
+      text-align-last: left;
+    }
+  }
+
+  &__subtitle {
+    @include subtitle;
+}
+
+
+.article-exhibition {
+  &__wrapper {
+    @include paddingInline;
+    @include respGrid;
+    align-items: center;
+    justify-items: center;
+    @include onTablet {
+      justify-items: left;
+    }
+  }
+
+  &__image {
+    height: 210px;
+    width: 100%;
+    max-width: 280px;
+    @include onTablet {
+      height: 520px;
+      max-width: 700px;
+    }
+    @include onDesktop {
+      width: 670px;
+    }
+    grid-column: 1 / -1;
+    grid-row: 1;
+
+  }
+
+
+}
+
+.event-description {
+  grid-column: 1 / -1;
+  padding-top: 20px;
+  @include onTablet {
+    padding-top: 40px;
+  }
+  @include onDesktop {
+    padding-top: 0;
+    grid-column: 9 / -1;
+    grid-row: 1;
+  }
+  &--caption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    @include onTablet {
+      padding-top: 30px;
+    }
+    @include onTablet {
+      padding-top: 0;
+    }
+
+
+    &-type {
+      font-weight: 500;
+      font-size: 16px;
+      text-transform: uppercase;
+      line-height: 100%;
+      color: #687480;
+      width: 129px;
+    }
+
+    &-date {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 150%;
+      color: #1A5A4C;
+    }
+  }
+
+  &--title {
+    padding-block: 10px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 110%;
+      bottom: 30%;
+      display: inline;
+      width: 10px;
+      height: 10px;
+      background-color: #F14A27;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+      }
+    }
+    @include onTablet {
+      padding-top: 30px;
+      padding-bottom: 15px;
+    }
+  }
+
+  &--paragraph {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: #4E4E4E;
+    // padding-top: 10px;
+    // @include onTablet {
+    //   padding-top: 15px;
+    // }
+  }
+}
+
+.article-lecture {
+  width: 100%;
+  @include onTablet {
+    @include paddingInline;
+  }
+  @include onDesktop {
+    padding-inline: 0;
+  }
+
+  &__bg {
+    // grid-column: 1 / -1;
+    width: 100%;
+    height: 210px;
+
+    @include onTablet {
+      height: 390px;
+    }
+
+    @include onDesktop {
+      height: 550px;
+    }
+  }
+  &__info {
+    background-color: #fff;
+  }
+
+  &--caption {
+    width: 100%;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    @include onDesktop {
+      padding-bottom: 16px;
+    }
+  }
+
+  &__title {
+    text-align: left;
+  }
+}
+
+.float {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #000;
+  background-color: #fff;
+  z-index: 1;
+  grid-column: 3 / 9;
+  max-width: 570px;
+  height: 204px;
+  margin: 0 auto;
+  transform: translateY(-50%);
+}
+}
