@@ -1,0 +1,130 @@
+.art-museum {
+  box-sizing: border-box;
+  @include pageGrid;
+  row-gap: 20px;
+
+  @include onTablet {
+    row-gap: 40px;
+  }
+
+  @include onDesktop {
+    row-gap: 90px;
+  }
+
+  &__title {
+    margin: 0;
+    grid-column: 1 / -1;
+
+    @include pageMontserrat;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+      font-size: 72px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      justify-content: start;
+   }
+
+    @include onDesktop {
+      grid-column: 3 / 6;
+      font-size: 72px;
+     }
+  }
+}
+
+.button {
+  &__link {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+
+    width: 230px;
+    height: 50px;
+    border: 1px solid $header-green-color;
+    background-color: #fff;
+    @include pageIBMPlex;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    text-decoration: none;
+    color: #0F0E08;
+    transition: all 0.75s;
+
+    &:hover {
+      box-shadow: -8px 6px 6px 0px rgba(25, 86, 73, 1);
+    }
+
+    @include onTablet {
+      width: 270px;
+      height: 70px;
+    }
+  }
+
+  &__arrow {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-image: url(../images/icon/icon-arrow.svg);
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $header-green-color;
+    cursor: pointer;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__events {
+    display: none;
+    position: absolute;
+    left: 40px;
+    bottom: 200px;
+
+    @include pageIBMPlex;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+    transform: rotate(-90deg);
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 100px;
+      top: -28px;
+      width: 1px;
+      height: 70px;
+      background-color: $header-green-color;
+      transform: rotate(-90deg);
+    }
+  }
+}

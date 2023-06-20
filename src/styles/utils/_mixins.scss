@@ -4,3 +4,51 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+@mixin pageMontserrat {
+  font-family: 'Montserrat';
+}
+
+@mixin pageIBMPlex {
+  font-family: 'IBM Plex Sans';
+}
+
+@mixin pageMainPadding {
+  padding-inline: 20px;
+
+    @include onTablet {
+      padding-inline: 35px;
+    }
+
+    @include onDesktop {
+      padding-inline: 55px;
+    }
+}
+
