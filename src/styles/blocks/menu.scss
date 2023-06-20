@@ -1,0 +1,209 @@
+.menu {
+  background: $color-green;
+  pointer-events: none;
+  transition-duration: 0.5s;
+  opacity: 0;
+  overflow: hidden;
+
+  &:target {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__container {
+    @include gridPage;
+
+    @include smartphone {
+      line-height: 12px;
+      font-size: 10px;
+    }
+
+    @include smalldesktop {
+      height: 233px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    grid-column: 1 / -1;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    @include smartphone {
+      grid-column: 1 / 4;
+      border-bottom: none;
+    }
+
+    @include smalldesktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 27px;
+    grid-column: 1 / -1;
+
+    @include smartphone {
+      border-right: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    @include smalldesktop {
+      justify-content: space-evenly;
+      width: 100%;
+    }
+  }
+
+  &__list {
+    margin-right: 24px;
+
+    @include smartphone {
+      margin-right: 20px;
+
+      &:last-child {
+        margin-right: 38px;
+      }
+    }
+
+    &:last-child {
+      margin-right: 16px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 24px;
+    @include hover(transform, scale(1.2));
+  }
+
+  &__link {
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: $color-white;
+
+    @include smalldesktop {
+      font-size: 22px;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+    margin-top: 24px;
+    margin-bottom: 20px;
+
+    @include smartphone {
+      grid-column: 4 / -1;
+    }
+
+    @include smalldesktop {
+      grid-column: 7 / -2;
+    }
+  }
+
+  &__title {
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140.62%;
+    margin-bottom: 20px;
+
+    color: $color-white;
+
+    @include smalldesktop {
+      margin-left: 50px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    @include smartphone {
+      display: flex;
+      flex-direction: row;
+      grid-column: 4 / -1;
+    }
+
+    @include smalldesktop {
+      margin-left: 50px;
+    }
+  }
+
+  &__work-week {
+    margin-bottom: 16px;
+
+    @include smartphone {
+      margin-right: 38px;
+    }
+
+    @include smalldesktop {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+    }
+  }
+
+  &__work-date {
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: 400;
+    line-height: 150%;
+    color: $color-white;
+    width: max-content;
+  }
+
+  &__work-time {
+    font-weight: 600;
+  }
+
+  &__second {
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+
+    color: $color-white;
+    margin-bottom: 27px;
+
+    @include smartphone {
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 14px;
+    }
+
+    @include smalldesktop {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+    }
+  }
+
+  &__weekend-day {
+    font-family:$font-family;
+    font-style: $font-style;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+
+    color: $color-white;
+
+    @include smartphone {
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 14px;
+    }
+
+    @include smalldesktop {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 150%;
+    }
+  }
+}
