@@ -1,10 +1,13 @@
 'use strict';
 
-// $(document).ready(function() {
-//   $('.slider').slick({
-//     slidesToShow: 1,
-//     slidesToScroll: 1,
-//     autoplay: true,
-//     autoplaySpeed: 2000,
-//   });
-// });
+const openMenu = document.querySelector('.main-page__menu');
+const closeMenu = document.querySelector('.menu__close');
+const body = document.querySelector('.body');
+
+openMenu.addEventListener('click', function() {
+  body.classList.add('no-active');
+});
+
+closeMenu.addEventListener('click', function() {
+  body.classList.remove('no-active');
+});
