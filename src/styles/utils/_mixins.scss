@@ -1,5 +1,5 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} 0.7s;
   &:hover {
     #{$_property}: $_toValue;
   }
@@ -17,7 +17,7 @@
   }
 }
 @mixin onWide {
-  @media (min-width: 1400px) {
+  @media (min-width: 1920px) {
     @content;
   }
 }
@@ -56,10 +56,49 @@
   font-size: 28px;
   line-height: 100%;
   text-align: left;
-  color: #0F0E08;
+  color: $page-black;
 
   @include onTablet {
     font-size: 36px;
   }
 }
 
+@mixin btnSize {
+  --size: 50px;
+  @include onTablet {
+    gap: 16px;
+    --size: 70px;
+  }
+  width: var(--size);
+  height: var(--size);
+}
+
+@mixin stretchBg {
+  height: 210px;
+  width: 100%;
+  background-size: cover;
+
+  @include onTablet {
+    height: 390px;
+  }
+
+  @include onDesktop {
+    height: 550px;
+    background-size: cover;
+  }
+}
+
+@mixin eventType {
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 100%;
+  color: $light-gray;
+}
+
+@mixin eventDate {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: $green;
+}

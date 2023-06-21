@@ -1,3 +1,12 @@
+.section__title {
+  @include paddingInline;
+  padding-bottom: 40px;
+  text-align: center;
+  @include onTablet {
+    text-align-last: left;
+  }
+}
+
 .events {
   font-family: 'IBM Plex Sans';
   display: flex;
@@ -13,19 +22,10 @@
     gap: 112px;
   }
 
-  &__title {
-    @include paddingInline;
-    padding-bottom: 40px;
-    text-align: center;
-    @include onTablet {
-      text-align-last: left;
-    }
-  }
-
   &__subtitle {
     @include subtitle;
+  }
 }
-
 
 .article-exhibition {
   &__wrapper {
@@ -52,9 +52,8 @@
     grid-column: 1 / -1;
     grid-row: 1;
 
+    @include hover(scale, 1.04);
   }
-
-
 }
 
 .event-description {
@@ -82,19 +81,12 @@
 
 
     &-type {
-      font-weight: 500;
-      font-size: 16px;
-      text-transform: uppercase;
-      line-height: 100%;
-      color: #687480;
+      @include eventType;
       width: 129px;
     }
 
     &-date {
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 150%;
-      color: #1A5A4C;
+      @include eventDate;
     }
   }
 
@@ -107,11 +99,11 @@
       content: "";
       position: absolute;
       left: 110%;
-      bottom: 30%;
+      bottom: 27%;
       display: inline;
       width: 10px;
       height: 10px;
-      background-color: #F14A27;
+      background-color: $orange;
 
       @include onTablet {
         width: 15px;
@@ -129,65 +121,101 @@
     font-size: 16px;
     line-height: 150%;
     color: #4E4E4E;
-    // padding-top: 10px;
-    // @include onTablet {
-    //   padding-top: 15px;
-    // }
-  }
-}
-
-.article-lecture {
-  width: 100%;
-  @include onTablet {
-    @include paddingInline;
-  }
-  @include onDesktop {
-    padding-inline: 0;
-  }
-
-  &__bg {
-    // grid-column: 1 / -1;
-    width: 100%;
-    height: 210px;
 
     @include onTablet {
-      height: 390px;
+      max-width: 470px;
     }
-
-    @include onDesktop {
-      height: 550px;
+    @include onTablet {
+      max-width: 370px;
     }
   }
+}
+
+.lecture {
+  height: 210px;
+  width: 100%;
+  background-size: cover;
+  background-image: url(../images/background/lecture-M-bg.png);
+
+  @include onTablet {
+    height: 390px;
+    background-image: url(../images/background/lect-T-bg.jpg);
+  }
+
+  @include onDesktop {
+    height: 550px;
+    background-size: cover;
+    background-image: url(../images/background/lect-d-bg.jpg);
+  }
+
+  @include stretchBg;
+
   &__info {
     background-color: #fff;
-  }
-
-  &--caption {
     width: 100%;
+    box-shadow: 0px 2px 0px rgba(26, 90, 76, 0.25);
+
+    grid-column: 1 / -1;;
     padding-bottom: 20px;
-    display: flex;
-    align-items: center;
-    @include onDesktop {
-      padding-bottom: 16px;
+    transform: translateY(105%);
+
+
+    @include onTablet {
+      padding: 45px 50px;
+      margin-inline: auto;
+      transform: translateY(145%);
+      max-width: 615px;
     }
-  }
+    @include onDesktop {
+      padding: 45px 100px 50px;
+      margin: 0;
+      grid-column: 4 / 10;
+      transform: translateY(225%);
+    }
 
-  &__title {
-    text-align: left;
+    &--caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding-block: 20px;
+      @include onTablet {
+        padding-block: 0;
+        padding-bottom: 16px;
+        justify-content: space-between;
+      }
+
+      &-type {
+        @include eventType;
+        display: inline;
+        @include onTablet {
+          display: inline-block;
+          width: 50%;
+        }
+
+      }
+
+      &-date {
+        @include eventDate;
+        display: inline;
+        @include onTablet {
+          display: inline-block;
+          width: 50%;
+        }
+      }
+    }
+
+
+
+    &--title {
+      @include subtitle;
+      text-align: center;
+
+      @include onTablet {
+        text-align: left;
+      }
+    }
+
   }
 }
 
-.float {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #000;
-  background-color: #fff;
-  z-index: 1;
-  grid-column: 3 / 9;
-  max-width: 570px;
-  height: 204px;
-  margin: 0 auto;
-  transform: translateY(-50%);
-}
-}
+
