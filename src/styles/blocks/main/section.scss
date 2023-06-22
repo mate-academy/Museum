@@ -1,12 +1,3 @@
-.section__title {
-  @include paddingInline;
-  padding-bottom: 40px;
-  text-align: center;
-  @include onTablet {
-    text-align-last: left;
-  }
-}
-
 .events {
   font-family: "IBM Plex Sans", Arial, sans-serif;
   display: flex;
@@ -15,10 +6,10 @@
   align-items: center;
 
   @include onTablet {
-    align-items: flex-start;
     gap: 64px;
   }
   @include onDesktop {
+    align-items: normal;
     gap: 112px;
   }
 
@@ -27,12 +18,25 @@
   }
 }
 
+.section__title {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  width: 100%;
+  align-self: none;
+  padding-bottom: 40px;
+  text-align: center;
+  @include onTablet {
+    text-align: left;
+  }
+}
+
 .article-exhibition {
   &__wrapper {
     @include paddingInline;
     @include respGrid;
+    max-width: 328px;
     @include onTablet {
-      justify-items: left;
+      max-width: none;
     }
   }
 
@@ -41,13 +45,13 @@
     width: 100%;
     max-width: 280px;
     grid-column: 1 / -1;
-    grid-row: 1;
     @include onTablet {
 
       height: 520px;
       max-width: 700px;
     }
     @include onDesktop {
+      grid-row: 2;
       width: 670px;
     }
 
@@ -56,15 +60,16 @@
 }
 
 .event-description {
+  grid-row: 3;
   grid-column: 1 / -1;
   padding-top: 20px;
   @include onTablet {
     padding-top: 40px;
   }
   @include onDesktop {
-    padding-top: 0;
+    align-self: center;
     grid-column: 9 / -1;
-    grid-row: 1;
+    grid-row: 2;
   }
   &--caption {
     display: flex;
@@ -96,8 +101,8 @@
     &::after {
       content: "";
       position: absolute;
-      left: 110%;
-      bottom: 27%;
+      left: 105%;
+      bottom: 35%;
       display: inline;
       width: 10px;
       height: 10px;
@@ -106,6 +111,7 @@
       @include onTablet {
         width: 15px;
         height: 15px;
+        bottom: 30%;
       }
     }
     @include onTablet {
