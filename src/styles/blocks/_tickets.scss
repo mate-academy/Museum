@@ -1,0 +1,51 @@
+.tickets {
+  display: flex;
+
+  @include onDesktop {
+    justify-content: flex-end;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    border: 1px solid $green;
+    cursor: pointer;
+    text-decoration: none;
+    flex-grow: 1;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 1px 4px 16px #2f2f3e66;
+    }
+
+    @include onTablets {
+      height: 70px;
+      flex-basis: 270px;
+      flex-grow: 0;
+    }
+
+    &-description {
+      width: 100%;
+      text-align: center;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color: $black;
+    }
+
+    &-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: $button-heigh-m;
+      height: $button-heigh-m;
+      background-color: $green;
+  
+      @include onTablets {
+        width: $button-heigh-t;
+        height: $button-heigh-t;
+      }
+    }
+  }
+}

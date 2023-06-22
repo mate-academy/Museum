@@ -1,0 +1,97 @@
+.menu {
+  color: #fff;
+  height: 100vh;
+  background: #808080b3;
+
+  @include onTablets {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__content {
+    padding: 27px 0;
+    height: 400px;
+    background-color: $green;
+
+    @include onTablets {
+      height: 225px;
+      padding: 40px 0;
+    }
+  }
+
+  
+  &__nav {
+    display: flex;
+    gap: 28px;
+    padding-bottom: 27px;
+
+    @include onTablets {
+      gap: 38px;
+      padding-bottom: 40px;
+    }
+
+    @include onDesktop {
+      gap: 70px;
+    }
+
+    &-icon {
+      background-image: url(../images/menu-close.svg);
+      background-repeat: no-repeat;
+      width: $icon-size;
+      height: $icon-size;
+      flex-shrink: 0;
+
+      transition: box-shadow 0.3s;
+
+      &:hover {
+        box-shadow: 1px 4px 16px #e8e8f066;
+        border-radius: 20%;
+      }
+    }
+  }
+
+  &__line {
+    height: 1px;
+    width: 100%;
+    background-color: #fff;
+
+    @include onTablets {
+      width: 1px;
+      height: 100%;
+      justify-self: end;
+    }
+  }
+
+  &__schedule {
+    padding-top: 24px;
+
+    @include onTablets {
+      padding: 0;
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+
+      @include onTablets {
+        flex-direction: row;
+        gap: 30px;
+      }
+    }
+
+    &-time {
+      flex-shrink: 0;
+      @include onTablets {
+        padding: 0 38px;
+      }
+    }
+
+    &-description {
+      flex-shrink: 1;
+
+      @include onTablets {
+        padding-top: 14px;
+      }
+    }
+  }
+}

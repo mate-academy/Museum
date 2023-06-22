@@ -1,0 +1,111 @@
+.header {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  height: $headet-height-m;
+  padding-bottom: 50px;
+
+  @include onTablets {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onTablets {
+    height: $headet-height-t;
+    padding-bottom: 88px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include onDesktop {
+    height: $headet-height-d;
+    padding-bottom: 200px;
+  }
+
+  &__menu {
+    background-image: url(../images/menu.svg);
+  }
+
+  &__photo {
+    position: relative;
+    background-image: url(../images/header-photo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+
+    &-logo {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+
+      @include onTablets {
+        left: 0;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0;
+    padding: 20px;
+
+    @include onTablets {
+      padding: 127px 0 0 34px;
+      gap: 38px;
+    }
+
+    @include onDesktop {
+      padding-top: 206px;
+      padding-left: 55px;
+      gap: 89px;
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 45px;
+      line-height: 100%;
+      text-align: center;
+
+      @include onTablets {
+        font-size: 54px;
+        line-height: 120%;
+        text-align: start;
+      }
+
+      @include onDesktop {
+        font-size: 72px;
+      }
+    }
+
+    &-event {
+      display: none;
+      position: absolute;
+      left: 40px;
+      bottom: 100px;
+  
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: $gray;
+      transform: rotate(-90deg);
+      
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+}

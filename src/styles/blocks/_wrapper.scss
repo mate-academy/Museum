@@ -1,0 +1,80 @@
+.wrapper {
+  position: relative;
+
+  &__carousel {
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden;
+    scroll-behavior: smooth;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      padding-bottom: 200px;
+    }
+
+    &-img {
+      height: 410px;
+      width: 100%;
+      max-width: 280px;
+      object-fit: cover;
+      padding-left: 20px;
+      transition: hover, 0.3s;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      @include onTablets {
+        width: calc(100% / 2);
+        max-width: 340px;
+        height: 543px;
+      }
+
+      @include onDesktop {
+        padding: 0;
+        width: 100%;
+        height: 600px;
+        max-width: 800px;
+      }
+    }
+
+    &-img:nth-child(n+3) {
+      @include onDesktop {
+        padding-top: 30px;
+        height: 360px;
+      }
+    }
+
+    &-img:hover {
+      scale: 1.3;
+    }
+  }
+
+  &__back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 1;
+    opacity: 0%;
+    cursor: pointer;
+
+    @include onDesktop {
+      cursor: default;
+    }
+  }
+
+  &__next {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 1;
+    opacity: 0%;
+    cursor: pointer;
+  }
+}
