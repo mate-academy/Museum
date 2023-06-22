@@ -1,0 +1,114 @@
+.gallery {
+  &__container {
+    margin-bottom: 100px;
+
+    @include smartphone {
+      margin-bottom: 92px;
+    }
+
+    @include smalldesktop  {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__title {
+    font-family: 'Montserrat';
+    font-style: $font-style;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: $color-dark;
+    text-align: center;
+    margin-bottom: 40px;
+    grid-column: 1 / -1;
+
+    @include smartphone {
+      font-size: 48px;
+      margin-bottom: 48px;
+      text-align: left;
+      grid-column: 1 / 3;
+    }
+
+    @include smalldesktop {
+      margin-bottom: 56px;
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__slider {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 20px;
+    gap: 20px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+
+    @include smalldesktop {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 280px;
+    height: 410px;
+    transition: 0.5s all;
+
+    @include smalldesktop {
+      width: 100%;
+      height: 100%;
+    }
+
+    &--one {
+      @include smalldesktop {
+        grid-column: 1 / 5;
+      }
+    }
+
+    &--two {
+
+      @include smartphone {
+        display: block;
+      }
+
+      @include smalldesktop {
+        grid-column: 5 / -1;
+      }
+    }
+
+    &--three {
+      @include smalldesktop {
+        grid-column: 1 / 9;
+      }
+    }
+
+    &--four {
+      @include smalldesktop {
+        grid-column: 9 / -1;
+      }
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+
+    @include smalldesktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #E0E0E0;
+
+    &:hover{
+      background-color: $color-green;
+    }
+  }
+}
