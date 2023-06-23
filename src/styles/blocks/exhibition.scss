@@ -1,0 +1,109 @@
+.exhibition {
+  display: block;
+
+  @include onDesktop {
+    display: flex;
+  }
+
+  &__img {
+    width: 280px;
+    height: 210px;
+
+    @include onTablet {
+      width: 700px;
+      height: 520px;
+    }
+
+    @include onDesktop {
+      width: 670px;
+      height: 520px;
+    }
+  }
+
+  &__content {
+    margin: 20px 0 0;
+
+    @include onTablet {
+      margin-top: 44px;
+    }
+
+    @include onDesktop {
+      margin: 0;
+    }
+  }
+
+  &__caption {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__caption-tittle {
+    color: $captionColor;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__date {
+    color: $mainGreenColor;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 100%;
+  }
+
+  &__tittle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    margin: 15px 0 0;
+
+    color: $mainTextColor;
+    font-size: 28px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    line-height: 100%;
+
+    @include onTablet {
+      justify-content: flex-start;
+
+      margin-top: 32px;
+
+      font-size: 36px;
+    }
+
+    &::after {
+      content: "";
+
+      display: inline-block;
+
+      margin: 6px;
+
+      width: 10px;
+      height: 10px;
+      background-color: $decorativeColor;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+
+        margin: 8px 14px;
+      }
+    }
+  }
+
+  &__description {
+    margin: 10px 0 0;
+
+    color: $paragraphColor;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+  }
+}
