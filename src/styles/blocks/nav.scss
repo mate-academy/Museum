@@ -1,6 +1,9 @@
 .nav {
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: $mobile-icon-size 1fr;
+  color: #fff;
+
+  gap: 28px;
 
   @include onTablet {
     gap: 38px;
@@ -11,25 +14,32 @@
   }
 
   &__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    display: flex;
+    gap: 28px;
 
     @include onTablet {
-      row-gap: 24px;
-      column-gap: 20px;
+      gap: 20px;
     }
 
     @include onSmall-desktop {
+      gap: 60px;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+
+    @include onDesktop {
       row-gap: 30px;
-      column-gap: 60px;
     }
   }
 
   &__item {
     @extend %font_event;
 
-    color: white;
+    // color: white;
     text-decoration: none;
 
     @include onSmall-desktop {

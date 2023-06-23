@@ -1,19 +1,30 @@
 .icon {
   display: block;
-  width: $icon-width;
-  // padding-bottom: 100%;
-  height: $icon-width;
-  background-size: contain;
-  background-position: center;
   background-repeat: no-repeat;
-  text-decoration: none;
+  background-size: cover;
+  position: relative;
+  @include sizeIcon ($mobile-icon-size);
+
+  @include hover (transform, scale(1.2));
+
+  @include onTablet {
+    @include sizeIcon ($tablet-icon-size);
+  }
 
   &--menu {
-    background-image: url(../images/icons/icon-burger.png);
+    background-image: url(../images/icons/icon-menu.svg);
   }
 
   &--cross {
-    background-image: url(../images/icons/icon-close.png);
+    background-image: url(../images/icons/icon-close.svg);
     margin-right: 34px;
+  }
+
+  &--face {
+    background-image: url(../images/icons/icon-face.svg);
+  }
+
+  &--inst {
+    background-image: url(../images/icons/icon-inst.svg);
   }
 }
