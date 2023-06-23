@@ -2,27 +2,25 @@
   background-image: url("../images/320/06.png");
   background-repeat: no-repeat;
   margin: 0 auto;
-
   @include size (320px, 386px);
 
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
 
-  @include size (100vw, 100vh);
+  @include size (320px, 386px);
 
   @media (min-width: 768px) {
     background-image: url("../images/768/06.png");
-    @include size (700px, 390px);
+    background-size: contain;
+    @include size (768px, 380px);
   }
 
   @media (min-width: 1280px) {
     background-image: url("../images/1280/06.png");
     @include size (1280px, 550px);
-
   }
 
   &__contain {
@@ -41,10 +39,12 @@
   &__text {
     font-size: 18px;
     text-align: center;
-    width: 80vw;
     margin-top: 20px;
+    width: 100%;
+    padding: 0 20px;
     @media (min-width: 768px) {
       margin-top: 16px;
+      padding: 0;
     }
   }
 
@@ -66,6 +66,14 @@
     @include size (230px, 50px);
     border: none;
     padding: 20px;
+    outline: none;
+
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
     @media (min-width: 768px) {
       @include size (374px, 70px);
     }
