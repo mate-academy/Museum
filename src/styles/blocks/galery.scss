@@ -2,77 +2,84 @@
   margin-bottom: 100px;
 
   &__photocards {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
     overflow: hidden;
+    margin-bottom: 20px;
+    @include pageGrid;
 
     @include onTablet {
       gap: 20px;
     }
+  }
 
-    @include onDesktop {
-      @include pageGrid;
+  &__link {
+    overflow: hidden;
+    display: block;
+
+    &--1 {
+      grid-column: 1 / -1;
+
+      @include onTablet {
+        grid-column: 1 / 4;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 5;
+      }
+    }
+
+    &--2 {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        grid-column: 4 / 7;
+      }
+
+      @include onDesktop {
+        grid-column: 5 / 13;
+      }
+    }
+
+    &--3 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 1 / span 8;
+      }
+    }
+
+    &--4 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 9 / 13;
+      }
     }
   }
 
   &__photo {
     width: 100%;
     height: 410px;
-    background-position: top;
-    background-size: cover;
-    overflow: hidden;
+    object-fit: cover;
+    object-position: top;
     @include hover (transform, scale(1.2));
 
     @include onTablet {
       height: 543px;
     }
 
-    &--1 {
-      background-image: url(../images/galery/galary-photo-1.png);
-
-      @include onDesktop {
-        grid-column: 1 / span 4;
-        height: 600px;
-      }
+    @include onDesktop {
+      height: 600px;
     }
 
-    &--2 {
-      background-image: url(../images/galery/galary-photo-2.png);
-      display: none;
-
-      @include onTablet {
-        display: block;
-      }
-
+    &--short {
       @include onDesktop {
-        grid-column: 5 / 13;
-        height: 600px;
-      }
-    }
-
-    &--3 {
-      background-image: url(../images/galery/galaru-photo-3.png);
-      display: none;
-
-      @include onDesktop {
-        display: block;
-        grid-column: 1 / span 8;
         height: 360px;
       }
     }
-
-    &--4 {
-      background-image: url(../images/galery/galary-photo-4.png);
-      display: none;
-
-      @include onDesktop {
-        display: block;
-        grid-column: 9 / 13;
-        height: 360px;
-      }
-    }
- }
+  }
 
   &__bullets {
     display: flex;

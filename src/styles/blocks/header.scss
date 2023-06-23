@@ -1,60 +1,70 @@
 .header {
-  margin-bottom: 70px;
-  background-image: url(../images/background-photo/bg-photo.png);
-  background-position: top;
-  background-size: 100%,300px,cover;
-  background-repeat: no-repeat;
-
-
-  @include onTablet {
-    background-size: 374px 384px;
-    background-position: right top;
-    height: 384px;
-    margin-bottom: 90px;
-  }
-
-  @include onDesktop {
-    background-size: 725px 655px;
-    height: 655px;
-    margin-bottom: 200px;
-  }
-
   &__content {
     box-sizing: border-box;
     margin-bottom: 70px;
+
+    @include onTablet {
+      @include pageGrid;
+      margin-bottom: 90px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
   }
 
   &__top {
-    @include pageGrid;
-    padding-bottom: 250px;
+    box-sizing: border-box;
+    @include pageMainPadding;
+    width: 100%;
+    height: 300px;
+    background-image: url(../images/background-photo/bg-photo.png);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 10px;
+    margin-bottom: 20px;
 
     @include onTablet {
-      padding-bottom: 70px;
+      grid-column: 4 / 7;
+      width: 100%;
+      height: 384px;
+      background-position: right top;
+      height: 384px;
+      padding-top: 15px;
     }
 
     @include onDesktop {
-      padding-bottom: 150px;
+      grid-column: 6 / 13;
+      width: 100%;
+      height: 655px;
+      height: 655px;
     }
+  }
+
+  &__bar {
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      justify-content: start;
+    }
+
   }
 
   &__icon {
-    margin-top: 33px;
-    @include onTablet {
-      grid-column: 1;
-      margin-top: 45px;
-    }
-  }
-
-  &__logo {
-    margin-top: 10px;
+    position: fixed;
+    top: 27px;
+    left: 20px;
 
     @include onTablet {
-      margin-top: 15px;
-      grid-column: 5;
+      top: 40px;
+      left: 35px;
     }
 
     @include onDesktop {
-      grid-column: 7;
+      left: 55px;
     }
   }
+
 }

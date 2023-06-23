@@ -1,19 +1,24 @@
 .art-museum {
-  box-sizing: border-box;
-  @include pageGrid;
+  @include pageMainPadding;
+  display: flex;
+  flex-direction: column;
   row-gap: 20px;
 
   @include onTablet {
+    grid-column: 1 / 4;
+    grid-row: 1;
     row-gap: 40px;
+    margin-top: 130px;
   }
 
   @include onDesktop {
+    grid-column: 1 / 6;
+    margin-top: 205px;
     row-gap: 90px;
   }
 
   &__title {
     margin: 0;
-    grid-column: 1 / -1;
 
     @include pageMontserrat;
     font-weight: 700;
@@ -22,14 +27,12 @@
     text-align: center;
 
     @include onTablet {
-      grid-column: 1 / 4;
       text-align: left;
       font-size: 54px;
       line-height: 120%;
     }
 
     @include onDesktop {
-      grid-column: 1 / 6;
       font-size: 72px;
     }
   }
@@ -38,15 +41,11 @@
     display: flex;
     justify-content: center;
 
-    grid-column: 1 / -1;
-
     @include onTablet {
-      grid-column: 1 / 4;
       justify-content: start;
    }
 
     @include onDesktop {
-      grid-column: 3 / 6;
       font-size: 72px;
      }
   }
@@ -54,6 +53,10 @@
 
 .button {
   position: relative;
+  @include onDesktop {
+    margin-left: 190px;
+  }
+  
   &__link {
     box-sizing: border-box;
     display: flex;
