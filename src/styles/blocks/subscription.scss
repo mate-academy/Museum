@@ -4,25 +4,30 @@
   @include smartphone {
     margin-bottom: 0;
   }
+
   &__container {
-    @include gridPage;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+    padding: 0 20px;
     background-color: $color-black;
+
+    @include smalldesktop {
+      height: 550px;
+    }
   }
 
   &__top {
-    grid-column: 1 / -1;
     text-align: center;
-    padding: 0 20px;
-    margin-bottom: 50px;
+    margin: 0 20px;
+    padding-bottom: 50px;
 
     @include smartphone {
-      padding: 0 154px;
-      margin-bottom: 64px;
-    }
+      margin: 0;
+      padding-bottom: 64px;
 
-    @include  smalldesktop {
-      padding: 0 355px;
-      margin-bottom: 72px;
     }
   }
 
@@ -55,53 +60,77 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;
-
     text-align: center;
 
     color: $color-white;
 
     @include smartphone {
       line-height: 100%;
+      font-size: 16px;
     }
   }
 
+  &__info {
+    display: flex;
+    justify-content: center;
+  }
+
   &__form {
-    grid-column: 1 / -1;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    gap: 20px;
+
     margin-bottom: 88px;
 
+    @include smartphone {
+      width: 460px;
+      gap: 30px;
+    }
+
+    @include smalldesktop {
+      width: 570px;
+    }
   }
 
   &__item {
     flex-grow: 1;
-    border: none;
     height: 50px;
-    font-family: 'Montserrat';
-    font-style: $font-style;
+    margin: 0;
+    border: none;
+    padding: 0 28px;
+    background: #fff;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 100%;
-    cursor: pointer;
-    padding: 0 28px;
-
     color: #687480;
+    cursor: pointer;
 
     @include smartphone {
+      height: 69px;
+    }
+
+    @include smalldesktop {
       height: 70px;
     }
   }
 
   &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: none;
     width: 50px;
     height: 50px;
-    background: #F14A27;
-    transform: translate(-5px, -5px);
+    background-color: #F14A27;
     cursor: pointer;
 
     @include smartphone {
-      width: 70px;
-      height: 70px;
-      transform: translate(5px, -5px);
+      width: 75px;
+      height: 71px;
     }
   }
 }
