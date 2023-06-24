@@ -1,27 +1,24 @@
 .card {
   display: grid;
-  grid-template-columns: repeat(2, 130px);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  width: 80vw;
   margin: 0 auto;
-  padding: 0 20px;
-  justify-content: center;
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(6, 90px);
+    grid-template-columns: repeat(6, 1fr);
     gap: 30px;
-    padding: 0 39px;
   }
 
   @media (min-width: 1280px) {
-    grid-template-columns: repeat(12, 70px);
+    grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(7, auto);
-    padding: 0 55px;
 
   }
 
   .card__img {
     grid-column: 1/3;
-    @include size (280px, 210px);
+    @include size (100%, 210px);
     transition: transform 0.5s ease;
 
     &:hover {
@@ -30,12 +27,36 @@
 
     @media (min-width: 768px) {
       grid-column: 1/7;
-      @include size (700px, 520px);
+      @include size (100%, 520px);
     }
 
     @media (min-width: 1280px) {
-      @include size (670px, 520px);
       grid-row: 1/8;
+    }
+
+    &--1 {
+      background-image: url("../images/320/02.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      @media (min-width: 768px) {
+        background-image: url("../images/768/02.png");
+      }
+      @media (min-width: 1280px) {
+        background-image: url("../images/1280/02.png");
+      }
+    }
+    &--2 {
+      background-image: url("../images/320/03.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      @media (min-width: 768px) {
+        background-image: url("../images/768/03.png");
+      }
+      @media (min-width: 1280px) {
+        background-image: url("../images/1280/03.png");
+      }
     }
   }
 
