@@ -1,7 +1,67 @@
 @import "utils";
 @import "fonts";
-@import "typography";
+@import "blocks/title";
+@import "blocks/text";
+@import "blocks/work-schedule";
+@import "blocks/list";
+@import "blocks/menu";
+@import "blocks/main-page";
+@import "blocks/events";
+@import "blocks/slider";
+@import "blocks/gallery";
+@import "blocks/subscribe";
+@import "blocks/footer";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background: $c-gray;
+  background: #fff;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #0f0e08;
+}
+
+[class$="__container"] {
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 0 20px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+    padding: 0 39px;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(12, 1fr);
+    padding: 0 55px;
+  }
+}
+
+.body {
+  margin: 0 auto;
+  position: relative;
+  overflow-x: hidden;
+
+  &__no-active {
+    overflow: hidden;
+    &::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9;
+    }
+  }
 }
