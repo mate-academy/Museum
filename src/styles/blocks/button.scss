@@ -1,0 +1,69 @@
+.button {
+  display: flex;
+  text-decoration: none;
+  width: max-content;
+  margin: 0 auto;
+
+  @include hover (transform, scale(1.1));
+
+  @include onTablet {
+    margin: 0;
+  }
+
+  @include onDesktop {
+    float: left;
+  }
+
+  &__rec {
+    display: block;
+    height: 50px;
+    width: max-content;
+    border: 1px solid $green_color;
+    padding: 0 80px;
+    @extend %font_event;
+    color: $title_color;
+    line-height: 50px;
+
+    @include onTablet {
+      height: 70px;
+      line-height: 70px;
+      padding: 0 68px;
+    }
+
+    &--sub {
+      padding: 18px 24px;
+      border: 1px solid white;
+      width: calc(100% - 50px);
+      max-width: 470px;
+    }
+  }
+
+  &__green-rec {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: $green_color;
+    background-image: url(../images/icons/char.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &--sub {
+      background-color: $red_color;
+      border: 1px solid transparent;
+      background-image: url(../images/icons/black-char.svg);
+
+      @include onTablet {
+        margin-left: 16px;
+      }
+
+      @include onDesktop {
+        margin-left: 30px;
+      }
+    }
+  }
+}

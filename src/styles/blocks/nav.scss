@@ -1,0 +1,114 @@
+.nav {
+  display: grid;
+  grid-template-columns: $mobile-icon-size 1fr;
+  gap: 28px;
+
+  @include onTablet {
+    gap: 38px;
+  }
+
+  @include onDesktop {
+    gap: 102px;
+  }
+
+  &--footer {
+    display: block;
+    grid-column: 1 / 3;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+    }
+
+    font-size: 14px;
+
+    @include onDesktop {
+      grid-column: 8 / 12;
+    }
+  }
+
+  &__container {
+    display: flex;
+    gap: 28px;
+
+    @include onTablet {
+      gap: 20px;
+    }
+
+    @include onDesktop {
+      gap: 60px;
+    }
+
+    &--footer {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+      margin-bottom: 80px;
+
+      @include onTablet {
+        margin-bottom: 120px;
+      }
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+
+    @include onDesktop {
+      row-gap: 30px;
+    }
+
+    &--footer {
+      row-gap: 20px;
+    }
+  }
+
+  &__item {
+    @extend %font_event;
+
+    color: inherit;
+    text-decoration: none;
+
+    @include onDesktop {
+      font-size: 22px;
+    }
+
+    &--footer {
+      font-weight: 400;
+      margin: 0;
+      font-size: 14px;
+
+    }
+
+    &--galery {
+      grid-column: 1 / 2;
+    }
+
+    &--about {
+      grid-column: 2 / 3;
+    }
+
+    &--events {
+      grid-column: 1 / 2;
+      margin-bottom: 24px;
+
+      @include onTablet {
+        margin-bottom: 66px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 50px;
+      }
+    }
+
+    &--contacts {
+      grid-column: 2 / 3;
+      margin-bottom: 24px;
+
+      &--footer {
+        margin: 0;
+      }
+    }
+  }
+}
