@@ -162,11 +162,63 @@
   }
 
   &__input {
-    height: 49px;
     border: 1px solid $green;
-    display: block;
-    width: calc(100% - 56px);
-    cursor: auto;
+    padding-right: 25%;
+    margin: auto;
+    width: 100%;
+    max-width: 260px;
+    height: 52px;
+    background: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    overflow: hidden;
+    background-image: url("../images/greenerr.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    --c: #1a5a4c;
+    color: #0f0e08;
+    text-transform: uppercase;
+    z-index: 1;
+    transition: 0.5s;
+    transition-delay: 0.6s;
+
+    span {
+      position: absolute;
+      width: 25%;
+      height: 100%;
+      background-color: var(--c);
+      transform: translateY(150%);
+      border-radius: 40%;
+      left: calc((var(--n) - 1) * 20%);
+      transition: 0.5s;
+      transition-delay: calc((var(--n) - 1) * 0.1s);
+      z-index: -1;
+    }
+
+    &:hover {
+      color: #fff;
+
+      span {
+        transform: translateY(0) scale(2);
+      }
+      span:nth-child(1) {
+        --n: 1;
+      }
+
+      span:nth-child(2) {
+        --n: 2;
+      }
+
+      span:nth-child(3) {
+        --n: 3;
+      }
+
+      span:nth-child(4) {
+        --n: 4;
+      }
+    }
 
     &::placeholder {
       font-family: $plex-sasns;
@@ -185,40 +237,6 @@
     @include onDasktop {
       height: 70px;
       max-width: 270px;
-    }
-  }
-
-  &__button {
-    content: "";
-    height: 53px;
-    width: 50px;
-    background-color: $green;
-    position: absolute;
-    margin-left: -50px;
-    border: 1px solid $green;
-    bottom: 12.5%;
-    right: 5%;
-    top: 0;
-    cursor: pointer;
-    background-image: url("../images/btn_errow.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 10px;
-    transition: all 0.3s;
-
-    @include onTablet {
-      height: 74px;
-      width: 70px;
-    }
-
-    @include onDasktop {
-      height: 75px;
-      width: 70px;
-    }
-
-    &:hover {
-      background-color: rgb(3, 41, 3);
-      background-size: 20px;
     }
   }
 }
