@@ -1,0 +1,190 @@
+.events {
+  &__higlited {
+    margin-top: 130px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 60px;
+
+    @include onDesktop() {
+      gap: 104px;
+    }
+  }
+
+  &__item {
+    @include onDesktop() {
+      display: flex;
+      align-items: center;
+      gap: 130px;
+    }
+
+    &--highlighted-event {
+      position: relative;
+      display: block;
+      align-items: center;
+      width: 100%;
+      right: 0;
+
+      @include onDesktop() {
+        display: block;
+        align-items: center;
+      }
+
+    }
+  }
+
+  &__image-container {
+    overflow: hidden;
+  }
+
+  &__image {
+    padding-bottom: 20px;
+    width: 100%;
+    min-height: 210px;
+    transition: transform $transition-timing ease-in-out;
+
+    @include onTablet() {
+      padding-bottom: 40px;
+      min-height: 520px;
+    }
+
+    @include onDesktop() {
+      width: 670px;
+      padding-bottom: 0;
+      height: 520px;
+
+      &:hover {
+        transform: scale(105%);
+        cursor: pointer;
+      }
+    }
+
+    &--full-screen {
+      position: relative;
+
+      width: 100%;
+      min-height: 210px;
+      z-index: 0;
+
+      @include onTablet() {
+        height: 390px;
+      }
+
+      @include onDesktop() {
+        height: 550px;
+
+        &:hover {
+          transform: scale(105%);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include onTablet() {
+      gap: 15px;
+    }
+
+    &--highlighted-event {
+      position: relative;
+      top: -100px;
+      z-index: 1;
+      gap: 20px;
+      max-width: 570px;
+      margin: 0 auto;
+      padding: 24px 0 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+      @include onTabletAndDesktop() {
+        padding: 45px 55px 50px;
+      }
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+
+    @include onTabletAndDesktop() {
+      justify-content: flex-start;
+      gap: 15px;
+    }
+
+    &--highlighted-event {
+      width: 250px;
+      margin: 0 auto;
+      padding: 20px 0 0;
+
+      @include onTabletAndDesktop() {
+        width: 400px;
+        margin: 0;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__type {
+    font-family: "IBM Plex Sans", serif;
+    color: $events-type-color;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  &__date {
+    font-family: "IBM Plex Sans", serif;
+    font-weight: 700;
+    color: $green-color;
+  }
+
+  &__name {
+    font-size: 28px;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: "";
+      display: block;
+
+      transform: translate(-50% -50%);
+      width: 10px;
+      height: 10px;
+      background-color: $aftel-elements-color;
+      margin-left: 15px;
+    }
+
+    &--highlighted-event {
+      text-align: center;
+      justify-content: center;
+
+      &::after {
+        display: none;
+      }
+
+      @include onTabletAndDesktop() {
+        text-align: left;
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &__description {
+    font-family: "IBM Plex Sans", serif;
+    font-weight: 300;
+    color: $text-description-color;
+    line-height: 150%;
+
+    @include onTablet() {
+      max-width: 460px;
+    }
+  }
+}

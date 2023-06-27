@@ -1,0 +1,134 @@
+.menu {
+  font-size: 14px;
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: rgba(0, 0, 0, 0.75);
+  height: 100vh;
+  color: $text-on-dark;
+  overflow-y: auto;
+
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+
+  &__container {
+    padding: 27px 0;
+    background-color: $green-color;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    @include onTabletAndDesktop() {
+      padding: 39px 0;
+    }
+  }
+
+  &:target {
+    transform: translateX(0);
+
+    .menu__container {
+      transform: translateX(0);
+    }
+  }
+
+  &__content {
+    @include onTabletAndDesktop() {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: start;
+    }
+
+    @include onTablet() {
+      column-gap: 38px;
+    }
+
+    @include onDesktop() {
+      column-gap: 102px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba($text-on-dark, 0.5);
+    padding-bottom: 24px;
+
+    @include onTablet() {
+      gap: 38px;
+      padding-right: 38px;
+    }
+
+    @include onDesktop() {
+      gap: 102px;
+      padding-right: 102px;
+    }
+
+    @include onTabletAndDesktop() {
+      padding-bottom: 0;
+      border-bottom: none;
+      border-right: 1px solid rgba($text-on-dark, 0.5);
+    }
+  }
+
+  &__useful-links {
+    display: flex;
+    gap: 28px;
+
+    @include onDesktop() {
+      gap: 50px;
+    }
+  }
+
+  &__links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  &__nav-link {
+    font-size: 16px;
+    color: $text-on-dark;
+    padding-bottom: 5px;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom $transition-timing ease-in-out;
+
+    &:hover {
+      border-bottom: 1px solid $text-on-dark;
+    }
+
+    @include onDesktop() {
+      font-size: 22px;
+    }
+  }
+
+  &__timetable {
+    @include onTabletAndDesktop() {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(144px, 170px));
+      column-gap: 30px;
+    }
+
+  }
+
+  &__title {
+    padding-top: 24px;
+
+    @include onTabletAndDesktop() {
+      padding-top: 0;
+    }
+  }
+
+  &__open-hours {
+    padding-top: 20px;
+  }
+
+  &__days-off {
+    padding-top: 16px;
+
+    @include onTabletAndDesktop() {
+      padding-top: 37px;
+    }
+  }
+}
