@@ -1,0 +1,78 @@
+.page {
+    font-family: "Montserrat", sans-serif;
+    scroll-behavior: smooth;
+
+    &__body {
+        margin: 0;
+
+        &--with-menu {
+            overflow: hidden;
+        }
+    }
+
+    &__header {
+        margin-bottom: 70px;
+
+        @include onTablet {
+            margin-bottom: 88px;
+        }
+
+        @include onDesktop {
+            margin-bottom: 200px;
+        }
+    }
+
+    &__menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        transition: transform 0.3s;
+        transform: translateY(-100%);
+
+        &::after {
+            content: "";
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            height: 100vh;
+            opacity: 0.5;
+            background-color: rgb(24, 24, 26);
+            transform: translateY(-100%);
+        }
+
+        &:target {
+            transform: translateY(0);
+
+            &::after {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &__lecture {
+        margin-bottom: 183px;
+
+        @include onTablet {
+            margin-bottom: 208px;
+        }
+
+        @include onDesktop {
+        margin-bottom: 302px;
+    }
+}
+
+&__gallery {
+    margin-bottom: 100px;
+
+    @include onTablet {
+        margin-bottom: 92px;
+    }
+
+    @include onDesktop {
+        margin-bottom: 200px;
+    }
+  }
+}
