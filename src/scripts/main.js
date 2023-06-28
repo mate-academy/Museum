@@ -19,17 +19,13 @@ const swiper = new Swiper('.slider', {
     clickable: true,
   },
 
-  breakpoint1: {
-    320: {
+  slidesPerView: 1,
+
+  breakpoints: {
+    768: {
       slidesPerView: 2,
     },
   },
-
-  /* breakpoint2: {
-    768: {
-      slidesPerView: 1,
-    },
-  }, */
 });
 
 swiper.enable();
