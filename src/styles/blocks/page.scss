@@ -1,0 +1,35 @@
+.page {
+  @include fontStyle();
+  background-color: $color-white;
+  scroll-behavior: smooth;
+
+  &__body {
+    &--hidden {
+      overflow: hidden;
+    }
+  }
+
+  &__header,
+  &__menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  &__menu {
+    z-index: 3;
+    transform: translate(0, -100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &--open {
+      transform: translate(0);
+      opacity: 1;
+    }
+  }
+
+  &__footer {
+    margin-top: 50px;
+  }
+}

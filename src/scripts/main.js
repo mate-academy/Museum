@@ -1,1 +1,96 @@
 'use strict';
+
+const header = document.querySelector('.page__header');
+const pageMenu = document.querySelector('.page__menu');
+const body = document.body;
+
+const toggleMenu = (event) => {
+  const target = event.target;
+  const menuBtnOpen = target.closest('.icon--menu');
+  const menuBtnClose = target.closest('.icon--menu-close');
+
+  const isClickInsideMenu = target.closest('.page__menu');
+  const isMenuOpen = pageMenu.classList.contains('page__menu--open');
+  const isLink = target.classList.contains('nav__link');
+
+  const pageOffsetWidth = window.innerWidth;
+  const pageClientWidth = document.documentElement.clientWidth;
+
+  const scrollbarWidth = pageOffsetWidth - pageClientWidth;
+
+  if (menuBtnOpen) {
+    pageMenu.classList.add('page__menu--open');
+    body.classList.add('page__body--hidden');
+
+    body.style.marginRight = `${scrollbarWidth}px`;
+    pageMenu.style.paddingRight = `${scrollbarWidth}px`;
+    header.style.marginRight = `${scrollbarWidth}px`;
+  }
+
+  if (menuBtnClose || (isMenuOpen && !isClickInsideMenu) || isLink) {
+    pageMenu.classList.remove('page__menu--open');
+    body.classList.remove('page__body--hidden');
+
+    body.style.marginRight = 0;
+    pageMenu.style.paddingRight = 0;
+    header.style.marginRight = 0;
+  }
+};
+
+body.addEventListener('click', toggleMenu);
+
+const swiper = new Swiper('.gallery__swiper', {
+  speed: 400,
+  spaceBetween: 16,
+
+  pagination: {
+    el: '.swiper__pagination',
+    clickable: true,
+  },
+
+  navigation: {
+    prevEl: '.swiper-button-prev',
+    nextEl: '.swiper-button-next',
+  },
+
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+  },
+});
+
+const toggleSwiper = () => {
+  const gallerySlides = document.querySelectorAll('.swiper__slide');
+  const currentWidth = window.innerWidth;
+  const targetWidth = 1280;
+
+  if (currentWidth >= targetWidth) {
+    swiper.disable();
+
+    gallerySlides.forEach(slide => {
+      slide.classList.add('swiper__slide--descktop');
+    });
+  } else {
+    gallerySlides.forEach(slide => {
+      slide.classList.remove('swiper__slide--descktop');
+    });
+
+    swiper.enable();
+  }
+};
+
+window.addEventListener('resize', toggleSwiper);
+window.addEventListener('load', toggleSwiper);
+
+const topBtn = document.querySelector('.footer__btn-to-top');
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
+
+topBtn.addEventListener('click', scrollToTop);
