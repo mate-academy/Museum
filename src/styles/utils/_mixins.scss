@@ -1,6 +1,36 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onMobile {
+  @media (min-width: 320px) {
+    @content;
   }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1100px) {
+    @content;
+  }
+}
+
+@mixin iconRules {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin montserrat {
+  @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;700&display=swap");
+  font-style: normal;
+  color: $darkColor;
+}
+
+@mixin ibmPlex {
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+  font-style: normal;
+  color: $darkColor;
 }

@@ -1,0 +1,94 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-bottom: 70px;
+
+  @include onTablet {
+    flex-direction: row-reverse;
+    justify-content: space-around;
+  }
+
+  &__nav {
+    height: 300px;
+
+    background-image: url(../images/header-img-small.svg);
+    @include iconRules();
+
+    margin-bottom: 20px;
+
+    @include onTablet() {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50%;
+      height: 384px;
+    }
+
+    @include onDesktop() {
+      width: 50%;
+      height: 655px;
+    }
+
+    &-menu-opener {
+      width: 18px;
+      height: 12px;
+
+      @include iconRules();
+      background-image: url(../images/header-menu.svg);
+    }
+
+    &-logo {
+      width: 55px;
+      height: 61px;
+
+      @include iconRules();
+      background-image: url(../images/logo.svg);
+
+      &--desktop {
+
+        @include onMobile {
+          display: none;
+        }
+
+        @include onTablet {
+          display: flex;
+        }
+
+        margin-top: 15px;
+        margin-left: 80px;
+
+        width: 55px;
+        height: 61px;
+
+        @include iconRules();
+        background-image: url(../images/logo.svg);
+      }
+    }
+  }
+
+  &__actions {
+    padding-top: 9px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet() {
+      display: none;
+    }
+  }
+
+  @include onTablet() {
+    width: 50%;
+    height: 384px;
+  }
+
+  @include onDesktop() {
+    width: 60%;
+    height: 655px;
+  }
+}

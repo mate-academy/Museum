@@ -1,0 +1,297 @@
+.footer {
+  margin-bottom: 100px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet() {
+      flex-direction: row;
+      gap: 50px;
+    }
+
+    @include onDesktop() {
+      gap: 130px;
+      margin-bottom: 87px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    @include onTablet() {
+      flex-direction: column;
+      gap: 62px;
+      justify-content: unset;
+    }
+  }
+
+  &__logo {
+    width: 70px;
+    height: 72px;
+
+    @include iconRules();
+    background-image: url(../images/logo.svg);
+
+    @include onTablet() {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    @include onTablet() {
+      justify-content: space-between;
+    }
+
+    &-facebook {
+      width: 12px;
+      height: 24px;
+
+      @include iconRules();
+      background-image: url(../images/facebook-img.svg);
+
+      transition: $transitionTime;
+
+      &:hover {
+        transform: scale(1.2) rotate(360deg);
+      }
+    }
+
+    &-instagram {
+      width: 24px;
+      height: 24px;
+
+      @include iconRules();
+      background-image: url(../images/insta-img.svg);
+
+      transition: $transitionTime;
+
+      &:hover {
+        transform: scale(1.2) rotate(360deg);
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+
+    @include onDesktop() {
+      flex-direction: row;
+    }
+  }
+
+  &__info {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 40px;
+
+    padding-bottom: 70px;
+
+    border-bottom: 1px solid rgba(26, 90, 76, 0.5);
+
+    @include onTablet() {
+      gap: 20px;
+    }
+
+    @include onDesktop() {
+      border-bottom: 0;
+      border-right: 1px solid rgba(26, 90, 76, 0.5);
+      padding-right: 65px;
+    }
+  }
+
+  &__schedule {
+    width: 130px;
+
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet() {
+      width: 220px;
+    }
+
+    @include onDesktop() {
+      width: 170px;
+    }
+
+    &-title {
+      margin-bottom: 20px;
+
+      @include ibmPlex();
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140.62%;
+    }
+
+    &-list {
+      margin-bottom: 30px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &-item {
+      @include ibmPlex();
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+    }
+
+    &-important {
+      font-weight: bold;
+    }
+
+    &-text {
+      @include ibmPlex();
+      font-weight: 400;
+      font-size: 14px;
+      list-style: 150%;
+    }
+  }
+
+  &__contacts {
+    width: 130px;
+
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet() {
+      width: 220px;
+    }
+
+    @include onDesktop() {
+      width: 185px;
+    }
+
+    &-title {
+      margin-bottom: 20px;
+
+      @include ibmPlex();
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140.62%;
+    }
+
+    &-link {
+      box-sizing: border-box;
+      margin-bottom: 5px;
+
+      border-right: 1px solid transparent;
+      border-left: 1px solid transparent;
+
+      padding-right: 5px;
+      padding-left: 5px;
+
+      @include ibmPlex();
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+
+      transition: $transitionTime;
+
+      &:hover {
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+      }
+    }
+  }
+
+  &__button {
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+
+    display: block;
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+    border: 1px solid $greenColor;
+
+    @include iconRules();
+    background-image: url(../images/big-arrow.svg);
+    background-size: auto;
+
+    @include onTablet() {
+      display: none;
+    }
+
+    transition: $transitionTime;
+
+    &:hover {
+      border-radius: 30%;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 80px;
+
+    display: flex;
+    gap: 80px;
+
+    @include onTablet() {
+      margin-bottom: 120px;
+      gap: 140px;
+    }
+
+    @include onDesktop() {
+      padding-left: 65px;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &-item {
+      width: fit-content;
+      box-sizing: border-box;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 10px;
+
+      @include ibmPlex();
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 100%;
+
+      transition: $transitionTime;
+
+      &:hover {
+        border-bottom: 1px solid $greenColor;
+      }
+    }
+
+    &-link {
+      color: $darkColor;
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet() {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &-text {
+      @include ibmPlex();
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 140.62%;
+      text-align: center;
+    }
+  }
+}

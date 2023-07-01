@@ -1,0 +1,184 @@
+.menu {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+
+  background: linear-gradient($greenColor 65%, rgba(1, 1, 1, 0.3) 50%);
+
+  @include onTablet() {
+    background: linear-gradient(to bottom, $greenColor 40%,
+    rgba(1, 1, 1, 0.3) 40%);
+  }
+
+  padding-bottom: 30px;
+
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  transform: translateY(-100%);
+
+  transition: $transitionTime;
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet() {
+      flex-direction: row;
+    }
+  }
+
+  &__actions {
+    margin-bottom: 24px;
+
+    margin-top: 27px;
+    padding-bottom: 24px;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+
+    @include onTablet() {
+      border-bottom: none;
+      border-right: 2px solid rgba(255, 255, 255, 0.5);
+      margin-top: 40px;
+
+      gap: 45px;
+    }
+  }
+
+  &__cross {
+    width: 13px;
+    height: 13px;
+
+    @include iconRules();
+    background-image: url(../images/menu-closer.svg);
+  }
+
+  &__nav {
+    display: flex;
+    gap: 30px;
+
+    @include onTablet() {
+      padding-right: 38px;
+    }
+
+    @include onDesktop() {
+      padding-right: 102px;
+    }
+
+    &-list {
+      width: 100px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      @include onDesktop() {
+        width: 170px;
+      }
+    }
+
+    &-item {
+      width: fit-content;
+      box-sizing: border-box;
+      padding-bottom: 10px;
+
+      @include ibmPlex();
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+
+      border-bottom: 1px solid transparent ;
+
+      @include onDesktop() {
+        font-size: 22px;
+      }
+
+      transition: $transitionTime;
+
+      &:hover {
+        border-bottom: 1px solid $lightColor ;
+      }
+    }
+
+    &-link {
+      color: $lightColor;
+    }
+  }
+
+  &__schedule {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet() {
+      margin-top: 40px;
+      padding-left: 38px;
+    }
+
+    @include onDesktop() {
+      padding-left: 102px;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+
+      @include onTablet() {
+        flex-direction: row;
+        gap: 50px;
+      }
+    }
+
+    &-title {
+      margin-bottom: 20px;
+
+      @include ibmPlex();
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140.62%;
+      color: $lightColor;
+    }
+
+    &-list {
+      margin-bottom: 30px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      @include onTablet() {
+        width: 160px;
+      }
+    }
+
+    &-item {
+      @include ibmPlex();
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+      color: $lightColor;
+    }
+
+    &-important {
+      font-weight: bold;
+    }
+
+    &-text {
+      @include ibmPlex();
+      font-weight: 400;
+      font-size: 14px;
+      list-style: 150%;
+      color: $lightColor;
+
+      @include onTablet() {
+        width: 160px;
+      }
+    }
+  }
+}
