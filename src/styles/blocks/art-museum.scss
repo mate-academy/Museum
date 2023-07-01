@@ -1,0 +1,156 @@
+.art-museum {
+  padding: 320px 0 0;
+  @include onTablet {
+    padding: 127px 0 107px;
+  }
+
+  @include onDesktop {
+    padding: 127px 0 318px;
+  }
+
+  &__title {
+    position: relative;
+    display: block;
+    z-index: 50;
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+      margin-bottom: 38px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 120%;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__button {
+    display: flex;
+    text-decoration: none;
+  }
+
+  &__link {
+    display: inline-block;
+    box-sizing: border-box;
+    width: calc(100% - 50px);
+    height: 50px;
+    margin-bottom: 70px;
+    border: 1px solid #1a5a4c;
+    text-align: center;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 50px;
+    color: $black;
+    text-transform: uppercase;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: #1a5a4c;
+      color: #fff;
+    }
+
+    @include onTablet {
+      width: 220px;
+      margin-bottom: 0;
+      height: 70px;
+      line-height: 70px;
+    }
+  }
+
+  &__buttons-wrap {
+    position: relative;
+  }
+
+  &__link-button {
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid #1a5a4c;
+    background: #1a5a4c;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../images/icons/arrow-right-button.svg");
+    height: 50px;
+    width: 17.85%;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: rotate(90deg);
+
+      @include onTablet {
+        height: 70px;
+        width: 72px;
+      }
+    }
+
+    @include onTablet {
+      height: 70px;
+      width: 70px;
+    }
+  }
+
+  &__events-wrap {
+    position: absolute;
+    left: -215px;
+    bottom: -15px;
+    display: none;
+    transform: rotate(270deg);
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: #0040 14px 28px, #0038 10px 10px;
+      transform: scale(1.1) rotate(270deg);
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__events-click {
+    position: relative;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+
+    &::before {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 70px;
+      content: "";
+      width: 70px;
+      height: 1px;
+      background-color: #687480;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      &::before {
+        right: 90px;
+      }
+    }
+  }
+}
