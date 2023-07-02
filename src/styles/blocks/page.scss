@@ -1,0 +1,58 @@
+.page {
+  font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: $c-text-grey;
+  scroll-behavior: smooth;
+
+  &__overlay-active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+
+  &__section-header {
+    margin-bottom: 70px;
+  }
+
+  &__section-title {
+    margin-bottom: 40px;
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    color: $c-text-black;
+
+    @include onTablet {
+      text-align: left;
+    }
+
+    @include onDesktop {
+      text-align: left;
+    }
+  }
+}
