@@ -1,0 +1,45 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+  
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section-title {
+    margin-bottom: 40px;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    color: #0f0e08;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 48px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+}
