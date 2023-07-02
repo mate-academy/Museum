@@ -1,0 +1,60 @@
+.nav {
+  display: flex;
+  gap: 28px;
+
+  @include onTablet {
+    gap: 20px;
+  }
+
+  @include onDesktop {
+    gap: 30px;
+  }
+
+  &__item {
+    width: 100px;
+
+    @include onDesktop {
+      width: 169px;
+    }
+  }
+
+  &__list {
+    margin-bottom: 24px;
+    list-style: none;
+    transition: transform $transition-speed;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__link {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: $size-font-paragraph-s;
+    line-height: $size-font-paragraph-s;
+    color: $c-text-title-active;
+    text-decoration: none;
+
+    &--footer {
+      font-weight: 400;
+      font-size: $size-font-paragraph-m;
+      line-height: $size-font-paragraph-m;
+      color: $c-text-title;
+    }
+
+    @include onDesktop {
+      font-size: 22px;
+      line-height: 22px;
+
+      &--footer {
+        font-size: 14px;
+        line-height: 14px;
+      }
+    }
+  }
+}

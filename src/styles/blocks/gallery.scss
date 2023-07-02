@@ -1,0 +1,51 @@
+.gallery {
+
+  &__desktop {
+    display: none;
+  }
+
+  &__image {
+    transition: transform $transition-speed;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: $size-font-title-s;
+    line-height: $size-font-title-s;
+    margin-bottom: 40px;
+    text-align: center;
+    color: $c-text-title;
+
+    @include onTablet {
+      font-size: $size-font-title-m;
+      line-height: $size-font-title-m;
+      margin-bottom: 48px;
+      text-align: start;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  @include onDesktop {
+
+    &__desktop {
+      display: grid;
+    }
+
+    &__swiper {
+      display: none;
+    }
+
+    &--1,
+    &--2 {
+      margin-bottom: 30px;
+    }
+  }
+}
