@@ -5,12 +5,6 @@
   background-repeat: no-repeat;
   background-position: center;
 
-  // transition: all, $transition-speed;
-
-  // &:hover {
-  //   transform: scale(1.05);
-  // }
-
   &--menu {
     background-image: url(../images/svg_images/baseline-menu.svg);
   }
@@ -25,5 +19,59 @@
     &:hover {
       background-image: url(../images/svg_images/arrow_right_green.svg);
     }
+  }
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  cursor: pointer;
+
+  &__line {
+    background-color: $c-black;
+    position: absolute;
+    border-radius: 2px;
+    transition: .3s cubic-bezier(.8, .5, .2, 1.4);
+    width:100%;
+    height: 2px;
+    transition-duration: $transition-speed;
+
+    &--order--1 {
+      top:0px;
+      left: 0px;
+    }
+    &--order--2 {
+      top:48%;
+      left: 0px;
+    }
+    &--order--3 {
+      bottom:2px;
+      left: 0px;
+    }
+
+  }
+  &:not(.open):hover &__line--order--1 {
+    transform: rotate(-3deg) scaleY(1.1);
+  }
+  &:not(.open):hover &__line--order--2 {
+    transform: rotate(3deg) scaleY(1.1);
+  }
+  &:not(.open):hover &__line--order--3 {
+    transform: rotate(-4deg) scaleY(1.1);
+  }
+
+  &.open &__line--order--1{
+    transform: rotate(45deg);
+    top: 13px;
+    background-color: $c-white;
+  }
+  &.open &__line--order--2{
+    opacity:0;
+  }
+  &.open &__line--order--3{
+    transform: rotate(-45deg);
+    top: 13px;
+    background-color: $c-white;
   }
 }

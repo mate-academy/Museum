@@ -1,4 +1,6 @@
 .header {
+  display: flex;
+  justify-content: center;
   &__content {
     @include pageGrid;
     justify-content: center;
@@ -13,12 +15,38 @@
     }
   }
 
+  &__icons {
+    display: flex;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  &__logo-link {
+    max-height: min-content;
+
+    margin-top: 10px;
+    text-decoration: none;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    z-index: -1;
+
+    @include onTablet {
+      grid-column: 4 / span 2;
+      grid-template-rows: auto 2fr 2fr;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / span 2;
+    }
+  }
+
   &__title {
     grid-column: 1 / span 2;
 
     @include onTablet {
       grid-column: 1 / span 3;
-      grid-row: 2;
+      grid-row: 3;
       text-align: left;
     }
 
@@ -39,7 +67,7 @@
       width: 120%;
       height: 100%;
       grid-column: 4 / span 3;
-      grid-row: 1 / span 3;
+      grid-row: 1 / span 5;
       margin: 0;
 
     }
@@ -50,39 +78,5 @@
     }
   }
 
-  &__icons {
-    display: flex;
-    align-items: center;
-    grid-column: 1;
-    grid-row: 1;
-  }
 
-  &__logo-link {
-
-    margin-top: 10px;
-    text-decoration: none;
-    grid-column: 1 / span 2;
-    grid-row: 1;
-    z-index: -1;
-
-    @include onTablet {
-      grid-column: 4 / span 2;
-    }
-
-    @include onDesktop {
-      grid-column: 6 / span 2;
-    }
-  }
 }
-
-// .top-bar {
-//   &__nav {
-//     display: none;
-
-//     @include onDesktop {
-//       display: flex;
-//       justify-content: center;
-//       align-items: center;
-//     }
-//   }
-// }
