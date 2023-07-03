@@ -1,0 +1,203 @@
+.header {
+  position: relative;
+
+  @include onTablet {
+    height: 384px;
+  }
+
+  @include onDesktop {
+    height: 655px;
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background-image: url(../images/photos/header.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+
+    @include onTablet {
+      height: 384px;
+      left: 45%;
+    }
+
+    @include onDesktop {
+      height: 100vh;
+      max-height: 800px;
+      left: 45%;
+    }
+
+  }
+
+  &__menu-opener {
+    background-image: url(../images/menu.svg);
+    width: 18px;
+    height: 12px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform, 0.3s;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    padding-top: 9px;
+    margin-bottom: 275px;
+
+    @include onTablet {
+      margin-bottom: 70px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
+  }
+
+  &__logo {
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    color: #000;
+    text-align: center;
+    margin: 0 0 20px;
+
+    @include onTablet {
+      text-align: start;
+      font-size: 54px;
+      line-height: 65px;
+      margin: 0 0 40px;
+    }
+
+    @include onDesktop {
+      text-align: start;
+      font-size: 72px;
+      line-height: 86px;
+      margin: 0 0 90px;
+    }
+
+  }
+
+  &__button {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    padding: 15px 60px;
+    width: 250px;
+    height: 50px;
+    border: 1px solid $green;
+    margin: 0 auto;
+    text-decoration: none;
+    transition: transform, 0.3s;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+
+    @include onTablet {
+      margin: 0;
+      height: 70px;
+      padding: 25px 60px;
+    }
+
+    @include onDesktop {
+      margin: 0;
+      height: 70px;
+      padding: 25px 60px;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+
+      width: 50px;
+      height: 100%;
+      background: $green;
+
+      background-image: url(../images/arrow-sm.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &--title {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      color: #0f0e08;
+    }
+  }
+
+  &__hidden {
+    display: none;
+
+    @include onDesktop {
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: #687480;
+      transform: rotate(-90deg);
+
+      padding: 0 0 0 20px;
+      transition: transform, 0.3s;
+
+      &:hover {
+        color: $green;
+      }
+
+      &::after {
+        content: " ";
+        position: relative;
+        display: block;
+        top: -42px;
+        left: -40px;
+        width: 1px;
+        height: 70px;
+        background: $green;
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.container {
+  padding: 0 20px;
+  align-items: center;
+
+  @include onDesktop {
+    padding: 0 55px;
+  }
+}
