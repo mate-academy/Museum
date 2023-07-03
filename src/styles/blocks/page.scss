@@ -1,0 +1,103 @@
+.page {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140.62%;
+  color: $c-black;
+  scroll-behavior: smooth;
+
+  &__body {
+    max-width: 1440px;
+    margin: 0 auto;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__section {
+    margin: 70px 0 -56px;
+
+    @include onTablet {
+      margin: 88px 0 -84px;
+    }
+
+    @include onDesktop {
+      margin: 200px 0 -102px;
+    }
+
+    &-gallery {
+      margin: 100px 0;
+
+      @include onTablet {
+        margin: 88px 0 92px;
+      }
+
+      @include onDesktop {
+        margin: 200px 0;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: $c-black;
+    text-align: center;
+
+    @include onTablet {
+      text-align: initial;
+      font-size: 48px;
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+
+    &--white {
+      color: $c-white;
+      text-align: center;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateY(0);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: $height-menu-mobile;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        background-color: $c-true-black;
+        opacity: 0.5;
+
+        @include onTablet {
+          top: $height-menu-tablet;
+        }
+
+        @include onDesktop {
+          top: $height-menu-desktop;
+        }
+      }
+    }
+  }
+}
