@@ -1,0 +1,85 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__menu {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 24px;
+
+    @include onTablet {
+      width: 45%;
+      height: 100%;
+
+      border-bottom: none;
+      border-right: 2px solid rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &__menu-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  &__cross {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/icons/cross.svg);
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__menu-part {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+
+    &:last-child {
+      margin-right: 40px;
+
+      @include onDesktop {
+        margin-right: 100px;
+      }
+    }
+  }
+
+  &__menu-link {
+    text-decoration: none;
+
+    color: $nav-font-color;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+
+    margin-bottom: 24px;
+
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      display: block;
+      background-color: $nav-font-color;
+
+      position: absolute;
+      bottom: -8px;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
