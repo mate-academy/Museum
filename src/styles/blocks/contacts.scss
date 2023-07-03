@@ -1,0 +1,129 @@
+.contacts {
+
+  &__logo {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    margin-bottom: 40px;
+
+    grid-column: 1 / span 2;
+    perspective: 400px;
+    
+    @include onTabletMore {
+      grid-column: 1;
+      grid-row: 1;
+
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr;
+      margin-bottom: 0;
+      height: fit-content;
+      grid-row-gap: 4.5rem;
+
+    }
+
+    @include onDesktop {
+      grid-column: 1 / span 2;
+    }
+  }
+
+  &__facebook {
+    grid-column: 2;
+    grid-row: 1;
+    padding-right: 26px;
+
+    &:hover {
+      transform: translateZ(+10px);
+    }
+
+    @include onTablet {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    @include onDesktop {
+      grid-column: 1;
+      grid-row: 2;
+    }
+  }
+
+  &__instagram {
+    grid-column: 3;
+    grid-row: 1;
+
+    &:hover {
+      transform: translateZ(+10px);
+    }
+
+    @include onTablet {
+      grid-row: 2;
+      grid-column: 2;
+    }
+
+    @include onDesktop {
+      grid-row: 2;
+      grid-column: 2;
+      margin-right: 6rem;
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: 70px;
+
+    @include onTablet {
+      grid-column: 2 / span 2;
+      grid-row: 1;
+
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      grid-column: 3 /span 2;
+      grid-row: 1;
+
+      margin-bottom: 87px;
+    }
+
+    &__paragraph {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+      color: #0f0e08;
+
+      &--bold {
+        font-weight: 600;
+        line-height: 150%;
+      }
+    }
+  }
+
+  &__address {
+    grid-row: 2;
+    grid-column: 2;
+
+    @include onTablet {
+      grid-column: 4 / span 2;
+      grid-row: 1;
+    }
+
+    @include onDesktop {
+      grid-row: 1;
+      grid-column: 5 / span 3;
+      padding-right: 35px;
+    }
+
+    &-links {
+      text-decoration: none;
+      color: #0f0e08;
+
+      &:hover {
+        color: #1a5a4c;
+      }
+    }
+  }
+
+}
