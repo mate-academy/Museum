@@ -1,0 +1,60 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  &__title {
+    margin-bottom: 40px;
+    text-align: center;
+
+    @include title (36px);
+
+    color: $black-color;
+
+    @include tablet {
+      margin-bottom: 48px;
+      font-size: 48px;
+      text-align: start;
+    }
+
+    @include laptop {
+      margin-bottom: 56px;
+      font-size: 48px;
+      text-align: start;
+    }
+  }
+
+  &__slider {
+    display: none;
+
+    @include laptop {
+      gap: 30px;
+    }
+  }
+
+  &__slide {
+    transition: 0.5s;
+    max-height: calc(100vh - 100px);
+
+    @include laptop {
+      width: 100%;
+      overflow: hidden;
+
+      &:hover {
+        transform: scale(0.9);
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    @include tablet {
+      height: 100%;
+    }
+  }
+}

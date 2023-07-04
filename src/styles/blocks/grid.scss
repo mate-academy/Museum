@@ -1,0 +1,93 @@
+.grid {
+  display: grid;
+
+  &--gallery {
+    display: none;
+    @include laptop {
+      display: grid;
+    }
+  }
+
+  &--footer {
+    display: grid;
+    column-gap: 20px;
+
+    &-mob {
+      @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &-tab {
+      @include tablet {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include laptop {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+    }
+  }
+
+  &--nav-links {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    column-gap: 28px;
+    row-gap: 24px;
+
+    @include tablet {
+      column-gap: 24px;
+      row-gap: 20px;
+    }
+
+    @include laptop {
+      column-gap: 30px;
+      row-gap: 30px;
+    }
+  }
+
+  &__item {
+    &--footer {
+      @include tablet {
+        grid-row: 1;
+      }
+
+      @include laptop {
+        grid-row: 1;
+      }
+    }
+
+    &--start {
+      @include laptop {
+        align-items: start;
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        @include mobile {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        @include tablet {
+          &--tablet-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        @include laptop {
+          &--laptop-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
