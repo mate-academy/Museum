@@ -1,0 +1,79 @@
+.nav {
+  box-sizing: border-box;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    column-gap: 28px;
+    row-gap: 24px;
+    margin: 0;
+    padding: 0;
+
+    &--margin-bottom {
+      margin-bottom: 24px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__item {
+    list-style: none;
+    transition: 0.3s;
+
+    &:nth-child(3) {
+      width: min-content;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    @extend %ibm;
+
+    &--text-top {
+      @include text-decoration ($font-w-m, $font-s-m, $lh2, $main-bg);
+
+      @include onDesktop {
+        @include text-decoration ($font-w-m, $font-s-xl, $lh7, $main-bg);
+      }
+    }
+
+    &--text-bottom {
+      @include text-decoration ($font-w-s, $font-s-s, $lh1, $color-2);
+    }
+  }
+
+  &--border {
+    padding-top: 40px;
+    border-top: 1px solid $second-bg;
+
+    @include onTablet {
+      padding-top: 64px;
+    }
+
+    @include onDesktop {
+      padding-top: 0;
+      border-top: none;
+      padding-left: 65px;
+      border-left: 1px solid $second-bg;
+      margin-left: 20px;
+    }
+  }
+
+  &--margins {
+    margin: 20px 0 80px;
+
+    @include onTablet {
+      margin: 64px 0 120px;
+    }
+
+    @include onDesktop {
+      margin: 0;
+    }
+  }
+}

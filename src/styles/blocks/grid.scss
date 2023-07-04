@@ -1,0 +1,89 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &--row-gap {
+    @include onDesktop {
+      row-gap: 30px;
+    }
+  }
+
+  &__item {
+    display: grid;
+    width: 100%;
+
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--phone-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+        &--tablet-#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--desktop-#{$start}-#{$end} {
+          @include onDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    &--row-1 {
+      grid-row: 1/1;
+    }
+
+    &--row-2 {
+      grid-row: 2/2;
+
+      @include onTablet {
+        grid-row: 1/1;
+      }
+    }
+
+    &--row-3 {
+      @include onDesktop {
+        grid-row: 1/1;
+      }
+    }
+
+    &--for-navigation {
+      grid-template-rows: auto auto;
+      grid-template-columns: 1fr;
+      border-top: 1px solid #fff;
+      padding-top: 24px;
+
+      @include onTablet {
+        padding-top: 0;
+        padding-left: 38px;
+        border-top: none;
+        border-left: 1px solid #fff;
+      }
+    }
+
+    &--center-position {
+      display: grid;
+    }
+  }
+}

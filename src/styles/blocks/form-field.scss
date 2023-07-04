@@ -1,0 +1,70 @@
+.form-field {
+  display: flex;
+  justify-content: center;
+
+  &__email {
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid transparent;
+    width: 230px;
+    height: 50px;
+    padding-left: 24px;
+    @extend %montserrat;
+    @include text-decoration ($font-w-s, $font-s-s, $lh1, $color-3);
+
+    &:hover {
+      border: 1px solid $color-5;
+    }
+
+    &:focus {
+      @extend %montserrat;
+      @include text-decoration ($font-w-s, $font-s-s, $lh1, $color-1);
+    }
+
+    @include onTablet {
+      width: 374px;
+      height: 70px;
+    }
+
+    @include onDesktop {
+      width: 470px;
+      padding-left: 32px;
+    }
+
+    &::placeholder {
+      @extend %montserrat;
+      @include text-decoration ($font-w-s, $font-s-s, $lh1, $color-3);
+    }
+  }
+
+  &__submit {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: $color-5;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &--margin-left {
+      @include onTablet {
+        margin-left: 16px;
+      }
+
+      @include onDesktop {
+        margin-left: 30px;
+      }
+    }
+  }
+
+  &__img {
+    width: 70%;
+  }
+}
