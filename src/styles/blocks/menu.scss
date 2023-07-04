@@ -1,0 +1,86 @@
+.menu {
+  &__content {
+    padding-top: 30px;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        opacity: 0.5;
+      }
+    @include pageGrid;
+    row-gap: 49px;
+
+    @include onTablet {
+      padding-top: 45px;
+    }
+  }
+
+  &__first {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+    }
+
+
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(1, 24px 1fr);
+    column-gap: 33px;
+
+    @include onTablet {
+      column-gap: 43px;
+    }
+
+    @include onDesktop {
+      column-gap: 107px;
+    }
+
+   &::after {
+    content: "";
+    position: absolute;
+    bottom: -24px;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      transform: rotate(-90deg);
+      background-position: center;
+      left: 80%;
+      top: 45%;
+      width: 145px;
+      height: 1px;
+    }
+
+    @include onDesktop {
+      left: 107%;
+    }
+   }
+  }
+
+  &__second {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+    }
+
+      @include onDesktop {
+      grid-column: 8 / 12;
+    }
+  }
+}

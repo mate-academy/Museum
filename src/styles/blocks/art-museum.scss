@@ -1,0 +1,142 @@
+.art-museum {
+  @include pageMainPadding;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  @include onTablet {
+    grid-column: 1 / 4;
+    grid-row: 1;
+    row-gap: 40px;
+    margin-top: 130px;
+  }
+
+  @include onDesktop {
+    grid-column: 1 / 6;
+    margin-top: 205px;
+    row-gap: 90px;
+  }
+
+  &__title {
+    margin: 0;
+
+    @include pageMontserrat;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      justify-content: start;
+    }
+
+      @include onDesktop {
+      font-size: 72px;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    transition: all 0.75s;
+
+    &:hover {
+      box-shadow: -8px 6px 6px 0px rgba(25, 86, 73, 1);
+    }
+  }
+}
+
+.button {
+  position: relative;
+
+  @include onDesktop {
+    margin-left: 190px;
+  }
+
+  &__link {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+
+    width: 230px;
+    height: 50px;
+    border: 1px solid $header-green-color;
+    background-color: #fff;
+    @include pageIBMPlex;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    text-decoration: none;
+    color: #0F0E08;
+
+    @include onTablet {
+      width: 270px;
+      height: 70px;
+    }
+  }
+
+  &__arrow {
+    width: 50px;
+    height: 50px;
+    background-image: url(../images/icon/icon-arrow.svg);
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $header-green-color;
+    cursor: pointer;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__events {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 160%;
+    bottom: 0;
+
+    @include pageIBMPlex;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    border: none;
+    color: #687480;
+    text-decoration: none;
+    background-color: #fff;
+    transform: rotate(-90deg);
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 100px;
+      top: -28px;
+      width: 1px;
+      height: 70px;
+      background-color: $header-green-color;
+      transform: rotate(-90deg);
+    }
+  }
+}

@@ -1,0 +1,105 @@
+.galery {
+  margin-bottom: 100px;
+
+  &__photocards {
+    overflow: hidden;
+    margin-bottom: 20px;
+    @include pageGrid;
+
+    @include onTablet {
+      gap: 20px;
+    }
+  }
+
+  &__link {
+    overflow: hidden;
+    display: block;
+
+    &--1 {
+      grid-column: 1 / -1;
+
+      @include onTablet {
+        grid-column: 1 / 4;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 5;
+      }
+    }
+
+    &--2 {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        grid-column: 4 / 7;
+      }
+
+      @include onDesktop {
+        grid-column: 5 / 13;
+      }
+    }
+
+    &--3 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 1 / span 8;
+      }
+    }
+
+    &--4 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 9 / 13;
+      }
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    height: 410px;
+    object-fit: cover;
+    object-position: top;
+    @include hover (transform, scale(1.2));
+
+    @include onTablet {
+      height: 543px;
+    }
+
+    @include onDesktop {
+      height: 600px;
+    }
+
+    &--short {
+      @include onDesktop {
+        height: 360px;
+      }
+    }
+  }
+
+  &__bullets {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__bullet {
+    width: 9px;
+    height: 9px;
+    background-color: #E0E0E0;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $header-green-color;
+    }
+  }
+}
