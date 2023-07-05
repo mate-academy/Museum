@@ -1,4 +1,5 @@
 'use strict';
+//  hamburger menu anumation
 
 const icons = document.querySelectorAll('.icon');
 const links = document.querySelectorAll('.nav__link');
@@ -17,4 +18,25 @@ links.forEach(link => {
       ic.classList.remove('open');
     }
   });
+});
+
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+
+const swiper = new Swiper('.swiper', {
+
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
 });
