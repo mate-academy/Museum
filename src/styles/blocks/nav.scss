@@ -24,13 +24,14 @@
   &__menu-list {
     display: flex;
     justify-content: space-between;
-    gap: 30px;
   }
 
   &__cross {
     width: 24px;
     height: 24px;
     background-image: url(../images/icons/cross.svg);
+
+    margin-right: 20px;
 
     @include hover(transform, scale(1.2));
   }
@@ -41,7 +42,9 @@
     flex-direction: column;
 
     &:last-child {
-      margin-right: 40px;
+      @media (min-width: 700px) {
+        margin-right: 20px;
+      }
 
       @include onDesktop {
         margin-right: 100px;
@@ -50,6 +53,7 @@
   }
 
   &__menu-link {
+    width: max-content;
     text-decoration: none;
 
     color: $nav-font-color;
