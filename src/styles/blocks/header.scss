@@ -1,0 +1,130 @@
+.header {
+  background-image: url(../images/background/bg_mobile.png);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 100% 300px;
+
+  @include onTablet {
+    height: 400px;
+
+    background-image: url(../images/background/bg_tablet.png);
+    background-position: top right;
+    background-size: 48% 384px;
+  }
+
+  @media (min-width: 900px) {
+    background-image: url(../images/background/bg-desktop.jpg);
+    background-size: 48% 100%;
+  }
+
+  @include onDesktop {
+    height: 655px;
+
+    background-size: 55% 100%;
+  }
+
+  &__top {
+    min-height: 275px;
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      min-height: max-content;
+      margin-bottom: 0;
+    }
+  }
+
+  &__bottom {
+    @include onDesktop {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    color: #000;
+    text-align: center;
+    font-size: 45px;
+    font-family: $title-font;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      width: 340px;
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__order-tickets {
+    text-decoration: none;
+
+    max-width: 500px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+
+    @include hover(box-shadow, 0 0 10px $green-color inset);
+
+    @include onTablet {
+      height: 70px;
+      width: 270px;
+      justify-content: start;
+
+      margin: 0;
+    }
+
+    @include onDesktop {
+      margin-left: 215px;
+    }
+  }
+
+  &__tickets {
+    height: 50px;
+    width: 100%;
+    border: 2px solid $green-color;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: $title-color;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    text-transform: uppercase;
+
+    @include onTablet {
+      height: 100%;
+    }
+  }
+
+  &__order {
+    width: 55px;
+    height: 50px;
+    background-color: $green-color;
+
+    background-image: url(../images/icons/arrow.svg);
+    background-size: 24px 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 100%;
+      width: 80px;
+    }
+
+    @include hover(background-color, #497a6f);
+  }
+}

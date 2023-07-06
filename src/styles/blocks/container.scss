@@ -1,0 +1,99 @@
+.container {
+  margin: 0 auto;
+
+  padding: 25px 20px 0;
+
+  @include onTablet {
+    padding: 125px 35px 0;
+  }
+
+  @include onDesktop {
+    padding: 200px 55px 0;
+    max-width: 1280px;
+  }
+
+  &--header {
+    max-width: 100%;
+
+    @include onDesktop {
+      &::before {
+        content: "події";
+        color: #687480;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        position: absolute;
+        left: 45px;
+        bottom: 50px;
+
+        transform: rotate(90deg);
+      }
+
+      &::after {
+        content: "";
+        background-color: #687480;
+        width: 1px;
+        height: 70px;
+
+        display: inline-block;
+        position: absolute;
+        left: 65px;
+        bottom: -50px;
+      }
+    }
+  }
+
+  &--nav {
+    max-width: 100%;
+
+    background-color: $green-color;
+
+    padding-bottom: 30px;
+
+    @include onTablet {
+      padding: 40px 35px;
+
+      min-height: 225px;
+
+      display: flex;
+    }
+
+    @include onDesktop {
+      padding: 40px 55px;
+    }
+
+    &::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 100vh;
+    }
+  }
+
+  &--events {
+    padding-top: 0;
+  }
+
+  &--subscription {
+    padding-top: 0;
+  }
+
+  &--footer {
+    padding-top: 0;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+    }
+  }
+}

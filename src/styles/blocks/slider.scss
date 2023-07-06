@@ -1,0 +1,60 @@
+.slider {
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+
+    @include onTablet {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+    }
+  }
+
+  &__picture-box {
+    grid-column: span 2;
+
+    @include hover(transform, scale(1.1));
+
+    @media (min-width: 400px) {
+      grid-column: span 1;
+    }
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+
+      margin-bottom: 32px;
+    }
+
+    &--hidden {
+      display: none;
+
+      @media (min-width: 400px) {
+        display: block;
+      }
+
+      @include onTablet {
+        grid-column: 4 / 7;
+      }
+    }
+  }
+
+  &__picture {
+    width: 100%;
+  }
+
+  &__scroll {
+    grid-column: 1 / -1;
+    justify-self: center;
+
+    background-image: url(../images/gallery/points.svg);
+    width: 102px;
+    height: 9px;
+  }
+}
