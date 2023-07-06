@@ -1,0 +1,51 @@
+.page {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+
+  &__body {
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__content {
+    box-sizing: border-box;
+
+  }
+
+  &__menu {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-100%);
+    transition: transform $animationDuration, box-shadow $animationDuration ;
+
+    &:target {
+      transform: translateY(0);
+
+      box-shadow: 0 0 0 1000px rgba(0,0,0, 0.3);
+    }
+  }
+
+  &__section {
+    margin: 80px 0 0;
+
+    @include onTablet {
+      margin: 88px 0 0;
+    }
+
+    @include onDesktop {
+      margin: 200px 0 0;
+    }
+  }
+}

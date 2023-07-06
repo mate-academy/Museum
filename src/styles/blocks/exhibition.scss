@@ -1,0 +1,132 @@
+.exhibition {
+  @include onDesktop {
+    align-items: center;
+  }
+
+  &__img {
+    width: 100%;
+
+    transition: transform 0.3s;
+
+    @include onTablet {
+      width: 100%;
+    }
+
+    @include onDesktop {
+      width: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__content {
+    margin: 20px 0 0;
+
+    @include onTablet {
+      margin-top: 44px;
+    }
+
+    @include onDesktop {
+      margin: 0;
+    }
+  }
+
+  &__caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    @include onTablet {
+      justify-content: flex-start;
+    }
+  }
+
+  &__caption-tittle {
+    color: $captionColor;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 14px;
+
+      margin-right: 40px;
+    }
+  }
+
+  &__date {
+    color: $mainGreenColor;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 100%;
+  }
+
+  &__tittle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    width: fit-content;
+
+    margin: 15px 0 0;
+
+    font-size: 28px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    line-height: 100%;
+
+    @include onTablet {
+      display: flex;
+      justify-content: flex-start;
+
+      margin-top: 32px;
+
+      font-size: 36px;
+    }
+
+    &::after {
+      content: "";
+
+      display: inline-block;
+
+      margin: 6px;
+
+      width: 10px;
+      height: 10px;
+      min-width: 10px;
+
+      background-color: $decorativeColor;
+
+      transition: background-color $animationDuration;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+        min-width: 15px;
+      }
+    }
+
+    &:hover::after {
+      background-color: $mainGreenColor;
+    }
+  }
+
+  &__link {
+    color: $mainTextColor;
+    text-decoration: none;
+
+  }
+
+  &__description {
+    margin: 10px 0 0;
+
+    color: $paragraphColor;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+  }
+}

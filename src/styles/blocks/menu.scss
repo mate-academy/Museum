@@ -1,0 +1,150 @@
+.menu {
+  box-sizing: border-box;
+  height: 420px;
+  width: 100vw;
+  background-color: $mainGreenColor;
+
+  @include onTablet {
+    height: 225px;
+  }
+
+  @include onDesktop {
+    height: 235px;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+  }
+
+  &__cross {
+    display: block;
+    background-image: url(../images/icons/cross.svg);
+  }
+
+  &__blocks {
+    display: block;
+
+    margin: auto;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+
+  &__splitter {
+    margin-bottom: 24px;
+    height: 1px;
+
+    background-color: $colorWhite;
+
+    @include onTablet {
+      width: 1px;
+      height: 150px;
+
+      margin-top: 40px;
+
+    }
+  }
+
+  &__list {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 22px;
+    list-style-type: none;
+    justify-items: stretch;
+
+    margin: 0;
+    padding-top: 32px;
+    padding-left: 40px;
+
+    @include onTablet {
+      grid-template-columns: repeat(2, 100px);
+
+      height: 130px;
+      padding-top: 40px;
+
+      border-bottom: none;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(2, 200px);
+      column-gap: 30px;
+    }
+  }
+
+  &__item {
+    width: fit-content;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+
+    margin-bottom: 24px;
+
+    @include onDesktop {
+      font-size: 22px;
+      line-height: 22px;
+    }
+
+    @include hover (transform, scale(1.1));
+  }
+
+  &__link {
+    display: block;
+
+    text-decoration: none;
+    color: $colorWhite;
+    padding-bottom: 2px;
+  }
+
+  &__shedule {
+    @include onTablet {
+      margin-top: 40px;
+      padding-left: 34px;
+    }
+
+    @include onDesktop {
+      padding-left: 100px;
+    }
+  }
+
+  &__shedule-content {
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__shedule-tittle {
+    margin: 0 0 20px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+
+    color: $colorWhite;
+  }
+
+  &__open-days {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 40px;
+
+    list-style-type: none;
+    color: $colorWhite;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  &__days-off {
+    color: $colorWhite;
+    font-size: 14px;
+    line-height: 22px;
+
+    @include onTablet {
+      width: 144px;
+    }
+  }
+}
