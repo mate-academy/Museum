@@ -63,58 +63,66 @@
         width: 100%;
         padding-inline: 24px;
         border: 1px solid $c-white;
-      }
-      &:hover {
-        border: 1px solid $c-red;
+
+        &:hover {
+          border: 1px solid $c-red;
+        }
+
+        &::placeholder {
+          color: $c-gray;
+        }
+
+        &:not(:focus) {
+          color: $c-black;
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        &:-webkit-autofill {
+          -webkit-text-fill-color: $c-black;
+          -webkit-box-shadow: 0 0 0 40px $c-white inset;
+        }
+
+        &:focus:invalid {
+          border-color: #eb5757;
+          color: #eb5757;
+        }
+
+        &:focus:valid {
+          border-color: $c-dark-green;
+          color: $c-dark-green;
+        }
+
+        &:-webkit-autofill::first-line {
+          font-family: "Poppins", sans-serif;
+          font-size: 14px;
+          text-transform: capitalize;
+          line-height: 150%;
+        }
+
+        &:-webkit-autofill:focus {
+          -webkit-text-fill-color: $c-black;
+          border-color: $c-dark-gray;
+        }
+
+        &:-webkit-autofill:valid {
+          -webkit-text-fill-color: $c-dark-green;
+          border-color: $c-dark-green;
+        }
+
+        &:-webkit-autofill:invalid {
+          -webkit-text-fill-color: #eb5757;
+          border-color: #eb5757;
+        }
       }
 
-      &::placeholder {
-        color: $c-gray;
-      }
-
-      &:not(:focus) {
-        color: $c-black;
-      }
-
-      &:focus {
-        outline: none;
-      }
-
-      &:-webkit-autofill {
-        -webkit-text-fill-color: $c-black;
-        -webkit-box-shadow: 0 0 0 40px $c-white inset;
-      }
-
-      &:focus:invalid {
-        border-color: #eb5757;
-        color: #eb5757;
-      }
-
-      &:focus:valid {
-        border-color: $c-dark-green;
-        color: $c-dark-green;
-      }
-
-      &:-webkit-autofill::first-line {
-        font-family: "Poppins", sans-serif;
-        font-size: 14px;
-        text-transform: capitalize;
-        line-height: 150%;
-      }
-
-      &:-webkit-autofill:focus {
-        -webkit-text-fill-color: $c-black;
-        border-color: $c-dark-gray;
-      }
-
-      &:-webkit-autofill:valid {
-        -webkit-text-fill-color: $c-dark-green;
-        border-color: $c-dark-green;
-      }
-
-      &:-webkit-autofill:invalid {
-        -webkit-text-fill-color: #eb5757;
-        border-color: #eb5757;
+      &--type--submit {
+        &:hover {
+          background-color: $c-white;
+          border: 1px solid $c-red;
+        }
       }
     }
   }
