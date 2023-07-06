@@ -10,6 +10,13 @@ window.addEventListener('hashchange', () => {
   }
 });
 
+const form = document.getElementById('form-reload');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  event.target.reset();
+});
+
 const swiper = new Swiper('.slider', {
   spaceBetween: 20,
   loop: true,
