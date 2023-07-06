@@ -15,6 +15,7 @@
   &__content {
     @include pageGrid;
     justify-content: center;
+    position: relative;
     gap: 20px;
 
     @include onTablet {
@@ -48,7 +49,6 @@
 
     @include onTablet {
       grid-column: 4 / span 2;
-      grid-template-rows: auto 2fr 2fr;
     }
 
     @include onDesktop {
@@ -92,6 +92,31 @@
       grid-column: 6 / span 7;
       width: 110%;
       height: auto;
+    }
+  }
+
+  &__side-text {
+    display: none;
+    @include onDesktop {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      align-self: self-end;
+
+      text-align: left;
+      display: inline-block;
+      writing-mode: vertical-rl;
+
+      transform: rotate(-180deg);
+
+      &::before {
+        display: inline-block;
+        margin-bottom: 20px;
+        content: "";
+        width: 1px;
+        height: 70px;
+        background-color: $c-green;
+      }
     }
   }
 }
