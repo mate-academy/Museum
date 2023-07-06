@@ -1,7 +1,7 @@
 'use strict';
 //  hamburger menu anumation
 
-const icons = document.querySelectorAll('.icon');
+const icons = document.querySelectorAll('.nav-icon');
 const links = document.querySelectorAll('.nav__link');
 
 icons.forEach(icon => {
