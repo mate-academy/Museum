@@ -1,36 +1,34 @@
 // #region SCSS
-:host {
-  position: relative;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .swiper {
   grid-column: 1 / -1;
-  max-width: 100%;
+
+  display: block;
   height: 100%;
   position: relative;
   overflow-x: hidden;
   overflow-y: visible;
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+  @include pageGrid;
   row-gap: 20px;
 
   @include onTablet {
     row-gap: 32px;
   }
 
+  @include onDesktop {
+    display: none;
+  }
+
   &-wrapper {
+    grid-column: 1 / -1;
+
     position: relative;
-    width: 100%;
+    max-width: 100%;
     transition-property: transform;
     transition-timing-function: $transition-speed;
-    box-sizing: content-box;
+    box-sizing: border-box;
     display: flex;
   }
 }
@@ -49,34 +47,80 @@
 
 .slide-image {
   width: 100%;
-  height: 410px;
+  min-height: 410px;
+
+  @include onTablet {
+    min-height: 540px;
+  }
 
   transition: all, $transition-speed;
-    //
-    -webkit-mask-image: linear-gradient(
-      45deg,
-      #000 25%,
-      rgba(0,0,0,0.2) 50%,
-      #000 75%);
-    mask-image: linear-gradient(45deg,#000 25%,rgba(0,0,0,0.2) 50%,#000 75%);
-    -webkit-mask-size: 800%;
-    mask-size: 800%;
-    -webkit-mask-position: 0;
-    mask-position: 0;
-    //
-    &:hover {
-      // transform: scale(1.2);
-      transition: mask-position 2s ease, -webkit-mask-position 2s ease;
-      -webkit-mask-position: 120%;
-      mask-position: 120%;
-      opacity: 1;
+
+  background-position: 50% 0;
+
+  @include onDesktop {
+    background-position: center;
+  }
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  -webkit-mask-image: linear-gradient(
+    45deg,
+    #000 25%,
+    rgba(0,0,0,0.2) 50%,
+    #000 75%);
+  mask-image: linear-gradient(45deg,#000 25%,rgba(0,0,0,0.2) 50%,#000 75%);
+  -webkit-mask-size: 800%;
+  mask-size: 800%;
+  -webkit-mask-position: 0;
+  mask-position: 0;
+  
+  &:hover {
+    transition: mask-position 2s ease, -webkit-mask-position 2s ease;
+    -webkit-mask-position: 120%;
+    mask-position: 120%;
+    opacity: 1;
+  }
+
+  &--bg--1 {
+    background-image: url(../images/png_images/girl.png);
+  }
+  &--bg--2 {
+    background-image: url(../images/png_images/gooses.png);
+    @include onDesktop {
+      background-image: url(../images/png_images/winter.png);
     }
+  }
+  &--bg--3 {
+    background-image: url(../images/png_images/winter.png);
+    @include onDesktop {
+      background-image: url(../images/png_images/park.png);
+    }
+  }
+  &--bg--4 {
+    background-image: url(../images/png_images/sea.png);
+  }
+
+  &--layout--rectangle {
+    display: none;
+    @include onDesktop {
+      display: block;
+      grid-column: span 8;
+    }
+  }
+
+  &--layout--square {
+    display: none;
+    @include onDesktop {
+      display: block;
+      grid-column: span 4;
+    }
+  }
 }
 
 // #region pagination
 
 .swiper-pagination {
-  // position: absolute;
+  grid-column: 1 / -1;
   display: flex;
   justify-content: center;
   gap: 22px;
@@ -122,7 +166,7 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-pagination-bullet-active {
-  opacity: var(--swiper-pagination-bullet-opacity, 1);
+  opacity: 1;
   background: $c-green;
 }
 // #endregion
