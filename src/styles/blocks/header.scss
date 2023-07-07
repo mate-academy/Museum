@@ -1,17 +1,17 @@
 .header {
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-
+  width: 100%;
   margin-bottom: 70px;
+
 
   @include onTablet {
     margin-bottom: 88px;
+    overflow: hidden;
   }
 
   @include onDesktop {
     margin-bottom: 200px;
   }
+
   &__content {
     @include pageGrid;
     justify-content: center;
@@ -24,10 +24,6 @@
 
     @include onDesktop {
       row-gap: 0;
-    }
-
-    @include onDesign {
-      overflow: hidden;
     }
   }
 
@@ -72,6 +68,8 @@
   }
 
   &__background {
+    object-fit: cover;
+
     width: 100vw;
     grid-column: 1 / span 2;
     margin-inline: -20px;
@@ -79,19 +77,25 @@
     z-index: -2;
 
     @include onTablet {
-      width: 120%;
-      height: 100%;
+      position: relative;
+      right: 0;
+      width: 150%;
+
       grid-column: 4 / span 3;
       grid-row: 1 / span 5;
       margin: 0;
-
     }
 
     @include onDesktop {
       grid-row: 1 / span 6;
-      grid-column: 6 / span 7;
-      width: 110%;
-      height: auto;
+      grid-column: 6 / span 7 ;
+      margin: 0;
+      max-height: 655px;
+      object-position: -50% 80%;
+    }
+
+    @include onDesign {
+      max-height: 755px;
     }
   }
 

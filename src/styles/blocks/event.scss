@@ -12,10 +12,6 @@
     margin-bottom: 200px;
   }
 
-  @include onDesign {
-    overflow: hidden;
-  }
-
   &__header {
     grid-column: span 2;
 
@@ -45,21 +41,26 @@
 
     @include onTablet {
       grid-column: 1 / -1;
+      padding-bottom: 390px;
     }
 
     @include onDesktop {
       grid-column: 1 / span 7;
       grid-row: 1 / span 5;
       margin: 0;
+      padding-bottom: 550px;
+    }
+
+    @include onDesign {
+      padding-bottom: 750px;
     }
 
     &--type--lecture {
       overflow: visible;
 
-      @include onDesign {
-        overflow: hidden;
-        grid-column: 1 / -1;
-        padding-bottom: 65%;
+      @include onDesktop {
+        grid-column: 1 / span 15;
+        margin-inline: -130px;
       }
     }
   }
@@ -84,7 +85,6 @@
       grid-column: 4 / span 6;
       margin-top: -10%;
       padding-inline: 150px;
-
     }
   }
 
@@ -115,21 +115,11 @@
     }
 
     &--type--lecture {
+      object-fit: cover;
       width: 100vw;
       margin-inline: -20px;
 
       @include onTablet {
-        width: 100%;
-        margin: 0;
-      }
-
-      @include onDesktop {
-        width: 120vw;
-        margin-inline: -135px;
-      }
-
-      @include onDesign {
-        max-width: $design-min-width;
         width: 100%;
         margin: 0;
       }
