@@ -1,0 +1,197 @@
+.footer {
+  position: relative; //for going below main
+  padding-block: 30px;
+  bottom: 0;
+
+  width: 100%;
+  background-color: $c-white;
+
+  display: flex;
+  justify-content: center;
+
+  max-width: $desktop-min-width;
+  margin-inline: auto;
+
+  &__content {
+    @include pageGrid;
+    width: 100%;
+
+    @include onTablet {
+      padding: 51px 0 36px;
+    }
+
+    @include onDesktop {
+      padding: 47px 0 35px;
+    }
+  }
+
+  &__button-go-up {
+    grid-column: 2;
+    justify-self: self-end;
+    border-radius: 50%;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__vacation {
+    margin-top: 30px;
+  }
+
+  &__link {
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+
+    transition: all $transition-speed;
+
+    &--font-weight--bold {
+      font-weight: 500;
+      font-size: 18px;
+      text-transform: capitalize;
+
+      @include onTablet {
+        font-weight: normal;
+        font-size: 14px;
+        text-transform: none;
+      }
+    }
+
+    &:hover {
+      color: $c-green;
+    }
+  }
+
+  &__logo-link {
+    max-height: min-content;
+    justify-self: self-start;
+
+    margin-top: 10px;
+    margin-bottom: 40px;
+    text-decoration: none;
+    grid-column: 1;
+    grid-row: 1;
+
+    @include onTablet {
+      grid-column: 1;
+    }
+  }
+
+  &__bottom-text {
+    grid-column: span 2;
+    text-align: center;
+    font-size: 12px;
+
+    @include onTablet {
+      grid-column: 4 / span 3;
+      grid-row: 4;
+      margin: 0;
+      font-weight: normal;
+      text-align: right;
+
+      &:last-child {
+        grid-column: 1 / span 3;
+        text-align: left;
+      }
+    }
+
+    @include onDesktop {
+      grid-column: 11 / span 2;
+      text-align: left;
+    }
+
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    list-style: none;
+
+    @include onTablet {
+      margin: 0;
+    }
+
+    &__header {
+      margin-bottom: 20px;
+    }
+
+    &--schedule {
+      color: $c-black;
+
+      @include onTablet {
+        grid-column: 2 / span 2;
+        grid-row: 1 / span 2;
+
+        margin-bottom: 64px;
+      }
+
+      @include onDesktop {
+        grid-column: 3 / span 2;
+        margin: 0;
+      }
+    }
+
+    &--nav {
+      grid-column: span 2;
+
+      border-top: 1px solid $c-dark-gray;
+      padding-top: 40px;
+
+      margin-bottom: 80px;
+
+      @include onTablet {
+        padding-top: 64px;
+        margin-bottom: 120px;
+        grid-column: 2 / span 4;
+      }
+
+      @include onDesktop {
+        flex-direction: row;
+        gap: 40px;
+        grid-column: 8 / span 3;
+        grid-row: 1 / span 2;
+
+        padding-top: 0;
+        padding-bottom: 180px;
+        margin-bottom: 100px;
+
+        border-top: none;
+        border-left: 1px solid $c-dark-gray;
+      }
+    }
+
+    &--socials {
+      margin-top: 20px;
+      margin-bottom: 40px;
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: 20px;
+
+      grid-column: 2;
+      grid-row: 1;
+
+      @include onTablet {
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: flex-start;
+      }
+    }
+
+    &--contacts {
+      @include onTablet {
+        grid-column: 4 / span 3;
+        grid-row: 1 / span 2;
+        margin-bottom: 77px;
+      }
+
+      @include onDesktop {
+        grid-column: 5 / span 2;
+        margin: 0;
+      }
+    }
+  }
+}
