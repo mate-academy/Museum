@@ -1,7 +1,6 @@
 .events {
   display: flex;
   flex-direction: column;
-  width: 100vw;
   gap: 60px;
 
   margin-bottom: 100px;
@@ -12,6 +11,10 @@
 
   @include onDesktop {
     margin-bottom: 200px;
+  }
+
+  @include onDesign {
+    // width: 100vw;
   }
 
   &__header {
@@ -44,24 +47,31 @@
 
     @include onTablet {
       grid-column: 1 / -1;
-      padding-bottom: 390px;
     }
 
     @include onDesktop {
       grid-column: 1 / span 7;
       grid-row: 1 / span 5;
       margin: 0;
-      padding-bottom: 550px;
-    }
-
-    @include onDesign {
-      padding-bottom: 750px;
     }
 
     &--type--lecture {
       overflow: visible;
 
+      @include onTablet {
+        grid-column: 1 / -1;
+        padding-bottom: 390px;
+      }
+
       @include onDesktop {
+        grid-column: 1 / span 7;
+        grid-row: 1 / span 5;
+        margin: 0;
+        padding-bottom: 550px;
+      }
+
+      @include onDesign {
+        padding-bottom: 750px;
         grid-column: 1 / span 15;
         margin-inline: -130px;
       }

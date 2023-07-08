@@ -1,20 +1,32 @@
 .subscribe {
-  @include pageGrid;
-  row-gap: 20px;
-  margin-bottom: 18px;
-
-  padding-block: 88px;
-
-  @include onTablet {
-    padding-block: 82px;
-    margin: 0;
-  }
-
-  @include onDesktop {
-    padding-block: 163px;
-  }
-
   position: relative;
+
+  @include onDesign {
+    width: 100vw;
+  }
+
+  &__wrapper {
+    @include pageGrid;
+    row-gap: 20px;
+    margin-bottom: 18px;
+
+    padding-block: 88px;
+
+    @include onTablet {
+      padding-block: 82px;
+      margin: 0;
+    }
+
+    @include onDesktop {
+      padding-block: 163px;
+    }
+
+    @include onDesign {
+      max-width: $design-max-width;
+      margin-inline: auto;
+    }
+
+  }
   &__header {
     color: $c-white;
     text-align: center;
@@ -40,6 +52,7 @@
     @include onDesktop {
       grid-column: 4 / span 6;
       margin-top: 52px;
+      // max-width: 20%;
     }
   }
 
@@ -129,7 +142,8 @@
 
   &__background {
     position: absolute;
-
+    top: 0;
+    left: 0;
     background-image: url(../images/png_images/scientists.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -137,8 +151,9 @@
 
     width: 100vw;
     min-height: 100%;
-    margin-inline: -20px;
     z-index: -1;
+
+    margin-inline: -20px;
 
     @include onTablet {
       margin-inline: -39px;
@@ -149,7 +164,7 @@
     }
 
     @include onDesign {
-      width: 110vw;
+      margin: 0;
     }
   }
 }
