@@ -1,6 +1,8 @@
 .events {
-  @include pageGrid;
-  row-gap: 60px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  gap: 60px;
 
   margin-bottom: 100px;
 
@@ -13,20 +15,25 @@
   }
 
   &__header {
-    grid-column: span 2;
-
     @include onTablet {
-      grid-column: span 4;
-    }
-
-    @include onDesktop {
-      grid-column: span 5;
+      align-self: flex-start;
+      max-width: $design-max-width;
+      margin-inline: auto;
     }
   }
 }
 
 .event {
-  grid-column: 1 / -1;
+
+  &--type--show {
+    max-width: $design-max-width;
+    margin-inline: auto;
+  }
+
+  &--type--show {
+    // margin-inline: -200px;
+  }
+
   @include onTablet {
     @include pageGrid;
   }
