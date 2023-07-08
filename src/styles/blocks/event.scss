@@ -1,0 +1,130 @@
+.event {
+  margin: 0 0 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+
+  @include onTablet {
+    margin: 0 0 64px;
+    align-items: start;
+  }
+
+  @include onDesktop {
+    margin: 0 0 104px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 130px;
+    align-items: center;
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    @include hover (transform, scale(1.05));
+
+    @include onDesktop {
+      max-width: 670px;
+    }
+  }
+
+  &__card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onTablet {
+      width: 60%;
+      gap: 30px;
+    }
+
+    @include onDesktop {
+      width: 100%;
+    }
+  }
+
+  &__exhibition {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      justify-content: flex-start;
+      gap: 20px;
+    }
+  }
+
+  &__typ {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: $color-text-events-top;
+
+    @include onTablet {
+      font-size: 14px;
+      line-height: 150%;
+    }
+  }
+
+  &__data {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: $menu-color;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    color: $text-color;
+
+    @include onTablet {
+      font-size: 36px;
+    }
+
+    &::after {
+      display: inline-block;
+      content: " ";
+      background-color: $event-subscribe-color;
+      width: 10px;
+      height: 10px;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  &__text {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: $actual-events-text;
+  }
+}
