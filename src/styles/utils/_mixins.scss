@@ -1,6 +1,74 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin monts-bold {
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
+
+@mixin flex-sps-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-sps {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin transition ($property, $toValue) {
+  transition: #{$property} 0.3s ease;
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $toValue;
+  }
+}
+
+@mixin IBM {
+  font-family: "IBM Plex Sans";
+}
+
+@mixin tablet-max {
+  @media (max-device-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin phone-max {
+  @media (max-device-width: 767px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
   }
 }
