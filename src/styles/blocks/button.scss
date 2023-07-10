@@ -1,0 +1,39 @@
+.button {
+  display: grid;
+  grid-template-columns: 230px 50px;
+  box-sizing: border-box;
+  width: 280px;
+  height: 50px;
+  font-family: $font-main;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: $color-text-main;
+  border: 1px solid $color-green;
+  transition: all $transition;
+
+  &__arrow {
+    background: url(../images/icons/arrow_right.svg) $color-green no-repeat center;
+    box-sizing: border-box;
+    transition: all $transition;
+  }
+
+  &:hover {
+    color: $color-green;
+
+    > .button__arrow {
+      background-color: lighten($color: $color-green, $amount: 10%);
+    }
+  }
+
+  @include onTablet {
+    grid-template-columns: 200px 70px;
+    width: 270px;
+    height: 70px;
+  }
+
+  &__text {
+    place-self: center;
+  }
+}

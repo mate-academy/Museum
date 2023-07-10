@@ -1,0 +1,99 @@
+.menu {
+  background-color: $color-green;
+  color: $color-white;
+
+  &__content {
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__top {
+    margin-bottom: 21px;
+    padding: 0 0 21px;
+    align-items: start;
+    border: 1px solid transparent;
+    border-bottom-color: $color-white;
+    @extend %top-actions;
+
+    @include onTablet {
+      margin-bottom: 0;
+      padding: 0 38px 0 0;
+      column-gap: 38px;
+      border-bottom-color: transparent;
+      border-right-color: $color-white;
+    }
+
+    @include onDesktop {
+      margin-bottom: 10px;
+      padding: 0 100px 44px 0;
+      column-gap: 100px;
+    }
+  }
+
+  &__list {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 24px 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include onTablet {
+      gap: 24px 20px;
+      border-bottom-color: transparent;
+      border-right-color: $color-white;
+    }
+    @include onDesktop {
+      grid-template-columns: repeat(2, 170px);
+      gap: 30px 30px;
+    }
+
+    &--footer {
+      grid-template-columns: repeat(2, 130px);
+      gap: 20px;
+
+      @include onTablet {
+        grid-template-columns: repeat(2, 220px);
+        justify-content: center;
+      }
+
+      @include onDesktop {
+        grid-template-columns: repeat(2, 180px);
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    font-family: $font-main;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all $transition;
+
+    &:hover {
+      opacity: 0.7;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    @include onDesktop {
+      font-size: 2.2rem;
+      line-height: 2.2rem;
+    }
+  }
+
+  &__schedule {
+    @include onTablet {
+      margin-left: 38px;
+    }
+    @include onDesktop {
+      margin-left: 102px;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.page {
+  font-size: 10px;
+  font-style: normal;
+  color: $color-text-main;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 27px 0;
+    transform: translateY(-100%);
+    transition: transform $transition;
+
+    @include onTablet {
+      padding: 39px 0;
+    }
+
+    &::after {
+      content: "";
+      position: fixed;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      height: 100vh;
+      background-color: rgba($color: $color-text-secondary, $alpha: 0.6);
+      transform: translateY(-100%);
+    }
+
+    &:target {
+      transform: translateY(0);
+
+      &::after {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__section-title {
+    margin-bottom: 40px;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 48px;
+      text-align: start;
+    }
+    @include onDesktop {
+      margin-bottom: 55px;
+    }
+  }
+}

@@ -1,0 +1,107 @@
+.header {
+  padding: 9px 0 0;
+  height: 100%;
+  background-image: url(../images/header.jpg);
+  background-repeat: no-repeat;
+  background-size: auto 300px;
+  background-position: top right;
+
+  @include onTablet {
+    padding: 15px 0 16px;
+    background-size: 49% 100%;
+    background-position: top right;
+  }
+
+  @include onDesktop {
+    background-size: 56.6% 655px;
+    padding: 15px 0 104px;
+  }
+
+  &__content {
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 70px);
+      grid-template-rows: repeat(2, auto);
+      column-gap: 30px;
+    }
+  }
+
+  &__nav {
+    @extend %top-actions;
+    margin-bottom: 250px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 119px;
+    }
+  }
+
+  &__logo {
+    padding: 0 48px 0 0;
+    margin: 0 auto;
+
+    @include onTablet {
+      padding: 0 0 0 120px;
+    }
+
+    @include onDesktop {
+      padding: 0 124px 0 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 40px;
+      text-align: start;
+    }
+    @include onDesktop {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__button {
+    margin: 0 auto;
+
+    @include onTablet {
+      margin: 0;
+    }
+
+    @include onDesktop {
+      grid-row: 2 / 3;
+      grid-column: 3 / 6;
+    }
+  }
+
+  &__mark {
+    display: none;
+    position: relative;
+    font-family: $font-main;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    color: $color-text-light;
+    transform: rotate(-90deg) translateY(-100%);
+
+    @include onDesktop {
+      display: inline-block;
+    }
+
+    &::after {
+      position: absolute;
+      left: -75%;
+      bottom: -200%;
+      content: "";
+      display: block;
+      width: 1px;
+      height: 70px;
+      background-color: $color-green;
+      transform: rotate(-90deg) translateY(-20px);
+    }
+  }
+}
