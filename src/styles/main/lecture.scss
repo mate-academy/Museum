@@ -1,22 +1,27 @@
 .lecture {
-  width: 100%;
-  height: 210px;
-  background-image: url(../images/pictures/lecture.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative;
+  &__img {
+    width: 100%;
+    height: 210px;
+    background-image: url(../images/pictures/lecture.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
   &__info {
-    top: 13em;
-    background-color: #fff;
     position: relative;
+    top: -70px;
+    z-index: 3;
+    margin-top: 50px;
+    background-color: #fff;
     padding: 20px 0;
     box-shadow: 0 2px 2px black;
+    @include transition(transform, scale(1.2));
   }
 
   &__row {
     display: flex;
     max-width: 100%;
   }
-
 }
 
 .info {
@@ -29,12 +34,11 @@
   }
 }
 
-
 @include tablet {
-  .lecture {
+  .lecture__img {
     width: 89%;
     height: 390px;
-    margin: 0 auto 208px;
+    margin: 0 auto;
   }
 
   .lecture__row {
@@ -45,16 +49,14 @@
     width: 570px;
     height: 204px;
     padding: 45px 0 50px;
-    margin: 0 auto;
-    top: 25em;
+    margin: 0  auto 30px;
   }
 }
 
 @include desktop {
-  .lecture {
-    margin-bottom: 302px;
+  .lecture__img {
     width: 100%;
-    height: 550px;
+    min-height: 550px;
     &__info {
       top: 38em;
     }
@@ -63,7 +65,7 @@
 
 @include phone-max {
   .lecture {
-    margin-bottom: 183px;
+    margin-bottom: 120px;
   }
   .info__title--no-pseudo {
     text-align: center;
