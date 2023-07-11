@@ -23,3 +23,5 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-scrollbar',
   },
 });
+
+document.getElementById("form").reset();
