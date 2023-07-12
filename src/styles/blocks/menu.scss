@@ -1,38 +1,54 @@
 .page__menu {
- 
-  position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    transform: translateY(-100%);
 
-    
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  
     transition: transform 0.3s;
+    transform: translateY(-100%);
 
     &:target {
       transform: translateX(0);
     }
 
-  
-
 }
 .menu {
   background-color: #1A5A4C;
   height: 233px;
+
+  @include onMobile {
+    height: 420px;
+  
+  }
+  @include onTablet {
+    height: 225px;
+  }
+
+  @include onDesktop {
+    height: 233px;
+    padding-top: 25px;
+  }
   
 &__cross{
   display: block;
-    width: 13px;
-    height: 13px;
+  width: 13px;
+  height: 13px;
   background-image: url(../images/cross.png);
   background-position: center;
   background-repeat: no-repeat;
   transition: all 0.3s;
   padding-top: 45px;
   padding-left: 61px;
-  padding-left: 107px;
+  
+@include onMobile {
+  width: 13px;
+  height: 13px;
 
+}
+@include onDesktop {
+  padding-top: 75px;
+}
 
   &:hover {
     scale: 120%;
@@ -40,14 +56,39 @@
 }
  &__nav {
   padding-right: 102px;
+
+  @include onTablet {
+    padding-right: 30px;
+  }
+
+  @include onMobile {
+    padding-right: 0;
+  }
  }
 
  &__wh {
   padding-left: 102px;
   color: #FFFFFF;
 
+  @include onTablet {
+    padding-left: 30px;
+
+  }
+
+  @include onMobile {
+    padding-left: 20px;
+  }
+
   &-paragraf {
     padding-right: 30px;
+
+    @include onTablet{
+      padding-right: 20px;
+    }
+
+    @include onDesktop {
+     
+    }
   }
 
   &-title{
@@ -55,17 +96,53 @@
     font-family: IBM Plex Sans;
     font-weight: 400;
 
+    @include onDesktop {
+      padding-left: 150px;
+    }
   }
 
  }
 &__container {
   display: flex;
+  flex-direction: row;
   padding-top: 40px;
+
+  @include onMobile {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+  }
+
+  @include onTablet {
+    display: flex;
+    flex-direction: row;
+  }
+
+  @include onDesktop {
+    display: flex;
+    flex-direction: row;
+  }
+
 }
 
 &__content {
   display: flex;
+  
   justify-content: space-around;
+
+  @include onMobile {
+    display: flex;
+    flex-direction: column;
+  }
+  @include onDesktop {
+   padding-right: 150px;
+   padding-left: 120px;
+  }
+  @include theDesign {
+    padding-right: 150px;
+    padding-left: 250px;
+   }
+
 }
 
 &__nav-list {
@@ -75,22 +152,65 @@
 }
 
 &__line {
-  
-  height: 145px;
   color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 0.5);
+
+  @include onMobile {
+    width: 280px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    margin: 0 auto;
+  }
+  @include onDesktop {
+    height: 145px;
+    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.5);
+    width: 1px;
+    margin: 0;
+    
+    
+    }
+
+  @include onTablet {
+    height: 145px;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  width: 0;
+
+  }
+  @include theDesign {
+    height: 145px;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    width: 0;
+    }
 
 }
  &__nav-item {
   marker:none;
   list-style-type:none;
   padding-bottom: 30px;
+
+  
+    transition: all 0.3s;
+    &:hover {
+      scale: 120%;
+    }
  }
 
 &__nav-link {
   text-decoration: none; 
   color: #FFFFFF;
   font-size: 22px;
+
+  @include onTablet {
+    font-size: 16px;
+  }
+
+  @include onMobile {
+    font-size: 16px;
+  }
 }
 &__wh-paragraf-container {
   display: flex;
@@ -98,5 +218,21 @@
  
   line-height: 150%;
   font-size: 14px;
+
+  @include onTablet {
+    font-size: 12px;
+  }
+
+  @include onDesktop {
+    padding-left: 150px;
+  }
 }
+}
+.menu_mob {
+  display: flex;
+  flex-direction: row;
+
+  @include onDesktop {
+    
+  }
 }

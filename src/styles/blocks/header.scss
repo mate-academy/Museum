@@ -1,16 +1,61 @@
 .header {
+  @include onDesktop {
+  
+  background-position: top right;
   margin-left: 55px;
   background-image: url(../images/headerfoto.png);
   background-repeat: no-repeat;
-  background-position: top right;
+  
   height: 655px;
+  }
 
-  @include theDesign {}
+  @include onTablet {
+    background-image: url(../images/ontablet.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+    height: 350px;
+    margin-left: 35px;
+  }
 
+  
+
+  &__top-actions {
+    padding: 0 20px 255px;
+    margin-bottom: 20px;
+    background-image: url(../images/header-mob.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+
+    @include onTablet {
+      background-image: none;
+      padding: 15px 39px 0;
+      margin-bottom: 40;
+    }
+
+    @include onDesktop {
+      background-image: none;
+      padding: 15px 55px 0;
+      margin-bottom: 119px;
+    }
+  }
+  
   &__ivent {
 
-    position: relative;
-    left: 10px;
+    @include onMobile {
+      display: none;
+    }
+
+    @include onDesktop {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+
+    left: 0;
+    bottom: 230px;
+    
     top: 20%;
     transform: rotate(-90deg);
 
@@ -25,24 +70,33 @@
       width: 70px;
       height: 1px;
       background-color: #1A5A4C;
-      
-
     }
-  }
-
-  .test {
-    transform: rotate(-90deg);
+  } 
   }
 
   &__title {
-    font-family: Montserrat;
+    font-family: "Montserrat";
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
 
+   font-size: 26px;
+   text-transform: uppercase;
+
+   @include onTablet {
+    text-align: left;
+    font-size: 20px;
+  }
+
+    @include onDesktop {
+    font-family: "Montserrat";
     font-weight: 700;
     text-align: left;
     font-size: 42px;
     line-height: 1;
     text-transform: uppercase;
   }
+}
 
   &__logo {
     background-image: url(../images/NAMU.png);
@@ -51,49 +105,103 @@
     height: 80px;
     background-position: center;
     background-repeat: no-repeat;
-
     transition: all 0.3s;
-
     padding-top: 15px;
     margin: 0 auto;
-
     margin-left: 510px;
 
     @include theDesign {
       margin-left: 650px;
     }
 
+    @include onMobile {
+      margin: 0 auto;
+    }
+
   }
 
   &__button {
+    display: flex;
+
+    @include onMobile {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 20px;
+      margin-top: 0;
+    }
+
+    @include onDesktop {
     padding-left: 180px;
     padding-top: 38px;
-    display: flex;
     box-sizing: border-box;
     padding-right: 30px;
     margin-top: 51px;
+    }
 
+    @include onTablet {
+    padding-left: 0;
+    padding-top: 35px;
+
+    }
 
     &--text {
+      width: 200px;
+      border: 2px solid #1A5A4C;
+      text-align: center;
+      justify-content: center;
+
+      @include onMobile {
+        height: 46px;
+      }
+      @include onDesktop {
       width: 200px;
       height: 66px;
       border: 2px solid #1A5A4C;
       text-align: center;
       justify-content: center;
+      }
 
+      @include onTablet {
+        width: 140px;
+        height: 45px;
+      }
+
+      
     }
 
     &--button {
+     background-color: #1A5A4C;
+      justify-content: center;
+      @include onMobile {
+        height: 50px;
+        width: 50px;
+        padding-right: 0;
+        padding-left: 0;
+      }
+
+      @include onDesktop {
       padding-right: 30px;
       height: 70px;
       width: 70px;
       background-color: #1A5A4C;
       justify-content: center;
+      padding-right: 0;
+      }
 
+
+      @include onTablet {
+        height: 49px;
+        width: 47px;
+      }
     }
   }
 }
 
+h1 {
+  @include onMobile {
+    margin-bottom: 0;
+  }
+}
 .nav {
   display: flex;
   flex-direction: row;
@@ -104,23 +212,32 @@
     width: 18px;
     height: 12px;
   }
-
-
-
 }
 
 .text {
+
+  @include onMobile {
+    margin-top: 16px;
+  }
+
+  @include onDesktop {
   font-family: IBM Plex Sans;
   font-size: 16px;
   color: #0F0E08;
   text-transform: uppercase;
   justify-content: center;
   margin-top: 22px;
+  }
 
+  @include onTablet {
+    margin-top: 14px;
+  }
+ 
 }
 
 .arrow {
   height: 12px;
   width: 7px;
+  margin: 0 auto;
 
 }

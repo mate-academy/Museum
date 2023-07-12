@@ -1,0 +1,81 @@
+.swiper {
+  max-width: 100%;
+  max-height: 550px;
+
+  &-pagination {
+
+    @include onMobile {
+      display: flex;
+    }
+
+    padding-top: 20px;
+    position: static;
+
+    @include onTablet {
+      padding-top: 30px;
+    }
+  }
+
+  &-pagination-bullet 
+  {
+    @include onMobile {
+      display: flex;
+    }
+    
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    transition: width 0.3s;
+
+    &-active {
+      background-color: black !important;
+    }
+  }
+
+  &-slide {
+
+
+    width: 100%;
+    height: 543px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include onMobile {
+      width: 280px;
+    }
+
+    &--1 {
+      background-image: url(../images/foto1.png);
+      
+    }
+
+    &--2 {
+      background-image: url(../images/foto5.png);
+    }
+
+    &--3 {
+      background-image: url(../images/foto2.png);
+    }
+
+    &--4 {
+      background-position: 80% 0;
+      background-image: url(../images/foto3.png);
+      @include onTablet {
+        background-position: right;
+      }
+
+  }
+  &--5 {
+    background-image: url(../images/foto4.png);
+  }
+}
+
+@include onDesktop {
+  display: none;
+}
+}
+
+.swiper-pagination-bullet:only-child {
+  display: flex!important;
+}
