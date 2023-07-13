@@ -7,6 +7,7 @@ const link1 =  document.querySelector('.item-about');
 const link2 =  document.querySelector('.item-gallery');
 const link3 =  document.querySelector('.item-events');
 const link4 =  document.querySelector('.item-contacts');
+const link5 =  document.querySelector('.bottom__subtitle');
 const btn = document.querySelector('.tickets__row');
 
 burger.addEventListener('click', () => {
@@ -31,6 +32,9 @@ link3.addEventListener('click', () => {
   body.classList.remove('lock');
 });
 link4.addEventListener('click', () => {
+  body.classList.remove('lock');
+});
+link5.addEventListener('click', () => {
   body.classList.remove('lock');
 });
 const swiper = new Swiper('.swiper', {
