@@ -1,0 +1,59 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__track {
+    display: flex;
+    transition: transform 0.3s ease;
+    gap: 20px;
+  }
+
+  &__item {
+    flex: 0 0 100%;
+    width: 100%;
+
+    @include onTablet {
+      flex-basis: calc(50% - 20px);
+      max-width: calc(50% - 20px);
+    }
+  }
+
+  &__image {
+    height: 410px;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+
+    @include onTablet {
+      object-fit: contain;
+      height: auto;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    @include onTablet {
+      margin-top: 32px;
+    }
+  }
+
+  &__pagination-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    margin-right: 22px;
+    cursor: pointer;
+
+    &--active {
+      background-color: $green-color;
+    }
+  }
+}

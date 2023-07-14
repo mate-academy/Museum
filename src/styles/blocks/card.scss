@@ -1,0 +1,242 @@
+.card {
+  @include onTablet {
+    position: relative;
+  }
+
+  &__photo {
+    @include pageGrid;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+
+    height: 210px;
+    margin-bottom: 16px;
+    grid-column: 1/-1;
+
+    @include hover (transform, scale(1.1));
+
+    @include onTablet {
+      height: 520px;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+      grid-column: 1 / 8;
+    }
+
+    &--1 {
+      background-image: url("../images/current-events/current_events-1-small.png");
+
+      @include onTablet {
+        background-image: url("../images/current-events/current_events-1-big.png");
+      }
+    }
+
+    &--2 {
+      background-image: url("../images/current-events/current_events-2-small.png");
+
+      @include onTablet {
+        background-image: url("../images/current-events/current_events-2-big.png");
+      }
+    }
+  }
+
+  &__photo-full {
+    background-image: url("../images/current-events/current_events-3.png");
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 210px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 0;
+    z-index: -1;
+
+    @include hover (transform, scale(1.2));
+
+    @include onTablet {
+      position: relative;
+      min-height: 390px;
+      width: 100%;
+    }
+
+    @include onDesktop {
+      height: 550px;
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__conteiner {
+    grid-column: 1 / -1;
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / 13;
+    }
+  }
+
+  &__wrapper-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+      grid-column: span 2;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+      grid-column: span 3;
+      gap: 30px;
+      justify-content: left;
+    }
+
+    &--padding {
+      padding-inline: 21px;
+
+      @include onTablet {
+        padding-inline: 0;
+      }
+
+      @include onDesktop {
+        grid-column: 1 /-1;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__text {
+    color: #687480;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__data {
+    color: $green-color;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 150%;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__title {
+    color: $font-color-dark;
+    font-family: $font-title;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative;
+    grid-column: 1/-1;
+
+    &::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: #f14a27;
+
+      position: absolute;
+      left: 265px;
+    }
+
+    @include onTablet {
+      font-size: 36px;
+      margin-bottom: 15px;
+
+      &::after {
+        width: 15px;
+        height: 15px;
+        left: 346px;
+      }
+    }
+
+    &--margin {
+      &::after {
+        left: 230px;
+      }
+      @include onTablet {
+        &::after {
+          left: 300px;
+        }
+      }
+    }
+  }
+
+  &__title-not-red {
+    color: $font-color-dark;
+    font-family: $font-title;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    text-align: center;
+    margin-top: 16px;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 36px;
+    }
+  }
+
+  &__content {
+    color: #4e4e4e;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+    grid-column: 1/-1;
+    margin-bottom: 60px;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      margin-bottom: 64px;
+    }
+  }
+
+  &__wrapper {
+    background-color: #fff;
+    margin-top: 153px;
+    padding-block: 20px;
+    grid-column: 1 / -1;
+    box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+
+    @include onTablet {
+      width: 540px;
+      position: absolute;
+      bottom: -120px;
+      left: 50%;
+      transform: translate(-50%);
+      padding: 45px 55px 50px;
+      margin-top: 0;
+    }
+
+    @include onDesktop {
+      width: 570px;
+      padding: 45px 100px 50px;
+    }
+  }
+}
