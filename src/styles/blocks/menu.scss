@@ -1,18 +1,27 @@
 .menu {
-  background-color: $green-color;
+  background-image: linear-gradient(to bottom, #1a5a4c 399px,
+  rgba(24, 24, 26, 0.5) 399px);
+
+  @include onTablet {
+    background-image: linear-gradient(to bottom, #1a5a4c 225px,
+    rgba(24, 24, 26, 0.5) 225px);
+  }
+
+  @include onDesktop {
+    background-image: linear-gradient(to bottom, #1a5a4c 233px,
+    rgba(24, 24, 26, 0.5) 233px);
+  }
 
   &__conteiner {
     @include padding-inline;
-    height: 399px;
+    height: 100vh;
 
     @include onTablet {
-      height: 225px;
       display: flex;
     }
 
     @include onDesktop {
       @include pageGrid;
-      height: 233px;
     }
   }
 
@@ -32,7 +41,7 @@
       display: block;
       background-color: rgba(255, 255, 255, 0.5);
       position: absolute;
-      bottom: -24px;
+      top: 40px;
       left: 0;
     }
 
@@ -108,8 +117,11 @@
   }
 
   &__schedule-text {
+    display: block;
+  }
+
+  &__schedule-text-bold {
     font-weight: 600;
-    display: inline;
   }
 
   &__schedule-on-weekend {

@@ -112,9 +112,12 @@
     margin-bottom: 30px;
   }
 
-  &__shedule-bold {
+  &__schedule-text {
+    display: block;
+  }
+
+  &__schedule-text-bold {
     font-weight: 600;
-    display: inline-block;
   }
 
   &__schedule-on-weekend {
@@ -212,17 +215,39 @@
     }
   }
 
+  &__link {
+    position: relative;
+    transition: transform 0.3s;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $font-color-dark;
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      transform: scaleX(0);
+    }
+
+    &:hover::after {
+      transform: scaleX(100%);
+    }
+  }
+
   &__copyright {
     display: flex;
     flex-direction: column;
     gap: 10px;
 
     grid-column: 1 / -1;
-    margin-bottom: 128px;
+    margin-bottom: 64px;
 
     @include onTablet {
       flex-direction: row;
       justify-content: space-between;
+      margin-bottom: 36px;
     }
 
     @include onDesktop {
