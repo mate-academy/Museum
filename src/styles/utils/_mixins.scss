@@ -16,6 +16,17 @@
   }
 }
 
+@mixin hoverAfterFooter ($_property, $_toValue) {
+  &::after {
+    @extend %after-underline-footer;
+    transform: scale(0);
+    transition: #{$_property} 0.5s;
+  }
+  &:hover::after {
+    #{$_property}: $_toValue;
+  }
+}
+
 @mixin onDesctop {
   @media (min-width: 1280px) {
     @content;
