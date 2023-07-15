@@ -1,27 +1,18 @@
 .menu {
-  background-image: linear-gradient(to bottom, #1a5a4c 399px,
-  rgba(24, 24, 26, 0.5) 399px);
-
-  @include onTablet {
-    background-image: linear-gradient(to bottom, #1a5a4c 225px,
-    rgba(24, 24, 26, 0.5) 225px);
-  }
-
-  @include onDesktop {
-    background-image: linear-gradient(to bottom, #1a5a4c 233px,
-    rgba(24, 24, 26, 0.5) 233px);
-  }
+  background-color: $green-color;
 
   &__conteiner {
     @include padding-inline;
-    height: 100vh;
+    height: 399px;
 
     @include onTablet {
       display: flex;
+      height: 225px;
     }
 
     @include onDesktop {
       @include pageGrid;
+      height: 233px;
     }
   }
 
@@ -41,7 +32,7 @@
       display: block;
       background-color: rgba(255, 255, 255, 0.5);
       position: absolute;
-      top: 40px;
+      top: 123px;
       left: 0;
     }
 
@@ -55,6 +46,7 @@
         bottom: -8px;
         left: auto;
         right: -38px;
+        top: 40px;
       }
     }
 
@@ -81,11 +73,16 @@
     background-repeat: no-repeat;
   }
 
-  @include onTablet {
-    &__wrapper {
+  &__wrapper {
+    @include onTablet {
       display: grid;
       gap: 38px;
       grid-auto-flow: column;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
     }
   }
 
@@ -106,14 +103,22 @@
   &__title {
     font-size: 14px;
     line-height: 140.63%;
-    margin-block: 40px 20px;
+    margin-bottom: 20px;
     font-weight: 400;
+
+    @include onTablet {
+      padding-top: 40px;
+    }
   }
 
   &__schedule {
     line-height: 150%;
     margin-bottom: 16px;
     font-weight: 400;
+
+    @include onDesktop {
+      grid-column: span 2;
+    }
   }
 
   &__schedule-text {
@@ -126,5 +131,14 @@
 
   &__schedule-on-weekend {
     line-height: 150%;
+
+    @include onDesktop {
+      grid-column: span 2;
+    }
+  }
+
+  &__schedule-on-weekend-text {
+    display: inline-block;
+    font-weight: 600;
   }
 }
