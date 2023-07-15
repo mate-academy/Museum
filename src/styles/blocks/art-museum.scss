@@ -1,0 +1,90 @@
+.art-museum {
+  grid-column: 1 /-1;
+
+  @include onTablet {
+    grid-column: 1 / 4;
+  }
+
+  @include onDesktop {
+    grid-column: 1 / 6;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 30px;
+  }
+
+  &__title {
+    margin-top: 269px;
+    font-family: $font-title;
+    font-size: 45px;
+    line-height: 100%;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin: 64px 0 38px;
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin: 143px 0 89px;
+      grid-column: 1 /-1;
+    }
+  }
+
+  &__buy {
+    position: relative;
+    border: 1px solid $green-color;
+    padding: 18px 0 18px 80px;
+    margin-bottom: 70px;
+
+    @include onTablet {
+      max-width: 270px;
+      padding: 27px 0 27px 68px;
+      margin-bottom: 107px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+      grid-column: 3 / 6;
+    }
+  }
+
+  &__buy-text {
+    font-size: 14px;
+    line-height: 100%;
+    font-weight: 500;
+    text-align: left;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 16px;
+    }
+  }
+
+  &__buttom {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    height: 50px;
+    width: 50px;
+
+    background-color: $green-color;
+    background-image: url("../images/baseline-keyboard_arrow_right-white.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include hover (transform, scale(1.1));
+    @include hover (background-color, #f14a27);
+
+    @include onTablet {
+      height: 70px;
+      width: 70px;
+    }
+  }
+}

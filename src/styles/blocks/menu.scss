@@ -1,0 +1,144 @@
+.menu {
+  background-color: $green-color;
+
+  &__conteiner {
+    @include padding-inline;
+    height: 399px;
+
+    @include onTablet {
+      display: flex;
+      height: 225px;
+    }
+
+    @include onDesktop {
+      @include pageGrid;
+      height: 233px;
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    column-gap: 28px;
+
+    padding-top: 27px;
+    margin-bottom: 49px;
+    position: relative;
+
+    &::after {
+      content: "";
+      height: 1px;
+      width: 100%;
+      display: block;
+      background-color: rgba(255, 255, 255, 0.5);
+      position: absolute;
+      top: 123px;
+      left: 0;
+    }
+
+    @include onTablet {
+      column-gap: 38px;
+      padding-top: 39px;
+
+      &::after {
+        height: 145px;
+        width: 1px;
+        bottom: -8px;
+        left: auto;
+        right: -38px;
+        top: 40px;
+      }
+    }
+
+    @include onDesktop {
+      column-gap: 102px;
+      grid-column: 1 / 6;
+
+      &::after {
+        height: 145px;
+        width: 1px;
+        bottom: -8px;
+        left: auto;
+        right: -102px;
+      }
+    }
+  }
+
+  &__icon-close {
+    background-image: url("../images/close.svg");
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__wrapper {
+    @include onTablet {
+      display: grid;
+      gap: 38px;
+      grid-auto-flow: column;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__bottom {
+    color: #fff;
+    font-size: 14px;
+
+    @include onTablet {
+      margin-left: 77px;
+    }
+
+    @include onDesktop {
+      grid-column: 8 /12;
+      margin-left: 0;
+    }
+  }
+
+  &__title {
+    font-size: 14px;
+    line-height: 140.63%;
+    margin-bottom: 20px;
+    font-weight: 400;
+
+    @include onTablet {
+      padding-top: 40px;
+    }
+  }
+
+  &__schedule {
+    line-height: 150%;
+    margin-bottom: 16px;
+    font-weight: 400;
+
+    @include onDesktop {
+      grid-column: span 2;
+    }
+  }
+
+  &__schedule-text {
+    display: block;
+  }
+
+  &__schedule-text-bold {
+    font-weight: 600;
+  }
+
+  &__schedule-on-weekend {
+    line-height: 150%;
+
+    @include onDesktop {
+      grid-column: span 2;
+    }
+  }
+
+  &__schedule-on-weekend-text {
+    display: inline-block;
+    font-weight: 600;
+  }
+}

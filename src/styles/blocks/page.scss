@@ -1,0 +1,79 @@
+.page {
+  background-color: #fff;
+  scroll-behavior: smooth;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 100%;
+  color: $font-color-dark;
+
+  &__body {
+    min-width: 320px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header"
+      "main"
+      "footer";
+    overflow-x: hidden;
+
+    &--with-menu {
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.25);
+      pointer-events: none;
+    }
+  }
+
+  &__art-museum {
+    position: absolute;
+    top: 20px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+
+    transition: all $transition-duration;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  &__subscription {
+    height: 386px;
+    margin-block: 100px 50px;
+    background-image: url("../images/bgi-subscription-1.png");
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 380px;
+      margin: 92px 0 51px;
+    }
+
+    @include onDesktop {
+      height: 550px;
+      margin: 200px 0 47px;
+    }
+  }
+
+  &__footer {
+    padding-top: 50px;
+    @include padding-inline;
+
+    @include onTablet {
+      padding-top: 51px;
+    }
+  }
+}
