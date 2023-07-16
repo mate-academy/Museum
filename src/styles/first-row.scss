@@ -1,0 +1,55 @@
+.first-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+
+  @include onDesktop {
+    @include pageGrid;
+  }
+
+  &__image {
+    &--1 {
+      height: 410px;
+      margin-inline: auto;
+
+      @include onTablet {
+        margin: 0;
+        height: 543px;
+      }
+
+      @include onDesktop {
+        grid-column: span 4;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &--2 {
+      grid-column: span 8;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &--hidden {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+
+      &--desktop {
+        display: none;
+
+        @include onTablet {
+          display: block;
+        }
+
+        @include onDesktop {
+          display: none;
+        }
+      }
+    }
+  }
+}
