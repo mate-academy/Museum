@@ -1,0 +1,228 @@
+.header {
+  position: relative;
+
+  padding-top: 9px;
+
+  @include onTablet {
+    padding-top: 15px;
+  }
+
+  &__top {
+    position: relative;
+
+    margin-bottom: 250px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 120px;
+    }
+  }
+
+  &__menu-opener {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 24px;
+    height: 24px;
+
+    background-image: url(../images/icons/burger.svg);
+    background-size: 18px 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    transition: background-image $duration;
+    will-change: background-image;
+
+    &:hover {
+      background-image: url(../images/icons/burger-red.svg);
+    }
+  }
+
+  &__logo-wrapper {
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      grid-column: 4 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin-bottom: 38px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__tickets {
+    --arrowBlockWidth: 50px;
+
+    position: relative;
+
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--arrowBlockWidth);
+    padding-right: var(--arrowBlockWidth);
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: $darkColor;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid $darkGreenColor;
+
+    @include onTablet {
+      --arrowBlockWidth: 70px;
+
+      grid-column: 1 / 4;
+      width: 270px;
+      margin-bottom: 6px;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 6;
+      width: 100%;
+      margin-bottom: 98px;
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      display: block;
+      content: "";
+      width: var(--arrowBlockWidth);
+      height: 100%;
+
+      background-color: $darkGreenColor;
+      background-image: url(../images/icons/arrow-grey.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+
+      will-change: right;
+    }
+
+    &:hover::after {
+      animation: moveLeftRight $duration * 2;
+    }
+
+    @keyframes moveLeftRight {
+      0% {
+        right: 0;
+      }
+
+      50% {
+        right: calc(var(--arrowBlockWidth) / 2);
+      }
+
+      100% {
+        right: 0;
+      }
+    }
+  }
+
+  &__events {
+    $fontSize: 14px;
+
+    position: relative;
+
+    display: none;
+    align-items: center;
+
+    font-weight: 700;
+    font-size: $fontSize;
+    line-height: 100%;
+    color: $greyColor;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    will-change: bottom;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      display: flex;
+      width: max-content;
+      visibility: hidden;
+    }
+
+    @include onDesktop {
+      visibility: visible;
+      transform-origin: left bottom;
+      transform: translateX($fontSize) rotateZ(-90deg);
+    }
+
+    &::before {
+      display: block;
+      content: "";
+      width: 70px;
+      height: 1px;
+      margin-right: 20px;
+
+      background-color: $darkGreenColor;
+    }
+
+    &:hover {
+      animation: moveDownUp $duration * 2;
+    }
+
+    @keyframes moveDownUp {
+      0% {
+        top: 0;
+      }
+
+      50% {
+        top: 20px;
+      }
+
+      100% {
+        top: 0;
+      }
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    height: 300px;
+
+    background-image: url(../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.jpg);
+    background-size: cover;
+    background-position: center;
+
+    @include onTablet {
+      left: 51%;
+      bottom: 0;
+
+      height: auto;
+    }
+
+    @include onDesktop {
+      left: 43%;
+    }
+  }
+}

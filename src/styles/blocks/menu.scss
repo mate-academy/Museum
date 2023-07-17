@@ -1,0 +1,138 @@
+.menu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  z-index: 2;
+
+  padding: 28px 0;
+
+  background-color: $darkGreenColor;
+
+  transition: transform $duration;
+
+  @include onTablet {
+    padding: 40px 0;
+  }
+
+  @include onDesktop {
+    padding: 40px 0 48px;
+  }
+
+  &--open {
+    transform: translateY(100%);
+  }
+
+  &__content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+
+    line-height: 100%;
+    color: #fff;
+
+    @include onTablet {
+      flex-direction: row;
+      column-gap: 38px;
+      row-gap: 0;
+    }
+
+    @include onDesktop {
+      column-gap: 102px;
+    }
+  }
+
+  &__cross {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 24px;
+    height: 24px;
+
+    background-image: url(../images/icons/cross.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    transition: transform $duration;
+    will-change: transform;
+
+    @include onTablet {
+      position: static;
+    }
+
+    &:hover {
+      transform: rotateZ(90deg);
+    }
+  }
+
+  &__nav {
+    align-self: end;
+    margin-left: 48px;
+
+    font-weight: 500;
+
+    @include onTablet {
+      align-self: start;
+      margin-left: 0;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 28px;
+    row-gap: 24px;
+
+    list-style-type: none;
+
+    &:nth-child(2n) {
+      grid-column: 2 / 3;
+    }
+  }
+
+  &__line {
+    &::after {
+      display: block;
+      content: "";
+      height: 1px;
+
+      background-color: rgba(255, 255, 255, 0.5);
+
+      @include onTablet {
+        width: 1px;
+        height: 100%;
+      }
+    }
+  }
+
+  &__info {
+    display: grid;
+    row-gap: 16px;
+
+    font-size: 14px;
+    line-height: 150%;
+
+    @include onTablet {
+      grid-template-columns: auto auto;
+      column-gap: 38px;
+    }
+  }
+
+  &__info-title {
+    @include onTablet {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__info-list {
+    list-style-type: none;
+  }
+
+  &__bold {
+    font-weight: 600;
+  }
+}

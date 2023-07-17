@@ -1,0 +1,230 @@
+.footer {
+  padding: 50px 0 56px;
+
+  font-size: 14px;
+  line-height: 100%;
+  color: $darkColor;
+
+  @include onTablet {
+    padding-bottom: 36px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 1 / -1;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      row-gap: 62px;
+      grid-column: 1 / 2;
+      margin-bottom: 0;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    column-gap: 20px;
+  }
+
+  &__social-link {
+    display: block;
+    content: "";
+    width: 24px;
+    height: 24px;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: background-image $duration;
+    will-change: background-image;
+
+    &:nth-child(1) {
+      background-image: url(../images/icons/facebook.svg);
+    }
+
+    &:nth-child(2) {
+      background-image: url(../images/icons/instagram.svg);
+    }
+
+    &:hover {
+      &:nth-child(1) {
+        background-image: url(../images/icons/facebook-red.svg);
+      }
+
+      &:nth-child(2) {
+        background-image: url(../images/icons/instagram-red.svg);
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    line-height: 150%;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+
+    &:nth-child(2) {
+      @include onTablet {
+        grid-column: 2 / 4;
+      }
+
+      @include onDesktop {
+        grid-column: 3 / 5;
+      }
+    }
+
+    &:nth-child(3) {
+      @include onTablet {
+        grid-column: 4 / 6;
+      }
+
+      @include onDesktop {
+        grid-column: 5 / 7;
+      }
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__bold {
+    font-weight: 600;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+
+    transition: color $duration;
+
+    &:hover {
+      color: $redColor;
+    }
+  }
+
+  &__to-up-wrapper {
+    grid-column: 1 / -1;
+    text-align: right;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__to-up {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+
+    border: 1px solid $darkGreenColor;
+    border-radius: 50%;
+    background-image: url(../images/icons/arrow-up.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__line {
+    grid-column: 1 / -1;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 8;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    &::before {
+      display: block;
+      content: "";
+      height: 1px;
+      background-color: rgba(26, 90, 76, 0.5);
+
+      @include onDesktop {
+        width: 1px;
+        height: 100%;
+      }
+    }
+  }
+
+  &__nav {
+    &:nth-last-child(2) {
+      @include onTablet {
+        grid-column: 2 / 4;
+      }
+
+      @include onDesktop {
+        grid-column: 8 / 10;
+      }
+    }
+
+    &:nth-last-child(1) {
+      @include onTablet {
+        grid-column: 4 / 6;
+      }
+
+      @include onDesktop {
+        grid-column: 10 / 12;
+      }
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 18px;
+
+    list-style-type: none;
+  }
+
+  &__grid-bottom {
+    margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 120px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 88px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 140%;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      row-gap: 0;
+    }
+  }
+}
