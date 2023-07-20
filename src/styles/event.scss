@@ -1,0 +1,88 @@
+.event {
+  align-items: center;
+
+  @include pageGrid;
+
+  &__image {
+    display: block;
+    width: 100%;
+    grid-column: 1 / -1;
+    transition: scale 0.3s;
+
+    @include hover (transform, scale(1.05));
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__date {
+    margin: 0;
+    color: $accent-color;
+    font-family: $text-font-family;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 150%;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__rect {
+    width: 10px;
+    height: 10px;
+    background: $event-square-color;
+
+    @include onTablet {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    color: $text-color;
+    font-family: $text-font-family;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__description-top {
+    display: flex;
+    flex-direction: row;
+    gap: 55px;
+    align-items: center;
+
+    @include onTablet {
+      justify-content: left;
+      gap: 20px;
+    }
+
+    &--title {
+      margin-block: 10px;
+      gap: 10px;
+
+      @include onTablet {
+        gap: 15px;
+        margin-block: 32px 15px;
+      }
+    }
+  }
+}

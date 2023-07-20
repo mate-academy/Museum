@@ -1,0 +1,191 @@
+.header {
+  &__content {
+    position: relative;
+    @include pageGrid;
+
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__menu {
+    width: 24px;
+    height: 24px;
+    bottom: 0;
+    margin-top: 27px;
+    z-index: 1;
+    padding-left: 20px;
+
+    @include onTablet {
+      margin-top: 39px;
+    }
+
+    &--icon {
+      justify-items: center;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+
+      @include hover (transform, scale(1.2));
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    grid-column: span 2;
+
+    @include onTablet {
+      padding-left: 34px;
+      grid-column: span 3;
+    }
+
+    @include onDesktop {
+      padding-left: 55px 0;
+      grid-column: span 5;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    padding-top: 269px;
+    font-family: $title-font-family;
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+    color: #000;
+    text-transform: uppercase;
+    line-height: 100%;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: start;
+      padding-top: 64px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      padding-top: 143px;
+    }
+  }
+
+  &__button {
+    width: 280px;
+    height: 50px;
+    display: flex;
+    padding-top: 20px;
+    margin: 0 auto;
+    transition: all 0.3s;
+
+    @include onTablet {
+      padding-top: 38px;
+      margin: 0;
+      width: 272px;
+      height: 70px;
+    }
+
+    @include onDesktop {
+      padding-top: 89px;
+      padding-left: 201px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &-text {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 230px;
+      height: 50px;
+      border: 1px solid $accent-color;
+
+      font-family: $text-font-family;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center;
+      color: $title-color;
+      text-transform: uppercase;
+      transition: all 0.3s;
+
+      cursor: pointer;
+
+      @include onTablet {
+        width: 202px;
+        height: 70px;
+      }
+    }
+
+    &-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background-color: $accent-color;
+      cursor: pointer;
+
+      @include onTablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s;
+
+    @include hover (transform, scale(1.2));
+  }
+
+  &__right {
+    position: relative;
+    grid-column: span 2;
+    top: -480px;
+    height: 0;
+
+    @include onTablet {
+      top: 0;
+      grid-column: span 3;
+      height: 100%;
+    }
+
+    @include onDesktop {
+      grid-column: span 7;
+    }
+  }
+
+  &__side-nav {
+    display: none;
+
+    @include onDesktop {
+      position: absolute;
+      bottom: 0;
+      display: inline-flex;
+      gap: 20px;
+      align-items: center;
+      flex-direction: column;
+      width: 14px;
+    }
+
+    &--line {
+      width: 1px;
+      height: 70px;
+      background-color: $accent-color;
+    }
+
+    &--title {
+      text-decoration: none;
+      text-transform: lowercase;
+      transform: rotate(-90deg);
+      transform-origin: bottom 0;
+    }
+  }
+}
