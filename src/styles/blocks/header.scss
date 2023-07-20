@@ -5,6 +5,10 @@
     display: inline-block;
     margin-top: 28px;
     z-index: 1;
+
+    @include onTablet {
+      margin-top: 40px;
+    }
   }
 
   &__wrap {
@@ -16,34 +20,71 @@
     }
   }
 
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background-image: url(../images/header/museum-mobile.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+
+    @include onTablet {
+      left: 50%;
+      width: 50%;
+      height: 384px;
+      background-image: url(../images/header/museum-tablet.jpg);
+    }
+
+    @include onDesktop {
+      left: 50%;
+      height: 655px;
+      background-image: url(../images/header/museum-desktop.jpg);
+    }
+  }
+
   &__top {
     position: relative;
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 0;
-    padding-bottom: 100%;
-    background-image: url(../images/header/museum-mobile.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    height: 300px;
+
+    @include onTablet {
+      flex: 1;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      height: 655px;
+    }
   }
 
   &__bottom {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: $onMobile;
     margin: 0 auto;
 
     @include onTablet {
-      width: 360px;
+      flex: 1;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding-bottom: 14px;
+    }
+
+    @include onDesktop {
+      justify-content: center;
     }
   }
 
   &__page-title {
     position: absolute;
-    margin-top: 10px;
+    top: 10px;
     color: $header-font-color;
     text-align: center;
     font-family: $header-font;
@@ -53,8 +94,9 @@
     line-height: 100%;
 
     @include onTablet {
-      margin-top: 10px;
+      top: 15px;
       left: 80px;
+      font-size: 36px;
     }
   }
 
@@ -67,11 +109,31 @@
     font-style: normal;
     font-weight: 700;
     line-height: 100%;
+
+    @include onTablet {
+      padding: 38px 0;
+      font-size: 54px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%; /* 64.8px */
+      text-align: left;
+    }
+
+    @include onDesktop {
+      padding: 90px 0;
+      font-size: 72px;
+    }
   }
 
   &__ticket {
     &--wrap {
       display: flex;
+      justify-content: flex-end;
+
+      @include onDesktop {
+        width: 100%;
+        padding-right: 30px;
+      }
     }
 
     &--btn {
@@ -93,7 +155,7 @@
       }
 
       @include onTablet {
-        padding: 18px 64px;
+        padding: 27px 64px;
       }
     }
 
@@ -104,6 +166,39 @@
       width: 54px;
       height: 54px;
       background-color: $background-color;
+
+      @include onTablet {
+        width: 72px;
+        height: 72px;
+      }
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @include onDesktop {
+      position: absolute;
+      bottom: 104px;
+      display: block;
+      color: #687480;
+      font-family: $content-font;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%;
+      transform: rotate(-90deg);
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -90px;
+        top: 6px;
+        display: block;
+        width: 70px;
+        height: 1px;
+        background: #1a5a4c;
+      }
     }
   }
 }
