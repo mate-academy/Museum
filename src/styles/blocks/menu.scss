@@ -1,0 +1,140 @@
+.menu {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  background-color: $colorGreen;
+  color: #fff;
+
+  @include onTablet {
+    height: 225px;
+  }
+
+  @include onDesktop {
+    height: 233px;
+  }
+
+  &__content {
+    margin-top: 33px;
+    @include onTablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__list {
+    margin: -24px 33px 24px;
+
+    @include onTablet {
+      width: 30%;
+    }
+
+    @include onDesktop {
+      width: 40%;
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    line-height: 100%;
+    margin-bottom: 24px;
+  }
+
+  &__li {
+    display: flex;
+    align-items: center;
+    flex-basis: 50%;
+  }
+
+  &__link {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.5s;
+
+    &:hover {
+      text-decoration: underline;
+      color: $textColor;
+    }
+
+    @include onDesktop {
+      font-size: 22px;
+      line-height: 100%;
+    }
+  }
+
+  &__schedule {
+    font-size: 16px;
+    line-height: 23px;
+
+    border-top: 1px solid #fff;
+    padding-top: 24px;
+
+    @include onTablet {
+      width: 39%;
+      border-top: 0;
+      border-left: 1px solid #fff;
+      padding: 0 40px;
+    }
+
+    &--title {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140.62%;
+      margin-bottom: 20px;
+    }
+
+    &--days {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+      margin-bottom: 16px;
+    }
+
+    &--marked {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 150%;
+    }
+  }
+
+  &__weekend {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    padding-bottom: 27px;
+
+    @include onTablet {
+      width: 25%;
+      padding-top: 45px;
+    }
+
+    @include onDesktop {
+      width: 20%;
+      padding-top: 30px;
+    }
+  }
+}
