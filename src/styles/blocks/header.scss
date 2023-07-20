@@ -1,3 +1,109 @@
 .header {
-  display: block;
+  &__menu-icon {
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    margin-top: 28px;
+    z-index: 1;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-image: url(../images/header/museum-mobile.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: $onMobile;
+    margin: 0 auto;
+
+    @include onTablet {
+      width: 360px;
+    }
+  }
+
+  &__page-title {
+    position: absolute;
+    margin-top: 10px;
+    color: $header-font-color;
+    text-align: center;
+    font-family: $header-font;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onTablet {
+      margin-top: 10px;
+      left: 80px;
+    }
+  }
+
+  &__title {
+    padding: 20px 0;
+    color: #000;
+    text-align: center;
+    font-family: $header-font;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+  }
+
+  &__ticket {
+    &--wrap {
+      display: flex;
+    }
+
+    &--btn {
+      padding: 18px 80px;
+      color: $header-font-color;
+      font-family: $content-font;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100%;
+      background-color: transparent;
+      border: 1px solid $border-color;
+      transition: color 300ms, background-color 300ms;
+      cursor: pointer;
+
+      &:hover {
+        color: #fff;
+        background-color: $background-color;
+      }
+
+      @include onTablet {
+        padding: 18px 64px;
+      }
+    }
+
+    &--label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 54px;
+      height: 54px;
+      background-color: $background-color;
+    }
+  }
 }

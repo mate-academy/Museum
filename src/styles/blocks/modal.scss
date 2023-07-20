@@ -5,6 +5,16 @@
   bottom: 0;
   left: 0;
   background-color: $modal-secondary-background-color;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms;
+  z-index: 4;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    overflow: hidden;
+  }
 
   &__outer {
     display: flex;
@@ -41,6 +51,7 @@
   }
 
   &__close {
+    display: block;
     width: 24px;
     height: 24px;
     margin-right: 28px;
