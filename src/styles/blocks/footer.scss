@@ -5,18 +5,35 @@
   }
   &__top {
     grid-column: span 2;
+
+    @include onTablet {
+      grid-column: 2 / span 3;
+    }
   }
 
   &__bottom {
     padding-top: 80px;
     padding-bottom: 60px;
 
+    display: flex;
+    flex-direction: column;
+
     grid-column: span 2;
 
-    place-self: center;
+    place-items: center;
 
+    @include onTablet {
 
-    text-align: center;
+      justify-content: space-between;
+
+      flex-direction: row;
+
+      grid-column: span 6;
+    }
+
+    @include onDesktop {
+      grid-column: span 12;
+    }
   }
 
   &__text {
@@ -24,6 +41,8 @@
     font-size: 12px;
     font-weight: 300;
     line-height: 17px;
+
+    text-align: center;
   }
 }
 

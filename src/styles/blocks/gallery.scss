@@ -4,6 +4,61 @@
   &__picture {
     width: 100%;
 
+    @include hover(box-shadow, 0.3s);
+    @include hover(scale, 0.3s);
+
+    &:hover {
+      box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+
+      scale: 1.005;
+    }
+
     grid-column: span 2;
+
+    @include onTablet {
+      grid-column: span 3;
+    }
+
+    @include onDesktop {
+      grid-column: span 4;
+    }
+
+    &--2 {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--3 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: span 8;
+      }
+    }
+
+    &--4 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: span 8;
+      }
+    }
+
+    &--5 {
+      display: none;
+
+
+      @include onDesktop {
+        display: block;
+      }
+    }
   }
 }

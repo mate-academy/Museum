@@ -1,15 +1,18 @@
 .nav {
   &__links {
     @include pageGrid;
-    padding-top: 27px;
     row-gap: 28px;
     column-gap: 24px;
 
     padding-bottom: 24px;
 
+    grid-template-rows: 18px;
+
     &--footer {
       padding: 0;
-      padding-top: 40px;
+
+      row-gap: 20px;
+      column-gap: 20px;
     }
   }
 
@@ -24,8 +27,22 @@
     font-weight: 500;
     line-height: 100%;
 
+    grid-column: span 1;
+
+    @include onTablet {
+      grid-column: span 3;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+
     &--footer {
       color: #000;
+
+      font-weight: normal;
+
+      font-size: 14px;
     }
   }
 }

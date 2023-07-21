@@ -13,6 +13,13 @@
 
     grid-column: span 2;
 
+    @include onTablet {
+      grid-column: span 6;
+    }
+    @include onDesktop {
+      grid-column: 4/ span 6;
+    }
+
     color: #fff;
   }
 
@@ -26,6 +33,14 @@
     grid-column: span 2;
 
     color: #fff;
+
+    @include onTablet {
+      grid-column: span 6;
+    }
+
+    @include onDesktop {
+      grid-column: 4/ span 6;
+    }
   }
 
   &__form {
@@ -36,6 +51,15 @@
     height: 50px;
 
     grid-column: span 2;
+
+    @include onTablet {
+      grid-column: 2/ span 4;
+      gap: 16px;
+    }
+    @include onDesktop {
+      grid-column: 4/ span 6;
+      gap: 30px;
+    }
   }
 
   &__input {
@@ -45,13 +69,27 @@
     border: 0px solid white;
     box-sizing: border-box;
     height: 50px;
+    padding-left: 32px;
+
+    @include onTablet {
+      height: 70px;
+      width: 87%;
+    }
 
     &:focus {
-      width: 80%;
       background-color: #fff;
       resize: none;
       padding: 0;
       margin: 0;
+      padding-left: 32px;
+
+    }
+
+    &::placeholder {
+      font-family: "Montserrat";
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 100%;
     }
   }
 
@@ -68,6 +106,12 @@
     width: 20%;
 
     border: none;
+
+    @include onTablet {
+       height: 70px;
+
+       width: 13%;
+    }
   }
 
   &__bg {
@@ -84,5 +128,16 @@
 
   margin-top: 100px;
 
+    @include onTablet {
+      height: 380px;
+    }
   }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #0F0E08;
+    -webkit-box-shadow: 0 0 0px 40rem #fff inset;
+  }
+
 }
