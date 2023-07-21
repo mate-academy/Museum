@@ -1,0 +1,89 @@
+.header {
+  height: min-content;
+  position: relative;
+  margin-bottom: 70px;
+
+  &::after {
+    content: "";
+    display: block;
+    min-height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-image: url(../images/background.jpg);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    //padding-bottom: 30%;
+    
+  }
+
+  @include onTablet {
+    height: 384px;
+    margin-bottom: 88px;
+
+    &::after {
+      height: 384px;
+      top: 0;
+      left: 56.5%;
+    }
+  }
+
+  @include onDesktop {
+    height: 654px;
+    margin-bottom: 200px;
+
+    &::after {
+      height: 654px;
+      left: 42.3%;
+    }
+  }
+
+  &__content {
+    padding-top: $header-top-padding-mobile;
+
+    @include onTablet {
+      padding-top: $header-top-padding-desktop;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+    padding-bottom: 20px;
+  
+    @include onTablet {
+      padding-bottom: 38px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 89px;
+    }
+  }
+
+  &__events {
+    display: none;
+    position: absolute;
+    top: 522px;
+
+    &--title {
+      @extend %h5;
+    }
+
+    &--line {
+      width: 70px;
+      border: 1px solid $main-color;
+      position: absolute;
+      right: 60px;
+      top: 5px;
+    }
+    
+    @include onDesktop {
+      display: inline-block;
+      transition: transform 800ms;
+      transform: rotate(-90deg);
+      
+    }
+  }
+}

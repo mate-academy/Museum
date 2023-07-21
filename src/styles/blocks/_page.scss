@@ -1,0 +1,52 @@
+.page {
+  scroll-behavior: smooth;
+  
+  
+  &__body {
+    margin: 0 auto;
+    max-width: 1440px;
+    background: $pageBackground;
+    font-family: "IBM Plex Sans Light", sans-serif;
+    
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+  
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    transition: transform $transition-duration-speed;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section:not(:last-child) {
+    margin-bottom: 100px;
+    
+    @include onTablet {
+      margin-bottom: 88px;
+    }
+
+    @include onTablet {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__section-title {
+    padding-bottom: 40px;
+
+    @include onTablet {
+      padding-bottom: 48px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 56px;
+    }
+  }
+}
