@@ -17,10 +17,13 @@
   }
 
   &__link {
+    position: relative;
     padding: 0;
     margin: 0;
     text-decoration: none;
     color: #fff;
+
+    height: 20px;
 
     font-family: "IBM Plex Sans";
     font-size: 16px;
@@ -35,6 +38,43 @@
 
     @include onDesktop {
       grid-column: span 6;
+
+      font-size: 22px;
+    }
+
+    &--header {
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: #fff;
+
+        transition: transform 0.3s;
+        transform: scale(0);
+        transform-origin: left;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+
+      &--1 {
+          width: 67%;
+      }
+      &--2 {
+        width: 68%;
+      }
+
+      &--3 {
+        height: 38px;
+      }
+
+      &--4 {
+        width: 78%;
+      }
     }
 
     &--footer {
