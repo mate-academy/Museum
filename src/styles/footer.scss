@@ -1,4 +1,5 @@
 .footer {
+  position: relative;
   background-color: #fff;
   // width: 100%;
   width: 1280px;
@@ -40,7 +41,7 @@
 
   &-title {
     color: #0f0e08;
-    font-family: "Montserrat", sans-serif ;
+    font-family: "Montserrat", sans-serif;
     font-style: normal;
     text-transform: uppercase;
     font-size: 36px;
@@ -80,50 +81,52 @@
   position: relative;
   display: flex;
   width: 100%;
-  // justify-content: space-around;
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 300;
   line-height: 100%;
 
-  // flex-direction: row;
   @include onMob {
     display: block;
   }
 
   &-content {
     display: flex;
+    transition: 0.5s;
+
+    &-block {
+      transition: 0.5s;
+
+      &:hover {
+        scale: 120%;
+
+      }
+    }
 
     &--text {
-      width: 100%;
+      width: max-content;
       color: #000;
-      /* 16px */
+      text-decoration: none;
+      transition: 0.5s;
     }
 
     &--adres {
+      display: inline;
       width: 220px;
       color: #0f0e08;
       font-weight: 300;
       line-height: 150%;
+      transition: 0.2s;
+      text-decoration: none;
 
       @include onMob {
         width: 128px;
+      }
 
-        &::after {
-          position: absolute;
-          cursor: pointer;
-          content: "";
-          width: 70px;
-          height: 70px;
-          bottom: 100px;
-          right: 0;
-          border-radius: 50%;
-          border: 2px solid rgba(26, 90, 76, 0.5);
-          background-image: url(../images/carbon_arrow-up.svg);
-          background-repeat: no-repeat;
-          background-position: center;
-        }
+      &:hover {
+        scale: 140%;
+        color: red;
       }
     }
   }
@@ -137,7 +140,7 @@
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  margin-right: 5px;
+  margin-right: 25px;
 
   @include onMob {
     width: 130px;
@@ -206,5 +209,30 @@
     margin-bottom: 128px;
     text-align: center;
     gap: 10px;
+  }
+}
+
+.button-arrow {
+  display: none;
+
+  @include onMob {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    content: "";
+    width: 70px;
+    height: 70px;
+    bottom: 290px;
+    right: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(26, 90, 76, 0.5);
+    background-image: url(../images/carbon_arrow-up.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.5s;
+
+    &:hover {
+      scale: 105%;
+    }
   }
 }
