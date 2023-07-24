@@ -1,0 +1,53 @@
+.nav {
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 24px;
+  column-gap: 28px;
+
+  &__section {
+    position: relative;
+    text-decoration: none;
+
+    &::after {
+      position: absolute;
+      content: "";
+      background-color: $background-color;
+      width: 100%;
+      height: 1px;
+      bottom: -5px;
+      left: 0;
+      transition: all $transition-time;
+
+      transform: scale(0);
+      transform-origin: center;
+    }
+
+    &--black {
+      &::after {
+        background-color: $font-color;
+      }
+    }
+
+    &:hover {
+      &::after {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: inherit;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+
+    &--bottom {
+      font-size: inherit;
+      font-weight: inherit;
+    }
+  }
+}

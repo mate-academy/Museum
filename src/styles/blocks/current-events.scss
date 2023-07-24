@@ -1,0 +1,85 @@
+.current-events {
+  @include contentPaddingInline;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    @include onTablet {
+      gap: 64px;
+    }
+
+    @include onDesktop {
+      gap: 104px;
+    }
+  }
+
+  &__block {
+    @include pageGrid;
+
+    &__img {
+      grid-column: 1 / -1;
+      width: 100%;
+      padding-bottom: 16px;
+
+      @include hover (transform, scale(1.05));
+
+      @include onTablet {
+        padding-bottom: 44px;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 8;
+        padding-bottom: 0;
+      }
+    }
+
+    &__article {
+      align-self: center;
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      @include onTablet {
+        grid-column: 1 / 5;
+        gap: 32px;
+      }
+      
+      @include onDesktop {
+        grid-column: 9 / -1;
+      }
+    }
+
+    &__top {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      @include onTablet {
+        justify-content: left;
+        gap: 30px;
+      }
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      @include onTablet {
+        gap: 15px;
+      }
+
+      &__text {
+        color: $info-text-color;
+        font-family: $font-family2;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 150%;
+      }
+    }
+  }
+}

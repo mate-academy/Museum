@@ -1,0 +1,105 @@
+.menu {
+  max-width: $desktop-width;
+  height: 100%;
+  background-color: rgba(36, 36, 39, 0.5);
+
+  &__container {
+    background-color: $background-color1;
+    color: $background-color;
+    font-family: $font-family2;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    padding-block: $paddingTopHeaderMobile;
+    @include contentPaddingInline;
+    @include pageGrid;
+  
+    @include onTablet {
+      padding-block: $paddingTopHeaderTablet;
+    }
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+    margin-bottom: 49px;
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin-bottom: 0;
+      gap: 38px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+      gap: 102px;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      background-color: $background-color;
+
+      height: 1px;
+      width: 100%;
+
+      bottom: -25px;
+      left: 0;
+
+      @include onTablet {
+        width: 1px;
+        height: 100%;
+
+        top: 0;
+        left: calc(100%);
+      }
+
+      @include onDesktop {
+        left: 100%;
+      }
+    }
+  }
+
+  &__nav {
+    &__list {
+      margin: 0;
+      font-size: 16px;
+    }
+  }
+
+  &__working-hours {
+    grid-column: 1 / -1;
+    font-weight: 500;
+    line-height: 100%;
+    font-style: normal;
+    
+    @include onTablet {
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 12;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      @include onTablet {
+        display: flex;
+        flex-direction: row;
+        gap: 38px;
+      }
+    }
+
+    &__list {
+      min-width: max-content;
+    }
+  }
+}
