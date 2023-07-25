@@ -15,7 +15,6 @@
     flex-direction: row;
     gap: 16px;
     scroll-behavior: smooth;
-    width: 100%;
     overflow: hidden;
 
     @include onTablet {
@@ -29,15 +28,31 @@
   }
 
   &__img {
-    height: 450px;
-    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: top;
+    margin: 0 auto;
     @include hover (transform, scale(1.05));
+
+    &--2,
+    &--3,
+    &--4 {
+      display: none;
+
+      &:target {
+        display: block;
+      }
+    }
 
     @include onTablet {
       height: 543px;
       width: 340px;
+
+      &--2,
+      &--3,
+      &--4 {
+        display: block;
+      }
     }
 
     @include onDesktop {
