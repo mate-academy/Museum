@@ -1,0 +1,30 @@
+$height: 420px;
+$heightTablet: 543px;
+
+.swiper {
+  height: calc(#{$height} + 40px);
+
+  @include onTablet() {
+    height: calc(#{$heightTablet} + 40px);
+  }
+
+  @include onDesktop() {
+    display: none;
+  }
+
+  &__image {
+    width: 100%;
+    height: $height;
+    object-position: top;
+    object-fit: cover;
+
+    @include onTablet() {
+      height: $heightTablet;
+    }
+  }
+}
+
+.swiper-bullets-active {
+  background: $green-color;
+  opacity: 1;
+}

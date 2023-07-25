@@ -1,0 +1,105 @@
+.follow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 380px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url(../images/subscribe/subscribe-picture.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include onDesktop() {
+    height: 550px;
+  }
+
+  &__description {
+    padding-bottom: 50px;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+    color: $text-on-dark;
+
+    @include onTablet() {
+      padding-bottom: 64px;
+    }
+
+    @include onDesktop() {
+      padding-bottom: 72px;
+    }
+
+    @include onTabletAndDesktop() {
+      line-height: 100%;
+    }
+  }
+
+  $link-height: 52px;
+
+  &__form {
+    display: flex;
+    justify-content: center;
+
+    @include onTablet() {
+      gap: 16px;
+    }
+
+    @include onDesktop() {
+      gap: 30px;
+    }
+  }
+
+  &__input {
+    height: 50px;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding-left: 24px;
+    color: $accent-text-color;
+    border-radius: 0;
+
+    &::placeholder {
+      color: $events-type-color;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+    }
+
+    &:hover::placeholder,
+    &:focus::placeholder {
+      color: $accent-text-color;
+    }
+
+    @include onTablet() {
+      max-width: 374px;
+    }
+
+    @include onDesktop() {
+      max-width: 470px;
+    }
+
+    @include onTabletAndDesktop() {
+      height: 70px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 50px;
+    min-height: 50px;
+    background-color: $aftel-elements-color;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+
+    @include onTabletAndDesktop() {
+      min-width: 70px;
+    }
+
+    &:hover {
+      background-color: $send-form-color;
+    }
+  }
+}
