@@ -10,6 +10,25 @@
     
     &--with-menu {
       overflow: hidden;
+                  
+      &::after {
+        content: " ";
+        position: absolute;
+        top: $height-menu-mobile;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        background-color: $color-black;
+        opacity: 0.5;
+        
+        @include onTablet {
+          top: $height-menu-tablet;
+        }
+
+        @include onDesktop {
+          top: $height-menu-desktop;
+        }
+      }
     }
   }
   
@@ -18,11 +37,11 @@
     top: 0;
     left: 0;
     right: 0;
-    transform: translateX(-100%);
+    transform: translateY(-100%);
     transition: transform $transition-duration-speed;
 
     &:target {
-      transform: translateX(0);
+      transform: translateY(0);
     }
   }
 

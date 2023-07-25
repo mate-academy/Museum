@@ -19,18 +19,38 @@
   }
 
   &__slider-container {
-    box-sizing: content-box;
+
+    /*box-sizing: content-box;
     display: flex;
     flex-direction: row;
+    gap: 20px;*/
+
+    display: grid;
     gap: 20px;
+    justify-content: center;
+
+    &:not(:last-child) {
+      padding-bottom: 20px;
+    }
   }
-  
+
   &__slide-container {
     position: relative;
     width: 280px;
     height: 410px;
     overflow: hidden;
     flex-shrink: 0;
+    transition: transform $transition-duration-speed;
+
+    &:hover {
+      transform: scale(1.07);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
 
     //animation: slider $speed-slider linear 0s 5 normal;
     
@@ -53,12 +73,6 @@
     @include onTablet {
       width: 340px;
       height: 543px;
-    }
-
-    &::after {
-      content: "";
-      display: block;
-      padding-bottom: 100%;
     }
   }
 
