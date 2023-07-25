@@ -1,0 +1,44 @@
+
+.gallery {
+  &__desktop {
+    display: none;
+
+    @include onDesktop() {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__photo-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  &__long-photo {
+    width: 33.33%;
+
+    @include onDesktop {
+      transition: transform $transition-timing ease-in-out;
+      cursor: pointer;
+      &:hover {
+        transform: scale(105%);
+      }
+    }
+  }
+
+  &__broad-photo {
+    width: 66.66%;
+
+    @include onDesktop {
+      transition: transform $transition-timing ease-in-out;
+      cursor: pointer;
+      &:hover {
+        transform: scale(105%);
+      }
+    }
+  }
+}
