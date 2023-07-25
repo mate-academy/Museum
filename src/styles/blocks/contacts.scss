@@ -3,13 +3,13 @@
   font-family: "IBM Plex Sans";
 
   &__content {
+    position: relative;
+
     @include pageGrid;
 
     padding-bottom: 20px;
 
     row-gap: 40px;
-
-    border-bottom: 1px solid #1A5A4C80;
 
     @include onTablet {
       border: none;
@@ -71,10 +71,14 @@
 
   &__bottom {
 
+    padding-top: 20px;
+
     grid-column: span 2;
 
     @include onTablet {
       grid-column: 2 / span 3;
+
+      padding-top: 0;
     }
 
     @include onDesktop {
@@ -87,6 +91,24 @@
     place-self: end;
 
     grid-column: 2;
+
+    @include onTablet {
+      display: none;
+
+      border: none;
+    }
+  }
+
+  &__border {
+    grid-column: span 2;
+
+    position: absolute;
+
+    border-bottom: 1px solid #1A5A4C80;
+
+    width: 100%;
+
+    top: 415px;
 
     @include onTablet {
       display: none;
@@ -131,7 +153,11 @@
     font-size: 14px;
     line-height: 21px;
 
-    grid-column: span 2;
+    grid-column: span 1;
+
+    @include onTablet {
+      grid-column: span 2;
+    }
   }
 
   &__contact-us {
@@ -141,6 +167,10 @@
 
     flex-direction: column;
 
-    grid-column: span 2;
+    grid-column: span 1;
+
+    @include onTablet {
+      grid-column: span 2;
+    }
   }
 }
