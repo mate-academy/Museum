@@ -1,0 +1,84 @@
+.page {
+  box-sizing: border-box;
+  position: relative;
+  min-width: 320px;
+  scroll-behavior: smooth;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+
+  &__body {
+    margin: 0;
+    padding: 0;
+
+    &--overflow-hidden {
+      position: relative;
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    margin-bottom: 70px;
+  }
+
+  &__menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: all 0.3s;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &--target {
+      transform: translateX(0);
+      pointer-events: all;
+      overflow: hidden;
+    }
+  }
+
+  &__wrapper {
+    display: none;
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    background: #18181a;
+
+    &--on {
+      display: block;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 24px;
+    height: 24px;
+    margin-top: 27px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__title {
+    padding-inline: 20px;
+    margin-bottom: 40px;
+    color: $c-title;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+  }
+
+  &__main {
+    margin-bottom: 80px;
+  }
+}
