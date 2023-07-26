@@ -1,0 +1,47 @@
+.header {
+  position: relative;
+  @include pageGrid;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  &-block {
+    display: grid;
+
+    height: 300px;
+    justify-items: center;
+    grid-column: 1 / -1;
+    background-image: url("../images/museum-bg.png");
+    width: 100%;
+    background-size: cover;
+
+    @include onTablet {
+      height: 384px;
+      grid-column: 4 / -1;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    @include onDesktop {
+      height: 655px;
+      grid-column: 6 / -1;
+      grid-template-columns: repeat(7, 1fr);
+    }
+  }
+
+  &__logo {
+    height: 61px;
+    margin-top: 10px;
+
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      height: 72px;
+      grid-column: 1 / 3;
+      margin-top: 15px;
+    }
+
+    &--img {
+      height: 100%;
+    }
+  }
+}
