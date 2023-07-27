@@ -1,4 +1,5 @@
 .contacts {
+  position: relative;
   display: flex;
   flex-direction: column;
 
@@ -67,6 +68,30 @@
     line-height: 100%;
   }
 
+  &__arrow {
+    position: absolute;
+    right: 0;
+    bottom: 148px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid $border-color;
+    border-radius: 50%;
+    transition: background-color 300ms;
+
+    @include onTablet {
+      display: none;
+    }
+
+    & path {
+      fill: $border-color;
+      transition: fill 300ms;
+    }
+  }
+
   &__socials {
     display: flex;
     gap: 20px;
@@ -77,6 +102,26 @@
 
     @include onDesktop {
       gap: 22px;
+    }
+
+    &--facebook,
+    &--instagram {
+      & path {
+        fill: #000;
+        transition: fill 300ms;
+      }
+
+      &:hover path {
+        fill: $social-background-color-hover;
+      }
+    }
+  }
+
+  &__arrow:hover {
+    background-color: $border-color;
+
+    & path {
+      fill: #fff;
     }
   }
 
@@ -164,10 +209,10 @@
     line-height: 100%;
     text-decoration: none;
     border-bottom: 1px solid transparent;
-    transition: border-bottom 300ms;
+    transition: color 300ms;
 
     &:hover {
-      border-bottom: 1px solid $nav-link-border-color;
+      color: $nav-link-font-color-hover;
     }
   }
 }
