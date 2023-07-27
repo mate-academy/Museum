@@ -1,8 +1,38 @@
 .header {
   position: relative;
-  @include pageGrid;
-  max-width: 1440px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto auto;
+
+  @include onDesktop {
+    grid-template-columns: 46% 54%;
+  }
+
+  &__bg {
+    grid-column: 1 / -1;
+    position: absolute;
+    background-image: url("../images/museum-bg.png");
+    width: 100%;
+    background-size: cover;
+    height: 300px;
+
+    @include onTablet {
+      grid-column: 2 / -1;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 3 ;
+      height: 655px;
+      gap: 30px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    @include pageGrid;
+    @include contentPaddingInline;
+    grid-column: 1 / -1;
+  }
 
   &-block {
     display: grid;
@@ -10,9 +40,6 @@
     height: 300px;
     justify-items: center;
     grid-column: 1 / -1;
-    background-image: url("../images/museum-bg.png");
-    width: 100%;
-    background-size: cover;
 
     @include onTablet {
       height: 384px;
