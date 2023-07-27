@@ -1,0 +1,79 @@
+.gallery {
+  &__title {
+    margin-bottom: 40px;
+    color: $header-font-color;
+    font-family: $header-font;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 48px;
+      font-size: 48px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__carousel {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 20px;
+    width: $onMobileContent;
+    overflow: hidden;
+
+    @include onTablet {
+      width: $onTabletContent;
+    }
+
+    @include onDesktop {
+      flex-wrap: wrap;
+      gap: 30px;
+      width: 100%;
+    }
+  }
+
+  &__picture {
+    width: $onMobileContent;
+
+    @include onTablet {
+      width: auto;
+    }
+
+    @include onDesktop {
+      width: auto;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: space-between;
+    width: 102px;
+    margin: 20px auto 100px;
+
+    @include onTablet {
+      margin: 32px auto 92px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--item {
+      width: 10px;
+      height: 10px;
+      background-color: $dots-color;
+      border-radius: 50%;
+
+      &:first-child {
+        background-color: $dots-active-color;
+      }
+    }
+  }
+}
