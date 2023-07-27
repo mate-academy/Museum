@@ -1,0 +1,101 @@
+.subscription {
+  background: url(../images/subscription/background.png) center / cover no-repeat;
+  padding-block: 88px;
+
+  @include onTablet {
+    padding-block: 82px;
+  }
+
+  @include onDesktop {
+    padding-block: 163px;
+  }
+
+  &__container {
+    @include pageGrid;
+  }
+
+  &__wrapper {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+    }
+
+    @include onDesktop {
+      grid-column: 4 / -4;
+    }
+  }
+
+  &__title {
+    @include fontStyle("Montserrat", 36px, 700, 1, $color-white);
+    text-align: center;
+
+    @include onTablet {
+      font-size: 48px;
+    }
+  }
+
+  &__text {
+    margin-top: 20px;
+    @include fontStyle($fz: 18px, $lh: 150%, $color: $color-white);
+    text-align: center;
+
+    @include onTablet {
+      line-height: 1;
+      margin-top: 16px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    max-width: 280px;
+    margin: 50px auto 0;
+    @include onTablet {
+      max-width: 460px;
+      gap: 16px;
+      margin-top: 64px;
+    }
+
+    @include onDesktop {
+      max-width: none;
+      margin-top: 72px;
+      gap: 30px;
+    }
+  }
+
+  &__input {
+    flex-grow: 1;
+    width: 230px;
+    box-sizing: border-box;
+    background-color: $color-white;
+    padding-inline: 24px;
+
+    @include fontStyle("Montserrat", 18px, 400, 1, $color-dark-accent);
+
+    &::placeholder {
+      color: $color-blue-gray-accent;
+    }
+
+    @include onDesktop {
+      padding-inline: 32px;
+    }
+  }
+
+  &__button {
+    background-color: #f14a27;
+    padding: 13px;
+    cursor: pointer;
+
+    @include onTablet {
+      padding: 23px;
+    }
+
+    @include onDesktop {
+      transition: padding-inline 0.3s ease;
+
+      &:hover {
+        padding-inline: 40px;
+      }
+    }
+  }
+}
