@@ -3,31 +3,43 @@
   background-size: cover;
   background-repeat: no-repeat;
   font-family: "Montserrat";
+  color: #FFFFFF;
+   
+  font-weight: 700;
+  font-size: 48px;
 
   @include onMobile {
     background-image: url(../images/footer-mob.png);
     height: 386px;
   
   }
-  color: #FFFFFF;
-  background-image: url(../images/footer.png);
+
+  @include onDesktop {
+  
+  background-image: url(../images/section-des.png);
   background-repeat: no-repeat;
+  background-size: cover;
   height: 550px;
   
-  font-weight: 700;
-  font-size: 48px;
+  }
   
-
-
   &__title {
     @include onMobile {
       padding-top: 88px;
       font-size: 36px;
+      text-align: center;
     }
+
+    @include onDesktop {
     padding-top: 163px;
     text-align: center;
     margin-bottom: 16px;
-
+    font-size: 48px;
+    font-weight: 700;
+    }
+    @include onTablet {
+      text-align: center;
+    }
   }
 
   &__paragraf {
@@ -37,36 +49,57 @@
 
     @include onMobile {
       padding-bottom: 50px;
-      font-size: 16px;
+      font-size: 18px;
       padding-left: 20px;
       padding-right: 20px;
+      line-height: 1.5;
+      width: 280px;
+      margin-bottom: 0;
+      
     }
 
     @include onDesktop {
-    
+    margin: 0 auto;
     font-size: 18px;
-   
-    padding-bottom: 72px;
+    padding-bottom: 64px;
+    margin-bottom: 0;
+    width: 100%;
+    padding-left: 0;
+     padding-right: 0;
+    }
+
+    @include onTablet {
+      margin: 0 auto;
+      width: 440px;
     }
   }
 
 }
 .form {
   display: flex;
+  
   justify-content: center;
   padding-left: 20px;
   padding-right: 20px;
   
+  @include onDesktop {
+    gap: 30px;
+  }
+  @include onTablet {
+    gap: 20px;
+  }
 
   &__field {
+    font-size: 16px;
+    font-family: "Monserrat";
+    font-weight: 400;
 
     @include onMobile {
-      height: 50px;
+      height: 42px;
       width: 230px;
       padding-left: 15px;
-  
     }
-
+    @include onDesktop {
     height: 70px;
     width: 470px;
     margin: 0;
@@ -77,42 +110,67 @@
     font-weight: 400;
     text-align:start;
     gap: 30px;
+    }
+
+    @include onTablet {
+      height: 44px;
+      width: 230px;
+    }
+
 
     &::placeholder {
       font-family: "Montserra", sans-serif;
       font-style: normal;
       font-weight: 300;
-      font-size: 14px;
+      font-size: 16px;
       line-height: 100%;
       color: #687480;
     }
     transition: scale 0.5s;
 
-    &:focus {
+   /* &:focus {
       outline: none;
       scale: 105%;
-    }
+    }*/
   }
 
   
 
   &__button {
+    
+    transition: 0.5s;
+    background-color: #F14A27;
+    
 
     @include onMobile {
-      
-      height: 54px;
+      height: 50px;
       width: 50px;
-      transform: translateY(-1px);
+      
     }
-    
+
+    @include onTablet {
+      height: 51px;
+      width: 50px;
+    }
+
+    @include onDesktop {
   width: 70px;
-  height: 70px;
-  /*background-image: url(../images/arrow.png);*/
-  background-position: center;
-  background-repeat: no-repeat;
+  height: 72px;
   background-color: #F14A27;
   position: relative;
+ 
+  }
+
+  &:hover {
+    scale: 1.05;
   }
 }
+
+
+input {
+padding-left: 20px;
+}
+}
+
 
 
