@@ -20,26 +20,36 @@
     }
   }
 
+  &__outer {
+    display: flex;
+    overflow: hidden;
+
+    @include onDesktop {
+      flex: 2;
+      width: 100%;
+    }
+  }
+
   &__exhibition {
     display: flex;
     flex-direction: column;
 
     @include onDesktop {
       flex-direction: row;
+      gap: 130px;
       margin-bottom: 104px;
     }
 
     &--picture {
       display: block;
-      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      margin: auto;
       transition: transform 300ms;
       &:hover {
-        transform: scale(1.2);
-      }
-
-      @include onDesktop {
-        width: 670px;
-        margin-right: 130px;
+        transform: scale(1.05);
       }
     }
 
@@ -49,6 +59,7 @@
 
       @include onDesktop {
         justify-content: center;
+        width: 30%;
       }
     }
 
