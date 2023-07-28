@@ -1,0 +1,156 @@
+.events {
+  &__title {
+    margin: 70px 0 40px;
+    color: $header-font-color;
+    text-align: center;
+    font-family: $header-font;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onTablet {
+      margin: 88px 0 48px;
+      font-size: 48px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin: 200px 0 56px;
+    }
+  }
+
+  &__outer {
+    display: flex;
+    overflow: hidden;
+
+    @include onDesktop {
+      flex: 2;
+      width: 100%;
+    }
+  }
+
+  &__exhibition {
+    display: flex;
+    flex-direction: column;
+
+    @include onDesktop {
+      flex-direction: row;
+      gap: 130px;
+      margin-bottom: 104px;
+    }
+
+    &--picture {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      margin: auto;
+      transition: transform 300ms;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    &--wrap {
+      display: flex;
+      flex-direction: column;
+
+      @include onDesktop {
+        justify-content: center;
+        width: 30%;
+      }
+    }
+
+    &--date {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+
+      @include onTablet {
+        margin-top: 44px;
+      }
+
+      @include onDesktop {
+        margin-top: 0;
+        justify-content: flex-start;
+      }
+
+      & span {
+        font-family: $content-font;
+        font-size: 16px;
+        font-style: normal;
+        line-height: 100%;
+
+        &:first-child {
+          margin-right: 30px;
+          color: $name-font-color;
+          font-weight: 500;
+        }
+
+        &:last-child {
+          color: $date-font-color;
+          font-weight: 700;
+        }
+      }
+    }
+
+    &--title {
+      position: relative;
+      display: inline-block;
+      width: fit-content;
+      margin-top: 16px;
+      color: $title-font-color;
+      font-family: $header-font;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 100%;
+
+      @include onTablet {
+        margin-top: 32px;
+        font-size: 36px;
+      }
+
+      @include onDesktop {
+        margin-top: 30px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 40%;
+        left: 104%;
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-color: $point-background-color;
+
+        @include onTablet {
+          top: 36%;
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+
+    &--content {
+      margin: 10px 0 60px;
+      color: $content-font-color;
+      font-family: $content-font;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 150%;
+
+      @include onTablet {
+        margin: 16px 0 64px;
+      }
+
+      @include onDesktop {
+        margin: 16px 0 0;
+      }
+    }
+  }
+}

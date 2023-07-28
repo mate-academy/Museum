@@ -1,0 +1,204 @@
+.header {
+  &__menu-icon {
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    margin-top: 28px;
+    z-index: 1;
+
+    @include onTablet {
+      margin-top: 40px;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background-image: url(../images/mobile/museum.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+
+    @include onTablet {
+      left: 50%;
+      width: 50%;
+      height: 384px;
+      background-image: url(../images/tablet/museum.jpg);
+    }
+
+    @include onDesktop {
+      left: 50%;
+      height: 655px;
+      background-image: url(../images/museum.jpg);
+    }
+  }
+
+  &__top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+
+    @include onTablet {
+      flex: 1;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      height: 655px;
+    }
+  }
+
+  &__bottom {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+
+    @include onTablet {
+      flex: 1;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding-bottom: 14px;
+    }
+
+    @include onDesktop {
+      justify-content: center;
+    }
+  }
+
+  &__page-title {
+    position: absolute;
+    top: 10px;
+    color: $logo-font-color;
+    text-align: center;
+    font-family: $header-font;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onTablet {
+      top: 15px;
+      left: 80px;
+      font-size: 36px;
+    }
+  }
+
+  &__title {
+    padding: 20px 0;
+    color: #000;
+    text-align: center;
+    font-family: $header-font;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onTablet {
+      padding: 38px 0;
+      font-size: 54px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%; /* 64.8px */
+      text-align: left;
+    }
+
+    @include onDesktop {
+      padding: 90px 0;
+      font-size: 72px;
+    }
+  }
+
+  &__ticket {
+    &--wrap {
+      display: flex;
+      justify-content: flex-end;
+
+      @include onDesktop {
+        width: 100%;
+        padding-right: 30px;
+      }
+    }
+
+    &--btn {
+      padding: 18px 80px;
+      color: $header-font-color;
+      font-family: $content-font;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100%;
+      background-color: transparent;
+      border: 1px solid $border-color;
+      transition: color 300ms, background-color 300ms;
+      cursor: pointer;
+
+      &:hover {
+        color: #fff;
+        background-color: $background-color;
+      }
+
+      @include onTablet {
+        padding: 27px 64px;
+      }
+    }
+
+    &--label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 54px;
+      height: 54px;
+      background-color: $background-color;
+
+      @include onTablet {
+        width: 72px;
+        height: 72px;
+      }
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @include onDesktop {
+      position: absolute;
+      bottom: 104px;
+      display: block;
+      color: #687480;
+      font-family: $content-font;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%;
+      transform: rotate(-90deg);
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -90px;
+        top: 6px;
+        display: block;
+        width: 70px;
+        height: 1px;
+        background: #1a5a4c;
+      }
+    }
+  }
+}
