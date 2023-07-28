@@ -27,6 +27,8 @@ const toggleMenu = (event) => {
     body.style.marginRight = `${scrollbarWidth}px`;
     pageMenu.style.paddingRight = `${scrollbarWidth}px`;
     header.style.marginRight = `${scrollbarWidth}px`;
+
+    document.querySelector('.page__overlay').style.display = 'block';
   }
 
   if (menuBtnClose || (isMenuOpen && !isClickInsideMenu) || isLink) {
@@ -36,6 +38,8 @@ const toggleMenu = (event) => {
     body.style.marginRight = 0;
     pageMenu.style.paddingRight = 0;
     header.style.marginRight = 0;
+
+    document.querySelector('.page__overlay').style.display = 'none';
   }
 };
 
