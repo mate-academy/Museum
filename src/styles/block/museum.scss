@@ -1,0 +1,89 @@
+.museum {
+  order: 2;
+  @include onTablet {
+    order: 1;
+  }
+  &__container {
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 0 0 39px;
+    }
+
+    @include onDesctop {
+      padding: 0 30px 0 55px;
+    }
+  }
+  &__button {
+    margin: 0 auto;
+    display: flex;
+    width: 280px;
+    height: 50px;
+    border: 1px solid $color-menu;
+
+    position: relative;
+
+    @include onTablet {
+      margin: 0;
+      width: 270px;
+      height: 70px;
+    }
+
+    @include onDesctop {
+      float: right;
+    }
+  }
+
+  &__link-button {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    @extend %link;
+    text-decoration: none;
+    color: $color-menu;
+
+    @include onTablet {
+      padding: 0 68px;
+    }
+  }
+
+  &__arrow-button {
+    @include square($size-arrow);
+    background: $color-menu url(../images/icons/arrow_right.svg) center no-repeat;
+
+    @include hover(background-color, $color-button-hover);
+
+    @include onTablet {
+      @include square(70px);
+    }
+  }
+
+  &__events {
+    display: none;
+    @extend %p;
+    font-weight: 700;
+    line-height: 100%;
+    color: #687480;
+    text-transform: uppercase;
+    position: relative;
+
+    transform: rotate(-90deg);
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 70px;
+      height: 1px;
+      background-color: #687480;
+      left: -90px;
+      top: 50%;
+    }
+
+    @include onDesctop {
+      display: block;
+      position: absolute;
+      margin-top: 55px;
+    }
+  }
+}

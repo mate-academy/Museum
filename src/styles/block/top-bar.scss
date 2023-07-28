@@ -1,0 +1,118 @@
+.top-bar {
+  display: flex;
+
+  &__header {
+    align-items: center;
+    gap: 40%;
+    padding-top: 9px;
+
+    @include onTablet {
+      padding-top: 15px;
+    }
+  }
+
+  &__icon {
+    display: block;
+    @include square($size-icon);
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__icon-main {
+    background-image: url(../images/icons/burger-menu.svg);
+    background-size: cover;
+    cursor: pointer;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__icon-main-museum {
+    background-image: url(../images/icons/burger-menu.svg);
+    background-size: cover;
+    cursor: pointer;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__aside-icon {
+    background-image: url(../images/icons/cross-menu.svg);
+    background-size: cover;
+    cursor: pointer;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__logo {
+    width: 55px;
+    height: 61px;
+
+    @include hover(transform, scale(1.2));
+
+    @include onTablet {
+      margin-left: 55px;
+    }
+  }
+
+  &__museum {
+    padding-top: 0;
+    display: none;
+    @include onTablet {
+      display: block;
+      padding-top: 40px;
+    }
+  }
+
+  &__aside {
+    padding-top: 27px;
+    justify-content: space-between;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      background-color: $color-line-menu;
+      bottom: 0;
+    }
+
+    @include onTablet {
+      padding-top: 0;
+      gap: 20px;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    @include onDesctop {
+      gap: 30px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 24px;
+
+    position: relative;
+    @include hoverAfter(transform, scale(1));
+
+    @include onDesctop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__text-link {
+    text-decoration: none;
+    color: $color-text-white;
+    @extend %link;
+
+    @include onDesctop {
+      font-size: 22px;
+    }
+  }
+}

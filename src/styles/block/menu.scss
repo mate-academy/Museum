@@ -1,0 +1,112 @@
+.menu {
+  color: $color-text-white;
+  @extend %p;
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  transform: translateY(-100%);
+  transition: transform 0.5s;
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__section {
+    background-color: $color-menu;
+  }
+
+  &__fond {
+    height: 100vh;
+    background: #18181a;
+    opacity: 0.5;
+  }
+
+  &__content {
+    @include onTablet {
+      display: flex;
+      flex: 1 1 auto;
+      justify-content: space-between;
+
+      padding: 40px 0;
+    }
+
+    @include onDesctop {
+      padding: 40px 0 48px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__icon-cross-menu {
+    display: none;
+
+    @include hover(transform, scale(1.2));
+
+    @include onTablet {
+      display: flex;
+      @include square($size-icon);
+      background-image: url(../images/icons/cross-menu.svg);
+      background-size: cover;
+      cursor: pointer;
+    }
+  }
+
+  &__line {
+    width: 1px;
+    background-color: $color-line-menu;
+  }
+
+  &__shedule {
+    @include onDesctop {
+      margin-right: 100px;
+    }
+  }
+
+  &__shedule-day {
+    @include onTablet {
+      display: grid;
+      gap: 38px;
+      grid-template-columns: 158px 144px;
+    }
+
+    @include onDesctop {
+      gap: 30px;
+    }
+  }
+
+  &__subtitle {
+    padding-top: 24px;
+    margin-bottom: 20px;
+    line-height: 140%;
+
+    @include onTablet {
+      padding-top: 0;
+    }
+  }
+
+  &__text {
+    margin-bottom: 16px;
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
+
+  &__time {
+    font-weight: 600;
+  }
+
+  &__weekend {
+    padding-bottom: 27px;
+
+    @include onTablet {
+      padding: 0;
+    }
+  }
+}

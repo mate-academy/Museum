@@ -1,0 +1,122 @@
+.subscription {
+  margin-top: 100px;
+  height: 386px;
+  background: url(../images/subscription/back-mobile.jpg);
+
+  @include onTablet {
+    height: 380px;
+    margin-top: 92px;
+    background: url(../images/subscription/back-tablet.jpg);
+  }
+
+  @include onDesctop {
+    height: 550px;
+    margin-top: 200px;
+    background: url(../images/subscription/back.jpg);
+  }
+
+  &__body {
+    padding: 88px 0;
+
+    @include onTablet {
+      padding: 82px 0;
+    }
+
+    @include onDesctop {
+      padding: 163px 0;
+    }
+  }
+
+  &__title {
+    color: $color-text-white;
+    text-align: center;
+  }
+
+  &__text {
+    margin-top: 20px;
+    color: $color-text-white;
+    @extend %p;
+    font-size: 18px;
+    text-align: center;
+
+    @include onTablet {
+      margin-top: 16px;
+      line-height: 100%;
+    }
+  }
+
+  &__form {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+
+    @include onTablet {
+      margin-top: 64px;
+      gap: 16px;
+    }
+
+    @include onDesctop {
+      gap: 30px;
+      margin-top: 72px;
+    }
+  }
+
+  &__link-button {
+    width: 230px;
+    height: 50px;
+    border: none;
+    outline: 0;
+    padding-left: 24px;
+    @extend %placeholder;
+    color: $color-link-button;
+    font-weight: 600;
+
+    &::placeholder {
+      @extend %placeholder;
+    }
+
+    &:focus {
+      border: none;
+    }
+
+    @include onTablet {
+      width: 374px;
+      height: 70px;
+    }
+
+    @include onDesctop {
+      width: 470px;
+    }
+  }
+
+  &__arrow-button {
+    @include square(50px);
+    border: none;
+    background: $color-dote url(../images/icons/arrow_right-black.svg) center no-repeat;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    @include onTablet {
+      @include square(70px);
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: $color-link-button;
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
