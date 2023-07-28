@@ -1,16 +1,33 @@
 .buy-btn {
+  width: 100%;
   height: 50px;
   display: flex;
   text-decoration: none;
-  
+  border: 1px solid #167762;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+
+  &__container {
+    width: 100%;
+    display: flex;
+
+    @include inDesktop {
+      justify-content: flex-end;
+    }
+  }
+
+  &:hover {
+    transition: all 0.3s ease;
+    box-shadow: #16776240 0 10px 10px,
+      #1677621f 0 -12px 30px,
+      #1677621f 0 4px 6px,
+      #1677622b 0 12px 13px,
+      #16776217 0 -3px 5px;
+  }
 
   @include inIpad {
     height: 70px;
-    text-align: left;
-  }
-
-  @include inDesktop {
-    justify-content: flex-end;
+    width: 270px;
   }
 
   &__title {
@@ -20,12 +37,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #1a5a4c;
     font-weight: 500;
     font-size: 16px;
     color: $title-color;
     box-sizing: border-box;
-    
+
     @include inIpad {
       width: 200px;
     }
@@ -41,16 +57,12 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 24px 24px;
-    border: 1px solid #1a5a4c;
+
     width: 50px;
     height: 100%;
     box-sizing: border-box;
     transition: all 0.3s ease;
     cursor: pointer;
-    
-    &:hover {
-      background-color: #134d40;
-    }
 
     @include inIpad {
       min-width: 70px;
