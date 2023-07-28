@@ -4,15 +4,15 @@
   top: 0;
   left: 0;
   right: 0;
-  
-  
-    transition: transform 0.3s;
-    transform: translateY(-100%);
+  transition: transform 0.3s;
+  transform: translateY(-100%);
 
-    &:target {
-      transform: translateX(0);
-    }
+  &:target {
+    transform: translateX(0);
+  }
+  
 
+ 
 }
 .menu {
   background-color: #1A5A4C;
@@ -20,16 +20,18 @@
   z-index: 1000;
 
   @include onMobile {
-    height: 420px;
+    padding-top: 27px;
+    height: 450px;
   
   }
   @include onTablet {
     height: 225px;
+    padding-top: 40px;
   }
 
   @include onDesktop {
     height: 233px;
-    padding-top: 25px;
+    padding-top: 30px;
   }
   
 &__cross{
@@ -82,6 +84,8 @@
     padding-left: 20px;
   }
 
+  
+
   &-paragraf {
     padding-right: 30px;
 
@@ -92,6 +96,8 @@
     @include onDesktop {
      
     }
+
+    
   }
 
   &-title{
@@ -102,9 +108,14 @@
     @include onDesktop {
       padding-left: 150px;
     }
+
+    @include onMobile {
+      padding-top: 12px;
+    }
   }
 
  }
+ 
 &__container {
   display: flex;
   flex-direction: row;
@@ -117,8 +128,8 @@
   }
 
   @include onTablet {
-    display: flex;
     flex-direction: row;
+    
   }
 
   @include onDesktop {
@@ -130,7 +141,6 @@
 
 &__content {
   display: flex;
-  
   justify-content: space-around;
 
   @include onMobile {
@@ -151,6 +161,11 @@
 &__nav-list {
   display: flex;
   gap: 50px;
+  margin-bottom: 0;
+
+  @include onMobile {
+    margin-top: 0;
+  }
  
 }
 
@@ -172,7 +187,6 @@
     width: 1px;
     margin: 0;
     
-    
     }
 
   @include onTablet {
@@ -180,6 +194,8 @@
   color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 0.5);
   width: 0;
+  margin-right: 38px;
+  margin-left: 38px;
 
   }
   @include theDesign {
@@ -195,10 +211,13 @@
   list-style-type:none;
   padding-bottom: 30px;
 
-  
     transition: all 0.3s;
     &:hover {
       scale: 120%;
+    }
+
+    @include onMobile {
+      padding-bottom: 24px;
     }
  }
 
@@ -221,17 +240,21 @@
 }
 &__wh-paragraf-container {
   display: flex;
-  justify-content: space-between;
- 
   line-height: 150%;
   font-size: 14px;
 
+  @include onMobile {
+    display: flex;
+    flex-direction: column;
+  }
   @include onTablet {
     font-size: 12px;
+    padding-left: 0;
+    flex-direction: row;
   }
-
   @include onDesktop {
     padding-left: 150px;
+    flex-direction: row;
   }
 }
 }
