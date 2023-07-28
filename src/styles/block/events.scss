@@ -33,22 +33,33 @@
     }
   }
 
+  &__container {
+    width: 280px;
+    margin: 0 auto;
+
+    @include onTablet {
+      width: 700px;
+    }
+
+    @include onDesctop {
+      width: max-content;
+    }
+  }
+
   &__card {
     @include onDesctop {
       display: flex;
-      justify-content: space-between;
+      gap: 130px;
+      // justify-content: space-between;
       margin-bottom: 48px;
     }
   }
 
   &__image {
     margin-top: 40px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: 0.5s;
 
     @include hover(opacity, 0.7);
+    @include hover(transform, scale(1.05));
 
     @include onTablet {
       margin-top: 48px;
@@ -56,11 +67,6 @@
 
     @include onDesctop {
       margin-top: 56px;
-      transition: 0.5s;
-
-      &:hover {
-        transform: translateX(-30%);
-      }
     }
   }
 
@@ -99,16 +105,15 @@
   }
 
   &__text {
-    max-width: 460px;
     @extend %p-card;
     margin: 10px 0 20px;
 
     @include onTablet {
+      width: 460px;
       margin: 15px 0 16px;
     }
 
     @include onDesctop {
-      max-width: 370px;
       margin: 15px 0 0;
     }
   }
