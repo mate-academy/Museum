@@ -1,0 +1,70 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  &--footer {
+    @include inIpad {
+      row-gap: 64px;
+    }
+  }
+
+  &__header {
+    grid-template-columns: repeat(3, 1fr);
+
+    @include inDesktop {
+      column-gap: 24px;
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  &__order {
+    @include inIpad {
+      order: -1;
+    }
+  }
+
+  @include inIpad {
+    column-gap: 30px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include inDesktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &--ipad {
+    display: block;
+
+    @include inIpad {
+      display: grid;
+      column-gap: 24px;
+    }
+  }
+
+  &--desktop {
+    display: block;
+
+    @include inDesktop {
+      display: grid;
+    }
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from 1 through 12 {
+        &--ipad--#{$start}-#{$end} {
+          @include inIpad {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--desktop--#{$start}-#{$end} {
+          @include inDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}

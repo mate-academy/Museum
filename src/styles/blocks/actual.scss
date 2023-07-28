@@ -1,0 +1,164 @@
+.actual {
+  &__info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__container {
+    margin-bottom: 60px;
+  }
+
+  &__container-img {
+    margin-bottom: 20px;
+    transition: transform ease 0.3s;
+    
+    &:hover {
+      transition: transform ease 0.3s;
+      transform: scale(1.1);
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include inIpad {
+      justify-content: flex-start;
+      gap: 10px;
+    }
+  }
+
+  &__data-events {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1a5a4c;
+
+    &--footer {
+      @include inIpad {
+        grid-column: 3/5;
+      }
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 28px;
+
+    @include inIpad {
+      font-size: 36px;
+    }
+
+    &-after::after {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: #f14a27;
+      position: relative;
+      margin-left: 10px;
+    }
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: #687480;
+
+    @include inIpad {
+      grid-column: 1/3;
+    }
+  }
+
+  &__paragraph {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4e4e4e;
+  }
+
+  &__block-img {
+    height: 210px;
+    
+
+    @include inIpad {
+      height: 390px;
+    }
+
+    @include inDesktop {
+      height: 550px;
+    }
+  }
+
+  &__footer {
+    position: relative;
+
+    &--title {
+      display: flex;
+      text-align: center;
+      margin: 20px 0 0;
+      justify-content: center;
+
+      @include inIpad {
+        text-align: inherit;
+        justify-content: flex-start;
+      }
+    }
+
+    &-block {
+      display: flex;
+      flex-direction: column;
+      
+      justify-content: center;
+
+      @include inIpad {
+        width: 460px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__footer-content {
+    position: absolute;
+    bottom: -80px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+    box-sizing: border-box;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: calc(100% - 40px);
+
+    @include inIpad {
+      width: 570px;
+      padding: 50px;
+    }
+  }
+
+  &__footer-img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+  }
+
+  &__data-footer {
+    justify-content: space-between;
+
+    @include inIpad {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.page {
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+
+  &__body--with-menu {
+    overflow: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  
+    @include inIpad {
+      transform: translate(0, -100%);
+    }
+  
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 100px;
+  
+    &:first-child {
+      margin-bottom: 180px;
+  
+      @include inIpad {
+        margin-bottom: 210px;
+      }
+  
+      @include inDesktop {
+        margin-bottom: 300px;
+      }
+    }
+  
+    &:last-child {
+      margin-bottom: 0;
+    }
+  
+    @include inIpad {
+      margin-bottom: 90px;
+    }
+  
+    @include inDesktop {
+      margin-bottom: 200px;
+    }
+  
+    &--title {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 100%;
+      text-align: center;
+      margin: 0 0 40px;
+      color: $title-color;
+  
+      @include inIpad {
+        text-align: start;
+        font-size: 48px;
+        margin: 0 0 48px;
+      }
+  
+      @include inDesktop {
+        margin: 0 0 56px;
+      }
+    }
+  }
+}
