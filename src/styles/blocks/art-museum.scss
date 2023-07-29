@@ -1,0 +1,127 @@
+.art-museum {
+  @include onTablet {
+    position: relative;
+  }
+
+  &__title {
+    width: 280px;
+    margin: 0 auto 20px;
+
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: $black-text-color;
+
+    @include onTablet {
+      width: 340px;
+
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      width: 470px;
+
+      font-size: 72px;
+    }
+
+    @include onTablet {
+      margin: 127px 0 38px;
+      text-align: left;
+
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      margin: 206px 0 89px;
+      font-size: 72px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 230px;
+    height: 100%;
+
+    @extend %text-button;
+    font-size: 16px;
+    line-height: 100%;
+    color: $black-text-color;
+    text-transform: uppercase;
+    transition: color 0.3s;
+
+    @include onTablet {
+      width: 200px;
+    }
+  }
+
+  &__button {
+    display: flex;
+
+    height: 50px;
+    width: 280px;
+    margin: 0 auto;
+
+    border: 1px solid $green-button-color;
+    text-decoration: none;
+    transition: border-color 0.3s, color 0.3s;
+
+    &:hover {
+      border-color: $red-square-color;
+
+      .art-museum__text {
+        color: $red-square-color;
+      }
+
+      .button--first-type {
+        background-color: $red-square-color;
+      }
+    }
+
+    @include onTablet {
+      height: 70px;
+      width: 270px;
+      margin: 0 70px 0 0;
+    }
+
+    @include onDesktop {
+      margin: 0 0 0 200px;
+    }
+  }
+
+  &__detail {
+    position: absolute;
+    left: -60px;
+    bottom: 60px;
+
+    display: none;
+    align-items: center;
+    gap: 0 20px;
+    width: 133px;
+    transform: rotate(0.75turn);
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__line {
+    height: 1px;
+    width: 100%;
+    background-color: $green-button-color;
+  }
+
+  &__detail-text {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: $grey-text-color;
+  }
+}
