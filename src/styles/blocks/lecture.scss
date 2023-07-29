@@ -1,0 +1,75 @@
+.lecture {
+  padding-top: 60px;
+
+  @include onTablet {
+    @include contentPaddingInline;
+    padding-top: 112px;
+  }
+
+  @include onDesktop {
+    padding-inline: 0;
+    padding-top: 104px;
+  }
+
+  &__img {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  &__info {
+    @include contentPaddingInline;
+    @include pageGrid;
+  }
+
+  &__block {
+    grid-column: 1 / -1;
+    position: relative;
+    top: -57px;
+    background-color: $background-color;
+    border-bottom: 2px solid rgba($background-color1, 0.25);
+    padding-block: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+      top: -84px;
+      padding-block: 40px 55px;
+      padding-inline: 50px;
+      gap: 23px;
+
+      @include onDesktop {
+        grid-column: 4 / -4;
+        top: -138px;
+        padding-inline: 100px;
+        gap: 16px;
+      }
+    }
+
+    &__info {
+      padding-inline: 21px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      @include onTablet {
+        padding: 0;
+      }
+    }
+
+    &__title {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+
+      @include onTablet {
+        justify-items: left;
+        text-align: left;
+        width: max-content;
+      }
+    }
+  }
+}

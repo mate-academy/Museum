@@ -1,0 +1,47 @@
+.page {
+  font-family: $font-family1;
+  scroll-behavior: smooth;
+
+  &__body {
+    background-color: $background-color;
+    margin: 0;
+    min-width: $mobile-width;
+  }
+
+  &__menu {
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    pointer-events: none;
+    
+    transition: all 0.3s;
+    transform: translateX(-100%);
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+      z-index: 2;
+    }
+  }
+
+  &__main {
+    padding-top: 70px;
+
+    @include onTablet {
+      padding-top: 88px;
+    }
+
+    @include onDesktop {
+      padding-top: 200px;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
