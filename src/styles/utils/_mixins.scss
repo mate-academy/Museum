@@ -1,7 +1,11 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+  @for $imgCount from 1 through 4 {
+    .galery__blocks:nth-child(-n + #{$imgCount}) {
+      transition: #{$_property} 0.3s;
+      &:hover {
+        #{$_property}: $_toValue;
+      }
+    }
   }
 }
 
