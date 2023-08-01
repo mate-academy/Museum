@@ -1,6 +1,4 @@
 .footer {
-  // background-color: #fff;
-
   &__wrapper {
     @include pageGrid;
     row-gap: 40px;
@@ -144,9 +142,27 @@
 
     &__link {
       @include fontDescription;
+      position: relative;
       font-size: 14px;
       text-decoration: none;
       color: #0f0e08;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: #1a5a1c80;
+        transition: transform 0.3s;
+        transform: scale(0);
+        transform-origin: left;
+      }
+  
+      &:hover::after {
+        transform: scale(1);
+      }
     }
   }
 
