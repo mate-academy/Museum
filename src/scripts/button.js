@@ -1,4 +1,5 @@
 const $ = window.$;
+
 const btn = $('#backtotop');
 
 $(window).scroll(function() {
