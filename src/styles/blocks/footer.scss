@@ -1,0 +1,288 @@
+.footer {
+  padding-top: 50px;
+
+  @include onTablet {
+    max-width: 836px;
+    margin: 0 auto;
+  }
+
+  @include onDesktop {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  &__item {
+    @include onTablet {
+      margin: 0;
+    }
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, auto);
+      column-gap: 30px;
+      justify-content: start;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    gap: 40px 20px;
+
+    padding-bottom: 70px;
+    border-bottom: 1px solid #1A5A4C80;
+
+    width: max-content;
+    margin: 0 auto;
+
+    position: relative;
+
+    @include onTablet {
+      grid-template-columns: repeat(6, 90px);
+      grid-template-areas:
+      "logo schedule schedule contact contact"
+      ;
+      column-gap: 30px;
+
+      padding: 0;
+      border: none;
+    }
+
+    @include onDesktop {
+      grid-template-columns: none;
+      gap: 0;
+      grid-column: 1 / 8;
+
+      margin-bottom: 87px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+
+    height: 50px;
+    width: 50px;
+
+    border-radius: 50px;
+    border: 1px solid #1A5A4C;
+
+    background-image: url(../images/footer/Arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    width: 63px;
+    height: 72px;
+    cursor: pointer;
+
+    &-img {
+      width: 63px;
+      height: 72px;
+      transition: transform $transitions;
+
+      &:hover {
+        transform: scale($scale);
+      }
+    }
+
+    @include onTablet {
+      grid-area: logo;
+    }
+
+    @include onDesktop {
+      margin-right: 130px;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+
+    @include onTablet {
+      justify-content: left;
+      margin-top: 135px;
+      align-items: start;
+      grid-area: logo;
+    }
+
+    &-facebook {
+      width: 24px;
+      height: 24px;
+      transition: transform $transitions;
+
+      &:hover {
+        transform: scale($scale);
+      }
+    }
+
+    &-instagram {
+      width: 24px;
+      height: 24px;
+      margin-left: 20px;
+      transition: transform $transitions;
+
+      &:hover {
+        transform: scale($scale);
+      }
+    }
+  }
+
+  &__schedule {
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: $colorBlackText;
+
+    @include onTablet {
+      width: 220px;
+      grid-area: schedule;
+      padding-bottom: 64px;
+      border-bottom: 1px solid $colorBorder;
+      padding-right: 20px;
+    }
+
+    @include onDesktop {
+      border: none;
+      width: 170px;
+
+      padding: 0;
+      padding-right: 30px;
+    }
+
+    &-title {
+      margin: 0 0 20px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+    }
+    &-text {
+      margin: 0;
+      font-size: 14px;
+      line-height: 21px;
+    }
+    &-fat {
+      font-weight: 600;
+    }
+  }
+
+  &__contact {
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: $colorBlackText;
+    position: relative;
+
+    @include onTablet {
+      width: 220px;
+      grid-area: contact;
+      padding-bottom: 64px;
+      border-bottom: 1px solid $colorBorder;
+    }
+
+    @include onDesktop {
+      border: none;
+      border-right: 1px solid $colorBorder;
+      padding: 0;
+      padding-right: 65px;
+      width: 169px;
+    }
+
+    &-title {
+      margin: 0 0 20px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      color: $colorBlackText;
+    }
+    &-text {
+      text-decoration: none;
+      color: $colorBlackText;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+    }
+  }
+  &__menu {
+    min-width: 280px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    justify-content: center;
+    gap: 20px;
+
+    margin: 40px auto 80px;
+
+    @include onTablet {
+      grid-template-columns: repeat(2, 220px);
+      grid-template-rows: repeat(2, 14px);
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      width: max-content;
+      margin: 64px auto 120px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(2, 168px);
+      grid-column: 8 / -1;
+
+      margin: 0;
+      padding-left: 35px;
+    }
+
+    &-list {
+      list-style: none;
+      transition: transform $transitions;
+
+      &:hover {
+        transform: scale($scale);
+      }
+    }
+
+    &-link {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      text-decoration: none;
+      color: $colorBlackText;
+    }
+  }
+
+  &__bottom {
+    margin-bottom: 36px;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 31px;
+      margin-bottom: 36px;
+    }
+
+    @include onDesktop {
+      padding: 0;
+    }
+  }
+
+  &__avtor {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 10px;
+    color: $colorBlackText;
+  }
+
+  &__rights {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 10px;
+    color: $colorBlackText;
+  }
+}

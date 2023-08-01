@@ -1,0 +1,191 @@
+.header {
+  position: relative;
+  padding-bottom: 35px;
+
+  @include onTablet {
+    max-width: 836px;
+    margin: 0 auto;
+    padding-bottom: 44px;
+  }
+
+  @include onDesktop {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    background-image: url(../images/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100vw;
+    height: 300px;
+
+    @include onTablet {
+      width: 374px;
+      height: 384px;
+
+      right: 0;
+    }
+
+    @include onDesktop {
+      width: 725px;
+      height: 655px;
+    }
+  }
+
+  &__content {
+
+    @include onTablet {
+      @include pageGrid;
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 118px;
+      @include pageGrid;
+      position: relative;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 38px;
+
+      font-size: 54px;
+      line-height: 64.8px;
+      text-align: left;
+
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      margin-bottom: 89px;
+
+      font-size: 72px;
+      line-height: 86.4px;
+
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    height: 52px;
+
+    padding: 0 50px 0 0;
+
+    position: relative;
+    box-sizing: border-box;
+
+    @include flexCenter;
+
+    text-decoration: none;
+    color: $colorBlackText;
+    border: 1px solid $colorBorder;
+    background-color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform $transitions;
+
+    &:hover {
+      transform: scale($scale);
+    }
+
+    @include onTablet {
+      padding-right: 70px;
+
+      height: 70px;
+      width: 270px;
+
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 6;
+    }
+
+    &::after {
+      content: ">";
+      position: absolute;
+      right: 0;
+      top: 0;
+      @include flexCenter;
+
+      color: $colorText;
+      background: $colorBorder;
+
+      width: 50px;
+      height: 50px;
+
+      @include onTablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    &--text {
+      padding-left: 35%;
+      font-family: 'IBM Plex Sans', sans-serif;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color: $colorBlackText;
+    }
+  }
+
+  &__events {
+    display: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    text-decoration: none;
+    color: $colorGrey;
+
+    position: absolute;
+    top: 522px;
+    left: -12px;
+    transition: all $transitions;
+
+    &:hover {
+      color: $colorBlackText;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      left: -55px;
+      bottom: -26px;
+
+      height: 70px;
+      width: 1px;
+
+      transform: rotate(-90deg);
+      background-image: url(../images/Rectang.svg);
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}
