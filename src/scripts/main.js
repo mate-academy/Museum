@@ -49,6 +49,8 @@ body.addEventListener('click', toggleMenu);
 const swiper = new Swiper('.gallery__swiper', {
   speed: 400,
   spaceBetween: 16,
+  loop: true,
+  loopAdditionalSlides: 2,
 
   pagination: {
     el: '.swiper__pagination',
@@ -77,11 +79,11 @@ const toggleSwiper = () => {
     swiper.disable();
 
     gallerySlides.forEach(slide => {
-      slide.classList.add('swiper__slide--descktop');
+      slide.classList.add('swiper__slide--desktop');
     });
   } else {
     gallerySlides.forEach(slide => {
-      slide.classList.remove('swiper__slide--descktop');
+      slide.classList.remove('swiper__slide--desktop');
     });
 
     swiper.enable();
