@@ -1,0 +1,128 @@
+.events {
+
+  &__content {
+    display: block;
+
+    @include on768 {
+      display: flex;
+    }
+
+    @include on1280 {
+      display: grid;
+    }
+  }
+
+  &__block {
+    display: block;
+
+    @include on1280 {
+      display: grid;
+      align-items: center;
+    }
+  }
+
+  &__photo {
+    display: block;
+    height: 210px;
+
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    @include on768 {
+      height: 520px;
+      margin: 0 0 40px;
+    }
+
+    @include on1280 {
+      margin-bottom: 104px;
+    }
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__info-block {
+    margin-bottom: 60px;
+
+    @include on768 {
+      margin-bottom: 64px;
+
+      &:last-child {
+        margin-bottom: 114px;
+      }
+    }
+
+    @include on1280 {
+      margin-bottom: 0;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 10px;
+
+    @include on768 {
+      justify-content: start;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__info-text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: #687480;
+    text-transform: uppercase;
+
+    margin-right: 50px;
+  }
+
+  &__info-date {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: $colorGreen;
+  }
+
+  &__subtitle {
+    @extend %h3;
+    font-size: 28px;
+    text-align: center;
+
+    margin-bottom: 10px;
+
+    @include on768 {
+      font-size: 36px;
+      text-align: start;
+
+      margin-bottom: 15px;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: $colorOrange;
+      transform: translateY(-4px);
+    }
+  }
+
+  &__paragraph {
+    @extend %actual-text-style;
+    max-width: 280px;
+    text-align: center;
+    margin: 0 auto;
+
+    @include on768 {
+      max-width: 460px;
+      text-align: start;
+      margin: 0;
+    }
+  }
+}

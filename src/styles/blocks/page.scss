@@ -1,0 +1,41 @@
+.page {
+  scroll-behavior: smooth;
+  font-family: "IBM Plex Sans", "Montserrat", sans-serif;
+  font-size: 16px;
+
+  &__body {
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.5);
+      transition: 0.3s;
+    }
+  }
+
+  &__header {
+    margin-bottom: 70px;
+
+    @include on768 {
+      margin-bottom: 107px;
+    }
+
+    @include on1280 {
+      margin-bottom: 318px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+
+    transition: 0.3s;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+}
