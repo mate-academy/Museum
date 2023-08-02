@@ -1,3 +1,5 @@
+'use strict';
+
 const $ = window.$;
 const btn = $('#backtotop');
 

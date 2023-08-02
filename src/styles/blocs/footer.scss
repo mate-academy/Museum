@@ -85,13 +85,34 @@
     }
 
     &__content {
-      display: block;
+      position: relative;
+      display: inline-block;
       text-decoration: none;
       color: $general-text-color;
 
       @include fontDescription;
       font-size: 14px;
       line-height: 150%;
+
+      &--value {
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -1px;
+          display: block;
+          height: 1px;
+          width: 100%;
+          background-color: $green-translucent-color;
+          transition: transform 0.3s;
+          transform: scale(0);
+          transform-origin: left;
+        }
+  
+        &:hover::after {
+          transform: scale(1);
+        }
+      }
+
     }
   }
 
