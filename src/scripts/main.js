@@ -97,3 +97,30 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   form.reset();
 });
+
+
+document.querySelector(".subscription__form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Зупинити стандартну поведінку форми
+
+  const emailInput = document.querySelector(".subscription__form-email");
+  const emailValue = emailInput.value;
+
+  if (isValidEmail(emailValue)) {
+    // Якщо електронна пошта є валідною, ви можете виконати відправку форми тут
+
+    // Очищаємо поле вводу після відправки
+    emailInput.value = "";
+  } else {
+    // Якщо електронна пошта не валідна, ви можете зробити щось інше, наприклад, показати повідомлення про помилку
+    alert("Введіть коректну електронну пошту!");
+  }
+});
+
+// Функція для валідації електронної пошти
+function isValidEmail(email) {
+  // Проста валідація наявності символу '@' у стрічці
+  return /\S+@\S+\.\S+/.test(email);
+}
+
+
+
