@@ -74,3 +74,11 @@ sliderDots.forEach((dot, index) => {
     thisSlider(sliderCount);
   })
 })
+
+// Вимкнув перезавантаження сторінки під час надсилання форми
+const form = document.querySelector('.subscription__form-button');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  form.reset();
+});
