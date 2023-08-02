@@ -1,0 +1,233 @@
+.header {
+  position: relative;
+
+  @include onTablet {
+    height: 380px;
+  }
+
+  @include onDesktop {
+    height: 660px;
+  }
+
+  &--margin-bottom {
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 88px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  .container {
+    @include onTablet {
+      height: 95%;
+    }
+
+    @include onDesktop {
+      height: 80%;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      height: 100%;
+    }
+  }
+
+  &__info-container {
+    position: relative;
+    @include onTablet {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+    @include onDesktop {
+      &::before {
+        content: "події";
+        transform: rotate(-90deg) translateY(-90%);
+        color: #687480;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 70px;
+        width: 1px;
+        background-color: $mainGreen;
+
+        transform: translate(5px, 100px);
+      }
+    }
+  }
+  &__menu-icon {
+    position: absolute;
+    top: calc((#{$headerMenuRowHeight} - #{$iconSize}) / 2);
+    z-index: 5;
+  }
+
+  &__logo {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $logoSize;
+    width: $logoSize;
+    top: calc((#{$headerMenuRowHeight} - #{$logoSize}) / 2);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba($color: #fff, $alpha: 0.2);
+    border-radius: 3px;
+    z-index: 1;
+
+    @include onTablet {
+      left: 60%;
+    }
+
+    @include onDesktop {
+      left: 50%;
+    }
+  }
+  &__logo-image {
+    width: 90%;
+    height: 90%;
+  }
+  &__main-image {
+    display: inline-block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 20px;
+
+
+
+    @include onTablet {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 380px;
+    }
+
+    @include onDesktop {
+      width: 55%;
+      height: 660px;
+    }
+  }
+  &__title {
+    text-align: center;
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 54px;
+      text-align: left;
+      margin-bottom: 38px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 120%;
+      margin-bottom: 86px;
+    }
+  }
+  &__button {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+
+    width: 280px;
+    height: 50px;
+    border: 1px solid $mainGreen;
+
+    color: #0F0E08;
+    font-size: 16px;
+    font-weight: 500;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0;
+      border-radius: 0 50% 50% 0;
+      background-color: $mainGreen;
+
+      transition-duration: 300ms;
+      z-index: 1;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+        border-radius: 0 0 0 0;
+      }
+
+      .header__button-value {
+        color: #fff;
+      }
+    }
+
+    @include onTablet {
+      margin: 0;
+    }
+
+    @include onDesktop {
+      transform: translateX(55%);
+    }
+
+    &::after {
+      content: "";
+      flex: 0 1 50px;
+      height: 100%;
+      background-image: url(../images/icons/button-arrow.svg);
+      background-color: $mainGreen;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__button-value {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+
+    transition-duration: 300ms;
+  }
+
+  &__navigation {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: fit-content;
+    background-color: $mainGreen;
+    transition-duration: 300ms;
+
+    transform: translateY(-100%);
+
+    z-index: 2;
+    &._open {
+      transform: translateY(0);
+    }
+  }
+}
