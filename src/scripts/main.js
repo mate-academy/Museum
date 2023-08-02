@@ -1,6 +1,8 @@
 'use strict';
 
 // Burger меню
+const overFlow = document.querySelector(".page");
+console.log(overFlow);
 const eclipsePage = document.querySelector(".page__body");
 console.log(eclipsePage);
 const navElement = document.querySelector(".aside");
@@ -20,19 +22,32 @@ btnMenu.addEventListener('click', () => {
   eclipsePage.classList.add('page__body--active');
 });
 
+btnMenu.addEventListener('click', () => {
+  overFlow.classList.add('page--active');
+});
+
 btnCross.addEventListener('click', () => {
   navElement.classList.remove('aside--active');
 })
 
 btnCross.addEventListener('click', () => {
   eclipsePage.classList.remove('page__body--active');
+})
+
+btnCross.addEventListener('click', () => {
+  overFlow.classList.remove('page--active');
 })
 
 btnLink.addEventListener('click', () => {
   navElement.classList.remove('aside--active');
 });
+
 btnLink.addEventListener('click', () => {
   eclipsePage.classList.remove('page__body--active');
+});
+
+btnLink.addEventListener('click', () => {
+  overFlow.classList.remove('page--active');
 });
 
 // Слайдер для Gallery
