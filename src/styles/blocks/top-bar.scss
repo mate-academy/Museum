@@ -1,0 +1,68 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 92px;
+
+  padding-top: 9px;
+  margin-bottom: 250px;
+
+  @include onTablet {
+    padding-top: 15px;
+    margin-bottom: 62px;
+
+    @include pageGrid;
+    grid-column: 1 / -1;
+  }
+
+  @include onDesktop {
+    @include pageGrid;
+    margin-bottom: 119px;
+  }
+
+  &__menu {
+    height: 24px;
+    width: 24px;
+
+    display: block;
+
+    background-image: url(../images/menu.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: transform $transitions;
+
+    &:hover {
+      transform: scale($scale);
+    }
+
+    @include onTablet {
+      justify-items: start;
+    }
+  }
+
+  &__logo-link {
+    display: flex;
+    margin-right: calc(50% - 26px);
+
+    width: 54px;
+    height: 60px;
+    transition: transform $transitions;
+
+    &:hover {
+      transform: scale($scale);
+    }
+
+    @include onTablet {
+      grid-column: 4 / 6;
+      margin: 0;
+      height: 72px;
+      padding-left: 90px;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 8;
+      padding: 0;
+    }
+  }
+}

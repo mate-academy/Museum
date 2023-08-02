@@ -1,0 +1,237 @@
+.gallery {
+  padding-top: 50px;
+
+  @include onTablet {
+    max-width: 836px;
+
+    margin: 0 auto;
+    padding-top: 44px;
+  }
+
+  @include onDesktop {
+    max-width: 1280px;
+
+    margin: 0 auto;
+    padding-top: 100px;
+  }
+
+  &__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: $colorBlackText;
+    text-align: center;
+
+    margin: 0 0 40px;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 48px;
+      line-height: 48px;
+
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__wrapper {
+    max-width: 280px;
+    height: 410px;
+    margin: 0 auto;
+
+    overflow: hidden;
+    transition: transform $transitions;
+
+    &:hover {
+      transform: scale($scale);
+    }
+
+    @include onTablet {
+      max-width: 340px;
+      height: 543px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__slider {
+    display: flex;
+    transition: all ease 1s;
+  }
+
+  &__img {
+    width: 280px;
+    height: 410px;
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+    }
+
+    &-1 {
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &-2 {
+      object-fit: cover;
+      object-position: center;
+
+      @include onTablet {
+        width: 370px;
+        height: 543px;
+      }
+    }
+
+    &-3 {
+      object-fit: cover;
+      object-position: center;
+
+      @include onTablet {
+      }
+    }
+
+    &-4 {
+      object-fit: cover;
+      object-position: center;
+
+      @include onTablet {
+      }
+    }
+  }
+
+  &__desctop {
+    display: none;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, auto);
+      gap: 30px;
+    }
+
+    &-img1 {
+      transition: transform $transitions;
+
+      &:hover {
+        transform: scale($scale);
+      }
+
+      @include onDesktop {
+        width: 370px;
+        height: 600px;
+
+        grid-column: 1 / 5;
+      }
+    }
+
+    &-img2 {
+      transition: transform $transitions;
+
+      &:hover {
+        transform: scale($scale);
+      }
+
+      @include onDesktop {
+        width: 770px;
+        height: 600px;
+
+        grid-column: 5 / -1;
+      }
+    }
+
+    &-img3 {
+      transition: transform $transitions;
+
+      &:hover {
+        transform: scale($scale);
+      }
+
+      @include onDesktop {
+        width: 770px;
+        height: 360px;
+
+        grid-column: 1 / 9;
+      }
+    }
+
+    &-img4 {
+      transition: transform $transitions;
+
+      &:hover {
+        transform: scale($scale);
+      }
+      
+      @include onDesktop {
+        width: 370px;
+        height: 360px;
+
+        grid-column: 9 / -1;
+      }
+    }
+  }
+
+  &__btn {
+    margin: 20px auto 0;
+
+    width: 102px;
+    height: 9px;
+
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+
+    @include onTablet {
+      margin-top: 32px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &-one {
+      width: 9px;
+      height: 9px;
+
+      background-color: rgba(224, 224, 224, 1);
+      border-radius: 50%;
+    }
+
+    &-two {
+      width: 9px;
+      height: 9px;
+
+      background-color: rgba(224, 224, 224, 1);
+      border-radius: 50%;
+    }
+
+    &-tree {
+      width: 9px;
+      height: 9px;
+
+      background-color: rgba(224, 224, 224, 1);
+      border-radius: 50%;
+    }
+
+    &-four {
+      width: 9px;
+      height: 9px;
+
+      background-color: rgba(224, 224, 224, 1);
+      border-radius: 50%;
+    }
+
+    &-active:hover {
+      background-color: rgba(26, 90, 76, 1);
+      transition: all $transitions;
+    }
+    &-active {
+      background-color: rgba(26, 90, 76, 1);
+    }
+  }
+
+}
