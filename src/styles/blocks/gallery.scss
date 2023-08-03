@@ -1,17 +1,72 @@
 .gallery {
   margin-bottom: 100px;
-  
+
+  @include paddingInline;
+
+  @include onTablet {
+    margin-bottom: 92px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+
   &__grid {
-    padding-inline: 20px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    width: 2000px;
+    height: $img-height;
+    display: flex;
+
+    @include onTablet {
+      height: $img-height-onTablet;
+      padding-bottom: 32px;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      height: $img-height-onDesktop1 + $img-height-onDesktop2 + 30px;
+      padding-bottom: 0;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
   }
 
   &__wrapper {
-    width: 100%;
-    height: 410px;
-    margin-bottom: 20px;
+    width: 280px;
+    height: $img-height;
+    margin-right: 16px;
+
+    @include onTablet {
+      width: 340px;
+      height: $img-height-onTablet;
+      margin-bottom: 32px;
+      margin-right: 20px;
+    }
+
+    @include onDesktop {
+      width: auto;
+      height: $img-height-onDesktop1;
+      margin-bottom: 0;
+      margin-right: 0;
+    }
+
+    &--4 {
+      @include onDesktop {
+        grid-column: span 4;
+      }
+    }
+
+    &--8 {
+      @include onDesktop {
+        grid-column: span 8;
+      }
+    }
+
+    &--row--2 {
+      @include onDesktop {
+        height: $img-height-onDesktop2;
+      }
+    }
   }
 
   &__image {
@@ -19,12 +74,19 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    @include hover(scale, 1.05);
   }
 
   &__slider {
     margin: auto;
+    margin-top: 20px;
     width: 102px;
     height: 9px;
     background-image: url(../images/icons/slider.svg);
+
+    @include onDesktop {
+      display: none;
+    }
   }
 }

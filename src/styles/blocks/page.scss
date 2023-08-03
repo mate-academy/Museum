@@ -2,6 +2,8 @@
   box-sizing: border-box;
   position: relative;
   min-width: 320px;
+  max-width: 1280px;
+  margin: auto;
   scroll-behavior: smooth;
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 16px;
@@ -18,10 +20,6 @@
     }
   }
 
-  &__header {
-    margin-bottom: 70px;
-  }
-
   &__menu {
     position: absolute;
     top: 0;
@@ -30,10 +28,12 @@
 
     transition: all 0.3s;
     transform: translateX(-100%);
+    opacity: 0;
     pointer-events: none;
 
     &--target {
       transform: translateX(0);
+      opacity: 1;
       pointer-events: all;
       overflow: hidden;
     }
@@ -57,18 +57,21 @@
 
   &__icon {
     position: absolute;
-    top: 0;
-    left: 20px;
+    grid-column: 1 / 2;
     width: 24px;
     height: 24px;
     margin-top: 27px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+
+    @include onTablet {
+      margin-top: 40px;
+      grid-column: 1 / 2;
+    }
   }
 
   &__title {
-    padding-inline: 20px;
     margin-bottom: 40px;
     color: $c-title;
     text-align: center;
@@ -76,9 +79,27 @@
     font-size: 36px;
     font-weight: 700;
     line-height: 100%;
+
+    @include onTablet {
+      margin-bottom: 48px;
+      text-align: left;
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
   }
 
   &__main {
     margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 120px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 87px;
+    }
   }
 }

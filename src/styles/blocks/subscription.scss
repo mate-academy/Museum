@@ -11,29 +11,61 @@
   background-size: cover;
   background-position: center;
 
+  @include gridPage;
+
+  @include onTablet {
+    height: 380px;
+    padding: 82px 34px;
+  }
+
+  @include onDesktop {
+    height: 550px;
+    padding: 163px 55px;
+    margin-bottom: 48px;
+  }
+
   &__title {
     margin-bottom: 20px;
+    grid-column: 1 / -1;
     color: #fff;
+
+    @include onTablet {
+      margin-bottom: 16px;
+      grid-column: 1 / -1;
+      text-align: center;
+    }
   }
 
   &__text {
     margin-bottom: 50px;
+    grid-column: 1 / -1;
     color: #fff;
     text-align: center;
     font-size: 18px;
     font-weight: 400;
     line-height: 150%;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+      margin-bottom: 64px;
+      line-height: 100%;
+    }
+
+    @include onDesktop {
+      grid-column: 4 / -4;
+      margin-bottom: 72px;
+    }
   }
 
-  &__input {
-    width: 100%;
-    border: none;
-    font-family: "Montserrat", sans-serif;
-    font-size: 14px;
-    color: #687480;
+  &__email {
+    grid-column: 1 / -1;
 
-    &:focus {
-      outline: none;
+    @include onTablet {
+      grid-column: 2 / -2;
+    }
+
+    @include onDesktop {
+      grid-column: 4 / -4;
     }
   }
 }

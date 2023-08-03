@@ -1,7 +1,17 @@
-.form {
-  height: 50px;
+ .form {
+  height: $form-size;
   display: grid;
   grid-template-columns: 1fr 50px;
+
+  @include onTablet {
+    height: $form-size-onTablet;
+    grid-template-columns: 1fr 70px;
+    column-gap: 16px;
+  }
+
+  @include onDesktop {
+    column-gap: 30px;
+  }
 
   &__text {
     display: flex;
@@ -9,7 +19,6 @@
     align-items: center;
     padding-left: 24px;
     background-color: #fff;
-
   }
 
   &__image {
@@ -17,13 +26,33 @@
     transition: scale 0.3s;
   }
 
+  &__input {
+    width: 100%;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    color: $c-after;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
   &__arrow {
     display: flex;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    align-items: center;
+    width: $form-size;
+    height: $form-size;
+    padding: 0;
+    border: none;
     cursor: pointer;
     background-color: $c-orange;
+
+    @include onTablet {
+      width: $form-size-onTablet;
+      height: $form-size-onTablet;
+    }
 
     &:hover > .form__image {
       scale: 1.5;

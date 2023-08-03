@@ -3,7 +3,6 @@
 const menu = document.getElementById('menu');
 const page = document.querySelector('.page__body');
 const pageWrapper = document.querySelector('.page__wrapper');
-const galleryGrid = document.querySelector('.gallery__grid');
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
@@ -16,8 +15,12 @@ window.addEventListener('hashchange', () => {
     pageWrapper.classList.remove('page__wrapper--on');
   }
 });
-;
 
-galleryGrid.style.width
-  = String((document.documentElement.clientWidth - 2 * 20)
-  * 4 + (16 * 3)) + 'px';
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function(event) {
+  form.reset();
+  event.preventDefault();
+
+  window.location.hash = 'header';
+});

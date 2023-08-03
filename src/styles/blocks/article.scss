@@ -1,41 +1,69 @@
 .article {
-  box-sizing: border-box;
-  width: 100%;
-  color: #687480;
-
-  &--padding {
-    padding-inline: 20px;
-  }
+  @include gridPage;
+  grid-column: 1 / -1;
+  color: $c-after;
 
   &__image {
     width: 100%;
     margin-bottom: 16px;
+    grid-column: 1 / -1;
+
+    @include hover(scale, 1.05);
+
+    @include onTablet {
+      height: 520px;
+      margin-bottom: 44px;
+      grid-column: 1 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+      margin-bottom: 0;
+    }
   }
 
-  &__wrapper {
-    text-align: center;
-    margin-inline: 20px;
-    padding-top: 20px;
-    transform: translateY(-73px);
-    background: #fff;
-    box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+  &__wrap {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      margin-block: auto;
+      grid-column: 9 / -1;
+    }
   }
 
   &__date {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 10px;
+    align-items: center;
 
-    &--up {
-      padding-inline: 21px;
-      margin-bottom: 20px;
+    @include onTablet {
+      margin-bottom: 32px;
+      grid-column: 1 / 3;
+      font-size: 14px;
+      line-height: 100%;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+      grid-column: 1 / -2;
     }
   }
 
   &__dating {
     font-weight: 700;
     line-height: 150%;
+
+    @include onDesktop {
+      width: 173px;
+    }
   }
 
   &__title {
@@ -56,11 +84,16 @@
       background: $c-orange;
     }
 
-    &--rectangle--no {
-      margin-bottom: 20px;
+    @include onTablet {
+      grid-column: 1 / -1;
+      margin-bottom: 15px;
+      font-size: 36px;
+      max-width: fit-content;
 
       &::after {
-        display: none;
+        right: -35px;
+        width: 15px;
+        height: 15px;
       }
     }
   }
@@ -70,5 +103,9 @@
     font-size: 16px;
     font-weight: 300;
     line-height: 150%;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
   }
 }

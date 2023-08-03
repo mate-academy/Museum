@@ -1,11 +1,17 @@
 .tickets {
-  height: 50px;
+  height: $form-size;
   display: grid;
-  grid-template-columns: 1fr 50px;
+  grid-template-columns: 1fr $form-size;
   border: 1px solid $c-green;
   text-transform: uppercase;
   text-decoration: none;
   color: $c-title;
+
+  @include onTablet {
+    width: 270px;
+    height: $form-size-onTablet;
+    grid-template-columns: 1fr $form-size-onTablet;
+  }
 
   &__text {
     display: flex;
@@ -19,20 +25,25 @@
 
   }
 
-  &__image {
-    width: 24px;
-    transition: scale 0.3s;
-  }
-
   &__arrow {
     display: flex;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: $form-size;
+    height: $form-size;
     background-color: $c-green;
 
     &:hover > .tickets__image {
       scale: 1.5;
     }
+
+    @include onTablet {
+      width: $form-size-onTablet;
+      height: $form-size-onTablet;
+    }
+  }
+
+  &__image {
+    width: 24px;
+    transition: scale 0.3s;
   }
 }
