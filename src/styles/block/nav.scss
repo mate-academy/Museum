@@ -1,0 +1,51 @@
+.nav {
+  &__list {
+    padding-left: 28px;
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include onTablet {
+      padding-left: 38px;
+    }
+
+    @include onDesktop {
+      padding-left: 102px;
+    }
+  }
+
+  &__item {
+    &:nth-child(3) {
+      margin-top: 24px;
+    }
+    &:nth-child(4) {
+      margin-top: 24px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    @extend %p;
+    font-weight: 500;
+    line-height: 100%;
+    color: #fff;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: #fff;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
