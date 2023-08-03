@@ -1,0 +1,32 @@
+.contacts {
+  @extend %p;
+  font-size: 14px;
+  font-weight: 400;
+
+  &__title {
+    padding-bottom: 20px;
+  }
+
+  &__link {
+    color: #000;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: #000;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
