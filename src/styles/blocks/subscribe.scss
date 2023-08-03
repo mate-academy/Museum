@@ -91,6 +91,7 @@
   }
   &__button {
     flex: 0 1 50px;
+    position: relative;
     border: none;
     background-color: #F14A27;
     background-image: url('../images/icons/button-arrow-dark.svg');
@@ -98,8 +99,54 @@
     background-position: center;
     background-size: 50%;
 
+    transition-duration: 300ms;
+
     @include onTablet {
       flex: 0 1 70px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      border: 1px solid #fff;
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0;
+
+      transition-duration: 300ms;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      border: 1px solid #F14A27;
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+
+      transition-duration: 300ms;
+
+    }
+
+    &:hover {
+      cursor: pointer;
+      &::before {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+      }
+      &::after {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 1;
+      }
+      background-image: url('../images/icons/button-arrow.svg');
     }
   }
 }
