@@ -2,22 +2,17 @@
 
 const $ = window.$;
 
-// $(document).ready(function() {
-//   const h = $('#menu').outerHeight();
-
-//   document.querySelector('.menu').style.setProperty('--height', h + 'px');
-// });
-
 $(document).ready(function() {
+  
   function checkWidth() {
     const h = $('#menu').outerHeight();
-
     document.querySelector('.menu').style.setProperty('--height', h + 'px');
-  }
+  };
 
-  checkWidth(); // проверит при загрузке страницы
+  checkWidth(); // перевіряє при завантаженні
 
   $(window).resize(function() {
-    checkWidth(); // проверит при изменении размера окна клиента
+    // перевіряе при зміні розміру з ітервалом 1мс на протязі 300мс
+    setTimeout(checkWidth, 300); 
   });
 });
