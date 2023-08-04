@@ -1,0 +1,93 @@
+.nav {
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    gap: 28px;
+
+    @include onTablet {
+      gap: 20px;
+    }
+    @include onDesktop {
+      gap: 70px;
+    }
+
+    &--footer {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+
+      @include onTablet {
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 30px;
+      }
+    }
+  }
+
+  &__list-block {
+    max-width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      gap: 30px;
+    }
+
+    @include onDesktop {
+      max-width: 168px;
+      gap: 24px;
+    }
+
+    &--footer {
+      max-width: none;
+
+      @include onTablet {
+        grid-column: span 2;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: $base-white;
+
+    &::after,
+    &--footer::after {
+      position: absolute;
+      display: block;
+      content: "";
+      bottom: -6px;
+      height: 2px;
+      width: 100%;
+      background-color: $base-white;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+    }
+
+    &--footer::after {
+      height: 1px;
+      background-color: $black-text;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    @include onDesktop {
+      font-size: 22px;
+    }
+
+    &--footer {
+      font-size: 14px;
+      font-weight: 400;
+      color: $black-text;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.lection {
+  @include pageGrid;
+
+  &__image-container {
+    grid-column: 1/-1;
+    position: relative;
+    max-width: $max-content-width;
+    @include pageGrid;
+
+    width: 100%;
+    height: 210px;
+
+    background-image: url(../images/lection/lection-bg.png);
+    background-size: cover;
+
+    @include onTablet {
+      height: 390px;
+    }
+    @include onDesktop {
+      height: 550px;
+    }
+  }
+
+  &__container {
+    grid-column: 1/-1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    @include contentPaddingInline;
+    @include pageGrid;
+  }
+
+  &__content {
+    grid-column: 1/-1;
+    position: absolute;
+    top: 153px;
+    left: 0;
+    right: 0;
+
+    padding-block: 20px;
+    background-color: $base-white;
+    box-shadow: 0 2px 0 0 #1a5a4c40;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include hover(transform, scale(1.05));
+
+    &.active {
+      @include appearOnScrollTop;
+    }
+
+    @include onTablet {
+      top: 306px;
+      left: 85px;
+      right: 85px;
+      grid-column: 1/-1;
+      padding: 50px 55px;
+    }
+
+    @include onDesktop {
+      top: 448px;
+      left: 0;
+      right: 0;
+      grid-column: 4/10;
+      padding-inline: 100px;
+
+      @include hover(transform, scale(1.2));
+    }
+  }
+
+  &__subtitle-dates {
+    margin-inline: 20px;
+
+    @include onTablet {
+      margin: 0;
+      gap: 190px;
+    }
+
+    @media (min-width: 640px) and (max-width: 700px) {
+      gap: 110px;
+    }
+
+    @include onDesktop {
+      gap: 140px;
+    }
+  }
+
+  &__title {
+    margin-top: 20px;
+    @include onTablet {
+      text-align: left;
+    }
+  }
+}

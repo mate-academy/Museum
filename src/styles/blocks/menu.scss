@@ -1,0 +1,87 @@
+.menu {
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: $base-white;
+  @include pageGrid;
+
+  &__flex-container {
+    padding-block: 27px;
+    height: 400px;
+    background: $base-green;
+
+    @include onTablet {
+      height: 233px;
+      padding-top: 40px;
+      padding-bottom: 48px;
+    }
+  }
+
+  &__container {
+    @include onDesktop {
+      align-self: start;
+      width: 100%;
+    }
+  }
+
+  &__nav-block {
+    grid-column: 1/-1;
+    position: relative;
+    display: flex;
+    gap: 38px;
+
+    @include onTablet {
+      grid-column: 1/4;
+    }
+
+    @include onDesktop {
+      gap: 102px;
+      grid-column: 1/6;
+    }
+  }
+
+  &__nav {
+    @include onTablet {
+      //centering section to prevent big space betwwen it and line
+      margin: 0 auto;
+      // to prevent too litle space between it and line
+      padding-right: 38px;
+    }
+    @include onDesktop {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__schedule {
+    margin-top: 24px;
+    padding-top: 24px;
+    position: relative;
+    grid-column: 1/-1;
+
+    &::after {
+      display: block;
+      position: absolute;
+      top: 0;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: #ffffff80;
+
+      @include onTablet {
+        left: -38px;
+        height: 145px;
+        width: 1px;
+      }
+    }
+
+    @include onTablet {
+      margin: 0;
+      padding: 0;
+      grid-column: 4/-1;
+    }
+    @include onDesktop {
+      padding-left: 102px;
+      grid-column: 7/-2;
+    }
+  }
+}
