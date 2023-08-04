@@ -1,0 +1,93 @@
+.galery {
+  margin-top: 185px;
+  margin-bottom: 100px;
+
+  @include onTablet {
+    margin-top: 208px;
+    margin-bottom: 92px;
+  }
+
+  @include onDesktop {
+    margin-top: 302px;
+    margin-bottom: 200px;
+  }
+
+  &__container {
+    @include onDesktop {
+      row-gap: 30px;
+    }
+  }
+
+  &__title {
+    grid-column: 1/-1;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__slider {
+    grid-column: 1/-1;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__painting {
+    display: none;
+
+    @include onDesktop {
+      display: initial;
+      width: 100%;
+      height: auto;
+
+      @include hover (transform, scale(1.05));
+    }
+  }
+
+  &__painting--1 {
+    &.active {
+      @include appearOnScrollLeft;
+    }
+
+    @include onDesktop {
+      grid-column: 1/5;
+    }
+  }
+
+  &__painting--2 {
+    &.active {
+      @include appearOnScrollRight;
+    }
+
+    @include onDesktop {
+      grid-column: 5/-1;
+    }
+  }
+
+  &__painting--3 {
+    &.active {
+      @include appearOnScrollLeft;
+    }
+
+    @include onDesktop {
+      grid-column: 1/9;
+    }
+  }
+
+  &__painting--4 {
+    &.active {
+      @include appearOnScrollRight;
+    }
+
+    @include onDesktop {
+      grid-column: 9/-1;
+    }
+  }
+}

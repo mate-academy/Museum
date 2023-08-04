@@ -1,0 +1,90 @@
+.subscription {
+  &__container {
+    background-image: url(../images/subscription/subscription-bg--mobile.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+
+    max-width: $max-content-width;
+    @include pageGrid;
+
+    @include onTablet {
+      background-image: url(../images/subscription/subscription-bg.png);
+    }
+  }
+
+  &__content {
+    grid-column: 1/-1;
+    @include contentPaddingInline;
+    padding-block: 88px;
+
+    &.active {
+      @include appearOnScrollLeft;
+    }
+
+    @include onTablet {
+      padding-block: 82px;
+      grid-column: 2/-2;
+    }
+
+    @include onDesktop {
+      padding-block: 163px;
+      grid-column: 4/-4;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 50px;
+
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: $base-white;
+  }
+
+  &__form {
+    display: flex;
+
+    @include onTablet {
+      gap: 16px;
+    }
+    @include onDesktop {
+      gap: 30px;
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    padding-left: 24px;
+
+    outline: 0;
+    outline-offset: 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    color: $grey-text-subtitle;
+
+    @include onTablet {
+      height: 70px;
+    }
+
+    @include onDesktop {
+      padding-left: 32px;
+    }
+
+    &:hover,
+    &:focus {
+      border: 2px solid $orange-square;
+    }
+  }
+
+  &__button {
+    flex-shrink: 0;
+  }
+}

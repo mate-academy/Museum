@@ -1,0 +1,53 @@
+.page {
+  position: relative;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  &__body {
+    position: relative;
+    margin: 0;
+    min-width: 320px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: $black-text;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translate(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translate(0);
+      pointer-events: all;
+    }
+  }
+
+  &__arrow-up {
+    position: sticky;
+    top: 85%;
+    z-index: 1;
+  }
+
+  &__arrow-container {
+    position: relative;
+
+    @include onDesktop {
+      width: $max-content-width;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}

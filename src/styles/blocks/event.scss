@@ -1,0 +1,86 @@
+.event {
+  margin-bottom: 60px;
+  @include pageGrid;
+
+  &.active {
+    @include appearOnScrollRight;
+  }
+
+  @include onTablet {
+    margin-bottom: 64px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 104px;
+  }
+
+  &__image {
+    grid-column: 1/-1;
+    width: 100%;
+    height: auto;
+
+    @include hover(transform, scale(1.05));
+
+    @include onDesktop {
+      grid-column: 1/8;
+      @include hover(transform, scale(1.1));
+    }
+  }
+
+  &__content {
+    grid-column: 1/-1;
+
+    @include onTablet {
+      grid-column: 1/5;
+    }
+
+    @include onDesktop {
+      grid-column: -5/-1;
+      align-self: center;
+    }
+  }
+
+  &__subtitle-dates {
+    margin-top: 20px;
+
+    @include onTablet {
+      margin-top: 40px;
+    }
+
+    @include onDesktop {
+      margin-top: 0;
+    }
+  }
+
+  &__title-block {
+    margin-block: 10px;
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    @include onTablet {
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__square-after-title {
+    height: 10px;
+    width: 10px;
+    background: $orange-square;
+
+    @include onTablet {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    color: $grey-text;
+  }
+}

@@ -1,0 +1,175 @@
+.header {
+  --header-img-height: 300px;
+  @include pageGrid;
+
+  @include onTablet {
+    --header-img-height: 384px;
+    padding: 0;
+  }
+
+  @include onDesktop {
+    --header-img-height: 655px;
+  }
+
+  &__container {
+    position: relative;
+    @include pageGrid;
+    max-width: $max-content-width;
+
+    @include onTablet {
+      padding-top: 40px;
+    }
+  }
+
+  &__image {
+    grid-column: 1/-1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-img-height);
+
+    background-image: url(../images/header-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+
+    @include onTablet {
+      grid-column: 4/-1;
+    }
+    @include onDesktop {
+      grid-column: 6/-1;
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+
+    &--on-mobile {
+      display: block;
+      position: absolute;
+      top: 27px;
+      left: 20px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__logo {
+    margin-top: 9px;
+    width: 100%;
+    text-align: center;
+
+    @include onTablet {
+      width: initial;
+      margin-top: 15px;
+      margin-left: 80px;
+    }
+
+    @include onDesktop {
+      margin-left: 54px;
+    }
+  }
+
+  &__content {
+    grid-column: 1/-1;
+    margin-top: var(--header-img-height);
+    margin-bottom: 70px;    // distance between header and main
+    padding-top: 20px;
+    @include contentPaddingInline;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include appearOnScrollLeft;
+
+    @include onTablet {
+      margin-top: 0;
+      margin-bottom: 107px; // distance between header and main
+      padding-top: 0;
+      grid-column: 1/4;
+      align-items: start;
+    }
+
+    @include onDesktop {
+      grid-column: 1/6;
+      margin-bottom: 290px; // distance between header and main
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-top: 64px;
+      margin-bottom: 38px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-top: 143px;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    width: 100%;
+
+    text-decoration: none;
+
+    @include hover(transform, scale(1.05));
+
+    @include onDesktop {
+      width: 270px;
+      align-self: flex-end;
+
+      @include hover(transform, scale(1.1));
+    }
+  }
+
+  &__text {
+    @include contentCenteredWithFlex;
+    width: 100%;
+    border: 1px solid $base-green;
+
+    font-weight: 500;
+    font-size: 16px;
+    color: $black-text;
+    text-transform: uppercase;
+  }
+
+  &__events {
+    display: none;
+    align-self: flex-start;
+    position: relative;
+    font-weight: 700;
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    color: $grey-text-subtitle;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &::before {
+      --height: 1px;
+      position: absolute;
+      top: calc(50% - var(--height));
+      left: -90px;
+      content: "";
+      display: block;
+      height: var(--height);
+      width: 70px;
+      background-color: $base-green;
+    }
+  }
+}
