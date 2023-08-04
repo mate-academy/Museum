@@ -29,10 +29,10 @@ const isMobile = {
 
 const form = document.querySelector('.subscribe__form');
 
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   form.reset();
-  location.reload();
 });
 
 const menu = document.querySelector('.icon--menu');
