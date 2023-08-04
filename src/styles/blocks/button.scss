@@ -1,0 +1,45 @@
+.button {
+  width: 100%;
+  border: 1px solid $color-green;
+  background-color: #fff;
+  position: relative;
+  text-align: center;
+  align-self: center;
+
+  @extend %p;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 50px;
+  text-decoration: none;
+  color: $color-main-text;
+
+  @include hover(translate, 10%);
+
+  @include onTablet {
+    line-height: 70px;
+    width: 270px;
+  }
+
+  @include onDesktop {
+    padding-right: 67px;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: $color-green;
+    background-image: url(../images/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width: 50px;
+
+    @include onTablet {
+      width: 70px;
+    }
+  }
+}
