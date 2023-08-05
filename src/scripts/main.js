@@ -1,6 +1,6 @@
 'use strict';
 
-const menu = document.getElementById('menu');
+const menu = document.querySelector('.page__menu');
 const page = document.querySelector('.page__body');
 const pageWrapper = document.querySelector('.page__wrapper');
 
