@@ -74,8 +74,12 @@
   }
   &__menu-icon {
     position: absolute;
-    top: calc((#{$headerMenuRowHeight} - #{$iconSize}) / 2);
+    top: calc((#{$headerMenuRowHeight} - #{$iconSize} - 4px) / 2);
     z-index: 5;
+
+    @include onTablet {
+      top: calc((#{$headerMenuRowHeight} - #{$iconSize} + 20px) / 2);
+    }
   }
 
   &__logo {
@@ -88,12 +92,13 @@
     top: calc((#{$headerMenuRowHeight} - #{$logoSize}) / 2);
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba($color: #fff, $alpha: 0.2);
     border-radius: 3px;
     z-index: 1;
 
     @include onTablet {
       left: 60%;
+      height: 72px;
+      width: 72px;
     }
 
     @include onDesktop {
