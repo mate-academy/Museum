@@ -1,16 +1,18 @@
 .actualEvents {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding: 0 34px;
 
   @include smartphone {
-    padding: 0;
+    display: grid;
+    padding: 0 20px;
   }
 
   @include desktop {
     display: grid;
     grid-template-columns: repeat(12, 70px);
     gap: 30px;
+    justify-content: center;
     padding: 0;
   }
 
@@ -22,11 +24,12 @@
     font-size: 48px;
     line-height: 100%;
     color: #0f0e08;
-    margin: 0 auto 48px;
+    margin-bottom: 48px;
 
     @include smartphone {
       width: 280px;
       font-size: 36px;
+      justify-self: center;
       text-align: center;
       margin-bottom: 40px;
     }
@@ -38,12 +41,19 @@
   }
 
   &__picture {
-    width: 700px;
+    width: 100%;
     height: 520px;
-    margin: 0 auto 44px;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 44px;
+    transition: all 0.3s;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
 
     @include smartphone {
-      width: 280px;
+      width: 100%;
       height: 210px;
       margin: 0 auto 20px;
     }
@@ -56,7 +66,7 @@
   
   &__advertisement {
     width: 700px;
-    margin: 0 auto 32px;
+    margin-bottom: 32px;
 
     @include smartphone {
       width: 280px;
@@ -111,7 +121,7 @@
     font-size: 36px;
     line-height: 100%;
     color: #0f0e08;
-    margin: 0 auto 15px;
+    margin-bottom: 15px;
 
     &::after {
       display: inline-block;
@@ -144,7 +154,7 @@
 
   &__containString {
     width: 700px;
-    margin: 0 auto 64px;
+    margin-bottom: 64px;
 
     @include smartphone {
       width: 280px;

@@ -1,5 +1,13 @@
 'use strict';
 
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
+
 const sliderContent = document.querySelector('.slider__content');
 const pointerButton1 = document.querySelector('.pointer__button--1');
 const pointerButton2 = document.querySelector('.pointer__button--2');
