@@ -19,66 +19,71 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
   </head>
   <body class="page">
+    <script src="scripts/main.js"></script>
     <script>
-      let slideIndex = 1;
-      showSlides(slideIndex);
+      'use strict';
 
-      function currentSlide(n) {
-        showSlides(slideIndex = n);
-      }
+let slideIndex = 1;
 
-      function showSlides(n) {
-        let i;
-        const windowSize = screen.width;
-        console.log(windowSize);
-        const slide = document.getElementsByClassName('slides__wrapper');
-        const dots = document.getElementsByClassName('slides__dot');
+currentSlide(slideIndex);
 
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(' active', '');
-        }
-        if (windowSize < 768) {
-          if (n === 1) {
-          slide[0].style.left = '0';
-          dots[0].className += ' active';
-          }
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
 
-          if (n === 2) {
-            slide[0].style.left = '-296px';
-            dots[1].className += ' active';
-          }
+function showSlides(n) {
+  let i;
+  const windowSize = window.screen.width;
+  const slide = document.getElementsByClassName('slides__wrapper');
+  const dots = document.getElementsByClassName('slides__dot');
 
-          if (n === 3) {
-            slide[0].style.left = '-592px';
-            dots[2].className += ' active';
-          }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(' active', '');
+  }
 
-          if (n === 4) {
-            slide[0].style.left = '-888px';
-            dots[3].className += ' active';
-          }
-        } else if (windowSize < 1280) {
-          if (n === 1) {
-          slide[0].style.left = '0';
-          dots[0].className += ' active';
-          }
+  if (windowSize < 768) {
+    if (n === 1) {
+      slide[0].style.left = '0';
+      dots[0].className += ' active';
+    }
 
-          if (n === 2) {
-            slide[0].style.left = '-356px';
-            dots[1].className += ' active';
-          }
+    if (n === 2) {
+      slide[0].style.left = '-296px';
+      dots[1].className += ' active';
+    }
 
-          if (n === 3) {
-            slide[0].style.left = '-712px';
-            dots[2].className += ' active';
-          }
+    if (n === 3) {
+      slide[0].style.left = '-592px';
+      dots[2].className += ' active';
+    }
 
-          if (n === 4) {
-            slide[0].style.left = '-1068px';
-            dots[3].className += ' active';
-          }
-        }
-      }
+    if (n === 4) {
+      slide[0].style.left = '-888px';
+      dots[3].className += ' active';
+    }
+  } else if (windowSize < 1280) {
+    if (n === 1) {
+      slide[0].style.left = '0';
+      dots[0].className += ' active';
+    }
+
+    if (n === 2) {
+      slide[0].style.left = '-356px';
+      dots[1].className += ' active';
+    }
+
+    if (n === 3) {
+      slide[0].style.left = '-712px';
+      dots[2].className += ' active';
+    }
+
+    if (n === 4) {
+      slide[0].style.left = '-1068px';
+      dots[3].className += ' active';
+    }
+  }
+}
+
     </script>
 
     <header class="header">
