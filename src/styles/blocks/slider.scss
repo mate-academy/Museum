@@ -5,7 +5,7 @@
     height: 410px;
 
     @include onTablet {
-      width: 340px;
+      width: 100%;
       height: 543px;
     }
 
@@ -64,6 +64,10 @@
     border-radius: 50%;
     transition: all 0.4s ease;
 
+    &--active {
+      background-color: #1a5a4c;
+    }
+
     &:hover {
       background-color: #1a5a4c;
       transform: scale(1.1);
@@ -74,16 +78,29 @@
     width: 400%;
     height: 100%;
     display: flex;
+
+    @include onTablet {
+      width: 200%;
+    }
   }
 
   &__slide {
     width: 25%;
     transition: all 0.4s ease;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__img {
     width: 100%;
     height: 100%;
+
+    @include onTablet {
+      width: calc(100% - 20px);
+    }
   }
 }
 

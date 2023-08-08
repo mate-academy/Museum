@@ -17,54 +17,46 @@
     <a class="icon icon--scroll-to-top" href="#body">
     </a>
 
-    <header class="header">
-      <div class="container header__container">
-        <div class="
-          grid-container
-          grid-container--header
-        ">
-          <div class="header__bc"></div>
+    <header class="header body__header">
+      <div class="header__bc"></div>
 
-          <a class="icon icon--menu" href="#menu"></a>
+      <div class="container">
+        <div class="grid-container header__grid-container">
+          <div class="grid-container__icon-menu">
+            <a class="icon icon--menu" href="#menu"></a>
+          </div>
+          <div class="grid-container__header-logo">
+            <a class="logo" href="#">
+              <img
+                class="logo__img"
+                src="images/logo/logo.svg"
+                alt="logo"
+              >
+            </a>
+          </div>
 
-          <a class="
-            logo
-            logo--header
-            grid-container--logo"
-            href="#"
-          >
-            <img
-              class="logo__img"
-              src="images/logo/logo.svg"
-              alt="logo"
-            >
-          </a>
+          <div class="grid-container__art-museum">
+            <div class="art-museum">
+              <h1 class="title title--art-museum">
+                ХУДОЖНІЙ МУЗЕЙ
+              </h1>
+              <a href="#events" class="art-museum__button">
+                <button class="
+                  button
+                  button--baseline
+                ">
+                  КВИТКИ
+                </button>
+              </a>
+            </div>
+          </div>
 
-          <div class="
-            art-museum
-            grid-container__art-museum
-          ">
-            <h1 class="title title--art-museum">
-              ХУДОЖНІЙ МУЗЕЙ
-            </h1>
-
-            <a href="#events" class="art-museum__button">
-              <button class="
-                button
-                button--baseline
-              ">
-                КВИТКИ
-              </button>
+          <div class="event">
+            <a class="event__link" href="#events">
+              <span> Події </span>
             </a>
           </div>
         </div>
-
-        <a class="header__events-link" href="#events">
-          <span>
-              Події
-          </span>
-        </a>
-
       </div>
     </header>
 
@@ -156,7 +148,7 @@
       </div>
     </aside>
 
-    <main class="main">
+    <main class="main body__main">
       <div class="container">
         <section class="events main__events" id="events">
           <h2 class="title title--section events__title">
@@ -222,43 +214,37 @@
         </div>
       </div>
 
-      <div class="slider slider--scroll main__slider">
-        <div class="slider__slides">
-          <input
-            type="radio"
-            name="r"
-            id="r1"
-            checked
-          >
-
-          <input type="radio" name="r" id="r2">
-
-          <input type="radio" name="r" id="r3">
-
-          <input type="radio" name="r" id="r4">
-
-          <div class="slider__slide s1">
-            <img src="images/slider-imgs/first-slider-img.png" alt="nature" class="slider__img">
+      <div class="container">
+        <div class="slider slider--scroll main__slider">
+          <div class="slider__slides">
+            <input
+              type="radio"
+              name="r"
+              id="r1"
+              checked
+            >
+            <input type="radio" name="r" id="r2">
+            <input type="radio" name="r" id="r3">
+            <input type="radio" name="r" id="r4">
+            <div class="slider__slide s1">
+              <img src="images/slider-imgs/first-slider-img.png" alt="nature" class="slider__img">
+            </div>
+            <div class="slider__slide">
+              <img src="images/slider-imgs/second-slider-img.png" alt="nature" class="slider__img">
+            </div>
+            <div class="slider__slide">
+              <img src="images/slider-imgs/therd-slider-img.png" alt="nature" class="slider__img">
+            </div>
+            <div class="slider__slide">
+              <img src="images/slider-imgs/fourth-slider-img.png" alt="nature" class="slider__img">
+            </div>
           </div>
-
-          <div class="slider__slide">
-            <img src="images/slider-imgs/second-slider-img.png" alt="nature" class="slider__img">
+          <div class="slider__navigation">
+            <label for="r1" class="slider__bar"></label>
+            <label for="r2" class="slider__bar"></label>
+            <label for="r3" class="slider__bar"></label>
+            <label for="r4" class="slider__bar"></label>
           </div>
-
-          <div class="slider__slide">
-            <img src="images/slider-imgs/therd-slider-img.png" alt="nature" class="slider__img">
-          </div>
-
-          <div class="slider__slide">
-            <img src="images/slider-imgs/fourth-slider-img.png" alt="nature" class="slider__img">
-          </div>
-        </div>
-
-        <div class="slider__navigation">
-          <label for="r1" class="slider__bar"></label>
-          <label for="r2" class="slider__bar"></label>
-          <label for="r3" class="slider__bar"></label>
-          <label for="r4" class="slider__bar"></label>
         </div>
       </div>
 
@@ -267,17 +253,15 @@
           <div class="slider__grid-picture1">
             <img class="slider__grid-img" src="images/slider-imgs/slider-grid/img1.png" alt="nature">
           </div>
-
           <div class="slider__grid-picture2">
             <img class="slider__grid-img" src="images/slider-imgs/slider-grid/img2.png" alt="nature">
           </div>
-
           <div class="slider__grid-picture3">
             <img  class="slider__grid-img" src="images/slider-imgs/slider-grid/img3.png" alt="nature">
           </div>
-
           <div class="slider__grid-picture4"><img  class="slider__grid-img" src="images/slider-imgs/slider-grid/img4.png" alt="nature"></div>
         </div>
+      </div>
       </div>
 
       <div class="subscription" id="subscription">
@@ -296,8 +280,9 @@
             </label>
 
             <form
-              action="http://localhost:8080"
-              method="get"
+              onsubmit="this.reset(); return false"
+              action="/"
+              method="post"
               class="subscription__form"
             >
               <input
