@@ -1,0 +1,55 @@
+.s1 {
+  @include onDesktop {
+    height: 600px;
+    grid-column: 1 / 5;
+  }
+}
+
+.s2 {
+  @include onDesktop {
+    height: 600px;
+    grid-column: 5 / -1;
+  }
+}
+
+.s3 {
+  @include onDesktop {
+    height: 360px;
+    grid-column: 1 / 9;
+  }
+}
+
+.s4 {
+  @include onDesktop {
+    height: 360px;
+    grid-column: 9 / -1;
+  }
+}
+
+#s1:checked ~ .s1 {
+  margin-left: 0;
+}
+
+#s2:checked ~ .s1 {
+  margin-left: -25%;
+}
+
+#s3:checked ~ .s1 {
+  margin-left: -50%;
+}
+
+#s4:checked ~ .s1 {
+  margin-left: -75%;
+}
+
+input[name="button"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+#s1:checked ~ .gallery__slider__navigation .bar1,
+#s2:checked ~ .gallery__slider__navigation .bar2,
+#s3:checked ~ .gallery__slider__navigation .bar3,
+#s4:checked ~ .gallery__slider__navigation .bar4 {
+  background-color: $bg-border-color;
+}

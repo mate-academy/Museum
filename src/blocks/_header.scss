@@ -1,0 +1,146 @@
+.header {
+  margin-bottom: 70px;
+
+  @include onTablet {
+    height: 384px;
+    margin-bottom: 88px;
+  }
+
+  @include onDesktop {
+    height: 655px;
+    margin-bottom: 200px;
+  }
+
+  &-image {
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    left: 0;
+    background-color: #18181a;
+
+    @include onTablet {
+      height: 384px;
+      width: 374px;
+
+      top: 0;
+      right: 0;
+      left: auto;
+    }
+
+    @include onDesktop {
+      height: 655px;
+      width: 725px;
+    }
+
+    &__link {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__content {
+    position: relative;
+    @include pageGrid;
+    flex-direction: column;
+    row-gap: 269px;
+
+    @include onTablet {
+      row-gap: 40px;
+    }
+  }
+
+  &__bottom {
+    @include pageGrid;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 38px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+      row-gap: 89px;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    &-title {
+      color: #000;
+      margin: 0;
+      text-align: center;
+      font-family: $secondary-font-family;
+      font-size: 45px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: $secondary-line-height;
+
+      grid-column: 1 / -1;
+
+      @include onTablet {
+        font-size: 54px;
+        line-height: 120%;
+        text-align: start;
+      }
+
+      @include onDesktop {
+        font-size: 72px;
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    border: 1px solid $bg-border-color;
+
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      width: 270px;
+      height: 70px;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / -1;
+      width: 100%;
+    }
+
+    &-link {
+      display: block;
+      width: 50px;
+      height: 50px;
+      background-color: $bg-border-color;
+
+      @include onTablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    &-description {
+      display: block;
+      flex-grow: 1;
+      color: $main-text-color;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: $secondary-line-height;
+    }
+
+    &-img {
+      display: block;
+      position: relative;
+      width: 24px;
+      height: 24px;
+      margin: auto;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.page {
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: 150%;
+
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &:has(.page__menu:target) .header,
+  &:has(.page__menu:target) .main {
+    background-color: #18181a;
+    opacity: 0.5;
+  }
+
+  &:has(.page__menu:target) .header-image__link {
+    opacity: 0.5;
+  }
+
+  &__body {
+    position: relative;
+    margin: 0;
+    min-width: 320px;
+  }
+
+  &__menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    transition: all 0.5s;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+}
