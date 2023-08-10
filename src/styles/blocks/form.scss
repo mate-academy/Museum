@@ -1,4 +1,4 @@
- .form {
+.form {
   height: $form-size;
   display: grid;
   grid-template-columns: 1fr 50px;
@@ -26,6 +26,7 @@
   }
 
   &__input {
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
     padding-inline: 24px;
@@ -33,6 +34,15 @@
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
     color: $c-after;
+
+    &:-webkit-autofill {
+
+      &,
+      &:hover,
+      &:focus {
+        transition: background-color 5000s ease-in-out 0s;
+      }
+    }
 
     &:focus {
       outline: none;
@@ -55,7 +65,7 @@
       height: $form-size-onTablet;
     }
 
-    &:hover > .form__image {
+    &:hover>.form__image {
       scale: 1.5;
     }
   }
