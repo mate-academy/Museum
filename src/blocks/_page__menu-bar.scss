@@ -86,6 +86,7 @@
     &__item {
       margin: 0;
       padding: 0;
+
     }
 
     &__link {
@@ -105,15 +106,21 @@
     }
 
     &-text {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
       font-weight: 400;
 
       &__link {
         display: block;
         text-decoration: none;
         color: $main-text-color;
+        br {
+          display: none;
+        }
+
+        @include onDesktop {
+          br {
+            display: inherit;
+          }
+        }
 
         @include hover(color, red);
       }
