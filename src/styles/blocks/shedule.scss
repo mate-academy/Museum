@@ -1,0 +1,66 @@
+.shedule {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &--before-baseline {
+    position: relative;
+  }
+
+  &--before-baseline::before {
+    display: block;
+    content: "";
+    height: 1px;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      width: 145px;
+      top: 50%;
+      left: -110px;
+      position: absolute;
+      transform: rotate(90deg);
+    }
+
+    @include onDesktop {
+      left: -180px;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 38px;
+    }
+  }
+
+  color: #fff;
+  font-family: $first-font-family;
+  font-size: 14px;
+  line-height: 150%;
+
+  &--footer {
+    color: #0f0e08;
+    font-family: $first-font-family;
+    line-height: 140.63%;
+  }
+
+  &__title {
+    font-family: $first-font-family;
+    text-align: left;
+    font-weight: 400;
+  }
+
+  &__day-off {
+    font-weight: 400;
+  }
+
+  &__weekend {
+    font-weight: 600;
+  }
+}
