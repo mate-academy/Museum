@@ -1,0 +1,57 @@
+.nav {
+  &__list {
+    @extend %resetStyleList;
+
+    display: flex;
+    flex-direction: row;
+    gap: 24px 28px;
+    flex-wrap: wrap;
+
+    @include onTablet {
+      gap: 20px 24px;
+    }
+
+    @include onDesktop {
+      gap: 31px 30px;
+    }
+  }
+
+  &__item {
+    width: 100px;
+
+    @include onDesktop {
+      width: 168px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: #fff;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+
+    @include onDesktop {
+      font-size: 22px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      bottom: -8px;
+      height: 1px;
+      width: 100%;
+      background-color: #fff;
+
+      transition: transform $transitionTime;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
