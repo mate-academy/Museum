@@ -3,9 +3,11 @@
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   background-color: $main-green;
   @include paddingInline;
   @include pageGrid;
+  grid-template-rows: 20% 6% 70%;
   padding-block: 27px;
   color: $white-color;
   font-family: $second-font;
@@ -20,12 +22,18 @@
     transform: translateX(0);
   }
 
+  @include onTablet {
+    grid-template-rows: 20% 0 0;
+    padding-top: 40px;
+  }
+
   @include onDesktop {
     font-size: 1.38rem;
   }
 
   &__inform {
     grid-column: span 2;
+    grid-row: 1;
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -62,6 +70,12 @@
     text-decoration: none;
     color: $white-color;
     padding-bottom: 15px;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $dark-color;
+      font-weight: 600;
+    }
 
     @include onDesktop {
       width: 40%;
@@ -69,22 +83,27 @@
   }
 
   & > .line--menu {
+    grid-row: 2;
+    margin: 0;
     @include onTablet {
+      grid-row: 1;
+
       width: 1px;
       height: 145px;
       position: absolute;
       right: 50%;
-      top: 40px;
       margin: 0;
     }
 
     @include onDesktop {
       grid-column: 7 / 8;
+      right: 100%;
     }
   }
 
   &__timetable {
     grid-column: span 2;
+    grid-row: 3;
     display: flex;
     flex-direction: column;
     font-size: 0.8rem;
@@ -92,6 +111,7 @@
 
     @include onTablet {
       grid-column: 4 / -1;
+      grid-row: 1;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
     }

@@ -1,7 +1,6 @@
 .header {
   &__content {
     @include pageGrid;
-    @include paddingInline;
     position: relative;
 
     @include onDesktop {
@@ -31,6 +30,7 @@
     padding-top: 9px;
     background-image: url(../images/header.png);
     background-size: cover;
+    @include paddingInline;
 
     @include onTablet {
       grid-column: 4 / 7;
@@ -94,7 +94,6 @@
   &__buy {
     display: inline-block;
     width: 230px;
-    height: 50px;
     border: 1px solid $main-green;
     color: $dark-color;
     font-family: $second-font;
@@ -103,16 +102,20 @@
     padding-block: 18px;
     text-align: center;
     margin: 0;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $main-green;
+      font-size: 1.1rem;
+    }
 
     @include onTablet {
-      height: 70px;
       padding-block: 27px;
     }
 
     &-link {
       display: inline-block;
       width: 50px;
-      height: 50px;
       background-color: $main-green;
       background-image: url(../images/icons/baseline-keyboard_arrow_right-24px.png);
       background-size: 50%;
@@ -120,7 +123,6 @@
       background-position: 50% 50%;
 
       @include onTablet {
-        height: 70px;
         width: 70px;
       }
     }
