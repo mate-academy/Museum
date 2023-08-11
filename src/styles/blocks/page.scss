@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  font-family: $main-font;
+  font-size: $font-size;
+  min-width: 320px;
+  margin: 0;
+
+  &__body {
+    margin: 0;
+    scroll-behavior: smooth;
+
+    &:has(.menu:target) {
+      background: rgba($background-aside, 0.5);
+    }
+  }
+}
+
+.logo {
+  &__link {
+    width: 55px;
+    height: 61px;
+    color: $dark-color;
+    font-size: 1.88rem;
+    font-weight: 700;
+    line-height: 100%;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+
+    @include onTablet {
+      width: 220px;
+      text-align: center;
+    }
+
+    @include onDesktop {
+      height: 72px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &--footer {
+      @include onTablet {
+        width: 98px;
+        height: 72px;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+
+    &--footer {
+      @include onTablet {
+        width: 98px;
+        height: 72px;
+        object-fit: fill;
+      }
+    }
+  }
+}

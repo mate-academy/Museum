@@ -1,0 +1,113 @@
+.subscribe {
+  @include pageGrid;
+  font-family: $second-font;
+  font-size: 1.13rem;
+  color: $white-color;
+  background-image: url(../images/subscribe.png);
+  background-size: cover;
+  background-position: center;
+  padding-block: 88px;
+
+  @include onDesktop {
+    padding-block: 163px;
+  }
+
+  &__title {
+    grid-column: span 2;
+    @include paddingInline;
+    text-align: center;
+
+    @include onTablet {
+      grid-column: span 6;
+    }
+
+    @include onDesktop {
+      grid-column: 4 / 10;
+    }
+  }
+
+  &__description {
+    font-weight: 400;
+    line-height: 150%;
+    text-align: center;
+  }
+}
+
+.form {
+  grid-column: span 2;
+  width: 80%;
+  @include paddingInline;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 50px;
+
+  @include onTablet {
+    padding-inline: 0;
+    width: 100%;
+    grid-column: span 6;
+  }
+
+  @include onDesktop {
+    padding-inline: 0;
+    grid-column: 4 / 10;
+  }
+
+  &__input {
+    grid-column: span 2;
+    width: 60%;
+    height: 50px;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    transition: all 0.3s;
+
+    @include onTablet {
+      grid-column: span 6;
+      height: 70px;
+    }
+
+    @include onDesktop {
+      grid-column: 4 / 8;
+    }
+
+    &::placeholder {
+      color: $grey-color;
+      font-family: $main-font;
+      font-size: 0.88rem;
+      font-weight: 400;
+      padding-left: 24px;
+      padding-inline: 18px;
+    }
+
+    &:hover::placeholder {
+      color: $dark-color;
+    }
+
+    &:focus {
+      border-radius: 0;
+      border: none;
+    }
+  }
+
+  &__button {
+    width: 50px;
+    height: 50px;
+    background-color: $main-red;
+    background-image: url(../images/icons/right.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border: none;
+    cursor: pointer;
+
+    @include onTablet {
+      height: 70px;
+      width: 70px;
+      margin-left: 16px;
+    }
+
+    @include onDesktop {
+      margin-left: 30px;
+    }
+  }
+}

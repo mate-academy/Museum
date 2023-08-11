@@ -1,0 +1,80 @@
+.events {
+  &__content {
+    @include pageGrid;
+    @include paddingInline;
+
+    @include onDesktop {
+      margin-bottom: 104px;
+    }
+  }
+
+  &__photo {
+    grid-column: span 2;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 16px;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include onTablet {
+      grid-column: span 6;
+    }
+
+    @include onDesktop {
+      grid-column: span 7;
+    }
+  }
+
+  &__describe {
+    grid-column: span 2;
+    width: 100%;
+    font-family: $second-font;
+    font-size: 1rem;
+    margin-bottom: 60px;
+
+    @include onTablet {
+      grid-column: span 6;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__period {
+    display: flex;
+    justify-content: space-between;
+
+    &--romantism {
+      justify-content: space-evenly;
+      @include onTablet {
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__name {
+    color: $grey-color;
+    font-weight: 500;
+    padding-top: 4px;
+  }
+
+  &__data {
+    color: $main-green;
+    font-weight: 700;
+    line-height: 150%;
+  }
+
+  &__text {
+    color: $color-for-describtion;
+    font-weight: 300;
+    line-height: 150%;
+    margin: 0;
+  }
+}

@@ -1,0 +1,139 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $main-green;
+  @include paddingInline;
+  @include pageGrid;
+  padding-block: 27px;
+  color: $white-color;
+  font-family: $second-font;
+  font-size: 1rem;
+  font-weight: 500;
+  transform: translateX(-100%);
+  transition: all 0.3s;
+  pointer-events: none;
+
+  &:target {
+    pointer-events: all;
+    transform: translateX(0);
+  }
+
+  @include onDesktop {
+    font-size: 1.38rem;
+  }
+
+  &__inform {
+    grid-column: span 2;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__top {
+    display: block;
+    height: fit-content;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    @include onDesktop {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 100px;
+    text-decoration: none;
+    color: $white-color;
+    padding-bottom: 15px;
+
+    @include onDesktop {
+      width: 40%;
+    }
+  }
+
+  & > .line--menu {
+    @include onTablet {
+      width: 1px;
+      height: 145px;
+      position: absolute;
+      right: 50%;
+      top: 40px;
+      margin: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 8;
+    }
+  }
+
+  &__timetable {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    line-height: 140%;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 12;
+    }
+  }
+
+  &__column {
+    @include onTablet {
+      grid-column: span 2;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  &__schedule {
+    &--time {
+      font-weight: 600;
+      margin: 0;
+    }
+
+    &--day {
+      display: inline-block;
+      font-weight: 400;
+      margin: 0;
+      padding-bottom: 2px;
+    }
+
+    &--weekend {
+      font-weight: 400;
+    }
+  }
+
+  &__weekend {
+    @include onTablet {
+      grid-column: 3;
+      grid-row: 1;
+    }
+  }
+}
