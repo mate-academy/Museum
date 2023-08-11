@@ -1,0 +1,318 @@
+.footer {
+  @include contentPaddingInline;
+
+  padding-top: 52px;
+  color: $titleColor;
+}
+
+.top-footer {
+  @include pageGrid;
+
+  @include onDesktop {
+    margin-bottom: 87px;
+  }
+
+  &__container {
+    grid-column: span 2;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+    }
+
+    @include onDesktop {
+      max-width: 470px;
+      grid-column: 2 / 7;
+    }
+  }
+}
+
+.icons-footer {
+  display: grid;
+
+  align-items: center;
+  grid-column: span 2;
+  margin-bottom: 40px;
+
+  @include onTablet {
+    grid-column: span 1;
+    row-gap: 62px;
+  }
+
+  &__logo {
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__social {
+    grid-column: 2;
+    justify-self: right;
+
+    @include onTablet {
+      grid-column: 1;
+      justify-self: left;
+    }
+  }
+}
+
+.social {
+  display: flex;
+  column-gap: 20px;
+  transition: all 0.3s ease 0s;
+
+  &__item {
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.contacts-footer {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(26, 90, 76, 0.5);
+
+    @include onTablet {
+      grid-column: 2 / -1;
+      bottom: -64px;
+    }
+
+    @include onDesktop {
+      width: 1px;
+      height: 100%;
+      right: 0;
+      left: 110%;
+      bottom: 0;
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-column: span 2;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include onTablet {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 30px;
+    }
+
+    @include onDesktop {
+      max-width: 470px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__arrow-top {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+  }
+
+  &__arrow-link {
+    position: relative;
+    display: block;
+    background-image: url(../images/icon/arrow-top.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+    border: 1px solid $greenColor;
+    border-radius: 50%;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}
+
+.footer-hours {
+  font-size: 14px;
+  line-height: 150%;
+  color: $titleColor;
+  font-family: "IBM Plex Sans", sans-serif;
+  @include onTablet {
+    grid-column: span 2;
+  }
+
+  @include onDesktop {
+    grid-column: 2 / 4;
+  }
+
+  &__title {
+    font-size: 14px;
+    line-height: 140%;
+    color: $titleColor;
+    font-family: "IBM Plex Sans", sans-serif;
+    margin-bottom: 20px;
+  }
+
+  &__opened {
+    margin-bottom: 30px;
+  }
+
+  &__opened span {
+    font-weight: 600;
+  }
+
+  &__closed span {
+    font-weight: 600;
+  }
+}
+
+.communications-footer {
+  @include onTablet {
+    grid-column: 3 / 5;
+  }
+
+  @include onTablet {
+    grid-column: 4 / 6;
+  }
+
+  &__title {
+    font-size: 14px;
+    line-height: 140%;
+    margin-bottom: 20px;
+    color: $titleColor;
+    font-family: "IBM Plex Sans", sans-serif;
+  }
+
+  &__item {
+    display: block;
+    color: $titleColor;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    line-height: 150%;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      color: $greenColor;
+      font-weight: 700;
+    }
+  }
+}
+
+.menu-footer {
+  padding-top: 60px;
+  padding-bottom: 80px;
+
+  grid-column: span 2;
+
+  @include onTablet {
+    grid-column: 2 / -1;
+    padding-top: 130px;
+    padding-bottom: 120px;
+  }
+
+  @include onDesktop {
+    grid-column: 8 / 10;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.nav-footer {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include onTablet {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 30px;
+    }
+
+    @include onDesktop {
+      width: 270px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &--part1 {
+      display: grid;
+      grid-column: 1;
+      row-gap: 20px;
+
+      @include onTablet {
+        grid-column: span 2;
+      }
+
+      @include onDesktop {
+        grid-column: span 3;
+      }
+    }
+
+    &--part2 {
+      display: grid;
+      row-gap: 20px;
+      grid-column: 2;
+
+      @include onTablet {
+        grid-column: 3;
+      }
+
+      @include onTablet {
+        grid-column: 4;
+      }
+    }
+  }
+
+  &__link {
+    color: $titleColor;
+    text-decoration: none;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    line-height: 100%;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      color: $greenColor;
+      font-weight: 700;
+    }
+  }
+}
+
+.bottom-footer {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 140.63%;
+  color: $titleColor;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 36px;
+
+  @include onTablet {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__copy {
+    order: 2;
+
+    @include onTablet {
+      order: -1;
+    }
+  }
+}

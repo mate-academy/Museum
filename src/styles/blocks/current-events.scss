@@ -1,0 +1,240 @@
+.current-events {
+  @include pageGrid;
+  padding-bottom: 100px;
+
+  &__title {
+    margin: 0;
+    margin-bottom: 40px;
+
+    @include contentPaddingInline;
+    grid-column: span 2;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 48px;
+      grid-column: span 6;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      grid-column: span 5;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__box {
+    @include contentPaddingInline;
+    margin-bottom: 60px;
+
+    @include onTablet {
+      margin-bottom: 112px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 104px;
+    }
+  }
+}
+
+.box-current-events {
+  display: grid;
+  grid-column: span 2;
+  row-gap: 60px;
+
+  @include onTablet {
+    grid-column: span 6;
+  }
+
+  @include onDesktop {
+    grid-column: span 12;
+  }
+}
+
+.item-current-events {
+  @include pageGrid;
+
+  &__image {
+    position: relative;
+    height: 0;
+    padding-bottom: 75%;
+    grid-column: span 2;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    @include onTablet {
+      grid-column: span 6;
+
+      &:not(:last-child) {
+        margin-bottom: 44px;
+      }
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.content-item {
+  grid-column: span 2;
+
+  @include onTablet {
+    grid-column: span 6;
+  }
+
+  @include onDesktop {
+    grid-column: 9 / -1;
+
+    align-self: center;
+  }
+
+  &__top {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+      width: 220px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 100%;
+    color: $titleColor;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 15px;
+      font-size: 36px;
+    }
+
+    &::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: $redColor;
+      display: block;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  &__text {
+    color: $textColor;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+
+    @include onTablet {
+      max-width: 460px;
+    }
+  }
+}
+
+.item-big-current {
+  display: grid;
+  grid-column: span 2;
+
+  @include onTablet {
+    @include contentPaddingInline;
+    grid-column: span 6;
+  }
+
+  @include onDesktop {
+    padding-inline: 0;
+    grid-column: span 12;
+  }
+
+  &__image {
+    position: relative;
+    height: 0;
+    padding-bottom: 65%;
+  }
+
+  &__photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease 0s;
+  }
+}
+
+.content-item-big {
+  box-sizing: border-box;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+  z-index: 2;
+  align-self: center;
+  padding: 20px 0;
+  margin: 0 auto;
+  margin-top: -57px;
+  width: 280px;
+
+  @include onTablet {
+    width: 570px;
+    height: 204px;
+    padding: 45px 55px;
+    margin-top: -84px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      padding: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 100%;
+    color: $titleColor;
+    text-align: center;
+
+    @include onTablet {
+      font-size: 36px;
+      text-align: left;
+    }
+  }
+}

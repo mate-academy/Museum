@@ -1,0 +1,172 @@
+.menu {
+  margin: 0 auto;
+  max-width: 1280px;
+  box-sizing: border-box;
+
+  height: 100vh;
+  overflow: auto;
+  z-index: 3;
+  background-color: rgba(24, 24, 26, 0.5);
+
+  color: #fff;
+  font-family: "IBM Plex Sans", sans-serif;
+
+  &__wrapper {
+    position: relative;
+    box-sizing: border-box;
+    @include contentPaddingInline;
+    @include paddingTop;
+    background-color: $greenColor;
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        left: 50%;
+        height: 145px;
+        width: 1px;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+}
+
+.icon--cross {
+  background-image: url(../images/icon/cross.svg);
+  position: relative;
+  display: flex;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+
+  height: 24px;
+  width: 24px;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.menu-opened {
+  position: relative;
+  display: flex;
+  gap: 28px;
+  margin-bottom: 50px;
+
+  @include onTablet {
+    gap: 38px;
+  }
+
+  @include onDesktop {
+    gap: 102px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -24px;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-wrap: wrap;
+    column-gap: 28px;
+    max-width: 200px;
+
+    @include onTablet {
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      column-gap: 30px;
+    }
+
+    &--part {
+      display: flex;
+      flex-direction: column;
+      row-gap: 24px;
+
+      @include onDesktop {
+        row-gap: 30px;
+      }
+    }
+  }
+
+  &__link {
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+}
+
+.menu-hours {
+  &__title {
+    margin-bottom: 20px;
+  }
+}
+
+.hours {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  padding-bottom: 27px;
+
+  @include onTablet {
+    display: flex;
+    gap: 38px;
+    padding-bottom: 40px;
+  }
+
+  @include onDesktop {
+    gap: 30px;
+    padding-bottom: 48px;
+    padding-right: 155px;
+  }
+
+  &__opened {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__opened span {
+    font-weight: 600;
+  }
+
+  &__closed {
+    @include onTablet {
+      width: 144px;
+    }
+  }
+
+  &__closed span {
+    font-weight: 600;
+  }
+}
