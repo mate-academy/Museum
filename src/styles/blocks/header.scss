@@ -54,17 +54,20 @@
     @include onTablet {
       grid-column: 1 / 4;
       grid-row: 1;
+      @include paddingInline;
     }
 
     @include onDesktop {
       width: 80%;
       text-align: left;
       margin-bottom: 89px;
+      @include paddingInline;
     }
   }
 
   &__tickets {
     @include paddingInline;
+    padding-right: 0;
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -72,6 +75,7 @@
     @include onDesktop {
       justify-content: right;
       padding-right: 0;
+      margin: 0;
     }
   }
 
@@ -124,6 +128,41 @@
 
       @include onTablet {
         width: 70px;
+      }
+    }
+  }
+
+  &__events {
+    display: none;
+    color: $grey-color;
+    font-family: $second-font;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transform: rotate(-90deg);
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.3s;
+
+    @include onDesktop {
+      display: block;
+      position: absolute;
+      left: 55px;
+      top: 550px;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 70px;
+        height: 1px;
+        background-color: $main-green;
+        position: absolute;
+        top: 50%;
+        left: -200%;
+      }
+
+      &:hover {
+        font-size: 1rem;
       }
     }
   }
