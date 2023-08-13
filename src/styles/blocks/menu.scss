@@ -3,11 +3,11 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  z-index: 1;
   background-color: $main-green;
   @include paddingInline;
   @include pageGrid;
-  grid-template-rows: 20% 6% 70%;
+  grid-template-rows: 30% 5% 65%;
   padding-block: 27px;
   color: $white-color;
   font-family: $second-font;
@@ -25,6 +25,7 @@
   @include onTablet {
     grid-template-rows: 20% 0 0;
     padding-top: 40px;
+    padding-bottom: 48px;
   }
 
   @include onDesktop {
@@ -43,7 +44,7 @@
     }
 
     @include onDesktop {
-      grid-column: 1 / 6;
+      grid-column: 1 / 7;
     }
   }
 
@@ -54,11 +55,18 @@
 
   &__list {
     display: flex;
-    flex-wrap: wrap;
+    width: 85%;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      width: 80%;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
 
     @include onDesktop {
-      display: flex;
       flex-wrap: wrap;
       width: 90%;
     }
@@ -66,15 +74,19 @@
 
   &__link {
     display: block;
-    width: 100px;
+    width: 50%;
     text-decoration: none;
     color: $white-color;
     padding-bottom: 15px;
     transition: all 0.3s;
 
     &:hover {
-      color: $dark-color;
-      font-weight: 600;
+      color: $light-grey-color;
+      transform: scale(1.05);
+    }
+
+    @include onTablet {
+      width: 45%;
     }
 
     @include onDesktop {
