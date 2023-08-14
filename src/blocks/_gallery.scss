@@ -1,0 +1,115 @@
+.gallery {
+  width: 100%;
+  overflow: hidden;
+  grid-column: 1 / -1;
+  padding: 23px 0 129px;
+
+  @include onTablet {
+    @include pageGrid;
+    padding-bottom: 133px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 200px;
+  }
+
+  &__title {
+    color: $main-text-color;
+    font-family: $secondary-font-family;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: $secondary-line-height;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      font-size: 48px;
+      margin-bottom: 48px;
+      grid-column: span 3;
+      justify-self: start;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__slider {
+    position: relative;
+    height: 410px;
+    width: 100%;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+      height: 543px;
+    }
+
+    @include onDesktop {
+      height: fit-content;
+    }
+
+    &__slide {
+      width: 25%;
+      height: 410px;
+
+      @include onTablet {
+        grid-column: span 3;
+        width: 100%;
+        height: 543px;
+      }
+
+      &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+
+        @include hover(scale, 1.05);
+      }
+    }
+
+    &__slides {
+      width: 400%;
+      height: 100%;
+      display: flex;
+
+      @include onTablet {
+        @include pageGrid;
+        width: 200%;
+        gap: 30px;
+        grid-template-columns: repeat(12, 1fr);
+      }
+
+      @include onDesktop {
+        width: 100%;
+      }
+    }
+
+    &__navigation {
+      position: absolute;
+      width: 102px;
+      display: flex;
+      justify-content: space-between;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 20px);
+
+      @include onTablet {
+        transform: translate(-50px, 32px);
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &__bar {
+      height: 9px;
+      width: 9px;
+      background-color: #e0e0e0;
+      border-radius: 50%;
+    }
+  }
+}
