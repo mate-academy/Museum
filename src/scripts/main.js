@@ -3,18 +3,6 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-
-const swiper = new Swiper('.swiper', {
-  modules: [Navigation, Pagination],
-  loop: true,
-  pagination: {
-    el: '.swiper-pagination',
-  },
-});
-
 const menu = document.querySelector('.page__menu');
 const page = document.querySelector('.page__body');
 const pageWrapper = document.querySelector('.page__wrapper');
@@ -38,4 +26,46 @@ form.addEventListener('submit', function(event) {
   event.preventDefault();
 
   window.location.hash = 'header';
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  let swiper = null;
+
+  function initSwiper() {
+    swiper = new Swiper('.swiper', {
+      modules: [Navigation, Pagination],
+      direction: 'horizontal',
+      loop: true,
+      spaceBetween: 16,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+      },
+      slidesPerView: 1.07,
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+      },
+    });
+  }
+
+  function destroySwiper() {
+    if (swiper !== null) {
+      swiper.destroy();
+      swiper = null;
+    }
+  }
+
+  function handleSlider() {
+    if (window.innerWidth < 1280) {
+      initSwiper();
+    } else {
+      destroySwiper();
+    }
+  }
+
+  window.addEventListener('load', handleSlider);
+  window.addEventListener('resize', handleSlider);
 });
