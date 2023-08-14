@@ -1,0 +1,111 @@
+.events-exhibition {
+  @include pageGrid;
+  align-items: center;
+
+  &__photo {
+    grid-column: 1 / -1;
+    img {
+      width: 100%;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / span 7;
+
+      @include hover(transform, scale(1.05));
+      cursor: pointer;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    grid-column: 1 / -1;
+    margin-top: 20px;
+
+    @include onTablet {
+      grid-column: 1 / span 4;
+      margin-top: 44px;
+      gap: 32px;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+      margin-top: 0;
+    }
+  }
+
+  &__main-info {
+    display: flex;
+    justify-content: space-between;
+
+    @include onTablet {
+      justify-content: stretch;
+      width: max-content;
+      gap: 30px;
+    }
+  }
+
+  &__text {
+    @include fontStyle($fz: 16px, $fw: 500, $color: $color-blue-gray-accent);
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__date {
+    @include fontStyle($fz: 16px, $fw: 700, $color: $color-dark-green-accent);
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__sub-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include onTablet {
+      gap: 15px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    max-width: fit-content;
+    @include fontStyle($ff: "Montserrat", $fz: 28px);
+    text-align: center;
+
+    &::after {
+      @include pseudo();
+      width: 10px;
+      height: 10px;
+      top: 60%;
+      right: -25px;
+      transform: translateY(-50%);
+      background-color: #f14a27;
+    }
+
+    @include onTablet {
+      font-size: 36px;
+
+      &::after {
+        width: 15px;
+        height: 15px;
+        right: -30px;
+      }
+    }
+  }
+
+  &__description {
+    @include fontStyle(
+      $fz: 16px,
+      $fw: 300,
+      $lh: 150%,
+      $color: $color-gray-accent
+    );
+  }
+}

@@ -1,0 +1,173 @@
+.footer {
+  &__container {
+    @include fontStyle($fz: 14px, $fw: 400, $lh: 150%);
+    @include pageGrid;
+
+    padding-bottom: 80px;
+
+    @include onTablet {
+      padding-bottom: 120px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 90px;
+    }
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      flex-direction: column;
+      align-items: start;
+      grid-column: span 1;
+      gap: 62px;
+    }
+  }
+
+  &__logo {
+    width: fit-content;
+    @include fontStyle("Montserrat", 36px, 700);
+    text-align: center;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__social-networks {
+    display: flex;
+    gap: 20px;
+
+    @include onTablet {
+      gap: 32px;
+      margin-bottom: auto;
+    }
+
+    @include onDesktop {
+      margin-bottom: auto;
+    }
+  }
+
+  &__icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      @include pseudo();
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      padding: 10px;
+    }
+
+    @include hover(border-color, $color-dark-accent, $pseudo: "after");
+  }
+
+  &__bottom-bar {
+    margin-top: 40px;
+    color: $color-dark-accent;
+    grid-column: span 1;
+
+    .bottom-bar__work-date {
+      width: auto;
+    }
+
+    @include onTablet {
+      grid-column: 2 / span 2;
+      margin-top: 0;
+
+      .bottom-bar__info {
+        flex-direction: column;
+      }
+    }
+
+    @include onDesktop {
+      grid-column: 3 / span 2;
+    }
+  }
+
+  &__contacts {
+    position: relative;
+    grid-column: 2 / span 1;
+    margin-top: 40px;
+
+    @include onTablet {
+      grid-column: 4 / span 2;
+      margin-top: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / span 2;
+    }
+  }
+
+  &__contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    @include onDesktop {
+      gap: 0;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    @include hover(color, $color-gray-accent);
+  }
+
+  &__contacts-title {
+    margin-bottom: 20px;
+    font: inherit;
+  }
+
+  &__btn-to-top {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+
+    @include hover(transform, translateY(-30%), ".footer__btn-icon");
+
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid $color-dark-green-accent;
+    cursor: pointer;
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+    border-top: 1px solid rgba(26, 90, 76, 0.5);
+    padding-top: 40px;
+    margin-top: 70px;
+
+    .nav__link {
+      color: $color-dark-accent;
+      @include hoverUnderline($is-light: false);
+    }
+
+    @include onTablet {
+      grid-column: 2 / -2;
+      gap: 120px;
+    }
+
+    @include onDesktop {
+      gap: 85px;
+      grid-column: 7 / -1;
+      margin-top: 0;
+      padding-top: 0;
+      padding-left: 65px;
+      border-top: none;
+      border-left: 1px solid rgba(26, 90, 76, 0.5);
+    }
+  }
+}

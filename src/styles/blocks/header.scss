@@ -1,0 +1,30 @@
+.header {
+  &__container {
+    @include pageGrid;
+    grid-column: 1 / -1;
+    align-items: center;
+  }
+
+  &__logo {
+    padding-top: 10px;
+    width: fit-content;
+    @include fontStyle("Montserrat", 30px, 700);
+    text-align: center;
+    transform: translateX(-70%);
+
+    @include onTablet {
+      grid-column: 4 / span 2;
+      margin-top: 15px;
+      width: 220px;
+      height: 72px;
+      font-size: 36px;
+      transform: translateX(0%);
+    }
+
+    @include onDesktop {
+      grid-column: 6 / span 2;
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+}

@@ -1,0 +1,117 @@
+@mixin fontStyle(
+  $ff: "IBM Plex Sans",
+  $fz: 14px,
+  $fw: 400,
+  $lh: 100%,
+  $color: $color-dark-accent
+) {
+  font-family: $ff, Arial, Helvetica, sans-serif;
+  font-size: $fz;
+  font-weight: $fw;
+  line-height: $lh;
+  color: $color;
+}
+
+@mixin onTablet {
+  @media screen and (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media screen and (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    --columns: 6;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+    column-gap: 30px;
+  }
+}
+
+@mixin hover(
+  $property,
+  $toValue,
+  $nestedElem: false,
+  $pseudo: false,
+  $duration: 0.3s,
+  $time-func: ease
+) {
+  transition: $property $duration $time-func;
+
+  @if $nestedElem {
+    #{$nestedElem} {
+      transition: $property $duration $time-func;
+    }
+
+    &:hover > #{$nestedElem} {
+      #{$property}: $toValue;
+    }
+  }
+  @else if $pseudo {
+    &::#{$pseudo} {
+      transition: $property $duration $time-func;
+    }
+
+    &:hover::#{$pseudo} {
+      #{$property}: $toValue;
+    }
+  }
+  @else {
+    &:hover {
+      #{$property}: $toValue;
+    }
+  }
+}
+
+@mixin hoverUnderline(
+  $clr-light: $color-white,
+  $clr-dark: $color-dark-accent,
+  $is-light: true
+) {
+  & {
+    position: relative;
+    width: fit-content;
+
+    &::after {
+      position: absolute;
+      content: "";
+      height: 1.5px;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      transform-origin: left;
+      transition: transform 0.3s ease;
+      transform: scale(0);
+
+      @if $is-light {
+        background-color: $clr-light;
+      }
+      @else {
+        background-color: $clr-dark;
+      }
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
+
+@mixin pseudo($content: "", $display: block, $pos: absolute) {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
