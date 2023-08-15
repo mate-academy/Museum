@@ -1,0 +1,260 @@
+.header {
+  padding-bottom: 70px;
+
+  @include container;
+
+  @include onTablet {
+    padding-bottom: 88px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 200px;
+  }
+}
+
+.top-header {
+  position: relative;
+
+  &__icons {
+    @include contentPaddingInline;
+
+    position: absolute;
+    top: 27px;
+    left: 0;
+    display: flex;
+    gap: 88px;
+    z-index: 2;
+    align-items: center;
+
+    @include onTablet {
+      @include paddingTop;
+      top: 0;
+      gap: 444px;
+    }
+  }
+
+  &__icon {
+    background-image: url(../images/icon/burger-menu.svg);
+    position: relative;
+    display: flex;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+
+    height: 24px;
+    width: 24px;
+
+    @include hover(transform, scale(1.2));
+
+  }
+
+  &__logo {
+    position: absolute;
+    left: 45%;
+    top: 10%;
+    z-index: 2;
+    display: flex;
+    width: 55px;
+    height: 61px;
+    margin-top: 9px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}
+
+.content-header {
+  @include pageGrid;
+
+  &__image {
+    position: relative;
+    height: 300;
+    padding-bottom: 100%;
+
+    grid-column: span 2;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      padding-bottom: 0;
+      order: 2;
+      height: 384px;
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+
+    @include onDesktop {
+      grid-column: 6 / -1;
+      height: 655px;
+    }
+  }
+
+  &__image img {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__logo-big {
+    display: none;
+
+    @include onTablet {
+      position: absolute;
+      display: flex;
+      width: 55px;
+      height: 61px;
+      margin-top: 15px;
+      margin-left: 55px;
+      transition: all 0.3s ease 0s;
+
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__body {
+    position: relative;
+    padding: 0 20px;
+
+    grid-column: span 2;
+
+    @include onTablet {
+      grid-column: 1 / 3;
+      padding-top: 128px;
+      padding-left: 34px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 5;
+      padding-left: 55px;
+      padding-top: 206px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 700;
+    line-height: 100%;
+    font-size: 45px;
+    text-align: center;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    @include onTablet {
+      font-size: 54px;
+      text-align: left;
+
+      &:not(:last-child) {
+        margin-bottom: 38px;
+      }
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+
+      &:not(:last-child) {
+        margin-bottom: 90px;
+      }
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include onTablet {
+      width: 270px;
+      height: 70px;
+    }
+
+    @include onDesktop {
+      margin-left: 201px;
+    }
+  }
+
+  &__link {
+    box-sizing: border-box;
+    text-decoration: none;
+    display: flex;
+    color: #0f0e08;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    width: 89%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $greenColor;
+  }
+
+  &__arrow {
+    box-sizing: border-box;
+    background-image: url(../images/icon/arrow.svg);
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 100%;
+    background-color: $greenColor;
+    border: 1px solid $greenColor;
+
+    @include onTablet {
+      width: 70px;
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @include onDesktop {
+      position: absolute;
+      left: 0;
+      bottom: 9%;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      text-decoration: none;
+      color: $labelColor;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 100%;
+      text-transform: uppercase;
+      transform: rotate(-90deg);
+      transition: all 0.3s ease 0s;
+
+      &::before {
+        content: "";
+        height: 1px;
+        width: 70px;
+        background-color: $greenColor;
+      }
+
+      &:hover {
+        font-size: 16px;
+      }
+    }
+  }
+}
