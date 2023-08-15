@@ -1,12 +1,29 @@
 .current-events {
-  @include pageGrid;
-  padding-bottom: 100px;
+  padding-bottom: 183px;
+
+  @include onTablet {
+    padding-bottom: 208px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 302px;
+  }
+
+  &__box {
+    @include contentPaddingInline;
+  }
+}
+
+.box-current-events {
+
+  padding-bottom: 60px;
+
+  @include container;
 
   &__title {
     margin: 0;
     margin-bottom: 40px;
 
-    @include contentPaddingInline;
     grid-column: span 2;
     text-align: center;
 
@@ -22,31 +39,21 @@
     }
   }
 
-  &__box {
-    @include contentPaddingInline;
-    margin-bottom: 60px;
+  &__container {
+    display: grid;
+    grid-column: span 2;
+    row-gap: 60px;
 
     @include onTablet {
-      margin-bottom: 112px;
+      grid-column: span 6;
+      padding-bottom: 112px;
     }
 
     @include onDesktop {
-      margin-bottom: 104px;
+      grid-column: span 12;
+      padding-bottom: 104px;
     }
-  }
-}
 
-.box-current-events {
-  display: grid;
-  grid-column: span 2;
-  row-gap: 60px;
-
-  @include onTablet {
-    grid-column: span 6;
-  }
-
-  @include onDesktop {
-    grid-column: span 12;
   }
 }
 
@@ -163,37 +170,35 @@
 }
 
 .item-big-current {
+  position: relative;
   display: grid;
   grid-column: span 2;
+
+  background-image: url(../images/current-events/3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 210px;
 
   @include onTablet {
     @include contentPaddingInline;
     grid-column: span 6;
+    height: 390px;
   }
 
   @include onDesktop {
     padding-inline: 0;
     grid-column: span 12;
+    height: 550px;
   }
 
-  &__image {
-    position: relative;
-    height: 0;
-    padding-bottom: 65%;
-  }
-
-  &__photo {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.3s ease 0s;
-  }
 }
 
 .content-item-big {
+  position: absolute;
+  bottom: -60%;
+  left: 0;
   box-sizing: border-box;
-  position: relative;
   background-color: #fff;
   box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
   z-index: 2;
@@ -201,7 +206,7 @@
   padding: 20px 0;
   margin: 0 auto;
   margin-top: -57px;
-  width: 280px;
+  width: 93%;
 
   @include onTablet {
     width: 570px;
