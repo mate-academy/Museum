@@ -10,38 +10,26 @@
       margin-bottom: 200px;
     }
   }
+  
   &__top-bar {
-    position: absolute;
+    display: flex;
+    align-items: center;
+    padding-top: 9px;
 
-    @extend %paddingBlockMenu;
+    @include onTablet {
+      padding-top: 15px;
+    }
   }
 
   &__logo-link {
-    position: absolute;
-    right: 50%;
-    transform: translateX(50%);
-    top: 9px;
+    margin: 0 auto;
 
     @include onTablet {
-      top: 15px;
-      right: 30%;
+      margin: 0 70%;
     }
 
     @include onDesktop {
-      right: 40%;
-    }
-  }
-
-  &__content {
-    @include onTablet {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    @include onDesktop {
-      gap: 30px;
+      margin: 0 auto;
     }
   }
 
@@ -49,30 +37,29 @@
     background-image: url(../images/header-mobile.png);
     height: 300px;
     background-size: cover;
-    background-position: center;
-    margin-right: -20px;
-    margin-left: -20px;
+    background-position: top;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
 
     @include onTablet {
+      position: absolute;
+      left: 60%;
       background-image: url(../images/header-tablet.png);
-      background-position: left;
-      margin: 0 -39px 0 0;
+      background-position: center;
+
       height: 384px;
-      width: 374px;
+      min-width: 374px;
     }
 
     @include onDesktop {
       background-image: url(../images/header-desktop.png);
-      margin: 0 -55px 0 0;
       height: 655px;
-      width: 725px;
-    }
-  }
-
-  &__text {
-    @include onDesktop {
-      display: flex;
-      flex-direction: column;
+      min-width: 725px;
+      left: 45%;
     }
   }
 
@@ -84,7 +71,7 @@
     font-weight: 700;
     line-height: 100%;
 
-    margin-block: 20px;
+    margin-block: 270px 20px;
 
     @include onTablet {
       font-size: 54px;
@@ -92,13 +79,13 @@
       line-height: 120%;
       text-align: left;
 
-      margin-block: 127px 38px;
+      margin-block: 64px 38px;
     }
 
     @include onDesktop {
       font-size: 72px;
 
-      margin-block: 206px 89px;
+      margin-block: 143px 89px;
     }
   }
 }
