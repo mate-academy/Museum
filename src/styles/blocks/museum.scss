@@ -1,51 +1,48 @@
 .museum {
-  @include maxWidth;
-  @include paddingInline;
-  @include gridPage;
+  position: relative;
+  width: 100%;
 
   @include onTablet {
-    margin-bottom: 88px;
+    margin-bottom: 107px;
   }
 
   @include onDesktop {
+    margin-bottom: 200px;
     justify-content: center;
     column-gap: 30px;
-    padding-inline: 55px;
   }
 
-  &__top {
-    box-sizing: border-box;
-    grid-column: 1 / -1;
-    margin-inline: -20px;
-    margin-bottom: 20px;
+  &::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
+    display: block;
     height: 300px;
     background-image: url(../images/images/national-museum.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    z-index: -1;
 
     @include onTablet {
-      grid-column: 4 / -1;
-      grid-row: 1 / 2;
       height: 384px;
-      margin: 0;
-      margin-right: -34px;
+      left: calc(50% + 10px);
     }
 
     @include onDesktop {
-      grid-column: 6 / -1;
       height: 655px;
-      margin-right: -55px;
+      left: calc(50% - 85px);
     }
   }
 
   &__bottom {
     grid-column: 1 / -1;
+    margin-top: 320px;
 
     @include onTablet {
+      margin-top: 0;
       grid-column: 1 / 4;
       grid-row: 1 / 2;
       padding-inline: 0;
@@ -101,8 +98,8 @@
 
     @include onDesktop {
       grid-column: 1 / -1;
-      margin-top: 106px;
-      margin-bottom: 0;
+      margin-top: 103px;
+      margin-bottom: 89px;
       font-size: 72px;
     }
   }
