@@ -1,0 +1,120 @@
+.museum {
+  position: relative;
+  width: 100%;
+
+  @include onTablet {
+    margin-bottom: 107px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+    justify-content: center;
+    column-gap: 30px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    height: 300px;
+    background-image: url(../images/images/national-museum.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+
+    @include onTablet {
+      height: 384px;
+      left: calc(50% + 10px);
+    }
+
+    @include onDesktop {
+      height: 655px;
+      left: calc(50% - 85px);
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+    margin-top: 320px;
+
+    @include onTablet {
+      margin-top: 0;
+      grid-column: 1 / 4;
+      grid-row: 1 / 2;
+      padding-inline: 0;
+    }
+
+    @include onDesktop {
+      position: relative;
+      grid-column: 1 / 6;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 30px;
+      margin-top: 100px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 6px;
+        width: 1px;
+        height: 70px;
+        background-color: $c-after;
+      }
+
+      &::after {
+        content: "ПОДІЇ";
+        position: absolute;
+        bottom: 100px;
+        left: -15px;
+        text-transform: uppercase;
+        transform: rotate(-90deg);
+        color: $c-after;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 100%;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onTablet {
+      margin-top: 127px;
+      margin-bottom: 38px;
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / -1;
+      margin-top: 103px;
+      margin-bottom: 89px;
+      font-size: 72px;
+    }
+  }
+
+  &__tickets {
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / -1;
+      margin-bottom: 118px;
+      margin-top: auto;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+.form {
+  height: $form-size;
+  display: grid;
+  grid-template-columns: 1fr 50px;
+
+  @include onTablet {
+    height: $form-size-onTablet;
+    grid-template-columns: 1fr 70px;
+    column-gap: 16px;
+  }
+
+  @include onDesktop {
+    column-gap: 30px;
+  }
+
+  &__text {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #fff;
+  }
+
+  &__image {
+    width: 24px;
+    transition: scale 0.3s;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding-inline: 24px;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    color: $c-after;
+
+    &:-webkit-autofill {
+
+      &,
+      &:hover,
+      &:focus {
+        transition: background-color 5000s ease-in-out 0s;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $form-size;
+    height: $form-size;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background-color: $c-orange;
+
+    @include onTablet {
+      width: $form-size-onTablet;
+      height: $form-size-onTablet;
+    }
+
+    &:hover>.form__image {
+      scale: 1.5;
+    }
+  }
+}

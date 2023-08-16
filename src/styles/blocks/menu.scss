@@ -1,0 +1,121 @@
+.menu {
+  width: 100%;
+  margin: auto;
+  box-sizing: border-box;
+  color: #fff;
+  font-weight: 400;
+
+  @include maxWidth;
+  @include paddingInline;
+  @include gridPage;
+
+  &__close {
+    background-image: url(../images/icons/close.svg);
+  }
+
+  &__nav {
+    margin-top: 27px;
+    margin-bottom: 24px;
+    grid-column: 1 / -1;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin-block: 40px;
+      margin-inline: 20px;
+      height: 145px;
+      border-bottom: none;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+      margin-right: -30px;
+      margin-bottom: 48px;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 100%;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding-left: 52px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 100px 100px;
+    justify-content: center;
+    column-gap: 28px;
+
+    @include onTablet {
+      padding: 0;
+      padding-left: 5px;
+      height: 145px;
+      column-gap: 20px;
+      border-right: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    @include onDesktop {
+      grid-template-columns: 168px 168px;
+      column-gap: 30px;
+    }
+  }
+
+  &__wrap {
+    width: 100px;
+
+    @include onDesktop {
+      width: 168px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 24px;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    padding-bottom: 2px;
+    text-decoration: none;
+    color: #fff;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 1px;
+      background-color: #fff;
+      transition: width .3s;
+    }
+
+    &:hover:after {
+      width: 100%;
+    }
+  }
+
+  &__grafic {
+    grid-column: 1 / -1;
+    margin-bottom: 27px;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 158px 144px;
+      column-gap: 38px;
+      margin-inline: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 12;
+      grid-template-columns: repeat(2, 170px);
+      column-gap: 30px;
+    }
+  }
+}

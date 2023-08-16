@@ -1,0 +1,52 @@
+.tickets {
+  height: $form-size;
+  display: grid;
+  grid-template-columns: 1fr $form-size;
+  border: 1px solid $c-green;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $c-title;
+
+  @include onTablet {
+    width: 270px;
+    height: $form-size-onTablet;
+    grid-template-columns: 1fr $form-size-onTablet;
+  }
+
+  &__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    transition: all 0.3s;
+  }
+
+  &:hover > .tickets__text {
+    scale: 1.2;
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    width: $form-size;
+    height: $form-size;
+    background-color: $c-green;
+
+    &:hover .tickets__image {
+      scale: 1.5;
+    }
+
+    @include onTablet {
+      width: $form-size-onTablet;
+      height: $form-size-onTablet;
+    }
+  }
+
+  &__image {
+    width: 24px;
+    transition: scale 0.3s;
+  }
+}

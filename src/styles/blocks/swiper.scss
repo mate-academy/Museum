@@ -1,0 +1,89 @@
+.swiper {
+  height: 440px;
+  padding-left: 20px !important;
+  --swiper-pagination-top: 425px;
+
+  @include onTablet {
+    height: 583px;
+    padding-left: 34px !important;
+    --swiper-pagination-top: 569px;
+  }
+
+  @include onDesktop {
+    height: 990px;
+    padding-inline: 0 !important;
+    grid-column: 1 / -1;
+  }
+
+  &-wrapper {
+    width: auto;
+    @include onDesktop {
+      display: grid !important;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &-slide {
+
+    @include onDesktop {
+      &-col-4 {
+        grid-column: span 4;
+      }
+
+      &-col-8 {
+        grid-column: span 8;
+      }
+
+      &-row-1 {
+        grid-row: 1 / 2;
+      }
+
+      &-row-2 {
+        grid-row: 2 / 3;
+      }
+    }
+  }
+
+  &-imagewrap {
+    height: 410px;
+    overflow: hidden;
+
+    @include hover(scale, 1.02);
+
+    @include onTablet {
+      height: 543px;
+    }
+
+    @include onDesktop {
+      &-row-1 {
+        height: 600px;
+      }
+
+      &-row-2 {
+        height: 360px;
+        grid-row: 2 / 3;
+      }
+    }
+  }
+
+  &-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-pagination {
+    transform: translateY(34px);
+
+    &-bullet {
+      --swiper-pagination-bullet-width: 9px;
+      --swiper-pagination-bullet-height: 9px;
+      --swiper-pagination-bullet-horizontal-gap: 11px;
+
+      &-active {
+        background-color: $c-green !important;
+      }
+    }
+  }
+}

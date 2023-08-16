@@ -1,0 +1,107 @@
+.page {
+  min-width: 320px;
+  margin: auto;
+  box-sizing: border-box;
+  position: relative;
+  scroll-behavior: smooth;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+
+  &__body {
+    margin: 0;
+    padding: 0;
+
+    &--overflow-hidden {
+      position: relative;
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: $c-green;
+
+    transition: all 0.3s;
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+
+    &--target {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: all;
+      overflow: hidden;
+    }
+  }
+
+  &__wrapper {
+    display: none;
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    background: #18181a;
+
+    &--on {
+      display: block;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    grid-column: 1 / 2;
+    width: 24px;
+    height: 24px;
+    margin-top: 27px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+    @include onTablet {
+      margin-top: 40px;
+      grid-column: 1 / 2;
+    }
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    color: $c-title;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onTablet {
+      margin-bottom: 48px;
+      text-align: left;
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__main {
+    margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 120px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 87px;
+    }
+  }
+}
