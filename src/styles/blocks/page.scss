@@ -1,6 +1,10 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  box-sizing: border-box;
+  &:has(.page__menu:target) {
+    overflow-y: hidden; /* not to scroll the page */
+  }
 }
 
 .page {
@@ -12,8 +16,4 @@ html {
 
   @include contentWidth;
   @include contentPadding;
-
-  &:has(.page__menu:target) {
-    overflow: hidden; /* not to scroll the page */
-  }
 }
