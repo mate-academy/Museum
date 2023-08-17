@@ -1,0 +1,153 @@
+.gallery {
+  &__title {
+    --margin-bottom: 40px;
+
+    margin: 0 0 var(--margin-bottom);
+
+    @include onTablet {
+      --margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      --margin-bottom: 56px;
+    }
+  }
+
+  &__content {
+    @include pageGrid;
+  }
+
+  &__inner {
+    --margin-bottom: 20px;
+    grid-row: 1;
+    grid-column: 1/-1;
+
+    margin-block-end: var(--margin-bottom);
+    height: 410px;
+
+    overflow: hidden;
+
+    @include onTablet {
+      --margin-bottom: 32px;
+      height: 543px;
+    }
+
+    @include onDesktop {
+      --margin-bottom: 0;
+      height: unset;
+    }
+
+  }
+
+  &__slider {
+    display: flex;
+    height: 100%;
+    width: 400%;
+
+    transition: all #{$transition-duration};
+
+    @include onTablet {
+      width: 200%;
+
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      width: unset;
+
+      @include pageGrid;
+    }
+  }
+
+  &__slide {
+    flex-basis: 100%;
+
+    @include onTablet {
+      flex-basis: 50%;
+    }
+
+    &:first-child {
+      @include onDesktop {
+        grid-column: 1/5;
+
+        margin-block-end: 30px;
+        height: 600px;
+      }
+    }
+
+    &:nth-child(2) {
+      @include onDesktop {
+        grid-column: 5/-1;
+
+        margin-block-end: 30px;
+        height: 600px;
+      }
+    }
+
+    &:nth-child(3) {
+      @include onDesktop {
+        grid-column: 1/9;
+
+        height: 360px;
+      }
+    }
+
+    &:last-child {
+      @include onDesktop {
+        grid-column: 9/-1;
+
+        height: 360px;
+      }
+    }
+  }
+
+  &__circles {
+    grid-column: 1/-1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 31px;
+
+    user-select: none;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__circle {
+    --size: 9px;
+    padding: 0;
+    display: block;
+    height: var(--size);
+    width: var(--size);
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #e0e0e0;
+
+    cursor: pointer;
+
+    transition: background-color, transform #{$transition-duration};
+
+    &:last-child {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &:hover {
+      background-color: $secondary-bg-color;
+      transform: scale(1.2);
+    }
+
+    &--active {
+      background-color: $secondary-bg-color;
+    }
+  }
+}

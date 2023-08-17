@@ -1,0 +1,166 @@
+.header {
+  position: relative;
+
+  &::before {
+    --height: 300px;
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    display: block;
+    height: var(--height);
+
+    background-image: url(../images/bg-desktop.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      --height: 384px;
+      left: 48%;
+      bottom: 0;
+    }
+
+    @include onDesktop {
+      --height: 655px;
+      left: 57%;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    @include pageGrid;
+  }
+
+  &__top {
+    --margin-bottom: 250px;
+    --padding-top: 9px;
+    grid-column: 1/-1;
+    align-items: center;
+
+    margin-block-end: var(--margin-bottom);
+    padding-block-start: var(--padding-top);
+
+    @include pageGrid;
+
+    @include onTablet {
+      --margin-bottom: 40px;
+      --padding-top: 15px;
+    }
+
+    @include onDesktop {
+      --margin-bottom: 119px;
+    }
+  }
+
+  &__icon-menu {
+    grid-area: 1/1 / -1/-1;
+    align-self: center;
+  }
+
+  &__logo {
+    grid-area: 1/1 / -1/-1;
+    justify-self: center;
+
+    @include onTablet {
+      grid-column: 4/6;
+    }
+
+    @include onDesktop {
+      grid-column: 6/8;
+    }
+  }
+
+  &__title {
+    --margin-bottom: 20px;
+    --font-size: 45px;
+    grid-column: 1/-1;
+
+    margin: 0 0 var(--margin-bottom);
+
+    font: bold normal var(--font-size)/1 "Montserrat", sans-serif;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #000;
+
+    @include onTablet {
+      --margin-bottom: 38px;
+      --font-size: 54px;
+
+      text-align: left;
+      line-height: 1.2;
+    }
+
+    @include onDesktop {
+      --margin-bottom: 89px;
+      --font-size: 72px;
+    }
+  }
+
+  &__button {
+    --margin-bottom: 70px;
+    grid-column: 1/-1;
+
+    margin: 0 0 var(--margin-bottom);
+
+    @include onTablet {
+      --margin-bottom: 107px;
+      grid-column: 1/4;
+
+      max-width: 270px;
+    }
+
+    @include onDesktop {
+      --margin-bottom: 318px;
+      grid-column: 3/7;
+    }
+  }
+
+  &__subtitle {
+    --font-size: 14px;
+    position: absolute;
+    left: 0;
+    top: 522px;
+
+    display: none;
+    width: min-content;
+
+    font-size: var(--font-size);
+    font-weight: 700;
+    line-height: 1;
+    text-align: left;
+    text-transform: uppercase;
+
+    color: $color-grey;
+
+    transform: translateX(-100%);
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      content: "";
+
+      margin-right: 20px;
+      display: block;
+      width: 70px;
+      height: 1px;
+
+      background-color: $secondary-bg-color;
+    }
+
+    @include onDesktop {
+      display: block;
+      transform: rotate(-90deg)
+        translateY(calc(-1 * var(--font-size)))
+        translateX(0);
+    }
+  }
+}

@@ -1,0 +1,117 @@
+.subscribe {
+  --height: 386px;
+  height: var(--height);
+
+  background: linear-gradient(
+    0deg,
+    #000000bf 0%,
+    #000000bf 100%),
+    url(../images/subscribe/bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include onTablet {
+    --height: 380px;
+  }
+
+  @include onDesktop {
+    --height: 550px;
+  }
+
+  &__content {
+    @include pageGrid;
+  }
+
+  &__title {
+    --margin-bottom: 20px;
+    --padding-top: 88px;
+    grid-column: 1/-1;
+
+    margin: 0 0 var(--margin-bottom);
+    padding-block-start: var(--padding-top);
+
+    text-align: center;
+
+    color: $color-white;
+
+    @include onTablet {
+      --margin-bottom: 16px;
+      --padding-top: 82px;
+    }
+
+    @include onDesktop {
+      --padding-top: 163px;
+    }
+  }
+
+  &__text {
+    --margin-bottom: 50px;
+    grid-column: 1/-1;
+
+    margin: 0 0 var(--margin-bottom);
+
+    font-size: 18px;
+    text-align: center;
+
+    color: $color-white;
+
+    @include onTablet {
+      --margin-bottom: 64px;
+      grid-column: 2/-2;
+
+      line-height: 1;
+    }
+
+    @include onDesktop {
+      --margin-bottom: 72px;
+      grid-column: 4/-4;
+    }
+  }
+
+  &__form {
+    grid-column: 1/-1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include onTablet {
+      grid-column: 2/-2;
+
+      column-gap: 16px;
+    }
+
+    @include onDesktop {
+      grid-column: 4/-4;
+
+      column-gap: 30px;
+    }
+  }
+
+  &__email {
+    padding: 0 0 0 24px;
+    height: 100%;
+    width: 100%;
+
+    border: none;
+
+    &:placeholder-shown {
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      line-height: 1;
+
+      color: $color-grey;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+}
