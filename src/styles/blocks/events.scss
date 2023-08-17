@@ -13,11 +13,7 @@
     width: 100%;
     object-fit: cover;
     margin-bottom: 16px;
-    transition: all 0.3s;
-
-    &:hover {
-      transform: scale(1.05);
-    }
+    @include hover (transform, scale(1.05));
 
     @include onTablet {
       grid-column: span 6;
@@ -53,16 +49,30 @@
 
     &--romantism {
       justify-content: space-evenly;
+
       @include onTablet {
         justify-content: space-between;
       }
+
+      @include onDesktop {
+        grid-column: 2 / -2;
+        grid-row: 1;
+      }
+    }
+
+    @include onTablet {
+      width: 45%;
+    }
+
+    @include onDesktop {
+      width: 60%;
     }
   }
 
   &__name {
     color: $grey-color;
     font-weight: 500;
-    padding-top: 4px;
+    line-height: 150%;
   }
 
   &__data {

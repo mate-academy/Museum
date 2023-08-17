@@ -5,8 +5,13 @@
   color: $white-color;
   background-image: url(../images/subscribe.png);
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
   padding-block: 88px;
+
+  @include onTablet {
+    padding-block: 82px;
+  }
 
   @include onDesktop {
     padding-block: 163px;
@@ -35,7 +40,7 @@
 
 .form {
   grid-column: span 2;
-  width: 80%;
+  width: 100%;
   @include paddingInline;
   display: flex;
   justify-content: center;
@@ -44,8 +49,7 @@
 
   @include onTablet {
     padding-inline: 0;
-    width: 100%;
-    grid-column: span 6;
+    grid-column: 2 / -2;
   }
 
   @include onDesktop {
@@ -55,14 +59,31 @@
 
   &__input {
     grid-column: span 2;
-    width: 60%;
+    width: 100%;
     height: 50px;
     margin: 0;
-    border-radius: 0;
-    border: none;
     background-color: $white-color;
     padding-left: 24px;
+    border-radius: 0;
+    border-style: none;
     transition: all 0.3s;
+
+    &:focus-visible {
+      outline: none;
+      border-radius: 0;
+      border-style: none;
+    }
+
+    &:-webkit-autofill {
+      font-size: 1.5rem;
+      -webkit-text-fill-color: $main-green;
+      border: 1px solid $main-green;
+
+      &:focus {
+        -webkit-box-shadow: 0 0 0 1000px $light-grey-color inset;
+        transition: background-color 5000s ease-in-out 0s;
+      }
+    }
 
     @include onTablet {
       grid-column: span 6;
@@ -84,11 +105,6 @@
     &:hover::placeholder {
       color: $dark-color;
     }
-
-    &:focus {
-      border-radius: 0;
-      border: none;
-    }
   }
 
   &__button {
@@ -100,12 +116,8 @@
     background-position: 50% 50%;
     border: none;
     cursor: pointer;
-    transition: all 0.3s;
-
-    &:hover {
-      background-color: $main-green;
-      transform: scale(1.1);
-    }
+    @include hover (background-color, $main-green);
+    @include hover (transform, scale(1.1));
 
     @include onTablet {
       height: 70px;

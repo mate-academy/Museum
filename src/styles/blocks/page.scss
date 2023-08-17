@@ -2,20 +2,23 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .page {
   font-family: $main-font;
   font-size: $font-size;
   min-width: 320px;
   margin: 0;
-  scroll-behavior: smooth;
 
   &__body {
     margin: 0;
+    min-width: 320px;
   }
 
   &:has(.menu:target) {
     background: rgba($background-aside, 0.5);
-    overflow: hidden;
   }
 }
 
@@ -29,7 +32,7 @@
     line-height: 100%;
     text-decoration: none;
     display: inline-block;
-    transition: all 0.3s;
+    @include hover (transform, scale(1.1));
 
     @include onTablet {
       width: 220px;
@@ -39,10 +42,6 @@
     @include onDesktop {
       height: 72px;
       text-align: left;
-    }
-
-    &:hover {
-      transform: scale(1.1);
     }
 
     &--footer {

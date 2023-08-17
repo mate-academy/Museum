@@ -1,7 +1,14 @@
 .header {
   &__content {
     @include pageGrid;
+    @include paddingInline;
+    padding-right: 0;
     position: relative;
+
+    @include onTablet {
+      padding-right: 0;
+      margin-bottom: 88px;
+    }
 
     @include onDesktop {
       margin-bottom: 200px;
@@ -28,6 +35,7 @@
     display: flex;
     justify-content: center;
     padding-top: 9px;
+    padding-bottom: 100%;
     background-image: url(../images/header.png);
     background-size: cover;
     @include paddingInline;
@@ -43,55 +51,62 @@
     }
   }
 
-  &__title {
+  &__name {
     grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__title {
     color: $black-color;
     text-align: center;
     font-size: 2.8rem;
     font-weight: 700;
     margin-top: 20px;
+    text-transform: uppercase;
+    line-height: 120%;
 
     @include onTablet {
-      grid-column: 1 / 4;
-      grid-row: 1;
-      @include paddingInline;
+      font-size: 3.4rem;
+      margin-top: 65px;
+      text-align: left;
+      letter-spacing: -3px;
     }
 
     @include onDesktop {
+      font-size: 4.5rem;
       width: 80%;
       text-align: left;
+      margin-top: 65px;
       margin-bottom: 89px;
       @include paddingInline;
     }
   }
 
   &__tickets {
-    @include paddingInline;
     padding-right: 0;
     display: flex;
     justify-content: center;
-    margin: 0 auto;
+
+    @include onTablet {
+      justify-content: left;
+    }
 
     @include onDesktop {
       justify-content: right;
       padding-right: 0;
       margin: 0;
-    }
-  }
-
-  &__name {
-    grid-column: span 2;
-    @include onTablet {
-      grid-column: 1 / 4;
-      grid-row: 1;
-      margin-top: 70px;
-    }
-
-    @include onDesktop {
-      grid-column: 1 / 6;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
   }
 
@@ -106,14 +121,10 @@
     padding-block: 18px;
     text-align: center;
     margin: 0;
-    transition: all 0.3s;
-
-    &:hover {
-      color: $main-green;
-    }
+    @include hover (color, $main-green);
 
     @include onTablet {
-      padding-block: 27px;
+      padding-block: 24px;
     }
 
     &-link {
@@ -124,12 +135,8 @@
       background-size: 50%;
       background-repeat: no-repeat;
       background-position: 50% 50%;
-      transition: all 0.3s;
-
-      &:hover {
-        background-color: $main-red;
-        transform: scale(1.05);
-      }
+      @include hover (background-color, $main-red);
+      @include hover (transform, scale(1.1));
 
       @include onTablet {
         width: 70px;
@@ -147,7 +154,7 @@
     text-decoration: none;
     text-transform: uppercase;
     position: relative;
-    transition: all 0.3s;
+    @include hover (font-size, 1rem);
 
     @include onDesktop {
       display: block;
@@ -164,10 +171,6 @@
         position: absolute;
         top: 50%;
         left: -200%;
-      }
-
-      &:hover {
-        font-size: 1rem;
       }
     }
   }
