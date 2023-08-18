@@ -1,0 +1,170 @@
+.slides {
+  position: relative;
+
+  @include onDesktop {
+    position: static;
+  }
+
+  &__clone {
+    height: 410px;
+    padding-bottom: 20px;
+
+    @include onTablet {
+      height: 543px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: max-content;
+
+    height: auto;
+    transition: position 0.6s ease;
+
+    @include onDesktop {
+      position: static;
+
+      @include pageGrid;
+
+      row-gap: 30px;
+    }
+  }
+
+  &__slide {
+    margin-right: 12px;
+    display: inline-block;
+    width: fit-content;
+
+    @include onTablet {
+      margin-right: 16px;
+    }
+
+    @include onDesktop {
+      display: block;
+      margin: 0;
+    }
+  }
+
+  &__slide-1 {
+    @include onDesktop {
+      grid-row: 1;
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__slide-2 {
+    @include onDesktop {
+      grid-row: 1;
+      grid-column: 5 / -1;
+    }
+  }
+
+  &__slide-3 {
+    @include onDesktop {
+      grid-row: 2 / 3;
+      grid-column: 1 / 9;
+    }
+  }
+
+  &__slide-4 {
+    @include onDesktop {
+      grid-row: 2 / 3;
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__slide-5 {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__img {
+    width: 280px;
+    height: 410px;
+    z-index: 2;
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.5s ease-in-out;
+    }
+  }
+
+  &__img-1 {
+    @include onDesktop {
+      width: 370px;
+      height: 600px;
+    }
+  }
+
+  &__img-2 {
+    @include onDesktop {
+      width: 770px;
+      height: 600px;
+    }
+  }
+
+  &__img-3 {
+    @include onDesktop {
+      width: 770px;
+      height: 360px;
+    }
+  }
+
+  &__img-4 {
+    @include onDesktop {
+      width: 370px;
+      height: 360px;
+    }
+  }
+
+  &__img-5 {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__nav {
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+
+    @include onTablet {
+      width: 700px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    cursor: pointer;
+    height: 9px;
+    width: 9px;
+    margin: 0 2px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    &:hover {
+      background-color: #1a5a4c;
+    }
+  }
+}
+
+.active {
+  background-color: #1a5a4c;
+}

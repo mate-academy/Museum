@@ -1,0 +1,88 @@
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+  background-color: #1a5a4c;
+
+  &__wrapper {
+    box-sizing: border-box;
+    @include contentPadding;
+    @include contentWidth;
+
+    padding-top: 30px;
+
+    @include onTablet {
+      @include pageGrid;
+
+      padding-top: 40px;
+    }
+  }
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    z-index: 1;
+  }
+
+  &__content {
+
+    display: flex;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+
+    border-bottom: 1px solid #fff;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+
+      border-bottom: none;
+      border-right: 1px solid #fff;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    padding-bottom: 20px;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+    }
+  }
+
+  &__background-opacity {
+    position: absolute;
+    top: 409px;
+    left: 0;
+    right: 0;
+    height: calc(100vh - 409px);
+
+    z-index: 2;
+    opacity: 0.5;
+    background-color: #18181a;
+
+    @include onTablet {
+      top: 220px;
+
+      height: calc(100vh - 220px);
+    }
+
+    @include onDesktop {
+      top: 220px;
+
+      height: calc(100vh - 220px);
+    }
+  }
+}
