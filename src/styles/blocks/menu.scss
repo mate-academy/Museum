@@ -3,33 +3,54 @@
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   z-index: 1;
-  background-color: $main-green;
-  @include paddingInline;
-  @include pageGrid;
-  grid-template-rows: 30% 5% 65%;
-  padding-block: 27px;
-  color: $white-color;
-  font-family: $second-font;
-  font-size: 1rem;
-  font-weight: 500;
+  background-color: rgba($background-aside, 0.5);
   transform: translateX(-100%);
   transition: all 0.3s;
   pointer-events: none;
+  margin: 0;
 
   &:target {
     pointer-events: all;
     transform: translateX(0);
   }
 
-  @include onTablet {
-    grid-template-rows: 20% 0 0;
-    padding-top: 40px;
-    padding-bottom: 48px;
-  }
+  &__content {
+    background-color: $main-green;
+    @include paddingInline;
+    @include pageGrid;
+    grid-template-rows: 30% 5% 65%;
+    padding-block: 27px;
+    color: $white-color;
+    font-family: $second-font;
+    font-size: 1rem;
+    font-weight: 500;
 
-  @include onDesktop {
-    font-size: 1.38rem;
+    @include onTablet {
+      grid-template-rows: 20% 0 0;
+    }
+
+    @include onDesktop {
+      font-size: 1.38rem;
+    }
+
+    & > .line--menu {
+      grid-row: 2;
+      margin: 0;
+      @include onTablet {
+        grid-row: 1;
+        width: 1px;
+        height: 145px;
+        position: absolute;
+        right: 50%;
+        margin: 0;
+      }
+
+      @include onDesktop {
+        grid-column: 7 / 8;
+      }
+    }
   }
 
   &__inform {
@@ -90,25 +111,6 @@
     }
   }
 
-  & > .line--menu {
-    grid-row: 2;
-    margin: 0;
-    @include onTablet {
-      grid-row: 1;
-
-      width: 1px;
-      height: 145px;
-      position: absolute;
-      right: 50%;
-      margin: 0;
-    }
-
-    @include onDesktop {
-      grid-column: 7 / 8;
-      right: 100%;
-    }
-  }
-
   &__timetable {
     grid-column: span 2;
     grid-row: 3;
@@ -131,7 +133,12 @@
 
   &__column {
     @include onTablet {
+      padding-left: 38px;
       grid-column: span 2;
+    }
+
+    @include onDesktop {
+      padding-left: 108px;
     }
   }
 
