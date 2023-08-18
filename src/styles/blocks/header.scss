@@ -1,0 +1,116 @@
+.header {
+  background-image: url(../images/header-bg.png);
+  background-size: 100% 100%;
+  height: 300px;
+
+  @include onTablet {
+    background-position: 50vw 0;
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+
+    height: 384px;
+  }
+
+  @include onDesktop {
+    height: 655px;
+  }
+
+  &__content {
+    @include pageGrid;
+    grid-template-rows: 320px 110px auto;
+    position: relative;
+
+    @include onTablet {
+      grid-template-rows: 125px 175px 85px;
+    }
+
+    @include onDesktop {
+      grid-template-rows: 205px 260px 190px;
+    }
+  }
+
+  &__menu-link {
+    grid-column: 1 / -1;
+    @include squareSize(24px);
+    display: flex;
+
+    padding-top: 25px;
+
+    @include onTablet {
+      padding-top: 40px;
+    }
+  }
+
+  &__menu-icon {
+    margin: auto;
+  }
+
+  &__logo-link {
+    position: absolute;
+    grid-column: 1 / -1;
+    padding-top: 10px;
+
+    text-decoration: none;
+    justify-self: center;
+
+    @include onTablet {
+      grid-column: 4 / 6;
+      padding-top: 15px;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 9;
+    }
+  }
+
+  &__logo {
+    font-family: Montserrat, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+    color: $main-color;
+
+    @include onTablet {
+      font-size: 36px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+    }
+  }
+
+  &__tickets {
+    grid-column: 1 / -1;
+    justify-self: center;
+
+    @include onTablet {
+      justify-self: start;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / -1;
+    }
+  }
+
+  &__events {
+    position: absolute;
+    align-self: end;
+  }
+}
