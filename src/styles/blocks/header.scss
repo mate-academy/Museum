@@ -1,0 +1,157 @@
+.header {
+  position: relative;
+
+  &__image {
+    display: grid;
+    position: absolute;
+    background-image: url(/images/header/header-image.png);
+    background-repeat: no-repeat;
+    background-position: inherit;
+    background-size: cover;
+    width: 100%;
+    min-width: 320px;
+    height: 300px;
+
+    z-index: -1;
+
+    @include onTablet {
+      top: 0;
+      right: 0;
+      max-width: 50%;
+      height: 384px;
+      background-position: center;
+    }
+
+    @include onDesktop {
+      height: 655px;
+    }
+
+  }
+
+  &__content {
+    @include contentPadingInline;
+    
+    position: relative;
+    margin: 0 auto;
+    max-width: $max-width;
+    min-width: $min-width;
+    box-sizing: border-box;
+
+  }
+
+  &__top {
+    margin-bottom: 250px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 120px;
+    }
+  }
+
+  &__icon {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__logo {
+    margin: 0 auto;
+
+    @include onTablet {
+      margin: 0 52%;
+    }
+  }
+
+  &__botom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      align-items: flex-start;
+      max-width: 470px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: #000;
+
+    @include onTablet {
+      width: 340px;
+      margin-bottom: 40px;
+
+      font-size: 50px;
+      line-height: 120%;
+
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+      font-size: 72px;
+    }
+  }
+
+  &__button {
+    margin: 0 auto;
+    text-decoration: none;
+    width: 100%;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__events {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    box-sizing: border-box;
+    position: absolute;
+    font-family: IBM Plex Sans, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #687480;
+    transform: rotate(-90deg);
+    align-self: flex-start;
+    text-transform: uppercase;
+    transition: 0.6s;
+  
+    &:after {
+      display: block;
+      position: absolute;
+      content: "";
+      width: 70px;
+      height: 1px;
+      background-color: #1a5a4c;
+      right: 60px;
+      top: 50%;
+    }
+  
+    &:hover {
+      color: red;
+  
+      &:after {
+        background-color: red;
+      }
+    }
+  
+    @include onDesktop {
+      opacity: 1;
+    }
+  }
+  
+}
