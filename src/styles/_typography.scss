@@ -1,3 +1,82 @@
-h1 {
-  @extend %h1;
+.section__title {
+  color: $dark-color;
+  text-align: center;
+  font-family: $main-font;
+  font-size: 36px;
+  font-weight: 700;
+  margin-block: 40px;
+  @include paddingInline;
+
+  &--white {
+    color: $white-color;
+    margin: 0;
+  }
+
+  &--left {
+    @include onTablet {
+      text-align: left;
+    }
+  }
+
+  @include onTablet {
+    font-size: 3.38rem;
+    margin-block: 48px;
+  }
+
+  @include onDesktop {
+    margin-block: 56px;
+  }
+}
+
+.section__subtitle {
+  color: $dark-color;
+  font-family: $main-font;
+  font-size: 1.75rem;
+  font-weight: 400;
+  position: relative;
+  padding-block: 10px;
+  margin: 0;
+  display: inline-block;
+
+  @include onTablet {
+    font-size: 2.25rem;
+  }
+
+  @include onDesktop {
+    width: fit-content;
+  }
+
+  &::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: $main-red;
+    position: absolute;
+    right: -20px;
+    top: 45%;
+
+    @include onDesktop {
+      right: -25px;
+    }
+  }
+
+  &--romantism {
+    text-align: center;
+    margin: 0;
+
+    &::after {
+      display: none;
+    }
+
+    @include onTablet {
+      text-align: left;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / -2;
+      grid-row: 2;
+      padding-block: 0;
+      line-height: 100%;
+    }
+  }
 }

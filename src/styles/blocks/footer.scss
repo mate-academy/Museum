@@ -1,0 +1,212 @@
+.footer {
+  @include pageGrid;
+  @include paddingInline;
+  padding-top: 50px;
+  position: relative;
+
+  &__icons {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      grid-column: 1 / 2;
+      flex-wrap: wrap;
+      gap: 62px;
+    }
+
+    @include onDesktop {
+      margin-top: 47px;
+    }
+
+    &-wraper {
+      display: flex;
+      justify-content: right;
+      width: 100%;
+      gap: 20px;
+
+      @include onTablet {
+        justify-content: space-evenly;
+      }
+    }
+  }
+
+  &__timetable {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    line-height: 140%;
+
+    @include onTablet {
+      grid-column: 2 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 5;
+      margin-top: 47px;
+    }
+  }
+
+  &__column {
+    @include onTablet {
+      grid-column: span 2;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  &__schedule {
+    &--time {
+      font-weight: 600;
+      margin: 0;
+    }
+
+    &--day {
+      display: block;
+      font-weight: 400;
+      margin: 0;
+      padding-bottom: 2px;
+
+      @include onTablet {
+        display: inline-block;
+      }
+    }
+
+    &--weekend {
+      font-weight: 400;
+    }
+  }
+
+  &__weekend {
+    @include onTablet {
+      grid-column: 3;
+      grid-row: 1;
+    }
+  }
+
+  &__contacts {
+    grid-column: 2 / 2;
+
+    @include onTablet {
+      grid-column: 4 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / 7;
+      margin-top: 47px;
+    }
+  }
+
+  &__roster {
+    word-wrap: break-word;
+
+    &--link {
+      display: block;
+      padding-block: 2px;
+      text-decoration: none;
+      color: $dark-color;
+      font-family: $second-font;
+      font-size: 0.88rem;
+      font-weight: 400;
+      line-height: 150%;
+      @include hover (transform, scale(1.05));
+    }
+  }
+
+  &__menu {
+    grid-column: span 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 40px;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 11;
+      height: 25%;
+    }
+  }
+
+  &__link {
+    color: $dark-color;
+    text-decoration: none;
+    display: block;
+    width: 45%;
+    padding-bottom: 15px;
+    @include hover (color, $main-green);
+    @include hover (transform, scale(1.1));
+  }
+
+  &__rights {
+    grid-column: span 2;
+    margin: 0 auto;
+    margin-top: 80px;
+    padding-bottom: 128px;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      width: 100%;
+      padding-bottom: 35px;
+    }
+  }
+
+  &__describe {
+    color: $dark-color;
+    text-align: center;
+    font-family: $second-font;
+    font-size: 0.75rem;
+    font-weight: 300;
+    line-height: 140%;
+    margin: 0;
+  }
+}
+
+.button-up {
+  display: block;
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 2px solid $main-green;
+  background-image: url(../images/icons/arrow-up.svg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  @include hover(transform, scale(1.1));
+}
+
+.line {
+  display: block;
+  grid-column: span 2;
+  width: 100%;
+  height: 2px;
+  background: rgba(26, 90, 76, 0.5);
+  margin-top: 70px;
+
+  @include onTablet {
+    grid-column: 2 / -2;
+  }
+
+  @include onDesktop {
+    grid-column: 7;
+    width: 1px;
+    height: 260px;
+    margin-top: 47px;
+  }
+
+  &--menu {
+    margin-block: 24px;
+    background: rgba(255, 255, 255, 0.5);
+  }
+}

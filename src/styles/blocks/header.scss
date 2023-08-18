@@ -1,0 +1,179 @@
+.header {
+  &__content {
+    @include pageGrid;
+    position: relative;
+
+    @include onTablet {
+      padding-left: 34px;
+      padding-right: 0;
+      margin-bottom: 88px;
+    }
+
+    @include onDesktop {
+      padding-left: 55px;
+      padding-right: 0;
+      margin-bottom: 200px;
+    }
+  }
+
+  &__top {
+    position: absolute;
+    top: 27px;
+    left: 20px;
+
+    @include onTablet {
+      top: 40px;
+      left: 34px;
+    }
+
+    @include onDesktop {
+      left: 58px;
+    }
+  }
+
+  &__main {
+    grid-column: span 2;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    padding-top: 9px;
+    padding-bottom: 100%;
+    background-image: url(../images/header.png);
+    background-size: cover;
+    @include paddingInline;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+      justify-content: left;
+    }
+
+    @include onDesktop {
+      height: 655px;
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__name {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__title {
+    color: $black-color;
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-top: 20px;
+    text-transform: uppercase;
+    line-height: 120%;
+
+    @include onTablet {
+      font-size: 3.4rem;
+      margin-top: 65px;
+      text-align: left;
+      letter-spacing: -3px;
+    }
+
+    @include onDesktop {
+      font-size: 4.5rem;
+      width: 80%;
+      text-align: left;
+      margin-top: 65px;
+      margin-bottom: 89px;
+      @include paddingInline;
+    }
+  }
+
+  &__tickets {
+    padding-right: 0;
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      justify-content: left;
+    }
+
+    @include onDesktop {
+      justify-content: right;
+      padding-right: 0;
+      margin: 0;
+    }
+  }
+
+  &__buy {
+    display: inline-block;
+    width: 230px;
+    border: 1px solid $main-green;
+    color: $dark-color;
+    font-family: $second-font;
+    font-size: 1rem;
+    font-weight: 500;
+    padding-block: 18px;
+    text-align: center;
+    margin: 0;
+    @include hover (color, $main-green);
+
+    @include onTablet {
+      padding-block: 24px;
+    }
+
+    &-link {
+      display: inline-block;
+      width: 50px;
+      background-color: $main-green;
+      background-image: url(../images/icons/baseline-keyboard_arrow_right-24px.png);
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      @include hover (background-color, $main-red);
+      @include hover (transform, scale(1.1));
+
+      @include onTablet {
+        width: 70px;
+      }
+    }
+  }
+
+  &__events {
+    display: none;
+    color: $grey-color;
+    font-family: $second-font;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transform: rotate(-90deg);
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    @include hover (font-size, 1rem);
+
+    @include onDesktop {
+      display: block;
+      position: absolute;
+      left: 55px;
+      top: 550px;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 70px;
+        height: 1px;
+        background-color: $main-green;
+        position: absolute;
+        top: 50%;
+        left: -200%;
+      }
+    }
+  }
+}

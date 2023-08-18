@@ -1,0 +1,144 @@
+.gallery {
+  &__content {
+    @include paddingInline;
+    @include pageGrid;
+    padding-bottom: 100px;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+
+    @include onDesktop {
+      padding-bottom: 200px;
+    }
+  }
+
+  &__slides {
+    grid-column: span 2;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    @include onTablet {
+      grid-column: span 6;
+    }
+
+    @include onDesktop {
+      grid-column: span 12;
+      @include pageGrid;
+      row-gap: 30px;
+    }
+  }
+
+  &__photo {
+    scroll-snap-align: start;
+    margin-right: 100%;
+    position: relative;
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+    @include hover (transform, scale(1.05));
+
+    @include onTablet {
+      width: 50%;
+      margin-right: 20px;
+    }
+
+    @include onDesktop {
+      width: 100%;
+    }
+
+    &:nth-child(2) {
+      @include onTablet {
+        margin-right: 100%;
+      }
+    }
+
+    &--not-tablet {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &--plus {
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    @include onDesktop {
+      &:first-child,
+      &:nth-child(5) {
+        grid-column: span 4;
+      }
+
+      &:nth-child(3),
+      &:nth-child(4) {
+        grid-column: span 8;
+      }
+    }
+  }
+
+  &__slider {
+    padding-top: 20px;
+    grid-column: 1 / -1;
+    justify-self: center;
+
+    display: flex;
+    width: 102px;
+    align-items: center;
+    justify-content: space-between;
+
+    @include onTablet {
+      justify-content: space-evenly;
+
+      & :nth-child(2) {
+        display: none;
+
+      }
+
+      & :nth-child(3) {
+        display: none;
+      }
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &-item {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: $grey-color;
+
+      &:active {
+        background-color: $main-green;
+      }
+
+      &--plus {
+        @include onDesktop {
+          display: none;
+        }
+      }
+
+      &--not-tablet {
+        display: none;
+        @include onDesktop {
+          display: block;
+        }
+      }
+    }
+  }
+}
