@@ -2,6 +2,7 @@
   display: flex;
   position: fixed;
   width: 100vw;
+  height: 100vh;
   top: 0;
   left: 0;
   right: 0;
@@ -9,7 +10,7 @@
   pointer-events: none;
   overflow: auto;
   color: $main-bg-color;
-  background-color: $secondary-bg-color;
+  // background-color: $secondary-bg-color;
   font-family: $font-IBM;
 
   &__top-bar {
@@ -19,13 +20,38 @@
   &:target {
     opacity: 1;
     pointer-events: all;
+    z-index: 2;
+  }
+
+  &__bg {
+    background-color: $secondary-bg-color;
+    height: 399px;
+    width: 100vw;
+
+    @include onTablet {
+      height: 255px;
+    }
+
+    @include onDesktop {
+      height: 233px;
+    }
   }
 
   &__content {
-    padding-block: 27px;
+    // background-color: $secondary-bg-color;
+    padding-top: 27px;
     display: flex;
+    height: 370px;
     flex-direction: column;
     gap: 24px;
+
+    @include onTablet {
+      height: 255px;
+    }
+
+    @include onDesktop {
+      height: 233px;
+    }
   }
 
   &__top {
@@ -36,6 +62,13 @@
 
   &__strip {
     height: 1px;
-    background-color: rgba(255, 255, 255);
+    background-color: $main-bg-color;
+  }
+
+  &__bottom {
+    height: 100%;
+    width: 100%;
+    background-color: #18181a;
+    opacity: 0.7;
   }
 }

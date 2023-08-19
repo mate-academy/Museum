@@ -1,17 +1,16 @@
 .event {
   padding-top: 60px;
+  // @include pageGrid;
 
   @include onTablet {
+    @include pageGrid;
+    grid-column: span 6;
     padding-top: 64px;
   }
 
   @include onDesktop {
-    &--1,
-    &--2 {
-      display: flex;
-      gap: 130px;
-      align-items: center;
-    }
+    grid-column: span 12;
+    padding-top: 104px;
   }
 
   &--1 {
@@ -20,9 +19,14 @@
     @include onTablet {
       padding-top: 48px;
     }
+
+    @include onDesktop {
+      padding-top: 56px;
+    }
   }
 
   &--3 {
+    display: block;
     @include onTablet {
       padding-top: 112px;
     }
@@ -32,35 +36,16 @@
     width: 100%;
 
     @include onTablet {
-      width: 700px;
+      grid-column: span 6;
     }
 
     @include onDesktop {
-      width: 670px;
-    }
-
-    &--3 {
-      width: 100vw;
-      position: relative;
-      left: -20px;
-
-      @include onTablet {
-        left: 0;
-      }
-
-      @include onDesktop {
-        left: -55px;
-        width: 1280px;
-      }
+      grid-column: span 7;
     }
   }
 
-  &__content {
-    @include onDesktop {
-      display: flex;
-      flex-direction: column;
-      // padding-top: 219px;
-    }
+  &__exposition {
+    position: relative;
   }
 
   &__on-img-container {
@@ -69,10 +54,10 @@
     @include onTablet {
       width: 570px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       justify-self: center;
-      margin: 0 auto; /// ???
-
+      margin: 0 auto;
     }
   }
 
@@ -99,7 +84,7 @@
       position: absolute;
       display: flex;
       justify-content: space-evenly;
-      top: -83%;
+      top: -49%;
       width: 100%;
       z-index: 1;
       background-color: $main-bg-color;
@@ -157,7 +142,7 @@
       padding-bottom: 50px;
 
       @include onTablet {
-        width: 460px;
+        // width: 460px;
       }
     }
   }
@@ -183,9 +168,5 @@
     @include onDesktop {
       width: 370px;
     }
-  }
-
-  &__exposition {
-    position: relative;
   }
 }
