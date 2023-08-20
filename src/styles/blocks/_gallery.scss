@@ -1,0 +1,141 @@
+.gallery {
+  &__row {
+    padding-left: 20px;
+
+    @include onDesktop {
+      padding: 0 55px;
+    }
+  }
+  
+  &__slider {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    @include onDesktop {
+      display: none;
+    }
+    
+  }
+
+  &__slider-container {
+
+    /*box-sizing: content-box;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;*/
+
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+
+    &:not(:last-child) {
+      padding-bottom: 20px;
+    }
+  }
+
+  &__slide-container {
+    position: relative;
+    width: 280px;
+    height: 410px;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform $transition-duration-speed;
+
+    &:hover {
+      transform: scale(1.07);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    //animation: slider $speed-slider linear 0s 5 normal;
+    
+    /* @keyframes slider {
+      0%   {right: 50px;}
+      5%   {right: 100px;}
+      10%  {right: 200px;}
+      15%  {right: 300;}
+      20%  {right: 400px;}
+      30%  {right: 500px}
+      40% {right: 600px;}
+      50% {right: 700px;}
+      60% {right: 800px;}
+      70% {right: 900px;}
+      80% {right: 1000px;}
+      90% {right: 1200px;}
+      100% {right: 1300px;}
+      } */
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+    }
+  }
+
+  &__item--display {
+    display: none;
+
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__dots {
+    text-align: center;
+    padding-top: 20px;
+
+    & > span:first-child {
+      background-color: $main-color;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    width: 9px;
+    height: 9px;
+    background-color: $color-dot;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  &__photo-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    transition: transform $transition-duration-speed;
+
+    &:hover {
+      transform: scale(1.07);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  &__container {
+    margin-bottom: 30px;
+  }
+
+  &__photo-container--small {
+    height: 360px;
+  }
+}
