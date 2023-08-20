@@ -1,0 +1,89 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 20px;
+
+  @include onDesktop {
+    display: none;
+    padding-left: 34px;
+  }
+
+  &__slides {
+    display: flex;
+    gap: 16px;
+    transition: all 0.5s ease-in-out;
+
+    overflow: hidden;
+
+    @include onTablet {
+      gap: 20px;
+    }
+  }
+
+  &:has(.slider__radio--2:checked) .slider__slides {
+    margin-left: calc(-1 * calc(100vw - 20px));
+
+    @include onTablet {
+      margin-left: calc(-1 * calc(50vw - 24px));
+    }
+  }
+
+  &:has(.slider__radio--3:checked) .slider__slides {
+    margin-left: calc(-2 * calc(100vw - 22px));
+
+    @include onTablet {
+      margin-left: calc(-2 * calc(50vw - 24px));
+    }
+  }
+
+  &:has(.slider__radio--4:checked) .slider__slides {
+    margin-left: calc(-3 * calc(100vw - 22px));
+
+    @include onTablet {
+      margin-left: calc(-3 * calc(50vw - 100px));
+    }
+  }
+
+  &__image {
+    width: calc(100vw - 40px);
+    height: 410px;
+    object-fit: cover;
+    object-position: center;
+    @include hover(transform, scale(1.05));
+
+    @include onTablet {
+      width: calc(50vw - 44px);
+      height: 543px;
+    }
+  }
+
+  &__radio-box {
+    display: flex;
+    gap: 22px;
+    align-self: center;
+  }
+
+  &__radio {
+    display: block;
+    @include square(9px);
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__label {
+    display: block;
+    @include square(9px);
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:has(.slider__radio:checked) {
+      background-color: #1a5a4c;
+    }
+  }
+}

@@ -1,0 +1,154 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  height: 100vh;
+  overflow: auto;
+  opacity: 0;
+  scroll-behavior: smooth;
+
+  @extend %transition;
+  transform: translateX(-100%);
+  pointer-events: none;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
+  }
+
+  &__background {
+    height: 100vh;
+    background-color: black;
+    opacity: 0.5;
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding-bottom: 27px;
+    background-color: $accent-first-color;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto 1px auto;
+    row-gap: 24px;
+
+    @include onTablet {
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(5, auto);
+      justify-content: space-between;
+      padding-bottom: 40px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(4, auto);
+      padding-top: 40px;
+      padding-bottom: 48px;
+      padding-left: 56px;
+      padding-right: 155px;
+    }
+  }
+
+  &__nav-list {
+    row-gap: 24px;
+    column-gap: 28px;
+
+    @include onTablet {
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      column-gap: 31px;
+      row-gap: 30px;
+    }
+  }
+
+  &__nav-item {
+    width: 100px;
+
+    @include onDesktop {
+      width: 169px;
+    }
+  }
+
+  &__nav-link {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+
+    @include onDesktop {
+      font-size: 22px;
+    }
+  }
+
+  &__divided-line {
+    background-color: #fff;
+    opacity: 50%;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      height: 100%;
+      width: 1px;
+      grid-column: span 1;
+
+    }
+  }
+
+  &__shedule-box {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: span 1;
+      padding-top: 1px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      gap: 30px;
+
+    }
+  }
+
+  &__shedule {
+    color: #fff;
+
+    @include onDesktop {
+      width: 170px;
+    }
+
+    &--insight {
+      padding-top: 16px;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: block;
+        padding-top: 40px;
+      }
+    }
+
+    &--outsight {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        padding-top: 41px;
+        padding-right: 1px;
+        width: 144px;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+}
