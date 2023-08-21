@@ -1,0 +1,27 @@
+.button {
+  display: block;
+  @include square(50px);
+  background-image: url(../images/icon/icon-arrow_right.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+
+  @include onTablet {
+    @include square(70px);
+  }
+
+  &--accent-first {
+    background-color: $accent-first-color;
+    @include hover(box-shadow, 0 0 10px 5px $accent-first-color);
+  }
+
+  &--accent-second {
+    background-color: $accent-second-color;
+    @include hover(box-shadow, 0 0 10px 5px $accent-second-color);
+  }
+
+  &:hover {
+    cursor: pointer;
+    filter: contrast(200%);
+  }
+}

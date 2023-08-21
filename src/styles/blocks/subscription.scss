@@ -1,0 +1,176 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  background-color: #fff !important;
+  -webkit-text-fill-color: $light-font-color;
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+  outline: none;
+  color: $light-font-color !important;
+}
+
+.subscription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/bg-mobile.jpg");
+  padding: 88px 20px;
+
+  @include onTablet {
+    background-image: url("../images/bg-tablet.jpg");
+    padding: 82px 154px;
+
+  }
+
+  @include onDesktop {
+    background-image: url("../images/bg.jpg");
+    padding: 163px 355px;
+
+  }
+
+  &__title {
+    color: #fff;
+    text-align: center;
+  }
+
+  &__text {
+    @extend %IBM-Plex400;
+    text-align: center;
+    font-size: 18px;
+    line-height: 150%;
+    color: #fff;
+    padding-block: 20px 50px;
+
+    @include onTablet {
+      padding-block: 16px 64px;
+      line-height: 100%;
+
+    }
+
+    @include onDesktop {
+      padding-bottom: 72px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    @include onTablet {
+      gap: 16px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+    }
+  }
+
+  &__email {
+    outline: none;
+    flex-grow: 1;
+    max-width: 470px;
+    border: none;
+    height: auto;
+    @extend %Montserrat700;
+    font-size: 14px;
+    text-indent: 24px;
+    color: $light-font-color;
+
+    &::placeholder {
+      color: $light-font-color;
+      @extend %Montserrat400;
+
+    }
+
+    &:hover {
+      box-shadow: inset 0 0 10px $accent-second-color;
+    }
+
+    &:focus {
+      box-shadow: inset 0 0 5px $accent-second-color;
+
+      &::placeholder {
+        text-shadow: 0 0 1px $light-font-color;
+      }
+    }
+  }
+}
+
+.form {
+  width: 100%;
+  color: #fff;
+
+  &__title {
+    line-height: 130%;
+
+    @include onTablet {
+      line-height: 150%;
+    }
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    height: 80px;
+    padding: 0;
+    padding-top: 40px;
+    //@extend %Poppins600;
+    font-size: 15px;
+    color: inherit;
+    line-height: 150%;
+    resize: none;
+    outline: none;
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid #fff;
+
+    @include onTablet {
+      height: 88px;
+      padding-top: 48px;
+    }
+
+    &::placeholder {
+      opacity: 0.7;
+    }
+
+    &::-webkit-scrollbar {
+      width: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: inherit;
+      box-shadow: inset 0 0 2px $accent-first-color;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $accent-first-color;
+      border-radius: 10px;
+    }
+
+    &:focus {
+      opacity: 1;
+      border-bottom: 1px solid $accent-first-color;
+    }
+  }
+
+  &__button {
+    margin-top: 56px;
+
+    @include onTablet {
+      margin-top: 80px;
+    }
+  }
+}
