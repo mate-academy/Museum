@@ -1,0 +1,85 @@
+.menu {
+  height: auto;
+  padding-block: $mobile-menu-paddings;
+
+  color: #fff;
+  background-color: $secondary-color;
+
+  @include onTablet {
+    padding-block: $tablet-menu-paddings;
+  }
+
+  &__content {
+    @include pageGrid;
+    row-gap: 24px;
+    position: relative;
+  }
+
+  &__header-link {
+    position: absolute;
+    display: flex;
+
+    @include squareSize(24px);
+  }
+
+  &__header-icon {
+    margin: auto;
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+    padding-left: 52px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__divider {
+    grid-column: 1 / -1;
+    color: #ffffff80;
+
+    @include onTablet {
+      position: absolute;
+      grid-column: 3 / 3;
+      height: 145px;
+
+      transform: translateX(82px);
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 6;
+      transform: translateX(98px);
+    }
+  }
+
+  &__schedule {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 13;
+    }
+  }
+
+  &__transparency {
+    position: absolute;
+    margin-top: $mobile-menu-paddings;
+
+    height: 100vh;
+    width: 100%;
+
+    backdrop-filter: brightness(0.5);
+
+    @include onTablet {
+      margin-top: $tablet-menu-paddings;
+    }
+  }
+}
