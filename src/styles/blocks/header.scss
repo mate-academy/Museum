@@ -1,0 +1,203 @@
+.header {
+
+  &__background {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    z-index: -1;
+    height: 655px;
+    background-image: url(../images/Main-page-photo.jpg);
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 384px;
+      background-position: 20%;
+      // background-size: contain;
+      width: 48%;
+    }
+
+    @include onDesktop {
+      width: 56.5%;
+    }
+  }
+
+  &__content {
+    margin-top: 40px;
+    box-sizing: border-box;
+    // height: 800px;
+  }
+
+  &__left {
+    position: relative;
+  }
+
+  &__right {
+    position: relative;
+  }
+
+  &__title {
+    color: #000;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+
+    @include onTablet {
+      font-size: 54px;
+      margin-bottom: 38px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    @include onTablet {
+      margin-bottom: 18px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 111px;
+    }
+  }
+
+  &__button {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 67px;
+    width: 270px;
+    height: 70px;
+    border: 1px solid $c-green;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(101%);
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    &-word {
+      color: $c-black-text;
+      font-family: IBM Plex Sans, sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100%;
+    }
+
+    &-arrow {
+      // padding: 47px;
+      width: 70px;
+      height: 70px;
+      display: block;
+      background-color: $c-green;
+      background-image: url(/images/arrow-icon.svg);
+      background-position: center;
+      background-size: auto;
+      background-repeat: no-repeat;
+
+      &--contacts {
+        background-color: #F14A27;
+      }
+    }
+  }
+
+  &__vertical-container {
+    position: relative;
+
+    @include onMobile {
+      display: none;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: inline-block;
+    }
+  }
+
+  &__vertical {
+    position: absolute;
+    top: 25px;
+    transform: rotate(-90deg);
+    color: $c-grey-text;
+    font-family: IBM Plex Sans, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+
+    &::before {
+      display: block;
+      position: absolute;
+      right: 150%;
+      top: 50%;
+      content: "";
+      width: 70px;
+      height: 1px;
+      background: $c-green;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: -40px;
+    right: -55px;
+    width: 100%;
+    height: 655px;
+  }
+
+  &__logo {
+    position: absolute;
+    top: -25px;
+    left: 50px;
+  }
+
+  &__nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateY(-100%);
+    transition: all 0.3s;
+
+    &:target {
+      background-color: $c-green;
+      transform: translateY(0);
+      z-index: 1;
+      height: 233px;
+    }
+
+    &-flex {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      @include onMobile {
+        gap: 28px;
+      }
+
+      @include onTablet {
+        gap: 38px;
+      }
+
+      @include onDesktop {
+        gap: 102px;
+      }
+    }
+  }
+}
