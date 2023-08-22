@@ -1,6 +1,57 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin tablet() {
+  @media screen and (min-width: $size-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media screen and (min-width: $size-desktop) {
+    @content;
+  }
+}
+
+@mixin absolute-left($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  z-index: 1;
+}
+
+@mixin absolute-right($top, $right) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  z-index: 1;
+}
+
+@mixin grid-gap($gap) {
+  display: grid;
+  gap: $gap;
+}
+
+@mixin background-image($img) {
+  background-image: url($img);
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin button-arrow($img, $color) {
+  &::before {
+    @include tablet {
+      width: 70px;
+      height: 70px;
+    }
+    content: "";
+    @include absolute-right(0, 0);
+    height: 100%;
+    width: 50px;
+    background-image: url($img);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $color;
+    display: grid;
+    justify-items: center;
+    align-items: center;
   }
 }

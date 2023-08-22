@@ -1,0 +1,123 @@
+.menu {
+  @include tablet {
+    grid-auto-flow: column;
+    justify-content: flex-start;
+    gap: 40px;
+    padding: 39px 20px 41px;
+  }
+  @include desktop {
+    gap: 101px;
+    padding: 38px 20px 49px;
+  }
+  position: fixed;
+  transform: translateY(-100%);
+  transition: $transition;
+  top: 0;
+  left: 0;
+  width: 100%;
+  @include grid-gap(24px);
+  padding: 26px 20px 28px;
+  background-color: $color-link;
+  color: $color-white;
+  z-index: 3;
+  &-wrapper {
+    @include absolute-left(0, 0);
+    z-index: 2;
+    transform: translateY(-100%);
+    width: 100%;
+    height: 100vh;
+    background-color: #18181a80;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  &-close {
+    @include tablet {
+      top: 38px;
+      left: 34px;
+    }
+    @include desktop {
+      top: 40px;
+      left: 56px;
+    }
+    @include absolute-left(27px, 20px);
+    z-index: 1;
+    &__image {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &__navigation {
+    @include tablet {
+      gap: 25px 22px;
+      align-content: baseline;
+      grid-template-columns: repeat(2, 98px);
+      padding-left: 76px;
+    }
+    @include desktop {
+      grid-template-columns: repeat(2, 169px);
+      gap: 30px 31px;
+      padding-top: 2px;
+      padding-left: 162px;
+    }
+    @include grid-gap(24px 27px);
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding-left: 53px;
+  }
+  &__link {
+    @include desktop {
+      font-size: 22px;
+      line-height: 22px;
+    }
+    font-family: $font-family-text500;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0;
+    text-decoration: none;
+    color: $color-white;
+  }
+  &__container {
+    @include tablet {
+      @include grid-gap(25px);
+      grid-auto-flow: column;
+      border-left: 1px solid #ffffff80;
+      border-top: none;
+      padding-top: 0;
+      padding-left: 39px;
+    }
+    @include desktop {
+      padding-left: 102px;
+      gap: 31px;
+    }
+    border-top: 1px solid #ffffff80;
+    padding-top: 22px;
+    font-family: $font-family-text400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0;
+    &-body {
+      @include tablet {
+        width: 170px;
+      }
+    }
+  }
+  &__text {
+    margin: 0;
+    &--holidays {
+      @include tablet {
+        margin: 0;
+        padding-top: 39px;
+        padding-right: 14px;
+      }
+      @include desktop {
+        padding-right: 0;
+        width: 170px;
+        padding-top: 40px;
+      }
+      margin-top: 17px;
+    }
+  }
+  &__texts {
+    margin-top: 20px;
+  }
+}
