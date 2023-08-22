@@ -1,0 +1,114 @@
+.gallery {
+  @include tablet {
+    padding: 65px 0 93px;
+  }
+  @include desktop {
+    padding: 110px 0 201px;
+  }
+  padding: 50px 0 100px;
+  &__title {
+    @include tablet {
+      text-align: left;
+      margin: 0;
+      padding-left: 35px;
+      font-size: 48px;
+    }
+    @include desktop {
+      padding-left: 55px;
+    }
+    font-family: $font-family-title700;
+    font-size: 36px;
+    line-height: 36px;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 0 auto;
+    width: 280px;
+  }
+  &__container {
+    @include tablet {
+      margin-top: 53px;
+      padding: 0 34px;
+      gap: 20px;
+    }
+    @include desktop {
+      margin-top: 61px;
+      padding: 0 55px;
+      grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+      gap: 30px;
+      overflow: inherit;
+    }
+    @include grid-gap(16px);
+
+    grid-auto-flow: column;
+    overflow-x: auto;
+    margin-top: 39px;
+    padding: 0 20px;
+  }
+  &__item {
+    @include tablet {
+      width: 340px;
+      height: 545px;
+    }
+    @include desktop {
+      width: 370px;
+      height: 600px;
+    }
+    width: 280px;
+    height: 410px;
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+      transform: scale(1.03);
+    }
+    &:first-child {
+      @include background-image("../images/gallery/1.png");
+    }
+    &:nth-child(2) {
+      @include desktop {
+        grid-column: 2/4;
+        width: 100%;
+        @include background-image("../images/gallery/6.png");
+      }
+      @include background-image("../images/gallery/2.png");
+    }
+    &:nth-child(3) {
+      @include desktop {
+        grid-column: 1/3;
+        width: 100%;
+        height: 360px;
+        @include background-image("../images/gallery/7.png");
+      }
+      @include background-image("../images/gallery/3.png");
+    }
+    &:nth-child(4) {
+      @include desktop {
+        height: 360px;
+        @include background-image("../images/gallery/5.png");
+      }
+      @include background-image("../images/gallery/4.png");
+    }
+  }
+}
+
+.dots {
+  @include tablet {
+    margin-top: 30px;
+    gap: 22px;
+  }
+  @include desktop {
+    display: none;
+  }
+  @include grid-gap(22px);
+  grid-auto-flow: column;
+  justify-content: center;
+  margin-top: 20px;
+  &__item {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: $color-lightgray;
+    &--active {
+      background-color: $color-link;
+    }
+  }
+}

@@ -1,7 +1,37 @@
-@import "utils";
 @import "fonts";
+@import "utils";
 @import "typography";
 
+@import "./blocks/menu";
+@import "./blocks/header";
+@import "./blocks/events";
+@import "./blocks/gallery";
+@import "./blocks/subscription";
+@import "./blocks/footer";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 body {
-  background: $c-gray;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#menu:target .menu {
+  transform: translateY(0);
+}
+
+#menu:target .menu-wrapper {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.page:has(#menu:target) {
+  overflow: hidden;
 }
