@@ -8,6 +8,7 @@
 
     
     @include onTabletAndDesktop {
+      margin-left: calc((100% - 700px) / 2);
       margin-bottom: 48px;
       font-size: 48px;
       line-height: 48px;
@@ -15,6 +16,7 @@
     }
 
     @include onDesktop {
+      margin-left: 0;
       margin-bottom: 56px;
     }
   }
@@ -24,6 +26,7 @@
     flex-direction: column;
     gap: 16px;
     margin-bottom: 104px;
+    align-items: center;
 
     @include onTablet {
       gap: 40px;
@@ -38,12 +41,15 @@
 
   &__event-image {
     width: 100%;
-    height: auto;
+    // height: auto;
     // margin-bottom: 16px;
 
-    // @include onTablet {
-    //   margin-bottom: 40px;
-    // }
+    @include onTablet {
+      // margin-bottom: 40px;
+      width: 700px;
+      height: 520px;
+      object-fit: cover;
+    }
 
     @include onDesktop {
       width: 670px;
@@ -51,6 +57,12 @@
     }
 
     @include hover(transform, scale(102%));
+  }
+
+  &__event-description {
+    @include onTablet {
+      width: 700px;
+    }
   }
 
   &__event-name-date {
@@ -137,24 +149,32 @@
     }
   }
 
+  &__lecture {
+    margin-bottom: 0;
+    padding: 0;
+  }
+
   &__lecture-image {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     
     @include onTablet {
-      width: 100%;
+      width: calc(100% - 68px);
       margin-left: 0;
+      padding: 0 34px;
     }
     
     @include onDesktop {
-      margin-left: -55px;
-      width: 1280px;
+      width: 100%;
+      margin-left: 0;
+      height: 550px;
+      object-fit: cover;
     }
-
-    @include hover(transform, scale(102%));
   }
 
   &__lecture-description {
+    width: calc(100% - 40px);
+    margin: 0 20px;
     padding: 20px 0;
     background-color: $bgc-gray;
     transform: translateY(-50%);
