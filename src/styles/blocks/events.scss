@@ -1,0 +1,106 @@
+.events {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 60px;
+
+  &__background {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 300px;
+    position: relative;
+    background-image: url(../images/third-gallery-picture-tablet.png);
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 390px;
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/third-gallery-picture-desktop.png);
+      height: 550px;
+    }
+  }
+
+  @include onTablet {
+    row-gap: 64px;
+    grid-template-columns: 700px;
+  }
+
+  @include onDesktop {
+    row-gap: 104px;
+    grid-template-columns: 670px 370px;
+    column-gap: 130px;
+
+  }
+
+  &__photo {
+    width: 100%;
+
+    &-another {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+
+  &__description {
+    @include onDesktop {
+      margin-top: 130px;
+    }
+    &-show {
+      margin: 0;
+      @include fontDefault;
+      color: $grey-color;
+    }
+
+    &-date {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 24px;
+      color: $menu-background-color;
+    }
+
+    &-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      @include fontMontserrat;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 28px;
+      font-size: 24px;
+      line-height: 33.6px;
+      color: $placeholder-color;
+      margin-top: 30px;
+    }
+
+    &-about {
+      @include fontDefault;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: $another-grey-color;
+      margin-top: 15px;
+    }
+
+    &-another {
+      position: absolute;
+      background-color: #fff;
+      border-bottom: 1px solid $menu-background-color;
+      padding: 15px 20px;
+      top: 300px - 119px / 2;
+      left: 460px / 2 - 435px / 2;
+
+      @include onTablet {
+        top: 390px - 119px / 2;
+        left: 700px / 2 - 435px / 2;
+      }
+      @include onDesktop {
+        top: 550px - 119px / 2;
+        left: 1170px / 2 - 435px / 2;
+      }
+    }
+  }
+}
