@@ -1,0 +1,95 @@
+.gallery {
+  font-size: 16px;
+  overflow: hidden;
+  max-width: 1280px;
+
+  @include onDesktop {
+    overflow: visible;
+  }
+
+  // &__container {
+  //   margin-left: 20px;
+  // }
+
+  &__title {
+    margin-bottom: 40px;
+    font-family: $montserrat;
+    font-size: 36px;
+    line-height: 36px;
+    text-align: center;
+
+    
+    @include onTabletAndDesktop {
+      margin-bottom: 48px;
+      margin-left: 34px;
+      font-size: 48px;
+      line-height: 48px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-left: calc(55px + (100% - 1280px) / 2);
+      margin-bottom: 56px;
+    }
+  }
+
+  &__images {
+    display: flex;
+    gap: 16px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    flex-basis: 100vw;
+
+    @include onTablet {
+      gap: 20px;
+      margin-left: 34px;
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-left: calc(55px + (100% - 1280px) / 2);
+    }
+  }
+
+  &__image {
+    width: calc(100vw - 44px);
+    height: calc((100vw - 44px) * 1.6);
+    object-fit: cover;
+
+    @include onTablet {
+      width: calc(100vw / 2 - 46px);
+      height: calc((100vw / 2 - 46px) * 1.6);
+    }
+
+    @include onDesktop {
+      width: auto;
+      height: auto;
+      object-fit: none;
+    }
+
+    @include hover(transform, scale(102%));
+  }
+
+  &__dots {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    width: 9px;
+    height: 9px;
+    background-color: #bbb;
+    border-radius: 50%;
+
+    &--selected {
+      background-color: #000;
+    }
+  }
+}

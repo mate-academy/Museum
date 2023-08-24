@@ -1,0 +1,189 @@
+.actualy {
+  &__title {
+    margin-bottom: 40px;
+    font-family: $montserrat;
+    font-size: 36px;
+    line-height: 36px;
+    text-align: center;
+
+    
+    @include onTabletAndDesktop {
+      margin-left: calc((100% - 700px) / 2);
+      margin-bottom: 48px;
+      font-size: 48px;
+      line-height: 48px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-left: 0;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__event {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 104px;
+    align-items: center;
+
+    @include onTablet {
+      gap: 40px;
+    }
+
+    @include onDesktop {
+      flex-direction: row;
+      gap: 130px;
+      align-items: center;
+    }
+  }
+
+  &__event-image {
+    width: 100%;
+    // height: auto;
+    // margin-bottom: 16px;
+
+    @include onTablet {
+      // margin-bottom: 40px;
+      width: 700px;
+      height: 520px;
+      object-fit: cover;
+    }
+
+    @include onDesktop {
+      width: 670px;
+      // margin: 0;
+    }
+
+    @include hover(transform, scale(102%));
+  }
+
+  &__event-description {
+    @include onTablet {
+      width: 700px;
+    }
+  }
+
+  &__event-name-date {
+    display: flex;
+    // gap: 10px;
+    margin-bottom: 10px;
+
+    @include onTabletAndDesktop {
+      margin-bottom: 30px;
+    }
+
+    &--lecture {
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+  }
+  
+  &__event-name {
+    width: 129px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: $title-gray;
+    
+    &--lecture {
+      width: 90px;
+    }
+  }
+  
+  &__event-date {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    color: $green;
+  }
+
+  &__event-title {
+    margin-bottom: 12px;
+    font-family: $montserrat;
+    font-size: 28px;
+    line-height: 28px;
+
+    &::after {
+      display: inline-block;
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: $red;
+      transform: translate(10px, -2px);
+
+      @include onTabletAndDesktop {
+        width: 15px;
+        height: 16px;
+      }
+    }
+
+    @include onTabletAndDesktop {
+      margin-bottom: 16px;
+      font-size: 36px;
+      line-height: 36px;
+    }
+    
+    &--lecture {
+      text-align: center;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__event-text {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    color: $text-gray;
+
+    @include onTablet {
+      width: 460px;
+    }
+
+    @include onDesktop {
+      width: 370px;
+    }
+  }
+
+  &__lecture {
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  &__lecture-image {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    
+    @include onTablet {
+      width: calc(100% - 68px);
+      margin-left: 0;
+      padding: 0 34px;
+    }
+    
+    @include onDesktop {
+      width: 100%;
+      margin-left: 0;
+      height: 550px;
+      object-fit: cover;
+    }
+  }
+
+  &__lecture-description {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    padding: 20px 0;
+    background-color: $white;
+    transform: translateY(-50%);
+    border-bottom: 3px solid $title-gray;
+
+    @include onTabletAndDesktop {
+      margin: 0 auto;
+      padding: 45px 0;
+      width: 570px;
+    }
+  }
+}

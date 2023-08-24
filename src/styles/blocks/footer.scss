@@ -1,0 +1,169 @@
+.footer {
+  color: $black;
+  font-family: $ibm;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+
+  &__content {
+    padding: 50px 20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "links links"
+      "schedule contacts"
+      ". arrow-up"
+      "line line"
+      "menu-list menu-list"
+      "bottom bottom";
+
+    @include onTablet {
+      padding: 50px 34px 35px;
+      grid-template-columns: 1fr 2fr 2fr 1fr;
+      grid-template-areas: "links schedule contacts ."
+        ". line line ."
+        ". menu-list menu-list ."
+        "bottom bottom bottom bottom";
+    }
+
+    @include onDesktop {
+      padding: 50px 55px 35px;
+      grid-template-columns: 2fr 2fr 2fr 60px 6fr;
+      grid-gap: 30px;
+      grid-template-areas: "links schedule contacts line menu-list"
+        "bottom bottom bottom bottom bottom";
+    }
+  }
+
+  &__links {
+    grid-area: links;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    @include onTabletAndDesktop {
+      flex-direction: column;
+      justify-content: start;
+      justify-self: left;
+      gap: 62px;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__social-icon {
+    @include hover(transform, scale(120%));
+  }
+
+  &__schedule {
+    grid-area: schedule;
+  }
+
+  &__schedule-title {
+    margin-bottom: 20px;
+  }
+
+  &__schedule-list {
+    margin-bottom: 20px;
+  }
+
+  &__schedule-item {
+    font-weight: 600;
+  }
+  
+  &__contacts {
+    grid-area: contacts;
+  }
+
+  &__contacts-title {
+    margin-bottom: 20px;
+  }
+
+  &__contacts-link {
+    display: block;
+    color: $black;
+
+    @include hover(color, $red);
+  }
+
+  &__arrow-up {
+    grid-area: arrow-up;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid $green;
+    justify-self: end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include onTabletAndDesktop {
+      display: none;
+    }
+  }
+
+  &__arrow-up-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__line {
+    grid-area: line;
+    height: 1px;
+    margin-bottom: 20px;
+    background-color: $green;
+
+    @include onDesktop {
+      width: 1px;
+      height: auto;
+      justify-self: center;
+      margin: 0;
+    }
+  }
+
+  &__menu-list {
+    grid-area: menu-list;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    margin-bottom: 60px;
+
+    @include onDesktop {
+      grid-template-rows: min-content;
+    }
+  }
+
+  &__menu-item {
+    display: inline-block;
+    color: $black;
+
+    @include hover(transform, scale(120%));
+  }
+
+  &__bottom {
+    grid-area: bottom;
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    @include onTabletAndDesktop {
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      padding-top: 60px;
+    }
+  }
+
+  &__bottom-text {
+    text-align: center;
+  }
+}

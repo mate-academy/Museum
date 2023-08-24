@@ -1,0 +1,100 @@
+.button {
+  // max-width: 300px;
+  padding: 0 20px;
+  display: flex;
+  text-decoration: none;
+  color: $black;
+
+  @include onTabletAndDesktop {
+    max-width: 270px;
+    padding: 0;
+  }
+
+  &--subscribe {
+    max-width: max-content;
+    margin: 0;
+    padding: 0;
+
+    @include onTabletAndDesktop {
+      gap: 16px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+    }
+  }
+
+  &__left {
+    width: 100%;
+    text-align: center;
+    line-height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid $green;
+
+    @include onTabletAndDesktop {
+      width: 200px;
+      line-height: 68px;
+    }
+
+    &--subscribe {
+      box-sizing: border-box;
+      border: none;
+      width: calc(100% - 50px);
+      outline: none;
+      // width: 230px;
+
+      color: #687480;
+      font-family: $montserrat;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 100%;
+      text-align: left;
+      padding: 0 24px;
+      
+      @include onTabletAndDesktop {
+        margin: 0;
+        width: 370px;
+      }
+
+      @include onDesktop {
+        width: 470px;
+      }
+    }
+  }
+
+  &__right {
+    width: 50px;
+    height: 50px;
+    background-color: $green;
+    background-image: url(../images/arrow-white.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: width 0.3s;
+
+    @include onTabletAndDesktop {
+      width: 70px;
+      height: 70px;
+    }
+  
+    &--subscribe {
+      background-image: url(../images/arrow-black.svg);
+      background-color: $red;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(110%);
+      }
+    }
+  }
+
+  &:hover &__right--header {
+    width: 70px;
+
+    @include onTabletAndDesktop {
+      width: 90px;
+    }
+  }
+}
