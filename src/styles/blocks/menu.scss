@@ -1,0 +1,67 @@
+.menu {
+  height: 70vh;
+  overflow: auto;
+  padding-block: 27px;
+  font-size: 14px;
+  font-family: $main-font-family;
+  color: $white-color;
+  background-color: $green-color;
+
+  @include onTablet {
+    padding-block: 40px;
+    height: 50vh;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: center;
+      gap: 24px;
+      align-items: start;
+    }
+  }
+
+  &__top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 27px;
+
+    @include onTablet {
+      padding-top: 40px;
+    }
+  }
+
+  &__items {
+    padding-left: 72px;
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    row-gap: 24px;
+    column-gap: 28px;
+    font-size: 16px;
+
+    @include onTablet {
+      column-gap: 20px;
+    }
+  }
+
+  &__item {
+    @include hover(font-weight, 600);
+  }
+
+  &__schedule {
+    padding-top: 24px;
+    border-top: 1px solid $white-color;
+
+    @include onTablet {
+      padding-top: 0;
+      padding-left: 38px;
+      border-top: none;
+      border-left: 1px solid $white-color;
+    }
+  }
+}

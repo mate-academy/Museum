@@ -1,0 +1,47 @@
+.header {
+  position: relative;
+  padding-bottom: 35px;
+
+  @include onTablet {
+    padding-bottom: 0;
+
+    @include pageGrid;
+    align-items: stretch;
+  }
+
+  @include onDesktop {
+    height: 100vh;
+  }
+
+  &__events-link {
+    display: none;
+
+    @include onDesktop {
+      position: absolute;
+      bottom: 55px;
+      left: 0;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      color: $gray-color;
+      transform: rotate(-90deg);
+      transition: all 0.3s ease 0s;
+
+      &::before {
+        display: block;
+        content: "";
+        height: 1px;
+        width: 70px;
+        background-color: $gray-color;
+      }
+
+      &:hover {
+        font-size: 16px;
+        color: $green-color;
+      }
+    }
+  }
+}
