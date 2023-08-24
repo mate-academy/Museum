@@ -1,0 +1,59 @@
+.header {
+  &__img {
+    background-image: url(../images/backgrounds/header.png);
+    background-size: cover;
+    background-position: center;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-top: 100%;
+
+      @include onTable() {
+        padding-top: 0;
+      }
+    }
+
+    @include onTable() {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  &__top-bar {
+    display: flex;
+    align-items: center;
+
+    padding-top: 10px;
+
+    @include contentPaddingInline();
+
+    @include onTable() {
+      padding-top: 15px;
+    }
+  }
+
+  &__button-menu {
+    position: absolute;
+
+    width: 24px;
+    height: 24px;
+
+    background-image: url(../images/icons/icon-menu.png);
+
+    @include onTable() {
+      right: 0;
+    }
+  }
+
+  &__logo {
+    margin: 0 auto;
+
+    @include onTable() {
+      margin-left: 80px;
+    }
+  }
+}

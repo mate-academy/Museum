@@ -1,0 +1,62 @@
+.art-museum {
+  @include pageGrid();
+
+  &__content {
+    @include contentPaddingInline();
+
+    padding-block: 20px 70px;
+
+    @include onTable() {
+      grid-column: span 3;
+
+      padding-block: 0;
+
+      &::before {
+        content: "";
+        display: block;
+        padding-top: 45%;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        padding-top: 15%;
+      }
+    }
+
+    @include onDesktop() {
+      grid-column: span 5;
+      &::after {
+        content: "";
+        display: block;
+        padding-top: 50%;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        padding-top: 50%;
+      }
+    }
+  }
+
+  &__title {
+    @include Maintitle();
+    font-size: 45px;
+    text-transform: uppercase;
+
+    margin: 0 auto;
+    width: 280px;
+
+    padding-bottom: 20px;
+
+    @include onTable() {
+      font-size: 54px;
+      text-align: start;
+
+      margin: 0;
+      width: 100%;
+      padding-bottom: 40px;
+    }
+  }
+}
