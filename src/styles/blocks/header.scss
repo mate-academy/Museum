@@ -1,0 +1,170 @@
+.header {
+  @include onTablet {
+    min-height: 384px;
+  }
+
+  @include onDesktop {
+    min-height: 655px;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+
+    background-image: url(../images/header-bg-mobile.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    width: 100%;
+    height: 655px;
+    max-height: 300px;
+
+    @include onTablet {
+      position: absolute;
+      background-image: url(../images/header-bg.png);
+      width: 48%;
+      max-height: 384px;
+    }
+
+    @include onDesktop {
+      width: 56%;
+      max-height: 655px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 230px;
+
+    @include onTablet {
+      gap: 40px;
+    }
+
+    @include onDesktop {
+      gap: 120px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 100%;
+    margin-top: 20px;
+
+    @include onTablet {
+      margin-top: 0;
+      max-width: 470px;
+    }
+
+    @include onDesktop {
+      padding-right: 30px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-family: "Montserrat", "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+      margin-bottom: 38px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin-bottom: 88px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    width: 100%;
+    align-self: flex-start;
+    justify-content: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    cursor: pointer;
+
+    @include onTablet {
+      width: 270px;
+    }
+
+    @include onDesktop {
+      align-self: flex-end;
+    }
+
+    &--left {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 500;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: 1px solid #1a5a4c;
+      border-right: none;
+      height: 50px;
+      width: 230px;
+
+      color: #0f0e08;
+      text-transform: uppercase;
+
+      @include onTablet {
+        height: 70px;
+      }
+    }
+
+    &--right {
+      padding: 13px;
+      width: 50px;
+      height: 50px;
+      background: #1a5a4c url(../images/icons/icon-arrow-button.svg) center no-repeat;
+
+      @include onTablet {
+        padding: 23px;
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  &__aside {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      width: max-content;
+      position: relative;
+      left: -30px;
+      color: #687480;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding-left: 20px;
+      transform: rotate(-90deg);
+
+      &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: #1a5a4c;
+        position: absolute;
+        top: 50%;
+        right: 100%;
+      }
+    }
+  }
+}
