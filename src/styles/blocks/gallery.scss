@@ -1,0 +1,96 @@
+.gallery {
+  &__title {
+    margin-bottom: 40px;
+
+    @include onTablet {
+      text-align: left;
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__box {
+    @include onTablet {
+      @include pageGrid;
+      row-gap: 30px;
+      justify-items: stretch;
+    }
+  }
+
+  &__image-link {
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+    &--1 {
+      padding-bottom: 146%;
+
+      @include onTablet {
+        display: block;
+        grid-column: span 3;
+        padding-bottom: 160%;
+      }
+
+      @include onDesktop {
+        grid-column: span 4;
+      }
+    }
+    &--2 {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        grid-column: 4 / 7;
+        padding-bottom: 160%;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--3 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 5 / -1;
+        padding-bottom: 78%;
+      }
+    }
+
+    &--4 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: span 8;
+        padding-bottom: 47%;
+      }
+    }
+
+    &--5 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 9 / -1;
+        padding-bottom: 97%;
+      }
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+    @include hover(transform, scale(1.1));
+  }
+}
