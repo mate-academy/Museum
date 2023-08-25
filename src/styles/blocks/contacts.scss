@@ -74,6 +74,10 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
+
+    &--hover {
+      @include hover(transform, scale(1.2));
+    }
   }
 
   &__round {
@@ -88,6 +92,14 @@
     align-items: center;
 
     transform: translateX(800%);
+
+    &:hover {
+      background-color: $menu-background-color;
+    }
+
+    &:hover &-link {
+      color: $main-text-color;
+    }
 
     @include onTablet {
       display: none;
@@ -112,6 +124,12 @@
 
     @include onDesktop {
       grid-column: 5 / 7;
+    }
+
+    &-links {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
   }
 
