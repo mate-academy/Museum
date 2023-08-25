@@ -16,3 +16,9 @@ close.addEventListener('click', (event) => {
 menuItem.addEventListener('click', (event) => {
   page.classList.remove('not-active');
 });
+
+const submitButton = document.querySelector('.button--red');
+
+submitButton.addEventListener('click', (event) => {
+  document.location.reload();
+});
