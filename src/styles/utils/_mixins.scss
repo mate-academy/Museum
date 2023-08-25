@@ -13,6 +13,31 @@
   }
 }
 
+@mixin stretchElement($_padding_top, $_padding_bottom) {
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+  }
+
+  &::before {
+    padding-top: $_padding_top;
+  }
+
+  &::after {
+    padding-top: $_padding_bottom;
+  }
+}
+
+@mixin stretchElementRemove() {
+  &::before,
+  &::after {
+    content: "";
+    display: none;
+    padding-top: 0;
+  }
+}
+
 @mixin onTable() {
   @media (min-width:$table-min-width) {
     @content;

@@ -4,15 +4,7 @@
     background-size: cover;
     background-position: center;
 
-    &::after {
-      content: "";
-      display: block;
-      padding-top: 100%;
-
-      @include onTable() {
-        padding-top: 0;
-      }
-    }
+    @include stretchElement(0, 100%);
 
     @include onTable() {
       position: absolute;
@@ -20,6 +12,12 @@
       left: 50%;
       right: 0;
       bottom: 0;
+
+      @include stretchElementRemove();
+    }
+
+    @include onDesktop() {
+      max-width: 724px;
     }
   }
 
