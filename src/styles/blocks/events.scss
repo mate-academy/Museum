@@ -4,20 +4,24 @@
   row-gap: 60px;
 
   &__background {
-    grid-column: 1 / -1;
     width: 100%;
     height: 300px;
-    position: relative;
-    background-image: url(../images/third-gallery-picture-desktop.png);
-    background-repeat: no-repeat;
+    background-image: url(../images/third-gallery-picture-mobile.png);
+    background-size: cover;
     @include hover(transform, scale(1.03));
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
 
     @include onTablet {
       height: 390px;
       margin-bottom: 30px;
+      background-image: url(../images/third-gallery-picture-tablet.png);
     }
 
     @include onDesktop {
+      grid-column: 1 / -1;
       background-image: url(../images/third-gallery-picture-desktop.png);
       height: 550px;
     }
@@ -88,21 +92,10 @@
     }
 
     &-another {
-      position: absolute;
       background-color: #fff;
       border-bottom: 1px solid $menu-background-color;
       padding: 15px 20px;
-      top: 300px - 119px / 2;
-      left: 460px / 2 - 435px / 2;
-
-      @include onTablet {
-        top: 390px - 119px / 2;
-        left: 700px / 2 - 435px / 2;
-      }
-      @include onDesktop {
-        top: 550px - 119px / 2;
-        left: 1170px / 2 - 435px / 2;
-      }
+      transform: translateY(50%);
     }
   }
 }
