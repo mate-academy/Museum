@@ -1,0 +1,63 @@
+.article {
+  @include pageGrid();
+  @include contentPaddingInline();
+
+  &__img {
+    width: 100%;
+    display: block;
+
+    @include onTable() {
+      grid-column: span 6;
+    }
+
+    @include onDesktop() {
+      grid-column: span 7;
+    }
+  }
+
+  &__information {
+    @include onTable() {
+      grid-column: span 4;
+    }
+
+    @include onDesktop() {
+      align-self: center;
+
+      grid-column: 9 / span 5;
+    }
+  }
+
+  &__event-description {
+    margin-block: 20px 15px;
+
+    @include onTable() {
+      width: 220px;
+    }
+  }
+
+  &__title-wrapper {
+    display: flex;
+    align-items: center;
+
+    column-gap: 10px;
+  }
+
+  &__decoration-title {
+    background-color: $article-decoration-title-color;
+
+    width: 10px;
+    height: 10px;
+  }
+
+  &__text {
+    color: $article-text-color;
+    font-weight: 300;
+    line-height: 150%;
+
+    margin-top: 10px;
+
+    @include onTable() {
+      margin-top: 15px;
+    }
+  }
+}
