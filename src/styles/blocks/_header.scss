@@ -1,0 +1,88 @@
+.header {
+  background-image: url(./../images/header.png);
+  background-size: 100% 300px;
+  background-repeat: no-repeat;
+  height: 484px;
+  width: 100%;
+  padding: 9px 0 0;
+
+  @include onTablet {
+    max-width: 768px;
+    background-size: 374px 384px;
+    background-position: top right;
+    height: 384px;
+  }
+
+  @include onDesktop {
+    height: 655px;
+    max-width: 1280px;
+    background-size: 725px 655px;
+  }
+
+  &__top {
+    width: 100%;
+    margin-bottom: 250px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__title {
+    font-size: 45px;
+    font-family: "Montserat", sans-serif;
+    font-weight: 700;
+    color: $text;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      width: 340px;
+      font-size: 54px;
+      line-height: 65px;
+      text-align: left;
+      margin-bottom: 38px;
+    }
+
+    @include onDesktop {
+      width: 470px;
+      font-size: 72px;
+      line-height: 87px;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__button {
+    @include onDesktop {
+      width: 470px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__action {
+    display: none;
+    font-family: "IBM", sans-serif;
+    text-transform: uppercase;
+    color: $subtext;
+    font-weight: 700;
+    font-size: 14px;
+    transform: rotate(-90deg) translateY(14px) translateX(-150px);
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 1px;
+      width: 70px;
+      background-color: $background;
+      top: 9px;
+      transform: translate(-130%);
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}
