@@ -1,5 +1,6 @@
 'use strict';
 
+/* eslint-disable */
 const swiper = new Swiper('.swiper', {
   loop: true,
   autoplay: true,
