@@ -1,0 +1,58 @@
+.subscription-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+
+  @include onTablet {
+    height: 70px;
+    gap: 16px;
+  }
+
+  @include onDesktop {
+    gap: 30px;
+  }
+
+  &__input {
+    flex-grow: 1;
+    height: 100%;
+    padding: 18px 24px;
+    border-radius: 0;
+    border: 1px solid transparent;
+    font-size: 14px;
+    line-height: 1em;
+    color: $color-gray-primary;
+
+    @include onTablet {
+      padding-block: 28px;
+    }
+
+    @include onDesktop {
+      padding-inline: 32px;
+      @include hover(border-color, $color-orange-primary);
+    }
+
+    &:focus {
+      border: 2px solid $color-orange-primary;
+      color: $color-gray-secondary;
+    }
+
+    &:focus::placeholder {
+      color: $color-gray-secondary;
+    }
+  }
+
+  &__button {
+    height: 100%;
+    border: 1px solid transparent;
+    background-color: $color-orange-primary;
+
+    @include onDesktop {
+      @include hover(border-color, $color-light-primary);
+
+      &:active {
+        border-width: 2px;
+      }
+    }
+  }
+}

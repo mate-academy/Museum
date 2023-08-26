@@ -1,0 +1,149 @@
+.header {
+
+  &__content {
+    @include pageGrid;
+    position: relative;
+  }
+
+  &__top {
+    @include pageGrid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-width: $mobile-min-width - 2 * $mobile-padding-inline;
+    padding-block: 27px;
+    z-index: 1;
+
+    @include onTablet {
+      padding-block: 40px;
+    }
+  }
+
+  &__logo {
+    grid-column: 1 / -1;
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+    display: block;
+    width: $mobile-logo-width;
+    height: $mobile-logo-height;
+    margin-inline: auto;
+    margin-top: 9px;
+
+
+    @include onTablet {
+      grid-column: 4 / 6;
+      width: $tablet-logo-width;
+      height: $tablet-logo-height;
+      margin-top: 15px;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__logo-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image-container {
+    grid-column: 1 / -1;
+    margin-inline: -$mobile-padding-inline;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+      order: 1;
+      min-height: 100vh;
+      margin-inline: 0;
+      margin-right: -$tablet-padding-inline;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 13;
+      margin-right: -$desktop-padding-inline;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      padding-inline: 0;
+      margin-top: 128px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+      margin-top: 208px;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+    word-wrap: break-word;
+  }
+
+  &__button {
+    margin-top: 20px;
+
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin-top: 38px;
+    }
+
+    @include onDesktop {
+      margin-top: 89px;
+      margin-left: auto;
+    }
+  }
+
+  &__arrow {
+    display: none;
+
+    @include onDesktop {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      color: $color-gray-primary;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1em;
+
+      rotate: -90deg;
+      translate: 0 14px;
+      transform-origin: top left;
+
+      &::before {
+        content: "";
+        height: 1px;
+        width: 70px;
+        background-color: $color-green-primary;
+      }
+
+     @include hover(color, $color-green-primary)
+    }
+  }
+}
