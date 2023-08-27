@@ -59,17 +59,19 @@
 
     @include onTablet {
       margin-top: 0;
-      max-width: 470px;
+      max-width: 340px;
     }
 
     @include onDesktop {
+      max-width: 470px;
       padding-right: 30px;
     }
   }
 
   &__title {
+    color: $black;
     text-align: center;
-    font-family: "Montserrat", "Arial", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 45px;
     line-height: 100%;
@@ -93,10 +95,10 @@
     width: 100%;
     align-self: flex-start;
     justify-content: center;
-    flex-grow: 0;
-    flex-shrink: 0;
 
     cursor: pointer;
+
+    @include hover(box-shadow, 5px 5px 5px 0 rgba(26,90,76,0.3));
 
     @include onTablet {
       width: 270px;
@@ -107,6 +109,7 @@
     }
 
     &--left {
+      flex-grow: 1;
       font-family: "IBM Plex Sans", sans-serif;
       font-weight: 500;
 
@@ -114,12 +117,10 @@
       justify-content: center;
       align-items: center;
 
-      border: 1px solid #1a5a4c;
+      border: 1px solid $green;
       border-right: none;
       height: 50px;
-      width: 230px;
 
-      color: #0f0e08;
       text-transform: uppercase;
 
       @include onTablet {
@@ -131,7 +132,7 @@
       padding: 13px;
       width: 50px;
       height: 50px;
-      background: #1a5a4c url(../images/icons/icon-arrow-button.svg) center no-repeat;
+      background: $green url(../images/icons/icon-arrow-button.svg) center no-repeat;
 
       @include onTablet {
         padding: 23px;
@@ -146,25 +147,26 @@
 
     @include onDesktop {
       display: block;
-      width: max-content;
-      position: relative;
-      left: -30px;
-      color: #687480;
       font-family: "IBM Plex Sans", sans-serif;
       font-size: 14px;
       font-weight: 700;
+      color: $grey;
+      position: relative;
+      left: -30px;
       padding-left: 20px;
+      width: max-content;
+
       transform: rotate(-90deg);
 
       &:before {
         content: "";
         display: block;
+        position: absolute;
         width: 100%;
         height: 1px;
-        background: #1a5a4c;
-        position: absolute;
         top: 50%;
         right: 100%;
+        background: $green;
       }
     }
   }

@@ -27,11 +27,10 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    color: white;
+    color: $white;
   }
 
   &__title {
-    color: white;
     margin-bottom: 20px;
     text-align: center;
 
@@ -89,7 +88,9 @@
 
       height: 50px;
 
-      color: #687480;
+      color: $grey;
+
+      @include hover(transform, scale(1.05));
 
       @include onTablet {
         width: 100%;
@@ -99,15 +100,26 @@
     }
 
     &--right {
-      padding: 13px;
+      display: grid;
+      background-color: $orange;
+      justify-content: center;
       width: 50px;
       height: 50px;
-      background: #f14a27 url(../images/icons/icon-arrow-black-button.svg) center no-repeat;
-
-      border-radius: 0;
+      position: relative;
       border: none;
-      display: inline-block;
-      user-select: none;
+      cursor: pointer;
+
+      @include hover(transform, scale(1.2));
+
+      &:before {
+        position: absolute;
+        content: "";
+        display: grid;
+        height: 24px;
+        width: 24px;
+        place-self: center;
+        background: url(../images/icons/icon-arrow-black-button.svg) center/100% no-repeat;
+      }
 
       @include onTablet {
         padding: 23px;
