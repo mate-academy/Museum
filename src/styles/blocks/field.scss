@@ -1,0 +1,59 @@
+.field {
+  @include pageGrid;
+
+  &__content {
+    grid-column: 1 / -1;
+    display: flex;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+      gap: 16px;
+    }
+
+    @include onDesktop {
+      grid-column: 4 / -4;
+      gap: 30px;
+    }
+  }
+
+  &__label {
+    flex-grow: 1;
+  }
+
+  &__input {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 100%;
+    padding-left: 24px;
+    border: none;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+
+    color: $events-type-color;
+
+    &:focus {
+      outline-width: 0;
+      -webkit-text-fill-color: $main-color;
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $main-color;
+      box-shadow: inset 0 0 0 35px #fff;
+    }
+  }
+
+  &__send {
+    @include squareSize(50px);
+
+    border: none;
+    background-color: #f14a27;
+
+    @include onTablet {
+      @include squareSize(70px);
+    }
+  }
+}
