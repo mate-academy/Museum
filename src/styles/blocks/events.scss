@@ -21,7 +21,10 @@
     }
 
     @include onDesktop {
-      grid-column: 1 / -1;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 1620px;
       background-image: url(../images/third-gallery-picture-desktop.png);
       height: 550px;
     }
@@ -58,6 +61,7 @@
       margin: 0;
       @include fontDefault;
       color: $grey-color;
+      text-transform: uppercase;
     }
 
     &-date {
@@ -96,6 +100,32 @@
       border-bottom: 1px solid $menu-background-color;
       padding: 15px 20px;
       transform: translateY(50%);
+    }
+  }
+
+  &-logo {
+    display: none;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: $grey-color;
+    text-decoration: none;
+    transform: rotate(-90deg);
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 70px;
+      background-color: $menu-background-color;
+      top: 50%;
+      right: 140%;
+    }
+
+    @include onDesktop {
+       display: inline-block;
     }
   }
 }
