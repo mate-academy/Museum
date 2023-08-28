@@ -1,12 +1,19 @@
 .header {
   position: relative;
   box-sizing: border-box;
-  height: 100vh;
+  height: fit-content;
   grid-column: 1 / -1;
 
   background-image: url("/images/header-img.png");
   background-repeat: no-repeat;
   background-size: contain;
+  margin-bottom: 70px;
+
+  @include onTablet {
+    height: fit-content;
+    background-size: contain;
+    background-position: right bottom;
+  }
 
   &__logo {
     display: block;
@@ -15,6 +22,11 @@
     top: 10px;
     width: 55px;
     height: 61px;
+
+    @include onTablet {
+      top: 15px;
+      left: 55%;
+    }
   }
 
   &__bottom {
@@ -22,8 +34,12 @@
     @include pageGrid;
     @include constentPaddinInline;
     row-gap: 20px;
-    grid-column: 1 / -1;
-    margin-top: 55vh;
+    margin-top: 100%;
+
+    @include onTablet {
+      row-gap: 38px;
+      margin: 20% 0 19px;
+    }
 
     &--title {
       height: fit-content;
@@ -34,38 +50,50 @@
       text-align: center;
       max-width: 100%;
       grid-column: 1 / -1;
+
+      @include onTablet {
+        grid-column: span 3;
+
+        line-height: 120%;
+        text-align: left;
+      }
     }
 
     &--tickets-link {
       box-sizing: border-box;
       position: relative;
       height: 50px;
-      grid-column: 1/-1;
-
+      width: 70vw;
       text-decoration: none;
-      color: #0f0e08;
+      color: $main-title-color;
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 16px;
       font-weight: 500;
       line-height: 100%;
-      padding: 18px 32%;
+      padding-block: 18px;
+      text-align: center;
 
 
-      border: 1px solid #1a5a4c;
+      border: 1px solid $background-color;
 
       &::after {
         position: absolute;
         content: '';
-        background-color: #1a5a4c;
+        background-color: $background-color;
         width: 50px;
         height: 49px;
         top: 0;
-        right: 0;
+        right: -50px;
 
         background-image: url("/images/icons/arrow.svg");
         background-repeat: no-repeat;
         background-size: 24px;
         background-position: center;
+      }
+
+      @include onTablet {
+        width: auto;
+        grid-column: 1/3;
       }
     }
   }
