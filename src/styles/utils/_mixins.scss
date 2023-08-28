@@ -5,6 +5,37 @@
   }
 }
 
+@mixin hoverUnderline($_colorHover) {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    z-index: 12;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+
+    content: "";
+
+    height: 1px;
+
+    border-radius: 4px;
+    background-color: $_colorHover;
+
+    transition: transform 0.3s;
+    transform: scale(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
+
+@mixin boxShadow() {
+  box-shadow: 0 2px 0 #1a5a4c40;
+}
+
 @mixin contentPaddingInline() {
   padding-inline: 20px;
 
