@@ -1,0 +1,215 @@
+.header {
+  --header-img-height: 300px;
+
+  @include onTablet {
+    --header-img-height: 384px;
+  }
+  @include onDesktop {
+    --header-img-height: 655px;
+  }
+
+  @include grid-template;
+
+  &__container {
+    position: relative;
+    grid-column: 1 / -1;
+    @include grid-template;
+  }
+
+  &__image {
+    @include absolute-top-full-width;
+
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: center;
+
+    background-image: url("../images/namu-img.png");
+    background-size: cover;
+    background-position: top;
+
+    height: var(--header-img-height);
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      justify-content: start;
+      background-position: center;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__logo {
+    color: $blackAccent;
+
+    @include uppercase-link;
+    @include flex-align-center;
+
+    flex-direction: column;
+
+    font-size: 30px;
+
+    padding-top: 9px;
+
+    @include onTablet {
+      width: 220px;
+      height: 72px;
+      font-size: 36px;
+      padding-top: 15px;
+    }
+
+    @include onDesktop {
+      width: 170px;
+    }
+
+    @include scale(1.1);
+    transform-origin: top;
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    position: relative;
+
+    box-sizing: border-box;
+
+    padding-top: 20px;
+    padding-inline: 20px;
+
+    margin-top: var(--header-img-height);
+
+    @include onTablet {
+      grid-column: span 3;
+
+      height: var(--header-img-height);
+
+      margin: 0;
+
+      padding-top: 39px;
+      padding-left: 34px;
+      padding-right: 0;
+    }
+
+    @include onDesktop {
+      grid-column: span 5;
+
+      padding-left: 55px;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+
+    color: black;
+    text-align: center;
+    font-size: 45px;
+
+    margin: 0;
+
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      text-align: start;
+      font-size: 54px;
+      line-height: 120%;
+
+      margin-top: 64px;
+    }
+
+    @include onSpecial {
+      font-size: 45px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+
+      margin-top: 143px;
+    }
+  }
+
+  &__menu-icon {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    margin-top: 20px;
+    @include hover(box-shadow, 5px 5px 10px 4px rgba(26, 90, 76, 0.5));
+
+    @include onTablet {
+      margin-top: 38px;
+      width: 270px;
+      @include scale(1.1);
+    }
+
+    @include onDesktop {
+      margin-top: 89px;
+      margin-left: auto;
+    }
+  }
+
+  &__link-tickets {
+    box-sizing: border-box;
+
+    @include uppercase-link;
+    @include flex-align-center;
+    justify-content: center;
+
+    color: $blackAccent;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    width: 100%;
+    // padding-inline: 68px;
+
+    border: 1px solid $greenAccent;
+  }
+
+  &__link-events {
+    @include uppercase-link;
+
+    display: none;
+
+    align-items: center;
+
+    gap: 20px;
+
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+
+    grid-column: 1 / -1;
+
+    color: $grayAccent;
+
+    font-size: 14px;
+    font-weight: 700;
+    transform: rotate(-90deg);
+
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.2) rotate(-90deg);
+    }
+
+    &::before {
+      position: relative;
+      content: "";
+      width: 70px;
+      height: 1px;
+      background-color: $greenAccent;
+
+    }
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+}

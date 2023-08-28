@@ -1,0 +1,177 @@
+.gallery {
+  --distance-btw-imgs: 16px;
+  --images-height: 410px;
+
+  @include onTablet {
+    --distance-btw-imgs: 20px;
+    --images-height: 543px;
+  }
+
+  @include grid-template;
+
+  &__title {
+    grid-column: 1 / -1;
+  }
+
+  &__images {
+
+    grid-column: 1 / -1;
+    width: 100%;
+    height: var(--images-height);
+    overflow: hidden;
+
+    @include onDesktop {
+      height: fit-content;
+      overflow: visible;
+    }
+  }
+
+  &__slides {
+    width: calc(400% + var(--distance-btw-imgs) * 4);
+    height: 100%;
+
+    display: flex;
+
+    @include onTablet {
+      width: calc(200% + var(--distance-btw-imgs) * 2);
+    }
+
+    @include onDesktop {
+      @include grid-template;
+      row-gap: 30px;
+      width: 100%;
+    }
+  }
+
+  &__slide {
+    width: calc(25% - var(--distance-btw-imgs));
+    height: 100%;
+
+    margin-right: var(--distance-btw-imgs);
+
+    transition: 0.3s;
+
+    @include onTablet {
+      width: calc(25% - var(--distance-btw-imgs));
+    }
+
+    @include onDesktop {
+      width: 100%;
+
+      @include hover(transform, scale(1.05));
+
+      &--first {
+        grid-column: span 4;
+        height: 600px;
+        transform-origin: right bottom;
+      }
+
+      &--second {
+        grid-column: span 8;
+        height: 600px;
+        transform-origin: left bottom;
+      }
+
+      &--third {
+        grid-column: span 8;
+        height: 360px;
+        transform-origin: right top;
+      }
+
+      &--fourth {
+        grid-column: span 4;
+        height: 360px;
+        transform-origin: left top;
+      }
+    }
+  }
+
+  &__picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    transform: scaleX(-1);
+  }
+
+  &__navigation-manual {
+    z-index: 1;
+    position: absolute;
+    width: calc(100% - 40px);
+    display: flex;
+    justify-content: center;
+    gap: 31px;
+    margin-top: calc(var(--images-height) + 32px);
+
+    @include onTablet {
+      width: calc(100% - 68px);
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__manual-btn {
+    display: inline-block;
+    background-color: $radioBtnColor;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    cursor: pointer;
+
+  }
+
+  &__radio-button {
+    display: none;
+
+    &--first {
+      &:checked {
+        & ~ .gallery__slide--firts {
+          margin-left: 0;
+        }
+
+        & ~ .gallery__navigation-manual .gallery__manual-btn--1 {
+          background-color: $greenAccent;
+        }
+      }
+    }
+
+    &--second {
+      &:checked {
+        & ~ .gallery__slide--first {
+          margin-left: -25%;
+        }
+
+        & ~ .gallery__navigation-manual .gallery__manual-btn--2 {
+          background-color: $greenAccent;
+        }
+      }
+    }
+
+    &--third {
+      &:checked {
+        & ~ .gallery__slide--first {
+          margin-left: -50%;
+        }
+
+        & ~ .gallery__navigation-manual .gallery__manual-btn--3 {
+          background-color: $greenAccent;
+        }
+      }
+    }
+
+    &--fourth {
+      &:checked {
+        & ~ .gallery__slide--first {
+          margin-left: -75%;
+        }
+
+        & ~ .gallery__navigation-manual .gallery__manual-btn--4 {
+          background-color: $greenAccent;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,206 @@
+.footer {
+  @include grid-template;
+
+  &__top {
+    grid-column: 1 / -1;
+
+    @include flex-align-center;
+    justify-content: space-between;
+
+    @include onTablet {
+      grid-column: 1 / 2;
+
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      gap: 62px;
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    gap: 20px;
+
+    @include onTablet {
+      gap: 32px;
+    }
+
+    @include onDesktop {
+      gap: 22px;
+    }
+  }
+
+  &__logo {
+    color: $blackAccent;
+
+    @include uppercase-link;
+    display: flex;
+    flex-direction: column;
+    font-size: 36px;
+
+    @include scale(1.1);
+    transform-origin: top;
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    margin-top: 40px;
+
+    display: flex;
+    gap: 20px;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+      margin: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 7;
+      gap: 31px;
+    }
+  }
+
+  &__schedule {
+    width: 50%;
+    color: $blackAccent;
+
+    @include onTablet {
+      flex-direction: column;
+      align-items: start;
+      gap: 20px;
+    }
+  }
+
+  &__weekdays {
+    @include onTablet {
+      width: 100%;
+    }
+  }
+
+  &__contacts {
+    width: 50%;
+  }
+
+  &__line {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 1px;
+    background: rgba(26, 90, 76, 0.5);
+
+    margin-top: 70px;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+      margin-top: 64px;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 8;
+      height: 100%;
+      width: 1px;
+
+      margin: 0 auto;
+    }
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+
+    margin-top: 40px;
+    color: $blackAccent;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+      margin-top: 64px;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / -2;
+      margin: 0;
+    }
+  }
+
+  &__list {
+    gap: 20px;
+
+    @include onDesktop {
+      row-gap: 32px;
+    }
+  }
+
+  &__item {
+    width: 130px;
+
+    @include onTablet {
+      width: 220px;
+    }
+
+    @include onDesktop {
+      widows: 168px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: $blackAccent;
+    font-size: 14px;
+
+    @include hover(font-size, 18px);
+
+    &:after {
+      background-color: $blackAccent;
+      height: 1px;
+    }
+  }
+
+  &__copyrights {
+    grid-column: 1 / -1;
+
+    margin-top: 80px;
+    margin-bottom: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include onTablet {
+      margin-top: 120px;
+      margin-bottom: 36px;
+
+      flex-direction: row;
+      gap: 0;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      margin-top: 87px;
+      margin-bottom: 35px;
+    }
+  }
+
+  &__design-author,
+  &__copyright {
+    display: block;
+    text-align: center;
+    font-family: "IBM Sans Plex", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 141%;
+    color: $blackAccent;
+  }
+
+  &__go-up {
+    position: fixed;
+    right: 5%;
+    bottom: 15%;
+    @include flex-align-center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid $greenAccent;
+    border-radius: 100%;
+
+    @include scale(1.2);
+  }
+}
