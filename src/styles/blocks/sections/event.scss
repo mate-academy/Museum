@@ -26,18 +26,19 @@
     .event--lecture & {
       grid-column: 1 / -1;
       margin-inline: -$mobile-padding-inline;
-      aspect-ratio: 320 / 210;
 
       @include onTablet {
         margin-inline: 0;
-        padding-inline: $tablet-padding-inline;;
-        aspect-ratio: 700 / 390;
+        padding-inline: $tablet-padding-inline;
       }
 
       @include onDesktop {
         margin-inline: -$desktop-padding-inline;
         padding-inline: 0;
-        aspect-ratio: 1280 / 550;
+      }
+
+      @include onAvarageDesktop {
+        margin-inline: calc(-100vw / 2 + #{$desktop-avarage-width / 2} - #{$desktop-padding-inline });
       }
     }
   }
@@ -57,9 +58,16 @@
       display: block;
       width: 100%;
       height: 100%;
+      aspect-ratio: 320 / 210;
       object-fit: cover;
 
+      @include onTablet {
+        aspect-ratio: 700 / 390;
+      }
+
       @include onDesktop {
+        max-height: 550px;
+        aspect-ratio: 1280 / 550;
         @include hover(scale, 1);
       }
     }
@@ -149,14 +157,23 @@
   }
 
   &__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-top: 10px;
+
     font-weight: 400;
     font-size: 28px;
     line-height: 1em;
 
     @include onTablet {
+      gap: 16px;
       margin-top: 30px;
       font-size: 36px;
+    }
+
+    @include onDesktop {
+      gap: 24px;
     }
 
     .event--lecture & {
@@ -164,6 +181,17 @@
 
       @include onTablet {
         margin-top: 16px;
+      }
+    }
+
+    &::after {
+      flex-shrink: 0;
+      content: "";
+      @include squareIcon(15px);
+      background-color: $color-orange-primary;
+
+      .event--lecture & {
+        display: none;
       }
     }
   }
