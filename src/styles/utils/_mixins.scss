@@ -1,6 +1,91 @@
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin hover($property, $toValue) {
+  transition: #{$property} $effectDuration;
+
+  &:hover {
+    #{$property}: $toValue;
+  }
+}
+
+@mixin pageGrid {
+  --colomns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--colomns), 1fr);
+
+  @include onTablet {
+    --colomns: 6;
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    --colomns: 12;
+  }
+}
+
+@mixin contentPaddingInline() {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 39px;
+  }
+
+  @include onDesktop() {
+    padding-inline: 55px;
+    max-width: 1170px;
+    margin-inline: auto;
+  }
+}
+
+.container {
+  @include contentPaddingInline;
+
+  &--menu {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 40px;
+      align-items: center;
+    }
+
+    @include onDesktop {
+      gap: 100px;
+    }
+  }
+}
+
+@mixin fontDefault {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-weight: 500;
+  color: $main-text-color;
+  line-height: 16px;
+  font-size: 16px;
+}
+
+
+@mixin fontMontserrat {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  color: $placeholder-color;
+
 }
