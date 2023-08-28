@@ -9,26 +9,45 @@
     background-image: url(../images/third-gallery-picture-mobile.png);
     background-size: cover;
     @include hover(transform, scale(1.03));
+    display: none;
 
-    display: flex;
-    justify-content: center;
-    align-items: end;
 
     @include onTablet {
       height: 390px;
       margin-bottom: 30px;
       background-image: url(../images/third-gallery-picture-tablet.png);
+
+      display: flex;
+      justify-content: center;
+      align-items: end;
     }
 
     @include onDesktop {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 1620px;
-      background-image: url(../images/third-gallery-picture-desktop.png);
-      height: 550px;
+      display: none;
+    }
+
+    &--full-screen {
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      background-image: url(../images/third-gallery-picture-mobile.png);
+      background-position: center;
+      background-size: cover;
+      height: 210px;
+      transform: translateY(-96px);
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: flex;
+        background-image: url(../images/third-gallery-picture-desktop.png);
+        height: 550px;
+      }
     }
   }
+
 
   @include onTablet {
     row-gap: 64px;
@@ -62,6 +81,37 @@
       @include fontDefault;
       color: $grey-color;
       text-transform: uppercase;
+
+      &-another {
+        margin: 0;
+        @include fontDefault;
+        color: $grey-color;
+        text-transform: uppercase;
+        display: none;
+
+        @include onTablet {
+          display: block;
+        }
+
+        @include onDesktop {
+          display: none;
+        }
+
+        &--full-screen {
+          margin: 0;
+          @include fontDefault;
+          color: $grey-color;
+          text-transform: uppercase;
+
+          @include onTablet {
+            display: none;
+          }
+
+          @include onDesktop {
+            display: block;
+          }
+        }
+      }
     }
 
     &-date {
@@ -69,6 +119,33 @@
       font-size: 16px;
       line-height: 24px;
       color: $menu-background-color;
+
+      &-another {
+        display: none;
+
+        @include onTablet {
+          display: block;
+        }
+
+        @include onDesktop {
+          display: none;
+        }
+
+        &--full-screen {
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 24px;
+          color: $menu-background-color;
+
+          @include onTablet {
+            display: none;
+          }
+
+          @include onDesktop {
+            display: block;
+          }
+        }
+      }
     }
 
     &-title {
@@ -84,6 +161,53 @@
       line-height: 33.6px;
       color: $placeholder-color;
       margin-top: 30px;
+
+      &-another {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+        @include fontMontserrat;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 28px;
+        font-size: 24px;
+        line-height: 33.6px;
+        color: $placeholder-color;
+        margin-top: 30px;
+        display: none;
+
+        @include onTablet {
+          display: flex;
+        }
+
+        @include onDesktop {
+          display: none;
+        }
+
+        &--full-screen {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin: 0;
+          @include fontMontserrat;
+          font-weight: 400;
+          font-size: 28px;
+          line-height: 28px;
+          font-size: 24px;
+          line-height: 33.6px;
+          color: $placeholder-color;
+          margin-top: 30px;
+
+          @include onTablet {
+            display: none;
+          }
+
+          @include onDesktop {
+            display: flex
+          }
+        }
+      }
     }
 
     &-about {
@@ -100,6 +224,32 @@
       border-bottom: 1px solid $menu-background-color;
       padding: 15px 20px;
       transform: translateY(50%);
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+
+      &--full-screen {
+        background-color: #fff;
+        border-bottom: 1px solid $menu-background-color;
+        padding: 15px 20px;
+        transform: translateY(50%);
+        max-width: 250px;
+
+        @include onTablet {
+          display: none;
+        }
+
+        @include onDesktop {
+          display: block;
+          max-width: 435px;
+        }
+      }
     }
   }
 
@@ -129,3 +279,5 @@
     }
   }
 }
+
+
