@@ -1,6 +1,65 @@
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onAvarageTablet {
+  @media (min-width: $tablet-avarage-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onAvarageDesktop {
+  @media (min-width: $desktop-avarage-width) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline {
+  padding-inline: $mobile-padding-inline;
+
+  @include onTablet() {
+    padding-inline: $tablet-padding-inline;
+  }
+
+  @include onDesktop() {
+    max-width: $desktop-avarage-width;
+    margin-inline: auto;
+    padding-inline: $desktop-padding-inline;
+  }
+}
+
+@mixin pageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-duration;
+
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin squareIcon($size) {
+  width: $size;
+  height: $size;
 }

@@ -1,0 +1,81 @@
+.menu {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  min-height: 100vh;
+  z-index: 1;
+  transition: opacity 0.25s ease-out;
+
+  &__inner {
+    grid-row: span 1;
+    color: $color-light-primary;
+    background-color: $color-green-primary;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: min-content 1fr 100px 1fr 100px;
+    align-items: start;
+    padding-block: 27px;
+
+    @include onTablet {
+      grid-template-columns: min-content 1fr 220px 1fr min-content 1fr 158px 1fr 145px;
+      justify-content: space-between;
+      padding-block: 40px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: min-content 1fr min-content 1fr;
+      justify-items: center;
+      padding-bottom: 48px;
+    }
+  }
+
+  &__nav {
+    grid-column: 3 / -1;
+
+    @include onTablet {
+      grid-column: 3 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: span 1;
+    }
+  }
+
+  &__separator {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 1px;
+    margin-block: 24px;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      grid-column: 5 / 6;
+      width: 1px;
+      height: 100%;
+      margin-block: 0;
+    }
+
+    @include onDesktop {
+      grid-column: span 1;
+    }
+  }
+
+  &__schedule {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 7 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: span 1;
+    }
+  }
+
+  &__placer {
+    display: block;
+    background-color: $color-dark-secondary;
+    opacity: 0.5;
+  }
+}

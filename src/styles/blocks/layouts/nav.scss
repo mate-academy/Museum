@@ -1,0 +1,84 @@
+.nav {
+
+  &__list {
+    .nav--menu & {
+      display: grid;
+      grid-template-columns: repeat(2, 100px);
+      justify-content: space-between;
+      justify-items: start;
+      row-gap: 24px;
+
+      @include onTablet {
+        justify-content: start;
+        column-gap: 20px;
+      }
+
+      @include onDesktop {
+        grid-template-columns: repeat(2, 170px);
+        row-gap: 30px;
+        column-gap: 30px;
+      }
+    }
+
+    .nav--footer & {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: start;
+      row-gap: 20px;
+      column-gap: $mobile-column-gap;
+
+      @include onTablet {
+        column-gap: $tablet-column-gap;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    width: fit-content;
+    padding-bottom: 8px;
+
+    .nav--menu & {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1em;
+
+      @include onDesktop {
+        font-size: 22px;
+      }
+    }
+
+    .nav--footer & {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1em;
+    }
+
+    @include onDesktop {
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        height: 1px;
+        scale: 0;
+        transform-origin: left;
+        transition: scale $transition-duration ease-out;
+
+        .nav--menu & {
+          background-color: $color-light-primary;
+        }
+
+        .nav--footer & {
+          background-color: $color-dark-primary;
+        }
+      }
+
+      &:hover::after {
+        scale: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.gallery {
+  &__title {
+    @extend %h2;
+  }
+
+  &__images {
+    display: none;
+
+    @include onDesktop {
+      @include pageGrid;
+      row-gap: 30px;
+      margin-top: 56px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+
+    &--narrow {
+      grid-column: span 4;
+    }
+
+    &--wide {
+      grid-column: span 8;
+    }
+
+    @include onDesktop {
+      @include hover(scale, 1.05);
+    }
+  }
+
+  &__swiper {
+    margin-top: 40px;
+
+    @include onTablet {
+      margin-top: 48px;
+    }
+  }
+}

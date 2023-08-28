@@ -1,0 +1,158 @@
+.header {
+
+  &__content {
+    @include pageGrid;
+    position: relative;
+  }
+
+  &__top {
+    @include pageGrid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding-top: 27px;
+
+    @include onTablet {
+      padding-top: 40px;
+    }
+  }
+
+  &__logo {
+    grid-column: 1 / -1;
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+    display: block;
+    width: $mobile-logo-width;
+    height: $mobile-logo-height;
+    margin-inline: auto;
+    margin-top: 9px;
+
+
+    @include onTablet {
+      grid-column: 4 / 6;
+      width: $tablet-logo-width;
+      height: $tablet-logo-height;
+      margin-top: 15px;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__logo-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    @include onDesktop {
+      @include hover(scale, 1.25);
+    }
+  }
+
+  &__image-container {
+    grid-column: 1 / -1;
+    margin-inline: -$mobile-padding-inline;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+      order: 1;
+      margin-inline: 0;
+      margin-right: -$tablet-padding-inline;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 13;
+      margin-right: -$desktop-padding-inline;
+    }
+
+    @include onAvarageDesktop {
+      margin-right: calc(-100vw / 2 + #{$desktop-avarage-width / 2} - #{$desktop-padding-inline });
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 320 / 300;
+    object-fit: cover;
+
+    @include onTablet {
+      aspect-ratio: 374 / 384;
+    }
+
+    @include onDesktop {
+      max-height: 655px;
+      aspect-ratio: 725 / 655;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+    position: relative;
+    margin-top: 20px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      display: grid;
+      align-items: center;
+      margin-top: 104px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+      justify-items: end;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+    word-break: break-word;
+  }
+
+  &__button {
+    margin-top: 20px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin-top: 0;
+    }
+  }
+
+  &__arrow {
+    display: none;
+
+    @include onDesktop {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      color: $color-gray-primary;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1em;
+
+      rotate: -90deg;
+      translate: 0 14px;
+      transform-origin: top left;
+
+      &::before {
+        content: "";
+        height: 1px;
+        width: 70px;
+        background-color: $color-green-primary;
+      }
+
+     @include hover(color, $color-green-primary)
+    }
+  }
+}
