@@ -5,8 +5,15 @@
   }
 }
 
+@mixin to-default_on-click($_property, $_toValue) {
+  &:active {
+    #{$_property}: $_toValue;
+  }
+}
+
 @mixin scale($_property) {
   @include hover(transform, scale($_property));
+  @include to-default_on-click(transform, scale(1));
 }
 
 @mixin onTablet {

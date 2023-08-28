@@ -117,11 +117,20 @@
       color: $grayAccent;
     }
 
-    @include hover(box-shadow, 1px 4px 16px 10px rgba(232,232,240,0.4));
-
     &:focus {
       box-shadow: none;
-      border-color: $greenAccent;
+
+      &:invalid {
+        border-color: $redAccent;
+      }
+
+      &:valid {
+        border-color: $greenAccent;
+      }
+    }
+
+    @include onDesktop {
+      @include hover(box-shadow, 1px 4px 16px 10px rgba(232,232,240,0.4));
     }
   }
 }
