@@ -1,0 +1,53 @@
+.swiper {
+  min-width: 320px - 20px * 2;
+  width: calc(100vw - 20px * 2);
+  height: 100%;
+  padding-bottom: 40px;
+  overflow-x: clip;
+  /* stylelint-disable property-no-unknown */
+  overflow-clip-margin: 20px;
+
+  @include onTablet {
+    width: calc(100vw - 34px * 2);
+    overflow-clip-margin: 34px;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &-pagination {
+    bottom: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    &-bullet {
+      width: 9px;
+      height: 9px;
+      margin: 0 !important;
+      background-color: #e0e0e0;
+      opacity: 1;
+
+      &-active {
+        background-color: $green;
+      }
+    }
+  }
+
+  &-slide {
+    aspect-ratio: 280 / 410;
+
+    @include onTablet {
+      aspect-ratio: 340 / 543;
+    }
+
+    &__image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

@@ -1,0 +1,132 @@
+.subscription {
+  padding: 88px 0;
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  background-image: url(../images/subscription/subscription-bg.png);
+  background-size: cover;
+  background-position: top;
+
+  width: 100vw;
+  height: 386px;
+
+  @include onTablet {
+    background-image: url(../images/subscription/subscription-bg-desktop.png);
+    height: 380px;
+    padding: 82px 0;
+  }
+
+  @include onDesktop {
+    height: 660px;
+    padding: 163px 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: $white;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      line-height: 100%;
+      margin-bottom: 64px;
+    }
+
+    @include onTablet {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-grow: 1;
+    cursor: pointer;
+
+    @include onTablet {
+      gap: 16px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+    }
+
+    &--left {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      padding: 18px 0 18px 24px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: none;
+      background: $white;
+      border-radius: 0;
+      word-break: normal;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+      height: 50px;
+
+      color: $grey;
+
+      @include onTablet {
+        width: 100%;
+        padding: 28px 0 28px 24px;
+        height: 70px;
+
+        @include hover(transform, scale(1.05));
+
+      }
+    }
+
+    &--right {
+      display: grid;
+      background-color: $orange;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      position: relative;
+      border: none;
+      cursor: pointer;
+
+      &:before {
+        position: absolute;
+        content: "";
+        display: grid;
+        height: 24px;
+        width: 24px;
+        place-self: center;
+        background: url(../images/icons/icon-arrow-black-button.svg) center/100% no-repeat;
+      }
+
+      @include hover(transform, scale(1.05));
+
+      @include onTablet {
+        padding: 23px;
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+}
