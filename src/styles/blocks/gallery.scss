@@ -1,0 +1,26 @@
+.gallery {
+  @include grid-template;
+
+  --images-height: 410px;
+
+  @include onTablet {
+    --images-height: 543px;
+  }
+
+  &__swiper {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: calc(var(--images-height) + 50px);
+    position: relative;
+
+    @include onDesktop {
+      height: max-content;
+    }
+  }
+}
+
+#gallery__swiper {
+  @include onDesktop {
+    overflow: visible;
+  }
+}

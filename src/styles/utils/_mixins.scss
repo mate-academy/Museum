@@ -4,3 +4,102 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin to-default_on-click($_property, $_toValue) {
+  &:active {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin scale($_property) {
+  @include hover(transform, scale($_property));
+  @include to-default_on-click(transform, scale(1));
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onSpecial {
+  @media (min-width: 640px) and (max-width: 761px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin page-padding-inline {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 34px;
+  }
+
+  @include onDesktop {
+    padding-inline: 55px;
+  }
+}
+
+@mixin grid-template {
+  --columns: 2;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+  }
+}
+
+@mixin absolute-top-full-width {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+@mixin absolute-full-width {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+@mixin uppercase-link {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-with-gap {
+  display: flex;
+  gap: 28px;
+
+  @include onTablet {
+    gap: 38px;
+  }
+
+  @include onDesktop {
+    gap: 102px;
+  }
+}
+
+@mixin flex-column-gap($_gap-value) {
+  display: flex;
+  flex-direction: column;
+  gap: $_gap-value;
+}

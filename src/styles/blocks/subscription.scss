@@ -1,0 +1,136 @@
+.subscription {
+
+  &__bg {
+    @include absolute-full-width;
+
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    z-index: -1;
+    object-fit: cover;
+    object-position: center;
+    height: 386px;
+
+    @include onTablet {
+      height: 380px;
+    }
+
+    @include onDesktop {
+      height: 550px;
+    }
+  }
+
+  &__container {
+    padding-top: 88px;
+
+    @include onTablet {
+      padding-top: 82px;
+    }
+
+    @include onDesktop {
+      padding-top: 163px;
+    }
+
+    @include grid-template;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    color: white;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 16px;
+      text-align: center;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    margin: 0;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__email {
+    grid-column: 1 / -1;
+
+    width: 100%;
+
+    @include flex-align-center;
+    justify-content: stretch;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+      gap: 16px;
+    }
+
+    @include onDesktop {
+      grid-column: 4 / -4;
+      gap: 30px;
+    }
+  }
+
+  &__user-email {
+    width: 100%;
+    padding-block: 14px;
+    padding-left: 20px;
+    margin: 0;
+    height: 14px;
+
+    border: 4px solid white;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 100%;
+    color: $blackAccent;
+
+    @include onTablet {
+      padding-block: 24px;
+    }
+
+    @include onDesktop {
+      padding-left: 28px;
+    }
+
+    &:focus-visible {
+      outline: 0;
+    }
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 14px;
+      color: $grayAccent;
+    }
+
+    &:focus {
+      box-shadow: none;
+
+      &:invalid {
+        border-color: $redAccent;
+      }
+
+      &:valid {
+        border-color: $greenAccent;
+      }
+    }
+
+    @include onDesktop {
+      @include hover(box-shadow, 1px 4px 16px 10px rgba(232,232,240,0.4));
+    }
+  }
+}

@@ -1,0 +1,110 @@
+.exhibition {
+  @include grid-template;
+
+  &__image {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      height: 520px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+      @include scale(1.1);
+      transform-origin: left;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+
+    margin-top: 16px;
+
+    @include onTablet {
+      margin-top: 44px;
+
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      margin-block: auto;
+
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__subhead {
+    @include flex-align-center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    @include onTablet {
+      width: 220px;
+    }
+
+    @include onDesktop {
+      width: 270px;
+    }
+  }
+
+  &__date {
+    @include onTablet {
+      line-height: 100%;
+    }
+
+    @include onDesktop {
+      line-height: 150%;
+
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-top: 10px;
+
+    display: flex;
+    align-items: center;
+
+    @include onTablet {
+      margin-top: 32px;
+    }
+
+    @include onDesktop {
+      margin-top: 30px;
+    }
+
+    &::after {
+      position: relative;
+      left: 15px;
+      width: 10px;
+      height: 10px;
+      content: "";
+      background-color: $redAccent;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+        left: 25px;
+      }
+    }
+  }
+
+  &__text {
+    color: $textColor;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+
+    margin: 0;
+    margin-top: 10px;
+
+    @include onTablet {
+      margin-top: 15px;
+    }
+  }
+}
