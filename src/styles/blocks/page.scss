@@ -1,0 +1,37 @@
+.page {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 140%;
+  color: $main-color;
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+      background-color: rgba(0, 0, 0, 0.5);
+      height: 100vh;
+    }
+  }
+}
