@@ -1,0 +1,68 @@
+.swiper {
+
+  #gallery__swiper &-wrapper {
+    @include onDesktop {
+      @include grid-template;
+      row-gap: 30px;
+    }
+  }
+
+  #gallery__swiper &-slide {
+    @include onDesktop {
+      @include hover(transform, scale(1.05));
+      &--first {
+        grid-column: span 4;
+        height: 600px;
+        transform-origin: right bottom;
+      }
+
+      &--second {
+        grid-column: span 8;
+        height: 600px;
+        transform-origin: left bottom;
+      }
+
+      &--third {
+        grid-column: span 8;
+        height: 360px;
+        transform-origin: right top;
+      }
+
+      &--fourth {
+        grid-column: span 4;
+        height: 360px;
+        transform-origin: left top;
+      }
+    }
+  }
+
+  &__picture {
+    width: 100%;
+    height: calc(100% - 50px);
+    object-fit: cover;
+    object-position: center;
+    transform: scaleX(-1);
+
+    @include onDesktop {
+      height: 100%;
+    }
+  }
+
+  &-pagination {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  #gallery__swiper &-pagination-bullet {
+    --swiper-pagination-bullet-horizontal-gap: 11px;
+    width: 9px;
+    height: 9px;
+    opacity: 1;
+    background-color: $radioBtnColor;
+
+    &-active {
+      background-color: $greenAccent;
+    }
+  }
+}
