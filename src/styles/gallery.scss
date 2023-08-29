@@ -1,0 +1,87 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin-bottom: 200px;
+
+  @include onTablet {
+    gap: 32px;
+    margin-bottom: 92px;
+  }
+  @include onPhone {
+    gap: 32px;
+    margin-bottom: 100px;
+  }
+
+  &__slider {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+
+    @include onTablet {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+    }
+    @include onPhone {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+    }
+  }
+
+  &__items {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+  }
+
+  &__item {
+    @include onTablet {
+      display: block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #e0e0e0;
+    }
+
+    @include onPhone {
+      display: block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #e0e0e0;
+    }
+  }
+
+  &__image {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+
+    &:hover {
+      transform: scale(1.07);
+
+      @include onTablet {
+        transform: none;
+      }
+
+      @include onPhone {
+        transform: none;
+      }
+    }
+
+    @include onTablet {
+      flex: 0 0 auto;
+      margin-right: 20px;
+      scroll-snap-align: start;
+      -ms-scroll-snap-align: start;
+      object-fit: contain;
+      height: 340px;
+
+    }
+  }
+}
+
+.active {
+  background-color: $menu-color;
+}
