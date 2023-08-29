@@ -13,15 +13,8 @@
 
     margin-bottom: 111px;
 
-    &::after {
-      content: '';
-      display: block;
-      height: 1px;
-      width: 100%;
-      background-color: $background-color;
-      grid-column: 1/-1;
-      position: absolute;
-      bottom: -70px;
+    @include onTablet {
+      margin-bottom: 129px;
     }
 
     &--link {
@@ -46,6 +39,10 @@
         color: $rectangle-color;
         border-color: $rectangle-color;
       }
+
+      @include onTablet {
+        display: none;
+      }
     }
 
     &--schedule {
@@ -55,6 +52,10 @@
       font-weight: 400;
       line-height: 150%;
       grid-column: span 1;
+
+      @include onTablet {
+        grid-column: span 2;
+      }
     }
 
     &--contacts {
@@ -63,16 +64,25 @@
       font-size: 14px;
       font-weight: 400;
       line-height: 150%;
+
+      @include onTablet {
+        grid-column: span 2;
+      }
     }
 
     &--icons {
       grid-column: 1/-1;
+
+      @include onTablet {
+        grid-column: span 1;
+      }
     }
   }
 
   &__copyright {
-    @include pageGrid;
+    display: flex;
     row-gap: 10px;
+    flex-direction: column;
     color: $main-title-color;
     text-align: center;
     font-family: 'IBM Plex Sans';
@@ -82,12 +92,34 @@
 
     margin-bottom: 60px;
 
-    &--rights {
-    grid-column: 1/-1;
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 36px;
+    }
+  }
+
+  &__links {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $background-color;
+      grid-column: 1/-1;
+      position: absolute;
+      top: -40px;
+
+      @include onTablet {
+        top: -64px;
+        grid-column: 2/6;
+      }
     }
 
-    &--name {
-    grid-column: 1/-1;
+    @include onTablet {
+      @include pageGrid;
     }
   }
 }

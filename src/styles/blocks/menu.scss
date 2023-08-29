@@ -3,8 +3,15 @@
   background-color: $background-color;
   overflow: auto;
   font-family: 'IBM Plex Sans', sans-serif;
-  padding-inline: 34px;
-  padding-top: 39px;
+  @include constentPaddinInline;
+
+
+  @include onTablet {
+    padding-inline: 34px;
+    padding-top: 39px;
+    @include constentPaddinInline;
+
+  }
 
   &__content {
     @include onTablet {
@@ -22,11 +29,19 @@
     @include onTablet {
       grid-column: -4/-1;
     }
+
+    @include onDesktop {
+      grid-column: -6/-1;
+    }
   }
 
   &__nav {
     @include onTablet {
       grid-column: 1/4;
+    }
+
+    @include onDesktop {
+      grid-column: 2/6;
     }
   }
 }

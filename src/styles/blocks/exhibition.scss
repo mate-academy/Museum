@@ -1,5 +1,29 @@
 .exhibition {
 
+  &__wrap {
+
+    grid-column: 1/-1;
+
+    @include onTablet {
+      grid-column: span 4;
+    }
+
+    @include onDesktop {
+      grid-column: -5/-1;
+      align-self: center;
+    }
+
+    &--dates {
+      display: flex;
+      justify-content: space-between;
+
+      @include onTablet {
+        column-gap: 30px;
+        justify-content: start;
+      }
+    }
+  }
+
   &--image {
     width: 100%;
     grid-column: 1/-1;
@@ -8,11 +32,14 @@
     @include onTablet {
       margin-bottom: 44px;
     }
+
+    @include onDesktop {
+      grid-column: span 7;
+      margin-bottom: 104px;
+    }
   }
 
   &--name {
-    grid-column: span 1;
-
     color: $secondary-title-color;
     font-size: 16px;
     font-weight: 500;
@@ -20,7 +47,6 @@
     align-self: center;
 
     @include onTablet {
-      grid-column: span 1;
       font-size: 14px;
     }
   }
@@ -33,15 +59,12 @@
     align-self: center;
 
     @include onTablet {
-      grid-column: span 2;
       font-size: 14px;
     }
-
   }
 
   &--title {
     position: relative;
-    grid-column: span 2;
 
     color: $main-title-color;
     font-family: 'Montserrat', sans-serif;
@@ -52,9 +75,12 @@
     margin-block: 15px 11px;
 
     @include onTablet {
-      grid-column: 1/-1;
       font-style: 36px;
       margin-block: 32px 15px;
+    }
+
+    @include onDesktop {
+      margin-top: 30px;
     }
 
     &::after {
@@ -70,8 +96,6 @@
   }
 
   &--description {
-    grid-column: span 2;
-
     font-size: 16px;
     color: $main-text-color;
     font-weight: 300;
@@ -80,10 +104,7 @@
     margin-bottom: 60px;
 
     @include onTablet {
-      grid-column: span 4;
       margin-bottom: 64px;
     }
   }
-
-
 }
