@@ -1,7 +1,853 @@
-@import "utils";
+@import "blocks/reset";
+@import "utils/vars";
+@import "utils/mixins";
+@import "utils/extends";
 @import "fonts";
 @import "typography";
+@import "blocks/grid";
 
-body {
+.page {
   background: $c-gray;
+  color: $c-text;
+  scroll-behavior: smooth;
+  position: relative;
+
+  a {
+    color: $c-text;
+    transition: 0.3s linear;
+
+  }
+
+  &__menu-on {
+    overflow: hidden;
+  }
+
+  &__to-home {
+    display: block;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    z-index: 2;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    border: 2px solid #1a5a4c;
+    background: url("../images/tohome.svg") center/20% no-repeat;
+  }
+
+  .scale {
+    transition: transform 0.3s linear;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  &__title--h2 {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: $c-text;
+    text-align: center;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 48px;
+    }
+  }
+
+  &__title--h3 {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    color: $c-text;
+
+    @include onTablet {
+      font-size: 36px;
+    }
+  }
+
+}
+
+.sqr {
+  width: 12px;
+  height: 12px;
+  background: #f14a27;
+  margin-left: 12px;
+}
+
+.container {
+  max-width: 1280px;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  &--pos {
+    position: relative;
+  }
+
+  @include onTablet {
+    padding: 0 34px;
+  }
+
+  @include onDesktop {
+    padding: 0 55px;
+  }
+}
+
+.container-outside {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: block;
+  text-transform: uppercase;
+  //color: #0F0E08;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+
+  @include onTablet {
+    font-size: 36px;
+  }
+}
+
+.menu {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: url("../images/menu.svg") center/cover;
+
+  &--close {
+    background-image: url("../images/cross.svg");
+  }
+}
+
+.header {
+  position: relative;
+
+  @include onTablet {
+    height: 390px;
+  }
+
+  @include onDesktop {
+    height: 660px;
+  }
+
+  &__bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    &--img {
+      display: block;
+      content: " ";
+      height: 300px;
+      background: url("../images/bg.png") left top/cover no-repeat;
+      z-index: -1;
+
+      @include onTablet {
+        height: 390px;
+      }
+
+      @include onDesktop {
+        height: 660px;
+      }
+    }
+  }
+
+  &__top {
+    height: 300px;
+
+    @include onTablet {
+      height: auto;
+    }
+
+    @include onDesktop {
+      height: auto;
+    }
+  }
+
+  &__top-wrap {
+    position: relative;
+    padding-top: 9px;
+
+    @include onTablet {
+      padding-top: 15px;
+    }
+
+  }
+
+  &__menu {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__logo {
+    display: block;
+  }
+
+  &__content {
+    margin: 20px 0 0;
+    gap: 20px;
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 120%;
+    //color: #0F0E08;
+
+    text-align: center;
+
+    @include onTablet {
+      align-items: start;
+      text-align: start;
+      font-size: 54px;
+      margin: 60px 0 0;
+      gap: 40px;
+    }
+
+    @include onDesktop {
+      margin: 140px 0 0;
+      gap: 90px;
+      font-size: 72px;
+    }
+  }
+
+  &--margin {
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+}
+
+.header-action {
+
+  display: flex;
+  width: 100%;
+  min-width: 270px;
+  max-width: 320px;
+  box-sizing: border-box;
+  border: 1px solid #1a5a4c;
+
+  @include onDesktop {
+    align-self: end;
+  }
+
+  &__text {
+
+    width: 100%;
+    text-align: center;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 70px;
+    //color: #0F0E08;
+    text-transform: uppercase;
+  }
+
+  &__button {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    background: #1a5a4c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__arrow {
+    width: 12px;
+    height: 12px;
+    background: url("../images/arrow-w.svg") center/contain no-repeat;
+  }
+}
+
+.header-event-link {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  display: none;
+  align-items: center;
+  gap: 20px;
+  max-width: max-content;
+
+  transform: rotateZ(-90deg);
+
+  &__line {
+    background: #687480;
+    height: 1px;
+    width: 70px;
+  }
+
+  &__text {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+  }
+
+  @include onDesktop {
+    display: flex;
+  }
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: $c-gray;
+  height: 100vh;
+  width: 100%;
+
+  box-shadow: 0 0 10px $c-text;
+
+  transform: translate(-100%, -100%);
+  transition: transform 0.3s ease-in-out;
+
+  &:target {
+    transform: translate(0);
+  }
+
+  &__wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: 9px;
+
+    @include onTablet {
+      padding-top: 15px;
+    }
+  }
+}
+
+.nav-list {
+  border-radius: 4px;
+  margin-top: 20px;
+
+  &__item {
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 34px;
+    color: $c-text;
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+    padding-bottom: 10px;
+    transition: border-bottom-color 0.3s linear;
+    display: inline-block;
+
+    &:hover {
+      border-bottom: 2px solid $c-text;
+    }
+  }
+}
+
+.event {
+
+  &__title {
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+  }
+
+  &--margin {
+    margin-bottom: 180px;
+
+    @include onTablet {
+      margin-bottom: 210px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 300px;
+    }
+  }
+}
+
+.event-exhibition {
+
+  &__poster {
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  @include onDesktop {
+    align-items: center;
+  }
+
+  &--margin {
+    margin-bottom: 60px;
+
+    @include onDesktop {
+      margin-bottom: 100px;
+    }
+  }
+}
+
+.event-exhibition-description {
+  &__date {
+    //background: rgb(166, 128, 128);
+    width: 100%;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #687480;
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      gap: 30px;
+      max-width: max-content;
+      font-size: 14px;
+    }
+
+    &--lecture {
+      margin: 0;
+      padding: 0 20px;
+      gap: 10px;
+
+      @include onTablet {
+        gap: 50px;
+        padding: 0;
+      }
+    }
+
+    &--bold {
+      font-weight: 700;
+    }
+  }
+
+  &__title {
+
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    @include onTablet {
+      margin-bottom: 15px;
+    }
+
+    &--lecture {
+      margin: 0;
+      text-align: center;
+      max-width: 460px;
+
+      @include onTablet {
+        text-align: left;
+      }
+    }
+  }
+
+  &__content {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: #4e4e4e;
+  }
+}
+
+.lecture-exhibition {
+  position: relative;
+  width: 100%;
+  height: 390px;
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: $c-gray;
+    transform: translateY(-50%);
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+    padding: 20px 0;
+
+    @include onTablet {
+      gap: 16px;
+      padding: 45px 55px 50px;
+      margin: 0 -16%;
+      align-items: start;
+    }
+
+    @include onDesktop {
+      margin: 0;
+    }
+  }
+}
+
+.subscribe-bg {
+  width: 100%;
+  height: 380px;
+  background: $c-text url("../images/subscribe.png") top center/cover;
+  padding: 80px 0;
+
+  @include onTablet {
+    background-image: url("../images/subscribedesk.png");
+  }
+
+  @include onDesktop {
+    height: 550px;
+    padding: 160px 0;
+  }
+}
+
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+
+  &__title {
+    color: #fff;
+    text-align: center;
+    margin: 0 auto 20px;
+  }
+
+  &__content {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    color: #fff;
+    text-align: center;
+  }
+
+  &__form {
+    display: flex;
+    width: 100%;
+
+    @include onTablet {
+      gap: 16px;
+    }
+
+    @include  onDesktop {
+      gap: 30px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    color: #687480;
+    padding: 0 24px;
+
+    &:focus {
+      color: $c-text;
+      outline: none;
+    }
+
+    @include onDesktop {
+      padding: 0 32px;
+    }
+  }
+
+  &__button {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: #f14a27;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__arrow {
+    width: 12px;
+    height: 12px;
+    background: url("../images/arrow-b.svg") center/contain no-repeat;
+  }
+
+  @include onTablet {
+    gap: 70px;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 50px;
+  padding-bottom: 80px;
+
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: $c-text;
+
+  &--bold-font {
+    font-weight: 600;
+  }
+
+  @include onTablet {
+    padding-bottom: 120px;
+    display: grid;
+  }
+
+  @include onDesktop {
+    padding-bottom: 90px;
+  }
+}
+
+.footer-link {
+  //background: rgb(33, 56, 108);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  &__margin {
+    padding-bottom: 40px;
+  }
+
+  @include onTablet {
+    flex-direction: column;
+    height: max-content;
+    width: max-content;
+    gap: 62px;
+  }
+
+  &__logo {
+    max-width: max-content;
+    line-height: 100%;
+    align-self: start;
+  }
+
+  &__social {
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+  }
+
+  &__link {
+    width: 24px;
+    height: 24px;
+    display: block;
+    background: contain/cover no-repeat;
+
+    &--f {
+      background-image: url("../images/fblogo.svg");
+    }
+
+    &--i {
+      background-image: url("../images/instlogo.svg");
+    }
+  }
+}
+
+.footer-schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+  padding: 0 10px 70px 0;
+
+  @include onTablet {
+    width: 100%;
+    padding: 0 0 40px;
+  }
+
+  @include onDesktop {
+    padding: 0;
+  }
+
+  &__li-wrap {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+  padding-left: 10px;
+
+  &__link:hover {
+    color: #f14a27;
+  }
+
+  &__wrap {
+    white-space: nowrap;
+  }
+
+  @include onTablet {
+    width: 100%;
+  }
+}
+
+.footer-nav {
+  display: flex;
+  width: 100%;
+  padding-top: 40px;
+  border: 1px solid transparent;
+  border-top-color: $c-text;
+
+  @include onTablet {
+    padding-top: 60px;
+  }
+
+  @include onDesktop {
+    padding: 0 0 0 16%;
+    border-top-color: transparent;
+    border-left-color: $c-text;
+    margin-left: -16%;
+  }
+
+  &__list {
+    width: 50%;
+
+    & > li {
+      padding-bottom: 20px;
+
+      &:nth-last-child(1) {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+.sub-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 56px;
+
+  @include onTablet {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 36px;
+  }
+
+  &__p {
+    display: block;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 140.62%;
+    color: $c-text;
+  }
+}
+
+.gallery {
+  margin-bottom: 100px;
+
+  @include onTablet {
+    margin-bottom: 92px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+
+    @include  onTablet {
+      margin-bottom: 48px;
+    }
+
+    @include  onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__grid {
+    row-gap: 30px;
+
+    @media (max-width: 1020px) {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      align-items: center;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    max-width: 100%;
+    height: 100%;
+    display: none;
+
+    &--active {
+      display: block;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      display: block;
+    }
+  }
+
 }
