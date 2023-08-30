@@ -1,71 +1,71 @@
 .header {
-  padding-bottom: 70px;
+  margin-bottom: 70px;
 
   font-family: Montserrat, sans-serif;
   font-size: 30px;
   font-weight: 700;
   text-align: center;
+  position: relative;
 
   @include onTablet {
-    padding-bottom: 88px;
+    margin-bottom: 88px;
+    overflow: hidden;
   }
 
   @include onDesktop {
-    padding-bottom: 200px;
+    margin-bottom: 200px;
   }
 
   &__background {
-    --container-paddings: -20px;
-    --out-of-box-width: calc(0px - var(--container-paddings));
-    position: absolute;
-    z-index: -1;
-
-    margin-inline: var(--container-paddings);
-    width: calc(100% + 2 * var(--out-of-box-width));
-    height: 300px;
+    width: 100%;
+    margin-bottom: 20px;
+    object-fit: cover;
 
     @include onTablet {
-      --container-paddings: -39px;
+      position: absolute;
+      left: 55%;
 
-      grid-column: 4 / 7;
-
-      width: calc(100% + var(--out-of-box-width));
-      margin-left: 0;
-      height: 384px;
+      width: 45%;
+      margin-bottom: 0;
+      height: 387px;
     }
 
     @include onDesktop {
-      --container-paddings: -55px;
-
-      grid-column: 6 / 13;
-
+      left: 46%;
+      width: 54%;
       height: 655px;
     }
   }
 
   &__content {
     @include pageGrid;
-    grid-template-rows: 320px 110px auto;
-    position: relative;
+    row-gap: 20px;
 
     @include onTablet {
-      grid-template-rows: 125px 175px 85px;
+      row-gap: 40px;
     }
 
     @include onDesktop {
-      grid-template-rows: 205px 260px 190px;
+      row-gap: 90px;
     }
   }
 
   &__menu-link {
-    grid-column: 1 / -1;
-    @include squareSize(24px);
-    display: flex;
+    position: absolute;
+    top: $mobile-menu-paddings;
+    left: 20px;
 
-    padding-top: $mobile-menu-paddings;
+    display: flex;
+    @include squareSize(24px);
 
     @include onTablet {
-      padding-top: $tablet-menu-paddings;
+      top: $tablet-menu-paddings;
+      left: 39px;
+    }
+
+    @include onDesktop {
+      position: static;
+      margin-top: $tablet-menu-paddings;
     }
   }
 
@@ -75,19 +75,19 @@
 
   &__logo-link {
     position: absolute;
-    grid-column: 1 / -1;
-    padding-top: 10px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 
     text-decoration: none;
-    justify-self: center;
 
     @include onTablet {
-      grid-column: 4 / 6;
-      padding-top: 15px;
+      left: 65%;
+      top: 15px;
     }
 
     @include onDesktop {
-      grid-column: 6 / 8;
+      left: 50%;
     }
   }
 
@@ -107,12 +107,19 @@
     line-height: 100%;
 
     @include onTablet {
-      font-size: 54px;
+      margin-top: 149px;
+      align-self: end;
       line-height: 120%;
       text-align: left;
     }
 
+    @media (min-width: 740px) {
+      margin-top: 127px;
+      font-size: 54px;
+    }
+
     @include onDesktop {
+      margin-top: 143px;
       font-size: 72px;
     }
   }
@@ -123,14 +130,16 @@
 
     @include onTablet {
       justify-self: start;
+      margin-bottom: 20px;
     }
 
     @include onDesktop {
       grid-column: 3 / 6;
+      margin-bottom: 120px;
     }
   }
 
-  &__exhibitions {
+  &__exhibitions-link {
     position: absolute;
     align-self: end;
   }

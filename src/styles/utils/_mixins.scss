@@ -37,3 +37,23 @@
     --columns: 12;
   }
 }
+
+@mixin hoverUnderlineEffect($color) {
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: $color;
+
+    transition: transform $transition-time;
+    transform: scale(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
