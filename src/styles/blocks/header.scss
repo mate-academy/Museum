@@ -1,0 +1,58 @@
+.header {
+  &__img {
+    background-image: url(../images/backgrounds/header.png);
+    background-size: cover;
+    background-position: center;
+
+    @include stretchElement(0, 100%);
+
+    @include onTable() {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      right: 0;
+      bottom: 0;
+
+      @include stretchElementRemove();
+    }
+
+    @include onDesktop() {
+      max-width: 724px;
+    }
+  }
+
+  &__top-bar {
+    display: flex;
+    align-items: center;
+
+    padding-top: 10px;
+
+    @include contentPaddingInline();
+
+    @include onTable() {
+      padding-top: 15px;
+    }
+  }
+
+  &__art-museum {
+    position: relative;
+  }
+
+  &__button-menu {
+    position: absolute;
+
+    @include onTable() {
+      display: none;
+    }
+  }
+
+  &__logo {
+    margin: 0 auto;
+
+    z-index: 1;
+
+    @include onTable() {
+      margin-left: 80px;
+    }
+  }
+}
