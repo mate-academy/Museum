@@ -50,7 +50,6 @@
       width: 100%;
       padding: 20px 27px;
       display: block;
-
     }
   }
 
@@ -103,7 +102,6 @@
     @include tablet {
       gap: 20px;
       font-size: 16px;
-
     }
 
     @include mobile {
@@ -115,28 +113,26 @@
   }
 
   &__link {
-    display: block;
     color: $backdrop-text-color;
-    width: 145px;
+    text-decoration: none;
+    position: relative;
 
-    &:hover {
-      text-decoration: underline;
-
-      @include tablet {
-        text-decoration: none;
-      }
-
-      @include mobile {
-        text-decoration: none;
-      }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      display: block;
+      height: 1px;
+      width: 60%;
+      background-color: $backdrop-text-color;
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: center;
     }
 
-    @include tablet {
-      width: 100px;
-    }
+    &:hover::after {
+      transform: scale(1);
 
-    @include mobile {
-      width: 100px;
     }
   }
 
@@ -152,6 +148,8 @@
   }
 
   &__items {
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -204,7 +202,20 @@
     @include tablet {
       width: 159px;
     }
+  }
 
+  &__strong-text {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
   }
 
   &__holiday {
