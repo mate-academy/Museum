@@ -1,22 +1,26 @@
 .menu {
+  height: 100vh;
   box-sizing: border-box;
-  background-color: $background-color;
+  background-color: rgba(60, 60, 60, 0.6);
   overflow: auto;
   font-family: 'IBM Plex Sans', sans-serif;
-  @include constentPaddinInline;
 
-
-  @include onTablet {
-    padding-inline: 34px;
-    padding-top: 39px;
-    @include constentPaddinInline;
-
+  &__wrap {
+    background-color: $background-color;
   }
 
   &__content {
+    @include constentPaddinInline;
+    padding-block: 27px;
+
     @include onTablet {
       @include pageGrid;
       grid-column: 1/-1;
+      padding-block: 39px;
+    }
+
+    @include onDesktop {
+      padding-block: 40px 48px;
     }
   }
 
@@ -36,8 +40,10 @@
   }
 
   &__nav {
+
     @include onTablet {
       grid-column: 1/4;
+      margin-inline: 38px;
     }
 
     @include onDesktop {
