@@ -19,7 +19,41 @@
 
   @include onDesktop {
     margin-bottom: 200px;
-    height: 60vh;
+    height: 80vh;
+  }
+
+  &__event {
+    display: none;
+
+    &--element {
+      position: relative;
+      color: #687480;
+      font-family: 'IBM Plex Sans';
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 100%;
+
+      &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        width: 1px;
+        height: 70px;
+        background-color: $background-color;
+        transform: rotate(-90deg);
+        left: -60px;
+        top: -27px;
+      }
+    }
+
+    @include onDesktop {
+      position: absolute;
+      display: flex;
+      transform: rotate(-90deg);
+      @include constentPaddinInline;
+      left: -10px;
+      top: 450px;
+    }
   }
 
   &__logo {
@@ -78,11 +112,13 @@
       font-weight: 500;
       line-height: 100%;
       box-sizing: border-box;
+      justify-content: center;
 
       @include onTablet {
         grid-column: 1/3;
         grid-row: 1/-1;
         margin-top: 130%;
+        height: 70px;
       }
 
       @include onDesktop {
@@ -106,6 +142,12 @@
           background-image: url("/images/icons/arrow-black.svg");
           background-color: $rectangle-color;
         }
+
+        @include onTablet {
+          width: 70px;
+          height: 70px;
+          padding-inline: 25px;
+        }
       }
 
       &-tickets {
@@ -121,6 +163,7 @@
 
         @include onTablet {
           padding-inline: 68px;
+          padding-block: 28px;
         }
       }
     }
