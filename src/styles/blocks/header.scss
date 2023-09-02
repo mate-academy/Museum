@@ -1,8 +1,4 @@
 .header {
-  background-image: url("/images/header-img.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top;
   position: relative;
   box-sizing: border-box;
   @include pageGrid;
@@ -11,15 +7,50 @@
   row-gap: 20px;
   margin-bottom: 70px;
 
+  &__top {
+    grid-column: 1/-1;
+    height: 300px;
+
+    @include onTablet {
+      height: 89px;
+    }
+    @include onDesktop {
+      height: 117px;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 300px;
+    background-image: url("/images/header-img.png");
+    background-size: cover;
+    background-position: 50%;
+    z-index:-1;
+
+    @include onTablet {
+      left: 400px;
+      bottom: 0;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      left:50%;
+      height: 655px;
+    }
+  }
+
   @include onTablet {
+    row-gap: 38px;
     margin-bottom: 88px;
     background-position: right;
-    height: 65vh;
   }
 
   @include onDesktop {
+    row-gap: 89px;
     margin-bottom: 200px;
-    height: 80vh;
   }
 
   &__event {
@@ -52,7 +83,7 @@
       transform: rotate(-90deg);
       @include constentPaddinInline;
       left: -10px;
-      top: 450px;
+      top: 520px;
     }
   }
 
@@ -76,28 +107,28 @@
   }
 
     &__title {
-      margin-top: 110%;
+      height: fit-content;
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
       line-height: 100%;
       font-size: 45px;
       text-align: center;
       grid-column: 1 / -1;
+      // margin-top: 40vh;
 
       @include onTablet {
         grid-column: 1 / 3;
-        grid-row: 1/2;
+        // grid-row: 1/2;
         font-size: 54px;
         line-height: 120%;
         text-align: left;
 
-        margin-top: 60%;
       }
 
       @include onDesktop {
         grid-column: 1/5;
         font-size: 72px;
-        margin-top: 40%;
+        // margin-top: 40%;
       }
     }
 
@@ -116,14 +147,14 @@
 
       @include onTablet {
         grid-column: 1/3;
-        grid-row: 1/-1;
-        margin-top: 130%;
+        // grid-row: 1/-1;
+        // margin-top: 130%;
         height: 70px;
       }
 
       @include onDesktop {
         grid-column: 3/6;
-        margin-top: 160%;
+        // margin-top: 160%;
       }
 
       &-button {
