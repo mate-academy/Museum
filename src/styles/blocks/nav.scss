@@ -1,0 +1,53 @@
+.nav {
+  &__list {
+    &--footer {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+
+      @include onTablet {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+    }
+
+    &--sidebar {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 24px;
+      row-gap: 28px;
+
+    }
+  }
+      
+  &__item {
+    flex-basis: 44%;
+
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--mobile-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @for $start from 1 through 3 {
+      @for $end from $start through 3 {
+        &--tablet-#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    color: inherit;
+    max-width: max-content;
+
+    @include hover(transform, scale(1.2));
+  }
+}

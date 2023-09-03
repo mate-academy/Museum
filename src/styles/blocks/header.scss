@@ -1,0 +1,174 @@
+.header {
+  position: relative;
+
+  @include onTablet {
+    height: 50vw;
+  }
+
+  @include onDesktop {
+    height: 100vh;
+  }
+
+  &__container {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+  }
+  
+  &__backgraund {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    padding-bottom: 100%;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/photo/header-back.jpg);
+
+    @include onTablet {
+      left: 50%;
+
+      padding-bottom: 50%;
+    }
+
+    @include onDesktop {
+      height: 100vh;
+      padding-bottom: 0;
+      left: 46%;
+      bottom: 0;
+    }
+
+    @include onLargeScreen {
+      width: 1160px;
+      top: 0;
+      bottom: 0;
+      right: initial;
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 100%;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+
+      margin-bottom: 40px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__open-menu {
+    justify-self: start;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__logo {
+    justify-self: center;
+
+    font-size: 30px;
+    text-align: center;
+
+    @include onTablet {
+      margin-right: 31%;
+
+      font-size: 36px;
+
+    }
+  }
+
+  &__center {
+    @include onLargeScreen {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @extend %montserrat;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+
+    @include onTablet {
+      margin-bottom: 36px;
+      width: min-content;
+      font-size: 54px;
+      line-height: 120%;
+      text-align: start;
+    }
+
+    @include onDesktop {
+      margin-bottom: 88px;
+      font-size: 72px;
+    }
+  }
+
+  &__button {
+    @include onDesktop {
+      position: absolute;
+      right: 57%;
+    }
+  }
+
+  &__link-actions {
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    left: -115px;
+    padding-left: 90px;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: $c-text-hint;
+
+    transform: rotate(-90deg);
+
+    &:hover {
+      animation-name: heart-beat;
+      animation-duration: 0.6s;
+      animation-iteration-count: infinite;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 70px;
+      height: 1px;
+      background-color: $c-back-sidebar;
+    }
+  }
+
+  @keyframes heart-beat {
+    from {
+      transform: translateY(0) rotate(-90deg);
+    }
+
+    to {
+      transform: translateY(-10px) rotate(-90deg);
+    }
+  }
+}

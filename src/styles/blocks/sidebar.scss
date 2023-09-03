@@ -1,0 +1,77 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: $c-text-on-dark;
+
+  &__container-top {
+    flex-shrink: 0;
+    background-color: $c-back-sidebar;
+    padding: 28px 0;
+  }
+
+  &__content {
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__container {
+    display: flex;
+
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      flex-basis: 50%;
+      border-right: 1px solid rgba(255, 255, 255, 0.5);
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+
+  &__close-menu {
+    height: min-content;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__nav {
+    flex-basis: 100%;
+    max-width: 336px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
+    @include onDesktop {
+      font-size: 22px;
+    }
+  }
+
+  &__container-bottom {
+    flex-basis: 100%;
+    background-color: rgba(24, 24, 26, 0.5);
+  }
+
+  &__working-hours {
+    max-width: 280px;
+    margin: 0 auto;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: end;
+
+      max-width: max-content;
+    
+      &__weekend {
+        flex-basis: 33%;
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+.exhibition {
+  @include onDesktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__image {
+    margin-bottom: 16px;
+
+    width: 100%;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+
+    @include hover(transform, scale(1.08));
+  }
+
+  &__event {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 16px;
+
+    @include onTablet {
+      justify-content: start;
+      gap: 28px;
+
+      margin-bottom: 32px;
+    }
+  }
+
+  
+
+  &__title {
+    margin-bottom: 12px;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      margin-left: 4px;
+      margin-bottom: #{$page-section-font-size / 14};
+      width: #{$page-section-font-size / 2.8};
+      height: #{$page-section-font-size / 2.8};
+      background-color: $c-email-button;
+
+      @include onTablet {
+        margin-left: 8px;
+        margin-bottom: #{$page-section-font-size-on-tablet / 14};
+        width: #{$page-section-font-size-on-tablet / 2.4};
+        height: #{$page-section-font-size-on-tablet / 2.4};
+      }
+    }
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__paragraph {
+    max-width: 460px;
+
+    @include onDesktop {
+      width: 370px;
+    }
+  }
+}
