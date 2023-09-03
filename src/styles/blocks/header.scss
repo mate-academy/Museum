@@ -1,0 +1,73 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 70px;
+
+  &__event-badge-desktop {
+    display: none
+  }
+
+  &__burger-open {
+    position: absolute;
+    top: 34px;
+    left: 24px;
+    transition: scale $transition-time;
+
+    &:hover {
+      scale: 1.5;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    padding-top: 27px;
+  }
+
+  &__menu {
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  @media (min-width: 640px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 88px;
+
+    &__burger-open {
+      top: 46px;
+      left: 36px;
+    }
+  }
+
+  @media (min-width: 1120px) {
+    &__burger-open {
+      left: 58px;
+    }
+
+    &__event-badge-desktop {
+      position: absolute;
+      bottom: 60px;
+      left: 0;
+      transform: rotate(-90deg);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #687480;
+
+      &::before {
+        display: block;
+        content: "";
+        background-color: $c-greenny;
+        height: 1px;
+        width: 70px;
+      }
+    }
+  }
+}

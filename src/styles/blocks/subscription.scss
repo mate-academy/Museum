@@ -1,0 +1,105 @@
+.subscription {
+  height: 386px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 50px;
+  background-image: url(../images/Rectangle-22.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__content {
+    padding: 20px;
+    width: 100%;
+    max-width: 460px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #fff;
+    margin-bottom: 50px;
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr $button-arrow-size-S;
+
+    &-input {
+      border: none;
+      border-radius: 0;
+      width: 100%;
+      padding-left: 24px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      outline: transparent;
+    }
+
+    &-button {
+      display: block;
+      height: $button-arrow-size-S;
+      width: $button-arrow-size-S;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      background-color: $c-reddy;
+      border: none;
+      transition: 0.3s;
+
+      &:hover {
+        cursor: pointer;
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  @media (min-width: 640px) {
+    &__title {
+      font-size: 48px;
+      line-height: 48px;
+      margin-bottom: 16px;
+    }
+
+    &__text {
+      margin-bottom: 64px;
+    }
+
+    &__form {
+      $gap-translate-hover: 16px;
+
+      gap: $gap-translate-hover;
+
+      &-button {
+        display: block;
+        height: $button-arrow-size-L;
+        width: $button-arrow-size-L;
+
+        &:hover {
+          transform: translateX(-$gap-translate-hover);
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1120px) {
+    height: 550px;
+
+    &__content {
+      max-width: 570px;
+    }
+  }
+}
