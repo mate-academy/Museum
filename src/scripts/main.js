@@ -1,7 +1,6 @@
 'use strict';
 
 const buttons = document.querySelectorAll('.slider__btn');
-const submitBtn = document.getElementById('submitBtn');
 
 buttons.forEach(button => {
   button.addEventListener('click', () => {
@@ -10,12 +9,7 @@ buttons.forEach(button => {
   });
 });
 
-submitBtn.addEventListener('click', () => {
-  const email = document.getElementById('email');
-
-  if (email.checkValidity()) {
-    // eslint-disable-next-line no-undef
-    location.href = '';
-    email.value = '';
-  };
+document.getElementById('formId').addEventListener('submit', function(event) {
+  event.preventDefault();
+  document.getElementById('email').value = '';
 });
