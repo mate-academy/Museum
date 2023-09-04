@@ -1,8 +1,8 @@
 .subscribe {
-  background-image: url('../images/main/subscription.png');
+  background-image: url("../images/main/subscription.png");
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: $c-white;
 
   display: flex;
   flex-direction: column;
@@ -70,7 +70,7 @@
     font-family: "Montserrat", sans-serif;
 
     &:focus {
-      box-shadow: 1px 4px 16px 0px rgba(232, 232, 240, 0.40);
+      box-shadow: 1px 4px 16px 0 rgba(232, 232, 240, 0.4);
       font-weight: 500;
     }
 
@@ -88,14 +88,10 @@
     }
 
     &-btn {
-      // &:hover &::after {
-      //   @include hover(scale, 1.2);
-      // }
       position: relative;
       height: 100%;
       width: 100%;
       padding: 0;
-      // z-index: 1;
       background-color: #f14a27;
 
       &-wrapper {
@@ -111,13 +107,10 @@
         width: 50px;
         transition: all 0.3s ease-in-out;
 
-
         &:hover {
           background-color: transparent;
-          border: 1px solid #f14a27;
-        }
-        &:hover .subscribe__email-btn-arrow{
-          background-image: url('../images/icons/right.svg');
+          border: 1px solid $c-orange;
+
         }
 
         @include onTablet {
@@ -135,12 +128,16 @@
         position: absolute;
         height: 24px;
         width: 24px;
-        background-image: url('../images/icons/right-black.svg');
+        background-image: url("../images/icons/right-black.svg");
         background-position: center;
         background-repeat: no-repeat;
         cursor: pointer;
         @include hover(scale, 1.5);
-        pointer-events:none;
+        pointer-events: none;
+      }
+
+      &-wrapper:hover .subscribe__email-btn-arrow {
+        background-image: url("../images/icons/right.svg");
       }
     }
     &-wrapper {

@@ -5,14 +5,13 @@
   gap: 20px;
   margin-bottom: 70px;
   font-family: "Montserrat", sans-serif;
-  color: #0F0E08;
+  color: $c-dark;
 
   @include onTablet {
     @include pageGrid;
     margin-bottom: 88px;
   }
   @include onLaptop {
-    // height: 100vh;
     margin: 0 55px 200px;
   }
 
@@ -24,7 +23,7 @@
     width: 1px;
     height: 70px;
     display: none;
-    background: #1a5a4c;
+    background: $c-dark-green;
   }
 
   &::after {
@@ -39,7 +38,7 @@
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 700;
     line-height: 100%;
-    color: #687480;
+    color: $c-gray-light;
   }
   &::before,
   &::after {
@@ -50,7 +49,7 @@
   &__bg {
     position: relative;
     height: 300px;
-    background-image: url('../images/header/header-bg.png');
+    background-image: url("../images/header/header-bg.png");
     background-position: top;
     background-size: cover;
 
@@ -106,7 +105,7 @@
       line-height: 120%;
     }
 
-    @include onLaptop{
+    @include onLaptop {
       grid-column: 1 / 7;
       justify-content: center;
       gap: 89px;
@@ -135,12 +134,11 @@
   &__tickets {
     position: relative;
     display: flex;
-    // justify-content: space-between;
     align-items: center;
     height: 50px;
     width: 100%;
 
-    border: 1px solid #1a5a4c;
+    border: 1px solid $c-dark-green;
 
     @include onTablet {
       width: 80%;
@@ -162,7 +160,8 @@
       font-weight: 500;
       line-height: 100%;
 
-      @include hover(scale, 1.2)
+      @include hover(scale, 1.2);
+
     }
     &-right {
       position: absolute;
@@ -171,19 +170,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: fit-content;
       height: 100%;
       width: 50px;
       transition: all 0.3s ease-in-out;
-      background-color: #1a5a4c;
+      background-color: $c-dark-green;
 
       &:hover {
         background-color: transparent;
-        border-left: 1px solid #1a5a4c;
-      }
-
-      &:hover .header__tickets-right-link::after {
-        background-image: url('../images/icons/right-black.svg');
+        border-left: 1px solid $c-dark-green;
       }
 
       @include onTablet {
@@ -204,14 +198,18 @@
           position: absolute;
           height: 24px;
           width: 24px;
-          background-image: url('../images/icons/right.svg');
-          // background-position: center;
+          background-image: url("../images/icons/right.svg");
           background-repeat: no-repeat;
           cursor: pointer;
+
         }
-        @include hover(scale, 1.5)
+        @include hover(scale, 1.5);
+
+      }
+
+      &:hover .header__tickets-right-link::after {
+        background-image: url("../images/icons/right-black.svg");
       }
     }
   }
 }
-
