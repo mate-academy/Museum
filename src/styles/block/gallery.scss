@@ -1,0 +1,154 @@
+.gallery {
+
+  &__title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    color: $text-color;
+    margin-bottom: 40px;
+    
+    @include onTablet {
+      text-align: start;
+      font-size: 48px;
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+
+    @include onTablet {
+    margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      margin: 0 auto;
+      margin-bottom: 165px;
+      transform: translateX(0);
+    }
+  }
+
+  &__wraper {
+    display: flex;
+    overflow: hidden;
+
+    flex-direction: row;
+
+    @include onDesktop {
+      display: block;
+    }
+
+  }
+
+  &__list {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 100px;
+
+    @include onTablet {
+      margin-bottom: 92px;
+    }
+    
+    @include onDesktop {
+      display: none;
+      margin: 0;
+    }
+  }
+
+  &__button {
+    height: 9px;
+    width: 9px;
+    list-style: none;
+    border-radius: 50%;
+    appearance: none;
+    cursor: pointer;
+    background-color: rgb(228, 214, 214);
+    transition: all 0.3s;
+
+    &:checked {
+      color: $color-green;
+      background-color: $color-green;
+    }
+
+    &:hover {
+      transform: scale(1.4);
+    }
+  }
+
+  &__img {
+    width: 280px;
+    height: 410px;
+    transition: all 0.3s;
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+    }
+
+    @include onDesktop {
+      background-position: 50%;
+      background-size: cover;
+      width: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    &--1 {
+      background-image: url(../images/gallery-1.jpg);
+
+      @include onDesktop {
+        object-fit: cover;
+        object-position: 50%;
+        grid-column: 1 / 5;
+        height: 600px;
+        margin-bottom: 30px;
+      }
+
+    }
+
+    &--2 {
+      background-image: url(../images/gallery-2.jpg);
+
+      @include onDesktop {
+        grid-column: 5 / 13;
+        height: 600px;
+        
+      }
+
+    }
+
+    &--3 {
+      background-image: url(../images/gallery-3.jpg);
+
+      @include onDesktop {
+        grid-column: 1 / 9;
+        height: 360px;
+      }
+    }
+
+    &--4 {
+      background-image: url(../images/gallery-4.jpg);
+
+      @include onDesktop {
+        grid-column: 9 / 13;
+        height: 360px;
+      }
+    }
+  }
+}
