@@ -4,3 +4,35 @@
     #{$_property}: $_toValue;
   }
 }
+
+
+@mixin onTablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin onLaptop {
+  @media (min-width: #{$laptop-width}) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  display: grid;
+  --columns: 2;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+  margin-inline: 20px;
+
+  @include onTablet{
+    --columns: 6;
+    column-gap: 30px;
+    margin-inline: 34px;
+  }
+  @include onLaptop() {
+    --columns: 12;
+    margin-inline: 55px;
+  }
+}
+

@@ -1,0 +1,163 @@
+.subscribe {
+  background-image: url('../images/main/subscription.png');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  height: 386px;
+  padding-inline: 20px;
+
+  @include onTablet {
+    @include pageGrid;
+    margin: 0 !important;
+    height: 380px;
+    padding: 82px 0;
+    padding-inline: 34px;
+  }
+  @include onLaptop {
+    height: 550px;
+    padding: 0 55px;
+    row-gap: 64px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+    }
+    @include onLaptop {
+      align-self: flex-end;
+      grid-column: 4 / 10;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onTablet {
+      grid-column: 3 / span 2;
+      font-size: 48px;
+    }
+  }
+
+  &__description {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+    }
+  }
+
+  &__email {
+    height: 100%;
+    width: 100%;
+    padding-left: 24px;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+
+    &:focus {
+      box-shadow: 1px 4px 16px 0px rgba(232, 232, 240, 0.40);
+      font-weight: 500;
+    }
+
+    @include onLaptop {
+      padding-left: 32px;
+    }
+
+    &::placeholder {
+      font-family: inherit;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 100%;
+      color: #687480;
+    }
+
+    &-btn {
+      // &:hover &::after {
+      //   @include hover(scale, 1.2);
+      // }
+      position: relative;
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      // z-index: 1;
+      background-color: #f14a27;
+
+      &-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 50px;
+        width: 50px;
+        transition: all 0.3s ease-in-out;
+
+
+        &:hover {
+          background-color: transparent;
+          border: 1px solid #f14a27;
+        }
+        &:hover .subscribe__email-btn-arrow{
+          background-image: url('../images/icons/right.svg');
+        }
+
+        @include onTablet {
+          height: 70px;
+          width: 70px;
+          right: -86px;
+        }
+
+        @include onLaptop {
+          right: -100px;
+        }
+      }
+
+      &-arrow {
+        position: absolute;
+        height: 24px;
+        width: 24px;
+        background-image: url('../images/icons/right-black.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        @include hover(scale, 1.5);
+        pointer-events:none;
+      }
+    }
+    &-wrapper {
+      position: relative;
+      height: 50px;
+      width: 100%;
+
+      @include onTablet {
+        grid-column: 2 / -2;
+        height: 70px;
+      }
+
+      @include onLaptop {
+        grid-row: 2;
+        grid-column: 4 / 10;
+        align-self: flex-start;
+      }
+    }
+  }
+}
