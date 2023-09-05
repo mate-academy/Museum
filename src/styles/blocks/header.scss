@@ -1,0 +1,81 @@
+.header {
+  @include pageGrid;
+
+  &__bg-img {
+    background-image: url("../images/images/bg-img-header.png");
+    margin-inline: -$paddigInlineMobile;
+    display: flex;
+    background-size: cover;
+    background-position: bottom;
+    height: 300px;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      height: 384px;
+      margin-inline: initial;
+      margin-right: -$paddigInlineTablet;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / -1;
+      height: 655px;
+      margin-right: -$paddigInlineDesktop;
+    }
+  }
+
+  &__logo {
+    @extend %MontserratBar;
+    margin-top: 9px;
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      margin-top: 15px;
+      width: 220px;
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    @include onDesktop {
+      width: 170px;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    margin-top: 27px;
+
+    @include onTablet {
+      margin-top: 39px;
+    }
+  }
+
+  &__title {
+    @extend %MontserratH1;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 64.8px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 86.4px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+    }
+  }
+}
