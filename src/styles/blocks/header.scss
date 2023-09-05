@@ -83,7 +83,7 @@
     @include onTablet {
       font-size: 36px;
       left: 64px;
-      right: auto
+      right: auto;
     }
 
     @include hover(scale, 1.2);
@@ -139,7 +139,9 @@
     align-items: center;
     height: 50px;
     width: 100%;
+    cursor: pointer;
 
+    @include hover(scale, 1.1);
     border: 1px solid $c-dark-green;
 
     @include onTablet {
@@ -154,15 +156,23 @@
     &-left {
       display: flex;
       justify-content: center;
+      align-items: center;
+
+      height: 100%;
       width: calc(100% - 70px);
 
       text-transform: uppercase;
       font-family: "IBM Plex Sans", sans-serif;
       font-size: 16px;
       font-weight: 500;
+      text-align: center;
       line-height: 100%;
 
-
+      & a {
+        height: 100%;
+        width: 100%;
+        transform: translateY(40%);
+      }
     }
     &-right {
       position: absolute;
@@ -176,23 +186,17 @@
       transition: all 0.3s ease-in-out;
       background-color: $c-dark-green;
 
-      &:hover {
-        background-color: transparent;
-        border-left: 1px solid $c-dark-green;
-      }
-
       @include onTablet {
         height: 70px;
         width: 70px;
       }
-      &:hover::after {
-        transform: scale(2);
-        transition-duration: 0.3s;
-      }
 
       &-link {
-        height: 24px;
-        width: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
 
         &::after {
           content: "";
@@ -204,12 +208,6 @@
           cursor: pointer;
 
         }
-        @include hover(scale, 1.5);
-
-      }
-
-      &:hover .header__tickets-right-link::after {
-        background-image: url("../images/icons/right-black.svg");
       }
     }
   }
