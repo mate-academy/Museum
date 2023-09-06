@@ -1,0 +1,99 @@
+.footer {
+  &__inner {
+    @include pageGrid;
+
+    row-gap: 40px;
+    padding-block: 50px;
+
+    @include onTablet {
+      padding-bottom: 35px;
+      row-gap: 64px;
+    }
+
+    @include onDesktop {
+      padding-top: 47px;
+      row-gap: 0;
+    }
+  }
+
+  &__icons {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include onTablet {
+      grid-column: 1 / 2;
+      flex-direction: column;
+      align-items: start;
+      justify-content: normal;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__logo {
+    @extend %logo;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @include onTablet {
+      padding-top: 62px;
+    }
+  }
+
+  &__line {
+    margin-top: 30px;
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 1px;
+    background-color: $clr--line-footer;
+
+    @include onTablet {
+      margin-top: 0;
+      grid-column: 2 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 8;
+      justify-self: center;
+      height: 100%;
+      width: 1px;
+      background-color: $clr--line-footer;
+    }
+  }
+
+  &__copyright {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 40px;
+
+    font-size: 12px;
+    font-weight: 300;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+
+      padding-top: 56px;
+
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      padding-top: 40px;
+    }
+  }
+}

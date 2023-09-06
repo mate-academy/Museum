@@ -1,0 +1,38 @@
+.footer__menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column: 1 / -1;
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-column: 2 / 6;
+  }
+  @include onDesktop {
+    grid-column: 8 / -2;
+    padding-block: 0;
+  }
+
+  &--col1 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 1 / 0;
+  }
+
+  &--col2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 0 / -1;
+  }
+
+  &--link {
+    width: 100%;
+    display: inline-block;
+
+    color: $clr--main;
+    font-weight: 400;
+
+    @include hover(color, $clr--nav-hover);
+  }
+}
