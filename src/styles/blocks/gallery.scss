@@ -1,0 +1,138 @@
+.gallery {
+  margin-left: 20px;
+  margin-right: 20px;
+  @include onTablet {
+    margin-left: 56px;
+    margin-right: 55px;
+  }
+
+  &__title {
+    color: $text-color;
+    font-family: Montserrat, sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 200px;
+    margin-bottom: 56px;
+  }
+
+  &__photos {
+    @include pageGrid;
+    margin-bottom: 16px;
+    row-gap: 30px;
+  }
+
+  &__link {
+    position: relative;
+    &--wide {
+      grid-column: span 2;
+      @include onTablet {
+        grid-column: span 3;
+      }
+      @include onDesktop {
+        grid-column: span 8;
+      }
+    }
+
+    &--square {
+      height: 0;
+      padding-bottom: 100%;
+        grid-column: span 2;
+      @include onTablet {
+        grid-column: span 3;
+      }
+      @include onDesktop {
+        grid-column: span 4;
+      }
+    }
+
+    &--rectangle {
+      height: 600px;
+      grid-column: span 2;
+      @include onTablet {
+        grid-column: span 3;
+      }
+      @include onDesktop {
+      grid-column: span 4;
+      }
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    object-fit: fill;
+    cursor: pointer;
+    @include hover(transform, scale(1.05));
+    @include onDesktop {
+      height: 100%;
+    }
+  }
+}
+
+.gallery-wrapper {
+  position: relative;
+}
+.slider {
+	display: grid;
+	grid-auto-flow: column;
+	scroll-snap-type: x mandatory;
+	border: 5px solid $main-color;
+	overflow-y: hidden;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+  @include onDesktop {
+    grid-auto-flow: row;
+  }
+}
+
+.slide {
+  width: 100vw;
+	scroll-snap-align: start;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+  @include onTablet {
+    width: 41vw;
+  }
+  @include onDesktop {
+    width: 100%;
+  }
+
+}
+
+.dots {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	gap: 15px;
+	z-index: 1;
+
+  display: flex;
+	align-items: center;
+	justify-content: center;
+
+  @include onDesktop {
+    display: none;
+  }
+
+	a {
+		$dots-size: 8px;
+
+		width: $dots-size;
+		height: $dots-size;
+		border-radius: 50%;
+		background-color: black;
+		opacity: 0.75;
+		transition: opacity ease 250ms;
+		cursor: pointer;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+}

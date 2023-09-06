@@ -1,0 +1,114 @@
+.header {
+  height: 100vh;
+  margin-bottom: 200px;
+
+  @include onTablet {
+    background-position-x: center;
+  }
+  @include onDesktop {
+    background-position-x: center;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-rows: 70vh 30vh;
+
+    @include onTablet {
+      display: flex;
+      height: 100vh;
+    }
+    @include onDesktop {
+      height: 100vh;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 46px;
+    color: #000;
+    line-height: 120%;
+    letter-spacing: -1.5px;
+    text-align: center;
+    margin-bottom: 0px;
+
+    @include onTablet {
+      font-size: 56px;
+      margin-top: 206px;
+      text-align: left;
+    }
+    @include onDesktop {
+      font-size: 78px;
+    }
+
+    @include onComputer {
+      font-size: 120px;
+    }
+  }
+
+  &__right {
+    background-image: url(../images/namu_header.png);
+    margin-top: -150px;
+    background-size: cover;
+    grid-row: 1/2;
+
+    @include onTablet {
+      width: 50%;
+    }
+  }
+
+  &__left {
+    grid-row: 2/3;
+
+    @include onTablet {
+      padding-left: 55px;
+      width: 50%;
+    }
+
+    &-button {
+      margin-top: 20px;
+      margin-right: 30px;
+      text-align: center;
+      cursor: pointer;
+      @include hover(transform , scale(1.1));
+
+      @include onTablet {
+        float:left;
+        margin-top: 38px;
+      }
+      @include onDesktop {
+        float: right;
+        margin-top: 89px;
+      }
+    }
+
+    &-event {
+      color: #687480;
+      font-family: IBM Plex Sans;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%;
+      transform: rotate(-90deg);
+      float: left;
+      margin-top: 140px;
+      display: none;
+
+      @include onDesktop {
+        display: flex;
+       }
+
+      &-linear {
+        border-left: 2px #1a5a4c solid;
+        height: 70px;
+        position: absolute;
+        left: -50px;
+        top: -30px;
+        transform: rotate(-90deg);
+      }
+      &-text {
+      cursor: pointer;
+      @include hover(transform , scale(1.1));
+      }
+    }
+  }
+}

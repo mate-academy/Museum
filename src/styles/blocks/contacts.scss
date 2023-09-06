@@ -1,0 +1,154 @@
+.contacts {
+  box-sizing: border-box;
+  color: $text-color;
+  background: $main-color;
+  font-weight: 400;
+  overflow: auto;
+  margin: 47px 20px 0;
+
+  &__container {
+    @include pageGrid;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    grid-column: 1/3;
+
+    @include onTablet {
+      display: block;
+      grid-column: 1/2;
+    }
+  }
+   &__icons {
+      display: flex;
+      margin-right: 50px;
+      column-gap: 2/3;
+      @include onTablet {
+        column-gap: 1/2;
+        margin-left: 55px;
+        margin-top: 62px;
+    }
+    }
+
+  &_logo-link {
+    margin-left: 60px;
+    margin-bottom: 62px;
+  }
+
+  &__bottom {
+    column-count: 2;
+    color: $main-color;
+    font-family: IBM Plex Sans, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  &-linear {
+      grid-column: 1/2;
+
+      &-img {
+        width: 200%;
+        @include onTablet {
+          width: 100%;
+         }
+      }
+
+      @include onTablet {
+        grid-column: 2/6;
+        margin-bottom: 20px;
+        margin-top: 30px;
+      }
+
+      @include onDesktop {
+        border-left: 1px rgba(26, 90, 76, 0.50) solid;
+        height: 260px;
+        margin-top: 0px;
+        margin-left: 45px;
+        grid-column: span 1;
+
+        &-img {
+          display: none;
+        }
+      }
+  }
+
+  &__nav {
+    margin-bottom: 40px;
+  }
+
+  &__wrapper {
+      font-family: IBM Plex Sans, sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      margin-top: 0px;
+
+    &-left {
+      grid-column: 1/2;
+      @include onTablet {
+        grid-column: 2/4;
+      }
+
+      @include onDesktop {
+        grid-column: 3/5;
+      }
+    }
+    &-center {
+    grid-column: 2/3;
+
+      @include onTablet {
+        grid-column: 4/6;
+      }
+      @include onDesktop {
+        grid-column: 5/7;
+      }
+    }
+    &-right {
+      grid-column: 1/3;
+
+      @include onTablet {
+        grid-column: 2/6;
+      }
+      @include onDesktop {
+        grid-column: 8/13;
+      }
+    }
+  }
+
+
+    &__item {
+      list-style-type: none;
+      display: grid;
+      padding-bottom: 20px;
+    }
+    &__link {
+      text-decoration: none;
+      color: $text-color;
+    }
+    &__contact {
+      text-decoration: none;
+      color: $text-color
+    }
+    &-info {
+      text-decoration: none;
+      color: $text-color;;
+
+      &__value{
+        margin: 5px 0;
+        @include hover(transform , scale(1.1))
+      }
+    }
+
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding-left: 0px;
+      margin-top: 20px;
+
+      @include onDesktop {
+        margin-top: 0px;
+      }
+    }
+  }
