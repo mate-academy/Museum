@@ -1,0 +1,69 @@
+.header {
+  position: relative;
+
+  &__bg {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    right: 0;
+    @include pageGrid;
+  }
+
+  &__image {
+    height: 300px;
+    background-image: url(../images/header-bg.png);
+    background-size: cover;
+    background-position: right 10% top 25%;
+
+    grid-column: 1 / -1;
+    grid-row: 1 / 3;
+
+    @include onTablet {
+      background-position: center;
+      grid-column: 4 / -1;
+      height: 384px;
+    }
+    @include onDesktop {
+      grid-column: 6 / -1;
+      height: 655px;
+    }
+  }
+
+  &__menu {
+    @include pageGrid;
+  }
+
+  &__logo {
+    @include onTablet {
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop{
+      grid-column: 6 / -1;
+    }
+
+    width: 55px;
+    margin-left: -40px;
+    margin-top: -15px;
+    display: inline-block;
+    text-align: center;
+    @extend %logo;
+
+    @include hover(transform, scale(1.05));
+
+    font-size: 30px;
+
+    @include onTablet {
+      width: 220px;
+      margin-top: -15px;
+      margin-left: 0;
+      top: 15px;
+      font-size: 36px;
+    }
+
+    @include onDesktop {
+      width: 170px;
+    }
+  }
+}

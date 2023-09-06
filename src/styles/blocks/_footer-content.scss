@@ -1,0 +1,45 @@
+.footer__content {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column: 1 / -1;
+
+  @include onTablet {
+    grid-column: 2 / 6;
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-column: 3 / 7;
+    padding-bottom: 47px;
+    border-bottom: none;
+  }
+
+  &__schedule {
+    grid-column: 1 / 0;
+  }
+
+  &__contacts {
+    grid-column: 0 / -1;
+  }
+
+  &--text {
+    @extend %footer-content;
+  }
+
+  &--dist {
+    padding-block: 20px;
+  }
+
+  &--link {
+    margin: 0;
+    padding: 0;
+    @extend %footer-content;
+    
+    display: inline-block;
+
+    @include hover(transform, scale(1.02));
+    @include hover(color, $clr--nav-hover);
+
+  }
+}

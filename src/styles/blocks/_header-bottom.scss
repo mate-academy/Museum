@@ -1,0 +1,75 @@
+.header {
+  &__bottom {
+    position: relative;
+    @include pageGrid;
+
+    &--content {
+      grid-column: 1 / -1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include onTablet {
+        grid-column: 1 / 4;
+
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 6;
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 250px;
+    text-align: center;
+    font-size: 45px;
+    max-width: 320px;
+
+    @include onTablet {
+      margin-top: 40px;
+      max-width: 520px;
+
+      text-align: start;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      margin-top: 120px;
+      font-size: 72px;
+    }
+  }
+
+  &__events {
+    cursor: pointer;
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    top: 435px;
+    transform: rotate(-90deg);
+
+    @include onDesktop {
+      visibility: visible;
+    }
+
+    &--text {
+      position: relative;
+      color: $clr--article-title;
+      font-weight: 700;
+      line-height: 100%;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -80px;
+        top: 7px;
+        height: 1px;
+        width: 70px;
+        background-color: $clr--bg-menu;
+      }
+    }
+  }
+}
+
