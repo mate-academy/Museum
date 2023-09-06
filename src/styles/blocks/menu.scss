@@ -11,6 +11,14 @@
     @include onTablet{
       height: 50vh;
     }
+
+    &-top {
+      display: flex;
+
+      @include onTablet {
+        display: contents;
+      }
+    }
   }
 
   &__container {
@@ -35,24 +43,33 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    margin-left: 80px;
+    margin-left: 28px;
     @include onTablet {
       width: 40%;
       margin-left: 0px;
+
     }
     @include onDesktop {
       font-size: 20px;
+      margin-left: 80px;
     }
   }
 
   &-linear {
     border-left: 2px $main-color solid;
-    height: 340px;
+    height: 280px;
     position: fixed;
-    top: 10%;
+    top: 2%;
     left: 50%;
     transform: rotate(90deg);
+
     @include onTablet {
+      height: 200px;
+      top: 50px;
+      transform: rotate(0deg);
+    }
+
+    @include onDesktop {
       height: 200px;
       top: 50px;
       transform: rotate(0deg);
@@ -64,20 +81,24 @@
   }
 
   &__schedule {
-    margin-top: 70px;
-    margin-left: 50px;
+    margin-top: 24px;
+    margin-left: 20px;
 
     @include onTablet{
       width: 40%;
       margin-top: 0;
+      margin-left: 50px;
     }
     &-wrapper {
-      column-count: 2;
       font-family: IBM Plex Sans, sans-serif;
       font-size: 14px;
       font-style: normal;
       font-weight: 400;
       margin-top: 20px;
+
+      @include onTablet {
+        column-count: 2;
+      }
 
       &-bold {
         font-weight: 500;
