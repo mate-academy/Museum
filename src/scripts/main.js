@@ -12,7 +12,7 @@ buttonOne.addEventListener('click', () => {
 });
 
 buttonTwo.addEventListener('click', () => {
-  gallery.style.transform = 'translateX(-250px)';
+  gallery.style.transform = 'translateX(-300px)';
 });
 
 buttonThree.addEventListener('click', () => {
@@ -20,7 +20,7 @@ buttonThree.addEventListener('click', () => {
 });
 
 buttonFour.addEventListener('click', () => {
-  gallery.style.transform = 'translateX(-900px)';
+  gallery.style.transform = 'translateX(-700px)';
 });
 
 window.addEventListener('hashchange', () => {
