@@ -37,7 +37,7 @@
       height: 61px;
 
       &:hover {
-        transition: all 0.7s;
+        transition: all $transition-duration;
         transform: scale(1.4);
       }
 
@@ -151,7 +151,11 @@
           background-position: center;
           background-repeat: no-repeat;
           position: absolute;
-          animation: button-hover 0.7s ease-in-out infinite;
+          animation: button-hover $transition-duration ease-in-out infinite;
+        }
+
+        &:hover::after {
+          animation: none;
         }
 
         @keyframes button-hover {
@@ -188,8 +192,9 @@
         align-self: flex-start;
         text-transform: uppercase;
 
+        transition: all $transition-duration;
+
         &:hover {
-          transition: all 0.7s;
           transform: rotate(0deg) scale(2);
           color: rgb(53, 53, 53);
 
@@ -208,6 +213,8 @@
           background-color: $green;
           right: 100%;
           top: 50%;
+          transition: opacity 1s;
+          pointer-events: none;
         }
       }
     }
