@@ -1,0 +1,102 @@
+.lecture {
+  position: relative;
+
+  &__image {
+    --height: 210px;
+
+    position: absolute;
+    width: 100%;
+    height: var( --height);
+    object-fit: cover;
+
+    @include onTablet {
+      --height: 390px;
+      padding-inline: 34px;
+    }
+
+    @include onDesktop {
+      --height: 550px;
+      padding-inline: 0;
+    }
+  }
+
+  &__container {
+    --margin-top: 153px;
+
+    @include grid;
+    margin-top: var(--margin-top);
+
+    @include onTablet {
+      --margin-top: 306px;
+      max-width: 570px;
+      margin-inline: auto;
+    }
+
+    @include onDesktop {
+      --margin-top: 448px;
+    }
+  }
+
+  &__content {
+    --padding-bottom: 20px;
+
+    grid-column: 1 / -1;
+    padding-bottom: var(--padding-bottom);
+    cursor: pointer;
+
+    box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+    background-color: $c-white;
+
+    &:hover {
+      @include hover(transform, translateY(-15px));
+    }
+
+    @include onTablet {
+      --padding-inline: 55px;
+      --padding-bottom: 50px;
+
+      padding-inline: var(--padding-inline);
+    }
+
+    @include onDesktop {
+      --padding-inline: 100px;
+    }
+  }
+
+  &__info {
+    --padding-inline: 20px;
+    --padding-block: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--padding-block);
+    padding-inline: var(--padding-inline);
+
+    @include onTablet {
+      --padding-block: 45px 16px;
+      --padding-inline: 0;
+    }
+  }
+
+  &__category {
+    @include styleArticleCategory;
+  }
+
+  &__date {
+    @include styleArticleDate;
+
+    @include onTablet {
+      width: 220px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    @include styleArticleTitle;
+
+    @include onTablet {
+      text-align: left;
+    }
+  }
+}
