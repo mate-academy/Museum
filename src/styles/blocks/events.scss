@@ -1,0 +1,163 @@
+.events {
+  --gap: 60px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+
+  @include onTablet {
+    --gap: 112px;
+  }
+
+  @include onDesktop {
+    --gap: 104px;
+  }
+
+  &__title {
+    --margin-bottom: 40px;
+    margin-bottom: var(--margin-bottom);
+    text-align: center;
+
+    @include onTablet {
+      --margin-bottom: 48px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      --margin-bottom: 54px;
+    }
+  }
+
+  &__content {
+    --gap: 60px;
+
+    @include grid;
+    row-gap: var(--gap);
+
+    @include onTablet {
+      --gap: 64px;
+    }
+
+    @include onDesktop {
+      --gap: 104px;
+    }
+  }
+
+  &__item {
+    grid-column: 1 / -1;
+  }
+}
+
+.event {
+  cursor: pointer;
+
+  @include onDesktop {
+    @include grid;
+    align-items: center;
+  }
+
+  &__image {
+    --margin-bottom: 20px;
+    --height: 210px;
+
+    width: 100%;
+    height: var(--height);
+    object-fit: cover;
+    margin-bottom: var(--margin-bottom);
+    transition: transform $transition-duration;
+
+    @include onTablet {
+      --height: 520px;
+      --margin-bottom: 44px;
+    }
+
+    @include onDesktop {
+      grid-column: 1/8;
+      --margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    @include onDesktop {
+      grid-column: -1/-5;
+    }
+
+    @include grid;
+  }
+
+  &__info {
+    grid-column: 1/-1;
+    --margin-bottom: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--margin-bottom);
+
+    @include onTablet {
+      justify-content: flex-start;
+      gap: 25px;
+
+      --margin-bottom: 32px;
+    }
+  }
+
+  &__category {
+    @include styleArticleCategory;
+  }
+
+  &__date {
+    @include styleArticleDate;
+  }
+
+  &__title {
+    grid-column: 1/-1;
+    --margin-bottom: 10px;
+
+    width: fit-content;
+    position: relative;
+    margin-bottom: var(--margin-bottom);
+
+    @include styleArticleTitle;
+
+    @include onTablet {
+      --margin-bottom: 15px;
+    }
+
+    &--mark {
+      --size: 10px;
+
+      position: absolute;
+      right: -20px;
+      top: 45%;
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-color: $c-red;
+
+      @include onTablet {
+        --size: 15px;
+      }
+    }
+  }
+
+  &__description {
+    grid-column: 1/-1;
+
+    font-weight: 300;
+    line-height: 1.5;
+    color: $c-text;
+
+    @include onTablet {
+      grid-column: 1/5;
+    }
+
+    @include onDesktop {
+      grid-column: 1/-1;
+    }
+  }
+
+  &:hover > &__image {
+    transform: scale(1.05);
+  }
+}

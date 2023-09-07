@@ -1,0 +1,139 @@
+.gallery {
+  &__content {
+    @include grid;
+  }
+
+  &__inner {
+    --margin-bottom: 20px;
+
+    grid-column: 1/-1;
+    grid-row: 1;
+
+    height: 410px;
+    margin-block-end: var(--margin-bottom);
+    overflow: hidden;
+
+    @include onTablet {
+      --margin-bottom: 32px;
+      height: 543px;
+    }
+
+    @include onDesktop {
+      --margin-bottom: 0;
+      height: unset;
+    }
+  }
+
+  &__slider {
+    display: flex;
+    width: 400%;
+    height: 100%;
+
+    transition: transform $transition-duration;
+
+    @include onTablet {
+      --gap: 20px;
+      column-gap: var(--gap);
+
+      width: 195%;
+    }
+
+    @include onDesktop {
+      --gap: 30px;
+      width: unset;
+      gap: var(--gap);
+
+      @include grid;
+    }
+  }
+
+  &__slide {
+    flex-basis: 100%;
+    cursor: pointer;
+
+    @include onTablet {
+      flex-basis: 45%;
+
+      @include hover(transform, translateY(-15px));
+    }
+
+    &--vertical {
+      @include onDesktop {
+        height: 600px;
+      }
+    }
+
+    &--horizontal {
+      @include onDesktop {
+        height: 360px;
+      }
+    }
+
+    &:first-child {
+      @include onDesktop {
+        grid-column: 1/5;
+      }
+    }
+
+    &:nth-child(2) {
+      @include onDesktop {
+        grid-column: 5/-1;
+      }
+    }
+
+    &:nth-child(3) {
+      @include onDesktop {
+        grid-column: 1/9;
+      }
+    }
+
+    &:last-child {
+      @include onDesktop {
+        grid-column: 9/-1;
+      }
+    }
+  }
+
+  &__photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+  }
+
+  &__nav {
+    grid-column: 1/-1;
+
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+
+    user-select: none;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__circle {
+    display: block;
+    width: 9px;
+    height: 9px;
+    cursor: pointer;
+    background-color: $c-slider-circle;
+    border-radius: 50%;
+
+    @include hover(transform, scale(2));
+
+    &--active {
+      background-color: $c-main;
+    }
+
+    &:last-child {
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+}

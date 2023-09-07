@@ -1,0 +1,49 @@
+.nav {
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-around;
+    gap: 24px 28px;
+
+    @include onTablet {
+      gap: 24px 20px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    position: relative;
+    color: $c-white;
+    font-weight: 500;
+    line-height: 100%;
+    border-radius: 2px;
+
+    @include onDesktop {
+      font-size: 22px;
+    }
+
+    &::before {
+      content: "";
+      width: 0;
+      height: 3px;
+      position: absolute;
+      bottom: -10px;
+
+      border-radius: 3px;
+      background-color: transparent;
+      opacity: 0.5;
+      visibility: hidden;
+      transition: all $transition-duration;
+    }
+
+    &:hover::before {
+      width: 100%;
+      visibility: visible;
+      background-color: $c-white;
+    }
+  }
+}

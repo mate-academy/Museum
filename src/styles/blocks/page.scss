@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 400;
+  font-size: 16px;
+
+  scroll-behavior: smooth;
+
+  &:has(&__menu:target) {
+    overflow: hidden; /* not to scroll the page */
+  }
+
+  &__body {
+    background: $c-white;
+  }
+
+  &__header {
+    --offset: 70px;
+    margin-bottom: var(--offset);
+
+    @include onTablet {
+      --offset: 107px;
+    }
+
+    @include onDesktop {
+      --offset: 318px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+
+      transform: translateY(0);
+    }
+  }
+}
