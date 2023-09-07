@@ -1,0 +1,107 @@
+.gallery {
+  margin: 259px 0 129px;
+
+  @include onTablet {
+    margin: 206px 0 133px;
+  }
+
+  @include onDesktop {
+    margin: 302px 0 200px;
+  }
+
+  &--title {
+    @include paddingInline;
+  }
+}
+
+.picture {
+  .wrapper {
+    @include paddingInline;
+    @include respGrid;
+    gap: 20px;
+    @include onDesktop {
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    height: 410px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-column: 1 / -1;
+    @include hover(scale, 1.05);
+    @include onTablet {
+      height: 543px;
+    }
+    @include onDesktop {
+      height: 600px;
+    }
+
+  }
+
+  &--woman {
+    background-image: url(../images/gallery/national-clothes.jpg);
+    grid-row: 1;
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+    @include onDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &--geese {
+    background-image: url(../images/gallery/geese.jpg);
+    @include onTablet {
+      grid-column: 4 / -1;
+      grid-row: 1;
+    }
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--village {
+    grid-row: 3;
+    @include onDesktop {
+      grid-column: 5 / -1;
+      grid-row: 1;
+    }
+    background-image: url(../images/gallery/village.jpg);
+  }
+
+  &--park {
+    grid-row: 4;
+    background-image: url(../images/gallery/park.jpg);
+    background-position-x: -300px;
+
+    @include onTablet {
+      grid-row: 2;
+      grid-column: 1 / 5;
+      background-position-x: 0;
+      height: 360px;
+    }
+    @include onDesktop {
+      background-position-x: 0;
+      grid-column: 1 / 9;
+    }
+  }
+
+  &--sea {
+    grid-row: 5;
+    background-image: url(../images/gallery/sea-side.jpg);
+
+    @include onTablet {
+      grid-row: 2;
+      height: 360px;
+      grid-column: 5 / -1;
+    }
+
+    @include onDesktop {
+
+      grid-column: 9 / -1;
+      height: 360px;
+    }
+  }
+}

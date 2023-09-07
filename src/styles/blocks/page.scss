@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  font-size: 16px;
+  line-height: 140%;
+  scroll-behavior: smooth;
+
+  &__body {
+    min-width: 316px;
+    max-width: 1920px;
+    position: relative;
+    @include onWide {
+      margin: 0 auto;
+    }
+  }
+
+  &__menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    max-height: 100vh;
+
+    overflow-y: auto;
+
+    transition: all $transition-duration;
+    transform: translateY(-100%);
+
+    &:target {
+      z-index: 2;
+      display: block;
+      box-shadow: 0 0 0 100vh rgba(24,24,26,0.5);
+
+      @include onTablet {
+        display: grid;
+      }
+
+      transform: translateX(0);
+    }
+  }
+}

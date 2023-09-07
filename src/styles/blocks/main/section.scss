@@ -1,0 +1,232 @@
+.events {
+  font-family: "IBM Plex Sans", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+
+  @include onTablet {
+    gap: 64px;
+  }
+  @include onDesktop {
+    align-items: normal;
+    gap: 112px;
+  }
+
+  &__subtitle {
+    @include subtitle;
+  }
+}
+
+.section__title {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  width: 100%;
+  align-self: none;
+  padding-bottom: 40px;
+  text-align: center;
+  @include onTablet {
+    text-align: left;
+  }
+}
+
+.article-exhibition {
+  &__wrapper {
+    @include paddingInline;
+    @include respGrid;
+    max-width: 328px;
+    @include onTablet {
+      max-width: none;
+    }
+  }
+
+  &__image {
+    height: 210px;
+    width: 100%;
+    max-width: 280px;
+    grid-column: 1 / -1;
+    @include onTablet {
+
+      height: 520px;
+      max-width: 700px;
+    }
+    @include onDesktop {
+      grid-row: 2;
+      width: 670px;
+    }
+
+    @include hover(scale, 1.04);
+  }
+}
+
+.image-animation {
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.right {
+  transform: translateX(50%);
+}
+
+.image-animation.show {
+  opacity: 1;
+  transition: all $transition-duration;
+  transform: translateX(0%);
+}
+
+.event-description {
+  grid-row: 3;
+  grid-column: 1 / -1;
+  padding-top: 20px;
+  @include onTablet {
+    padding-top: 40px;
+  }
+  @include onDesktop {
+    align-self: center;
+    grid-column: 9 / -1;
+    grid-row: 2;
+  }
+  &--caption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    @include onTablet {
+      padding-top: 30px;
+    }
+    @include onTablet {
+      padding-top: 0;
+    }
+
+    &-type {
+      @include eventType;
+      width: 129px;
+    }
+
+    &-date {
+      @include eventDate;
+    }
+  }
+
+  &--title {
+    padding-block: 10px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 105%;
+      bottom: 35%;
+      display: inline;
+      width: 10px;
+      height: 10px;
+      background-color: $orange;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+        bottom: 30%;
+      }
+    }
+    @include onTablet {
+      padding-top: 30px;
+      padding-bottom: 15px;
+    }
+  }
+
+  &--paragraph {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: #4e4e4e;
+
+    @include onTablet {
+      max-width: 470px;
+    }
+    @include onTablet {
+      max-width: 370px;
+    }
+  }
+}
+
+.lecture {
+  height: 210px;
+  width: 100%;
+  background-size: cover;
+  background-image: url(../images/background/lecture-M-bg.png);
+
+  @include onTablet {
+    height: 390px;
+    background-image: url(../images/background/lect-T-bg.jpg);
+  }
+
+  @include onDesktop {
+    height: 550px;
+    background-size: cover;
+    background-image: url(../images/background/lect-d-bg.jpg);
+  }
+
+  @include stretchBg;
+
+  &__info {
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+    grid-column: 1 / -1;
+    padding-bottom: 20px;
+    transform: translateY(105%);
+
+    @include onTablet {
+      padding: 45px 50px;
+      margin-inline: auto;
+      transform: translateY(145%);
+      max-width: 615px;
+    }
+    @include onDesktop {
+      padding: 45px 100px 50px;
+      margin: 0;
+      grid-column: 4 / 10;
+      transform: translateY(225%);
+    }
+
+    &--caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding-block: 20px;
+      @include onTablet {
+        padding-block: 0;
+        padding-bottom: 16px;
+        justify-content: space-between;
+      }
+
+      &-type {
+        @include eventType;
+        display: inline;
+        @include onTablet {
+          display: inline-block;
+          width: 50%;
+        }
+
+      }
+
+      &-date {
+        @include eventDate;
+        display: inline;
+        @include onTablet {
+          display: inline-block;
+          width: 50%;
+        }
+      }
+    }
+
+    &--title {
+      @include subtitle;
+      text-align: center;
+      @include onTablet {
+        text-align: left;
+      }
+    }
+  }
+}
