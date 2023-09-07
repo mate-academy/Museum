@@ -1,0 +1,111 @@
+.events {
+  &__content {
+    display: block;
+
+    margin-bottom: 60px;
+
+    @include onTablet {
+      display: grid;
+
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 104px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    @include onTablet {
+      display: grid;
+      row-gap: 40px;
+    }
+
+    &--image {
+      box-sizing: border-box;
+      transition: transform $time-animation;
+
+      width: 100%;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__image {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__info__box {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+      justify-content: start;
+    }
+
+    &--text {
+      @include eventName;
+
+      margin-top: 3px;
+
+      @include onTablet {
+        margin-right: 30px;
+      }
+    }
+
+    &--date {
+      @include eventDate;
+    }
+  }
+
+  &__subtitle {
+    @include eventTitle;
+    
+    margin-bottom: 10px;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: $button-sub-color;
+
+      margin-bottom: 2px;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    @include onTablet {
+      margin-bottom: 15px;
+
+      font-size: 36px;
+    }
+  }
+
+  &__text {
+    font-family: $font-text;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: $text-color;
+  }
+}
