@@ -48,8 +48,8 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 10. `git add . && git commit -m 'solution'` to save your changes.
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
-13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Museum/).
+13. Replace `mukutiuk` with your Github username in the
+  [DEMO LINK](https://mukutiuk.github.io/Museum/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.
