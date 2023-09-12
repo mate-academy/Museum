@@ -57,7 +57,7 @@
     border: 1px solid $c-green;
     box-sizing: border-box;
     background-color: $c-white;
-    @include hover(background-color, #8d8d8d1c);
+
     @include active(transform, scale(0.9));
     cursor: pointer;
     
@@ -93,7 +93,21 @@
         height: 24px;
         background-image: url(/images/button/btn-arr.svg);
       }
-      @include hover(background-color, #10362e);
+      // @include hover(background-color, #10362e);
+    }
+
+    &:hover {
+      transition: 0.3s;
+      background-color: #10362e;
+      color: $c-white;
+
+      .header__button--arrow {
+        background-color: #10362e;
+      }
+
+      .header__button--title {
+        color: $c-white;
+      }
     }
   }
 
@@ -142,6 +156,10 @@
       margin-right: -55px;
       height: 655px;
     }
+
+    @include onDesign {
+      margin-right: 0;
+    }
     
     z-index: 0;
     height: 300px;
@@ -184,6 +202,7 @@
   position: absolute;
 
   opacity: 0;
+  @include hover(transform, scale(1.2));
 
   @include onDesktop {
     opacity: 1;
@@ -195,19 +214,11 @@
   gap: 20px;
 
   &--text {
-    // writing-mode: vertical-rl;
     writing-mode: tb-rl;
     transform: rotate(180deg);
-    // position: absolute;
-    // left: 0;
-    // align-self: flex-start;
-    // transform: rotate(-90deg);
-    // margin-right: 20px;
-    // margin-bottom: 40px;
   }
 
   &--line {
-    // position: absolute;
     background: $c-green;
     width: 1px;
     height: 70px;
