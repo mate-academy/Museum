@@ -1,0 +1,141 @@
+.subscription {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%,
+  rgba(0, 0, 0, 0.75) 100%),
+    url(/images/subscription/background.jpg),
+    lightgray 50% / cover no-repeat;
+  background-position: center;
+  background-size: 700px;
+  padding: 88px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include onTablet {
+    padding: 82px 0;
+    background-size: 1100px;
+  }
+
+  @include onDesktop {
+    padding: 164px 0;
+    background-size: 1700px;
+    // max-width: 1200px;
+  }
+
+  &__title {
+    color: $c-white;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 36px */
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__description {
+    color: $c-white;
+    text-align: center;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 27px */
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__field {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    @include onTablet {
+      gap: 16px;
+    }
+
+    &--email {
+      box-sizing: border-box;
+      padding: 18px 24px;
+      color: $c-black;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 100%; /* 14px */
+      height: 50px;
+      width: 100%;
+
+      @include onTablet {
+        width: 374px;
+        height: 70px;
+      }
+
+      @include onDesktop {
+        width: 470px;
+      }
+
+      
+      &::placeholder {
+        color: $c-placeholder-email;
+      }
+      @include hover(background-color, $c-red);
+
+      &:focus {
+        background-color: $c-white;
+      }
+      
+      &:-webkit-autofill {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+          caret-color: $c-black;
+          -webkit-text-fill-color: $c-black;
+          // -webkit-box-shadow: none;
+          -webkit-box-shadow: 0 0 0 1000px $c-white inset;
+          background-color: $c-white;
+          // transition: background-color 5000s ease-in-out 0s;
+        }
+      }
+    }
+    
+    &--button {
+      display: flex;
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      background: $c-red;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      @include onTablet {
+        width: 70px;
+        height: 70px;
+      }
+
+      &--arrow {
+        width: 24px;
+        height: 24px;
+        background-image: url(/images/button/btn-arr-black.svg);
+      }
+
+      @include hover(background-color, #c73d21);
+      @include active(transform, scale(0.9));
+      
+    }
+  }
+}

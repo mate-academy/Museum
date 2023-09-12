@@ -1,7 +1,119 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "blocks";
+
+.main {
+  &__content {
+    display: grid;
+    row-gap: 100px;
+    padding-block: 100px;
+
+    @include onTablet {
+      row-gap: 88px;
+      padding-block: 88px;
+    }
+
+    @include onDesktop {
+      row-gap: 200px;
+      padding-block: 200px;
+    }
+
+    &:nth-last-child(1) {
+      padding-bottom: 0;
+    }
+  }
+
+  &__section {
+    &--title {
+      color: $c-black;
+      text-align: center;
+      font-family: "Montserrat", sans-serif;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%; /* 36px */
+
+      margin-bottom: 40px;
+
+      @include onTablet {
+        font-size: 48px;
+        margin-bottom: 48px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 56px;
+      }
+
+      &--block {
+        color: $c-black;
+        font-family: "Montserrat", sans-serif;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%; /* 28px */
+
+        @include onTablet {
+          font-size: 36px;
+        }
+      
+      }
+
+      &--description {
+        color: $c-description;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 150%; /* 24px */
+      }
+    }
+
+    &--titled {
+      color: #687480;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100%; /* 16px */
+
+      @include onTablet {
+        font-size: 14px;
+      }
+
+      &-b {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 150%;
+      }
+    }
+  }
+}
 
 body {
-  background: $c-gray;
+  background: $c-white;
+  font-family: "IBM Plex Sans", sans-serif;
+  box-sizing: border-box;
+  min-width: 320px;
+}
+
+.page {
+  scroll-behavior: smooth;
+  
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
 }
