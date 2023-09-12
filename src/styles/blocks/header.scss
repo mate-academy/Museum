@@ -1,0 +1,227 @@
+.header {
+  &__container {
+    position: relative;
+    padding-block: 27px;
+
+    @include onTablet {
+      padding-block: 39px;
+    }
+  }
+  &__wrapper {
+    @include onTablet {
+      @include pageGrid;
+    }
+
+    &--background {
+      @include onTablet {
+        grid-column: 4 / 7;
+      }
+
+      @include onDesktop {
+        grid-column: 6 / 13;
+      }
+
+      @include onDesign {
+        grid-column: 7 / 13;
+      }
+    }
+
+    &--main {
+      @include onTablet {
+        order: -1;
+        grid-column: 1 / 4;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 6;
+      }
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      align-items: flex-start;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    border: 1px solid $c-green;
+    box-sizing: border-box;
+    background-color: $c-white;
+
+    @include active(transform, scale(0.9));
+    cursor: pointer;
+    
+    @include onTablet {
+      width: 269px;
+    }
+
+    @include onDesktop {
+      align-self: flex-end;
+      width: 269px;
+    }
+
+    &--title {
+      color: $c-black;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100%; /* 16px */
+      margin: 0 auto;
+    }
+
+    &--arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70px;
+      height: 70px;
+      background: $c-green;
+
+      &--img {
+        width: 24px;
+        height: 24px;
+        background-image: url(/images/button/btn-arr.svg);
+      }
+      // @include hover(background-color, #10362e);
+    }
+
+    &:hover {
+      transition: 0.3s;
+      background-color: #10362e;
+      color: $c-white;
+
+      .header__button--arrow {
+        background-color: #10362e;
+      }
+
+      .header__button--title {
+        color: $c-white;
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    width: 280px;
+    color: #000;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 45px */
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 38px;
+      font-size: 54px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-bottom: 89px;
+      font-size: 72px;
+    }
+  }
+
+  &__background {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-top: -51px;
+
+    @include onTablet {
+      margin-left: 0;
+      margin-top: -63px;
+      margin-right: -39px;
+      justify-content: flex-start;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      margin-right: -55px;
+      height: 655px;
+    }
+
+    @include onDesign {
+      margin-right: 0;
+    }
+    
+    z-index: 0;
+    height: 300px;
+    background-image: url(/images/header/header-background.jpg);
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    margin-bottom: 20px;
+
+    &--logo {
+      color: $c-black;
+      text-align: center;
+      font-family: "Montserrat", sans-serif;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%; /* 30px */
+      padding-top: 9px;
+
+      @include onTablet {
+        width: 220px;
+        padding-top: 15px;
+      }
+
+      @include onDesktop {
+        width: 170px;
+      }
+    }
+  }
+}
+
+.events {
+  color: #687480;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 14px */
+  position: absolute;
+
+  opacity: 0;
+  @include hover(transform, scale(1.2));
+
+  @include onDesktop {
+    opacity: 1;
+  }
+
+  top: 522px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &--text {
+    writing-mode: tb-rl;
+    transform: rotate(180deg);
+  }
+
+  &--line {
+    background: $c-green;
+    width: 1px;
+    height: 70px;
+    margin-left: 6px;
+  }
+}

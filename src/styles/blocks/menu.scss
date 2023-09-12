@@ -1,0 +1,171 @@
+.menu {
+  padding-block: 27px;
+  z-index: 2;
+  @include onTablet {
+    padding-block: 39px;
+  }
+
+  @include onDesktop {
+    padding-block: 40px;
+  }
+
+  background: $c-green;
+  position: relative;
+  box-sizing: border-box;
+
+  &__container {
+    display: flex;
+
+    // padding-inline: 20px;
+
+    @include onTablet {
+      // padding-inline: 39px;
+    }
+
+    @include onDesktop {
+      // padding-inline: 55px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 38px;
+    }
+
+    @include onDesktop {
+      gap: 102px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    column-gap: 28px;
+    padding-left: 28px;
+
+    @include onTablet {
+      padding: 0;
+    }
+
+    &-block {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 228px;
+      row-gap: 24px;
+      column-gap: 28px;
+
+      @include onTablet {
+        padding-left: 0;
+        width: 220px;
+        column-gap: 20px;
+      }
+
+      @include onDesktop {
+        width: 360px;
+        column-gap: 31px;
+      }
+      
+      &--link {
+        position: relative;
+        color: $c-white;
+
+        @include hover(color, #c4c4c4);
+    
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: -8px;
+
+          height: 2px;
+          width: 100%;
+          
+          border-radius: 4px;
+          background: $c-white;
+
+          transition: transform 0.3s;
+          transform: scale(0);
+          transform-origin: left;
+        }
+
+        &:hover::after {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  &__midle--line {
+    height: 1px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      width: 1px;
+      height: 150px;
+    }
+  }
+
+  &__bottom {
+    &--wrapper {
+      display: flex;
+      flex-direction: column;
+
+      @include onTablet {
+        flex-direction: row;
+        gap: 38px;
+      }
+
+      @include onDesktop {
+        gap: 30px;
+      }
+    }
+    &--title {
+      margin-bottom: 20px;
+    }
+
+    &--list {
+      margin-bottom: 16px;
+
+      @include onTablet {
+        min-width: 158px;
+      }
+    }
+
+    &--weekends {
+      @include onTablet {
+        width: 144px;
+      }
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    margin-top: 27px;
+
+    @include onTablet {
+      margin-top: 39px;
+    }
+  
+    @include onDesktop {
+      margin-top: 40px;
+    }
+
+    width: 100%;
+    display: block;
+    background-color: #18181a;
+    opacity: 0.5;
+    height: 100vh;
+  }
+}

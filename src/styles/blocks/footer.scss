@@ -1,0 +1,259 @@
+.footer {
+  color: $c-black;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+
+  padding: 50px 0 36px;
+
+  @include onTablet {
+    padding: 51px 0 36px;
+  }
+
+  @include onDesktop {
+    padding: 48px 0 35px;
+  }
+  
+  &__logo {
+    color: $c-black;
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%; /* 36px */
+
+    @include hover(transform, scale(1.2));
+  }
+  &__title {
+    line-height: 140.63%; /* 19.688px */
+  }
+
+  &__description {
+    line-height: 150%; /* 21px */
+
+    &--b {
+      font-weight: 600;
+    }
+  }
+
+  &__nav--link {
+    color: $c-black;
+    line-height: 100%; /* 14px */
+    position: relative;
+
+    @include hover(color, $c-red);
+    
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -8px;
+
+      height: 2px;
+      width: 100%;
+      
+      border-radius: 4px;
+      background: $c-black;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &__wrapper {
+    // display: flex;
+    // flex-direction: column;
+    gap: 40px;
+    @include pageGrid;
+    margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 120px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 87px;
+    }
+
+    &--top {
+      grid-column: 1 / -1;
+
+      @include onTablet {
+        grid-column: 1 / 2;
+      }
+     
+    }
+
+    &--work-time {
+      grid-column: 1 / 2;
+
+      @include onTablet {
+        grid-column: 2 / 3;
+      }
+
+      @include onDesktop {
+        grid-column: 3 / 5;
+      }
+    }
+
+    &--contacts {
+      grid-column: 2 / 4;
+      
+      @include onTablet {
+        grid-column: 4 / 6;
+      }
+
+      @include onDesktop {
+        grid-column: 5 / 7;
+      }
+    }
+
+    &--line {
+      grid-column: 1 / -1;
+
+      @include onTablet {
+        grid-column: 2 / 6;
+      }
+
+      @include onDesktop {
+        grid-column: 7 / 8;
+      }
+    }
+
+    &--nav--1 {
+      grid-column: 1 / 2;
+
+      @include onTablet {
+        grid-column: 2 / 3;
+      }
+
+      @include onDesktop {
+        grid-column: 8 / 9;
+      }
+    }
+
+    &--nav--2 {
+      grid-column: 2 / 3;
+
+      @include onTablet {
+        grid-column: 4 / 5;
+      }
+
+      @include onDesktop {
+        grid-column: 10 / 11;
+      }
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include onTablet {
+      flex-direction: column;
+      justify-content: normal;
+      gap: 62px;
+    }
+    // margin-bottom: 40px;
+    &--socials {
+      display: flex;
+      gap: 20px;
+    }
+
+    &--social {
+      display: block;
+      width: 24px;
+      height: 24px;
+      @include hover(transform, scale(1.2));
+      &--facebook {
+        background-image: url(/images/footer/facebook.svg);
+      }
+
+      &--instagram {
+        background-image: url(/images/footer/instagram.svg);
+      }
+    }
+  }
+
+  &__work-time {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      width: 220px;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      width: 220px;
+    }
+
+    &--list {
+      &--link {
+        color: inherit;
+        @include hover(color, $c-red);
+      }
+    }
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background: rgba(26, 90, 76, 0.5);
+
+    @include onDesktop {
+      width: 1px;
+      height: 100%;
+    }
+  }
+
+  &__nav--1 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__nav--2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    @include onTablet {
+      flex-direction: row;
+      // align-items: ;
+      justify-content: space-between;
+    }
+
+    &--text {
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 140.63%; /* 16.875px */
+
+      &--rights {
+        @include onTablet {
+          order: -1;
+        }
+      }
+    }
+  }
+}
