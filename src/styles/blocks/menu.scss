@@ -1,0 +1,140 @@
+.menu {
+  font-family: "IBM Plex Sans", sans-serif;
+
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+
+  &__content {
+    height: max-content;
+    max-width: 1170px;
+    padding: 27px 0 0;
+    overflow-y: auto;
+    display: grid;
+    column-gap: 20px;
+    background-color: #1a5a4c;
+
+    @include paddingInline;
+
+    --columns: 2;
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    @include onTablette {
+      --columns: 6;
+      column-gap: 30px;
+    }
+
+    @include onDesktop {
+      --columns: 12;
+      margin: 0 auto;
+      //padding-inline: 0 55px 0;
+    }
+  }
+
+  &__top-container {
+    grid-column: span 2;
+    display: flex;
+    gap: 28px;
+    height: max-content;
+    margin-bottom: 24px;
+
+    @include onTablette {
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__divider {
+    grid-column: span 2;
+    height: 1px;
+    background-color: #fff;
+    margin-bottom: 24px;
+
+    @include onTablette {
+      width: 1px;
+      height: 80%;
+      grid-column: span 1;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 8;
+      width: 1px;
+    }
+  }
+
+  &__top-content {
+    height: max-content;
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    gap: 28px;
+    grid-column: span 2;
+  }
+
+  &__1 {
+    grid-column: 1 / 2;
+    justify-content: left;
+  }
+
+  &__2 {
+    grid-column: 2 / 3;
+    height: max-content;
+  }
+
+  &__description {
+    grid-column: span 2;
+    margin-bottom: 27px;
+
+    @include onTablette {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+      grid-row: 1 / 2;
+      grid-column: 4 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 12;
+    }
+  }
+
+  &__description-1 {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  &__description-2 {
+
+    @include onTablette {
+      margin-top: 40px;
+    }
+  }
+
+  &__link {
+    display: block;
+    margin-bottom: 24px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: left;
+
+    &--footer {
+      display: block;
+      color: #0f0e08;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 14px;
+      text-align: left;
+      margin-top: 20px;
+    }
+  }
+}

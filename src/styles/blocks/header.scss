@@ -1,0 +1,151 @@
+.header {
+  position: relative;
+  text-transform: uppercase;
+  --hederBackgroundHeigh: 37vh;
+  --headerTitleContHigh: 20vh;
+  --navigationHeigh: 65px;
+  --headerTitleMarginTop: 20px;
+  --headerTitleMarginBottom: 20px;
+
+  &__content {
+    box-sizing: border-box;
+    height: calc(
+      var(--hederBackgroundHeigh)
+      + var(--headerTitleContHigh)
+      + var(--headerTitleMarginTop)
+    );
+    padding-top: 27px;
+    display: grid;
+    column-gap: 20px;
+    --columns: 2;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    margin-bottom: 70px;
+
+    @include paddingInline;
+
+    @include onTablette {
+      --columns: 6;
+      column-gap: 30px;
+      height: calc(
+        var(--hederBackgroundHeigh)
+        + var(--headerTitleContHigh)
+        + var(--headerTitleMarginTop)
+        - 39px
+      );
+
+      padding-top: 39px;
+      margin-bottom: 90px;
+    }
+
+    @include onDesktop {
+      --columns: 12;
+      // height: calc(
+      //   var(--headerTitleContHigh)
+      //   + var(--headerTitleMarginTop)
+      //   + var(--navigationHeigh)
+      // );
+      margin-bottom: 200px;
+    }
+  }
+
+  &__navigation {
+    height: max-content;
+    grid-column: span 2;
+
+    @include onTablette {
+      grid-column: 1 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 13;
+    }
+  }
+
+  &__title-container {
+    position: absolute;
+    top: calc(var(--hederBackgroundHeigh) + var(--headerTitleMarginBottom));
+    left: 0;
+    right: 0;
+    height: var(--headerTitleContHigh);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include paddingInline;
+
+    @include onTablette {
+      position: unset;
+      height: max-content;
+      padding: 0;
+      gap: 38px;
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+      padding-bottom: 40px;
+    }
+  }
+
+  &__title {
+    font-size: 45px;
+    line-height: 45px;
+    font-weight: 700;
+    margin: var(--headerTitleMarginTop) auto var(--headerTitleMarginBottom);
+    text-align: center;
+    color: #000;
+
+    @include onTablette {
+      text-align: left;
+      margin-inline: 0;
+      --headerTitleMarginTop: 64px;
+      --headerTitleMarginBottom: 38px;
+    }
+
+    @include onDesktop {
+      font-family: "Montserrat", sans-serif;
+      font-size: 72px;
+      line-height: 86px;
+      --headerTitleMarginTop: 143px;
+      --headerTitleMarginBottom: 89px;
+    }
+  }
+
+  &__button {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+
+    @include onDesktop {
+      align-self: flex-end;
+    }
+  }
+
+  &__logo-background {
+    position: absolute;
+    background-image: url(../images/headerBackground.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    z-index: -1;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: var(--hederBackgroundHeigh);
+    min-height: 300px;
+
+    @include onTablette {
+      width: 49%;
+      --hederBackgroundHeigh: 55vh;
+    }
+
+    @include onDesktop {
+      --hederBackgroundHeigh: calc(66vh - var(--headerTitleMarginBottom)) ;
+    }
+  }
+
+  &__logo {
+    height: max-content;
+  }
+}

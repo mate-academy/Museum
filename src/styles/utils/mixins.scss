@@ -1,0 +1,50 @@
+@mixin onLargeDesktop {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onTablette {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin paddingInline {
+  padding-inline: 20px;
+
+  @include onTablette {
+    padding-inline: 39px;
+  }
+
+  @include onDesktop {
+    padding-inline: 55px;
+  }
+}
+
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin photoContainer {
+  height: max-content;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: transform 1s;
+}
+
+@mixin photo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover ;
+  object-position: center;
+}

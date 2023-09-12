@@ -1,0 +1,190 @@
+.actual {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+
+  &__content {
+    height: max-content;
+    overflow-y: auto;
+    display: grid;
+    column-gap: 20px;
+
+    --columns: 2;
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    @include onTablette {
+      --columns: 6;
+      column-gap: 30px;
+    }
+  }
+
+  &__photo-container {
+    margin-bottom: 20px;
+    grid-column: span 2;
+    @include photoContainer;
+
+    @include onTablette {
+      max-height: 520px;
+      grid-column: 1 / 7;
+      padding-bottom: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+      margin-bottom: 100px;
+    }
+
+    &--last {
+      @include onTablette {
+        @include paddingInline;
+      }
+    }
+  }
+
+  &__photo {
+    @include photo;
+  }
+
+  &__title {
+    text-align: center;
+    margin: 0 0 40px;
+    grid-column: span 2;
+
+    @include onTablette {
+      grid-column: 1 / 5;
+      text-align: left;
+    }
+  }
+
+  &__text-container {
+    grid-column: span 2;
+
+    @include onTablette {
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / 13;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    text-align: left;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+
+    &--bold {
+      font-weight: 700;
+      text-align: left;
+      color: #1a5a4c;
+    }
+
+    &--upper {
+      font-weight: 500;
+      line-height: 16px;
+      text-transform: uppercase;
+    }
+
+    &--last {
+      grid-column: span 2;
+      margin: 20px 0 24px;
+      justify-content: space-between;
+      @include paddingInline;
+
+      @include onTablette {
+        grid-column: span 6;
+      }
+
+      @include onDesktop {
+        grid-column: 2 / 6;
+        padding: 0;
+      }
+    }
+  }
+
+  &__name {
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: center;
+    color: #0f0e08;
+
+    &--last {
+      margin: 0 0 20px;
+    }
+  }
+
+  &__name-container {
+    height: max-content;
+    grid-column: span 2;
+    display: flex;
+    flex-direction: row;
+    gap: 11px;
+    align-items: center;
+    margin-bottom: 10px;
+
+    &--last {
+      justify-content: center;
+      @include paddingInline;
+
+      @include onTablette {
+        grid-column: span 6;
+        justify-content: left;
+      }
+
+      @include onDesktop {
+        padding: 0;
+      }
+    }
+
+    @include onDesktop {
+      margin-bottom: 10px;
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__description {
+    font-weight: 300;
+    text-align: left;
+    color: #4e4e4e;
+    margin: 0 0 60px;
+  }
+
+  &__redSquare {
+    display: block;
+    background-image: url(/images/icons/redSquare.svg);
+    width: 10px;
+    height: 10px;
+  }
+
+  &__last {
+    position: absolute;
+    right: 20px;
+    left: 20px;
+    bottom: -80px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 2px 0 0 #1a5a4c40;
+
+    @include onTablette {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    @include onDesktop {
+      width: 50%;
+    }
+  }
+}
