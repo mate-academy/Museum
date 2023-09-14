@@ -1,19 +1,25 @@
 .header {
   position: relative;
   text-transform: uppercase;
+
   --hederBackgroundHeigh: 37vh;
-  --headerTitleContHigh: 20vh;
+  --headerTitleContainer: 20vh;
   --navigationHeigh: 65px;
   --headerTitleMarginTop: 20px;
   --headerTitleMarginBottom: 20px;
+  --headerPaddingTop: 39px;
+
+  &__logo {
+    height: max-content;
+  }
 
   &__content {
-    box-sizing: border-box;
     height: calc(
       var(--hederBackgroundHeigh)
-      + var(--headerTitleContHigh)
+      + var(--headerTitleContainer)
       + var(--headerTitleMarginTop)
     );
+
     padding-top: 27px;
     display: grid;
     column-gap: 20px;
@@ -28,22 +34,23 @@
       column-gap: 30px;
       height: calc(
         var(--hederBackgroundHeigh)
-        + var(--headerTitleContHigh)
+        + var(--headerTitleContainer)
         + var(--headerTitleMarginTop)
-        - 39px
+        - var(--headerPaddingTop)
       );
 
-      padding-top: 39px;
+      padding-top: var(--headerPaddingTop);
       margin-bottom: 90px;
     }
 
     @include onDesktop {
       --columns: 12;
-      // height: calc(
-      //   var(--headerTitleContHigh)
-      //   + var(--headerTitleMarginTop)
-      //   + var(--navigationHeigh)
-      // );
+      height: calc(
+        var(--hederBackgroundHeigh)
+        + var(--headerTitleContainer)
+        + var(--headerTitleMarginTop)
+        + var(--navigationHeigh)
+      );
       margin-bottom: 200px;
     }
   }
@@ -66,7 +73,7 @@
     top: calc(var(--hederBackgroundHeigh) + var(--headerTitleMarginBottom));
     left: 0;
     right: 0;
-    height: var(--headerTitleContHigh);
+    height: var(--headerTitleContainer);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -82,7 +89,7 @@
     }
 
     @include onDesktop {
-      grid-column: 1 / 7;
+      grid-column: 1 / 6;
       padding-bottom: 40px;
     }
   }
@@ -137,15 +144,12 @@
 
     @include onTablette {
       width: 49%;
-      --hederBackgroundHeigh: 55vh;
+      --hederBackgroundHeigh: 59vh;
     }
 
     @include onDesktop {
-      --hederBackgroundHeigh: calc(66vh - var(--headerTitleMarginBottom)) ;
+      --hederBackgroundHeigh: 71vh;
+      width: 58%;
     }
-  }
-
-  &__logo {
-    height: max-content;
   }
 }
