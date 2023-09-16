@@ -1,0 +1,191 @@
+.menu {
+  padding-block: 27px;
+  height: 100vh;
+  background-color: $c-green;
+  overflow: auto; /* to scroll the menu if needed */
+  z-index: 2;
+
+  @include onTablet {
+    padding-block: 39px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 48px;
+  }
+
+  &__content {
+    position: relative;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      @include pageGrid;
+      grid-column: 2 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 12;
+    }
+
+    &--footer {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 40px;
+
+      @include onTablet {
+        gap: 64px;
+      }
+      @include onDesktop {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  &__left {
+    display: flex;
+    padding-bottom: 24px;
+    grid-column: 1 / 4;
+
+    &--aside {
+      border-bottom: 1px solid $c-white;
+
+      @include onTablet {
+        border-bottom: 0;
+        border-right: 1px solid $c-white;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__right {
+    grid-column: 4 / -1;
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+    }
+
+    &--footer {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-bottom: 1px solid $c-line;
+      padding-bottom: 70px;
+      gap: 20px;
+
+      @include onDesktop {
+        border-bottom: 0;
+        border-right: 1px solid $c-line;
+        padding-bottom: 0;
+      }
+    }
+
+    &-contacts {
+      width: 70%;
+    }
+
+    &-container {
+      @include onTablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        column-gap: 38px;
+      }
+    }
+  }
+
+  &__name {
+    margin-top: 24px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    color: $c-title;
+
+    @include onTablet {
+      margin-top: 0;
+    }
+
+    &--aside {
+      color: $c-white;
+    }
+  }
+
+  &__block {
+    margin-top: 20px;
+    margin-bottom: 16px;
+
+    @include onTablet {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__schedule {
+    list-style: none;
+  }
+}
+
+.nav {
+  margin-left: 42px;
+
+  @include onDesktop {
+    margin-left: 80px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 34px;
+    row-gap: 24px;
+    list-style: none;
+
+    @include onDesktop {
+      column-gap: 60px;
+      row-gap: 30px;
+    }
+  }
+
+  &__link {
+    font-weight: 500;
+    color: $c-title;
+    @include onDesktop {
+      font-size: 22px;
+    }
+
+    &--aside {
+      color: $c-white;
+    }
+  }
+}
+
+.shedule__item {
+  font-weight: 400;
+  color: $c-title;
+  word-wrap: none;
+  &--aside {
+    color: $c-white;
+  }
+}
+
+.time {
+  font-weight: 600;
+  color: $c-title;
+  &--aside {
+    color: $c-white;
+  }
+}
+
+.weekends {
+  font-weight: 600;
+  color: $c-title;
+  &--aside {
+    color: $c-white;
+  }
+
+  &-info {
+    font-weight: 400;
+    color: $c-title;
+    &--aside {
+      color: $c-white;
+    }
+  }
+}
