@@ -1,0 +1,135 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  min-height: 82vh;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  @include onDesktop {
+    height: 100vh;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &__right {
+    height: 50vh;
+    @include contentPaddingInline;
+    background-image: url(../images/backgrounds/header-bg.png);
+    background-size: cover;
+    grid-column: 1 / 4;
+    margin-bottom: 20px;
+
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      grid-row: 1 / -1;
+      margin-bottom: 0;
+      height: 95%;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / -1;
+      grid-row: 1 / -1;
+      margin-bottom: 0;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 1 / -1;
+    @include contentPaddingInline;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      grid-row: 2 / -1;
+      gap: 38px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+      grid-row: 2 / -1;
+      gap: 89px;
+    }
+
+  }
+
+  &__logo {
+    width: 55px;
+    height: 61px;
+    margin-top: 9px;
+    text-align: center;
+    margin-inline: auto;
+    transition-duration: 0.3s;
+
+
+    @include onTablet {
+      width: 220px;
+      height: 72px;
+      margin-inline: 0;
+    }
+  }
+
+  &__tickets {
+    height: 50px;
+    display: flex;
+    margin-inline: auto;
+
+    @include onTablet {
+      height: 70px;
+    }
+
+    @include onDesktop {
+      justify-content: right;
+      margin: 0;
+    }
+
+
+
+    &-text {
+      box-sizing: border-box;
+      display: block;
+      width: fit-content;
+      padding: 16px 80px;
+      border: 1px solid $secondary-color;
+      transition: all 0.5s;
+
+      color: #0F0E08;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 100%;
+
+      &:hover {
+        transition-delay: 0.2s;
+        background-color: $secondary-color;
+        color: #fff;
+      }
+
+      @include onTablet {
+        padding: 27px 68px;
+      }
+
+    }
+
+    &-container-icon {
+      display: flex;
+      width: 50px;
+      height: 100%;
+      background-color: $secondary-color;
+      line-height: 50px;
+      align-items: center;
+      justify-content: center;
+      background-image: url(../images/icons/tickets-icon.svg);
+      background-position: center;
+      background-size: cover;
+
+      @include onTablet {
+        width: 70px;
+      }
+    }
+  }
+}
