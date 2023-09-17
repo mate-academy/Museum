@@ -60,23 +60,25 @@
   }
 
   &__right {
+    margin-left: 10px;
     grid-column: 4 / -1;
 
     @include onDesktop {
-      grid-column: 7 / -1;
+      grid-column: 8 / -1;
     }
 
     &--footer {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      border-bottom: 1px solid $c-line;
+      margin-left: 0;
       padding-bottom: 70px;
       gap: 20px;
+      border-bottom: 1px solid $c-line;
 
       @include onDesktop {
+        padding-bottom: 0;
         border-bottom: 0;
         border-right: 1px solid $c-line;
-        padding-bottom: 0;
       }
     }
 
@@ -87,9 +89,9 @@
     &-container {
       @include onTablet {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
         align-items: center;
-        column-gap: 38px;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 34px;
       }
     }
   }
@@ -125,7 +127,11 @@
 }
 
 .nav {
-  margin-left: 42px;
+  margin-left: 28px;
+
+  @include onTablet {
+    margin-left: 38px;
+  }
 
   @include onDesktop {
     margin-left: 80px;
@@ -160,8 +166,9 @@
 .shedule__item {
   font-weight: 400;
   color: $c-title;
-  word-wrap: none;
+  word-break: break-all;
   &--aside {
+    word-break: normal;
     color: $c-white;
   }
 }
