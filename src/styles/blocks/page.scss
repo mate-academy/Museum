@@ -1,0 +1,102 @@
+.page {
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+  line-height: 48px;
+  font-weight: 700;
+  color: $mainBlack;
+  scroll-behavior: smooth;
+  overflow: scroll;
+
+  &__body {
+    min-width: 320px;
+    margin: 0 auto;
+
+    &:has(.page__menu:target) {
+      overflow: hidden;
+      z-index: 1;
+    }
+  }
+
+  &__menu {
+    height: 50vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    transition: all $transitionDuration;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    @include onTablette {
+      height: max-content;
+    }
+
+    @include onDesktop {
+      margin: 0 auto;
+    }
+  }
+
+  &__menu-content {
+    grid-column: span 2;
+    display: flex;
+    gap: 28px;
+  }
+
+  &__section {
+    margin-bottom: 100px;
+
+    &:last-child {
+      margin-bottom: 50px;
+    }
+
+    @include onTablette {
+      margin-top: 140px;
+    }
+
+    @include onDesktop {
+      margin-top: 140px;
+    }
+
+    &--actual {
+      margin-top: 0;
+      margin-bottom: 180px;
+    }
+  }
+
+  &__section-content {
+    max-width: 1280px;
+    display: grid;
+    column-gap: 20px;
+    --columns: 2;
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    @include paddingInline;
+
+    @include onTablette {
+      --columns: 6;
+      column-gap: 30px;
+      height: max-content;
+    }
+
+    @include onDesktop {
+      --columns: 12;
+      margin: 0 auto;
+      padding-inline: 0;
+    }
+  }
+
+  &__section-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    line-height: 36px;
+  }
+}

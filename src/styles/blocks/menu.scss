@@ -1,0 +1,130 @@
+.menu {
+  font-family: "IBM Plex Sans", sans-serif;
+  height: 100%;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  background: rgba(196, 196, 196, 0.8);
+
+  &__content {
+    padding-top: 27px;
+    overflow-y: auto;
+    display: grid;
+    column-gap: 20px;
+    background-color: #1a5a4c;
+
+    @include paddingInline;
+
+    --columns: 2;
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    @include onTablette {
+      --columns: 6;
+      column-gap: 30px;
+      padding-top: 50px;
+    }
+
+    @include onDesktop {
+      --columns: 12;
+      margin: 0 auto;
+    }
+  }
+
+  &__divider {
+    grid-column: span 2;
+    height: 1px;
+    background-color: #fff;
+    margin-bottom: 24px;
+
+    @include onTablette {
+      margin: 0 auto 24px;
+      width: 1px;
+      height: 80%;
+      grid-column: 3 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 8;
+      width: 1px;
+      margin: 0 0 24px;
+    }
+  }
+
+  &__top-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+    grid-column: span 2;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__description {
+    grid-column: span 2;
+    margin-bottom: 27px;
+
+    @include onTablette {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+      grid-row: 1 / 2;
+      grid-column: 4 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 12;
+    }
+  }
+
+  &__description-1 {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  &__description-2 {
+
+    @include onTablette {
+      margin-top: 40px;
+    }
+  }
+
+  &__link {
+    display: block;
+    margin-bottom: 24px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: left;
+
+    @include onTablette {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 16px;
+    }
+
+    @include onDesktop {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+
+    &--footer {
+      display: block;
+      color: #0f0e08;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 14px;
+      text-align: left;
+      margin-top: 20px;
+    }
+  }
+}
