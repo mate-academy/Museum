@@ -1,0 +1,78 @@
+.header {
+  background-image: url(../images/photos/Bike-4096x2893.jpg);
+  @extend %bg-image-center-cover;
+
+  @include Mobile {
+    background-image: url(../images/photos/mobile/bike-small.jpeg);
+    background-position: bottom right -50px;
+  }
+
+  @include Tablet {
+    background-image: url(../images/photos/tablet/bike-med.jpg);
+    background-position: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: $pad-top-small 0 88px;
+    height: 100vh;
+
+    @include Tablet {
+      padding: $pad-top-medium 0 130px;
+    }
+
+    @include Desktop {
+      padding: $pad-top-big 0 203px;
+    }
+  }
+
+  &__call {
+    text-decoration: none;
+
+    @include Desktop() {
+      &::before {
+        content: "+1-234-555-55-55";
+        display: block;
+        width: max-content;
+        position: absolute;
+        top: 50%;
+        transform: translate(-100%, -50%);
+        padding-right: 15px;
+
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: $main-text-button-color;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.35s linear;
+      }
+
+      &:hover::before {
+        pointer-events: all;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 36px;
+    letter-spacing: -1.5px;
+
+    @include Tablet {
+      font-size: 64px;
+      line-height: 64px;
+    }
+
+    @include Desktop {
+      font-size: 80px;
+      line-height: 80px;
+    }
+  }
+}
