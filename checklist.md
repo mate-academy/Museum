@@ -1,29 +1,48 @@
+1. Add a favicon
+2. Don’t forget to add a title for the whole web page (it could be the name of your landing)
+3. All Logos on the page should be links to home page
+4. Change text color on hover for phone, email and address
+5. When you click on phone icon or phone number in contacts section, make sure that there is no 404 error, make it a real link to start a call on device
+6. Same when you click on logo. There shouldn't be any error.
+7. When clicking on any location / address - prevent errors and make it to open location in Google Maps
+8. Pictures in Gallery should increase on hover
+9. Location-related addresses / links should open google maps in a new tab `target="_blank"`
+10. Apply `:hover` effect for images on page (testimonials / gallery, other sections).
+11. Make sure everything looks neat on mobile and without horizontal scrolling
+12. The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
+13. Placeholders in the forms suggest what to enter; apply validation of the form fields (`required`, `email / tel etc.`), then it is clear in what format to enter the data
+14. Form shouldn't be submitted if some of the fields are not filled
+15. Page shouldn't be reloaded on form submit (https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
+16. Add a smooth scroll for the whole page
+17. Fix menu for small screens (if there is not enough space for all the menu items)
+    ```css
+    .menu {
+      /* Move these rules from .menu__content */
+      box-sizing: border-box;
+      height: 100vh;
+      padding: 24px 0;
 
-# Checklist for preparing a portfolio project
+      background-color: #0075ff;
 
-## Tech review
+      /* Add this rule to add scroll when there is not enough space */
+      overflow-y: auto;
 
-1. Add [favicon](http://joxi.ru/1A5kM0lI4nBB3m)
-2. Add a smooth scroll for the whole page (`scroll-behavior: smooth;`)
-3. Logos in header and footer should be links to home page
-4. Make sure when you click on logo there is no 404 error (Use `href="#"` in `anchor tag`)
-5. Pictures in the gallery and exhibitions sections should increase on hover
-7. All interactive elements(*links, buttons, pictures, icons*) ***should have a hover effect and cursor pointer***. User must intuitively understand that he can interact with them
-8. When a user clicks on Address Google Maps is opened in a new tab (Use `target="_blank"`)
-9. Make sure when you click on logo there is no 404 error (Use `href="#"` in `anchor tag`)
-10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
-11. The form shouldn’t submit empty
-12. After autocomplete the form, change the default styles. Read more about [changing autocomplete styles](https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/)
-13. OPTIONAL: After everything is done, you can add a slider for viewing pictures in the gallery (for mobile version)
-
-## HR review
-
-1. To make it clear to the recruiter what exactly this landing page is, it is better to give the whole web page the title
-2. A landing page is implemented strictly according to the design in Figma
-3. Links in the header and footer menus should lead to the corresponding blocks of the landing page
-4. The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
-5. Placeholders in the forms suggest what to enter, and if there is a validation of the form, then it is clear in what format to enter the phone number
-6. Make sure everything looks neat on mobile and without horizontal scrolling
-7. The button "tickets" should lead to the block with current events
-8. The button "about us" should lead to the email digest
-9. All the social icons in the footer should be clickable and open the social networks in a new tab
+      ...
+    ```
+18. To disable page scrolling under the menu add the next code
+    ```css
+    .page__body--with-menu {
+      overflow: hidden;
+    }
+    ```
+    ```js
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash === '#menu') {
+        document.body.classList.add('page__body--with-menu');
+      } else {
+        document.body.classList.remove('page__body--with-menu');
+      }
+    });
+    ```
+19. Remember to reset default margins for headings (h1, h2, h3, etc.).
+* Only for Miami: Make sure that ```<h1>``` is positioned exactly 80px from the bottom of the header.
