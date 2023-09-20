@@ -111,6 +111,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+    display: grid;
 
     @include onTablet {
       grid-column: 4 / 6;
@@ -131,6 +132,7 @@
     &-info {
       margin-bottom: 147px;
       height: 189px;
+      width: 100%;
       &--link {
         color: $main-col;
         font-family: "IBM Plex Sans", sans-serif;
@@ -153,10 +155,12 @@
 
   &__button {
     box-sizing: border-box;
-    display: block;
+    display: flex;
     width: 50px;
     height: 50px;
-    margin-left: 80px;
+    justify-self: flex-end;
+    // margin: 0 auto 0 80px;
+    // margin-left: 80px;
     border: 1px solid $bg-menu-col;
     background-color: $menu-text-col;
     border-radius: 50%;
@@ -167,6 +171,10 @@
 
     margin-bottom: 20px;
     transition: 0.3s;
+
+    @media (min-width: 500px) {
+      // justify-self: center;
+    }
 
     &:hover {
       transform: scale(1.2);
