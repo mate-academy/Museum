@@ -1,0 +1,141 @@
+.footer {
+  &__items {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1;
+    }
+  }
+
+  &__content {
+    margin-top: 50px;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      justify-content: start;
+      flex-direction: column;
+      row-gap: 62px;
+    }
+  }
+
+  &__socials {
+    grid-column: 2 / -1;
+    display: flex;
+    column-gap: 20px;
+    @include onTablet {
+      margin-right: 10px;
+    }
+  }
+
+  &__rights {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: 80px;
+    padding-bottom: 40px;
+
+    @include onTablet {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  &__nav {
+    margin: 0;
+  }
+}
+
+.rights-text {
+  font-size: 12px;
+  line-height: 140%;
+}
+
+.socials {
+  &__link {
+    &--facebook {
+      background-image: url(../images/facebook_logo.svg);
+    }
+    &--instagram {
+      background-image: url(../images/instagram_logo.svg);
+    }
+  }
+}
+
+.link__footer {
+  color: $c-title;
+  font-size: 14px;
+  font-weight: 400;
+
+  &::after {
+    background-color: $c-main;
+  }
+}
+
+.arrow-up--hover {
+  display: none;
+}
+
+.to-top {
+  &-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: $c-white;
+    border: 1px solid $c-green;
+    border-radius: 50%;
+    transition: $transition-time;
+  }
+
+  &-link {
+    position: absolute;
+    right: 1px;
+    bottom: 150px;
+    transition: $transition-time;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &:hover {
+      .arrow-up {
+        display: none;
+      }
+
+      .arrow-up--hover {
+        display: block;
+      }
+
+      .to-top-icon {
+        background-color: $c-green;
+
+      }
+    }
+  }
+}
+
+.contacts__list {
+  margin-top: 24px;
+  list-style: none;
+
+  &-link {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    color: $c-title;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: $transition-time;
+
+    &:hover {
+      text-decoration-color: $c-main;
+    }
+  }
+}

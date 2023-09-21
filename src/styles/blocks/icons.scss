@@ -1,0 +1,59 @@
+.icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include hover(transform, scale(1.2));
+  transition: $transition-time;
+
+  &--menu {
+    background-image: url(../images/burger_menu.svg);
+
+    &-mobile {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &-tablet {
+      display: none;
+      margin-bottom: 36px;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &--close {
+    background-image: url(../images/close_menu.svg);
+
+    @include onTablet {
+      left: 32px;
+    }
+
+    @include onDesktop {
+      left: 60px;
+    }
+  }
+
+  &--logo {
+    width: 98px;
+    height: 72px;
+    @include hover(transform, scale(1.1));
+  }
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 39%;
+  padding-top: 9px;
+
+  @include onTablet {
+    padding-top: 15px;
+  }
+}
