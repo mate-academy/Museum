@@ -1,0 +1,119 @@
+.footer {
+  &__content {
+    margin-top: 50px;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(2,  1fr);
+
+    @include onTablet {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__images {
+    max-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      flex-direction: column;
+      gap: 62px;
+      grid-column: 1 / 2;
+      align-items: baseline;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 1 / 2;
+
+    @include onTablet {
+      grid-column: 2 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 5;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 2 / -1;
+
+    @include onTablet {
+      grid-column: 4 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / 7;
+    }
+  }
+
+  &__link {
+    all: unset;
+    color: #0f0e08;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+    cursor: pointer;
+
+    @include hover(color, $secondary-color);
+  }
+
+  &__line {
+    display: block;
+    grid-column: 1 / -1;
+    height: 1px;
+    background: #1a5a6080;
+    margin-top: 30px;
+
+    @include onDesktop {
+      justify-self: center;
+      height: 100%;
+      width: 1px;
+      grid-column: 7 / 8;
+    }
+  }
+
+  &__end {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    grid-column: 1 / -1;
+    padding: 40px 0 30px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__text-end {
+    color: #0f0e08;
+    text-align: center;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 140.63%;
+  }
+}

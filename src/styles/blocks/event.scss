@@ -1,0 +1,105 @@
+.event {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-items: center;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+    width: 100%;
+    object-fit: cover;
+    @include onTablet {
+      max-height: 75vh;
+    }
+
+    @include onDesktop {
+      grid-column: span 7;
+    }
+  }
+
+  &__info {
+    display: grid;
+    grid-column: 1 / -1;
+    gap: 10px;
+    height: max-content;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__information {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 1 / 4;
+  }
+
+  &__title {
+    width: max-content;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+    grid-column: 1 / -1;
+    color: #0f0e08;
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 100%;
+    white-space: nowrap;
+
+    @include onTablet {
+      font-size: 36px;
+      gap: 10px;
+    }
+
+    &:after {
+      content: "";
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      background-color: $secondary-red;
+    }
+  }
+
+  &__text {
+    color: $text-color;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+    grid-column: 1 / -1;
+  }
+
+  &__show {
+    color: #687480;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+  }
+
+  &__data {
+    white-space: nowrap;
+    color: $secondary-color;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 150%; /* 24px */
+  }
+}

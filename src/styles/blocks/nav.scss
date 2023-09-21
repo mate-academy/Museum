@@ -1,0 +1,80 @@
+.nav {
+
+  @include onDesktop {
+    margin: 40px 0 0 102px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__top,
+  &__bottom {
+    display: flex;
+    gap: 28px;
+
+    @include onTablet {
+      gap: 20px;
+    }
+
+    @include onDesktop {
+      gap: 115px;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 100px;
+    color: #fff;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+
+    @include hover(transform, scale(1.1));
+
+    @include onDesktop {
+      width: 168px;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 100%;
+    }
+  }
+
+  &__link-footer {
+    color: #0f0e08;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+
+    @include hover(color, $secondary-color);
+
+  }
+
+  &__list-footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+.footer__nav {
+  grid-column: 1 / -1;
+
+  @include onTablet {
+    grid-column: 2 / 5;
+  }
+
+  @include onDesktop {
+    grid-column: 8 / 11;
+  }
+
+}

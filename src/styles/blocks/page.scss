@@ -1,0 +1,30 @@
+.container {
+  @include contentPaddingInline;
+}
+
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    background: #fff;
+    transition: background-color 0.3s;
+
+    &:has(.menu:target) {
+      background-color: #18181a80;
+    }
+  }
+
+  &__header {
+    @include onTablet {
+      height: 50vh;
+    }
+
+    @include onDesktop {
+      height: 100vh;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden; /* not to scroll the page */
+  }
+}

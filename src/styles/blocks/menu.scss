@@ -1,0 +1,107 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  @include contentPaddingInline;
+  background-color: $secondary-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-100%);
+  transition: all 0.3s;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  &__nav {
+    margin: 27px 0 0 52px;
+  }
+
+  &__line {
+    margin-block: 24px;
+    height: 1px;
+    width: 100%;
+    background-color: #ffffff80;
+
+    @include onTablet {
+      height: 15vh;
+      width: 1px;
+      margin-inline: 38px;
+    }
+
+    @include onDesktop {
+      margin-inline: 102px;
+    }
+  }
+
+  &__title {
+    color: #fff;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140.63%;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    color: #fff;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+
+    &-bold {
+      display: inline;
+      font-weight: 600;
+    }
+  }
+
+  &__text {
+    margin-block: 16px 27px;
+    width: 280px;
+    color: #fff;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 150%;
+
+    @include onTablet {
+      width: 144px;
+      margin: 0;
+    }
+  }
+
+  &__wrapper-timetable {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    gap: 20px;
+
+    @include onDesktop {
+      margin-top: 40px;
+      margin-bottom: 48px;
+    }
+  }
+
+  &__timetable {
+    @include onTablet {
+      display: flex;
+      gap: 38px;
+    }
+  }
+}
