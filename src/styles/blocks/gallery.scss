@@ -1,0 +1,95 @@
+.gallery {
+  margin-top: 183px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  @include OnTablet {
+    margin-top: 208px;
+    align-items: start;
+  }
+
+  @include OnDeskTop {
+    margin-top: 302px;
+  }
+
+  &__title {
+    color: #0f0e08;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include OnTablet {
+      font-size: 48px;
+    }
+  }
+
+  &__images {
+    margin-top: 40px;
+
+    @include OnTablet {
+      display: flex;
+      gap: 20px;
+    }
+
+    @include OnDeskTop {
+      margin-top: 56px;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    &--tablet {
+
+      @include OnMobile {
+        display: none;
+      }
+
+      @include OnDeskTop {
+        display: none;
+      }
+    }
+
+    &--mobile {
+
+      @include OnTablet {
+        display: none;
+      }
+    }
+
+    &--desktop {
+
+      @include OnTabletMaxWidth {
+        display: none;
+      }
+
+      @include OnMobile {
+        display: none;
+      }
+
+      transition: transform 0.5s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__dots {
+    background-image: url(/images/gallery-dots.png);
+    width: 102px;
+    height: 9px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 20px auto 0;
+
+    @include OnTablet {
+      margin-top: 32px;
+    }
+
+    @include OnDeskTop {
+      display: none;
+    }
+  }
+}
