@@ -1,0 +1,164 @@
+.gallery {
+  position: relative;
+  padding-top: toRem(100);
+
+  @include onTablet {
+    padding-top: toRem(88);
+  }
+
+  @include onDesktop {
+    padding-top: toRem(200);
+  }
+
+  &__content {
+    @include pageGrid;
+
+    @include contentPaddingInLine;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: toRem(36);
+
+    color: $buttonColor;
+    grid-column: 1 / -1;
+    grid-row: 1;
+
+    text-align: center;
+
+    @include onTablet {
+      font-size: toRem(48);
+
+      grid-column: 1 / 3;
+      grid-row: 1;
+
+      text-align: start;
+    }
+  }
+
+  &__photos {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-top: toRem(40);
+    overflow: hidden;
+
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    @include onTablet {
+      padding-top: toRem(48);
+
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+
+    @include onDesktop {
+      display: block;
+      padding-top: toRem(56);
+
+      overflow: visible;
+    }
+  }
+
+  &__container {
+    display: flex;
+  }
+
+  &__image-box-1 {
+    display: flex;
+    overflow: hidden;
+
+    gap: toRem(16);
+
+    @include onTablet {
+      gap: toRem(20);
+    }
+
+    @include onDesktop {
+      gap: toRem(30);
+      overflow: visible;
+    }
+  }
+
+  &__image-box-2 {
+    display: flex;
+
+    padding-top: toRem(30);
+    gap: toRem(16);
+
+    @include onTablet {
+      gap: toRem(20);
+    }
+
+    @include onDesktop {
+      gap: toRem(30);
+    }
+  }
+
+  &__icon {
+    text-align: center;
+    padding-top: toRem(20);
+    grid-column: 1 / -1;
+    grid-row: 3;
+
+    @include onTablet {
+      padding-top: toRem(32);
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__image-1 {
+    @include onTablet {
+      content: url(../images/photos/gallery-image-1-tablet.png);
+    }
+
+    @include onDesktop {
+      content: url(../images/photos/gallery-image-1-desktop.png);
+    }
+  }
+
+  &__image-2 {
+    @include onTablet {
+      content: url(../images/photos/gallery-image-2-tablet.png);
+    }
+
+    @include onDesktop {
+      content: url(../images/photos/gallery-image-2-desktop.png);
+    }
+  }
+
+  &__image-3 {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      content: url(../images/photos/gallery-image-3-desktop.png);
+    }
+  }
+
+  &__image-4 {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      content: url(../images/photos/gallery-image-4-desktop.png);
+    }
+  }
+
+  &__image-3--tablet {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}
