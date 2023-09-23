@@ -1,0 +1,154 @@
+.footer {
+  background-color: $c-white;
+  padding: 50px 0 56px;
+
+  @include onTablet {
+    padding: 50px 0 36px;
+  }
+
+  @include onDesktop {
+    padding: 48px 0 36px;
+  }
+
+  &__top {
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__content {
+    position: relative;
+    padding-bottom: 70px;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
+      padding-bottom: 64px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7 ;
+      padding-bottom: 88px;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      flex-direction: column;
+      justify-content: start;
+      gap: 62px;
+      grid-column: 1 / 1;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 20px;
+
+    @include onTablet {
+      gap: 32px;
+    }
+
+  }
+
+  &__main-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+      gap: 30px;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 7;
+    }
+  }
+
+  &__arrow-top {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    background-image: url(/images/arrow-top.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1px solid $c-green;
+    border-radius: 50%;
+
+    @include hover (scale, 1.03);
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__line {
+    display: none;
+
+    @include onDesktop {
+      grid-column: 7 / 7;
+      justify-self: center;
+      display: block;
+      width: 1px;
+      height: 260px;
+
+      background-color: rgba(26, 90, 76, 0.5);
+    }
+  }
+
+  &__nav {
+    margin-bottom: 80px;
+    padding-top: 40px;
+    border-top: 1px solid $c-green;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 11;
+      padding-top: 0;
+      border-top: none;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__text {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 140%;
+    color: $c-black;
+  }
+}
