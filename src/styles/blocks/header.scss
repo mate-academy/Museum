@@ -1,5 +1,5 @@
 .header {
-  height: toRem(300);
+  height: toRem(483);
 
   @include onTablet {
     height: toRem(384);
@@ -11,9 +11,10 @@
     width: toRem(1280);
     height: toRem(655);
   }
+
   &__content {
     position: relative;
-    height: 100%;
+    height: toRem(300);
     background-image: url(../images/photos/header-bg-desktop.png);
     background-size: cover;
     background-position: center;
@@ -75,12 +76,14 @@
   }
 
   &__main {
-    display: none;
+    padding-top: toRem(250);
 
     @include contentPaddingInLine;
 
     @include onTablet {
       display: block;
+
+      padding-top: 0;
 
       height: toRem(568);
     }
@@ -89,13 +92,25 @@
   &__title {
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
-    font-size: toRem(54);
-    line-height: 120%; /* 64.8/54 */
+    font-size: toRem(45);
+    line-height: 100%;
+    height: toRem(93);
 
-    padding-top: toRem(40);
     color: #000;
 
-    max-width: toRem(340);
+    text-align: center;
+
+    @include onTablet {
+      font-size: toRem(54);
+      line-height: 120%; /* 64.8/54 */
+
+      padding-top: toRem(40);
+
+      max-width: toRem(340);
+      height: auto;
+
+      text-align: start;
+    }
 
     @include onDesktop {
       font-size: toRem(72);
@@ -111,14 +126,20 @@
     align-items: center;
     cursor: pointer;
 
-    margin-top: toRem(38);
+    height: toRem(50);
 
-    max-width: toRem(270);
-    height: toRem(70);
+    margin-top: toRem(20);
 
     border: 1px solid $buttonBorderColor;
 
     @include hover(transform, scale(1.05));
+
+    @include onTablet {
+      max-width: toRem(270);
+      height: toRem(70);
+
+      margin-top: toRem(38);
+    }
 
     @include onDesktop {
       margin-top: toRem(89);
@@ -136,10 +157,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: toRem(70);
-      height: toRem(70);
+
+      width: toRem(50);
+      height: toRem(50);
 
       background-color: $buttonBorderColor;
+
+      @include onTablet {
+        width: toRem(70);
+        height: toRem(70);
+      }
     }
   }
 
