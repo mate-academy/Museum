@@ -1,0 +1,205 @@
+.header {
+  height: toRem(483);
+
+  @include onTablet {
+    height: toRem(384);
+    min-width: toRem(768);
+    margin: 0 auto;
+  }
+
+  @include onDesktop {
+    width: toRem(1280);
+    height: toRem(655);
+  }
+
+  &__content {
+    position: relative;
+    height: toRem(300);
+    background-image: url(../images/photos/header-bg-desktop.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 100%;
+
+      background-image: url(../images/photos/header-bg-tablet.png);
+      background-size: contain;
+      background-position: right;
+    }
+
+    @include onDesktop {
+      height: 100%;
+
+      background-image: url(../images/photos/header-bg-desktop.png);
+    }
+  }
+
+  &__top-bar {
+    display: flex;
+    align-items: center;
+
+    gap: toRem(88);
+    padding-top: toRem(9);
+
+    @include contentPaddingInLine;
+
+    @include onTablet {
+      gap: toRem(336);
+      padding-top: toRem(15);
+    }
+
+    @include onDesktop {
+      gap: toRem(476);
+    }
+  }
+
+  &__logo {
+    max-width: toRem(55);
+
+    @include onTablet {
+      max-width: toRem(220);
+
+      width: toRem(220);
+    }
+
+    @include onDesktop {
+      width: toRem(170);
+    }
+    &--size {
+      width: 100%;
+      height: toRem(61);
+      @include onTablet {
+        height: toRem(72);
+      }
+    }
+  }
+
+  &__main {
+    padding-top: toRem(250);
+
+    @include contentPaddingInLine;
+
+    @include onTablet {
+      display: block;
+
+      padding-top: 0;
+
+      height: toRem(568);
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: toRem(45);
+    line-height: 100%;
+    height: toRem(93);
+
+    color: #000;
+
+    text-align: center;
+
+    @include onTablet {
+      font-size: toRem(54);
+      line-height: 120%; /* 64.8/54 */
+
+      padding-top: toRem(40);
+
+      max-width: toRem(340);
+      height: auto;
+
+      text-align: start;
+    }
+
+    @include onDesktop {
+      font-size: toRem(72);
+      line-height: 120%; /* 86.4/72 */
+
+      padding-top: toRem(119);
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    height: toRem(50);
+
+    margin-top: toRem(20);
+
+    border: 1px solid $buttonBorderColor;
+
+    @include hover(transform, scale(1.05));
+
+    @include onTablet {
+      max-width: toRem(270);
+      height: toRem(70);
+
+      margin-top: toRem(38);
+    }
+
+    @include onDesktop {
+      margin-top: toRem(89);
+
+      margin-left: toRem(200);
+    }
+
+    &--text {
+      padding-left: toRem(68);
+    }
+
+    &--icon {
+      position: absolute;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: toRem(50);
+      height: toRem(50);
+
+      background-color: $buttonBorderColor;
+
+      @include onTablet {
+        width: toRem(70);
+        height: toRem(70);
+      }
+    }
+  }
+
+  &__subtitle {
+    display: none;
+
+    @include onDesktop {
+      position: absolute;
+      bottom: 0;
+      left: 67px;
+
+      display: block;
+
+      font-weight: 700;
+      font-size: toRem(14);
+      line-height: 100%; /* 14/14 */
+      transform: rotate(-90deg);
+      transform-origin: left bottom;
+      padding-left: 90px;
+      color: $subtitleColor;
+
+      &::before {
+        content: "";
+
+        position: absolute;
+        left: 0;
+        bottom: 7px;
+        width: 70px;
+        height: 1px;
+
+        background-color: $subtitleColor;
+
+      }
+    }
+  }
+}
