@@ -6,7 +6,13 @@
 }
 
 @mixin onTablet {
-  @media (min-width: 576px) {
+  @media (min-width: 700px) {
+    @content;
+  }
+}
+
+@mixin forLection {
+  @media (min-width: 500px) {
     @content;
   }
 }
@@ -21,7 +27,7 @@
   padding-inline: 20px;
 
   @include onTablet {
-    padding-inline: 72px;
+    padding-inline: 34px;
   }
 
   @include onDesktop {
@@ -29,5 +35,20 @@
     max-width: 1020px;
     padding-inline: 120px;
   }
+}
 
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    column-gap: 30px;
+    --columns: 6;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+  }
 }

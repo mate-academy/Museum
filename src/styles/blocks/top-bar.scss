@@ -13,6 +13,13 @@
   margin: 0;
   margin-bottom: 20px;
 
+  @include onTablet {
+    padding-top: 15px;
+    grid-column: 4 / -1;
+    padding-inline: 0;
+    height: 384px;
+  }
+
   &__menu {
     display: block;
     width: 24px;
@@ -21,6 +28,10 @@
     background-repeat: no-repeat;
 
     cursor: pointer;
+
+    @include onTablet {
+      display: none;
+    }
   }
 
   &__link {
@@ -41,6 +52,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @include onTablet {
+      margin: 0;
+
+      display: block;
+      width: 220px;
+      height: 72px;
+      left: 0;
+      transform: none;
+    }
   }
 
   &__container {
@@ -48,5 +69,9 @@
     display: flex;
     align-items: center;
     position: relative;
+
+    @include onTablet {
+      display: block;
+    }
   }
 }
