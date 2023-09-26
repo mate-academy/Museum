@@ -1,0 +1,305 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__content {
+    @include grid;
+    margin-top: 48px;
+    width: 100%;
+
+    @include onPhone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+    }
+  }
+
+  &__social {
+    grid-column: 1 / 3;
+    margin-top: 62px;
+    display: flex;
+    justify-content: space-between;
+    @include onTablet {
+      grid-column: 1 / 2;
+    }
+
+    @include onPhone {
+      margin-top: 0;
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: all 0.3s;
+
+    &:hover {
+      @include hover;
+    }
+
+    &--1 {
+      background-image: url(../images/icons/Facebook.svg);
+      margin-right: 32px;
+    }
+
+    &--2 {
+      background-image: url(../images/icons/instagram.svg);
+    }
+  }
+
+  &__logo-block {
+    justify-self: start;
+    align-self: start;
+    margin-left: 40px;
+
+    @include onPhone {
+      margin: 0;
+      box-sizing: border-box;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__logo {
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    line-height: 85%;
+    font-weight: 700;
+    color: $text;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  &__logo-wrap {
+    transition: all 0.3s;
+
+    &:hover {
+      @include hover;
+    }
+  }
+
+  &__schedule {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 86px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onPhone {
+      margin-left: 0;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    display: block;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: left;
+    color: $text;
+    margin-bottom: 20px;
+  }
+
+  &__weekdays {
+    width: 170px;
+    display: inline;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 150%;
+    text-align: left;
+    color: $text;
+
+    &--time {
+      margin: 0;
+    }
+
+    &--day {
+      font-weight: 400;
+    }
+
+    @include onTablet {
+      width: 158px;
+    }
+
+    @include onPhone {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__weekends {
+    margin-top: 40px;
+    width: 170px;
+    display: inline;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: left;
+    color: $text;
+    &--day {
+      font-weight: 600;
+      margin: 0;
+    }
+
+    &--info {
+      margin: 0;
+      font-weight: 400;
+    }
+
+    @include onTablet {
+      width: 140px;
+      margin-right: 38px;
+    }
+
+    @include onPhone {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__contacts {
+    align-self: start;
+  }
+
+  &__schedule-wrap {
+    grid-column: 3 / 7;
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+      margin-bottom: 64px;
+    }
+
+    @include onPhone {
+      margin-bottom: 0;
+      gap: 20px;
+    }
+  }
+
+  &__arrow {
+    display: none;
+
+    @include onPhone {
+      background-image: url(../images/icons/carbon_arrow-up.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      margin-left: 90%;
+      display: block;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border: 1px solid #1a5a4c80;
+      position: relative;
+      transition: all 0.3s;
+      margin-bottom: 20px;
+
+      &:hover {
+        @include hover;
+      }
+    }
+  }
+
+  &__tohome {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+  }
+
+  &__line {
+    display: block;
+    grid-column: 7 / 8;
+    grid-row: 1 / 2;
+    justify-self: center;
+    align-self: center;
+    width: 1px;
+    height: 260px;
+    background: #1a5a4c80;
+
+    @include onTablet {
+      height: 1px;
+      width: 100%;
+      grid-column: 2 / 6;
+      grid-row: 2 / 3;
+      margin-bottom: 64px;
+    }
+
+    @include onPhone {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__menu {
+    align-self: start;
+    grid-row: 1 / 2;
+    grid-column: 8 / 12;
+    display: flex;
+
+    @include onTablet {
+      grid-row: 3 / 4;
+      grid-column: 2 / 6;
+      margin-bottom: 120px;
+    }
+
+    @include onPhone {
+      width: 100%;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__list {
+    width: 100%;
+  }
+
+  &__list-item {
+    margin-bottom: 20px;
+    transition: all 0.3s;
+
+    &:hover {
+      @include hover;
+    }
+  }
+
+  &__end {
+    grid-row: 4 / 5;
+    grid-column: 1 / 13;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 36px;
+
+    @include onPhone {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}

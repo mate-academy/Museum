@@ -1,0 +1,245 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    @include grid;
+    width: 100%;
+
+    @include onTablet {
+      position: relative;
+      padding-bottom: 630px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    @include onPhone {
+      flex-direction: column;
+      justify-content: center;
+      min-width: 300px;
+    }
+  }
+
+  &__header {
+    padding-left: 40px;
+    grid-column: 1 / 6;
+    margin-bottom: 56px;
+    justify-self: start;
+    align-self: start;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: left;
+    color: $text;
+
+    @include onTablet {
+      margin-bottom: 48px;
+      grid-column: 1 / 5;
+    }
+
+    @include onPhone {
+      margin-bottom: 40px;
+      text-align: center;
+      font-size: 36px;
+      align-self: center;
+      padding: 0;
+    }
+  }
+
+  &__items {
+    grid-column: 1 / 13;
+    @include grid;
+    margin: 0 40px;
+
+    @include onTablet {
+      display: flex;
+      width: auto;
+      position: absolute;
+      top: 86px;
+      left: 0;
+    }
+
+    @include onPhone {
+      width: 300%;
+      left: -20px;
+      gap: 20px;
+      margin: 0;
+    }
+  }
+
+  &__image {
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    overflow: hidden;
+
+    &--1 {
+      height: 600px;
+      grid-column: 1 / 5;
+
+      @include onTablet {
+        min-width: 340px;
+        max-width: 600px;
+        height: 540px;
+      }
+
+      @include onPhone {
+        width: 100%;
+        max-width: 460px;
+        min-width: 280px;
+        height: 410px;
+        margin-left: 40px;
+      }
+    }
+
+    &--12 {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        min-width: 340px;
+        max-width: 600px;
+        height: 540px;
+      }
+
+      @include onPhone {
+        width: 100%;
+        max-width: 600px;
+        min-width: 280px;
+        height: 410px;
+      }
+    }
+
+    &--2 {
+      height: 600px;
+      grid-column: 5 / 13;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--3 {
+      height: 360px;
+      grid-column: 1 / 9;
+
+      @include onTablet {
+        min-width: 340px;
+        max-width: 600px;
+        height: 540px;
+      }
+
+      @include onPhone {
+        width: 100%;
+        max-width: 600px;
+        min-width: 280px;
+        height: 410px;
+      }
+    }
+
+    &--4 {
+      height: 360px;
+      grid-column: 9 / 13;
+
+      @include onTablet {
+        min-width: 340px;
+        max-width: 600px;
+        height: 540px;
+        margin-right: 40px;
+      }
+
+      @include onPhone {
+        width: 100%;
+        max-width: 600px;
+        min-width: 280px;
+        height: 410px;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &__pattern {
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    @include onTablet {
+      height: auto;
+      padding-bottom: 100%;
+      min-height: 100%;
+      width: auto;
+    }
+
+    @include onPhone {
+      width: 100%;
+    }
+
+    &:hover {
+      @include hover;
+    }
+
+    &--1 {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--3 {
+      @include onTablet {
+        width: auto;
+      }
+    }
+  }
+
+  &__scrollbar {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      width: 102px;
+      height: 9px;
+      margin-top: -68px;
+    }
+
+    @include onPhone {
+      margin-top: -200px;
+    }
+  }
+
+  &__li {
+    display: block;
+    height: 100%;
+    width: 9px;
+    margin-right: 22px;
+    position: relative;
+  }
+
+  &__scroll {
+    display: block;
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    z-index: 10;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+
+    &--1 {
+      background-color: $green;
+    }
+
+    &:hover,
+    &:active {
+      background-color: $green;
+    }
+  }
+}
