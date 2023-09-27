@@ -55,6 +55,7 @@
   }
 
   &__logo-block {
+    grid-column: 1 / 2;
     justify-self: start;
     align-self: start;
     margin-left: 40px;
@@ -89,6 +90,7 @@
   }
 
   &__schedule {
+    width: 50%;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -146,7 +148,6 @@
 
   &__weekends {
     margin-top: 40px;
-    width: 170px;
     display: inline;
     font-family: "IBM Plex Sans", sans-serif;
     font-size: 14px;
@@ -165,8 +166,8 @@
     }
 
     @include onTablet {
-      width: 140px;
-      margin-right: 38px;
+      width: 100%;
+      margin-right: 0;
     }
 
     @include onPhone {
@@ -177,6 +178,7 @@
   }
 
   &__contacts {
+    width: 50%;
     align-self: start;
   }
 
@@ -238,9 +240,9 @@
     background: #1a5a4c80;
 
     @include onTablet {
+      grid-column: 2 / 6;
       height: 1px;
       width: 100%;
-      grid-column: 2 / 6;
       grid-row: 2 / 3;
       margin-bottom: 64px;
     }
@@ -290,6 +292,10 @@
     justify-content: space-between;
     margin-bottom: 36px;
 
+    @include onTablet {
+      grid-column: 1 / 7;
+    }
+
     @include onPhone {
       flex-direction: column;
       justify-content: center;
@@ -302,4 +308,16 @@
     text-align: center;
     margin-bottom: 10px;
   }
+
+  &__useful {
+    width: 100%;
+    display: block;
+    transition: all 0.3s;
+    margin-bottom: 0;
+
+    &:hover {
+      @include hover;
+    }
+  }
+
 }
