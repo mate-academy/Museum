@@ -1,3 +1,47 @@
 @import "utils/vars";
 @import "utils/mixins";
 @import "utils/extends";
+
+.logo {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 52px;
+  height: 58px;
+  background-image: url("../images/logo.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include onTablet {
+    width: 67px;
+    height: 72px;
+  }
+
+  &--footer {
+    width: 63px;
+    height: 72px;
+  }
+}
+
+.container {
+  box-sizing: border-box;
+  margin: 0 auto;
+  min-width: 320px;
+  padding: 0 20px;
+
+  @include onTablet {
+    min-width: 768px;
+    padding: 0 39px;
+  }
+
+  @include onDesktop {
+    max-width: 1280px;
+    padding: 0 55px;
+  }
+}
+
+.img_hover {
+  @include hover(box-shadow, 3px 4px 5px 0 rgba(0,0,0,0.7));
+  @include hover(transform, scale(95%));
+  transition: 0.3s;
+}
