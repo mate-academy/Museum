@@ -8,7 +8,7 @@ const swiper = new Swiper('.swiper', {
   loop: true,
   grabCursor: true,
   slidesPerView: 1.1,
-  spaceBetween: 16,
+  spaceBetween: 10,
 
   zoom: {
     maxRatio: 5,
@@ -17,7 +17,7 @@ const swiper = new Swiper('.swiper', {
   breakpoints: {
     460: {
       slidesPerView: 2.1,
-      spaceBetween: 20,
+      spaceBetween: 10,
     },
   },
 
