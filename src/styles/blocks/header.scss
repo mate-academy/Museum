@@ -12,6 +12,41 @@
     @include onDesktop {
       margin-inline: auto;
     }
+
+    &__box {
+      width: 43px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 34px;
+    }
+
+    &__text {
+      margin: 0;
+
+      width: 43px;
+      height: 14px;
+      display: none;
+      color: #687480;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%; /* 14px */
+
+      @include onDesktop {
+        transform: rotate(-90deg);
+        display: block;
+      }
+    }
+
+    &__line {
+      width: 1px;
+      height: 70px;
+      background: #1a5a4c;
+    }
   }
 
   &__menu {
@@ -68,15 +103,22 @@
   &__button {
     width: 82%;
     height: 50px;
+    background: #fff;
     border: 1px solid #1a5a4c;
+    transition-duration: 0.5s;
 
     color: #0f0e08;
     font-family: "IBM Plex Sans", sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
+    text-transform: uppercase;
     line-height: 100%; /* 16px */
     cursor: pointer;
+
+    &:hover {
+      background: #d7dde3;
+    }
 
     @include onTablet {
       height: 70px;
@@ -98,6 +140,7 @@
       @include onDesktop {
         margin-top: 89px;
         margin-left: auto;
+        margin-bottom: 0;
       }
     }
 
@@ -127,7 +170,6 @@
   &__second__title {
     margin: 0;
     margin-bottom: 40px;
-    padding-inline: 20px;
 
     color: #0f0e08;
     text-align: center;
@@ -140,7 +182,6 @@
     @include onTablet {
       grid-column: 1 / -1;
       text-align: left;
-      padding-left: 34px;
       font-size: 48px;
       margin-bottom: 48px;
     }
@@ -148,10 +189,6 @@
     @include onDesktop {
       grid-column: 1 / 6;
       margin-bottom: 56px;
-    }
-
-    @include onBigScreen {
-      width: 470px;
     }
   }
 }
