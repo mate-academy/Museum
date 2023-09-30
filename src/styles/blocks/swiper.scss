@@ -2,7 +2,13 @@
   @include onDesktop {
     display: none;
   }
-  width: 100%;
+
+  @include onTablet {
+    max-width: 940px;
+    height: 100%;
+  }
+
+  max-width: 640px;
   height: 100%;
 
   &-slide {
@@ -16,9 +22,16 @@
 
   &__img {
     height: 480px;
-    width: 100%;
+    width: 300px;
     object-position: center;
     object-fit: cover;
+
+    @include onTablet {
+      height: 480px;
+      width: 450px;
+      object-position: top;
+      object-fit: cover;
+    }
   }
   &-pagination-bullet {
     background-color: $colorGreen !important;
