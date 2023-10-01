@@ -1,0 +1,104 @@
+@import '_utils';
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--color-black);
+  text-decoration: none;
+}
+
+input,
+textarea:focus-visible {
+  outline: none;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+picture {
+  display: flex;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: var(--font-main);
+}
+
+html {
+  position: relative;
+  width: 100%;
+  font-family: var(--font-main);
+  color: var(--color-black);
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  &.body--ready {
+    .loader {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &.body--lock {
+    overflow: hidden;
+  }
+}
+
+main {
+  position: relative;
+  flex: 1;
+  width: 100%;
+}
+
+.loader {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-white);
+  transition: opacity var(--time-6), visibility var(--time-6);
+}
+
+.section {
+  position: relative;
+  width: 100%;
+
+  &__container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+}
