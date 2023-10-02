@@ -1,0 +1,126 @@
+.exhibition {
+  padding-top: 20px;
+
+  &__wrapper {
+    display: grid;
+    row-gap: 60px;
+
+    @include onTablet {
+      row-gap: 64px;
+    }
+
+    @include onDesktop {
+      row-gap: 104px;
+    }
+  }
+
+  &__article {
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__image {
+    height: 210px;
+    width: 100%;
+    object-fit: cover;
+    transition: border-radius $transition;
+
+    @include onTablet {
+      height: 520px;
+    }
+
+    @include onDesktop {
+      width: 670px;
+      height: 520px;
+
+      &:hover {
+        border-radius: 20%;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    line-height: 100%;
+    @include ff_ibm;
+
+    @include onTablet {
+      width: 220px;
+      font-size: 14px;
+    }
+
+    @include onDesktop {
+      padding-top: 0;
+    }
+  }
+
+  &__type {
+    color: $grey-color;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-weight: 500;
+    }
+  }
+
+  &__date {
+    color: $green-color;
+    font-family: IBM Plex Sans, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 150%;
+  }
+
+  &__line {
+    @include onTablet {
+      width: 460px;
+    }
+
+    @include onDesktop {
+      width: 370px;
+      margin-left: 120px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    font-size: 28px;
+    font-weight: 400;
+
+    @include onTablet {
+      font-size: 36px;
+      justify-content: left;
+    }
+
+    @include onDesktop {
+      width: 370px;
+    }
+  }
+
+  &__block {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: $red-color;
+
+    @include onTablet {
+      margin-left: 20px;
+    }
+  }
+
+  &__text {
+    @include ff_ibm;
+    padding-top: 10px;
+    color: $light-color;
+    font-weight: 300;
+    line-height: 150%;
+  }
+}
