@@ -1,0 +1,190 @@
+.gallery {
+  --slideWidth2: -312px;
+  --slideWidth3: -608px;
+  --slideWidth4: -888px;
+  --viewportWidth2: 1px;
+  --viewportWidth3: 1px;
+  --scrollSlide: calc(calc(100vw - 312px));
+  overflow: hidden;
+  padding-bottom: 40px;
+
+  @media (min-width: 624px) {
+    --viewportWidth2: calc(100vw - 624px);
+  }
+
+  @media (min-width: 1130px) {
+    --viewportWidth3: calc(100vw - 1130px);
+  }
+
+  @include onTablet {
+    --slideWidth2: -380px;
+    --slideWidth3: -750px;
+    --slideWidth4: -1090px;
+    --scrollSlide: calc(calc(100vw - 380px));
+
+    --viewportWidth2: calc(100vw - 760px);
+  }
+
+  @include onDesktop {
+    padding: 32px 0 200px;
+    overflow: hidden;
+    margin-inline: 55px;
+  }
+
+  &__header {
+    margin-left: 20px;
+
+    @include onTablet {
+      margin-left: 35px;
+    }
+
+    @include onDesktop {
+      margin-left: 0;
+    }
+  }
+
+  &__slides {
+    position: relative;
+    height: 439px;
+    margin-left: 20px;
+    transition: $transition;
+
+    @include onTablet {
+      height: 575px;
+      margin-left: 35px;
+    }
+
+    @include onDesktop {
+      height: 990px;
+      margin-left: 0;
+    }
+
+    &-content {
+      position: absolute;
+      display: flex;
+      transition: $transition;
+
+      @include onDesktop {
+        display: grid;
+        grid-template-columns: repeat(12,1fr);
+        grid-template-rows: 600px 360px;
+        column-gap: 30px;
+        row-gap: 30px;
+        width: 100%;
+      }
+
+      & > :not(:last-child) {
+        margin-right: 16px;
+      }
+    }
+  }
+
+  &__slider {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    transition: all $transition;
+
+    @include onDesktop {
+      &:hover {
+        transform: scale(0.95);
+        border-radius: 20px;
+      }
+    }
+
+    &-content {
+      transform: scaleX(-1);
+      width: 280px;
+      height: 410px;
+
+      @include onTablet {
+        width: 340px;
+        height: 543px;
+      }
+
+      @include onDesktop {
+        width: 100%;
+        height: 100%;
+
+        &:nth-child(1) {
+          grid-column: 1/5;
+        }
+
+        &:nth-child(2) {
+          grid-column: 5/13;
+        }
+
+        &:nth-child(3) {
+          grid-column: 1/9;
+        }
+
+        &:nth-child(4) {
+          grid-column: 9/13;
+        }
+      }
+    }
+  }
+
+  &__buttons {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @include onDesktop {
+      display: none;
+    }
+
+    & > :not(:last-child) {
+      margin-right: 22px;
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    width: 9px;
+    height: 9px;
+    background-color: $white-color;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &__input {
+    display: none;
+  }
+}
+
+#slide-1:checked ~ .gallery__buttons label[for="slide-1"] {
+  background-color: $green-color;
+}
+
+#slide-2:checked ~ .gallery__buttons label[for="slide-2"] {
+  background-color: $green-color;
+}
+
+#slide-3:checked ~ .gallery__buttons label[for="slide-3"] {
+  background-color: $green-color;
+}
+
+#slide-4:checked ~ .gallery__buttons label[for="slide-4"] {
+  background-color: $green-color;
+}
+
+#slide-2:checked ~ .gallery__slides-content {
+  transform: translateX(calc(
+    var(--slideWidth2) + var(--scrollSlide) - var(--viewportWidth2)
+  ));
+}
+
+#slide-3:checked ~ .gallery__slides-content {
+  transform: translateX(
+    calc(var(--slideWidth3) + var(--scrollSlide) - var(--viewportWidth3)
+  ));
+}
+
+#slide-4:checked ~ .gallery__slides-content {
+  transform: translateX(calc(var(--slideWidth4) + var(--scrollSlide)));
+}
