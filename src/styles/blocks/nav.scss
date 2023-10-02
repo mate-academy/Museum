@@ -24,6 +24,26 @@
   &__link {
     text-decoration: none;
     color: inherit;
+    box-sizing: border-box;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      display: block;
+      width: 100px;
+      height: 1px;
+      background-color: #fff;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
   }
 
   &__item {
