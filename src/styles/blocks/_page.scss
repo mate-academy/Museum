@@ -1,0 +1,68 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    min-width: 320px;
+    font-family: "IBM Plex Sans", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  &__overflov-active {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all $effectDuration;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: all $effectDuration;
+    overflow: auto;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+    height: 100vh;
+    width: 100%;
+
+    &-active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  &__menu-wrapper {
+    background: $green-color;
+  }
+
+  &:has(.page__menu-active) {
+    overflow: hidden;
+  }
+
+  &__scroll {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 40px;
+
+    @include onTablet {
+      right: 39px;
+      bottom: 80px;
+    }
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+
+    &--active {
+      display: block;
+    }
+  }
+}

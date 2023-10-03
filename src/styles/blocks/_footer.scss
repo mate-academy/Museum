@@ -1,0 +1,149 @@
+.footer {
+  margin-block: 50px 56px;
+
+  @include onTablet {
+    margin-block: 50px 36px;
+  }
+
+  &__main {
+    @include onTablet {
+      @include pageGrid;
+      row-gap: 64px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      flex-direction: column;
+      justify-content: start;
+      gap: 62px;
+      grid-area: 1 / 1 / 2 / 2;
+    }
+  }
+
+  &__logo {
+    color: $dark-text-color;
+    font-family: Montserrat, Helvecica, sans-serif;
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onDesktop {
+      @include hover(color, $green-color);
+    }
+
+    &:active {
+      transform: translateY(3px);
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 20px;
+
+    @include onTablet {
+      gap: 32px;
+    }
+
+    @include onDesktop {
+      gap: 20px;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+
+    @include onDesktop {
+      @include hover(transform, scale(1.2));
+    }
+  }
+
+  &__schedule {
+    color: $dark-text-color;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+
+    @include onTablet {
+      column-gap: 30px;
+      margin-top: 0;
+      grid-area: 1 / 2 / 2 / 6;
+    }
+
+    @include onDesktop {
+      grid-area: 1 / 3 / 2 / 7;
+    }
+  }
+
+  &__list {
+    min-width: 130px;
+  }
+
+  &__divider {
+    margin-top: 70px;
+    height: 1px;
+    width: 100%;
+    background: rgba(26, 90, 76, 0.5);
+
+    @include onTablet {
+      margin-top: 0;
+      grid-area: 2 / 2 / 3 / 6;
+    }
+
+    @include onDesktop {
+      height: 100%;
+      width: 1px;
+      justify-self: center;
+      grid-area: 1 / 7 / 2 / 8;
+    }
+  }
+
+  &__nav {
+    margin-top: 40px;
+
+    @include onTablet {
+      margin-top: 0;
+      grid-area: 3 / 2 / 4 / 6;
+    }
+
+    @include onDesktop {
+      grid-area: 1 / 8 / 2 / 11;
+    }
+  }
+
+  &__bottom {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    @include onTablet {
+      margin-top: 120px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      margin-top: 87px;
+    }
+  }
+
+  &__copy {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 140%;
+  }
+
+  .schedule {
+    &__flex-wrapper {
+      flex-wrap: wrap;
+    }
+  }
+}

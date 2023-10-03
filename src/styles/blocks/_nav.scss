@@ -1,0 +1,36 @@
+.nav {
+  &__list {
+    display: grid;
+    grid-template: repeat(2, auto) / repeat(2, 100px);
+    justify-content: end;
+    gap: 24px 28px;
+    list-style-type: none;
+
+    @include onTablet {
+      padding-left: 50px;
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      padding-left: 125px;
+      gap: 30px 60px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    color: #fff;
+    font-family: IBM Plex Sans, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    text-decoration: none;
+
+    @include onDesktop {
+      font-size: 22px;
+
+      @include hover(color, $text-hover-color);
+      @include hover(transform, translateX(10px));
+    }
+  }
+}
