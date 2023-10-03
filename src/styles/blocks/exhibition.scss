@@ -16,8 +16,7 @@
 
   &__article {
     @include onDesktop {
-      display: flex;
-      align-items: center;
+      @include pageGrid;
     }
   }
 
@@ -32,12 +31,12 @@
     }
 
     @include onDesktop {
-      width: 670px;
-      height: 520px;
+      grid-column: 1 / span 7;
+      width: 100%;
 
       &:hover {
-        transform: scale(1.1);
-        border-radius: 20%;
+        transform: scale(1.05);
+        border-radius: 20px;
       }
     }
   }
@@ -83,7 +82,12 @@
     }
 
     @include onDesktop {
-      width: 370px;
+      display: flex;
+      flex-flow: column nowrap;
+      height: 520px;
+      justify-content: center;
+      grid-column: 8 / span 4;
+      width: 100%;
       margin-left: 120px;
     }
   }
@@ -99,10 +103,6 @@
     @include onTablet {
       font-size: 36px;
       justify-content: left;
-    }
-
-    @include onDesktop {
-      width: 370px;
     }
   }
 
@@ -121,7 +121,7 @@
     @include ff_ibm;
     padding-top: 10px;
     color: $light-color;
-    font-weight: 300;
+    width: 100%;
     line-height: 150%;
   }
 }
