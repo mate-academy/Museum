@@ -117,8 +117,16 @@
     }
   }
 
+  &__list {
+    @include onDesktop {
+      display: block;
+      width: 170px;
+    }
+  }
+
   &__link {
     position: relative;
+    display: inline;
     color: inherit;
     text-decoration: none;
     font-size: 14px;
@@ -130,7 +138,7 @@
       bottom: -3px;
       display: block;
       height: 1px;
-      width: 50px;
+      width: 100%;
       background-color: $black-color;
       border-radius: 3px;
 
@@ -139,13 +147,19 @@
       transform-origin: left;
     }
 
-    &:hover::after {
-      transform: scale(1);
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 170px;
+      height: 100%;
     }
 
-    @include onDesktop {
-      display: block;
-      width: 170px;
+    &:hover::after {
+      transform: scale(1);
     }
   }
 
