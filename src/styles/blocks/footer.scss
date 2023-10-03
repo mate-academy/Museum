@@ -1,0 +1,189 @@
+.footer {
+  padding-top: 50px;
+
+  &__wrapper {
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      flex-flow: column nowrap;
+      justify-content: start;
+      align-items: start;
+      row-gap: 62px;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    column-gap: 20px;
+  }
+
+  &__social {
+    transition: transform $transition;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  &__center {
+    @include ff_ibm;
+
+    @include onTablet {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 140.63%;
+      grid-column: 2 / span 4;
+    }
+
+    @include onDesktop {
+      display: flex;
+      grid-column: 3 / span 11;
+    }
+  }
+
+  &__information {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 28px;
+    row-gap: 24px;
+    padding-top: 20px;
+    padding-bottom: 70px;
+    border-bottom: 1px solid $green-color;
+
+    @include onTablet {
+      padding-top: 0;
+      padding-bottom: 64px;
+      row-gap: 20px;
+    }
+
+    @include onDesktop {
+      column-gap: 31px;
+      row-gap: 20px;
+      width: calc(50% - 65px);
+      padding-bottom: 0;
+      padding-right: 65px;
+      border-bottom: none;
+      border-right: 1px solid $green-color;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #1a5a4c;
+    border-radius: 50%;
+    background-image: url("../images/icons/arrow_top-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 50%;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__navigation {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 28px;
+    row-gap: 24px;
+    padding-top: 40px;
+    padding-bottom: 80px;
+
+    @include onTablet {
+      padding-top: 64px;
+      padding-bottom: 120px;
+    }
+
+    @include onDesktop {
+      height: 48px;
+      width: calc(50% - 65px);
+      padding-top: 0;
+      padding-left: 65px;
+      column-gap: 32px;
+      row-gap: 20px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__list {
+    @include onDesktop {
+      display: block;
+      width: 170px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline;
+    color: inherit;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $black-color;
+      border-radius: 3px;
+
+      transition: transform $transition;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 170px;
+      height: 100%;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &__rights {
+    display: grid;
+    row-gap: 10px;
+    padding-bottom: 50px;
+
+    @include onTablet {
+      padding: 0 34px;
+      padding-bottom: 36px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      padding: 87px 55px 35px;
+    }
+  }
+
+  &__right-info {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 140.63%;
+  }
+}

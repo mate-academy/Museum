@@ -1,0 +1,72 @@
+.nav {
+  padding: 0 0 24px 52px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+  @include onTablet {
+    border-bottom: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    padding-left: 62px;
+  }
+
+  @include onDesktop {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-left: 127px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 28px;
+    row-gap: 24px;
+    width: 50%;
+    box-sizing: border-box;
+
+    @include onTablet {
+      column-gap: 20px;
+      padding-right: 38px;
+    }
+
+    @include onDesktop {
+      width: fit-content;
+      column-gap: 31px;
+      row-gap: 30px;
+      padding-right: 102px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline;
+    width: 100px;
+    font-weight: 500;
+    color: inherit;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $white-color;
+      border-radius: 3px;
+
+      transition: transform $transition;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    @include onDesktop {
+      width: 160px;
+      font-size: 22px;
+    }
+  }
+}

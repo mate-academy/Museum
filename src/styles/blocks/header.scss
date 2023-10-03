@@ -1,0 +1,103 @@
+.header {
+  position: relative;
+
+  @include onDesktop {
+    height: 100vh;
+
+    &::before {
+      content: "Події";
+      position: absolute;
+      left: 55px;
+      bottom: 90px;
+      width: 43px;
+      height: 14px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      text-transform: uppercase;
+      color: $grey-color;
+      transform: rotate(-90deg);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 77px;
+      bottom: 0;
+      width: 1px;
+      height: 70px;
+      background: #1a5a4c;
+    }
+  }
+
+  &__bg {
+    background: url("../images/header-bg.png") no-repeat center bottom;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+
+    @include onTablet {
+      height: 384px;
+      order: 2;
+      grid-column: 4 / span 3;
+    }
+
+    @include onDesktop {
+      height: 100vh;
+      grid-column: 6 / span 7;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 45px;
+    font-weight: 700;
+    padding-block: 20px;
+    line-height: 100%;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      padding-top: 0;
+    }
+  }
+
+  &__info {
+    padding-right: 20px;
+
+    @include onTablet {
+      padding-bottom: 20px;
+      order: 1;
+      grid-column: 1 / span 3;
+      padding-right: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / span 5;
+      height: 100vh;
+      display: flex;
+      flex-flow: row wrap;
+      align-content: center;
+      padding-bottom: 0;
+    }
+  }
+
+  &__button {
+    @include onDesktop {
+      display: flex;
+      width: 100%;
+      justify-content: end;
+      padding-top: 69px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: end;
+  }
+}

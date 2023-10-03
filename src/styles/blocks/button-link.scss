@@ -1,0 +1,54 @@
+.button-link {
+  position: relative;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  border: 1px solid $green-color;
+  text-decoration: none;
+  box-sizing: border-box;
+  color: $black-color;
+  transition: transform $transition;
+
+  ::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    height: 100%;
+    background: $green-color;
+    z-index: -1;
+    transition: width $transition;
+  }
+
+  @include onDesktop {
+    &:hover {
+      transform: scale(1.1);
+      color: $white-color;
+
+      ::before {
+        width: 100%;
+      }
+    }
+  }
+
+  @include onTablet {
+    width: 270px;
+  }
+
+  &__title {
+    width: 100%;
+    text-transform: uppercase;
+    padding-block: 20px;
+    text-align: center;
+    color: inherit;
+    @include ff_ibm;
+  }
+
+  &__arrow {
+    padding: 20px;
+    background: $green-color;
+  }
+}

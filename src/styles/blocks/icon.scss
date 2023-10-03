@@ -1,0 +1,62 @@
+.icon {
+  position: absolute;
+  z-index: 1;
+  top: 27px;
+  left: 20px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+
+  @include onTablet {
+    top: 40px;
+    left: 35px;
+  }
+
+  @include onDesktop {
+    top: 40px;
+    left: 55px;
+  }
+
+  &__menu-line {
+    width: 18px;
+    height: 2px;
+    background-color: $black-color;
+    transition: width $transition;
+  }
+
+  &__menu {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 3px;
+    padding: 3px;
+    box-sizing: border-box;
+
+    &:hover &-line:first-child {
+      width: 13px;
+    }
+
+    &:hover &-line:last-child {
+      width: 8px;
+    }
+  }
+  &--close {
+    background: url("../images/icons/close-icon.svg") no-repeat;
+  }
+
+  &__company {
+    display: block;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 100%;
+    color: $black-color;
+    text-decoration: none;
+    transition: transform $transition;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

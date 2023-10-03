@@ -1,0 +1,127 @@
+.exhibition {
+  padding-top: 20px;
+
+  &__wrapper {
+    display: grid;
+    row-gap: 60px;
+
+    @include onTablet {
+      row-gap: 64px;
+    }
+
+    @include onDesktop {
+      row-gap: 104px;
+    }
+  }
+
+  &__article {
+    @include onDesktop {
+      @include pageGrid;
+    }
+  }
+
+  &__image {
+    height: 210px;
+    width: 100%;
+    object-fit: cover;
+    transition: all $transition;
+
+    @include onTablet {
+      height: 520px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / span 7;
+      width: 100%;
+
+      &:hover {
+        transform: scale(1.05);
+        border-radius: 20px;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    line-height: 100%;
+    @include ff_ibm;
+
+    @include onTablet {
+      width: 220px;
+      font-size: 14px;
+    }
+
+    @include onDesktop {
+      padding-top: 0;
+    }
+  }
+
+  &__type {
+    color: $grey-color;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-weight: 500;
+    }
+  }
+
+  &__date {
+    color: $green-color;
+    font-family: IBM Plex Sans, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 150%;
+  }
+
+  &__line {
+    @include onTablet {
+      width: 460px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      flex-flow: column nowrap;
+      height: 520px;
+      justify-content: center;
+      grid-column: 8 / span 4;
+      width: 100%;
+      margin-left: 120px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    font-size: 28px;
+    font-weight: 400;
+
+    @include onTablet {
+      font-size: 36px;
+      justify-content: left;
+    }
+  }
+
+  &__block {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: $red-color;
+
+    @include onTablet {
+      margin-left: 20px;
+    }
+  }
+
+  &__text {
+    @include ff_ibm;
+    padding-top: 10px;
+    color: $light-color;
+    width: 100%;
+    line-height: 150%;
+  }
+}
