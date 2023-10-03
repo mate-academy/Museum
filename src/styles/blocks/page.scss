@@ -14,11 +14,6 @@
 
   scroll-behavior: smooth;
 
-  &__body {
-    background: $c-gray;
-    margin: 0;
-  }
-
   &__mask {
     width: 100vw;
     height: 0;
@@ -28,6 +23,20 @@
     z-index: 1;
 
     overflow: hidden;
+  }
+
+  &__body {
+    background: $c-gray;
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+      height: 100vh;
+
+      .page__mask {
+        height: 100vw;
+      }
+    }
   }
 
   &__menu {
@@ -40,11 +49,17 @@
     pointer-events: none;
 
     z-index: 2;
+
+    // transition: transform 0.6s;
+    // transform: scale(0);
+    // transform-origin: left;
   }
 
   &__menu:target {
     opacity: 1;
     pointer-events: all;
+
+    // transform: scale(1);
   }
 
   &__main {
