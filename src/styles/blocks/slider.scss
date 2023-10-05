@@ -2,22 +2,37 @@
   overflow: hidden;
   width: 280px;
 
+  @include onTablet {
+    width: 700px;
+  }
+
   &__images {
     display: flex;
     width: fit-content;
     margin-bottom: 20px;
     transition: all ease-in-out $transition-duration;
+    gap: 20px;
   }
 
   &__img-wr {
     width: 280px;
     height: 410px;
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+    }
   }
 
   &__img {
     display: block;
     object-fit: cover;
     object-position: center;
+
+    @include onTablet {
+      height: 100%;
+      width: 100%;
+    }
   }
 
   &__buttons {
@@ -31,6 +46,12 @@
     cursor: pointer;
 
     @include hover(transform, scale(1.2));
+
+    @include onTablet {
+      &:last-child {
+        display: none;
+      }
+    }
   }
 
   &__button {

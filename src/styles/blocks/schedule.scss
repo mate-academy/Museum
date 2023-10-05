@@ -47,17 +47,20 @@
     width: fit-content;
     grid-column: 1/-1;
     justify-self: end;
-
-    &__svg {
-      stroke: $color-secondary;
-      transition: all $transition-duration;
-    }
+    transition: transform ease-in-out $transition-duration;
 
     &:hover {
-      .schedule__svg {
-        stroke: $color-hover;
-      }
+      animation: moveup $transition-duration ease-in-out infinite alternate;
     }
   }
 
+  @keyframes moveup {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(-10px);
+    }
+  }
 }

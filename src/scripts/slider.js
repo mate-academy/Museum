@@ -10,7 +10,12 @@ sliderButtons.forEach(el => {
 function moveSlider({ currentTarget }) {
   const num = currentTarget.getAttribute('data-image-num');
 
-  sliderImages.style.transform = `translateX(-${280 * num}px)`;
+  if (window.innerWidth >= 768) {
+    sliderImages.style.transform = `translateX(-${360 * num}px)`;
+  } else {
+    sliderImages.style.transform = `translateX(-${300 * num}px)`;
+  }
+
   markButton(num);
 };
 

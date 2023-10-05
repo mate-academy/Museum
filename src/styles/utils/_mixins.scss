@@ -16,6 +16,11 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 20px;
+
+  @include onTablet() {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
 }
 
 @mixin placeholder {
@@ -59,5 +64,11 @@
     background-color: $color-secondary;
     outline: 1px solid $color-secondary;
     border-radius: 5px;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
   }
 }

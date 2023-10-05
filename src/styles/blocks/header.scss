@@ -1,10 +1,8 @@
 .header {
-  min-height: 100vh;
   font-family: "Montserrat", sans-serif;
 
   @include grid;
-  grid-template-rows: repeat(2, min-content);
-  row-gap: 20px;
+  grid-template-rows: min-content;
 
   &__menu-header {
     position: absolute;
@@ -12,30 +10,46 @@
     left: -100%;
   }
 
-  &__top-bar {
-    position: relative;
-  }
-
   &__top {
     height: 300px;
     @include background("../images/header-bg.png");
     grid-column: span 2;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      height: 348px;
+      grid-column: 4/-1;
+      margin-bottom: 0;
+    }
   }
 
   &__bottom {
-    @include grid;
+    margin-bottom: 70px;
     grid-column: span 2;
-    grid-template-rows: repeat(2, min-content);
-    row-gap: 20px;
+
+    @include onTablet {
+      grid-column: 1/4;
+      grid-row: 1;
+      align-self: end;
+      margin-bottom: 20px;
+    }
   }
 
   &__title {
-    margin-bottom: 40px;
-    grid-column: span 2;
+    margin-bottom: 20px;
     text-align: center;
-  }
 
-  &__tickets {
-    margin-bottom: 50px;
+    color: #000;
+    font-family: "Montserrat", sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+      margin-bottom: 38px;
+    }
   }
 }
