@@ -1,5 +1,4 @@
 'use strict';
-debugger
 
 const sliderImages = document.querySelector('.slider__images');
 const sliderButtons = document.querySelectorAll('.slider__button-wr');
@@ -19,6 +18,7 @@ function markButton(num) {
   document.querySelector('.slider__button--active')
     .classList.remove('slider__button--active');
 
-    const activeBtn = document.querySelector(`[data-image-num="${num}"]`);
-    activeBtn.firstElementChild.classList.add('slider__button--active');
+  const activeBtn = document.querySelector(`[data-image-num="${num}"]`);
+
+  activeBtn.firstElementChild.classList.add('slider__button--active');
 }

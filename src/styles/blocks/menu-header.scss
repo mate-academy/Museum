@@ -1,0 +1,58 @@
+.menu-header {
+  min-height: 100vh;
+  width: 100%;
+  background: rgba(24, 24, 26, 0.5);
+  transition: left ease-in-out $transition-duration;
+
+  &__top {
+    position: relative;
+    padding: 27px 0 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    transition-delay: 0.5s;
+    margin-bottom: 24px;
+
+    pointer-events: none;
+  }
+
+  &:target {
+    .menu-header__top {
+      pointer-events: all;
+    }
+  }
+
+  &__content {
+    font-family: "IBM Plex Sans", sans-serif;
+    width: 100%;
+    background-color: $color-secondary;
+    padding-bottom: 27px;
+  }
+
+  &__close {
+    display: block;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/icons/close.svg);
+    position: absolute;
+    top: 27px;
+    left: 0;
+
+    @include hover(transform, rotate(30deg));
+  }
+
+  &__schedule {
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    color: #fff;
+
+    &--title {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__time {
+    margin-right: 5px;
+  }
+}

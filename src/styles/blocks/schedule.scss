@@ -8,5 +8,56 @@
 
   &__content {
     @include grid;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $color-secondary;
   }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    color: $color-title;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 2px;
+    display: block;
+    text-decoration: none;
+
+    &--time {
+      font-weight: 700;
+    }
+
+    &--title {
+      margin-bottom: 20px;
+    }
+
+    &--link {
+      @include hover(color, $color-hover);
+    }
+
+  }
+
+  &__btn {
+    display: block;
+    width: fit-content;
+    grid-column: 1/-1;
+    justify-self: end;
+
+    &__svg {
+      stroke: $color-secondary;
+      transition: all $transition-duration;
+    }
+
+    &:hover {
+      .schedule__svg {
+        stroke: $color-hover;
+      }
+    }
+  }
+
 }
