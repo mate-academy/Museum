@@ -1,0 +1,94 @@
+.galery {
+  overflow: hidden;
+
+  &__tittle {
+    color: $second-text-color;
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+    padding-bottom: 40px;
+
+    @include onTablet {
+      font-size: 48px;
+      padding-bottom: 48px;
+      text-align: left;
+    }
+
+    @include onSmallDesktop {
+      padding-bottom: 56px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    padding-bottom: 20px;
+
+    @include onTablet {
+      padding-bottom: 32px;
+    }
+
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+
+  &__photo {
+    width: 280px;
+    height: 410px;
+    margin-right: 16px;
+    cursor: pointer;
+    transition: transform 0.4s ease-in-out ;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+      margin-right: 20px;
+    }
+  }
+
+  &__slider {
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 100px;
+
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+
+  &__item {
+    display: none;
+
+    @include onSmallDesktop {
+      @include pageGrid;
+      row-gap: 30px;
+      padding-bottom: 200px;
+    }
+  }
+
+  &__img-grid {
+    grid-column: span 8;
+    cursor: pointer;
+    transition: transform 0.4s ease-in-out ;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &--one {
+      grid-column: span 4;
+      cursor: pointer;
+      transition: transform 0.4s ease-in-out ;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
