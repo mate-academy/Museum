@@ -1,10 +1,25 @@
 .lections {
-  background:
-    url(..//images/mobile-muzej-2.png) center / 320px 210px no-repeat;
-
+  // background-image: url(..//images/mobile-muzej-2.png);
+  // background-repeat: no-repeat;
+  // background-size: contain;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  position: relative;
+
+  &__image {
+    width: 320px;
+    height: 210px;
+    position: absolute;
+    z-index: -1;
+
+    @include onTablet {
+      top: 0;
+      left: 34px;
+      width: 700px;
+      height: 390px;
+    }
+  }
 
   &__container {
     transform: translateY(65%);
@@ -14,6 +29,12 @@
     padding-top: 20px;
     box-sizing: border-box;
     box-shadow: 0 2px 0 0 #1a5a4c40;
+
+    @include onTablet {
+      transform: translateY(160%);
+      width: 570px;
+      margin-bottom: 150px;
+    }
   }
 
   &__title {
@@ -21,6 +42,11 @@
     font-size: 16px;
     line-height: 16px;
     color: $c-grey;
+
+    @include onTablet {
+      text-align: left;
+      padding-left: 55px;
+    }
   }
 
   &__date {
@@ -29,6 +55,10 @@
     font-size: 16px;
     line-height: 24px;
     color: $background-c-green;
+
+    @include onTablet {
+      padding-left: 180px;
+    }
   }
 
   &__name {
@@ -37,5 +67,12 @@
     font-size: 28px;
     line-height: 28px;
     padding: 20px 0;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 36px;
+      padding: 30px 55px 50px;
+      text-align: left;
+    }
   }
 }

@@ -1,22 +1,56 @@
 .header {
-  background: $background-c-white
-    url(..//images/mobile-muzej.png);
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: space-between;
-  padding: 9px 20px 70px 20px;
-  height: 100vh;
-  box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+
+    height: 100vh;
+    justify-content: space-between;
+
+    @include onTablet {
+      height: 384px;
+    }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+
+    @include onTablet {
+      max-width: 374px;
+      top: 0;
+      right: 0;
+    }
+  }
 
   &__nav {
     display: flex;
     align-items: center;
     box-sizing: border-box;
+    padding: 9px 20px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      padding: 15px 34px;
+    }
+  }
+
+  &__bottom {
+    margin-bottom: 70px;
+    padding-left: 20px;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      align-items: start;
+      padding-left: 34px;
+    }
   }
 
   &__title {
@@ -26,6 +60,20 @@
     line-height: 45px;
     color: $c-black;
     margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 64px;
+      max-width: 340px;
+      text-align: left;
+    }
+  }
+
+  &__bottom__container {
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    // text-align: center;
   }
 
   &__bottom__link {
@@ -36,15 +84,25 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 16px;
-    padding: 14px 0 13px 80px;
+    width: 230px;
+    padding: 15px 0;
 
     box-sizing: border-box;
+
+    @include onTablet {
+      width: 220px;
+      padding: 26px 0;
+    }
   }
 
   &__bottom__image {
     background-color: $background-c-green;
-    margin-left: 80px;
+    // margin-left: 80px;
     padding: 19px 20px;
-    transform: translateY(37%);
+    // transform: translateY(37%);
+
+    @include onTablet {
+      padding: 21px;
+    }
   }
 }
