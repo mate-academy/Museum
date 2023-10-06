@@ -21,6 +21,10 @@
     grid-template-columns: repeat(6, 1fr);
     column-gap: 30px;
   }
+
+  @include onDesktop() {
+    grid-template-columns: repeat(12, 1fr);
+  }
 }
 
 @mixin placeholder {
@@ -69,6 +73,12 @@
 
 @mixin onTablet {
   @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
     @content;
   }
 }

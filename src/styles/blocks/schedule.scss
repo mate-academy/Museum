@@ -17,22 +17,39 @@
   &__content {
     @include grid;
     padding-bottom: 20px;
-    border-bottom: 1px solid $color-secondary;
 
     @include onTablet {
       padding-bottom: 64px;
+    }
+
+    @include onDesktop {
+      border-bottom: none;
+      padding-bottom: 0;
     }
   }
 
   &__left {
     @include onTablet {
       grid-column: 2/4;
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      grid-column: 3/5;
+      margin-bottom: 0;
     }
   }
 
   &__right {
     @include onTablet {
       grid-column: -4/-2;
+    }
+
+    @include onDesktop {
+      grid-column: 5/8;
+      border-right: 1px solid rgba(26, 90, 76, 0.5);
+      padding-right: 65px;
+      margin-right: 34px;
     }
   }
 
@@ -41,6 +58,11 @@
     flex-direction: column;
     gap: 10px;
     margin-bottom: 40px;
+
+    color: #0f0e08;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
   }
 
   &__item {
@@ -84,6 +106,22 @@
 
     @include onTablet {
       display: none;
+    }
+  }
+
+  &__menu {
+    @include onTablet {
+      padding-top: 60px;
+
+      &:has(.menu__content) {
+        .menu__content {
+          justify-content: flex-start;
+        }
+      }
+    }
+
+    @include onDesktop {
+      padding-top: 0;
     }
   }
 

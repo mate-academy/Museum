@@ -4,8 +4,17 @@
   line-height: 100%;
   overflow: hidden;
 
+  grid-column: -2/-6;
+
+  @include onTablet {
+    border-top: 1px solid $color-secondary;
+  }
+
+  @include onDesktop {
+    border-top: none;
+  }
+
   &__content {
-    @include grid;
     margin-bottom: 80px;
 
     &--header {
@@ -15,6 +24,18 @@
       @include onTablet {
         transform: translateX(0);
       }
+    }
+
+    @include onTablet {
+      display: flex;
+      gap: 29%;
+      justify-content: center;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+      display: flex;
+      gap: 86px;
     }
   }
 
