@@ -4,12 +4,36 @@
     display: flex;
     justify-content: space-between;
     padding: 50px 0 40px;
+
+    @include onTablet {
+      grid-column: 1/2;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 62px;
+      padding: 0;
+    }
   }
 
   &__content {
     @include grid;
     padding-bottom: 20px;
     border-bottom: 1px solid $color-secondary;
+
+    @include onTablet {
+      padding-bottom: 64px;
+    }
+  }
+
+  &__left {
+    @include onTablet {
+      grid-column: 2/4;
+    }
+  }
+
+  &__right {
+    @include onTablet {
+      grid-column: -4/-2;
+    }
   }
 
   &__items {
@@ -17,6 +41,12 @@
     flex-direction: column;
     gap: 10px;
     margin-bottom: 40px;
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
   }
 
   &__text {
@@ -39,7 +69,6 @@
     &--link {
       @include hover(color, $color-hover);
     }
-
   }
 
   &__btn {
@@ -51,6 +80,10 @@
 
     &:hover {
       animation: moveup $transition-duration ease-in-out infinite alternate;
+    }
+
+    @include onTablet {
+      display: none;
     }
   }
 
