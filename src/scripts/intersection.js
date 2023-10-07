@@ -8,11 +8,15 @@ const options = {
 };
 const target = document.querySelector('.actions__bottom');
 
-const callback = function() {
+const callback = function(entries, observer) {
   // eslint-disable-next-line no-trailing-spaces
-  window.innerWidth < 768
-    ? target.style.bottom = '74px'
-    : target.style.bottom = '148px';
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      window.innerWidth < 768
+        ? target.style.bottom = '74px'
+        : target.style.bottom = '148px';
+    }
+  });
 };
 
 // eslint-disable-next-line no-undef
