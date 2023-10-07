@@ -1,4 +1,18 @@
 'use strict';
+const scrollDispatcherConfig = {
+  /**
+   * Controls the speed of scrolling.
+   *
+   * `speed: 1` - scrolls instantly
+   *
+   * `speed: 2000` - very smooth
+   */
+  speed: 11900,
+  noHeader: true,
+  offsetTop: 0,
+};
+
+export default scrollDispatcherConfig;
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
@@ -26,7 +40,7 @@ window.addEventListener('load', function() {
 
       setTimeout(function() {
         loader.style.display = 'none';
-      }, 1000); // Збільшено затримку до 1 секунди
+      }, 1000);
     }
-  }, 500); // Затримка 500 мс
+  }, 500);
 });
