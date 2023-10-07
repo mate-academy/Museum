@@ -1,0 +1,45 @@
+.tickets {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 50px;
+
+  @include onTablet {
+    width: 270px;
+    grid-template-columns: 1fr 70px;
+  }
+
+  @include onDesktop {
+    justify-self: end;
+  }
+
+  &__main {
+    color: $color-title;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    box-sizing: border-box;
+
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid $color-secondary;
+
+    @include onTablet {
+      height: 70px;
+      line-height: 70px;
+    }
+  }
+
+  &__arrow {
+    width: 20px;
+
+    @include onTablet {
+      width: 30px;
+    }
+
+    @include onDesktop {
+      width: 40px;
+    }
+    @include hover(transform, scale(1.2));
+  }
+}

@@ -1,0 +1,38 @@
+.form {
+  &__input-box {
+    display: flex;
+    width: 100%;
+  }
+
+  &__email {
+    height: 50px;
+    margin: 0;
+    border: none;
+    outline: none;
+    padding-inline: 24px;
+    transition: all ease-in $transition-duration;
+    flex-grow: 1;
+
+    @include onTablet {
+      height: 70px;
+    }
+
+    @include placeholder {
+      color: #687480;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 100%;
+      transition: all ease-in $transition-duration;
+    }
+
+    @include autofill;
+
+    &:focus {
+      @include placeholder {
+        transform: translateX(100px);
+        opacity: 0;
+      }
+    }
+  }
+}

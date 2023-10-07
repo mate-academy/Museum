@@ -1,0 +1,102 @@
+.header {
+  font-family: "Montserrat", sans-serif;
+
+  @include grid;
+  grid-template-rows: min-content;
+
+  &__menu-header {
+    position: absolute;
+    top: 0;
+    left: -100%;
+  }
+
+  &__top {
+    height: 300px;
+    @include background("../images/header-bg.png");
+    grid-column: span 2;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      height: 384px;
+      grid-column: 4/-1;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      height: 655px;
+      grid-column: 6/-1;
+    }
+  }
+
+  &__bottom {
+    margin-bottom: 70px;
+    grid-column: span 2;
+
+    @include onTablet {
+      grid-column: 1/4;
+      grid-row: 1;
+      align-self: end;
+      margin-bottom: 20px;
+    }
+
+    @include onDesktop {
+      align-self: flex-end;
+      grid-column: 1/6;
+      margin-bottom: 115px;
+
+      &-wr {
+        display: grid;
+      }
+    }
+  }
+
+  &__decor {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    color: #687480;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    padding-left: 55px;
+    transform: rotate(-90deg) translateX(100px);
+    text-transform: uppercase;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 70px;
+      background-color: #687480;
+      position: relative;
+      top: 8px;
+      left: -90px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    text-align: center;
+
+    color: #000;
+    font-family: "Montserrat", sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+      margin-bottom: 38px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin-bottom: 90px;
+    }
+  }
+}
