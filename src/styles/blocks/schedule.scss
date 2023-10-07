@@ -1,6 +1,6 @@
 .schedule {
   &__header {
-    grid-column: span 2;
+    grid-column: 1/-1;
     display: flex;
     justify-content: space-between;
     padding: 50px 0 40px;
@@ -23,6 +23,7 @@
     }
 
     @include onDesktop {
+      position: relative;
       border-bottom: none;
       padding-bottom: 0;
     }
@@ -99,10 +100,9 @@
     grid-column: 1/-1;
     justify-self: end;
     transition: transform ease-in-out $transition-duration;
+    margin-bottom: 20px;
 
-    &:hover {
-      animation: moveup $transition-duration ease-in-out infinite alternate;
-    }
+    @include arrowUpAnim;
 
     @include onTablet {
       display: none;
@@ -110,7 +110,12 @@
   }
 
   &__menu {
+    grid-column: 1/-1;
+    padding-top: 40px;
+    border-top: 1px solid rgba(26, 90, 76, 0.5);
+
     @include onTablet {
+      display: block;
       padding-top: 60px;
 
       &:has(.menu__content) {
@@ -121,17 +126,8 @@
     }
 
     @include onDesktop {
+      border-top: none;
       padding-top: 0;
-    }
-  }
-
-  @keyframes moveup {
-    from {
-      transform: translateY(0);
-    }
-
-    to {
-      transform: translateY(-10px);
     }
   }
 }
