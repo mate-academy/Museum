@@ -1,14 +1,26 @@
 .header {
   box-sizing: border-box;
-  height: 100vh;
   width: 100%;
 
   &__content {
     width: 100%;
     position: relative;
-    height: 70vh;
+    margin-bottom: 160px;
+    height: 616px;
+
 
     @include pageGrid;
+
+    @include onTablet {
+      height: 345px;
+      margin-bottom: 48px;
+    }
+
+    @include onMobile {
+    height: auto;
+    margin-bottom: 30px;
+    grid-template-rows: repeat(2, 1fr);
+    }
   }
 
   &__info {
@@ -17,41 +29,15 @@
     display: flex;
     flex-direction: column;
     position: relative;
-  }
 
-  &__title {
-    font-family: $title-font;
-    color: $header-title-color;
-    font-size: 72px;
-    font-weight: 700;
-    line-height: 120%;
-    margin-top: 160px;
-    margin-bottom: 0;
-  }
+    @include onTablet {
+      grid-column: span 3;
+    }
 
-  &__photo {
-    display: flex;
-    justify-content: left;
-    padding-top: 15px;
-    background-image: url(../images/bg-header.png);
-    background-size: cover;
-
-    grid-column: span 7;
-    margin-top: -$container-padding-top;
-    margin-right: calc(-50vw + 87%);
-  }
-
-  &__logo {
-    margin: 0;
-    display: block;
-    width: 170px;
-    height: fit-content;
-    color: $title-color;
-    text-align: center;
-    font-family: $title-font;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 100%;
+    @include onMobile {
+      grid-column: span 2;
+      grid-row: 2;
+    }
   }
 
   &__events {
@@ -61,6 +47,10 @@
     align-items: center;
     gap: 10px;
     bottom: 0;
+
+    @include onTablet {
+      display: none;
+    }
 
     &-link {
       transform: rotate(-90deg);
@@ -81,4 +71,74 @@
       background-color: $secodary-text-color;
     }
   }
+
+  &__title {
+    font-family: $title-font;
+    color: $header-title-color;
+    font-size: 72px;
+    margin-top: 166px;
+    font-weight: 700;
+    line-height: 120%;
+    margin-bottom: 0;
+
+    @include onTablet {
+      font-size: 54px;
+      margin-top: 87px;
+    }
+
+    @include onMobile {
+      font-size: 45px;
+      line-height: 100%;
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+
+  &__photo {
+    display: flex;
+    justify-content: left;
+    padding-top: 15px;
+    background-image: url(../images/bg-header.png);
+    background-size: cover;
+    margin-top: -$container-padding-top;
+    margin-right: calc(-50vw + 87%);
+    grid-column: span 7;
+
+    @include onTablet{
+      grid-column: span 3;
+      margin-right: calc(-30vw + 59%);
+    }
+
+    @include onMobile {
+      grid-column: span 2;
+      justify-content: center;
+      padding-top: 9px;
+      margin-inline: calc(-50vw + 50%);
+      height: 300px;
+      grid-row: 1;
+      margin-top: -$container-padding-top-mobile;
+    }
+  }
+
+  &__logo {
+    margin: 0;
+    display: block;
+    width: 170px;
+    height: fit-content;
+    color: $title-color;
+    text-align: center;
+    font-family: $title-font;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onTablet {
+      width: 220px;
+    }
+
+    @include onMobile {
+      width: 55px;
+    }
+  }
+
 }

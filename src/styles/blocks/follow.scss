@@ -7,11 +7,19 @@
   margin-top: 200px;
   justify-content: center;
 
+  @include onTablet {
+    @include pageGrid;
+  }
+
   &__content {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+    }
   }
 
   &__text {
@@ -27,6 +35,11 @@
 
   &__form {
     @include pageGrid;
+
+    @include onTablet {
+      display: flex;
+      gap: 16px;
+    }
   }
 
   &__input {
@@ -35,6 +48,10 @@
     border: 0;
     grid-column: 4 / 9;
     padding-left: 32px;
+
+    @include onTablet {
+      width: 100%;
+    }
 
     &::placeholder {
       color: $event-link-color;
@@ -52,5 +69,9 @@
     width: $button-hight;
     padding: 0;
     grid-column: 9;
+
+    @include onTablet {
+      width: $button-hight;
+    }
   }
 }

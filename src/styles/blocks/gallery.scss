@@ -7,17 +7,45 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+
+    @include onTablet {
+      @include pageGrid;
+    }
   }
 
   &__images {
     @include pageGrid;
 
+    @include onTablet {
+      display: flex;
+    }
+
     &--tall {
       height: 600px;
+
+      @include onTablet {
+        height: 543px;
+        grid-column: span 3;
+      }
     }
 
     &--short {
       height: 360px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+      margin: 0;
+
+      @include onTablet {
+        display: block;
+        height: 543px;
+        grid-column: span 3;
+      }
     }
   }
 
@@ -26,10 +54,27 @@
 
     &--large {
       grid-column: span 8;
+
+      @include onTablet {
+        display: none;
+      }
     }
 
     &--narrow {
       grid-column: span 4;
+
+      @include onTablet {
+      }
+    }
+
+    &--tablet {
+      margin: 0;
+      display: none;
+
+      @include onTablet {
+        display: block;
+        height: 100%;
+      }
     }
   }
 }

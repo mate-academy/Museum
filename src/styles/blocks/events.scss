@@ -7,24 +7,36 @@
     display: flex;
     flex-direction: column;
     gap: 104px;
+
+    @include onTablet {
+      gap: 64px;
+    }
   }
 }
 
 .event {
-  display: flex;
-  flex-direction: row;
-  gap: 130px;
+  @include pageGrid;
 
   &--lecture {
+    display: flex;
     flex-direction: column;
     gap: 0;
     align-items: center;
   }
 
   &__picture {
-    width: 670px;
-    height: 520px;
+    grid-column: 1 / 8;
+    width: 100%;
     margin: 0;
+
+    @include onTablet {
+      grid-column: span 6;
+      margin-bottom: 44px;
+    }
+
+    @include onMobile {
+      grid-column: span 2;
+    }
 
     &--lecture {
       background-image: url(../images/events/from-class-to-rom.png);
@@ -32,13 +44,28 @@
       height: 550px;
       width: 100vw;
       margin-inline: calc(-50vw + 50%);
+
+      @include onTablet {
+        margin-bottom: 0;
+        height: 390px;
+      }
     }
   }
 
   &__details {
+    grid-column: -5 / -1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-shrink: 0;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+
+    @include onMobile {
+      grid-column: span 2;
+    }
 
     &--lecture {
       background-color: $bg-color;
@@ -47,6 +74,11 @@
       padding: 45px 100px 50px;
       box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
       transform: translateY(-50%);
+
+      @include onTablet {
+        padding-inline: 55px;
+        transform: translateY(-40%);
+      }
     }
 
     &-top {
@@ -55,12 +87,16 @@
       font-size: 14px;
       margin-bottom: 32px;
       align-items: center;
-      justify-content: space-between;
+
 
       &--lecture {
         margin-bottom: 16px;
         display: flex;
         justify-content: space-between;
+
+        @include onTablet {
+          margin-bottom: 23px;
+        }
       }
     }
   }
@@ -74,7 +110,7 @@
 
   &__date {
     margin: 0;
-    margin-right: 100px;
+    text-align: center;
     width: 170px;
     color: $main-green;
     font-weight: 700;
@@ -82,17 +118,28 @@
 
     &--lecture {
       margin: 0;
+
+      @include onTablet {
+        width: 220px;
+        text-align: left;
+      }
     }
   }
 
   &__title {
-    margin: 0;
+    display: flex;
+    align-items: center;
     margin-bottom: 15px;
-    color: $title-color;
-    font-family: $title-font;
-    font-size: 36px;
-    font-weight: 400;
-    line-height: 100%;
+
+      &-text {
+        margin: 0;
+        color: $title-color;
+        font-family: $title-font;
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 100%;
+        margin-right: 15px;
+      }
   }
 
   &__description {
