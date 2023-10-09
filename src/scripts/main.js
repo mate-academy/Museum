@@ -1,5 +1,8 @@
 /* eslint-disable padding-line-between-statements */
+/* eslint-disable no-undef */
 /* eslint-disable max-len */
+/* eslint-disable no-new */
+
 'use strict';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -12,6 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
       timeReady: 1200,
     },
     header: document.querySelector('.header'),
+    gallery: document.querySelector('.gallery'),
   };
 
   // ===============================
@@ -52,4 +56,38 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   };
   headerInit(state.header);
+
+  // ===============================
+  // GALLERY SWIPER
+  // ===============================
+  const gallerySwiperInit = (gallery) => {
+    if (gallery) {
+      const swiper = gallery.querySelector('.gallery__mobile');
+      const swiperPagination = gallery.querySelector('.gallery__pagination');
+      const swiperOptions = {
+        slidesPerView: 'auto',
+        loop: true,
+        speed: 700,
+        pagination: {
+          el: swiperPagination,
+          clickable: true,
+        },
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          320: {
+            spaceBetween: 16,
+          },
+          575: {
+            spaceBetween: 20,
+          },
+        },
+      };
+
+      new Swiper(swiper, swiperOptions);
+    }
+  };
+  gallerySwiperInit(state.gallery);
 });
