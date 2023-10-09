@@ -1,18 +1,4 @@
 'use strict';
-const scrollDispatcherConfig = {
-  /**
-   * Controls the speed of scrolling.
-   *
-   * `speed: 1` - scrolls instantly
-   *
-   * `speed: 2000` - very smooth
-   */
-  speed: 11900,
-  noHeader: true,
-  offsetTop: 0,
-};
-
-export default scrollDispatcherConfig;
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
@@ -29,6 +15,8 @@ form.addEventListener('submit', buttonClick, false);
 function buttonClick(event) {
   event.preventDefault();
   form.reset();
+  // eslint-disable-next-line no-undef
+  alert('Дякую за підписку!');
 };
 
 window.addEventListener('load', function() {

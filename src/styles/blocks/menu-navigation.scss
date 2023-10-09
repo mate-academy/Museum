@@ -1,7 +1,10 @@
 .menu__navigation {
   background-color: $green;
-  position: relative;
   z-index: 1;
+
+  &--content {
+    position: relative;
+  }
 
   &:target {
     &::after {
@@ -10,36 +13,37 @@
       right: 0;
       position: absolute;
       height: 100vh;
-      background-color: rgba(0,0,0,.5);
+      background-color: #00000080;
     }
   }
 
   &--schedule {
+    border-left: 1px solid #ffffff80;
+
+    @include onMobile {
+      border-left: none;
+    }
+
     @include onTablet {
       padding: 0 20px 10px 30px;
-      border-left: 1px solid rgba(255, 255, 255, 0.5);
       grid-column: 5 / 6;
     }
 
     @include onDesktop {
       padding: 0 38px 10px;
-      border-left: 1px solid rgba(255, 255, 255, 0.5);
     }
   }
 
   &--cross-btn {
     @include hoverTransform;
     position: absolute;
-    left: 20px;
     top: 27px;
 
     @include onTablet {
-      left: 34px;
       top: 34px;
     }
 
     @include onDesktop {
-      left: 50px;
       top: 54px;
     }
 

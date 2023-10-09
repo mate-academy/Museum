@@ -21,7 +21,6 @@
     z-index: 1;
     position: relative;
 
-
     &-1 {
       background-image: url("../photos/events-1.png");
     }
@@ -36,6 +35,10 @@
 
     @include onTablet {
       padding: 44px 0 32px;
+    }
+
+    @include onDesktop {
+      width: 100%;
     }
 
     &--type {
@@ -123,7 +126,6 @@
     }
 
     @include onDesktop {
-      margin: 0;
       min-height: 550px;
       max-width: 1400px;
       margin: 0 auto;
@@ -148,51 +150,33 @@
   }
 
   &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: #fff;
     box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
 
     position: absolute;
     top: 154px;
-    width: 80vw;
-    padding: 0 10px;
+    width: 90vw;
+    max-width: 420px;
     min-height: 140px;
+    padding: 50px 0;
 
     @include onTablet {
       top: 306px;
-      padding: 0 55px;
     }
 
     @include onDesktop {
       top: 448px;
-      padding: 46px 56px 50px;
+      width: 570px;
     }
   }
 
   &__type-and-date {
     display: flex;
-    justify-content: space-between;
-    padding: 16px 22px 10px;
-
-    @include onTablet {
-      padding: 45px 55px 0;
-    }
-
-    @include onDesktop {
-      padding: 0;
-    }
-
-    &--type {
-      font-weight: 500;
-      line-height: 150%;
-      text-transform: uppercase;
-      color: $light-grey;
-    }
-
-    &--date {
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 150%;
-      color: $green;
-    }
+    justify-content: center;
+    padding: 0 0 16px;
   }
 }
