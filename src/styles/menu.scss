@@ -20,6 +20,11 @@
     pointer-events: all;
   }
 
+  @include onDesctop {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__navigation {
     display: flex;
     flex-direction: row;
@@ -27,6 +32,10 @@
     padding: 27px 0;
 
     border-bottom: 1px solid $background-c-white;
+
+    @include onDesctop {
+      border-bottom: none;
+    }
   }
 
   &__conteiner {
@@ -41,6 +50,15 @@
     margin-top: 24px;
   }
 
+  @include onTablet {
+    &__schedule:not(:first-child) {
+      display: grid;
+      grid-template-areas: "name name"
+      "time desc";
+      column-gap: 26px;
+    }
+  }
+
   &__title {
     text-decoration: none;
     font-family: 'IBM Plex Sans', sans-serif;
@@ -48,6 +66,7 @@
     font-size: 14px;
     line-height: 21px;
     margin-bottom: 20px;
+    grid-area: name;
   }
 
   &__description {
@@ -57,5 +76,13 @@
     font-size: 14px;
     line-height: 21px;
     margin-bottom: 27px;
+  }
+
+  & __time {
+    grid-area: time;
+  }
+
+  &__weekends {
+    grid-area: desc;
   }
 }
