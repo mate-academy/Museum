@@ -1,6 +1,81 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin onMobile {
+  @media (min-width: 320px) and (max-width: 639px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onMobileAndTablet {
+  @media (min-width: 320px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin onTabletAndDesktop {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin smallOrange {
+  width: 50px;
+  height: 50px;
+  background-color: $red;
+  background-image: url(../images/arrow_black.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin bigOrange {
+  width: 70px;
+  height: 70px;
+  background-color: $red;
+  background-image: url(../images/arrow_black.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 210px;
+  margin-bottom: 16px;
+
+  @include onTablet {
+    height: 520px;
+  }
+
+  @include onDesktop {
+    height: 520px;
+  }
+}
+
+@mixin hoverTransform {
+  @include onTabletAndDesktop {
+    transition: transform, 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+@mixin hover($property, $toValue) {
+  transition: #{$property}, 0.3s ease-in-out;
+
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $toValue;
   }
 }

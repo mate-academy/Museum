@@ -1,0 +1,96 @@
+.menu__navigation {
+  background-color: $green;
+  z-index: 1;
+
+  &--content {
+    position: relative;
+  }
+
+  &:target {
+    &::after {
+      content: "";
+      left: 0;
+      right: 0;
+      position: absolute;
+      height: 100vh;
+      background-color: #00000080;
+    }
+  }
+
+  &--schedule {
+    border-left: 1px solid #ffffff80;
+
+    @include onMobile {
+      border-left: none;
+    }
+
+    @include onTablet {
+      padding: 0 20px 10px 30px;
+      grid-column: 5 / 6;
+    }
+
+    @include onDesktop {
+      padding: 0 38px 10px;
+    }
+  }
+
+  &--cross-btn {
+    @include hoverTransform;
+    position: absolute;
+    top: 27px;
+
+    @include onTablet {
+      top: 34px;
+    }
+
+    @include onDesktop {
+      top: 54px;
+    }
+
+    &--image {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &--nav {
+    display: grid;
+    padding: 28px 0 0 58px;
+    gap: 28px;
+
+    @include onDesktop {
+      padding: 50px 45px;
+    }
+
+    @include onTabletAndDesktop {
+      display: flex;
+    }
+
+    &--item {
+      color: #fff;
+      transition: all, 0.3s;
+
+      &:hover {
+        color: black;
+      }
+
+      @include onTablet {
+        padding: 12px;
+      }
+
+      @include onDesktop {
+        font-size: 22px;
+      }
+    }
+  }
+
+  &--schedule-and-contacts {
+    color: #fff;
+    padding: 24px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+
+    @include onTablet {
+      border-top: none;
+    }
+  }
+}

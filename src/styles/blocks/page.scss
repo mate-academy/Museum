@@ -1,0 +1,39 @@
+.page {
+  font-family: "IBM Plex Sans", sans-serif;
+  scroll-behavior: smooth;
+  color: #0f0e08;
+
+  &__body {
+    &--with-menu {
+      position: relative;
+      z-index: 99;
+      overflow: hidden;
+      background-color: #8b8b8c;
+    }
+  }
+
+  &--menu__navigation {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-100%);
+    opacity: 0;
+
+    transition: transform ease-in-out 0.6s, opacity ease-in-out 0.7s;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.logo {
+  &__img {
+    @include hoverTransform;
+    width: 55px;
+    height: 61px;
+  }
+}

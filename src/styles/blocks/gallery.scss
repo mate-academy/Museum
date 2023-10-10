@@ -1,0 +1,55 @@
+@import "../utils/carousel";
+
+.gallery {
+  &__title {
+    margin-top: 183px;
+
+    @include onTablet {
+      margin-top: 208px;
+    }
+  }
+
+  &__slider {
+    margin-top: 40px;
+
+    @include onTablet {
+      margin-top: 48px;
+    }
+  }
+
+  &__desktop {
+    display: none;
+
+    @include onDesktop {
+      margin-top: 56px;
+      display: grid;
+      grid-template: auto auto / repeat(3, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    &--1 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    &--2 {
+      grid-area: 1 / 2 / 2 / 4;
+    }
+
+    &--3 {
+      grid-area: 2 / 1 / 3 / 3;
+    }
+
+    &--4 {
+      grid-area: 2 / 3 / 3 / 4;
+    }
+
+    @include onDesktop {
+      @include hoverTransform;
+    }
+  }
+}
