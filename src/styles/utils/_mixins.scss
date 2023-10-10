@@ -63,9 +63,19 @@
 }
 
 @mixin hoverTransform {
-  transition: transform, 0.3s;
+  @include onTabletAndDesktop {
+    transition: transform, 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+@mixin hover($property, $toValue) {
+  transition: #{$property}, 0.3s ease-in-out;
 
   &:hover {
-    transform: scale(1.05);
+    #{$property}: $toValue;
   }
 }
