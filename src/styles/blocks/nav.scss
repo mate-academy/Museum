@@ -1,0 +1,71 @@
+.nav {
+  font-family: IBM Plex Sans, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+
+  @include onDesktop {
+    font-size: 22px;
+    justify-self: center;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 100px 100px;
+    column-gap: 28px;
+    row-gap: 24px;
+
+    list-style: none;
+
+    @include onTablet {
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: 168px 168px;
+      column-gap: 30px;
+    }
+
+    &--template-columns--fr {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &--gaps--custom {
+      column-gap: 20px;
+      row-gap: 20px;
+
+      @include onTablet {
+        column-gap: 30px;
+      }
+
+      @include onDesktop {
+        column-gap: 90px;
+      }
+    }
+  }
+
+  &__item:nth-child(3) {
+    @include onDesktop {
+      max-width: 130px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+
+    text-decoration: none;
+
+    &--color--main-bg {
+      color: $main-bg-color;
+
+      @include hoverUnderlineEffect($main-bg-color);
+    }
+
+    &--color--main {
+      color: $main-color;
+
+      @include hoverUnderlineEffect($main-color);
+    }
+  }
+}
