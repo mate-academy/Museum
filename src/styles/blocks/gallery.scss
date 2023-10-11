@@ -1,0 +1,101 @@
+.gallery {
+  &__content {
+    @include pageGrid;
+    position: relative;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      row-gap: 30px;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    @include squareSize(9px);
+
+    background-color: $gallery-elements-color;
+    border-radius: 50%;
+
+    transition: background-color $transition-time;
+    cursor: pointer;
+
+    &--active,
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+
+    animation: deepen $transition-time;
+
+    @keyframes deepen {
+      from {
+        opacity: $half-transparent;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @include hover(transform, scale(1.05));
+
+    @include onTablet {
+      grid-column: span 3;
+    }
+
+    &--hide {
+      display: none;
+    }
+
+    &--mobile {
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+      @include onTablet {
+        display: block;
+      }
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    @include onDesktop {
+      grid-column: span 4;
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+
+      &--wide {
+        grid-column: span 8;
+      }
+    }
+  }
+}

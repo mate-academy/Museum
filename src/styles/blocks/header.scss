@@ -1,0 +1,147 @@
+.header {
+  margin-bottom: 70px;
+
+  font-family: Montserrat, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+
+  @include onTablet {
+    margin-bottom: 88px;
+    overflow: hidden;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+
+  &__background {
+    width: 100%;
+    margin-bottom: 20px;
+    object-fit: cover;
+    transform: scale(-1, 1);
+
+    @include onTablet {
+      position: absolute;
+      left: 55%;
+
+      width: 45%;
+      margin-bottom: 0;
+      height: 387px;
+    }
+
+    @include onDesktop {
+      left: 46%;
+      width: 54%;
+      height: 655px;
+    }
+  }
+
+  &__content {
+    @include pageGrid;
+    row-gap: 20px;
+
+    @include onTablet {
+      row-gap: 40px;
+    }
+
+    @include onDesktop {
+      row-gap: 90px;
+    }
+  }
+
+  &__menu-link {
+    position: absolute;
+    top: $mobile-menu-paddings;
+    left: 20px;
+
+    display: flex;
+    @include squareSize(24px);
+
+    @include onTablet {
+      top: $tablet-menu-paddings;
+      left: 39px;
+    }
+
+    @include onDesktop {
+      position: static;
+      margin-top: $tablet-menu-paddings;
+    }
+  }
+
+  &__menu-icon {
+    margin: auto;
+  }
+
+  &__logo-link {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    text-decoration: none;
+
+    @include onTablet {
+      left: 65%;
+      top: 15px;
+    }
+
+    @include onDesktop {
+      left: 50%;
+    }
+  }
+
+  &__logo {
+    line-height: 100%;
+    color: $main-color;
+
+    @include onTablet {
+      font-size: 36px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    font-size: 45px;
+    line-height: 100%;
+
+    @include onTablet {
+      margin-top: 149px;
+      align-self: end;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @media (min-width: 740px) {
+      margin-top: 127px;
+      font-size: 54px;
+    }
+
+    @include onDesktop {
+      margin-top: 143px;
+      font-size: 72px;
+    }
+  }
+
+  &__tickets {
+    grid-column: 1 / -1;
+    justify-self: center;
+
+    @include onTablet {
+      justify-self: start;
+      margin-bottom: 20px;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 6;
+      margin-bottom: 120px;
+    }
+  }
+
+  &__exhibitions-link {
+    position: absolute;
+    align-self: end;
+  }
+}

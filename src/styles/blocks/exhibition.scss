@@ -1,0 +1,60 @@
+.exhibition {
+  @include pageGrid;
+  row-gap: 20px;
+
+  @include onTablet {
+    row-gap: 40px;
+  }
+
+  &__image {
+    width: 100%;
+    grid-column: 1 / -1;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.05));
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / 13;
+      align-self: center;
+    }
+  }
+}
+
+.exhibitions-link {
+  display: none;
+
+  font-family: IBM Plex Sans, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 100%;
+  color: $events-type-color;
+
+  @include onDesktop {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+
+    transform: translateX(5%) rotate(-90deg);
+    transform-origin: left;
+  }
+
+  &__line {
+    width: 70px;
+    margin-right: 20px;
+
+    background-color: $secondary-color;
+  }
+}

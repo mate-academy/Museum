@@ -1,0 +1,82 @@
+.menu {
+  padding-block: $mobile-menu-paddings;
+  color: $main-bg-color;
+  height: 100vh;
+  background: linear-gradient(180deg,$secondary-color 0,$secondary-color 50%,
+  $menu-overlay-color 0,$menu-overlay-color);
+  overflow: hidden;
+
+  @include onTablet {
+    padding-block: $tablet-menu-paddings;
+    background: linear-gradient(180deg,$secondary-color 0,
+    $secondary-color 225px,
+    $menu-overlay-color 0,$menu-overlay-color);
+  }
+
+  @include onDesktop {
+    background: linear-gradient(180deg,$secondary-color 0,
+    $secondary-color 234px,
+    $menu-overlay-color 0,$menu-overlay-color);
+  }
+
+  &__content {
+    @include pageGrid;
+    row-gap: 24px;
+    position: relative;
+  }
+
+  &__header-link {
+    position: absolute;
+    display: flex;
+
+    @include squareSize(24px);
+  }
+
+  &__header-icon {
+    margin: auto;
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+    margin-left: 52px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__divider {
+    grid-column: 1 / -1;
+    border-color: $main-bg-color;
+    opacity: $half-transparent;
+
+    @include onTablet {
+      position: absolute;
+      grid-column: 3 / 4;
+      height: 145px;
+
+      transform: translateX(70px);
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 8;
+      transform: translateX(0);
+    }
+  }
+
+  &__schedule {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 12;
+    }
+  }
+}
