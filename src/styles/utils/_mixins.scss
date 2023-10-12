@@ -4,3 +4,43 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin reset {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin onTablet {
+  @media (min-width: 576) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 24px;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+  }
+}
+
+@mixin centring {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
