@@ -1,0 +1,94 @@
+.page {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  scrollbar-gutter: stable;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    width: 5px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $main-color;
+  }
+
+  &__body {
+    margin: 0;
+  }
+
+  &__header {
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 108px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-110%);
+
+    transition-duration: 300ms;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+
+  &__actuals {
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 88px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 120px;
+    }
+  }
+
+  &__gallery {
+    margin-bottom: 100px;
+
+    @include onTablet {
+      margin-bottom: 92px;
+    }
+
+    @include onTablet {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__subscription {
+    margin-bottom: 50px;
+
+    @include onDesktop {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__footer {
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 36px;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}

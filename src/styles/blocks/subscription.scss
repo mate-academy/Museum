@@ -1,0 +1,141 @@
+.subscription {
+  box-sizing: border-box;
+  height: 386px;
+  background-image: url(../images/images/subscription_bg1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding: 88px 20px;
+
+  @include onTablet {
+    height: 380px;
+    padding: 82px 34px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    --desktop-block-paddings: calc((100vw - 1170px) / 2);
+
+    height: 550px;
+    padding: 163px var(--desktop-block-paddings);
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+
+    text-align: center;
+
+    color: #fff;
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+      margin-bottom: 16px;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / 9;
+    }
+  }
+
+  &__description {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+
+    text-align: center;
+
+    color: #fff;
+
+    margin-bottom: 50px;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / 9;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 4 / 10;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+    }
+  }
+
+  &__email {
+    height: 50px;
+    padding: 0 24px;
+
+    flex-grow: 1;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+
+    color: $titles-text-color;
+
+    outline: none;
+    border: none;
+
+    @include onTablet {
+      height: 50px;
+      margin-right: 16px;
+    }
+
+    @include onDesktop {
+      height: 70px;
+      margin: 0;
+
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__button {
+    width: 50px;
+    background-color: $accent-color;
+    border: none;
+
+    background-image: url(../images/graphics/arrow_black.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+
+    @include hover(scale, 105%);
+
+    @include onTablet {
+      height: 50px;
+    }
+
+    @include onDesktop {
+      height: 70px;
+      width: 70px;
+      grid-column: 4;
+    }
+  }
+}
