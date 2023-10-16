@@ -1,0 +1,78 @@
+.slider {
+  @include desktop {
+    display: none;
+  }
+  
+  &__container {
+    position: relative;
+    overflow: hidden;
+    padding: 0 12px;
+    margin-bottom: 20px;
+  
+    @include tablet {
+      padding: 0 24px;
+      margin-bottom: 32px;
+    }
+  }
+  
+  &__wrapper {
+    position: relative;
+    display: flex;
+    width: 400%;
+    transition: transform $transition;
+
+    @include tablet {
+      width: 200%;
+    }
+  }
+  
+  &__slide {
+    margin: 0 8px;
+    width: 100%;
+
+    @include tablet {
+      margin: 0 10px;
+    }
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    transition: transform $transition;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    margin: 0 auto 100px;
+    width: max-content;
+
+    @include tablet {
+      margin-bottom: 92px;
+    }
+  }
+
+  &__point {
+    display: none;
+  }
+
+  &__label {
+    cursor: pointer;
+    display: block;
+    margin: 0 11px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    transition: background-color $transition;
+  }
+
+  @for $point from 1 through 4 {
+    &__point--#{$point}:checked + &__label {
+      background-color: $color-green;
+    }
+  }
+}

@@ -1,0 +1,195 @@
+.footer {
+  &__grid {
+    @include tablet {
+      display: grid;
+      grid-template-columns: 120px 1fr 120px;
+      margin-bottom: 120px;
+    }
+  
+    @include desktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      margin-bottom: 87px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @include tablet {
+      grid-column: 1 / 2;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 0;
+    }
+  }
+
+  &__logo {
+    width: 55px;
+    font-family: $font-major;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: $weight-bold;
+    color: $color-main;
+    text-align: center;
+    transition: color $transition;
+
+    @include tablet {
+      margin-bottom: 62px;
+      width: auto;
+      font-size: $size-subtitle;
+      line-height: $lineheight-smaller;
+      text-align: left;
+    }
+
+    &:hover {
+      color: $color-hover-main;
+    }
+  }
+
+  &__socials {
+    display: flex;
+
+    @include desktop {
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    transition: background-image $transition;
+
+    &--facebook {
+      background: no-repeat center url("../images/icons/facebook.svg");
+      margin-right: 20px;
+
+      @include tablet {
+        margin-right: 32px;
+      }
+
+      @include desktop {
+        margin-right: 0;
+      }
+
+      &:hover {
+        background-image: url("../images/icons/facebook-hover.svg");
+      }
+    }
+
+    &--instagram {
+      background: no-repeat center url("../images/icons/instagram.svg");
+
+      &:hover {
+        background-image: url("../images/icons/instagram-hover.svg");
+      }
+    }
+  }
+
+  &__middle {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    font-size: $size-main;
+    line-height: $lineheight-bigger;
+    font-weight: $weight-main;
+    color: $color-main;
+
+    @include tablet {
+      grid-column: 2 / 3;
+      margin-bottom: 64px;
+    }
+
+    @include desktop {
+      grid-column: 3 / 7;
+      column-gap: 30px;
+      margin-bottom: 0;
+    }
+  }
+  
+  &__subtitle {
+    margin-bottom: 20px;
+    line-height: 20px;
+  }
+
+  &__time {
+    font-weight: $weight-major;
+  }
+
+  &__link {
+    color: $color-main;
+    transition: color $transition;
+
+    &:hover {
+      color: $color-hover-main;
+    }
+  }
+
+  &__line {
+    display: none;
+    margin-bottom: 40px;
+    width: 100%;
+    height: 1px;
+    background: $color-green;
+    opacity: 0.5;
+
+    @include tablet {
+      display: block;
+      grid-column: 2 / 3;
+      margin-bottom: 64px;
+    }
+
+    @include desktop {
+      grid-column: 7 / 8;
+      justify-self: center;
+      margin-bottom: 0;
+      width: 1px;
+      height: 100%;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include tablet {
+      display: block;
+      grid-column: 2 / 3;
+    }
+
+    @include desktop {
+      grid-column: 8 / 12;
+    }
+  }
+
+  &__copyright {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  &__copyright-text {
+    margin-bottom: 10px;
+    font-weight: $weight-light;
+    font-size: 12px;
+    line-height: 17px;
+    text-align: center;
+    color: $color-main;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include tablet {
+      margin-bottom: 0;
+    }
+  }
+}
