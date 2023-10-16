@@ -11,6 +11,10 @@
     @include onTablet {
       gap: 64px;
     }
+
+    @include onMobile {
+      gap: 60px;
+    }
   }
 }
 
@@ -28,6 +32,11 @@
     grid-column: 1 / 8;
     width: 100%;
     margin: 0;
+
+    &--hover {
+      @include hover(cursor, pointer);
+      @include hover(transform, scale(1.05));
+    }
 
     @include onTablet {
       grid-column: span 6;
@@ -48,6 +57,10 @@
       @include onTablet {
         margin-bottom: 0;
         height: 390px;
+      }
+
+      @include onMobile {
+        height: 140px;
       }
     }
   }
@@ -79,6 +92,13 @@
         padding-inline: 55px;
         transform: translateY(-40%);
       }
+
+      @include onMobile {
+        padding: 20px 0;
+        width: 280px;
+        text-align: center;
+        margin-bottom: 40px;
+      }
     }
 
     &-top {
@@ -88,6 +108,11 @@
       margin-bottom: 32px;
       align-items: center;
 
+      @include onMobile {
+        justify-content: space-between;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
 
       &--lecture {
         margin-bottom: 16px;
@@ -106,6 +131,12 @@
     color: $event-link-color;
     font-weight: 500;
     line-height: 100%;
+
+    &--lecture {
+      @include onMobile {
+        margin-left: 20px;
+      }
+    }
   }
 
   &__date {
@@ -116,12 +147,20 @@
     font-weight: 700;
     line-height: 150%;
 
+    @include onMobile {
+      width: fit-content;
+    }
+
     &--lecture {
       margin: 0;
 
       @include onTablet {
         width: 220px;
         text-align: left;
+      }
+
+      @include onMobile {
+        width: 174px;
       }
     }
   }
@@ -131,15 +170,27 @@
     align-items: center;
     margin-bottom: 15px;
 
-      &-text {
-        margin: 0;
-        color: $title-color;
-        font-family: $title-font;
-        font-size: 36px;
-        font-weight: 400;
-        line-height: 100%;
-        margin-right: 15px;
+    @include onMobile {
+      margin-bottom: 10px;
+    }
+
+    &-text {
+      margin: 0;
+      color: $title-color;
+      font-family: $title-font;
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 100%;
+      margin-right: 15px;
+
+      &--lecture {
+        margin-right: 0;
       }
+
+      @include onMobile {
+        font-size: 28px;
+      }
+    }
   }
 
   &__description {

@@ -1,0 +1,57 @@
+.scroll {
+  &__images {
+    width: 100%;
+    margin-bottom: 32px;
+
+    @include onMobile {
+      margin-bottom: 20px;
+    }
+
+    @include pageGrid;
+  }
+
+  &__image {
+    width: 100%;
+    display: none;
+
+    &--active {
+      @include onTablet {
+        display: block;
+      }
+
+      &-mob {
+        @include onMobile {
+          display: none;
+        }
+      }
+    }
+
+    @include onTablet {
+      grid-column: span 3;
+      height: 543px;
+    }
+
+    @include onMobile {
+      grid-column: span 2;
+    }
+  }
+
+  &-indicators {
+    display: flex;
+    align-self: center;
+    width: 102px;
+    justify-content: space-between;
+  }
+
+  &-indicator {
+    display: block;
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    background-color: $scroll-color;
+
+    &--active {
+      background-color: $main-green;
+    }
+  }
+}

@@ -6,6 +6,11 @@
   height: $button-hight;
   align-self: flex-end;
   text-decoration: none;
+  transition: transform $effectDuration;
+
+  &:active {
+    transform: scale(0.95);
+  }
 
   @include onTablet {
     align-self: start;
@@ -43,9 +48,8 @@
       width: 100%;
     }
 
-    &:hover {
-      cursor: pointer;
-    }
+    @include hover(cursor, pointer);
+    @include hover(font-size, 18px);
   }
 
   &__arrow {

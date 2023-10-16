@@ -17,16 +17,11 @@
     @include pageGrid;
 
     @include onTablet {
-      display: flex;
+      display: none;
     }
 
     &--tall {
       height: 600px;
-
-      @include onTablet {
-        height: 543px;
-        grid-column: span 3;
-      }
     }
 
     &--short {
@@ -36,24 +31,16 @@
         display: none;
       }
     }
-
-    &--tablet {
-      display: none;
-      margin: 0;
-
-      @include onTablet {
-        display: block;
-        height: 543px;
-        grid-column: span 3;
-      }
-    }
   }
 
   &__image {
     width: 100%;
 
+    @include hover(cursor, pointer);
+
     &--large {
       grid-column: span 8;
+      @include hover(transform, scale(1.05));
 
       @include onTablet {
         display: none;
@@ -62,19 +49,21 @@
 
     &--narrow {
       grid-column: span 4;
+      @include hover(transform, scale(1.05));
+    }
+  }
 
-      @include onTablet {
-      }
+  &__scroll {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      grid-column: span 6;
+      flex-direction: column;
     }
 
-    &--tablet {
-      margin: 0;
-      display: none;
-
-      @include onTablet {
-        display: block;
-        height: 100%;
-      }
+    @include onMobile {
+      grid-column: span 2;
     }
   }
 }
