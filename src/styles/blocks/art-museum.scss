@@ -1,0 +1,72 @@
+.art-museum {
+  align-self: start;
+  grid-column: 1 / -1;
+  @include pageGrid;
+
+  @include onTablet {
+    padding-right: 0;
+    grid-column: 1 / 4;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    grid-row: 1;
+  }
+
+  @include onDesktop {
+    height: 655px;
+    grid-column: 1 / 6;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    margin: 0;
+    margin-top: 20px;
+    font-family: "Montserrat", sans-serif;
+    color: $headerTitleColor;
+    text-align: center;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onTablet {
+      margin-top: 127px;
+      text-align: left;
+      font-size: 54px;
+    }
+
+    @include onDesktop {
+      margin-top: 206px;
+      font-size: 72px;
+    }
+  }
+
+  &__rotate {
+    display: none;
+    position: relative;
+    color: $eventTextColor;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    text-decoration: none;
+    height: fit-content;
+
+    transform: rotate(-90deg);
+    left: -32px;
+    bottom: 70px;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      top: 7px;
+      left: -90px;
+      width: 70px;
+      height: 1px;
+      background-color: $eventTextColor;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}
