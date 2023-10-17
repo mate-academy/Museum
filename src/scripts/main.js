@@ -37,6 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (header) {
       const burgerBtn = header.querySelector('.header__burger');
       const layer = header.querySelector('.header__layer');
+      const links = header.querySelectorAll('.header__link');
 
       // toggle menu
       const toggleMenu = () => {
@@ -53,6 +54,7 @@ window.addEventListener('DOMContentLoaded', () => {
       // events
       burgerBtn.addEventListener('click', toggleMenu);
       layer.addEventListener('click', closeMenu);
+      links.forEach(link => link.addEventListener('click', closeMenu));
     }
   };
   headerInit(state.header);
