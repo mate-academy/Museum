@@ -1,0 +1,143 @@
+.ingredients {
+  padding-inline: 0;
+
+  @include onTablet {
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  @include onDesktop {
+    @include contentPaddingInline;
+    @include pageGrid;
+  }
+
+  &__category {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      grid-column: span 1;
+    }
+
+    &-img {
+      height: 178px;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      justify-content: space-between;
+      width: 265px;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__title {
+    @include contentPaddingInline;
+    @include title;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      padding-inline: 15px 0;
+    }
+    @include onDesktop {
+      padding-inline: 0;
+    }
+  }
+
+  &__scheme {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 20px;
+
+    @include onDesktop {
+      grid-column: 6 / 13;
+    }
+
+    &--mobile {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--left {
+      @include onTablet {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 300px;
+      }
+    }
+
+    &--right {
+      display: none;
+      @include onTablet {
+        display: flex;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 37px 0;
+    width: 100px;
+  }
+
+  &__item {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+
+    &--paddingBot--52 {
+      padding-bottom: 52px;
+    }
+
+    &--paddingBot--49 {
+      padding-bottom: 49px;
+    }
+  }
+
+  &__img {
+    height: 397px;
+    width: 182px;
+    background-image: url(/images/ingrediens/ingrediens-desktop.svg);
+    background-repeat: no-repeat;
+    background-position-x: -44px;
+
+    @include onTablet {
+      width: 397px;
+      background-position-x: 0;
+    }
+
+    @include onDesktop {
+      width: 480px;
+    }
+  }
+
+  &__link {
+    @include contentPaddingInline;
+    @include link-item;
+
+    @include onTablet {
+      padding-inline: 15px 0;
+    }
+
+    @include onDesktop {
+      margin: 0;
+      padding-inline: 0;
+    }
+  }
+}

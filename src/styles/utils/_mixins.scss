@@ -1,6 +1,118 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline() {
+  padding-inline: 20px;
+
+  @include onTablet {
+    max-width: 1023px;
+    padding-inline: 27px;
+  }
+
+  @include onDesktop {
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: 50px;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 24px;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+  }
+}
+
+@mixin hover($property, $toValue) {
+  transition: #{$property} 0.3s;
+
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $toValue;
+  }
+}
+
+@mixin title {
+  color: $main-color-title;
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 36px;
+  letter-spacing: 1px;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+@mixin text {
+  color: $main-dark-color;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+@mixin product-title {
+  color: $main-dark-color;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 27px;
+  letter-spacing: 0.9px;
+}
+
+@mixin product-price {
+  color: $main-dark-color;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 27px;
+  letter-spacing: 0.9px;
+}
+
+@mixin link-item {
+  color: $main-color-title;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-transform: uppercase;
+
+  position: relative;
+  display: block;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    display: block;
+    height: 1px;
+    width: 86px;
+    background-color: $main-color-title;
+
+    transition: transform 0.3s;
+    transform: scale(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scale(1);
   }
 }

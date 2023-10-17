@@ -1,0 +1,106 @@
+.shop {
+  padding-inline: 0;
+  @include onTablet {
+    @include contentPaddingInline;
+  }
+
+  @include onDesktop {
+    @include pageGrid;
+  }
+
+  &__category {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      grid-column: span 1;
+    }
+
+    &-img {
+      height: 145px;
+    }
+  }
+
+  &__wrap {
+    @include onDesktop {
+      grid-column: 2 / -1;
+    }
+  }
+
+  &__title {
+    @include title;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__nav {
+    @include contentPaddingInline;
+    width: 275px;
+    margin: 0 0 27px;
+
+    @include onTablet {
+      margin: 0 0 37px;
+      padding-inline: 0;
+    }
+
+    @include onDesktop {
+      width: 400px;
+      margin-block: 0 62px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    &__link {
+      @include link-item;
+      color: $gray-color;
+      font-weight: 400;
+
+      &::after {
+        font-weight: 600;
+        height: 2px;
+        background-color: $main-dark-color;
+      }
+    
+      &:hover {
+        font-weight: 600;
+        color: $main-dark-color;
+      }
+    }
+  }
+
+  &__products {
+    @include onTablet {
+      display: flex;
+      column-gap: 30px;
+    }
+
+    @include onDesktop {
+      column-gap: 20px;
+    }
+  }
+
+  &__button {
+    @include contentPaddingInline;
+    text-decoration: none;
+
+    @include onTablet {
+      margin-inline: auto;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.page {
+  box-sizing: border-box;
+  font-family: "Poppins", serif;
+  font-size: 14px;
+  line-height: 140%;
+  color: $main-dark-color;
+  background-color: $main-bg-color;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__section {
+    box-sizing: border-box;
+    @include contentPaddingInline;
+    margin-top: 100px;
+
+    @include onTablet {
+      margin-top: 130px;
+    }
+
+    @include onDesktop {
+      margin-top: 200px;
+    }
+
+    &--header {
+      margin-top: 0;
+      padding-inline: 0;
+    }
+
+    &--action {
+      margin-top: 0;
+    }
+  }
+}

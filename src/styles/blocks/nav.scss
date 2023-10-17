@@ -1,0 +1,67 @@
+.nav {
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include onTablet {
+      gap: 50px;
+    }
+
+    @include onDesktop {
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    &--footer {
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__item {
+    text-align: center;
+
+    &--footer {
+      text-align: left;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    color: $main-bg-color;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 23px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $main-bg-color;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: center;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &--header {
+      color: $main-color-title;
+
+      &::after {
+        background-color: $main-color-title;
+      }
+    }
+  }
+}

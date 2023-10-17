@@ -1,0 +1,78 @@
+.action {
+  padding: 0;
+  position: relative;
+
+  &__line {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      height: 1px;
+      background-color: $main-color-title;
+      margin-top: 200px;
+    }
+
+    &--left {
+      position: absolute;
+      width: calc(50% - 110px);
+      margin-top: 0;
+      top: 0;
+    }
+
+    &--right {
+      width: calc(50% - 10px);
+      position: absolute;
+      right: 0;
+      margin-top: 0;
+    }
+  }
+  &__wrap {
+    @include contentPaddingInline;
+    margin-top: 100px;
+    
+    @include onTablet {
+      margin-top: 130px;
+    }
+
+    @include onDesktop {
+      @include pageGrid;
+      margin-top: 200px;
+    }
+  }
+
+  &__text {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      grid-column: 2 / 6;
+      color: $main-dark-color;
+      font-size: 16px;
+      line-height: 24px;
+      margin-block: 100px;
+    }
+  }
+
+  &__title {
+    @include title;
+    font-size: 18px;
+    letter-spacing: 0.9px;
+    line-height: 27px;
+
+    @include onTablet {
+      width: 280px;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -2;
+      font-size: 24px;
+      text-align: left;
+      justify-self: start;
+      line-height: 36px;
+      margin-top: 100px;
+      margin-inline: 0;
+    }
+  }
+}
