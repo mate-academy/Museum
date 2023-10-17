@@ -1,0 +1,90 @@
+.content {
+  position: relative;
+  width: 32%;
+
+  @include max-laptop {
+    width: 38%;
+  }
+
+  @include max-tablet-portrait {
+    width: 40%;
+  }
+
+  @include max-tablet {
+    width: 100%;
+    max-width: 460px;
+  }
+
+  @include max-phone {
+    max-width: none;
+  }
+
+  &__label {
+    position: relative;
+    width: 100%;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include max-phone {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  &__date {
+    color: var(--color-green);
+    margin-left: 24px;
+  }
+
+  &__subtitle {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include max-phone {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding-right: 35px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      right: 0;
+      width: 15px;
+      height: 15px;
+      background-color: var(--color-orange);
+
+      @include max-phone {
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    @include max-tablet {
+      padding-right: 30px;
+    }
+
+    @include max-phone {
+      padding-right: 24px;
+    }
+  }
+}
