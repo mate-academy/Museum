@@ -1,0 +1,203 @@
+.event {
+  grid-column: 1 / -1;
+  align-items: center;
+
+  @include pageGrid;
+
+  &--positionOne {
+    margin-top: 40px;
+
+    @include onTablet {
+      margin-top: 48px;
+    }
+  }
+
+  &--positionTwo {
+    margin-top: 60px;
+
+    @include onTablet {
+      margin-top: 64px;
+    }
+  }
+
+  &__photos-link {
+    display: flex;
+    grid-column: 1 / -1;
+
+    @include onDesktop {
+      grid-column: span 7;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+
+    @include hover(all, all);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &__info {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    font-family: "IbmPlexSans-Bold", sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-dark-green;
+
+    grid-column: span 5;
+
+    @include onTablet {
+      grid-column: span 3;
+      margin-top: 44px;
+
+      font-size: 14px;
+    }
+
+    @include onDesktop {
+      grid-column: span 3;
+    }
+
+    &-title {
+      font-family: "IbmPlexSans-Medium", sans-serif;
+      font-weight: 500;
+      line-height: 100%;
+      color: $c-grey;
+    }
+  }
+
+  &__name {
+    grid-column: span 5;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+
+    &:after {
+      content: "";
+      display: block;
+      transform: translateY(20%);
+      width: 10px;
+      height: 10px;
+      margin-left: 15px;
+      background-color: $c-orange;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  &__description {
+    margin-top: 10px;
+    font-family: "IbmPlexSans-Light", sans-serif;
+    color: $c-grey-descr;
+    line-height: 150%;
+
+    grid-column: span 5;
+  }
+
+  &__lec {
+    box-sizing: border-box;
+    margin-top: 60px;
+
+    &-bg {
+      background-image: url(../images/picture/pic-3.png);
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: cover;
+      height: 210px;
+
+      @include onTablet {
+        margin-inline: 39px;
+        height: 390px;
+      }
+
+      @include onDesktop {
+        margin-inline: 0;
+        height: 550px;
+      }
+    }
+
+    &-info {
+      margin-inline: 20px;
+      padding: 24px 0 20px;
+      gap: 20px;
+      transform: translateY(-40%);
+      background-color: $c-white;
+      box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+
+      @include onTablet {
+        margin-inline: 100px;
+        padding: 45px 55px 50px;
+      }
+
+      @include onDesktop {
+        margin-inline: 0;
+        width: 570px;
+        margin: 0 auto;
+        padding: 0;
+      }
+    }
+
+    &-date {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      font-family: "IbmPlexSans-Bold", sans-serif;
+      font-size: 16px;
+      line-height: 150%;
+      color: $c-dark-green;
+
+      @include onTablet {
+        justify-content: space-between;
+      }
+
+      @include onDesktop {
+        padding: 45px 100px 0;
+        margin-right: 50px;
+      }
+
+      &-title {
+        font-family: "IbmPlexSans-Medium", sans-serif;
+        font-weight: 500;
+        line-height: 100%;
+        color: $c-grey;
+      }
+    }
+
+    &-name {
+      grid-column: span 5;
+      text-align: center;
+
+      @include onTablet {
+        text-align: left;
+      }
+
+      @include onDesktop {
+        padding: 16px 100px 50px;
+      }
+    }
+  }
+}
