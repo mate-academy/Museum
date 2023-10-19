@@ -1,0 +1,66 @@
+.header {
+  @include onTablet {
+    display: flex;
+  }
+
+  &__content {
+    @include pageGrid;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      max-width: 330px;
+      margin-left: 39px;
+      margin-top: 39px;
+    }
+
+    @include onDesktop {
+      max-width: 470px;
+      margin-left: 55px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+
+    text-align: center;
+
+    @include onTablet {
+      margin-top: 64px;
+    }
+
+    @include onDesktop {
+      margin-top: 143px;
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+
+      width: 125px;
+      margin-top: 110px;
+
+      transform: rotate(-90deg);
+      transform-origin: left;
+    }
+
+    &-line {
+      width: 70px;
+      margin-right: 20px;
+
+      border-bottom: 1px solid $c-dark-green;
+    }
+
+    &-text {
+      font-family: "IbmPlexSans-Bold", sans-serif;
+      font-size: 14px;
+      line-height: 100%;
+      color: $c-grey;
+    }
+  }
+}

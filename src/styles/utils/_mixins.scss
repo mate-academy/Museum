@@ -1,6 +1,57 @@
+@mixin reset {
+  margin: 0;
+  padding: 0;
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+/* Device Width */
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+/* Device Grids */
+@mixin pageGrid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+}
+
+/* Content Position */
+@mixin contentPaddingInLine {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 39px;
+  }
+
+  @include onDesktop {
+    padding-inline: 55px;
+    max-width: 1280px;
+    margin-inline: auto;
   }
 }
