@@ -1,0 +1,197 @@
+.header {
+  position: relative;
+
+  &__content {
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 20px;
+    }
+
+    @include onDesktop {
+      justify-content: space-between;
+    }
+  }
+
+  &__addition {
+    display: none;
+    position: absolute;
+    transform: rotate(270deg);
+    bottom: 140px;
+    left: 39px;
+
+    @extend %p;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $moon-gray;
+    z-index: 1;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 145%;
+      width: 69px;
+      border: 1px solid $green;
+    }
+  }
+
+  &__top-action {
+    position: absolute;
+    top: 27px;
+    left: 20px;
+
+    @include onTablet {
+      top: 40px;
+      left: 34px;
+    }
+
+    @include onDesktop {
+      top: 39px;
+      left: 55px;
+    }
+  }
+
+  &__menu-opener {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/Menu.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+  }
+
+  &__pictures {
+    position: relative;
+    box-sizing: border-box;
+    height: 300px;
+
+    background-image: url(../images/header/BGI-header.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include onTablet {
+      height: 384px;
+      width: 50vw;
+    }
+
+    @include onDesktop {
+      height: 655px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding-top: 9px;
+
+    @extend %h1;
+    color: $main-c;
+    text-align: center;
+    font-size: 36px;
+    line-height: 36px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      left: 110px;
+
+      padding-top: 15px;
+    }
+  }
+
+  &__tickets {
+    margin-top: 20px;
+
+    @include onTablet {
+      margin-top: 127px;
+      padding-left: 34px;
+      width: 340px;
+    }
+
+    @include onDesktop {
+      margin-top: 206px;
+      padding-left: 55px;
+      width: 470px;
+    }
+
+    &-title {
+      @extend %h1;
+      font-size: 45px;
+      line-height: 45px;
+
+      text-transform: uppercase;
+      text-align: center;
+
+      @include onTablet {
+        font-size: 54px;
+        line-height: 65px;
+        text-align: left;
+      }
+    }
+  }
+
+  &__buy {
+    display: flex;
+    height: 50px;
+
+    margin: 20px auto 0;
+    max-width: 280px;
+
+    @include onTablet {
+      margin: 38px 0 0;
+      height: 70px;
+    }
+
+    @include onDesktop {
+      margin: 89px 0 0 201px;
+    }
+
+    &-title {
+      display: grid;
+      box-sizing: border-box;
+      flex-grow: 2;
+      align-content: center;
+
+      width: 230px;
+
+      @extend %p;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      text-transform: uppercase;
+      text-align: center;
+
+      color: $main-c;
+
+      border: 1px solid $green;
+
+    }
+
+    &-button {
+      width: 50px;
+      background-color: $green;
+
+      background-image: url(../images/header/arrow-header.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include onTablet {
+        width: 70px;
+      }
+    }
+  }
+}
