@@ -1,0 +1,163 @@
+.header {
+  margin-bottom: 80px;
+  height: 455px;
+
+  @include onTablet {
+    margin-bottom: 90px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 400px;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    height: 300px;
+    background-image: url(../images/bgsvg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onTablet {
+      height: 384px;
+      left: calc(50% + 10px);
+    }
+
+    @include onDesktop {
+      height: 655px;
+      left: calc(50% - 50px);
+    }
+  }
+
+  &__content {
+    padding-top: 20px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: $colorBlack;
+
+    @include onTablet {
+      margin-bottom: 40px;
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+      text-align: left;
+      font-size: 72px;
+      line-height: 120%;
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 250px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 120px;
+    }
+  }
+
+  &__button {
+    display: block;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 70px;
+    padding-right: 50px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 50px;
+    color: $colorBlack;
+    border: 1px solid $colorGreen;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+
+    transition: all 0.3s;
+
+    background-image: url(../images/greenbutton.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &:hover {
+      background-color: $colorGreen;
+      color: $colorWhite;
+    }
+
+    @include onTablet {
+      height: 70px;
+      width: 270px;
+      margin-bottom: 0;
+      line-height: 70px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    display: none;
+    max-width: 70px;
+    padding-left: 90px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: $colorGrey;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    transform: rotate(-90deg) translate(-60px, -35px);
+    transition: transform 0.3s;
+
+    @include onDesktop {
+      display: inline-block;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 70px;
+      background-color: $colorGreen;
+      top: 50%;
+      left: 0;
+
+      transform: rotate(-90deg) translate(36px, 25px);
+    }
+
+    &:hover {
+      transform: scale(1.2) rotate(-90deg) translate(-60px, -35px);
+    }
+  }
+}
