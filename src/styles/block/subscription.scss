@@ -1,0 +1,137 @@
+.subscription {
+  margin-top: 100px;
+
+  @include onTablet {
+    margin-top: 92px;
+  }
+
+  @include onDesktop {
+    margin-top: 200px;
+  }
+
+  &__bg {
+    background-image: url(../images/subscription-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 20%;
+    width: 100%;
+
+    @include onTablet {
+      background-image: url(../images/subscription-bg-tablet.png);
+    }
+  }
+
+  &__container {
+    @include container;
+  }
+
+  &__title {
+    @extend %h2;
+    color: #fff;
+    text-align: center;
+    padding-top: 88px;
+
+    @include onTablet {
+      font-size: 48px;
+      padding-top: 82px;
+    }
+
+    @include onDesktop {
+      padding-top: 163px;
+    }
+  }
+
+  &__text {
+    @extend %p;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 20px;
+    color: #fff;
+    text-align: center;
+
+    @include onTablet {
+      margin-top: 16px;
+      line-height: 100%;
+    }
+  }
+
+  &__form-content {
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__form {
+    box-sizing: border-box;
+    margin-top: 50px;
+    display: flex;
+    padding-bottom: 88px;
+
+    @include onTablet {
+      margin-top: 64px;
+      gap: 16px;
+      grid-column: 2 / 6;
+      padding-bottom: 82px;
+    }
+
+    @include onDesktop {
+      margin-top: 72px;
+      gap: 30px;
+      grid-column: 4 / 10;
+      padding-bottom: 163px;
+    }
+  }
+
+  &__input {
+    @extend %h3;
+    font-size: 14px;
+    box-sizing: border-box;
+    height: 50px;
+    width: 100%;
+    border: none;
+    padding-left: 24px;
+
+    &::placeholder {
+      color: #687480;
+    }
+
+    &:hover {
+      transition: $effectDuration;
+      border: 3px solid #f14a27;
+    }
+
+    @include onTablet {
+      height: 70px;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:focus {
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  &__button {
+    display: flex;
+    box-sizing: border-box;
+    width: 60px;
+    height: 50px;
+    border: none;
+    background-color: #f14a27;
+    flex-grow: 1;
+    cursor: pointer;
+
+    background-image: url(../images/arrow-right-black.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &:hover {
+      transition: $effectDuration;
+      border: 3px solid #fff;
+    }
+  }
+}
