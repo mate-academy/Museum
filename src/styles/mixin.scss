@@ -1,0 +1,135 @@
+// #region screen
+@mixin onTablet {
+  @media (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (max-width: 639px) {
+    @content;
+  }
+}
+// #endregion
+
+// #region grid
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  column-gap: 30px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include onMobile {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+  }
+}
+// #endregion
+
+// #region global
+@mixin icon-size($width-value, $height-value) {
+  width: $width-value;
+  height: $height-value;
+}
+
+@mixin zoom($zoom-value: 1.1) {
+  transform: scale($zoom-value);
+}
+
+@mixin logo-options {
+  color: $logo-color;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 100%;
+  text-transform: uppercase;
+
+  @include onMobile {
+    font-size: 30px;
+  }
+
+  &:hover {
+    @include zoom(1.05);
+  }
+}
+
+// #region headline
+@mixin headline-options {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  color: $headline-color;
+  font-size: 14px;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+
+@mixin before-for-headline($content) {
+  content: $content;
+  color: $after-for-headline-color;
+}
+// #endregion
+
+// #region nav
+@mixin nav-container-common-opt($gap-value) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: min-content;
+  gap: $gap-value;
+}
+
+@mixin nav-links-common-opt {
+  height: fit-content;
+  width: fit-content;
+  line-height: 100%;
+
+  &:hover {
+    color: $nav-links-color-hover;
+  }
+
+  &:active {
+    color: $nav-links-color-active;
+  }
+}
+// #endregion
+
+// #region timetable
+@mixin timetable-opt {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@mixin timetable-content-opt {
+  display: flex;
+  gap: 30px;
+
+  @include onMobile {
+    gap: 16px;
+  }
+}
+
+@mixin timetable-list-items-opt {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 150%;
+
+  & span {
+    font-weight: 400;
+  }
+}
+
+@mixin timetable-text-opt {
+  font-size: 14px;
+  line-height: 150%;
+
+  & span {
+    font-weight: 600;
+  }
+}
+// #endregion

@@ -1,0 +1,107 @@
+.about-us {
+  background-image: url(../images/main/about-us/about-us-bgi.png);
+  background-size: 100% 100%;
+
+  @include onMobile {
+    background-image: url(../images/main/about-us/about-us-bgi-mob.png);
+  }
+
+  &__content {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+
+    @include onMobile {
+      gap: 20px;
+    }
+
+    & * {
+      color: $about-us-text-color;
+      text-align: center;
+    }
+
+    &-text {
+      font-size: 18px;
+      line-height: 100%;
+
+      @include onMobile {
+        line-height: 150%;
+      }
+    }
+  }
+
+  &__form {
+    grid-column: 1/-1;
+    @include grid;
+    margin-top: 70px;
+
+    @include onTablet {
+      gap: 16px;
+      margin-top: 64px;
+    }
+
+    @include onMobile {
+      display: flex;
+      gap: 0;
+      margin-top: 50px;
+    }
+
+    & * {
+      border: none;
+
+      &:hover {
+        border-radius: 15px;
+      }
+    }
+  }
+}
+
+.about-us--container {
+  padding-block: 85px;
+}
+
+.about-us-input {
+  grid-column: 4/10;
+  width: 100%;
+  height: 70px;
+  padding-inline: 32px;
+  outline: none;
+
+  @include onTablet {
+    grid-column: 2/5;
+  }
+
+  @include onMobile {
+    height: 50px;
+  }
+
+  &::placeholder {
+    color: $about-us-input-placeholder-color;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+  }
+
+  &:focus {
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  &:hover::placeholder {
+    color: $about-us-input-placeholder-color-hover;
+  }
+}
+
+.about-us-button {
+  background-color: $about-us-button-bgc;
+  width: 70px;
+
+  &:hover {
+    background-color: $about-us-button-bgc-hover;
+  }
+
+  &:active {
+    @include zoom(0.9);
+  }
+}
