@@ -1,0 +1,130 @@
+.menu {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  transform: translateY(-100%);
+  top: 0;
+  pointer-events: none;
+  background-color: $menu-bgc;
+  opacity: 0;
+
+  &:target {
+    transform: translateY(0);
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  & * {
+    color: $menu-text-color;
+  }
+}
+
+.menu--container {
+  background-color: $menu-content-bgc;
+  padding-block: 40px 48px;
+
+  @include onTablet {
+    padding-bottom: 40px;
+  }
+
+  @include onMobile {
+    flex-direction: column;
+    padding-block: 27px;
+    row-gap: 24px;
+  }
+}
+
+.close-icone {
+  background-image: url(../images/header/close-icon.svg);
+  @include icon-size(24px, 24px);
+
+  &:hover {
+    @include zoom(1.2);
+  }
+}
+
+.menu__nav {
+  @include nav-container-common-opt(30px);
+  grid-column: 2/6;
+
+  @include onTablet {
+    grid-column: span 2;
+    column-gap: 20px;
+    row-gap: 24px;
+  }
+
+  @include onMobile {
+    grid-column: span 1;
+    column-gap: 25px;
+  }
+}
+
+.menu__nav-links {
+  @include nav-links-common-opt;
+  font-size: 22px;
+  font-weight: 500;
+
+  @include onTablet {
+    font-size: 16px;
+  }
+}
+
+.menu__line {
+  grid-column: 6/7;
+  display: flex;
+  width: 1px;
+  height: 100%;
+  margin-inline: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  @include onTablet {
+    grid-column: span 1;
+  }
+
+  @include onMobile {
+    grid-column: span 2;
+    width: 100%;
+    height: 1px;
+  }
+}
+
+// #region timetable
+.menu__timetable {
+  grid-column: 8/-2;
+  @include timetable-opt;
+
+  @include onTablet {
+    grid-column: span 2;
+  }
+
+  @include onMobile {
+    grid-column: span 2;
+  }
+}
+
+.menu__timetable-content {
+  @include timetable-content-opt;
+
+  @include onMobile {
+    flex-direction: column;
+  }
+}
+
+.menu__timetable-list {
+  width: 170px;
+  flex-direction: column;
+}
+
+.menu__timetable-list-items {
+  @include timetable-list-items-opt;
+}
+
+.menu__timetable-text {
+  @include timetable-text-opt;
+  width: 170px;
+
+  @include onMobile {
+    width: 100%;
+  }
+}
+// #endregion

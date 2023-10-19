@@ -1,0 +1,49 @@
+.header {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  background-image: url(../images/header/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png);
+  background-size: 55% 100%;
+  background-position: right;
+
+  @include onTablet {
+    background-size: 45% 100%;
+  }
+
+  @include onMobile {
+    background-size: 100% 60%;
+    background-position: top;
+  }
+
+  & span {
+    @include headline-options;
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    font-weight: 700;
+    transform: rotate(270deg);
+
+    @include onTablet {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      width: 70px;
+      height: 1px;
+      background: $after-for-headline-color;
+    }
+  }
+}
+
+.header--container {
+  padding-top: 15px;
+
+  @include onMobile {
+    padding-top: 9px;
+  }
+}
+
+@import "./header-top-bar.scss";
+@import "./header-content.scss";

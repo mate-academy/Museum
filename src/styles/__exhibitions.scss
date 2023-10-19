@@ -1,0 +1,171 @@
+.events {
+  margin-top: 200px;
+  margin-bottom: 200px;
+
+  @include onTablet {
+    margin-top: 88px;
+    margin-bottom: 88px;
+  }
+
+  @include onMobile {
+    margin-bottom: 100px;
+    margin-top: 70px;
+  }
+}
+
+.event__cards {
+  grid-column: 1/-1;
+  @include grid;
+  align-items: center;
+  overflow: hidden;
+
+  &:hover {
+    @include zoom(1.02);
+    border-radius: 50px;
+    border-bottom-left-radius: 0;
+    box-shadow: 12px 10px 10px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.event__cards-img {
+  grid-column: span 7;
+  width: 100%;
+
+  @include onTablet {
+    grid-column: 1/-1;
+  }
+}
+
+.event__card-content {
+  grid-column: 9/-1;
+
+  @include onTablet {
+    margin-top: 44px;
+    grid-column: 1/-1;
+  }
+
+  @include onMobile {
+    margin-top: 20px;
+  }
+}
+
+.event__card-date {
+  @include headline-options;
+  font-weight: 500;
+
+  @include onMobile {
+    justify-content: space-between;
+  }
+
+  &::after {
+    @include before-for-headline("26.08-29.11.2019");
+    font-weight: 700;
+    line-height: 150%;
+  }
+}
+
+.event__card-name {
+  margin-block: 32px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @include onMobile {
+    margin-block: 15px 10px;
+  }
+
+  &::after {
+    content: "";
+    @include icon-size(15px, 15px);
+    background-color: $after-for-exhibitions__card-name-color;
+
+    @include onMobile {
+      @include icon-size(10px, 10px);
+    }
+  }
+}
+
+.event__card-info {
+  color: $exhibition-text-color;
+  font-weight: 300;
+  line-height: 150%;
+}
+
+.event--card1 {
+  margin-bottom: 105px;
+
+  @include onTablet {
+    margin-bottom: 65px;
+  }
+
+  @include onMobile {
+    margin-bottom: 60px;
+  }
+}
+
+.event--card3 {
+  margin-top: 105px;
+  background-image: url(../images/main/exhibition/card3-img.png);
+  height: 650px;
+  background-size: 100% 82%;
+  position: relative;
+
+  @include onTablet {
+    height: 490px;
+    margin-inline: 34px;
+    margin-top: 110px;
+  }
+
+  @include onMobile {
+    height: 310px;
+    margin-inline: 0;
+    margin-top: 60px;
+  }
+}
+
+.event--card3-content {
+  padding: 45px 100px 50px;
+  position: absolute;
+  bottom: 0;
+  right: 30%;
+  left: 30%;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+
+  @include onTablet {
+    padding-inline: 55px;
+    right: 65px;
+    left: 65px;
+  }
+
+  @include onMobile {
+    padding: 20px 0;
+    right: 20px;
+    left: 20px;
+  }
+}
+
+.event--card3-date {
+  @include headline-options;
+  font-weight: 500;
+  margin-bottom: 16px;
+  justify-content: space-between;
+
+  @include onMobile {
+    justify-content: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  &::after {
+    @include before-for-headline("26/08/2019 - 11:00");
+    font-weight: 700;
+  }
+}
+
+.event--card3-name {
+
+  @include onMobile {
+    text-align: center;
+  }
+}
