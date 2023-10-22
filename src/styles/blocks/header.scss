@@ -1,0 +1,155 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  margin-top: 9px;
+
+  @include onTablet {
+    @include gridTemplate;
+    margin-top: 15px;
+
+  }
+
+  &__picture {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    z-index: -1;
+    height: 300px;
+    background: url("../images/header_wallpaper.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include onTablet {
+      left: auto;
+      width: calc(50% - #{$grid-gap} / 2);
+      height: 384px;
+    }
+
+    @include onDesktop {
+      width: 57%;
+      height: 655px;
+    }
+  }
+
+  &__title {
+    grid-row: 2;
+    grid-column: 1/-1;
+    margin-top: 250px;
+
+    color: $text-main;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%; /* 45px */
+
+    @include onTablet {
+      grid-column: span 3;
+
+      margin-top: 40px;
+      font-size: 54px;
+      line-height: 120%; /* 45px */
+      text-align: left;
+    }
+
+    @include onDesktop {
+      grid-column: span 5;
+      margin-top: 120px;
+      font-size: 72px;
+    }
+  }
+
+  &__tickets {
+    grid-row: 3;
+    grid-column: 1/-1;
+    margin-top: 20px;
+    --height: 50px;
+
+    display: flex;
+    justify-content: space-between;
+    height: var(--height);
+    border: 1px solid $bg-secondary-color;
+    align-items: center;
+    text-decoration: none;
+
+    &:hover {
+      transform: translateX(-10%);
+    }
+
+    @include onTablet {
+      grid-column: 1/4;
+      margin-top: 38px;
+      --height: 70px;
+      width: 270px;
+    }
+
+    @include onDesktop {
+      grid-column: 3/6;
+      margin-top: 90px;
+      width: auto;
+    }
+
+    &--title {
+      flex-grow: 1;
+      text-align: center;
+
+      color: $button-secondary;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 100%; /* 16px */
+      text-transform: uppercase;
+    }
+
+    &:after {
+      content: "";
+      height: var(--height);
+      width: var(--height);
+      background: $bg-secondary-color;
+      background-image: url("../images/arrow_right.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.logo {
+  text-decoration: none;
+  color: $button-secondary;
+  font-family: Montserrat, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 100%; /* 30px */
+
+  &--header {
+    text-align: center;
+    @include onTablet {
+      font-size: 36px;
+      grid-row: 1;
+      grid-column: 4/ span 2;
+    }
+    @include onDesktop {
+      grid-row: 1;
+      grid-column: 6/ span 2;
+    }
+
+  }
+}
+
+.burger-menu {
+  display: block;
+  text-decoration: none;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../images/menu_button.svg");
+  &--close {
+    background-image: url("../images/menu-close.svg");
+  }
+  &:hover {
+    transform: scale(120%);
+  }
+}
