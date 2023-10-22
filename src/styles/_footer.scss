@@ -171,6 +171,7 @@
   }
 
   &__link {
+    position: relative;
     text-decoration: none;
     font-family: $font-family--2;
     font-size: 14px;
@@ -179,6 +180,25 @@
     letter-spacing: 0em;
     text-align: left;
     color: #0F0E08;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: #0F0E08;
+
+      transform: scale(0);
+      transition: transform .3s linear;
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+      transform-origin: left;
+    }
   }
 
   &__bottom {
