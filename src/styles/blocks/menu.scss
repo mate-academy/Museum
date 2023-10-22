@@ -1,0 +1,112 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: $hover-speed;
+
+  color: $text-secondary;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%; /* 16px */
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-content: space-between;
+    row-gap: 24px;
+    background-color: $bg-secondary-color;
+    padding: 27px $mobile-margin;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      padding: 39px $tablet-margin;
+    }
+    @include onDesktop {
+      padding: 39px $desktop-margin;
+    }
+  }
+
+  &__button {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  &__links {
+    grid-column: 2/-1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    row-gap: 24px;
+    justify-content: space-between;
+
+    @include onTablet {
+      column-gap: 20px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__schedule {
+    grid-column: 1/-1;
+    display: grid;
+    gap: 16px;
+    align-content: space-between;
+
+    &--left-part {
+      display: grid;
+      gap: 20px;
+    }
+
+    &--right-part {
+      align-self: self-end;
+    }
+
+    @include onTablet {
+      width: 340px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__separator {
+    background: rgba(255, 255, 255, 0.5);
+    width: 1px;
+    content: "";
+  }
+
+  &:target {
+    pointer-events: all;
+    opacity: 1;
+    z-index: 3;
+  }
+
+}
+
+.summary {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+
+  &--regular {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__title {
+    line-height: 140%;
+    margin-bottom: 20px;
+  }
+
+  &--bold {
+    font-weight: 600;
+  }
+
+}
