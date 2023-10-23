@@ -1,6 +1,152 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onTablet() {
+  @media(min-width: 768px) {
+    @content;
   }
 }
+
+@mixin onDesktop() {
+  @media(min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin grid() {
+  --grid_column: 2;
+  display: grid;
+  grid-template-columns: repeat(var(--grid_column), 1fr);
+  column-gap: 20px;
+
+  @include onTablet() {
+    --grid_column: 6;
+    column-gap: 30px;
+  }
+
+  @include onDesktop() {
+    --grid_column: 12;
+  }
+}
+
+@mixin h1__font() {
+  font-family: "Montserrat", sans-serif;
+  font-size: 45px;
+  font-weight: 700;
+  color: $fc-main-black;
+  text-align: center;
+  text-transform: uppercase;
+
+  @include onTablet {
+    font-size: 54px;
+    text-align: left;
+    line-height: 65px;
+  }
+
+  @include onDesktop {
+    font-size: 72px;
+    line-height: 86.4px;
+  }
+}
+
+@mixin h2_font() {
+  font-family: "Montserrat", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: $fc-main-black;
+  text-align: center;
+
+  @include onTablet {
+    font-size: 48px;
+    text-align: left;
+  }
+}
+
+@mixin h2_font_white() {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: $fc-white;
+  text-align: center;
+
+  @include onTablet {
+    font-size: 48px;
+  }
+}
+
+@mixin h3_font() {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  color: $fc-main-black;
+
+  @include onTablet {
+    font-size: 36px;
+  }
+}
+
+@mixin h4_font() {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: $fc-secondary-gray;
+
+  @include onTablet {
+    font-size: 14px;
+  }
+}
+
+@mixin h5_font() {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: $c-dark-green;
+  line-height: 24px;
+
+  @include onTablet {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+@mixin nav_font() {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: $fc-white;
+
+  @include onDesktop {
+    font-size: 22px;
+  }
+}
+
+@mixin sheldure_font() {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+@mixin linksUderline($colorUnderline) {
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $colorUnderline;
+
+    transition: transform $speedAnimation;
+    transform: scale(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
+
+// @mixin hover($_property, $_toValue) {
+//   transition: #{$_property} 0.3s;
+//   &:hover {
+//     #{$_property}: $_toValue;
+//   }
+// }
