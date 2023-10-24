@@ -1,0 +1,86 @@
+.form {
+  display: grid;
+  grid-template-columns: 230px 50px;
+  align-items: center;
+
+  &--header {
+    @include onTablet {
+      grid-column: 1;
+      grid-template-columns: 200px 70px;
+    }
+
+    @include onDesktop {
+      grid-column: 2;
+    }
+  }
+
+  &--footer {
+    @include onTablet {
+      grid-column: 2 / 6;
+      grid-template-columns: 374px 70px;
+      grid-row-start: 4;
+      column-gap: 16px;
+    }
+
+    @include onDesktop {
+      grid-column: 4 / 10;
+    }
+  }
+
+  &__input {
+    height: 50px;
+    width: 240px;
+    outline: none;
+    color: $text-color-main;
+    font-family: $font-family-secondary;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+    padding-left: 24px;
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: #fff;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px $text-color-main inset;
+    }
+
+    &--header {
+      border: 1px solid $text-color-green;
+
+      &::placeholder {
+        color: $text-color-main;
+        font-family: $font-family-main;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 100%;
+        padding-left: 60px;
+      }
+
+      @include onTablet {
+        width: 270px;
+        height: 70px;
+      }
+    }
+
+    &--footer {
+      &::placeholder {
+        color: $text-color-grey;
+        font-family: $font-family-secondary;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 100%;
+        padding-left: 24px;
+      }
+
+      @include onTablet {
+        width: 374px;
+        height: 70px;
+      }
+    }
+  }
+}

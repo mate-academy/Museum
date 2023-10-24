@@ -1,0 +1,75 @@
+.nav {
+  &--header {
+    @include onTablet {
+      display: grid;
+      justify-items: center;
+    }
+  }
+
+  &__link {
+    color: #fff;
+    font-family: $font-family-main;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    text-decoration: none;
+
+    @include onDesktop {
+      font-size: 22px;
+    }
+
+    &--footer {
+      color: $text-color-title;
+      font-family: $font-family-main;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 100%;
+      text-decoration: none;
+      transition: color 0.3s ease-in;
+
+      &:hover {
+        color: $text-color-green;
+      }
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 24px;
+    column-gap: 28px;
+
+    &--header {
+      @include onTablet {
+        grid-template-columns: 100px 100px;
+      }
+    }
+
+    &--footer {
+      grid-column: span 2;
+
+      @include onTablet {
+        grid-column: 2 / 6;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @include onDesktop {
+        grid-column: 8 / 11;
+      }
+    }
+  }
+
+  &--inline {
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      justify-content: space-between;
+    }
+  }
+}
