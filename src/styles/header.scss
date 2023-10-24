@@ -1,0 +1,139 @@
+.header {
+  height: 100vh;
+
+  &__content {
+    position: relative;
+    @include grid;
+
+    @include onDesktop {
+      height: 655px;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    background-image: url(/images/main_photo_museum.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      left: 50%;
+      z-index: 1;
+      width: 50%;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      left: 43%;
+      width: 57%;
+      height: 655px;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+    margin-top: 9px;
+
+    transform: translateX(-28px);
+
+    @include onTablet {
+      left: 110px;
+      margin-top: 15px;
+    }
+
+    @include onDesktop {
+      left: 85px;
+    }
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    margin-top: 27px;
+    margin-bottom: 250px;
+    width: 24px;
+    height: 24px;
+    background-image: url(/images/icon/icon_menu-24px.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: transform $speedAnimation;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      margin-top: 39px;
+      margin-bottom: 64px;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    @include onDesktop {
+      margin-bottom: 143px;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    max-width: 290px;
+    margin: 0 auto 20px;
+
+    @include h1__font;
+
+    @include onTablet {
+      max-width: 340px;
+      margin: 0 0 38px;
+    }
+
+    @include onDesktop {
+      max-width: none;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+  }
+
+  &__events {
+    position: absolute;
+    bottom: 0;
+
+    display: none;
+    width: 13px;
+    height: 133px;
+    background-image: url(/images/icon/icon_events.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onDesktop {
+      display: block;
+      transition: transform $speedAnimation;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
