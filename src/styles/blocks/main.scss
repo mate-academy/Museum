@@ -1,0 +1,161 @@
+.main {
+  display: grid;
+  row-gap: 100px;
+
+  @include onTablet {
+    row-gap: 112px;
+  }
+
+  @include onDesktop {
+    row-gap: 200px;
+  }
+
+  &__image {
+    position: relative;
+
+    @include onTablet {
+      @include contentPaddingInline;
+    }
+
+    @include onDesktop {
+      margin-inline: 0;
+      padding-inline: 0;
+    }
+
+    &-picture {
+      width: 100%;
+      object-fit: cover;
+
+      @include onTablet {
+        height: 390px;
+      }
+
+      @include onDesktop {
+        width: 100vw;
+        height: 550px;
+      }
+    }
+
+    &-text {
+      position: absolute;
+      bottom: -29%;
+      left: 0;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 48px 1fr;
+      align-items: center;
+      justify-items: start;
+      row-gap: 24px;
+
+      margin-inline: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+
+      @include onTablet {
+        padding-inline: 55px;
+        margin-inline: 99px;
+      }
+
+      @include onDesktop {
+        bottom: -16%;
+        width: 50%;
+        padding-inline: 100px;
+        margin-inline: 355px;
+      }
+
+      &--description {
+        color: $text-color-grey;
+        font-family: $font-family-main;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 100%;
+        margin: 0;
+        padding-left: 21px;
+
+        @include onTablet {
+          font-size: 14px;
+          padding-left: 0;
+        }
+      }
+
+      &--span {
+        color: $text-color-green;
+        font-family: $font-family-main;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 150%;
+
+        @include onTablet {
+          font-size: 14px;
+        }
+      }
+
+      &--title {
+        grid-column: span 2;
+        justify-self: stretch;
+
+        color: $text-color-title;
+        text-align: center;
+        font-family: $font-family-secondary;
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 100%;
+        margin: 0;
+        padding-bottom: 20px;
+
+        @include onTablet {
+          font-size: 36px;
+          text-align: left;
+          padding-bottom: 50px;
+        }
+      }
+    }
+  }
+
+  &__subscription {
+    background-image: url(../images/bg-image/bg-image-bottom.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 20px;
+    align-items: center;
+    justify-items: center;
+    padding-block: 88px;
+
+    @include contentPaddingInline;
+
+    @include onTablet {
+      @include grid;
+      row-gap: 16px;
+      grid-template-rows: 48px 18px 32px 70px;
+      padding-block: 82px;
+    }
+
+    @include onDesktop {
+      max-width: 100%;
+      margin-inline: 0;
+      padding-block: 164px;
+    }
+
+    &-description {
+      color: #fff;
+      text-align: center;
+      font-family: $font-family-main;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 150%;
+      margin: 0;
+
+      @include onTablet {
+        grid-column: 2 / 6;
+      }
+
+      @include onDesktop {
+        grid-column: 4 / 10;
+      }
+    }
+  }
+}

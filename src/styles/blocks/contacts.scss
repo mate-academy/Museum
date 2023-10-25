@@ -1,0 +1,171 @@
+.contacts {
+  display: grid;
+  grid-column: span 2;
+  grid-row: 1;
+  grid-template-rows: 72px 1fr;
+  row-gap: 40px;
+  position: relative;
+
+  @include onTablet {
+    grid-column: span 6;
+    grid-template-rows: 100%;
+  }
+
+  @include onDesktop {
+    // grid-column: span 12;
+    grid-template-columns: repeat(7, 70px);
+    column-gap: 30px;
+
+    &::before {
+      content: "";
+      display: block;
+      background-color: $text-color-green;
+      position: absolute;
+      width: 1px;
+      height: 260px;
+      top: 0;
+      left: 114%;
+    }
+  }
+
+  &--logo {
+    grid-column: 1 / 1;
+  }
+
+  &__top {
+    display: grid;
+    grid-column: span 2;
+    grid-template-columns: 1fr 1fr;
+    justify-items: self-start;
+    align-items: center;
+
+    @include onTablet {
+      grid-column: span 1;
+      grid-template-columns: 1fr;
+      grid-template-rows: 60px 30px;
+      row-gap: 62px;
+    }
+
+    &-link {
+      grid-column: 2;
+      display: grid;
+      grid-template-columns: 24px 24px;
+      column-gap: 20px;
+      justify-self: end;
+
+      @include onTablet {
+        grid-column: 1;
+        justify-self: start;
+        column-gap: 32px;
+      }
+    }
+  }
+
+  &__main {
+    display: grid;
+    grid-column: span 2;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    align-items: self-start;
+    width: 100%;
+
+    border-bottom: 1px solid $text-color-green;
+    padding-bottom: 70px;
+
+    position: relative;
+
+    @include onTablet {
+      // @include grid;
+      width: 80%;
+      grid-column: 2 / 6;
+      grid-template-columns: repeat(4, 90px);
+      // column-gap: 30px;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      grid-column: 3 / 7;
+      border: none;
+    }
+
+    &-schedule {
+      display: grid;
+      row-gap: 20px;
+
+      @include onTablet {
+        grid-column: span 2;
+      }
+
+      &--title {
+        margin: 0;
+        color: $text-color-title;
+        font-family: $font-family-main;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 140%;
+      }
+
+      &--description {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        color: $text-color-title;
+        font-family: $font-family-main;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 150%;
+      }
+    }
+
+    &-address {
+      display: grid;
+      row-gap: 20px;
+
+      @include onTablet {
+        grid-column: span 2;
+      }
+
+      &--title {
+        margin: 0;
+        color: $text-color-title;
+        font-family: $font-family-main;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 140%;
+      }
+
+      &--description {
+        font-family: $font-family-main;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 150%;
+
+        &-link {
+          color: $text-color-title;
+          text-decoration: none;
+          transition: color 0.3s ease-in;
+
+          &:hover {
+            color: $text-color-green;
+          }
+        }
+      }
+
+      &--button {
+        border: 1px solid $text-color-green;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+
+        position: absolute;
+        bottom: 20px;
+        right: 0;
+
+        @include onTablet {
+          display: none;
+        }
+      }
+    }
+  }
+}

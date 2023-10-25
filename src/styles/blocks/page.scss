@@ -1,0 +1,37 @@
+.page {
+  background-color: #fff;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+
+    @media (min-width: 600px) and (max-width: 780px) {
+      width: 100vh;
+    }
+    // @include onTablet {
+    //   @include grid;
+    // }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.5s;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}
