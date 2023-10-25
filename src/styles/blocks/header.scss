@@ -31,6 +31,7 @@
   }
 
   &__content {
+    grid-column: span 2;
     grid-row-start: 3;
 
     @include onTablet {
@@ -49,6 +50,7 @@
       justify-items: center;
 
       @include onTablet {
+        row-gap: 38px;
         grid-template-columns: 1fr;
         justify-items: left;
       }
@@ -77,6 +79,40 @@
           grid-column: span 2;
           font-size: 72px;
           line-height: 120%;
+        }
+      }
+
+      &--button {
+        width: 230px;
+        height: 60px;
+        color: $text-color-title;
+        font-family: $font-family-main;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 100%;
+        background-color: #fff;
+        border: 1px solid $text-color-green;
+
+        display: grid;
+        grid-template-columns: 1fr 50px;
+        align-items: center;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+
+          & .icon--arrow {
+            transform: rotate(180deg);
+            border: none;
+            background-image: url(../images/icon/icon-arrow-black.svg);
+            background-color: #fff;
+          }
+        }
+
+        @include onTablet {
+          height: 77px;
+          width: 270px;
+          grid-template-columns: 1fr 68px;
         }
       }
 
