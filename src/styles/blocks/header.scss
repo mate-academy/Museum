@@ -84,7 +84,7 @@
 
       &--button {
         width: 230px;
-        height: 60px;
+        height: 50px;
         color: $text-color-title;
         font-family: $font-family-main;
         font-size: 16px;
@@ -92,28 +92,49 @@
         line-height: 100%;
         background-color: #fff;
         border: 1px solid $text-color-green;
+        text-align: center;
 
         display: grid;
         grid-template-columns: 1fr 50px;
         align-items: center;
         transition: all 0.3s ease;
 
+        &-link {
+          width: 50px;
+          height: 50px;
+          background-color: $text-color-green;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          @include onTablet {
+            width: 70px;
+            height: 70px;
+          }
+        }
+
         &:hover {
           transform: scale(1.1);
+
+          & .header__content-bottom--button-link {
+            background-color: #fff;
+            border-right: 1px solid $text-color-green;
+          }
 
           & .icon--arrow {
             transform: rotate(180deg);
             border: none;
             background-image: url(../images/icon/icon-arrow-black.svg);
-            background-color: #fff;
           }
         }
 
         @include onTablet {
-          height: 77px;
+          height: 70px;
           width: 270px;
           grid-template-columns: 1fr 68px;
         }
+
       }
 
       &--link {
