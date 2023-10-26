@@ -1,60 +1,120 @@
 .header {
-
-  &__content {
-    display: flex;
-    justify-content: space-between;
+  &__img {
+    background-image: url(../images/museum/museum.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    right: 0;
+    width: 100vw;
     height: 100vh;
-margin-top: 45px;
+    display: block;
+    @include onTablet {
+      position: absolute;
+      width: 50%;
+      height: 100vh;
+      top: 0;
+    }
+    @include onDesktop {
+      top: 0;
+      width: 725px;
+      height: 655px;
+    }
   }
 
-  &__wrapper{
+  &__wrapper {
     display: flex;
     flex-direction: column;
+    margin-top: 33px;
+    @include onDesktop {
+      margin-top: 45px;
+    }
   }
 
   &__title {
-    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 72px;
-    line-height: 86px;
-    margin-top: 143px;
+    font-size: 45px;
+    line-height: 45px;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    @include onTablet {
+      text-align: left;
+      margin-top: 125px;
+      margin-bottom: 40px;
+    }
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 86px;
+      margin-top: 143px;
+      text-align: left;
+      margin-bottom: 130px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    transition: $transition;
+    &:hover {
+      transform: translateX(2%);
+      transform: scale(1.1);
+    }
+    @include onDesktop {
+      margin-left: 187px;
+    }
+  }
+
+  &__link {
+    border: 1px solid $colorMainSubtitle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100vw;
+    text-decoration: none;
+    @include onTablet {
+      height: 67px;
+      width: 197px;
+    }
   }
 
   &__tickets {
-    font-family: 'IBM Plex Sans', sans-serif;
+    color: #0f0e08;
+    font-family: $fontsPlexSans;
+    font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    line-height: 32px;
-    color: #0F0E08;
-    border: 1px solid black;
-    height: 70px;
-    width: 270px;
-    display: flex;
-    justify-content: end;
-    margin-left: 206px;
-    position: relative;
-    &::after{
-      content: '';
-      position: absolute;
-      height: 70px;
+    line-height: 100%;
+  }
+
+  &__btn {
+    background-image: url(../images/details/btn.svg);
+    background-repeat: no-repeat;
+    height: 52px;
+    width: 73px;
+    display: block;
+    background-color: $colorMainSubtitle;
+    background-position: center;
+    @include onTablet {
+      height: 69px;
       width: 70px;
-      background-color: #1A5A4C;
-      bottom: 0;
-      right: 0;
     }
   }
-    &__ticket {
-      display: flex;
-      align-items: center;
-      transform: translateX(-200%);
-    }
-
-
 
     &__verticalText {
-      font-family: 'IBM Plex Sans', sans-serif;
+      display: none;
+      @include onDesktop {
+      display: block;
+      font-family: $fontsPlexSans;
       font-weight: 700;
-      color: #687480;
+      color: $colorTitleExhibition;
       font-size: 14px;
       padding: 0;
       margin:0;
@@ -64,35 +124,17 @@ margin-top: 45px;
       white-space: nowrap;
       height: 100px;
       font-size: 16px;
-      margin-top: -6%;
-position: relative;
+      margin-top: -2%;
+      position: relative;
       &::after {
         content: "";
-
-position: absolute;
-        border-left: 1px solid #000;
+        position: absolute;
+        border-left: 1px solid $colorMainSubtitle;
         height: 70px;
         bottom: 120px;
-right: 9px;
+        right: 9px;
       }
     }
-
-    &__img{
-      height: 100vh;
-    }
-
-  &__images {
-    position: relative;
-    &--logo {
-      position: absolute;
-      top: 15px;
-      left: 56px;
-      height: 170px;
-      width: 70px;
-      background-image: url(../images/details/textNAMU.svg);
-      background-repeat: no-repeat;
-    }
   }
-
 }
 
