@@ -1,0 +1,195 @@
+.header {
+  position: relative;
+
+  &__menu {
+    position: absolute;
+    top: 27px;
+    @include hover(transform, scale(1.05));
+
+    @include on768px {
+      top: 39px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    text-decoration: none;
+    color: #0f0e08;
+    text-align: center;
+    font-family: $font-montserat;
+    font-size: 30px;
+    font-weight: 700;
+
+    width: 220px;
+    height: 72px;
+    right: 50%;
+    top: 9px;
+    transform: translateX(50%);
+
+    @include on768px {
+      font-size: 36px;
+      right: 34%;
+    }
+
+    @include on1280px {
+      right: 50%;
+    }
+  }
+
+  &__addition {
+    display: none;
+    position: absolute;
+    top: 522px;
+    left: 0;
+
+    @include on1280px {
+      display: block;
+      @include hover(transform, scale(1.05));
+    }
+
+    &__link {
+      text-decoration: none;
+      position: absolute;
+      color: #687480;
+      font-size: 14px;
+      font-weight: 700;
+      transform: rotate(-90deg);
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 1px;
+        height: 70px;
+        background: $c-green;
+        transform: rotate(90deg);
+        transform-origin: top center;
+        top: 50%;
+        left: -20px;
+      }
+    }
+  }
+
+  &__box-img {
+    display: flex;
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+
+    @include on768px {
+      grid-column: 4 / -1;
+    }
+
+    @include on1280px {
+      grid-column: 6 / -1;
+    }
+
+    &__image {
+      height: 300px;
+      width: 100vw;
+      background-image: url(../images/header/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.jpg);
+      background-position: center;
+      background-size: cover;
+      margin-inline: -$margin-container-320px;
+
+      @include on768px {
+        height: 384px;
+        margin-inline: 0;
+        margin-right: -$margin-container-768px;
+      }
+
+      @include on1280px {
+        height: 655px;
+        margin-right: -$margin-container-1280px;
+      }
+    }
+  }
+  &__content {
+    grid-column: 1 / -1;
+
+    @include on768px {
+      margin-top: 127px;
+      grid-area: 1 / 1 / 2 / 4;
+    }
+
+    @include on1280px {
+      margin-top: 206px;
+    }
+
+    &__title {
+      color: #000;
+      text-align: center;
+      font-family: $font-montserat;
+      font-size: 45px;
+      font-weight: 700;
+      line-height: 100%;
+      margin-bottom: 20px;
+      grid-column: 1 / -1;
+
+      @include on768px {
+        font-size: 54px;
+        text-align: left;
+        margin-top: 127px;
+        grid-area: 1 / 1 / 2 / 4;
+      }
+
+      @include on1280px {
+        font-size: 72px;
+        margin-top: 206px;
+      }
+    }
+
+    &__ticket {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 70px;
+
+      grid-column: 1 / -1;
+
+      @include on768px {
+        justify-content: start;
+        margin-top: 295px;
+        grid-area: 1 / 1 / 2 / 4;
+      }
+
+      @include on1280px {
+        margin-top: 467px;
+        grid-column: 3 / 6;
+      }
+
+      &__link {
+        box-sizing: border-box;
+        text-decoration: none;
+        height: 50px;
+        width: calc(100% - 50px);
+        border: 1px solid $c-green;
+        color: #0f0e08;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 50px;
+
+        @include hover(background-color, $c-orange);
+
+        @include on768px {
+          height: 70px;
+          line-height: 70px;
+          width: 200px;
+
+        }
+      }
+
+      &__button {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        line-height: 50px;
+        background-color: $c-green;
+
+        @include on768px {
+          height: 70px;
+          line-height: 70px;
+          width: 70px;
+        }
+      }
+    }
+  }
+}

@@ -4,3 +4,32 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on768px {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on1280px {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on768px {
+    --columns: 6;
+    column-gap: 30px;
+  }
+
+  @include on1280px {
+    --columns: 12;
+    column-gap: 30px;
+  }
+}
