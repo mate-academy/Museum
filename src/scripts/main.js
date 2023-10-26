@@ -1,5 +1,17 @@
 'use strict';
 
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+});
+
+/*
 class Slider {
   constructor(query) {
     this.slider = document.querySelector(query); // element slider
@@ -57,3 +69,4 @@ class Slider {
 }
 
 const slider = new Slider('#mySlider');
+*/
