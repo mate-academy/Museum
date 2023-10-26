@@ -1,0 +1,204 @@
+.gallery {
+  box-sizing: border-box;
+  
+  @include contentPaddingInline;
+
+  &-indent {
+    margin-block: 100px 100px;
+
+    @include onTablet {
+      margin-block: 88px 133px;
+    }
+
+    @include onDesktop {
+      margin-block: 200px;
+    }
+  }
+  
+  &__wrapper {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 100%;
+    height: 100vh;
+ 
+    @include onTablet {
+      min-width: 690px;
+      margin-top: 48px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__slider {
+    height: inherit;
+    overflow: hidden;
+    position: relative;
+    width: inherit;
+  }
+
+  &__wrapper > input {
+    display: none;
+  }
+
+  &__controls {
+    margin-top: 20px;
+    height: 9px;
+    left: 58%;
+    margin-left: -98px;
+    position: absolute;
+
+    @include onTablet {
+      margin-top: 32px;
+    }
+  }
+
+  &__wrapper-desktop {
+    display: none;
+
+    @include onDesktop {
+      @include pageGrid;
+      row-gap: 30px;
+      margin-top: 56px;
+    }
+  }
+
+  &__pictures {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__picture {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+  }
+}
+
+.slides {
+  height: inherit;
+  opacity: 0;
+  position: absolute;
+  width: inherit;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform ease-in-out 0.5s, opacity ease-in-out 0.5s;
+}
+
+.slide-first {
+  background-image: url(../images/gallery/first-img-gall.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include onTablet {
+    grid-column: 1/-1;
+    background-image: url(../images/gallery/first-img-gall.png), url(../images/gallery/second-img-gall.png);
+    background-size: 335px 100%, 335px 100%;
+    background-repeat: no-repeat;
+    background-position: left bottom, right bottom;
+  }
+}
+
+.slide-second {
+  background-image: url(../images/gallery/second-img-gall.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include onTablet {
+    background-image: url(../images/gallery/fourth-img-gall.png);
+    background-size: 100% 100%;
+  }
+}
+
+.slide-third {
+  background-image: url(../images/gallery/five-img-gall.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+
+  @include onTablet {
+    background-size: 100% 100%;
+  }
+}
+
+.slide-fourth {
+  background-image: url(../images/gallery/third-img-gall.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+#slide-first:checked ~ .gallery__slider > .slide-first,
+#slide-second:checked ~ .gallery__slider > .slide-second,
+#slide-third:checked ~ .gallery__slider > .slide-third,
+#slide-fourth:checked ~ .gallery__slider > .slide-fourth {
+  opacity: 1;
+  z-index: 1;
+  transform: scale(1);
+}
+
+.control {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  align-items: center;
+  width: 9px;
+  height: 9px;
+  top: -33px;
+  left: 8px;
+  background-color: #e0e0e0;
+  margin: 20px 22px 0 0;
+  padding: 2px;
+  position: relative;
+  border-radius: 50%;
+  transition: ease-in-out 0.5s;
+
+  @include onTablet {
+    margin: 32px 22px 0 0;
+  }
+}
+
+.control:hover,
+#slide-first:checked ~ .gallery__controls label:nth-of-type(1),
+#slide-second:checked ~ .gallery__controls label:nth-of-type(2),
+#slide-third:checked ~ .gallery__controls label:nth-of-type(3),
+#slide-fourth:checked ~ .gallery__controls label:nth-of-type(4) {
+  background-color: $color-green;
+}
+
+.gallery__wrapper label:after {
+  content: " ";
+  display: block;
+  width: 9px;
+  height: 9px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.pictures {
+  &-first {
+    grid-column: span 4;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &-second {
+    grid-column: span 8;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &-third {
+    grid-column: span 8;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &-fourth {
+    grid-column: span 4;
+  
+    @include hover(transform, scale(1.05));
+  }
+}

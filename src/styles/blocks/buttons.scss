@@ -1,0 +1,73 @@
+.by-ticket {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 280px;
+  height: 50px;
+  border: 1px solid $color-green;
+
+  @include onTablet {
+    width: 270px;
+    height: 70px;
+    margin-bottom: 19px;
+  }
+
+  @include onDesktop {
+    margin-left: 200px;
+    margin-right: 30px;
+    margin-bottom: 118px;
+  }
+
+  &__arrow {
+    position: absolute;
+    right: 0;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: inline-block;
+    margin-inline: 80px 130px;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: $middle-font;
+    color: $color-black;
+    
+    @include hover(transform, scale(1.2));
+  }
+
+  &__button::after {
+    @include underlineLinks;
+    background-color: $color-black;
+    opacity: 50%;
+  }
+
+  &__button:hover::after {
+    transform: scale(1);
+  }
+}
+
+.submit__button {
+  @include arrow;
+  background-color: #f14a27;
+  border: none;
+  padding: 0;
+
+  @include hover(transform, scale(1.05));
+}
+
+.arrow {
+  display: block;
+  @include arrow;
+  background-color: $color-green;
+
+  @include hover(transform, scale(1.05));
+}

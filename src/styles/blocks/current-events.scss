@@ -1,0 +1,154 @@
+
+.event {
+  @include contentPaddingInline;
+  
+  @include pageGrid;
+
+  @include onDesktop {
+    margin-bottom: 104px;
+  }
+
+  &__data {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    margin-block: 20px 15px;
+
+    @include onTablet {
+      margin-block: 44px 32px;
+      width: 340px;
+    }
+
+    @include onDesktop {
+      margin-block: 0 30px;
+      width: 270px;
+    }
+  }
+
+  &__data-third {
+    display: flex;
+    flex-direction: row;
+    margin: 24px 0 24px 21px;
+
+    @include onTablet {
+      margin: 45px 55px 16px;
+      gap: 140px;
+    }
+
+    @include onDesktop {
+      margin: 45px 100px 23px;
+      grid-column: 4/10;
+      gap: 130px;
+    }
+  }
+  
+  &__subtitle {
+    margin: 0;
+  }
+
+  &__date {
+    margin: 0;
+  }
+
+  &__date-third {
+    width: 174px;
+  }
+
+  &__text {
+    text-align: left;
+    margin: 0;
+    margin-bottom: 60px;
+
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-dark-grey;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__second-text {
+    @include onTablet {
+      margin-bottom: 112px;
+    }
+  }
+
+  &__photos {
+    width: 100%;
+    grid-column: 1/-1;
+
+    @include onDesktop {
+      grid-column: 1/8;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    overflow: hidden;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__content {
+    grid-column: 1/-1;
+
+    @include onDesktop {
+      grid-column: 9/13;
+    }
+  }
+
+  &__content-shift {
+    margin: 0 auto;
+    margin-top: -20%;
+    width: 280px;
+    height: 140px;
+   
+    background-color: $color-white;
+    box-shadow: 0 2px 0 0 #1a5a4c40;
+  
+    @include onTablet {
+      width: 570px;
+      height: 204px;
+      margin-top: -10%;
+    }
+
+    @include onDesktop {
+      margin-top: -17%;
+      grid-column: 4/10;
+    }
+  }
+
+  &-third {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.third-photo {
+  width: 100%;
+
+  @include onDesktop {
+    grid-column: 1/-1;
+  }
+}
+
+.to-art {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: $color-black;
+
+  &::after {
+    @include underlineLinks;
+    background-color: $color-black;
+    opacity: 50%;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}

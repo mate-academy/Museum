@@ -1,0 +1,130 @@
+.header {
+  margin: 0 auto;
+  
+  &__main-img {
+    width: 100%;
+    
+    @include onTablet {
+      background-image: url(../images/header-bg-2x.png);
+      background-size: 100% 100%;
+      object-fit: cover;
+    }
+
+    @include onTablet {
+      grid-column: 4/7;
+    }
+
+    @include onDesktop {
+      grid-column: 6/13;
+    }
+  }
+  
+  &__namu-bg {
+    width: 100%;
+    height: 100%;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  &__top {
+    width: 50%;
+    position: absolute;
+    top: 9px;
+    left: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 61px;
+    
+
+    @include onTablet {
+      width: 80%;
+      top: 15px;
+      left: 39px;
+      gap: 336px;
+      height: 72px;
+    }
+
+    @include onDesktop {
+      width: 60%;
+      left: 55px;
+      gap: 476px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column-reverse;
+    
+    gap: 20px;
+
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-right: 20px;
+
+    @include headerMenuPaddingLeft;
+
+    grid-column: 1/-1;
+
+    @include onTablet {
+      justify-items: left;
+      padding: 0;
+      grid-column: 1/4;
+      gap: 34px;
+    }
+
+    @include onDesktop {
+      grid-column: 1/6;
+      gap: 89px;
+    }
+  }
+
+  &__event {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      position: absolute;
+      bottom: 17%;
+      left: 0;
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__event-line {
+    font-weight: $bold-font;
+    font-size: 14px;
+    line-height: 14px;
+    color: $color-grey;
+  }
+
+  &__event:before {
+    @include onDesktop {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      width: 70px;
+      height: 1px;
+      background-color: $color-green;
+      position: relative;
+      margin-right: -50%;
+      right: 60px;
+    }
+  }
+}

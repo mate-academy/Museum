@@ -1,7 +1,62 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "utils/mixins";
+@import "utils/vars";
+@import "blocks/header";
+@import "blocks/icons-logo";
+@import "blocks/section-title";
+@import "blocks/buttons";
+@import "blocks/menu";
+@import "blocks/current-events";
+@import "blocks/gallery";
+@import "blocks/subscribe";
+@import "blocks/footer";
+@import "blocks/nav";
 
 body {
-  background: $c-gray;
+  background-color: $color-white;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.page {
+  position: relative;
+  
+  &__body {
+    position: relative;
+    margin: 0;
+    min-width: 320px;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__go-top {
+    position: absolute;
+    right: 20px;
+    background-image: url(../images/icons/arrow-up-icon.svg);
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+
+    @include hover(transform, scale(1.2));
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}
+
+.main {
+  display: grid;
+  padding-block: 70px 18px;
+  background-color: $color-white;
+
+  @include onTablet {
+    padding-block: 88px 0;
+  }
+
+  @include onDesktop {
+    padding-block: 200px 0;
+  }
 }

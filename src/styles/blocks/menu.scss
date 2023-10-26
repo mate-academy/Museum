@@ -1,0 +1,167 @@
+.page__menu {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+
+  transition: all 0.5s;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-100%);
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+}
+
+.menu {
+  height: 399px;
+  background-color: $color-green;
+
+  @include onTablet {
+    height: 225px;
+  }
+
+  @include onDesktop {
+    height: 233px;
+  }
+
+  &__wrapper {
+    padding-top: 27px;
+
+    @include contentPaddingInline;
+
+    @include pageGrid;
+
+    @include onTablet {
+      padding-top: 39px;
+    }
+  }
+
+  &__big-block {
+    margin-left: 72px;
+    display: flex;
+    gap: 28px;
+    grid-column: 1/-1;
+
+    @include onTablet {
+      margin-left: 48px;
+      grid-column: 1/3;
+      gap: 20px;
+    }
+
+    @include onDesktop {
+      grid-column: 1/6;
+      margin-left: 102px;
+      gap: 31px;
+    }
+  }
+
+  &__first {
+    width: 100px;
+
+    @include onDesktop {
+      width: 169px;
+      height: 96px;
+      margin: 0;
+    }
+  }
+
+  &__second {
+    width: 100px;
+
+    @include onDesktop {
+      width: 168px;
+      height: 74px;
+    }
+  }
+
+  &__small-block {
+    margin-bottom: 27px;
+    grid-column: 1/-1;
+    
+    @include onTablet {
+      width: 340px;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      gap: 26px;
+      grid-column: 4/7;
+     
+      padding-left: 38px;
+      border-left: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    @include onDesktop {
+      grid-column: 7/13;
+      padding-left: 102px;
+    }
+  }
+
+  &__weekend {
+    @include onTablet {
+      margin-top: 40px;
+    }
+  }
+}
+
+.underline {
+  @include underline;
+  grid-column: 1/-1;
+  background: $color-white;
+  
+  @include onTablet {
+    display: none;
+  }
+}
+
+.list {
+  &-time-day {
+    list-style: none;
+
+    font-weight: $small-bold-font;
+    font-size: $small-font-size;
+    line-height: $line-height-list-day;
+    color: $color-white;
+  }
+
+  &-day {
+    list-style: none;
+    margin: 0;
+
+    font-weight: $small-font;
+    font-size: $small-font-size;
+    line-height: $line-height-list-day;
+  }
+}
+
+.schedule {
+  &__list {
+    height: 105px;
+    margin: 0;
+    margin-bottom: 16px;
+    padding: 0;
+  }
+}
+
+.days-of-weekend {
+  margin: 0;
+  
+  font-weight: $small-bold-font;
+  font-size: $small-font-size;
+  line-height: $line-height-list-day;
+  color: $color-white;
+
+  @include onTablet {
+    width: 144px;
+    height: 105px;
+  }
+}
+
+.weekend {
+  font-weight: $small-font;
+}
