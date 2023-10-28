@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -187,7 +191,7 @@ a, a:hover, a:focus, a:active {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top left;
-    grid-column: 7 / 15;
+    grid-column: 7 / 14;
     grid-row: 1 / 6;
     overflow-x: visible;
 
@@ -451,6 +455,16 @@ a, a:hover, a:focus, a:active {
   &__photo_3 {
     grid-column: 1 / span 8;
   }
+
+  &>img {
+    scale: 1;
+    transition: scale .5s ease-in-out;
+  }
+
+  &>img:hover {
+    scale: 1.1;
+    z-index: 10;
+  }
 }
 
 .slider {
@@ -577,12 +591,32 @@ textarea:focus, input:focus {
     grid-row: 2;
   }
 
+  &__smIcon {
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      scale: 1.5;
+      transition: scale 0.5s ease-in-out;
+    }
+  }
+
   &__facebook {
     margin-right: 17px;
   }
 
   &__insta {
     margin-right: 17px;
+  }
+
+  &__YT {
+    height: 24px;
+    width: 24px;
+    margin-right: 17px;
+  }
+
+  &__X {
+    height: 24px;
+    width: 24px;
   }
 
   &__copyright {
@@ -626,6 +660,18 @@ textarea:focus, input:focus {
     font-size: 14px;
     line-height: 150%;
     color: #0F0E08;
+
+    &>a {
+      letter-spacing: -0.5px;
+      transition: font-weight 0.7s ease-in-out, color 0.5s ease-in-out, text-shadow 0.5s ease-in;
+    }
+
+    &>a:hover {
+      font-weight: bold;
+      color: #F14A27;
+      text-shadow: black 0 0 1px;
+      transition: font-weight 0.7s ease-in-out, color 0.5s ease-in-out, text-shadow 0.5s ease-in;
+    }
 
     @media (min-width: 690px) and (max-width: 1245px) {
       grid-area: 1 / 4 / 3 / 6;

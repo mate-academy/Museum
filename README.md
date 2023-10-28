@@ -55,3 +55,8 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.
+
+undone:
+- image slider on tablet
+- menu overlay with shade (all gadgets)
+- mobile version
