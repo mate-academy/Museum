@@ -35,7 +35,7 @@
       width: 520px;
       margin-left: 162px;
     }
-    @include onDesktop{
+    @include onDesktop {
       display: none;
     }
   }
@@ -67,12 +67,23 @@
       font-size: 36px;
       height: 72px;
       width: 63px;
+      transition: $transition;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
   &__net {
     display: flex;
     gap: 27px;
+    &--inst,
+    &--facebook {
+      transition: $transition;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
 
   &__schedule {
@@ -90,6 +101,27 @@
       @include onTablet {
         width: 220px;
       }
+    }
+  }
+
+  &__author {
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &--name {
+      font-family: $fontsPlexSans;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 17px;
+      color:$colorFooter;
+      display: flex;
+      justify-content: center;
     }
   }
 }
@@ -138,6 +170,11 @@
     font-family: $fontsPlexSans;
     font-weight: 400;
     color: $colorFooter;
+    text-decoration: none;
+    transition: $transition;
+    &:hover {
+      color: $buttonColorMain;
+    }
   }
 
   &__hr {
@@ -184,5 +221,9 @@
     font-family: $fontsPlexSans;
     font-weight: 400;
     color: $colorFooter;
+    transition: $transition;
+    &:hover {
+      color: $buttonColorMain;
+    }
   }
 }

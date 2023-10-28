@@ -32,11 +32,11 @@ buttonTwo.addEventListener('click', () => {
 });
 
 buttonThree.addEventListener('click', () => {
-  gallery.style.transform = 'translateX(-600px)';
+  gallery.style.transform = 'translateX(-550px)';
 });
 
 buttonFour.addEventListener('click', () => {
-  gallery.style.transform = 'translateX(-900px)';
+  gallery.style.transform = 'translateX(-910px)';
 });
 
 document.getElementById('MyForm').addEventListener('submit', function(event) {
