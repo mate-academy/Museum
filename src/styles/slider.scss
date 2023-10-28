@@ -1,0 +1,81 @@
+.slider {
+  width: 100%;
+  height: 676px;
+  overflow: hidden;
+  position: relative;
+
+  @include onDesktop {
+    display: none;
+  }
+}
+
+.slides {
+  width: 400%;
+  height: 100%;
+  display: flex;
+
+  @include onTablet {
+    width: 200%;
+  }
+}
+
+.slide {
+  width: 25%;
+  transition: all 0.6s ease;
+
+  @include onTablet {
+    width: 25%;
+  }
+}
+
+.slide img {
+  display: block;
+  margin: 0 auto; /* Центрування по горизонталі */
+}
+
+#r1:checked ~ .s1 {
+  margin-left: 0;
+}
+
+#r2:checked ~ .s1 {
+  margin-left: -25%;
+}
+
+#r3:checked ~ .s1 {
+  margin-left: -50%;
+}
+
+#r4:checked ~ .s1 {
+  margin-left: -75%;
+}
+
+.navigation {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2px;
+}
+
+.bar {
+  display: flex;
+  height: 10px;
+  width: 10px;
+  margin: 10px;
+  cursor: pointer;
+  background: $black;
+  opacity: 0.2;
+  border-radius: 8px;
+}
+
+.bar:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+  background: $aside;
+}
+
+input[name="r"] {
+  position: absolute;
+  visibility: hidden;
+}
