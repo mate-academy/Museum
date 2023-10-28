@@ -1,9 +1,6 @@
 .gallery {
   display: flex;
   @include contentPaddingInline;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
 
   @include onDesktop {
     @include pageGrid;
@@ -24,7 +21,14 @@
   }
 
   &__picture {
+
     display: none;
+    @include onDesktop {
+      @include hover (transform, scale(1.05));
+      width: 100%;
+      height: 100%;
+      justify-self: center;
+    }
 
     &--first-desktop {
       @include onDesktop {
@@ -36,7 +40,7 @@
     &--second {
       @include onDesktop {
         display: block;
-        grid-column: 5/12;
+        grid-column: 5/13;
       }
     }
 
@@ -50,7 +54,7 @@
     &--fourth {
       @include onDesktop {
         display: block;
-        grid-column: 9 /12;
+        grid-column: 9 /13;
       }
     }
   }
