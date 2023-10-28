@@ -15,3 +15,26 @@ document.addEventListener('DOMContentLoaded', function() {
     event.preventDefault();
   });
 });
+
+const buttonOne = document.querySelector('#radio1');
+const buttonTwo = document.querySelector('#radio2');
+const buttonThree = document.querySelector('#radio3');
+const buttonFour = document.querySelector('#radio4');
+
+const gallery = document.querySelector('.gallery__image');
+
+buttonOne.addEventListener('click', () => {
+  gallery.style.transform = 'translateX(0px)';
+});
+
+buttonTwo.addEventListener('click', () => {
+  gallery.style.transform = 'translateX(-250px)';
+});
+
+buttonThree.addEventListener('click', () => {
+  gallery.style.transform = 'translateX(-600px)';
+});
+
+buttonFour.addEventListener('click', () => {
+  gallery.style.transform = 'translateX(-900px)';
+});
