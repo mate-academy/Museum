@@ -38,3 +38,8 @@ buttonThree.addEventListener('click', () => {
 buttonFour.addEventListener('click', () => {
   gallery.style.transform = 'translateX(-900px)';
 });
+
+document.getElementById('MyForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  document.getElementById('email').value = '';
+});
