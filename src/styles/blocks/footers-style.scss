@@ -39,13 +39,13 @@
     line-height: 14px;
   }
 
-  &__nav-link:after {
+  &__nav-link::after {
     @include underlineLinks;
     background-color: $color-black;
     opacity: 60%;
   }
  
-  &__nav-link:hover:after {
+  &__nav-link:hover::after {
     transform: scale(1);
   }
 
@@ -62,11 +62,18 @@
     gap: 20px;
 
     @include onTablet {
-      grid-column: 2/6;
+      grid-column: 2/4;
     }
 
     @include onDesktop {
       grid-column: 3/5;
+    }
+  }
+
+  &__timing-block {
+
+    @include onTablet {
+      width: 220px;
     }
   }
 
@@ -112,8 +119,18 @@
     }
   }
 
-  &__contacts {
+  &__contacts-lower {
+    @include onTablet {
+      grid-column: 4/6;
+     
+    }
 
+    @include onDesktop {
+      grid-column: 5/7 ;
+    }
+  }
+
+  &__contacts {
     @include onTablet {
       width: 220px;
     }
@@ -196,26 +213,31 @@
   margin-top: 20px;
 }
 
-.contacts__info {
-  position: relative;
-  display: inline-block;
-  
-  text-decoration: none;
-  color: $color-black;
+.contacts {
+  &__info {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: $color-black;
 
-  &:after {
-    @include underlineLinks;
-    background-color: $color-black;
-    opacity: 60%;
-  }
+    &::after {
+      @include underlineLinks;
+      background-color: $color-black;
+      opacity: 60%;
+    }
 
-  &:hover:after {
-    transform: scale(1);
+    &:hover::after {
+      transform: scale(1);
+    }
   }
 }
- 
+
 .weekend-lower {
   @include onTablet {
     width: 220px;
+  }
+
+  @include onDesktop {
+    width: 169px;
   }
 }
