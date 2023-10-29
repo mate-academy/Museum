@@ -12,6 +12,7 @@
 
   &__logo-icons-block {
     grid-column: 1/-1;
+    grid-row: 1;
     padding-top: 32px;
     display: flex;
     flex-direction: row;
@@ -37,16 +38,18 @@
     color: $color-black;
     font-size: 14px;
     line-height: 14px;
-  }
 
-  &__nav-link::after {
-    @include underlineLinks;
-    background-color: $color-black;
-    opacity: 60%;
-  }
+    @include hover(transform, scale(1.05));
+
+    &::after {
+      @include underlineLinks;
+      background-color: $color-black;
+      opacity: 60%;
+    }
  
-  &__nav-link:hover::after {
-    transform: scale(1);
+    &:hover::after {
+      transform: scale(1);
+    }
   }
 
   &__nav-list {
@@ -57,23 +60,18 @@
 
   &__timing {
     grid-column: 1/-1;
+    grid-row: 2/3;
     display: flex;
     flex-direction: row;
     gap: 20px;
 
     @include onTablet {
+      grid-row: 1/2;
       grid-column: 2/4;
     }
 
     @include onDesktop {
       grid-column: 3/5;
-    }
-  }
-
-  &__timing-block {
-
-    @include onTablet {
-      width: 220px;
     }
   }
 
@@ -86,7 +84,6 @@
 
     @include onDesktop {
       margin-top: 47px;
-      margin-left: 65px;
       height: 48px;
       grid-column: 8/10;
     }
@@ -119,22 +116,23 @@
     }
   }
 
-  &__contacts-lower {
+  &__contacts-block {
+    grid-column: 2/3;
+    grid-row: 2/3;
+
     @include onTablet {
+      grid-row: 1/2;
       grid-column: 4/6;
      
     }
 
     @include onDesktop {
-      grid-column: 5/7 ;
+      margin-left: 31px;
+      grid-column: 5/8 ;
     }
   }
 
   &__contacts {
-    @include onTablet {
-      width: 220px;
-    }
-
     @include onDesktop {
       width: 169px;
       height: 70%;
@@ -201,6 +199,7 @@
 }
 
 .days-of-weekend-lower {
+  width: 130px;
   margin: 0;
   
   @include onDesktop {
@@ -219,6 +218,8 @@
     display: inline-block;
     text-decoration: none;
     color: $color-black;
+
+    @include hover(transform, scale(1.05));
 
     &::after {
       @include underlineLinks;
