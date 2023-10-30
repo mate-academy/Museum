@@ -1,21 +1,22 @@
 .header {
   background-image: url(../images/header-photo-bg.png);
-  background-size: contain;
+  padding: 9px 20px 0;
+  // background-image: url(../images/header/Natsionalnij-hudozhnij.png);
   background-repeat: no-repeat;
-  background-position: top;
-
-  @include contentPaddingInline;
-  margin-bottom: 70px;
+  background-size: 100% auto;
+  height: 300px;
+  background-position: top right;
 
   @include onTablet {
+    background-size: 47% auto;
+    padding: 15px 34px 0;
     height: 384px;
-    background-position: right;
-    margin-bottom: 88px;
   }
 
   @include onDesktop {
+    padding: 15px 55px 0;
+    background-size: 55% auto; //725px 655px
     height: 655px;
-    margin-bottom: 200px;
   }
 
   &__bottom {
@@ -29,20 +30,22 @@
   }
 
   &__title {
+    margin-top: 250px;
+    margin-bottom: 38px;
     text-align: center;
     font-size: 45px;
-    font-weight: 700;
-    line-height: 100%;
 
     @include onTablet {
       font-size: 54px;
       line-height: 120%;
       display: flex;
       max-width: 340px;
+      margin-top: 40px;
       text-align: left;
     }
 
     @include onDesktop {
+      margin-top: 119px;
       font-size: 72px;
       font-style: normal;
       font-weight: 700;
@@ -54,13 +57,15 @@
     display: flex;
     justify-content: center;
     margin: 38px 0 6px;
+    @include hover(transform, scale(1.02));
 
     @include onTablet {
       justify-content: flex-start;
     }
 
     @include onDesktop {
-      margin: 89px 0 0 201px;
+      margin: 89px 0 0 140px;
+
     }
   }
 
@@ -114,8 +119,29 @@
     }
   }
 
-  &__button-img:hover {
-    border: 4px solid red;
-    background-color: red;
+  &__line {
+    display: none;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: #687480;
+    text-decoration: none;
+    transform: rotate(-90deg);
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 70px;
+      background-color: $line;
+      top: 50%;
+      right: 140%;
+    }
+
+    @include onDesktop {
+      display: inline-block;
+    }
   }
 }
