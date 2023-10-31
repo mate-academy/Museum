@@ -1,3 +1,5 @@
+@use './utils/_mixins.scss' as *;
+
 .header {
   height: 483px;
   display: flex;
@@ -26,46 +28,49 @@
     top: 9px;
     left: 50%;
     transform: translate(-50%);
+
+    @include forTablet() {
+      top: 15px;
+      left: 25%;
+    }
   }
 
   &__background {
+    background-image: url(../images/header_image.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 103% auto;
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
     position: relative;
     margin-bottom: 20px;
+
+    @include forTablet() {
+      width: 374px;
+      height: 384px;
+      grid-column: 4 / -1;
+      grid-row: 1 / -1;
+      background-size: 110% auto;
+    }
   }
 
   &__title {
     margin-bottom: 20px;
+
+    @include forTablet() {
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
+      text-align: left;
+    }
   }
 
-  @media (min-width: 690px) {
+  @include forTablet() {
     display: grid;
     justify-content: space-evenly;
     grid-template-columns: repeat(6, 90px);
     grid-template-rows: repeat(3, 130px);
     height: 384px;
     margin-bottom: 88px;
-
-    &__background {
-      width: 374px;
-      height: 384px;
-      grid-column: 4 / -1;
-      grid-row: 1 / -1;
-    }
-
-    &__logo {
-      top: 15px;
-      left: 25%;
-    }
-
-    &__title {
-      grid-column: 1 / 4;
-      grid-row: 2 / 3;
-      text-align: left;
-    }
-
-    &__button {
-      grid-column: 1 / 4;
-      grid-row: 3 / 4;
-    }
   }
 }
