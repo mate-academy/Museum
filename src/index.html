@@ -4,24 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Музей НАМУ</title>
+    <link rel="icon" type="image/x-icon" href="/images/icons/museum_icon.png">
     <link rel="stylesheet" href="./styles/main.scss">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script defer type="text/javascript" src="scripts/main.js"></script>
     <header class="header">
       <div class="header__container">
-        <a href="#" class="header__burger"><img src="./images/icons/burger_menu.svg" alt="burger"></a>
+        <div class="header__burger">
+          <div class="header__burgerIcon">
+            <img class="header__burgerIconImg" src="./images/icons/burger_menu.svg" alt="burger">
+          </div>
+        </div>
         <h1 class="header__title">Художній<br>музей</h1>
 
         <div class="header__image">
         </div>
-        <div class="header__logo">
+        <div onclick="location.href='';" class="header__logo">
           NA<br>MU
         </div>
-        <div class="tickets header__tickets">
+        <div onclick="location.href='#events';" class="tickets header__tickets">
           <div class="header__tickets__title">квитки</div>
           <div class="header__tickets__play">
             <img
@@ -38,6 +43,48 @@
         </div>
       </div>
     </header>
+
+    <!-- fix this -->
+    <nav class="nav__container sidebar">
+      <div class="nav">
+        <img class="nav__crossIcon" src="./images/icons/cross.svg" alt="burger_close">
+        <div class="nav__working-schedule nav__working-schedule-col-1">
+          Графік роботи<br>
+          <br>
+          <b>12:00 — 20:00</b> середа<br>
+          <b>12:00 — 20:00</b> четвер<br>
+          <b>12:00 — 20:00</b> п’ятниця<br>
+          <b>11:00 — 19:00</b> субота<br>
+          <b>11:00 — 19:00</b> неділя<br>
+          <br>
+        </div>
+        <div class="nav__working-schedule nav__working-schedule-col-2">
+          <b>Вихідні:</b> понеділок, вівторок
+          <br>Каса припиняє роботу за 1 годину
+          до закриття музею
+        </div>
+
+        <div class="nav__separator">
+
+        </div>
+
+        <div class="nav__links-col-1 nav__links">
+          <a href="#gallery">Галерея</a> <br>
+          <br>
+          <a href="#events">Виставки та події</a><br>
+          <br>
+        </div>
+        <div class="nav__links-col-2 nav__links">
+          <a href="#aboutUs">Про нас<br>
+            <br></a>
+          <a href="#contacts">Контакти</a><br>
+          <br>
+        </div>
+      </div>
+      <div class="nav__shade">
+      </div>
+    </nav>
+
     <main>
       <div class="events" id="events">
         <div class="events__title">
@@ -152,25 +199,31 @@
         </div>
       </div>
 
-      <div class="subscription">
+      <div class="subscription" id="aboutUs">
         <div class="subscription__title events__title">
           Підписка
         </div>
         <div class="subscription__legend">
           Бути в курсі всіх актуальних подій та останніх новин.
         </div>
-        <div class="subscription__input">
-          <input class="subscription__input-field" placeholder="E-mail">
-
-          </input>
-          <div class="subscription__input-button">
+        <form class="subscription__input">
+          <input
+            class="subscription__input-field"
+            placeholder="E-mail"
+            type="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          />
+          <button
+            class="subscription__input-button"
+            type="button"
+          >
             <img
             src="./images/icons/play.svg"
             alt="subscription confirmation button"
             class="subscription__confirmation-button"
             >
-          </div>
-        </div>
+          </button>
+        </form>
       </div>
     </main>
 
@@ -188,7 +241,7 @@
             class="footer__facebook footer__smIcon"
           >
         </a>
-        
+
         <a title="instagram" href="https://instagram.com/namu.museum?igshid=YmMyMTA2M2Y=" target="_blank">
           <img
             src="./images/icons/instagram.svg"
@@ -205,7 +258,7 @@
           >
         </a>
 
-        
+
 
         <a title="Twitter(X)" href="https://twitter.com/NAMU_120" target="_blank">
           <img
@@ -231,7 +284,7 @@
         до закриття музею
       </div>
 
-      <div class="footer__contacts">
+      <div class="footer__contacts" id="contacts">
         Контакти:<br>
         <br>
         <a title="google maps" href="https://www.google.com/maps/place/Mykhaila+Hrushevskoho+St,+6,+Kyiv,+02000/data=!4m2!3m1!1s0x40d4ce524453048d:0x49a2895b6cb43e10?sa=X&ved=2ahUKEwiP0c6C6JiCAxXWg_0HHTOzDU4Q8gF6BAgNEAA&ved=2ahUKEwiP0c6C6JiCAxXWg_0HHTOzDU4Q8gF6BAgQEAI" target="_blank">
@@ -244,11 +297,11 @@
         <a href="callto:+380442787454">
           факс +38 (044) 278-74-54<br>
         </a>
-        
+
         <a title="send us an email" href="mailto:someone@example.com">
           e-mail: info@namu.kiev.ua<br>
         </a>
-        
+
       </div>
 
       <div class="footer__separator"></div>
@@ -260,10 +313,10 @@
         <br>
       </div>
       <div class="footer__links-col-2 footer__links">
-        Про нас<br>
-        <br>
-        Контакти<br>
-        <br>
+          <a href="#aboutUs">Про нас<br>
+            <br></a>
+          <a href="#contacts">Контакти</a><br>
+          <br>
       </div>
 
       <div class="footer__copyright">
