@@ -36,6 +36,7 @@ function toggleMenu() {
 hamburger.addEventListener("click", toggleMenu);
 
 /*
+
 class Slider {
   constructor(query) {
     this.slider = document.querySelector(query); // element slider
