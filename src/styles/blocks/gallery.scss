@@ -1,0 +1,60 @@
+.gallery {
+  grid-column: 1 / -1;
+  margin-top: 180px;
+  @include contentPaddingInline;
+  @include pageGrid;
+
+  @include onTablet {
+    margin-top: 208px;
+  }
+  @include onDesktop {
+    margin-top: 302px;
+  }
+
+  &__title {
+    margin: 0;
+    grid-column: 1 / -1;
+  }
+
+  .photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__photo {
+    grid-column: 1 / -1;
+    display: none;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+      margin-top: 56px;
+    }
+
+    &--1-1 {
+      @include onDesktop {
+        grid-column: 1 / 4;
+      }
+    }
+
+    &--1-2 {
+      @include onDesktop {
+        grid-column: 4 / -1;
+      }
+    }
+
+    &--2-1 {
+      @include onDesktop {
+        grid-column: 1 / 9;
+      }
+    }
+
+    &--2-2 {
+      @include onDesktop {
+        grid-column: 9 / 13;
+      }
+    }
+  }
+}

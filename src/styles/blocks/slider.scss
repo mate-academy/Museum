@@ -1,0 +1,88 @@
+.slider {
+  margin-top: 40px;
+  grid-column: 1 / -1;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+
+  @include onTablet {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+}
+
+.slides {
+  display: flex;
+  transition: transform $effectDuration ;
+
+  @include onTablet {
+    gap: 30px;
+  }
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  @include onTablet {
+    justify-content: space-between;
+    width: 50%;
+  }
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  @include onTablet {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    margin-top: 32px;
+  }
+}
+
+label {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 12px;
+  cursor: pointer;
+}
+
+#slide1:checked ~ .controls label[for="slide1"],
+#slide2:checked ~ .controls label[for="slide2"],
+#slide3:checked ~ .controls label[for="slide3"],
+#slide4:checked ~ .controls label[for="slide4"] {
+  background-color: $brandColor;
+}
+
+@for $i from 1 through 4 {
+  $transformValue: ((100% * ($i - 1) * -1));
+  #slide#{$i}:checked ~ .slides {
+    transform: translateX(#{$transformValue});
+  }
+}
+
+@include onTablet {
+  @for $i from 1 through 4 {
+    $transformValue: ((53% * ($i - 1) * -1));
+    #slide#{$i}:checked ~ .slides {
+      transform: translateX(#{$transformValue});
+    }
+  }
+}
