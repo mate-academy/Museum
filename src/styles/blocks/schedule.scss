@@ -1,0 +1,145 @@
+.schedule {
+  font-family: "IBM Plex Sans", sans-serif;
+  &__header {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0 40px;
+
+    @include onTablet {
+      grid-column: 1/2;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 62px;
+      padding: 0;
+    }
+  }
+
+  &__content {
+    @include grid;
+    padding-bottom: 20px;
+
+    @include onTablet {
+      padding-bottom: 64px;
+    }
+
+    @include onDesktop {
+      position: relative;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__left {
+    @include onTablet {
+      grid-column: 2/4;
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      grid-column: 3/5;
+      margin-bottom: 0;
+    }
+  }
+
+  &__right {
+    @include onTablet {
+      grid-column: -4/-2;
+    }
+
+    @include onDesktop {
+      grid-column: 5/8;
+      border-right: 1px solid rgba(26, 90, 76, 0.5);
+      padding-right: 65px;
+      margin-right: 34px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 40px;
+
+    color: #0f0e08;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+
+  &__text {
+    margin: 0;
+    color: $color-title;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    display: block;
+    text-decoration: none;
+
+    &--time {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    &--title {
+      margin: 0;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    &--link {
+      margin: 0;
+
+      @include hover(color, $color-hover);
+    }
+  }
+
+  &__btn {
+    display: block;
+    width: fit-content;
+    grid-column: 1/-1;
+    justify-self: end;
+    transition: transform ease-in-out $transition-duration;
+    margin-bottom: 20px;
+
+    @include arrowUpAnim;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__day {
+    font-family: "IBM Plex Sans", sans-serif;
+    margin: 0;
+  }
+
+  &__menu {
+    grid-column: 1/-1;
+    padding-top: 40px;
+    border-top: 1px solid rgba(26, 90, 76, 0.5);
+
+    @include onTablet {
+      display: block;
+      padding-top: 60px;
+
+      &:has(.menu__content) {
+        .menu__content {
+          justify-content: flex-start;
+        }
+      }
+    }
+
+    @include onDesktop {
+      border-top: none;
+      padding-top: 0;
+    }
+  }
+}

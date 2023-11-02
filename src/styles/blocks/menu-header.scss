@@ -1,0 +1,114 @@
+.menu-header {
+  background-color: $color-secondary;
+  min-height: 100vh;
+  width: 100%;
+  transition: left ease-in-out $transition-duration;
+
+  &__box {
+    @include onTablet {
+      padding-block: 40px;
+      @include grid;
+    }
+  }
+
+  &__top {
+    position: relative;
+    padding: 27px 0 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    transition-delay: 0.5s;
+    margin-bottom: 24px;
+
+    pointer-events: none;
+
+    @include onTablet {
+      grid-column: 1/4;
+      padding: 0;
+      margin-bottom: 0;
+      border-bottom: 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    @include onDesktop {
+      grid-column: 1/7;
+    }
+  }
+
+  &__bottom {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 38px;
+      align-items: start;
+      grid-column: -1/-4;
+    }
+
+    @include onDesktop {
+      grid-column: -2/-6;
+    }
+  }
+
+  &:target {
+    .menu-header__top {
+      pointer-events: all;
+    }
+  }
+
+  &__content {
+    font-family: "IBM Plex Sans", sans-serif;
+    width: 100%;
+    background-color: $color-secondary;
+    padding-bottom: 27px;
+
+    @include onTablet {
+      padding-bottom: 0;
+    }
+  }
+
+  &__close {
+    display: block;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/icons/close.svg);
+    position: absolute;
+    top: 27px;
+    left: 0;
+    z-index: 1;
+
+    @include hover(transform, rotate(30deg));
+
+    @include onTablet {
+      top: 0;
+    }
+  }
+
+  &__schedule {
+    margin-bottom: 16px;
+
+    @include onTablet {
+      width: max-content;
+      margin-bottom: 0;
+    }
+  }
+
+  &__text-box {
+    @include onTablet {
+      padding-top: 40px;
+    }
+  }
+
+  &__text {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+
+    &--title {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__time {
+    margin-right: 5px;
+  }
+}

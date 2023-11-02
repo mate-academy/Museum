@@ -1,0 +1,74 @@
+.slider {
+  overflow: hidden;
+  width: 280px;
+
+  @include onTablet {
+    width: 700px;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__images {
+    display: flex;
+    width: fit-content;
+    margin-bottom: 20px;
+    transition: all ease-in-out $transition-duration;
+    gap: 20px;
+  }
+
+  &__img-wr {
+    width: 280px;
+    height: 410px;
+    overflow: hidden;
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+    }
+  }
+
+  &__img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    @include hover(transform, scale(1.2));
+
+    @include onTablet {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    margin: 0 auto;
+    width: fit-content;
+  }
+
+  &__button-wr {
+    padding: 10px;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.2));
+
+    @include onTablet {
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    transition: all $transition-duration;
+
+    &--active {
+      background-color: $color-secondary;
+    }
+  }
+}
