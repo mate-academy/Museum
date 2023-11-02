@@ -1,7 +1,14 @@
+@use './utils/_mixins.scss' as *;
+
 .line {
   display: flex;
   grid-column-start: 1;
   grid-column-end: 3;
+
+  @include forTablet {
+    grid-column-start: 3;
+    grid-column-end: 7;
+  }
 
   &__horizontal {
     width: 1px;
@@ -12,6 +19,12 @@
     border: 0px;
     margin-top: -110px;
     margin-bottom: -140px;
+
+    @include forTablet {
+      height: 460px;
+      margin-top: -210px;
+      margin-bottom: -210px;
+    }
 
     &--white {
       color: #fff;

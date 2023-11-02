@@ -1,3 +1,5 @@
+@use './utils/_mixins.scss' as *;
+
 .contact-us {
   display: grid;
   grid-template-columns: 130px 128px;
@@ -5,5 +7,43 @@
 
   &__links {
     margin-bottom: 80px;
+
+    @include forTablet () {
+      grid-column: 2 / 4;
+    }
+  }
+
+  &__logo {
+    @include forTablet () {
+      grid-column-start: 1;
+      grid-row-start: 1;
+    }
+  }
+
+  &__socials {
+    @include forTablet () {
+      grid-column-start: 1;
+      height: 24px;
+    }
+  }
+
+  &__opening {
+    @include forTablet () {
+      grid-column: 2 / 3;
+      grid-row: 1 / 4;
+    }
+  }
+
+  &__address {
+    @include forTablet () {
+      grid-column: 3 / 4;
+      grid-row: 1 / 4;
+    }
+  }
+
+  @include forTablet() {
+    grid-template-columns: 98px 220px 220px 98px;
+    justify-items: start;
+    align-items: start;
   }
 }
