@@ -7,6 +7,14 @@
   }
 
   &__wrapper {
+
+    @include onTablet {
+      margin-top: 51px;
+    }
+
+    @include onDesktop {
+      margin-top: 47px;
+    }
     @include pageGrid;
   }
 
@@ -41,13 +49,17 @@
 
     &::after {
       @include underlineLinks;
-      background-color: $color-black;
-      opacity: 60%;
+      background-color: $color-grey;
+      opacity: 50%;
     }
- 
+
     &:hover::after {
       transform: scale(1);
     }
+  }
+
+  &__nav-link:hover {
+    color: $color-grey;
   }
 
   &__nav-list {
@@ -81,7 +93,7 @@
     }
 
     @include onDesktop {
-      margin-top: 47px;
+      margin-left: 65px;
       height: 48px;
       grid-column: 8/10;
     }
@@ -95,7 +107,6 @@
     }
 
     @include onDesktop {
-      margin-top: 47px;
       grid-column: 10/12;
     }
   }
@@ -124,6 +135,9 @@
     }
 
     @include onDesktop {
+      height: 166px;
+      padding-right: 65px;
+      border-right: 1px solid #1a5a4c80;
       margin-left: 31px;
       grid-column: 5/8 ;
     }
@@ -132,9 +146,7 @@
   &__contacts {
     @include onDesktop {
       width: 169px;
-      height: 70%;
-      padding-right: 65px;
-      border-right: 1px solid #1a5a4c80;
+      height: 166px;
     }
   }
 }
@@ -215,16 +227,20 @@
     display: inline-block;
     text-decoration: none;
     color: $color-black;
+  }
 
-    &::after {
-      @include underlineLinks;
-      background-color: $color-black;
-      opacity: 60%;
-    }
+  &__info:hover {
+    color: $color-grey;
+  }
 
-    &:hover::after {
-      transform: scale(1);
-    }
+  &__info::after {
+    @include underlineLinks;
+    background-color: $color-grey;
+    opacity: 50%;
+  }
+
+  &__info:hover::after {
+    transform: scale(1);
   }
 }
 
