@@ -1,0 +1,117 @@
+.subscribe {
+  &__photo-container {
+    position: relative;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 380px;
+    max-height: 550px;
+    min-height: 380px;
+
+    overflow: hidden;
+
+    @include OnLaptop {
+      height: unset;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 0;
+
+      @include OnLaptop {
+        padding-bottom: 59%;
+      }
+    }
+    
+    @include OnDesctop {
+      height: 550px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    display: flex;
+    background-image: url(../images/photos/Museum_8.jpg);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    margin: 0 0 20px;
+    text-align: center;
+    color: #fff;
+  }
+
+  &__text {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    margin: 0 0 50px;
+    text-align: center;
+    color: #fff;
+
+    @include OnLaptop {
+      margin: 0 0 60px;
+    }
+
+    @include OnDesctop {
+      margin: 0 0 70px;
+    }
+  }
+
+  &__send {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__email {
+    display: flex;
+    flex-grow: 1;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    height: 50px;
+    background-color: #fff;
+    padding-left: 30px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #687480;
+    outline: none;
+
+    @include OnDesctopAndLaptop {
+      height: 70px;
+    }
+  }
+
+  &__button {
+    @include button;
+
+    background-color: $colorLightRed;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    @include OnDesctopAndLaptop {
+      margin-left: 20px;
+    }
+
+    &:hover {
+      background-color: $colorDarkYellow;
+    }
+  }
+}

@@ -1,0 +1,92 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    position: relative;
+    background: #fff;
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+  
+  &__menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateY(0);
+
+      &::after {
+        position: absolute;
+        content: "";
+        background-color: rgba(0, 0, 0, 0.46);
+        width: 100vw;
+        height: 500vh;
+        z-index: 9;
+      }
+    }
+  }
+
+  &__section {
+    margin-bottom: 70px;
+
+    @include OnLaptop {
+      margin-bottom: 100px;
+    }
+
+    @include OnDesctop {
+      margin-bottom: 200px;
+    }
+    
+    &--photo {
+      margin-bottom: 20px;
+
+      @include OnDesctopAndLaptop {
+        margin-bottom: 0;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-title {
+      margin: 0 0 40px;
+      text-align: center;
+
+      @include OnDesctop {
+        text-align: start;
+        margin: 0 0 56px;
+      }
+
+      @include OnLaptop {
+        text-align: start;
+        margin: 0 0 48px;
+      }
+    }
+
+    &-container {
+      grid-row: 1 / 2;
+    }
+
+    &--lection {
+      margin-bottom: 30px;
+
+      @include OnLaptop {
+        margin-bottom: 0;
+      }
+
+      @include OnDesctop {
+        margin-bottom: 100px;
+      }
+    }
+  }
+}

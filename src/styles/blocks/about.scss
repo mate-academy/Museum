@@ -1,0 +1,131 @@
+.about {
+  @include OnLaptop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+  }
+
+  @include OnDesctop {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 30px;
+  }
+
+  &__container {
+    @include OnDesctopAndLaptop {
+      display: grid;
+      margin-left: auto;
+      padding-left: 40px;
+      
+      @include OnLaptop {
+        max-width: 330px;
+      }
+
+      @include OnDesctop {
+        max-width: 455px;
+      }
+    }
+  }
+
+  &__position {
+    width: 100%;
+
+    @include OnLaptop {
+      grid-column: 1 / 4;
+    }
+  
+    @include OnDesctop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 20px 0;
+
+    @include OnDesctop {
+      margin-bottom: 90px;
+      margin-top: 230px;
+      text-align: start;
+      font-size: 62px;
+    }
+
+    @include OnLaptop {
+      margin-bottom: 40px;
+      margin-top: 127px;
+      text-align: start;
+    }
+  }
+
+  &__tickets-container {
+    @include OnDesctop {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 30px;
+    }
+  }
+
+  &__tickets-position {
+    @include OnDesctop {
+      grid-column: 3 / 6;
+    }
+  }
+
+  &__content {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    height: 50px;
+    flex-grow: 1;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: $colorMidBlack;
+    border: 1px solid $colorDarkGreen;
+
+    transition: 0.3s;
+    
+    @include OnDesctopAndLaptop {
+      height: 70px;
+    }
+  }
+  
+  &__button {
+    @include button;
+
+    background-color: $colorDarkGreen;
+
+    transition: 0.3s;
+  }
+
+  &__tickets {
+    display: flex;
+    flex-direction: row;
+
+    @include OnPhone {
+      margin: 0 23px;
+    }
+
+    @include OnLaptop {
+      width: 270px;
+    }
+
+    &:hover {
+      .about__content {
+        border-color: $colorDarkYellow;
+      }
+
+      .about__button {
+        background-color: $colorDarkYellow;
+      }
+    }
+  }
+}

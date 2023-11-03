@@ -1,0 +1,136 @@
+.lection {
+  &__photo-container {
+    position: relative;
+
+    box-sizing: border-box;
+    width: 100%;
+    max-height: 550px;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-top: 66%;
+    }
+
+    @include OnDesctop {
+      height: 550px;
+      padding-top: 0;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__item {
+    margin: 0 auto;
+    height: 140px;
+    width: 280px;
+    transform: translateY(-50%);
+    background-color: #fff;
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+    @include OnDesctopAndLaptop {
+      height: 204px;
+      width: 570px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    padding-top: 18px;
+
+    @include OnDesctopAndLaptop {
+      padding-top: 35px;
+      margin: 0 auto;
+    }
+
+    @include OnLaptop {
+      max-width: 450px;
+    }
+
+    @include OnDesctop {
+      max-width: 570px;
+    }
+  }
+
+  &__grid {
+    @include OnDesctopAndLaptop {
+      display: grid;
+      column-gap: 30px;
+    }
+
+    @include OnLaptop {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include OnDesctop {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  &__text {
+    display: inline;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    color: $colorLightGrey;
+    margin: 0 0 0 22px;
+    text-transform: uppercase;
+
+    @include OnDesctopAndLaptop {
+      grid-column: 1 / 2;
+      margin: 0;
+    }
+
+    @include OnDesctop {
+      grid-column: 2 / 3;
+    }
+  }
+
+  &__date {
+    display: inline;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    color: $colorDarkGreen;
+    margin: 0 0 0 22px;
+    
+    @include OnDesctopAndLaptop {
+      margin: 0;
+      grid-column: 3 / 5;
+    }
+
+    @include OnDesctop {
+      grid-column: 4 / 6;
+    }
+  }
+
+  &__content {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    color: $colorMidBlack;
+    padding-top: 16px;
+    text-align: center;
+    
+    @include OnDesctopAndLaptop {
+      text-align: start;
+      font-size: 36px;
+      grid-column: 1 / 5;
+    }
+
+    @include OnDesctop {
+      grid-column: 2 / 6;
+    }
+  }
+}
