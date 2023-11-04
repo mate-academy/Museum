@@ -1,8 +1,22 @@
 .menu-header {
-  background-color: $color-secondary;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: all 1s;
+  transform: translateX(-100%);
+  pointer-events: none;
+
+  &:target {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+    transition: transform 500ms;
+  }
+
   min-height: 100vh;
-  width: 100%;
-  transition: left ease-in-out $transition-duration;
+  background: rgba(24, 24, 26, 0.5);
 
   &__box {
     @include onTablet {
@@ -47,12 +61,6 @@
     }
   }
 
-  &:target {
-    .menu-header__top {
-      pointer-events: all;
-    }
-  }
-
   &__content {
     font-family: "IBM Plex Sans", sans-serif;
     width: 100%;
@@ -71,14 +79,20 @@
     height: 24px;
     background-image: url(../images/icons/close.svg);
     position: absolute;
-    top: 27px;
-    left: 0;
+    top: 20px;
+
     z-index: 1;
 
     @include hover(transform, rotate(30deg));
 
     @include onTablet {
       top: 0;
+      left: 0;
+    }
+
+    @include onDesktop {
+      top: 0;
+      left: -60px;
     }
   }
 
