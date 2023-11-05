@@ -110,7 +110,7 @@
 
 .exhibition__title {
   position: relative;
-  color: #0f0e08;
+  color: $museum-black;
   font-family: "Montserrat", sans-serif;
   font-size: 28px;
   font-weight: 400;
@@ -165,34 +165,84 @@
     margin-top: 112px;
     height: 390px;
     box-sizing: border-box;
-    padding-inline: 0;
     object-fit: cover;
+    padding-inline: 34px;
   }
 
   @include onDesktop {
     margin-top: 112px;
     box-sizing: border-box;
-    padding-inline: 34px;
+    padding-inline: 0;
     height: 550px;
 
     object-fit: cover;
   }
 }
 
-.current__bottom-description {
+.current__item {
   padding-inline: 20px;
-  right: 50%;
-  width: 280px;
+
+  @include onTablet {
+    padding-inline: 99px;
+  }
+
+  @include onDesktop {
+    padding-inline: 355px;
+  }
+}
+
+.current__event {
+  position: relative;
+}
+
+.event__container {
+  padding-inline: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
   height: 140px;
+  width: 100%;
   background: #fff;
-  box-shadow: rgba(26, 90, 76, 0.25);
-}
-
-.current__bottom__title {
+  box-shadow: 0 2px 0 0 rgba(26,90,76,0.25);
+  position: absolute;
+  bottom: -80px;
   text-align: center;
+
+  @include onTablet {
+    padding-inline: 55px;
+    padding-top: 45px;
+    padding-bottom: 50px;
+    height: 204px;
+  }
+
+  @include onDesktop {
+
+    padding-inline: 100px;
+    height: 204px;
+  }
 }
 
-.current__bottom__title::after {
-  display: none;
+.event__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
+  margin-bottom: 20px;
+}
+
+.event__container--title {
+  color: $museum-black;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  margin: 0;
+
+  @include onTablet {
+    font-size: 36px;
+    text-align: left;
+  }
 }
