@@ -1,21 +1,24 @@
 .gallery-indent {
-  @include  contentPaddingInline;
 
   margin-block: 100px 109px;
 
   @include onTablet {
     margin-block: 88px 92px;
   }
-  
+
   @include onDesktop {
     margin-block: 200px;
   }
 }
 
 .gallery {
+  height: 100%;
+  
   &__container {
     margin: 0;
     margin-top: 40px;
+
+    @include  contentPaddingInline;
 
     @include onTablet {
       margin-top: 48px;
@@ -33,9 +36,10 @@
 
   &__wrapper-desktop {
     display: none;
-  
+
     @include onDesktop {
-    
+      @include contentPaddingInline;
+      
       @include pageGrid;
       row-gap: 30px;
       margin-top: 56px;
@@ -53,9 +57,20 @@
   position: relative;
 
   &__block {
-    max-width: 100vw;
+    margin: 0 auto;
+    
+    max-width: 296px;
     height: 100%;
     overflow: hidden;
+
+    @media (min-width: 540px) {
+      max-width: 576px;
+    }
+    
+
+    @include onTablet {
+      max-width: 690px;
+    }
   }
 
   &__box {
@@ -82,9 +97,8 @@
 
   &__img {
     height: 100%;
-
+    
     @include onTablet {
-      width: 335px;
       object-fit: cover;
     }
   }
@@ -98,7 +112,7 @@
     border-radius: 50%;
     background-color: #e0e0e0;
     cursor: pointer;
-    
+
     @include onTablet {
       bottom: -32px;
     }
@@ -124,8 +138,12 @@
     position: absolute;
     left: 50%;
     bottom: 15px;
-    z-index: 6;
+    z-index: 10;
     visibility: hidden;
+
+    @include onTablet {
+      left: 50%;
+    }
 
     @include onDesktop {
       display: none;
@@ -148,7 +166,25 @@
     }
 
     &--5:checked ~ .slider__block > .slider__box {
-      left: -400% ;
+      left: -400%;
+    }
+
+    @media (min-width: 540px) {
+      &--1:checked ~ .slider__block > .slider__box {
+        left: 0;
+      }
+
+      &--2:checked ~ .slider__block > .slider__box {
+        left: -50%;
+      }
+
+      &--3:checked ~ .slider__block > .slider__box {
+        left: -100%;
+      }
+
+      &--5:checked ~ .slider__block > .slider__box {
+        left: -160%;
+      }
     }
 
     @include onTablet {
@@ -157,15 +193,15 @@
       }
 
       &--2:checked ~ .slider__block > .slider__box {
-        left: -30%;
+        left: -55%;
       }
 
       &--3:checked ~ .slider__block > .slider__box {
-        left: -60%;
+        left: -100%;
       }
 
       &--5:checked ~ .slider__block > .slider__box {
-        left: -70%;
+        left: -180%;
       }
     }
   }
@@ -174,15 +210,10 @@
 .item {
   height: 410px;
 
-  @include onTablet {
-    height: 543px;
-  }
-
   @include hover (transform, scale(1.05)); 
 
-  
-  &--4 {
-    display: none;
+  @include onTablet {
+    height: 543px;
   }
 }
 
