@@ -1,0 +1,243 @@
+.gallery-indent {
+
+  margin-block: 100px 109px;
+
+  @include onTablet {
+    margin-block: 88px 92px;
+  }
+
+  @include onDesktop {
+    margin-block: 200px;
+  }
+}
+
+.gallery {
+  height: 100%;
+  
+  &__container {
+    margin: 0;
+    margin-top: 40px;
+
+    @include  contentPaddingInline;
+
+    @include onTablet {
+      margin-top: 48px;
+    }
+
+    @include onDesktop {
+      margin-top: 56px;
+      display: none;
+    }
+  }
+
+  &__indent {
+    margin: 0 auto;
+  }
+
+  &__wrapper-desktop {
+    display: none;
+
+    @include onDesktop {
+      @include contentPaddingInline;
+      
+      @include pageGrid;
+      row-gap: 30px;
+      margin-top: 56px;
+    }
+  }
+
+  &__picture {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+  }
+}
+
+.slider {
+  position: relative;
+
+  &__block {
+    margin: 0 auto;
+    
+    max-width: 296px;
+    height: 100%;
+    overflow: hidden;
+
+    @media (min-width: 540px) {
+      max-width: 576px;
+    }
+    
+
+    @include onTablet {
+      max-width: 690px;
+    }
+  }
+
+  &__box {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: inherit;
+    width: inherit;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+    transition: left $effectDuration linear;
+
+    list-style: none;
+
+    @include onTablet {
+      column-gap: 20px;
+    }
+  }
+
+  @include onDesktop {
+    @include pageGrid;
+  }
+
+  &__img {
+    height: 100%;
+    
+    @include onTablet {
+      object-fit: cover;
+    }
+  }
+
+  &__control {
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    cursor: pointer;
+
+    @include onTablet {
+      bottom: -32px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--1 {
+      margin-left: -44px;
+    }
+
+    &--2 {
+      margin-left: -22px;
+    }
+
+    &--4 {
+      margin-left: 22px;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    z-index: 10;
+    visibility: hidden;
+
+    @include onTablet {
+      left: 50%;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &:checked + .slider__control {
+      background-color: $color-green;
+    }
+
+    &--1:checked ~ .slider__block > .slider__box {
+      left: 0;
+    }
+
+    &--2:checked ~ .slider__block > .slider__box {
+      left: -100%;
+    }
+
+    &--3:checked ~ .slider__block > .slider__box {
+      left: -200%;
+    }
+
+    &--5:checked ~ .slider__block > .slider__box {
+      left: -400%;
+    }
+
+    @media (min-width: 540px) {
+      &--1:checked ~ .slider__block > .slider__box {
+        left: 0;
+      }
+
+      &--2:checked ~ .slider__block > .slider__box {
+        left: -50%;
+      }
+
+      &--3:checked ~ .slider__block > .slider__box {
+        left: -100%;
+      }
+
+      &--5:checked ~ .slider__block > .slider__box {
+        left: -160%;
+      }
+    }
+
+    @include onTablet {
+      &--1:checked ~ .slider__block > .slider__box {
+        left: 0;
+      }
+
+      &--2:checked ~ .slider__block > .slider__box {
+        left: -55%;
+      }
+
+      &--3:checked ~ .slider__block > .slider__box {
+        left: -100%;
+      }
+
+      &--5:checked ~ .slider__block > .slider__box {
+        left: -180%;
+      }
+    }
+  }
+}
+
+.item {
+  height: 410px;
+
+  @include hover (transform, scale(1.05)); 
+
+  @include onTablet {
+    height: 543px;
+  }
+}
+
+.gallery__pictures {
+  width: 100%;
+  height: 100%;
+
+  @include hover(transform, scale(1.05));
+}
+
+.pictures {
+  &-first {
+    grid-column: span 4;
+  }
+
+  &-second {
+    grid-column: span 8;
+  }
+
+  &-third {
+    grid-column: span 8;
+  }
+
+  &-fourth {
+    grid-column: span 4;
+  }
+}

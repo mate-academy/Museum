@@ -1,0 +1,98 @@
+.to-by-tickets {
+  background-color: $color-white;
+}
+
+.by-ticket {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 280px;
+  height: 50px;
+  border: 1px solid $color-green;
+  cursor: pointer;
+
+  text-transform: uppercase;
+  font-weight: $middle-font;
+  color: $color-black;
+  background-color: $color-white;
+  transition: background-color $effectDuration linear;
+
+  @include hover(transform, scale(1.01));
+
+  &:hover {
+    color: $color-grey;
+    background-color: #e0e0e0;
+    
+  }
+
+  @include onTablet {
+    width: 270px;
+    height: 70px;
+    margin-bottom: 19px;
+  }
+
+  
+
+  @include onDesktop {
+    margin-left: 200px;
+    margin-right: 30px;
+    margin-bottom: 118px;
+  }
+
+  &__arrow {
+    position: absolute;
+    right: 0;
+    color: $color-white;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: inline-block;
+    margin-inline: 80px 130px;
+  }
+
+  &__button::after {
+    @include underlineLinks;
+    background-color: $color-grey;
+    opacity: 50%;
+  }
+
+  &__button:hover::after {
+    transform: scale(1);
+  }
+}
+
+.submit__button {
+  @include arrow;
+  background-color: #f14a27;
+  border: none;
+  padding: 0;
+
+  @include hover(transform, scale(1.05));
+}
+
+.arrow {
+  display: block;
+  @include arrow;
+  background-image: url(../images/icons/arrow-icon-white.svg);
+  background-color: $color-green;
+}
+
+.ticket {
+  padding: 18px 130px 18px 80px;
+  text-transform: uppercase;
+  font-weight: $middle-font;
+  color: $color-black;
+    
+  &:hover {
+    color: $color-green;
+  }
+}
