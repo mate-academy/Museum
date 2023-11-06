@@ -1,8 +1,12 @@
 .contacts {
   position: relative;
-  @include content;
+  box-sizing: border-box;
+  padding: 0;
+  width: 100%;
+  @include pageGrid;
   padding-top: 50px;
   padding-bottom: 35px;
+  @include PaddingInlain;
 
   @include onDesktop {
     padding-top: 47px;
@@ -63,14 +67,27 @@
     }
   }
 
+  &__list {
+    padding: 0;
+    margin: 0;
+
+    &--items {
+      transition: 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+        color: #f14a27;
+      }
+    }
+  }
+
   &__link {
     text-decoration: none;
     color: $museum-black;
     transition: 0.3s;
 
     &:hover {
-      color: #fff;
-      background-color: $museum-green;
+      color: #f14a27;
     }
   }
 
