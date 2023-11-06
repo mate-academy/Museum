@@ -1,9 +1,16 @@
+@use "./utils/_mixins.scss" as *;
+
 .separator {
-  margin: 0px -20px 100px;
+  margin: 0 -20px 176px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 293px;
+  height: 210px;
+
+  @include forTablet {
+    height: 390px;
+    margin: 0 -20px 164px;
+  }
 
   &__image {
     background-image: url(../images/separator_image.jpg);
@@ -11,7 +18,7 @@
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
-    height: 210px;
+    height: 100%;
     object-fit: cover;
     object-position: center;
     position: relative;
@@ -40,10 +47,14 @@
   &__frame {
     background: #fff;
     box-shadow: 0 2px 0 0 #1a5a4c40;
-    margin: 0 20px;
+    margin: 153px 20px 0;
     padding: 20px 0;
     position: absolute;
     z-index: 1;
-    transform: translate(0%, 153px);
+
+    @include forTablet {
+      padding: 45px 55px;
+      margin: 306px 65px 0;
+    }
   }
 }

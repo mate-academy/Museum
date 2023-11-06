@@ -1,17 +1,33 @@
+@use "./utils/_mixins.scss" as *;
+
 .swiper {
-  --swiper-pagination-color: #1a5a4c;
   width: 100%;
-  height: 410px;
+  height: 439px;
+
+  @include forTablet() {
+    height: 584px;
+  }
 }
 
 .swiper-slide {
   overflow: hidden;
+  max-height: 410px;
+
+  @include forTablet() {
+    max-height: 543px;
+  }
 }
 
-.swiper-pagination {
-  margin-top: 20px;
+.swiper-pagination-bullets,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-horizontal {
+  bottom: 0;
 }
 
-.swiper-wrapper {
-  margin-bottom: 20px;
+.swiper-pagination-bullet {
+  background: #e0e0e0;
+}
+
+.swiper-pagination-bullet-active {
+  background: #1a5a4c;
 }
