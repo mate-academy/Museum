@@ -1,3 +1,5 @@
+@use "./utils/_mixins.scss" as *;
+
 .address {
   color: #0f0e08;
   font-family: IBM Plex Sans, sans-serif;
@@ -6,4 +8,17 @@
   font-weight: 400;
   line-height: 21px;
   margin-right: 22px;
+
+  @include forDesktop() {
+    margin-right: 0;
+  }
+
+  &__fax {
+    &--br::before {
+      @include forDesktop() {
+        content: "\a";
+        white-space: pre;
+      }
+    }
+  }
 }

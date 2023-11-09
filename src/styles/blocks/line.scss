@@ -5,9 +5,17 @@
   grid-column-start: 1;
   grid-column-end: 3;
 
-  @include forTablet {
+  @include forTablet() {
     grid-column-start: 3;
     grid-column-end: 7;
+  }
+
+  @include forDesktop() {
+    grid-column: 7;
+    width: 70px;
+    height: 260px;
+    align-items: center;
+    grid-row-start: 1;
   }
 
   &__horizontal {
@@ -24,6 +32,13 @@
       height: 480px;
       margin-top: -190px;
       margin-bottom: -190px;
+
+      &--vertical {
+        @include forDesktop() {
+          transform: none;
+          height: 260px;
+        }
+      }
     }
 
     &--white {

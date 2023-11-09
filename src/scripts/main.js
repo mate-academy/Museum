@@ -1,6 +1,6 @@
 'use strict';
 
-// swiper
+// init Swiper:
 
 const swiper = new Swiper('.swiper', {
   // Optional parameters
@@ -10,6 +10,10 @@ const swiper = new Swiper('.swiper', {
   // If we need pagination
   pagination: {
     el: '.swiper-pagination',
+  },
+
+  autoplay: {
+    delay: 2000,
   },
 });
 
