@@ -6,8 +6,17 @@
   line-height: 19px;
   color: $c-for-text;
 
+  @include onTablet {
+    padding-inline: 34px;
+  }
+
   &__wrapper {
     margin-top: 50px;
+
+    @include onTablet {
+      display: flex;
+      gap: 20px;
+    }
   }
 
   &__icons {
@@ -15,6 +24,13 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
+
+    @include onTablet {
+      flex-direction: column;
+      justify-content: start;
+      gap: 62px;
+      // margin-bottom: 0;
+    }
   }
 
   &__media {
@@ -23,12 +39,24 @@
   }
 
   &__conteiner {
+    box-sizing: border-box;
     display: flex;
     gap: 20px;
     padding-bottom: 70px;
     border-bottom: 1px solid $background-c-green;
     width: fit-content;
     position: relative;
+
+    @include onTablet {
+      padding-bottom: 64px;
+    }
+  }
+
+  &__schedule,
+  &__contacts {
+    @include onTablet {
+      width: 220px;
+    }
   }
 
   &__title {
@@ -67,22 +95,39 @@
     border: 1px solid $background-c-green;
     background: transparent
       url(../images/icons/arrow-up.svg) center / 10px auto no-repeat;
+
+      @include onTablet {
+        display: none;
+      }
   }
 
   &__nav {
     margin: 40px 0 80px;
+
+    @include onTablet {
+      margin: 64px auto 154px;
+    }
   }
 
   &__nav__list{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+
+    @include onTablet {
+      width: 460px;
+      margin: 0 auto;
+    }
   }
 
   &__nav__link {
     width: 130px;
     text-decoration: none;
     color: inherit;
+
+    @include onTablet {
+      width: 220px;
+    }
   }
 
   &__bootom {
@@ -91,6 +136,11 @@
     gap: 10px;
     margin-bottom: 80px;
 
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 36px;
+    }
   }
 
     &__rights {
