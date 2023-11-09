@@ -1,9 +1,69 @@
 .gallery {
-  height: 1000px;
+
+  &__images {
+    gap: 30px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+
+    @include onMobile {
+      margin-bottom: 20px;
+    }
+  }
 
   &__image {
     box-sizing: border-box;
     object-fit: cover;
     object-position: center;
+    width: 100%;
+
+    @include onTablet {
+      height: 540px;
+    }
+
+    &--3 {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--4 {
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__indicators {
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    align-items: center;
+    justify-content: center;
+
+    @include onDesktop {
+      display: none;
+    }
+
+    @include onTablet {
+      display: flex;
+    }
+
+    @include onMobile {
+      display: flex;
+    }
+  }
+
+  &__indicator {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #e5e6eb;
+
+    &--is-active {
+      background-color: $c-green;
+    }
   }
 }
