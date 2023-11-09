@@ -10,6 +10,19 @@
     align-items: center;
     margin-top: 50px;
     width: 100%;
+
+    @include onTablet {
+      width: fit-content;
+      margin-top: 51px;
+      flex-direction: column;
+      position: absolute;
+      left: 36px;
+      align-items: start;
+    }
+
+    @include onDesktop {
+      left: 55px;
+    }
   }
 
   &__logo {
@@ -24,11 +37,22 @@
   &__icons {
     @include centring;
     gap: 20px;
+
+    @include onTablet {
+      margin-top: 62px;
+      gap: 32px;
+    }
+  }
+
+  &__content {
+    @include onDesktop {
+      @include pageGrid;
+    }
   }
 
   &__inform {
     @include pageGrid;
-    color: #0f0e08;
+    color: $dark-khaki;
     font-family: IBM Plex Sans, sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -37,12 +61,25 @@
     width: 100%;
     margin-top: 40px;
 
+    @include onTablet {
+      margin-top: 51px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      grid-column: 3 / 7;
+      margin-top: 50px;
+    }
   }
 
   &__schedule {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @include onTablet {
+      grid-column: 2 / 4;
+    }
   }
 
   &__weekends {
@@ -52,7 +89,7 @@
   &__times {
     display: flex;
     flex-direction: column;
-    grid-column: 1/2;
+    grid-column: 1 / 2;
   }
 
   &__time {
@@ -63,6 +100,14 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @include onTablet {
+      grid-column: 4 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / 7;
+    }
   }
 
   &__arrow-border {
@@ -71,8 +116,13 @@
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    border: 1px solid #1a5a4c;
+    border: 1px solid $green-pea;
     cursor: pointer;
+    margin-left: 87%;
+
+    @include onTablet {
+      display: none;
+    }
   }
 
   &__arrow-up {
@@ -89,9 +139,46 @@
     box-sizing: border-box;
     height: 1px;
     width: 100%;
-    color: beige;
-    background-color: #1a5a4c;
+    color: $beige;
+    background-color: $green-pea;
     margin-top: 20px;
+
+    @include onTablet {
+      margin: 0 auto;
+      margin-top: 64px;
+      width: 65%;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 8;
+      margin-top: 50px;
+      height: 260px;
+      width: 1px;
+    }
+  }
+
+  &__nav {
+    @include pageGrid;
+    color: $dark-khaki;
+    font-family: IBM Plex Sans, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    width: 100%;
+    margin-top: 40px;
+
+    @include onTablet {
+      margin-top: 64px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      grid-column: 8 / 11;
+      margin-top: 50px;
+
+      line-height: 100%; /* 14px */
+    }
   }
 
   &__links {
@@ -100,8 +187,23 @@
     gap: 20px;
   }
 
+  &__links--1 {
+    @include onTablet {
+      grid-column: 2 / 4;
+    }
+  }
+
+  &__links--2 {
+    @include onTablet {
+      grid-column: 4 / 6;
+    }
+  }
+
   &__link {
-    color: #0f0e08;
+    color: $dark-khaki;
+    font-weight: 500;
+
+    @include transform;
   }
 
   &__copyright {
@@ -110,12 +212,23 @@
     margin-top: 80px;
     gap: 10px;
     width: 100%;
-    color: #0f0e08;
+    color: $dark-khaki;
     text-align: center;
     font-family: IBM Plex Sans, sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 300;
     line-height: 140.63%; /* 16.875px */
+
+    @include onTablet {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+
+      margin-top: 120px;
+    }
+
+    @include onDesktop {
+      margin-top: 250px;
+    }
   }
 }
