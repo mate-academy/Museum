@@ -1,8 +1,4 @@
-@mixin forTablet () {
-  @media (min-width: 690px) {
-    @content;
-  }
-}
+@use "./utils/_mixins.scss" as *;
 
 .button {
   display: flex;
@@ -13,7 +9,10 @@
   @include forTablet() {
     grid-column: 1 / 4;
     grid-row: 3 / 4;
+  }
 
+  @include forDesktop() {
+    grid-column: 4 / 6;
   }
 
   &--green {
