@@ -21,10 +21,20 @@
 
   &__links {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     gap: 28px;
     position: relative;
-    left: 72px;
+
+    @include forTablet() {
+      margin-left: 62px;
+      margin-right: 38px;
+    }
+
+    @include forDesktop() {
+      flex-direction: row;
+      margin-left: 0;
+      margin-right: 102px;
+    }
   }
 
   &__link {
@@ -35,6 +45,17 @@
     font-weight: 400;
     line-height: 14px;
     text-decoration: none;
+
+    @include forTablet() {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 16px;
+    }
+
+    @include forDesktop() {
+      font-size: 22px;
+      line-height: 22px;
+    }
   }
 
   &__list {
@@ -42,6 +63,12 @@
     grid-template-columns: 100px 100px;
     grid-template-rows: 16px;
     gap: 24px;
+
+    @include forDesktop() {
+      grid-template-columns: 169px 168px;
+      grid-template-rows: 22px;
+      gap: 31px;
+    }
   }
 
   &__opening {
@@ -60,7 +87,11 @@
     @include forTablet() {
       grid-column: 3 / -1;
       grid-row: 1;
-      margin-left: -38px;
+      margin-left: -88px;
+    }
+
+    @include forDesktop() {
+      grid-column: 4 / -1;
     }
   }
 
@@ -68,8 +99,13 @@
     @include forTablet() {
       grid-column-start: 2;
       grid-row: 1;
-      width: 76px;
-      margin: 0 38px;
+      width: 1px;
+    }
+
+    @include forDesktop() {
+      flex-wrap: wrap;
+      align-items: flex-start;
+      height: 145px;
     }
   }
 
@@ -78,6 +114,11 @@
       display: grid;
       grid-template-columns: 158px 144px;
       gap: 38px;
+    }
+
+    @include forDesktop() {
+      grid-template-columns: 170px 170px;
+      gap: 30px;
     }
 
     &--left {
@@ -102,6 +143,10 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding: 39px 34px 40px;
+  }
+
+  @include forDesktop() {
+    padding: 40px 155px 48px 182px;
   }
 }
 
