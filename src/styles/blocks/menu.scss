@@ -1,3 +1,5 @@
+@use "./utils/_mixins.scss" as *;
+
 .menu {
   position: fixed;
   transform: translateY(-100%);
@@ -54,6 +56,52 @@
     &--bold {
       font-weight: 600;
     }
+
+    @include forTablet() {
+      grid-column: 3 / -1;
+      grid-row: 1;
+      margin-left: -38px;
+    }
+  }
+
+  &__line {
+    @include forTablet() {
+      grid-column-start: 2;
+      grid-row: 1;
+      width: 76px;
+      margin: 0 38px;
+    }
+  }
+
+  &__article {
+    @include forTablet() {
+      display: grid;
+      grid-template-columns: 158px 144px;
+      gap: 38px;
+    }
+
+    &--left {
+      &::after {
+        content: "\a";
+        white-space: pre;
+      }
+
+      @include forTablet() {
+        width: 158px;
+      }
+    }
+
+    &--right {
+      @include forTablet() {
+        width: 144px;
+      }
+    }
+  }
+
+  @include forTablet() {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 39px 34px 40px;
   }
 }
 
