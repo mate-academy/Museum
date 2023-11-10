@@ -1,41 +1,33 @@
 .header {
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
     text-align: center;
     box-sizing: border-box;
     padding-inline: 20px;
-    // height: 100vh;
+    padding-top: 9px;
 
     background-image: url(..//images/mobile-muzej.png);
     background-repeat: no-repeat;
     background-size: contain;
 
+    position: relative;
+
     @include onTablet {
       padding-inline: 34px;
 
-      background-image: url(..//images/mobile-muzej.png);
-      background-size: 384px 374px;
+      background-size: 374px 384px;
       background-position: right;
     }
 
-    // @include onDesctop {
-    //   height: 655px;
-    //   display: block;
-    // }
+    @include onDesctop {
+      padding-top: 15px;
+      background-size: 725px 655px;
+      padding-inline: 55px;
+    }
 
   &__nav {
     display: flex;
     align-items: center;
-    box-sizing: border-box;
-    // padding-inline: 20px;
-    padding-top: 9px;
-
-    // @include onTablet {
-    //   display: grid;
-    //   grid-template-columns: 60% 40%;
-    //   padding: 15px 34px;
-    // }
   }
 
   &__link__wrapper {
@@ -43,14 +35,17 @@
 
     @include onTablet {
       width: 220px;
-      padding-left: 100px;
-      margin-left: 220px;
+      padding-left: 70px;
+      margin-left: 336px;
+    }
+
+    @include onDesctop {
+      margin-left: 476px;
     }
   }
 
   &__bottom {
     padding-top: 250px;
-    // padding-inline: 20px;
     margin-bottom: 70px;
 
     @include onTablet {
@@ -59,19 +54,18 @@
       justify-content: left;
       align-items: start;
       padding: 0;
-      // padding-inline: 34px;
       margin-bottom: 19px;
     }
 
-    // @include onDesctop {
-    //   padding-top: 143px;
-    //   align-items: flex-end;
-    //   width: 470px;
-    // }
+    @include onDesctop {
+      align-items: end;
+      margin-bottom: 118px;
+      width: 470px;
+    }
   }
 
   &__title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 45px;
     line-height: 45px;
@@ -83,27 +77,19 @@
       font-size: 54px;
       line-height: 64px;
       text-align: left;
-      // margin-bottom: 0;
-      // max-width: 340px;
     }
 
-    // @include onDesctop {
-    //   font-size: 72px;
-    //   line-height: 86px;
-    // }
+    @include onDesctop {
+      width: 470px;
+      font-size: 72px;
+      line-height: 86px;
+      margin: 143px 0 89px;
+    }
   }
 
   &__bottom__container {
     display: flex;
     justify-content: center;
-
-    // @include onTablet {
-    //   margin-top: 38px;
-    // }
-
-    // @include onDesctop {
-    //   margin-top: 69px;
-    // }
   }
 
   &__bottom__link {
@@ -136,5 +122,35 @@
     @include onTablet {
       padding: 25.5px 31px;
     }
+  }
+
+  &__side__title {
+    display: none;
+
+    @include onDesctop {
+      display: inline-block;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 14px;
+      color: #687480;
+      text-transform: uppercase;
+      width: 133px;
+
+      transform: rotate(270deg) translateX(44%);
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &__side__title__name::before {
+    display: inline-block;
+    content: "";
+    border-top: 1px solid #000;
+    width: 70px;
+    height: 5px;
+    color: $background-c-green;
   }
 }
