@@ -19,6 +19,8 @@
       margin-top: 208px;
       padding-bottom: 48px;
       text-align: left;
+      font-size: 48px;
+      line-height: 48px;
     }
   }
 
@@ -26,11 +28,17 @@
     display: flex;
     gap: 16px;
     overflow-x: hidden;
+    align-items: center;
     padding-bottom: 20px;
 
-    // @include onTablet {
-    //   gap: 20px;
-    // }
+    @include onTablet {
+      gap: 20px;
+    }
+
+    @include onDesctop {
+      flex-wrap: wrap;
+      column-gap: 30px;
+    }
   }
 
   &__image {
@@ -40,6 +48,28 @@
     @include onTablet {
       width: 340px;
       height: 543px;
+    }
+
+    @include onDesctop {
+      &--tall {
+        width: 370px;
+        height: 600px;
+      }
+
+      &--big {
+        width: 770px;
+        height: 600px;
+      }
+
+      &--long {
+        width: 770px;
+        height: 360px;
+      }
+
+      &--short {
+        width: 370px;
+        height: 360px;
+      }
     }
   }
 
@@ -54,16 +84,14 @@
     }
   }
 
-  &__slider__item {
+  &__dot {
     width: 9px;
     height: 9px;
-  }
-
-  &__slider__item::after {
-    content: "";
+    cursor: pointer;
+    margin: 0 2px;
+    background-color: #bbb;
     border-radius: 50%;
-    background-color: #1A5A4C;
-    display: block;
-    height: 100%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
   }
 }
