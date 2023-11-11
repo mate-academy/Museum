@@ -1,0 +1,111 @@
+.menu {
+  height: 100vh;
+  background-color: rgba(24, 24, 26, 0.5);
+
+  &__wrapper {
+    background-color: $c-green;
+    padding: 27px 0;
+
+    @include onTablet {
+      padding: 40px 0;
+    }
+  }
+
+  &__container {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 38px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 102px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    // gap: 28px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      padding: 0 38px 0 0;
+      margin: 0;
+      border-bottom: none;
+      border-right: 1px solid #fff;
+    }
+
+    @include onDesktop {
+      padding: 0 102px 0 0;
+      margin: 0;
+      border-bottom: none;
+      border-right: 1px solid #fff;
+    }
+  }
+
+  &__close {
+    display: block;
+    height: 24px;
+    width: 24px;
+
+    background-image: url(../images/cross-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include hover(scale, 110%);
+
+    @include onMobile {
+      margin-right: 28px;
+    }
+
+    @include onTablet {
+      margin-right: 38px;
+    }
+
+    @include onDesktop {
+      margin-right: 102px;
+    }
+  }
+
+  &__links {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 160px 140px;
+    // row-gap: 10px;
+    // gap: 24px;
+
+    @include onMobile {
+      grid-template-columns: 160px 140px;
+    }
+
+    @include onTablet {
+      grid-template-columns: 100px 90px;
+      column-gap: 30px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: 160px 140px;
+    }
+  }
+
+  &__link {
+    height: max-content;
+    text-decoration: none;
+    color: #fff;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    // line-height: 100%;
+
+    @include hover(color, $c-red);
+
+    @include onTablet {
+      font-size: 16px;
+    }
+  }
+}
