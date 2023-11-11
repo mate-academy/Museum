@@ -1,11 +1,10 @@
 'use strict';
 
-let sidebar = document.body.querySelector('.sidebar');
-let burgerIcon = document.body.querySelector('.header__burgerIcon');
-let burgerIconImg = document.body.querySelector('.header__burgerIconImg');
+const sidebar = document.body.querySelector('.sidebar');
+const burgerIcon = document.body.querySelector('.header__burgerIcon');
+const burgerIconImg = document.body.querySelector('.header__burgerIconImg');
 
-let headerTitle = document.body.querySelector('.header__title');
-
+// const headerTitle = document.body.querySelector('.header__title');
 // ([burgerIcon, burgerIconImg, sidebar].includes(event.target))
 // (event.target === burgerIcon || event.target === sidebar)
 
@@ -20,7 +19,7 @@ showSlides(slideIndex);
 } */
 
 // Thumbnail image controls
-let currentSlide = (n) => {
+const currentSlide = (n) => {
   showSlides(n);
 };
 
@@ -62,38 +61,42 @@ function showSlides(n) {
 }
 
 document.body.addEventListener('click', (event) => {
-  console.log('mouse click on ', event.target);
-  console.log(`current slide index ${slideIndex}`);
-  const width = window.innerWidth;
-const height = window.innerHeight;
+/*   console.log('mouse click on ', event.target);
+  console.log(`current slide index ${slideIndex}`); */
 
-console.log(`The viewport's width is ${width} and the height is ${height}.`);
+  // console.log(`The viewport's width is ${width}
+  // and the height is ${height}.`);
 
   if (sidebar.classList.contains('active')) {
     sidebar.classList.remove('active');
   } else if ([burgerIcon, burgerIconImg, sidebar].includes(event.target)
   && !sidebar.classList.contains('active')) {
-    console.log('clicked on burger');
+    // console.log('clicked on burger');
 
     sidebar.classList.toggle('active');
   }
 
-  if (event.target.classList.contains('dot')) {
-    console.log('clicked on dot');
+  if (event.target.classList.contains('dot')
+    || event.target.parentElement.classList.contains('dot')) {
+    // console.log('clicked on dot');
 
-    if (event.target.classList.contains('dot1')) {
+    if (event.target.classList.contains('dot1')
+      || event.target.parentElement.classList.contains('dot1')) {
       currentSlide(1);
     }
 
-    if (event.target.classList.contains('dot2')) {
+    if (event.target.classList.contains('dot2')
+      || event.target.parentElement.classList.contains('dot2')) {
       currentSlide(2);
     }
 
-    if (event.target.classList.contains('dot3')) {
+    if (event.target.classList.contains('dot3')
+    || event.target.parentElement.classList.contains('dot3')) {
       currentSlide(3);
     }
 
-    if (event.target.classList.contains('dot4')) {
+    if (event.target.classList.contains('dot4')
+      || event.target.parentElement.classList.contains('dot4')) {
       currentSlide(4);
     }
   }

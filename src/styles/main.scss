@@ -2,15 +2,15 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-body::-webkit-scrollbar {
-  display: none;
-}
-
 /* Hide scrollbar for IE, Edge and Firefox */
 body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
 }
 
 * {
@@ -18,31 +18,34 @@ body {
   box-sizing: border-box;
 }
 
-a, a:hover, a:focus, a:active {
+a,
+a:hover,
+a:focus,
+a:active {
   text-decoration: none;
   color: inherit;
 }
 
 .page {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "IBM Plex Sans", "Montserrat", sans-serif;
+  // font-family: 'Montserrat', sans-serif;
 }
 
 .header {
   &__container {
-      height: 655px;
-      display: grid;
-      grid-template-columns: 1fr repeat(12, 70px) 1fr;
-      grid-template-rows: 206px auto 1fr;
-      column-gap: 30px;
-      grid-row-gap: 0px;
+    height: 655px;
+    display: grid;
+    grid-template-columns: 1fr repeat(12, 70px) 1fr;
+    grid-template-rows: 206px auto 1fr;
+    column-gap: 30px;
+    grid-row-gap: 0;
 
     @media (min-width: 690px) and (max-width: 1245px) {
       height: 384px;
       grid-template-columns: repeat(6, 90px);
       grid-template-rows: 127px repeat(2, auto);
       column-gap: 30px;
-      margin-left: calc((100vw - 690px)/2);
+      margin-left: calc((100vw - 690px) / 2);
       overflow-x: hidden;
     }
 
@@ -76,7 +79,7 @@ a, a:hover, a:focus, a:active {
 
     @media (min-width: 690px) and (max-width: 1245px) {
       grid-area: 1 / 1;
-      margin-left: 0px;
+      margin-left: 0;
     }
 
     @media (max-width: 689px) {
@@ -95,7 +98,7 @@ a, a:hover, a:focus, a:active {
 
   &__title {
     text-transform: uppercase;
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 72px;
@@ -135,6 +138,23 @@ a, a:hover, a:focus, a:active {
     transition: background-color 0.5s ease-in-out, color 0.7s ease-out;
     cursor: pointer;
 
+    &__play {
+      display: flex;
+      height: 100%;
+      width: 68px;
+      background-color: #1a5a4c;
+
+      @media (max-width: 689px) {
+        width: 22vw;
+      }
+
+      transition: background-color 0.5s ease-in-out;
+
+      &:hover {
+        background-color: #00ccd3;
+      }
+    }
+
     &:hover {
       background-color: black;
       color: #fff;
@@ -159,7 +179,7 @@ a, a:hover, a:focus, a:active {
     &__title {
       width: calc(100% - 68px);
       text-transform: uppercase;
-      font-family: "IBM Plex Sans";
+      font-family: "IBM Plex Sans", sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 16px;
@@ -168,23 +188,6 @@ a, a:hover, a:focus, a:active {
 
       @media (max-width: 689px) {
         width: 100%;
-      }
-    }
-
-    &__play {
-      display: flex;
-      height: 100%;
-      width: 68px;
-      background-color: #1a5a4c;
-
-      @media (max-width: 689px) {
-        width: 22vw;
-      }
-
-      transition: background-color 0.5s ease-in-out;
-
-      &:hover {
-        background-color: #00ccd3;
       }
     }
   }
@@ -199,7 +202,7 @@ a, a:hover, a:focus, a:active {
     align-self: flex-end;
     transform: rotate(-90deg);
     transform-origin: bottom left;
-    font-family: 'IBM Plex Sans';
+    font-family: "IBM Plex Sans", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -261,12 +264,12 @@ a, a:hover, a:focus, a:active {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Montserrat';
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
     font-size: 36px;
     line-height: 100%;
     text-align: center;
-    color: #0F0E08;
+    color: #0f0e08;
     cursor: pointer;
     transition: scale 0.5s ease-in-out;
 
@@ -298,14 +301,12 @@ a, a:hover, a:focus, a:active {
   height: 100vh;
   z-index: 2;
   box-sizing: border-box;
-
   position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    transform: translateX(-100%);
-    transition: transform 0.3s;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s;
 
   &.active {
     transform: translateX(0);
@@ -320,7 +321,7 @@ a, a:hover, a:focus, a:active {
   grid-template-columns: repeat(12, 70px);
   height: 233px;
   width: 100vw;
-  background-color: #1A5A4C;
+  background-color: #1a5a4c;
   opacity: 100%;
   grid-column-gap: 30px;
   padding-top: 47px;
@@ -339,7 +340,7 @@ a, a:hover, a:focus, a:active {
 
   &__shade {
     height: 100%;
-    background-color: #18181A;
+    background-color: #18181a;
     opacity: 50%;
   }
 
@@ -361,11 +362,11 @@ a, a:hover, a:focus, a:active {
   }
 
   &__working-schedule {
-    font-family: 'IBM Plex Sans';
+    font-family: "IBM Plex Sans", sans-serif;
     font-weight: normal;
     font-size: 14px;
     line-height: 150%;
-    color: #ffffff;
+    color: #fff;
 
     &-col-1 {
       grid-column: 8 / 10;
@@ -437,11 +438,11 @@ a, a:hover, a:focus, a:active {
   }
 
   &__links {
-    font-family: 'IBM Plex Sans';
+    font-family: "IBM Plex Sans", sans-serif;
     font-weight: 500;
     font-size: 22px;
     line-height: 100%;
-    color: #ffffff;
+    color: #fff;
 
     &-col-1 {
       grid-column: 3 / 5;
@@ -464,7 +465,7 @@ a, a:hover, a:focus, a:active {
     @media (min-width: 690px) and (max-width: 1245px) {
       font-size: 16px;
 
-      &>a {
+      & > a {
         display: block;
         margin-bottom: 10px;
       }
@@ -516,11 +517,11 @@ a, a:hover, a:focus, a:active {
   }
 
   &__title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
     font-size: 48px;
     line-height: 100%;
-    color: #0F0E08;
+    color: #0f0e08;
     margin-bottom: 56px;
 
     @media (max-width: 689px) {
@@ -528,6 +529,30 @@ a, a:hover, a:focus, a:active {
       font-size: 36px;
       text-align: center;
       margin-bottom: 40px;
+    }
+  }
+
+  &__picture {
+    display: block;
+    height: 520px;
+    min-width: 670px;
+    transition: scale 0.5s ease-in-out;
+    transform-origin: 25% 50%;
+
+    @media (min-width: 690px) and (max-width: 1245px) {
+      width: 100%;
+      height: 100%;
+      transform-origin: center;
+    }
+
+    @media (max-width: 689px) {
+      height: auto;
+      min-width: 280px;
+
+      & img {
+        width: 280px;
+        transform-origin: 50% 50%;
+      }
     }
   }
 
@@ -572,7 +597,7 @@ a, a:hover, a:focus, a:active {
 
     &-type {
       text-transform: uppercase;
-      font-family: 'IBM Plex Sans', sans-serif;
+      font-family: "IBM Plex Sans", sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 14px;
@@ -588,12 +613,12 @@ a, a:hover, a:focus, a:active {
     }
 
     &-date {
-      font-family: 'IBM Plex Sans', sans-serif;
+      font-family: "IBM Plex Sans", sans-serif;
       font-style: normal;
       font-weight: bold;
       font-size: 14px;
       line-height: 150%;
-      color: #1A5A4C;
+      color: #1a5a4c;
 
       @media (max-width: 689px) {
         font-size: 16px;
@@ -607,12 +632,12 @@ a, a:hover, a:focus, a:active {
       display: flex;
       justify-content: flex-start;
       width: 370px;
-      font-family: 'Montserrat';
+      font-family: "Montserrat", sans-serif;
       font-style: normal;
       font-weight: normal;
       font-size: 36px;
       line-height: 100%;
-      color: #0F0E08;
+      color: #0f0e08;
       margin-top: 32px;
 
       @media (max-width: 689px) {
@@ -623,13 +648,13 @@ a, a:hover, a:focus, a:active {
       }
 
       &::after {
-        content: '';
+        content: "";
         display: inline-block;
         margin-top: 12px;
         margin-left: 17px;
         height: 15px;
         width: 15px;
-        background-color: #F14A27;
+        background-color: #f14a27;
 
         @media (max-width: 689px) {
           height: 10px;
@@ -640,40 +665,16 @@ a, a:hover, a:focus, a:active {
     }
 
     &-description {
-      font-family: 'IBM Plex Sans';
+      font-family: "IBM Plex Sans", sans-serif;
       font-style: normal;
       font-weight: 300;
       font-size: 16px;
       line-height: 150%;
-      color: #4E4E4E;
+      color: #4e4e4e;
       margin-top: 15px;
 
       @media (min-width: 690px) and (max-width: 1245px) {
         width: calc(90px * 4 + 30px * 3);
-      }
-    }
-  }
-
-  &__picture {
-    display: block;
-    height: 520px;
-    min-width: 670px;
-    transition: scale 0.5s ease-in-out;
-    transform-origin: 25% 50%;
-
-    @media (min-width: 690px) and (max-width: 1245px) {
-      width: 100%;
-      height: 100%;
-      transform-origin: center;
-    }
-
-    @media (max-width: 689px) {
-      height: auto;
-      min-width: 280px;
-
-      & img {
-        width: 280px;
-        transform-origin: 50% 50%;
       }
     }
   }
@@ -730,7 +731,7 @@ a, a:hover, a:focus, a:active {
     width: 570px;
     background-color: white;
     padding: 45px 100px 0;
-    box-shadow: 0px 2px 0px rgba(26, 90, 76, 0.25);
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
 
     @media (min-width: 690px) and (max-width: 1245px) {
       margin-bottom: 88px;
@@ -748,7 +749,8 @@ a, a:hover, a:focus, a:active {
       &:hover {
         opacity: 0.3;
 
-        .lecture__type, .lecture__date {
+        .lecture__type,
+        .lecture__date {
           opacity: 0;
         }
       }
@@ -764,12 +766,12 @@ a, a:hover, a:focus, a:active {
   }
 
   &__title {
-    font-family: 'Montserrat';
+    font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 36px;
     line-height: 100%;
-    color: #0F0E08;
+    color: #0f0e08;
     margin-top: 16px;
 
     @media (max-width: 689px) {
@@ -807,12 +809,12 @@ a, a:hover, a:focus, a:active {
     grid-column: 1 / span 8;
   }
 
-  &>img {
+  & > img {
     scale: 1;
-    transition: scale .5s ease-in-out;
+    transition: scale 0.5s ease-in-out;
   }
 
-  &>img:hover {
+  & > img:hover {
     scale: 1.1;
     z-index: 10;
   }
@@ -863,7 +865,7 @@ a, a:hover, a:focus, a:active {
     color: #fff;
     grid-row: 2;
 
-    font-family: 'IBM Plex Sans';
+    font-family: "IBM Plex Sans", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -896,7 +898,7 @@ a, a:hover, a:focus, a:active {
     &-field {
       width: 470px;
       background-color: white;
-      border:none;
+      border: none;
       -webkit-box-shadow: none;
       -moz-box-shadow: none;
       box-shadow: none;
@@ -908,7 +910,7 @@ a, a:hover, a:focus, a:active {
       }
 
       &::placeholder {
-        font-family: 'Montserrat';
+        font-family: "Montserrat", sans-serif;
         font-style: normal;
         font-weight: normal;
         font-size: 14px;
@@ -942,7 +944,8 @@ a, a:hover, a:focus, a:active {
   }
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   outline: none;
 }
 
@@ -976,11 +979,11 @@ textarea:focus, input:focus {
   &__logo {
     grid-column: 1 / 2;
     height: 72px;
-    font-family: 'Montserrat';
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
     font-size: 36px;
     line-height: 100%;
-    color: #0F0E08;
+    color: #0f0e08;
 
     @media (max-width: 689px) {
       grid-column: 1 / 2;
@@ -989,7 +992,7 @@ textarea:focus, input:focus {
     }
   }
 
-  &__social {
+  &__socialMedia {
     grid-column: 1 / 3;
     grid-row: 2;
 
@@ -1052,11 +1055,11 @@ textarea:focus, input:focus {
     align-self: flex-end;
     display: flex;
     justify-content: space-between;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
     font-style: normal;
     font-weight: 300;
     font-size: 12px;
-    color: #0F0E08;
+    color: #0f0e08;
 
     @media (min-width: 690px) and (max-width: 1245px) {
       grid-column: 1 / 7;
@@ -1094,11 +1097,11 @@ textarea:focus, input:focus {
   &__working-schedule {
     grid-column: 3 / 5;
     grid-row: 1 / 3;
-    font-family: 'IBM Plex Sans';
+    font-family: "IBM Plex Sans", sans-serif;
     font-weight: normal;
     font-size: 14px;
     line-height: 150%;
-    color: #0F0E08;
+    color: #0f0e08;
 
     @media (min-width: 690px) and (max-width: 1245px) {
       grid-area: 1 / 2 / 3 / 4;
@@ -1114,22 +1117,26 @@ textarea:focus, input:focus {
   &__contacts {
     grid-column: 5 / 7;
     grid-row: 1 / 3;
-    font-family: 'IBM Plex Sans';
+    font-family: "IBM Plex Sans", sans-serif;
     font-weight: normal;
     font-size: 14px;
     line-height: 150%;
-    color: #0F0E08;
+    color: #0f0e08;
 
-    &>a {
+    & > a {
       letter-spacing: -0.5px;
-      transition: font-weight 0.7s ease-in-out, color 0.5s ease-in-out, text-shadow 0.5s ease-in;
+      transition: font-weight 0.7s ease-in-out,
+        color 0.5s ease-in-out,
+        text-shadow 0.5s ease-in;
     }
 
-    &>a:hover {
+    & > a:hover {
       font-weight: bold;
-      color: #F14A27;
+      color: #f14a27;
       text-shadow: black 0 0 1px;
-      transition: font-weight 0.7s ease-in-out, color 0.5s ease-in-out, text-shadow 0.5s ease-in;
+      transition: font-weight 0.7s ease-in-out,
+        color 0.5s ease-in-out,
+        text-shadow 0.5s ease-in;
     }
 
     @media (min-width: 690px) and (max-width: 1245px) {
@@ -1170,11 +1177,11 @@ textarea:focus, input:focus {
   }
 
   &__links {
-    font-family: 'IBM Plex Sans';
+    font-family: "IBM Plex Sans", sans-serif;
     font-weight: normal;
     font-size: 14px;
     line-height: 100%;
-    color: #0F0E08;
+    color: #0f0e08;
 
     &-col-1 {
       grid-column: 8 / 10;
@@ -1219,6 +1226,15 @@ textarea:focus, input:focus {
     height: auto;
   }
 
+  .bullet {
+    width: 9px;
+    height: 9px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    margin: 20px;
+    display: block;
+  }
+
   .slider {
     display: block;
     justify-content: center;
@@ -1245,21 +1261,16 @@ textarea:focus, input:focus {
     }
 
     &__button {
-      width: 9px;
-      height: 9px;
-      background-color: #E0E0E0;
-      border-radius: 50%;
-      margin: 11px;
-      display: inline-block;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      display: block;
+      cursor: pointer;
 
-      &.active {
-        background-color: #1A5A4C;
+      &.active > .bullet {
+        background-color: #1a5a4c;
       }
     }
-  }
-
-  .btn1 {
-    background-color: #1A5A4C;
   }
 
   .slider .slider__container {
@@ -1278,6 +1289,15 @@ textarea:focus, input:focus {
 }
 
 @media (max-width: 689px) {
+  .bullet {
+    width: 9px;
+    height: 9px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    margin: 11px;
+    display: block;
+  }
+
   .slider {
     display: block;
     justify-content: center;
@@ -1305,16 +1325,15 @@ textarea:focus, input:focus {
     }
 
     &__button {
-      width: 9px;
-      height: 9px;
-      background-color: #E0E0E0;
-      border-radius: 50%;
-      margin: 11px;
+      width: auto;
+      height: auto;
+      background-color: transparent;
       display: block;
+      padding: 5px;
       cursor: pointer;
 
-      &.active {
-        background-color: #1A5A4C;
+      &.active > .bullet {
+        background-color: #1a5a4c;
       }
     }
   }
@@ -1326,8 +1345,7 @@ textarea:focus, input:focus {
   .slider figure {
     position: relative;
     width: 100%;
-    margin: 0 0 0 0;
-    // animation: 2s slider infinite;
+    margin: 0;
   }
 
   .slider .slider__container img {
