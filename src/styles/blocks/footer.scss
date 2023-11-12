@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: end;
-  height: 100vh;
+  height: fit-content;
 
   &__top {
     display: flex;
@@ -32,6 +32,8 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url(../images/logo-mobile.png);
+
+    @include transform;
   }
 
   &__icons {
@@ -204,6 +206,18 @@
     font-weight: 500;
 
     @include transform;
+
+    @include onDesktop {
+      font-weight: 400;
+    }
+  }
+
+  &__info-link {
+    color: $dark-khaki;
+
+    &:hover {
+      border-bottom: 1px solid $c-gray;
+    }
   }
 
   &__copyright {
@@ -228,7 +242,7 @@
     }
 
     @include onDesktop {
-      margin-top: 250px;
+      margin-top: 87px;
     }
   }
 }

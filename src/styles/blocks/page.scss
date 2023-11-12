@@ -4,8 +4,13 @@
   min-width: 320px;
   scroll-behavior: smooth;
 
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
   &__menu {
     position: fixed;
+    height: 100vh;
     top: 0;
     right: 0;
     left: 0;
@@ -17,5 +22,15 @@
   &__menu:target {
     opacity: 1;
     pointer-events: all;
+  }
+
+  &__menu:target .page__menu-opacity {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 399px;
+    height: 100vh;
+    background-color: $black-opacity;
+    opacity: 0.5;
   }
 }
