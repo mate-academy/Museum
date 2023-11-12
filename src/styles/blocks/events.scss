@@ -2,16 +2,29 @@
   box-sizing: border-box;
 
   &__event {
-    margin-bottom: 104px;
+
+    @include onMobile {
+      margin-bottom: 88px;
+    }
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 104px;
+    }
 
     &--last {
-      @include onDesktop {
-        height: 652px;
-        margin-bottom: 200px;
+      @include onMobile {
+        margin-bottom: 0;
       }
 
       @include onTablet {
-        height: 390px;
+        margin-bottom: 0;
+      }
+
+      @include onDesktop {
         margin-bottom: 150px;
       }
     }
@@ -22,16 +35,20 @@
     // box-sizing: border-box;
     @include onMobile {
       width: 280px;
-      height: 140px;
-      margin-bottom: 20px;
+      height: 210px;
+      // margin-bottom: 20px;
     }
 
     @include onTablet {
+      width: 700px;
+      height: 520px;
       margin-bottom: 44px;
     }
 
     @include onDesktop {
-      margin-bottom: 0;
+      width: 670px;
+      height: 520px;
+      // margin-bottom: 104px;
     }
   }
 
@@ -54,6 +71,11 @@
         gap: 30px;
         margin-bottom: 20px;
       }
+
+      @include onTablet {
+        gap: 190px;
+        margin-bottom: 16px;
+      }
     }
   }
 
@@ -65,10 +87,24 @@
     font-weight: 500;
     line-height: 100%;
 
-    @include onMobile {
-      font-size: 16px;
-      margin-left: 21px;
-      margin-top: 24px;
+    &--big {
+      @include onMobile {
+        font-size: 16px;
+        margin-left: 21px;
+        margin-top: 24px;
+      }
+
+      @include onTablet {
+        font-size: 14px;
+        margin-left: 55px;
+        margin-top: 45px;
+      }
+
+      @include onDesktop{
+        font-size: 14px;
+        margin-left: 100px;
+        margin-top: 45px;
+      }
     }
   }
 
@@ -80,10 +116,24 @@
     font-weight: 700;
     line-height: 150%;
 
-    @include onMobile {
-      font-size: 16px;
-      // margin-right: 30px;
-      margin-top: 20px;
+    &--big {
+      @include onMobile {
+        font-size: 16px;
+        // margin-right: 30px;
+        margin-top: 20px;
+      }
+
+      @include onTablet {
+        font-size: 14px;
+        margin-right: 0;
+        margin-top: 45px;
+      }
+
+      @include onDesktop {
+        font-size: 14px;
+        margin-right: 100px;
+        margin-top: 45px;
+      }
     }
   }
 
@@ -112,6 +162,24 @@
       background-color: red;
       left: 100%;
       bottom: 25%;
+
+      @include onMobile {
+        left: 98%;
+        width: 10px;
+        height: 10px;
+      }
+
+      @include onTablet {
+        left: 98%;
+        width: 15px;
+        height: 15px;
+      }
+
+      @include onDesktop {
+        left: 98%;
+        width: 15px;
+        height: 15px;
+      }
     }
 
     &--big {
@@ -124,11 +192,27 @@
       font-style: normal;
       font-weight: 400;
       line-height: 100%;
+      padding: 0 55px 50px;
 
       @include onMobile {
         font-size: 28px;
         text-align: center;
+        padding: 0;
         padding-bottom: 20px;
+      }
+
+      @include onTablet {
+        font-size: 36px;
+        text-align: left;
+        padding-left: 55px;
+        padding-bottom: 50px;
+      }
+
+      @include onDesktop {
+        font-size: 36px;
+        text-align: left;
+        padding-left: 100px;
+        padding-bottom: 50px;
       }
     }
   }
@@ -144,7 +228,7 @@
 
   &__big-block {
     margin: 0 auto;
-    width: 370px;
+    // width: 370px;
     // height: 204px;
     transform: translateY(-50%);
     padding: 45px 100px;
@@ -154,6 +238,14 @@
     @include onMobile {
       width: 280px;
       padding: 0;
+    }
+
+    @include onTablet {
+      width: 100%;
+    }
+
+    @include onDesktop {
+      width: 100%;
     }
   }
 
