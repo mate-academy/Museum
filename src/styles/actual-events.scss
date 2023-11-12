@@ -1,7 +1,8 @@
 .actual-events {
-  font-family: "Montserrat", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
 
   &__main-title {
+    font-family: "Monserrat", sans-serif;
     font-weight: 700;
     font-size: 36px;
     color: #0f0e08;
@@ -9,8 +10,13 @@
     margin: 0 0 40px 20px;
 
     @include onTablet {
+      font-size: 48px;
       text-align: left;
-      margin-left: 34px;
+      margin: 0 0 48px 34px;
+    }
+
+    @include onDesktop {
+      margin: 0 0 48px 55px;
     }
   }
 
@@ -24,15 +30,24 @@
     @include onDesktop {
       display: flex;
       gap: 130px;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      margin-bottom: 104px;
+      margin: 0 55px 104px;
     }
   }
 
   &__photo {
     @include dimensions(100%, 100%);
     margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      @include dimensions(520px, 670px);
+      margin-bottom: 0px;
+    }
   }
 
   &__content-block {
@@ -44,6 +59,7 @@
       width: 370px;
     }
   }
+
   &__subtitle {
     display: flex;
     justify-content: space-between;
@@ -59,32 +75,50 @@
   &__exhibition {
     font-weight: 500;
     text-transform: uppercase;
+    font-size: 16px;
     line-height: 16px;
+    color:#687480;
+
+    @include onTablet {
+      font-size: 14px;
+      line-height: 14px;
+    }
   }
 
   &__data {
     font-weight: 700;
+    font-size: 16px;
     line-height: 24px;
     color: #1a5a4c;
+
+    @include onTablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
   }
 
   &__titles {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 10px;
   }
 
   &__title {
+    font-family: "Monserrat", sans-serif;
     font-size: 28px;
     font-weight: 400;
     color: #0f0e08;
     white-space: nowrap;
+    margin: 10px 0 15px;
+
+    @include onTablet {
+      font-size: 36px;
+      margin: 30px 0 15px;
+    }
   }
 
   &__rectangle {
     @include dimensions(10px, 10px);
-    background-color: #f14a27;
   }
 
   &__text {
@@ -93,6 +127,10 @@
     line-height: 24px;
     color: #4e4e4e;
     margin-bottom: 60px;
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
   }
 
   &__lecture-block {
@@ -147,7 +185,7 @@
   }
 
   &__lower-title {
-
+    font-family: "Monserrat", sans-serif;
     font-size: 28px;
     font-weight: 400;
     color: #0f0e08;
@@ -164,3 +202,4 @@
     }
   }
 }
+

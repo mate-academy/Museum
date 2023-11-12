@@ -1,7 +1,15 @@
 .header {
   margin: 0;
   position: relative;
+  margin-bottom: 70px;
 
+  @include onTablet {
+    margin-bottom: 88px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
   &__container {
     @include onTablet {
       display: flex;
@@ -53,6 +61,10 @@
   }
   &__menu {
     @include dimensions(24px, 24px);
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.3);
+    }
   }
   &__content {
     @include onTablet {
@@ -82,6 +94,10 @@
     border: none;
 
     margin: 0 auto;
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.03);
+    }
   }
 
   &__ticket {
@@ -102,5 +118,9 @@
     height: 50px;
     width: 50px;
     cursor: pointer;
+    &:active {
+      border: 1px solid #f14a27;
+      background-color: #f14a27;
+    }
   }
 }
