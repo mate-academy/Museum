@@ -1,0 +1,136 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+
+  @include onTablet {
+    margin-top: 88px;
+    justify-content: start;
+    align-items: left;
+  }
+
+  @include onTablet {
+    margin-top: 200px;
+  }
+
+  &__title {
+    text-align: center;
+    color: $dark-khaki;
+    font-family: Montserrat, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 36px */
+
+    @include onTablet {
+      font-size: 48px;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  &__carousel {
+    display: flex;
+    gap: 16px;
+    width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    margin-top: 40px;
+
+    @include onTablet {
+      gap: 20px;
+      width: 100%;
+      margin: 0;
+      margin-top: 48px;
+    }
+
+    @include onDesktop {
+      @include pageGrid;
+      margin-top: 56px;
+    }
+  }
+
+  &__slide {
+    display: inline-block;
+    width: 280px;
+    transition: transform 0.5s;
+    height: 410px;
+    @include transform;
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+    }
+
+    @include onDesktop {
+      width: auto;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__slide--1 {
+    @include onDesktop {
+      display: flex;
+      height: 600px;
+      width: 100%;
+      grid-column: 1 / 5;
+    }
+
+  }
+
+  &__slide--2 {
+    @include onDesktop {
+      display: flex;
+      width: 100%;
+      height: 600px;
+      grid-column: 5 / 13;
+    }
+  }
+
+  &__slide--3 {
+    @include onDesktop {
+      display: flex;
+      width: 100%;
+      height: 360px;
+      grid-column: 1 / 9;
+    }
+  }
+
+  &__slide--4 {
+    @include onDesktop {
+      display: flex;
+      width: 100%;
+      height: 360px;
+      grid-column: 9 / 13;
+    }
+  }
+
+  &__btns {
+    @include centring;
+    flex-direction: row;
+    gap: 21px;
+    margin-top: 20px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: $light-gray;
+    transition: transform 0.3s;
+  }
+
+  &__btn:hover {
+    transform: scale(1.2);
+    background-color: $green-pea;
+  }
+}
