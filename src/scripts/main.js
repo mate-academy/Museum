@@ -4,8 +4,6 @@
 
 let slideIndex = 0;
 
-showSlides();
-
 function showSlides() {
   let i;
   const slides = document.getElementsByClassName('mySlides');
@@ -27,6 +25,28 @@ function showSlides() {
   dots[slideIndex - 1].className += ' active';
   setTimeout(showSlides, 2000);
 }
+
+showSlides();
+
+/**
+// Mobile Device Check
+function MobileDeviceCheck() {
+  let mobileFlag = false;
+  const breakpoint = window.matchMedia('only screen and (min-width: 768px)');
+
+  if (breakpoint.matches === true) {
+    mobileFlag = true;
+  }
+
+  return mobileFlag;
+}
+
+const mobileFlag = MobileDeviceCheck();
+
+if (mobileFlag === true) {
+  showSlides();
+}
+ */
 
 // menu open
 
