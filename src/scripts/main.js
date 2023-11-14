@@ -1,84 +1,32 @@
 'use strict';
 
-(function() {
-  'use strict';
+// slider
 
-  // breakpoint where swiper will be destroyed
-  // and switches to a dual-column layout
-  const breakpoint = window.innerWidth('(min-width:1280px)');
+let slideIndex = 0;
 
-  // keep track of swiper instances to destroy later
-  let mySwiper;
+showSlides();
 
-  const breakpointChecker = function() {
-    // if larger viewport and multi-row layout needed
-    if (breakpoint.matches === true) {
-      // clean up old instances and inline styles when available
-      if (mySwiper !== undefined) {
-        mySwiper.destroy(true, true);
-      }
-      // else if a small viewport and single column layout needed
-    } else if (breakpoint.matches === false) {
-      // fire small viewport version of swiper
-      return enableSwiper();
-    }
-  };
+function showSlides() {
+  let i;
+  const slides = document.getElementsByClassName('mySlides');
+  const dots = document.getElementsByClassName('dot');
 
-  const enableSwiper = function() {
-    mySwiper = new Swiper('.swiper', {
-      loop: true,
-      slidesPerView: 'auto',
-      centeredSlides: true,
-      a11y: true,
-      keyboardControl: true,
-      grabCursor: true,
-      pagination: '.swiper-pagination',
-      paginationClickable: true,
-      autoplay: {
-        delay: 2000,
-      },
-      breakpoints: {
-        // when window width is >= 320px
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 10,
-        },
-        // when window width is >= 480px
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 10,
-        },
-        // when window width is >= 640px
-        1280: {
-          slidesPerView: 4,
-        },
-      },
-    });
-  };
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
+  slideIndex++;
 
-  // keep an eye on viewport size changes
-  breakpoint.addListener(breakpointChecker);
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
 
-  // kickstart
-  breakpointChecker();
-})(); /* IIFE end */
-
-/**
- const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  loop: true,
-
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-  },
-
-  autoplay: {
-    delay: 2000,
-  },
-});
- */
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(' active', '');
+  }
+  slides[slideIndex - 1].style.display = 'block';
+  dots[slideIndex - 1].className += ' active';
+  setTimeout(showSlides, 2000);
+}
 
 // menu open
 
