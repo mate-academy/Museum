@@ -5,7 +5,7 @@
 
   // breakpoint where swiper will be destroyed
   // and switches to a dual-column layout
-  const breakpoint = window.matchMedia('(min-width:1280px)');
+  const breakpoint = window.innerWidth('(min-width:1280px)');
 
   // keep track of swiper instances to destroy later
   let mySwiper;
@@ -36,6 +36,22 @@
       paginationClickable: true,
       autoplay: {
         delay: 2000,
+      },
+      breakpoints: {
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        // when window width is >= 480px
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        // when window width is >= 640px
+        1280: {
+          slidesPerView: 4,
+        },
       },
     });
   };
