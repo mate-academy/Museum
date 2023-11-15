@@ -1,6 +1,7 @@
 'use strict';
 
-// slider
+/*
+// slider HANDMADE
 
 let slideIndex = 0;
 
@@ -27,6 +28,7 @@ function showSlides() {
 }
 
 showSlides();
+*/
 
 /**
 // Mobile Device Check

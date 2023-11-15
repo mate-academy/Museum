@@ -1,0 +1,96 @@
+@use "./utils/_mixins.scss" as *;
+
+.container-gallery {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  max-height: 410px;
+
+  @include forTablet() {
+    display: grid;
+    grid-template-columns: repeat(2, 340px);
+    gap: 20px;
+    max-height: 543px;
+    justify-content: center;
+  }
+
+  @include forDesktop() {
+    grid-template-columns: repeat(12, 70px);
+    grid-template-rows: 600px 360px;
+    gap: 30px;
+    max-height: 1000px;
+  }
+
+  &__image {
+    max-width: 280px;
+
+    @include forTablet() {
+      max-width: 340px;
+    }
+
+    @include forDesktop() {
+      max-width: 100%;
+    }
+
+    &--1 {
+      visibility: visible;
+
+      @include forDesktop() {
+        grid-column: 1 / 5;
+      }
+    }
+
+    &--2 {
+      visibility: hidden;
+
+      @include forDesktop() {
+        visibility: visible;
+      }
+
+      @include forDesktop() {
+        grid-column: 5 / -1;
+        grid-row: 1 / 2;
+      }
+    }
+
+    &--3 {
+      visibility: hidden;
+
+      @include forDesktop() {
+        visibility: visible;
+      }
+
+      @include forDesktop() {
+        grid-column: 1 / 9;
+        grid-row: 2 / 3;
+      }
+    }
+
+    &--4 {
+      visibility: hidden;
+
+      @include forDesktop() {
+        visibility: visible;
+      }
+
+      @include forDesktop() {
+        grid-column: 9 / -1;
+        grid-row: 2 / 3;
+      }
+    }
+
+    &--X {
+      visibility: hidden;
+
+      @include forTablet() {
+        visibility: visible;
+      }
+
+      @include forDesktop() {
+        visibility: hidden;
+      }
+    }
+  }
+}
