@@ -13,4 +13,5 @@ const form = document.querySelector('.contacts__form');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   event.target.reset();
+  window.scrollTo(0, 0);
 });
