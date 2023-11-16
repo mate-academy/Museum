@@ -1,9 +1,10 @@
 'use strict';
 
-/*
 // slider HANDMADE
 
 let slideIndex = 0;
+const maxSlides = 4; // Adjust the maximum number of slides as needed
+let resizeTimer;
 
 function showSlides() {
   let i;
@@ -13,6 +14,7 @@ function showSlides() {
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
   }
+
   slideIndex++;
 
   if (slideIndex > slides.length) {
@@ -22,33 +24,45 @@ function showSlides() {
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(' active', '');
   }
-  slides[slideIndex - 1].style.display = 'block';
-  dots[slideIndex - 1].className += ' active';
-  setTimeout(showSlides, 2000);
-}
 
-showSlides();
-*/
-
-/**
-// Mobile Device Check
-function MobileDeviceCheck() {
-  let mobileFlag = false;
-  const breakpoint = window.matchMedia('only screen and (min-width: 768px)');
-
-  if (breakpoint.matches === true) {
-    mobileFlag = true;
+  if (slideIndex <= maxSlides) { // Stopping condition
+    slides[slideIndex - 1].style.display = 'block';
+    dots[slideIndex - 1].className += ' active';
+    setTimeout(showSlides, 2000);
   }
-
-  return mobileFlag;
 }
 
-const mobileFlag = MobileDeviceCheck();
-
-if (mobileFlag === true) {
+function activateSlider() {
+  // Activate the slideshow and set the appropriate classes
+  document.querySelector('.container-gallery').classList.remove('gallery-desktop');
+  document.querySelector('.slider').classList.add('slider-active');
   showSlides();
 }
- */
+
+function activateContainerGallery() {
+  // Deactivate the slideshow and set the appropriate classes
+  document.querySelector('.slider').classList.remove('slider-active');
+  document.querySelector('.container-gallery').classList.add('gallery-desktop');
+}
+
+function checkScreenWidth() {
+  // Use a debounce mechanism to avoid rapid function calls during resizing
+  clearTimeout(resizeTimer);
+
+  resizeTimer = setTimeout(function() {
+    if (window.innerWidth > 767) {
+      activateContainerGallery();
+    } else {
+      activateSlider();
+    }
+  }, 250); // Adjust the debounce time as needed
+}
+
+// Initial check
+checkScreenWidth();
+
+// Set up an event listener for the resize event
+window.addEventListener('resize', checkScreenWidth);
 
 // menu open
 
