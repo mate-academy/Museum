@@ -1,0 +1,33 @@
+@use "./utils/_mixins.scss" as *;
+
+.links {
+
+  &__list {
+    display: grid;
+    grid-template-columns: 130px 130px;
+    gap: 20px;
+
+    @include forTablet {
+      grid-template-columns: repeat(2, 220px);
+    }
+
+    @include forDesktop() {
+      grid-template-columns: repeat(2, 170px);
+    }
+  }
+
+  &__link {
+    color: $color-black;
+    font-family: IBM Plex Sans, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    text-decoration: none;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@use "./utils/_mixins.scss" as *;
+
+.line {
+  display: flex;
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  @include forTablet() {
+    grid-column-start: 3;
+    grid-column-end: 7;
+  }
+
+  @include forDesktop() {
+    grid-column: 7;
+    width: 70px;
+    height: 260px;
+    align-items: center;
+    grid-row-start: 1;
+  }
+
+  &__horizontal {
+    width: 1px;
+    height: 280px;
+    transform: rotate(-90deg);
+    color: $color-green;
+    background-color: $color-green;
+    border: 0;
+    margin-top: -100px;
+    margin-bottom: -100px;
+
+    @include forTablet {
+      height: 480px;
+      margin-top: -190px;
+      margin-bottom: -190px;
+
+      &--vertical {
+        @include forDesktop() {
+          transform: none;
+          height: 260px;
+        }
+      }
+    }
+
+    &--white {
+      color: $color-white;
+      background-color: $color-white;
+      margin-top: -115px;
+      margin-bottom: -120px;
+
+      @include forTablet() {
+        transform: none;
+        height: 145px;
+        margin-top: 1px;
+      }
+    }
+  }
+}

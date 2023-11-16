@@ -1,0 +1,70 @@
+@use "./utils/_mixins.scss" as *;
+
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 -20px 50px;
+  height: 386px;
+
+  @include forTablet() {
+    margin: 0 -34px 51px;
+    height: 380px;
+  }
+
+  @include forDesktop() {
+    margin: 0 -55px 51px;
+    height: 550px;
+  }
+
+  &__background {
+    background-image: url(../images/subscribe_image.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+    z-index: 0;
+
+    @include forTablet() {
+      background-image: url(../images/subscribe_image-tablet.jpg);
+    }
+  }
+
+  &__content {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+
+    @include forTablet() {
+      width: 460px;
+    }
+
+    @include forDesktop() {
+      width: 570px;
+    }
+  }
+
+  &__text {
+    color: $color-white;
+    text-align: center;
+    font-family: IBM Plex Sans, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+    margin-bottom: 50px;
+
+    @include forTablet {
+      margin-bottom: 64px;
+    }
+  }
+}

@@ -1,0 +1,161 @@
+@use "./utils/_mixins.scss" as *;
+
+.menu {
+  position: fixed;
+  transform: translateY(-100%);
+  transition: transform 0.2s;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: $color-green;
+  list-style: none;
+  padding: 27px 20px;
+  color: $color-white;
+  font-family: IBM Plex Sans, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  text-decoration: none;
+
+  &__links {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 28px;
+    position: relative;
+
+    @include forTablet() {
+      margin-left: 62px;
+      margin-right: 38px;
+    }
+
+    @include forDesktop() {
+      flex-direction: row;
+      margin-left: 0;
+      margin-right: 102px;
+    }
+  }
+
+  &__link {
+    color: $color-white;
+    font-family: IBM Plex Sans, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    text-decoration: none;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include forTablet() {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 16px;
+    }
+
+    @include forDesktop() {
+      font-size: 22px;
+      line-height: 22px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 100px 100px;
+    grid-template-rows: 16px;
+    gap: 24px;
+
+    @include forDesktop() {
+      grid-template-columns: 169px 168px;
+      grid-template-rows: 22px;
+      gap: 31px;
+    }
+  }
+
+  &__opening {
+    color: $color-white;
+    font-family: IBM Plex Sans, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+
+    &--bold {
+      font-weight: 600;
+    }
+
+    @include forTablet() {
+      grid-column: 3 / -1;
+      grid-row: 1;
+      margin-left: -88px;
+    }
+
+    @include forDesktop() {
+      grid-column: 4 / -1;
+    }
+  }
+
+  &__line {
+    @include forTablet() {
+      grid-column-start: 2;
+      grid-row: 1;
+      width: 1px;
+    }
+
+    @include forDesktop() {
+      flex-wrap: wrap;
+      align-items: flex-start;
+      height: 145px;
+    }
+  }
+
+  &__article {
+    @include forTablet() {
+      display: grid;
+      grid-template-columns: 158px 144px;
+      gap: 38px;
+    }
+
+    @include forDesktop() {
+      grid-template-columns: 170px 170px;
+      gap: 30px;
+    }
+
+    &--left {
+      &::after {
+        content: "\a";
+        white-space: pre;
+      }
+
+      @include forTablet() {
+        width: 158px;
+      }
+    }
+
+    &--right {
+      @include forTablet() {
+        width: 144px;
+      }
+    }
+  }
+
+  @include forTablet() {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 39px 34px 40px;
+  }
+
+  @include forDesktop() {
+    padding: 40px 155px 48px 182px;
+  }
+}
+
+.showMenu {
+  transform: translateY(0);
+  position: absolute;
+}
