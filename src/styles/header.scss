@@ -1,0 +1,149 @@
+.header {
+  margin: 0;
+  position: relative;
+  margin-bottom: 70px;
+
+  @include onTablet {
+    margin-bottom: 88px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+  &__container {
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 30px;
+      // align-items: center;
+    }
+  }
+  &__background {
+    background-image: url(../images/header-bg-image.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+
+    @include onTablet {
+      height: 384px;
+    }
+
+    @include onDesktop {
+      height: 655px;
+    }
+  }
+  &__menu-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: 88px;
+    align-items: center;
+    padding: 27px 20px;
+
+    @include onTablet {
+      padding: 15px 39px;
+      gap: 336px;
+    }
+    @include onDesktop {
+      padding: 15px 55px;
+      gap: 476px;
+    }
+  }
+  &__logo {
+    @include dimensions(61px, 55px);
+
+    @include onTablet {
+      @include dimensions(72px, 220px);
+    }
+
+    @include onDesktop {
+      @include dimensions(72px, 170px);
+    }
+  }
+  &__menu {
+    @include dimensions(24px, 24px);
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+  &__content {
+    @include onTablet {
+      margin-left: 34px;
+      margin-top: 128px;
+    }
+    @include onDesktop {
+      margin-left: 55px;
+    }
+  }
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 20px;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 54px;
+      line-height: 64px;
+      padding-bottom: 38px;
+      margin: 0;
+    }
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 88px;
+      padding-bottom: 90px;
+      margin: auto;
+    }
+  }
+  &__button {
+    display: flex;
+
+    justify-content: right;
+    text-align: center;
+    background: none;
+    color: inherit;
+    border: none;
+
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.03);
+    }
+    @include onTablet {
+      margin: 0;
+    }
+    @include onDesktop {
+      margin-left: auto;
+    }
+  }
+
+  &__ticket {
+    @include dimensions(50px, 230px);
+    font-family: "IBM Plex Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 50px;
+    font-weight: 500;
+    border: 1px solid #1a5a4c;
+  }
+
+  &__arrow {
+    line-height: 65px;
+    @include dimensions(24px, 24px);
+    border: 1px solid #1a5a4c;
+    background-color: #1a5a4c;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    &:active {
+      border: 1px solid #f14a27;
+      background-color: #f14a27;
+    }
+  }
+}
