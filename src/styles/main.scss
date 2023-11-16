@@ -20,7 +20,20 @@ html {
     overflow: hidden;
 
     .body {
-      background-color: rgba($c-black, $alpha: 0.3);
+      &::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($c-black, $alpha: 0.3);
+        z-index: -1;
+      }
+    }
+
+    .header {
+      pointer-events: none;
     }
   }
 }
@@ -38,7 +51,6 @@ html {
   background-size: contain;
   max-width: 1280px;
   margin: 0 auto;
-
 
   @include onTablet {
     background-size: 374px 384px;
