@@ -17,6 +17,18 @@
   }
 }
 
+@mixin paddingInLine {
+  padding-inline: 20px;
+  
+  @include onTablet {
+    padding-inline: 34px;
+  }
+
+  @include onDesctop {
+    padding-inline: 55px;
+  }
+}
+
 @mixin forTitles {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
@@ -34,16 +46,22 @@
 }
 
 @mixin forHoverBtn {
-  box-sizing: border-box;
-  cursor: pointer;
-  border-bottom: 2px solid $c-orange;
-  border-left: 2px solid $c-orange;
+  &:hover {
+    cursor: pointer;
+    border-bottom: 2px solid $c-orange;
+    border-left: 2px solid $c-orange;
+  }
 }
 
 @mixin forLinks {
-  cursor: pointer;
-  color: $c-orange;
-  transition: all 0.3s;
+  text-decoration: none;
+  color: $c-for-text;
+
+  &:hover {
+    cursor: pointer;
+    color: $c-orange;
+    transition: all 0.3s;
+  }
 }
 
 @mixin forLogo {

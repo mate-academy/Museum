@@ -18,21 +18,35 @@ html {
 
   &:has(.menu:target) {
     overflow: hidden;
-    .header,
-    .main {
+
+    .body {
       background-color: rgba($c-black, $alpha: 0.3);
     }
   }
 }
 
-body {
+.body {
   background: $background-c-white;
   font-family: "IBM Ple x Sans", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
   color: $c-for-text;
-  margin: 0;
-}
 
-.body {
+  background-image: url(..//images/mobile-muzej.png);
+  background-repeat: no-repeat;
+  background-size: contain;
   max-width: 1280px;
   margin: 0 auto;
+
+
+  @include onTablet {
+    background-size: 374px 384px;
+    background-position: top right;
+  }
+
+  @include onDesctop {
+    padding-top: 15px;
+    background-size: 725px 655px;
+  }
 }
