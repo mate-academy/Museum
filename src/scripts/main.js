@@ -34,7 +34,8 @@ function showSlides() {
 
 function activateSlider() {
   // Activate the slideshow and set the appropriate classes
-  document.querySelector('.container-gallery').classList.remove('gallery-desktop');
+  document.querySelector('.container-gallery')
+    .classList.remove('gallery-desktop');
   document.querySelector('.slider').classList.add('slider-active');
   showSlides();
 }
@@ -76,10 +77,16 @@ function toggleMenu() {
     menu.classList.remove('showMenu');
     closeIcon.style.display = 'none';
     menuIcon.style.display = 'block';
+
+    // Enable scrolling when the menu is closed
+    document.body.classList.remove('no-scroll');
   } else {
     menu.classList.add('showMenu');
     closeIcon.style.display = 'block';
     menuIcon.style.display = 'none';
+
+    // Disable scrolling when the menu is open
+    document.body.classList.add('no-scroll');
   }
 }
 
