@@ -1,14 +1,23 @@
 .tickets {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
+  box-sizing: border-box;
+  gap: 0;
   cursor: pointer;
   text-decoration: none;
   transition-duration: 300ms;
 
-  @include hover(scale, 105%);
+  &:hover {
+    transform: scale(105%);
+  }
+
+  @include onMobile {
+    margin-bottom: 70px;
+  }
 
   @include onTablet {
     justify-content: start;
+    width: min-content;
   }
 
   @include onDesktop {
@@ -34,6 +43,13 @@
     border: 1px solid $c-green;
 
     @include onTablet {
+      height: 70px;
+      width: 200px;
+      flex-grow: 0;
+      line-height: 70px;
+    }
+
+    @include onDesktop {
       height: 70px;
       width: 200px;
       flex-grow: 0;
@@ -71,6 +87,7 @@
 
     &--contacts {
       background-color: $c-red;
+      transition: 300ms;
 
       @include onMobile {
         min-width: 50px;
@@ -89,6 +106,10 @@
         min-width: 70px;
         height: 70px;
         margin-left: 30px;
+      }
+
+      &:hover {
+        transform: scale(105%);
       }
     }
   }

@@ -66,8 +66,15 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    transition-duration: 300ms;
 
-    @include hover(scale, 105%);
+    &:hover {
+      transform: scale(105%);
+    }
+
+    @include onDesktop {
+      justify-self: start;
+    }
 
     @include onTablet {
       justify-self: start;
@@ -75,6 +82,8 @@
   }
 
   &__logo {
+    transition-duration: 300ms;
+
     &-image {
       display: block;
       height: 60px;
@@ -84,7 +93,9 @@
       }
     }
 
-    @include hover(scale, 105%);
+    &:hover {
+      transform: scale(105%);
+    }
 
     @include onTablet {
       grid-column: 4 / 6;
@@ -107,14 +118,21 @@
     color: #000;
     margin-bottom: 20px;
 
+    // @include onMobile {
+
+    // }
+
     @include onTablet {
+      text-align: left;
       font-size: 54px;
       margin-bottom: 38px;
-      text-align: left;
+      line-height: 120%;
       width: 50%;
     }
 
     @include onDesktop {
+      text-align: left;
+      line-height: 120%;
       font-size: 72px;
       margin-bottom: 90px;
       grid-column: 1 / 6;
