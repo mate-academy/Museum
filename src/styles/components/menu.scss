@@ -1,0 +1,71 @@
+.menu {
+  pointer-events: none;
+  position: fixed;
+  z-index: 2; // щоб перебити іконку бургер меню
+
+  &__container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 3; // щоб закрити задній фон меню
+    background-color: $c-accent;
+    transform: translateY(-100%);
+    transition: $a-transition-time;
+  }
+  
+  &__bg {
+    position: fixed;
+    inset: 0;
+    
+    background-color: $c-title;
+    opacity: 0;
+    transition: $a-transition-time;
+  }
+  
+  &:target {
+    display: flex;
+    pointer-events: all;
+
+    & > .menu__bg {
+      opacity: 0.75;
+    }
+
+    & > .menu__container {
+      transform: translateY(0);
+    }
+  }
+
+  &__content {
+    @extend %column;
+    gap: clamp(24px, 5vw, 102px);
+    @extend %p-page;
+    padding-block: clamp(30px, 10vw, 48px);
+
+    @include onTablet {
+      flex-direction: row;
+    }
+  }
+
+  &__separator {
+    width: 100%;
+    height: 1px;
+    background-color: $c-bg;
+    opacity: 0.5;
+
+    @include onTablet {
+      width: 1px;
+      height: 145px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(24px, 6.5vw, 102px);
+  }
+}
+
+.page__body:has(.menu:target) {
+  overflow: hidden;
+}

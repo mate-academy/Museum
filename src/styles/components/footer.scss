@@ -1,0 +1,53 @@
+.footer {
+  @extend %grid;
+  @extend %p-page;
+
+  @include onLaptop {
+    padding-inline: 0;
+  }
+  /* stylelint-disable-next-line */
+  padding-block: 50px clamp(36px, calc(56px - 0.0625 * (100vw - 320px)), 56px);
+
+  & > * {
+    grid-column: 1 / -1;
+  }
+
+  &__main,
+  &__bottom {
+    margin-top: 2.5rem;
+  }
+
+  &__site-info {
+    margin-top: 5rem;
+  }
+
+  @include onTablet {
+    &__top {
+      grid-column: span 1;
+    }
+
+    &__main {
+      grid-column: span 4;
+    }
+
+    &__bottom {
+      grid-column: 2 / 6;
+    }
+  }
+
+  @include onLaptop {
+    &__top {
+      grid-column: span 1;
+    }
+
+    &__main {
+      grid-column: 3 / 8;
+      margin-top: 0;
+    }
+
+    &__bottom {
+      grid-column: 8 / 12;
+      margin-top: 0;
+    }
+  }
+}

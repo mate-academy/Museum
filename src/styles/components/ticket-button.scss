@@ -1,0 +1,55 @@
+.ticket-button {
+  display: flex;
+  cursor: pointer;
+
+  width: 100%;
+  /* stylelint-disable-next-line */
+  height: clamp(50px, 15.625vw, 70px);
+  color: $c-title;
+
+  border: 1.5px solid $c-accent;
+  background-color: $c-bg;
+
+  @media (pointer: fine) and (hover: hover) {
+    transition: $a-transition-time;
+
+    &:hover {
+      color: $c-bg;
+      background-color: $c-accent;
+      border: none;
+    }
+
+    &:hover > &__arrow {
+      background-color: $c-bg;
+      border: 1.5px solid $c-accent;
+      border-left: none;
+      background-image: url(../images/icons/arrow-button-icon-hover.svg);
+    }
+  }
+
+  @include onTablet {
+    max-width: 270px;
+  }
+
+  &__text {
+    flex-grow: 1;
+    align-self: stretch;
+    @extend %center;
+
+    font-weight: $fw-info;
+    text-transform: uppercase;
+  }
+
+  &__arrow {
+    @extend %center;
+    height: 100%;
+    /* stylelint-disable-next-line */
+    aspect-ratio: 1;
+
+    background-color: $c-accent;
+    background-image: url(../images/icons/arrow-button-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+}

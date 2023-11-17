@@ -1,0 +1,87 @@
+.gallery {
+  @extend %column;
+  gap: clamp(40px, 12.5vw, 56px);
+
+  &__title {
+    @extend %p-page;
+  }
+
+  &__content {
+    @extend %column;
+    gap: 20px;
+
+    @extend %p-page-laptop;
+  }
+
+  &__img-collection {
+    @extend %grid;
+    display: flex;
+    gap: 16px;
+
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    scroll-snap-type: x mandatory;
+
+    @include onLaptop {
+      display: grid;
+    }
+  }
+
+  &__img {
+    scroll-snap-align: center;
+
+    max-height: clamp(410px, 128vw, 540px);
+    /* stylelint-disable-next-line */
+    aspect-ratio: 7 / 11;
+
+    object-fit: cover;
+    object-position: center;
+
+    &:first-child {
+      margin-left: clamp($p-page-mobile, 6.25vw, $p-page-tablet);
+    }
+
+    &:last-child {
+      margin-right: clamp($p-page-mobile, 6.25vw, $p-page-tablet);
+    }
+
+    @include onLaptop {
+
+      &:first-child,
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    @include onLaptop {
+      display: none;
+      max-height: auto;
+      width: 100%;
+
+      &--grid-1 {
+        display: block;
+        grid-column: span 4;
+        object-position: center top;
+      }
+
+      &--grid-2 {
+        display: block;
+        grid-column: span 8;
+      }
+
+      &--grid-3 {
+        display: block;
+        grid-column: span 8;
+      }
+
+      &--grid-4 {
+        display: block;
+        grid-column: span 4;
+      }
+    }
+  }
+}

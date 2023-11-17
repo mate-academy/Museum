@@ -1,0 +1,29 @@
+.paginator {
+  align-self: center;
+  display: flex;
+  gap: 20px;
+
+  @include onLaptop {
+    display: none;
+  }
+
+  &__item {
+    --color: 100%;
+    --active-color: 0%;
+    width: 10px;
+    /* stylelint-disable-next-line */
+    aspect-ratio: 1;
+    clip-path: circle(50%);
+
+    background-color: color-mix(in oklab,
+    #e0efe0 var(--color),
+    $c-accent var(--active-color));
+
+    transition: $a-transition-time;
+
+    &:first-child {
+      --color: 0%;
+      --active-color: 100%;
+    }
+  }
+}

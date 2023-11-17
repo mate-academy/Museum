@@ -1,0 +1,43 @@
+.input-email {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+
+  @include onTablet {
+    gap: 1rem;
+  }
+
+  &__input {
+    flex-grow: 1;
+    padding-left: 1.5rem;
+    background-color: $c-bg;
+
+    &::placeholder {
+      color: $c-type;
+      font-family: $c-title;
+      font-size: 14px;
+      line-height: 100%;
+    }
+  }
+
+  &__submit {
+    @extend %center;
+    /* stylelint-disable-next-line */
+    height: clamp(50px, 15.625vw, 70px);
+    /* stylelint-disable-next-line */
+    aspect-ratio: 1;
+    background-color: $c-accent2;
+    cursor: pointer;
+
+    @include hover {
+      background: $c-accent;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+    }
+
+  }
+
+  @include hover {
+    transform: scale(1.05);
+    transition: $a-transition-time;
+  }
+}
