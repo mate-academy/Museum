@@ -1,0 +1,73 @@
+.header {
+  @extend %grid;
+  position: relative;
+
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+
+  @extend %p-page-laptop;
+  width: 100%;
+  max-width: 1728px;
+  min-height: 100vh;
+
+  @include onTablet {
+    flex-direction: row;
+    gap: 30px;
+    min-height: auto;
+    max-height: min-content;
+  }
+
+  @include onLaptop {
+    display: grid;
+  }
+
+  &__burger-menu {
+    position: absolute;
+    /* stylelint-disable-next-line */
+    top: clamp(30px, 9.375vw, 40px);
+    /* stylelint-disable-next-line */
+    left: clamp(30px, 9.375vw, 40px);
+
+    z-index: 1; // щоб його було видно над картинкою
+  }
+
+  &__left {
+    grid-column: span 5;
+    flex-basis: min-content;
+    padding-block: 5rem;
+
+    @include onTablet {
+      padding-block: 0;
+    }
+  }
+
+  &__right {
+    position: relative;
+
+    flex-grow: 1;
+    grid-column: 6 / -1;
+
+    display: flex;
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__logo {
+    position: absolute;
+    height: 60px;
+    /* stylelint-disable-next-line */
+    top: clamp(10px, 3.125vw, 15px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include onTablet {
+      height: 72px;
+      left: 12%;
+      top: clamp(15px, 5vw, 60px);
+    }
+  }
+}

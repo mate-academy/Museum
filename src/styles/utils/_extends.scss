@@ -1,4 +1,82 @@
-%h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+%title {
+  color: $c-title;
+  font-family: $ff-title;
+  font-weight: $fw-title;
+}
+
+%page-title {
+  @extend %title;
+  font-size: clamp(45px, 14vw, 72px);
+  text-transform: uppercase;
+
+  @include onTablet {
+    font-size: clamp(54px, 7vw, 72px);
+  }
+}
+
+%center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%column {
+  display: flex;
+  flex-direction: column;
+}
+
+%p-page-laptop {
+  @include onLaptop {
+    padding-inline: 0;
+    margin: auto;
+    width: 90vw;
+    max-width: 1170px;
+  }
+}
+
+%p-page-mobile {
+  padding-inline: clamp($p-page-mobile, 6.25vw, $p-page-tablet);
+}
+
+%p-page {
+  @extend %p-page-mobile;
+  @extend %p-page-laptop;
+}
+
+%grid {
+  --column-count: 2;
+  --column-gap: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), 1fr);
+  column-gap: var(--column-gap);
+
+  @include onTablet {
+    --column-count: 6;
+    --column-gap: 30px;
+  }
+
+  @include onLaptop {
+    --column-count: 12;
+  }
+}
+
+%text-1 {
+  color: $c-text-main;
+  font-weight: 300;
+  line-height: 150%;
+}
+
+%text-2 {
+  color: $c-title;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+%text-3 {
+  text-align: center;
+  color: $c-bg;
+  /* stylelint-disable-next-line */
+  font-size: 1.125rem;
+  line-height: 100%;
 }
