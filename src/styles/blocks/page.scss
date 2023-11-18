@@ -1,0 +1,28 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    background: $c-white;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      max-height: 100%;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden; /* not to scroll the page */
+  }
+}

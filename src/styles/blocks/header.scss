@@ -1,0 +1,86 @@
+@import "../utils/mixins";
+
+.header {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  @include pageGrid;
+
+  &__bg {
+    width: 100%;
+    height: 100%;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: -8 / -1;
+    }
+  }
+
+  &__title__div {
+    grid-column: 1 / -1;
+    max-width: 280px;
+
+    display: grid;
+    margin-inline: auto;
+
+    @include onTablet {
+      grid-row: 1;
+      margin: 127px 0 0 34px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      grid-column: 1 / 3;
+    }
+
+    @include onDesktop {
+      margin: 206px 0 0 55px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__logo {
+    width: 63px;
+    height: 72px;
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include onTablet {
+      top: 15px;
+      left: 66%;
+      transform: translateX(-50%);
+    }
+
+    @include onDesktop {
+      left: 52%;
+    }
+  }
+
+  &__burger {
+    background-image: url(../icons/icon-hamburger.svg);
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 27px;
+    margin-left: 20px;
+
+    @include onTablet {
+      margin-left: 34px;
+      top: 40px;
+    }
+
+    @include onDesktop {
+      margin-left: 55px;
+    }
+  }
+}
