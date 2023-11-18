@@ -1,8 +1,20 @@
 .aside {
-  @include pageGrid;
   background-color: #1a5a4c;
   max-height: 0;
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+  &__content {
+    @include pageGrid;
+    max-width: 280px;
+
+    @include onTablet {
+      max-width: 690px;
+    }
+
+    @include onDesktop {
+      max-width: 1170px;
+    }
+  }
 
   &__gallery {
     margin-bottom: 24px;
@@ -66,21 +78,17 @@
   &__top {
     display: flex;
     gap: 28px;
-    margin: 27px 20px 0;
+    margin-top: 27px;
 
     grid-column: 1 / -1;
 
     @include onTablet {
-      margin: 40px 0 0 34px;
-      font-size: 16px;
+      margin-top: 40px;
 
       grid-column: 1 / 4;
     }
 
     @include onDesktop {
-      gap: 102px;
-      margin-left: 55px;
-
       grid-column: 1 / 6;
     }
   }
@@ -94,13 +102,12 @@
 
     @include onTablet {
       margin: 0;
-      grid-column: 4 / 4;
       transform: rotate(-90deg);
-      grid-row: 1 / 2;
+
+      grid-column: 3 / 3;
     }
 
     @include onDesktop {
-      margin: 0;
       grid-column: 6 / 6;
     }
   }
@@ -116,7 +123,7 @@
     }
 
     @include onDesktop {
-      grid-column: 7 / -4;
+      grid-column: 8 / -4;
     }
   }
 

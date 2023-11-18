@@ -5,6 +5,15 @@
   background-repeat: no-repeat;
   background-position: center;
   @include pageGrid;
+  max-width: 280px;
+
+  @include onTablet {
+    max-width: 690px;
+  }
+
+  @include onDesktop {
+    max-width: 1170px;
+  }
 
   &__bg {
     width: 100%;
@@ -29,7 +38,7 @@
 
     @include onTablet {
       grid-row: 1;
-      margin: 127px 0 0 34px;
+      margin: 127px 0 0;
       display: flex;
       justify-content: space-between;
       flex-direction: column;
@@ -38,7 +47,7 @@
     }
 
     @include onDesktop {
-      margin: 206px 0 0 55px;
+      margin: 206px 0 0;
       display: flex;
       justify-content: space-between;
       flex-direction: column;
@@ -54,6 +63,10 @@
     top: 9px;
     left: 50%;
     transform: translateX(-50%);
+
+    &:hover {
+      transform: translateX(-50%) scale(1.1);
+    }
 
     @include onTablet {
       top: 15px;
@@ -72,15 +85,13 @@
     height: 24px;
     position: absolute;
     top: 27px;
-    margin-left: 20px;
 
-    @include onTablet {
-      margin-left: 34px;
-      top: 40px;
+    &:hover {
+      background-image: url(../icons/icon-burger-menu-24-hover-SVG.svg);
     }
 
-    @include onDesktop {
-      margin-left: 55px;
+    @include onTablet {
+      top: 40px;
     }
   }
 }
