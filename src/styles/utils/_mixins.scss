@@ -4,3 +4,40 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 35px;
+  }
+
+  @include onDesktop {
+    padding-inline: 55px;
+    // max-width: $desktop-width;
+    margin: 0 auto;
+  }
+}
+
+.container {
+  @include contentPaddingInline;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
