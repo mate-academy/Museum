@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 14px;
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+  }
+
+  &__menu {
+    padding: 30px 20px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    @include onTablet {
+      padding: 36px 34px 0;
+    }
+
+    @include onDesktop {
+      padding: 38px 55px 0;
+    }
+
+    opacity: 0;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
