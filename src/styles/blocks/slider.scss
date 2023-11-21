@@ -1,0 +1,60 @@
+@use "./utils/mixins.scss" as *;
+
+.slider {
+  display: none;
+}
+
+.slider-active {
+  max-width: 100%;
+  height: 439px;
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include for-tablet {
+    max-height: 543px;
+  }
+}
+
+.mySlides {
+  display: none;
+}
+
+.dot {
+  cursor: pointer;
+  height: 9px;
+  width: 9px;
+  margin: 0 5px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: $color-green;
+}
+
+.dots {
+  text-align: center;
+
+  @include for-tablet {
+    visibility: hidden;
+  }
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}

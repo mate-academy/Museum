@@ -1,0 +1,76 @@
+@use "./utils/mixins.scss" as *;
+
+.contact-us {
+  display: grid;
+  grid-template-columns: 130px 128px;
+  gap: 0 20px;
+
+  &__links {
+    margin-bottom: 80px;
+
+    @include for-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include for-desktop {
+      grid-column: 8 / 12;
+      grid-row: 1 / 2;
+    }
+  }
+
+  &__logo {
+    @include for-tablet {
+      grid-column-start: 1;
+      grid-row-start: 1;
+      height: 72px;
+      width: 98px;
+      background-position: left;
+      margin-bottom: 64px;
+    }
+  }
+
+  &__socials {
+    @include for-tablet {
+      grid-column-start: 1;
+      height: 24px;
+    }
+
+    @include for-desktop {
+      grid-row: 1;
+      margin-top: 134px;
+    }
+  }
+
+  &__opening {
+    @include for-tablet {
+      grid-column: 2 / 3;
+      grid-row: 1 / 4;
+    }
+
+    @include for-desktop {
+      grid-column: 3 / 5;
+    }
+  }
+
+  &__address {
+    @include for-tablet {
+      grid-column: 3 / 4;
+      grid-row: 1 / 4;
+    }
+
+    @include for-desktop {
+      grid-column: 5 / 7;
+    }
+  }
+
+  @include for-tablet {
+    grid-template-columns: 98px 220px 220px 98px;
+    place-items: start start;
+  }
+
+  @include for-desktop {
+    grid-template-columns: repeat(12, 70px);
+    gap: 30px;
+    margin-bottom: 87px;
+  }
+}
