@@ -1,0 +1,131 @@
+.actual__title {
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.info__row {
+  max-width: 280px;
+  display: flex;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.actual__img img{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.info__title::after {
+  content: "";
+  position: absolute;
+  top: 33%;
+  width: 10px;
+  height: 10px;
+  background-color: #F14A27;
+  margin-left: 15px;
+}
+
+.info__point {
+  width: 10px;
+  height: 10px;
+  background-color: #F14A27;
+}
+
+.subtitle {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.info__subtitle {
+  @include center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #687480;
+}
+
+.info__date {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1A5A4C;
+}
+
+.info__title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 28px;
+  color: #0F0E08;
+  width: fit-content;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    transition: transform 0.3s ease;
+    transform: scale(0);
+  }
+  &:hover::before {
+    transform-origin: left;
+    transform: scale(1);
+    border-bottom: 1px solid black;
+  }
+}
+
+.info__text {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4E4E4E;
+  margin-bottom: 60px;
+}
+
+@include phone-max {
+  .info__row {
+    justify-content: space-between;
+  }
+}
+
+@include phone {
+  .title {
+    font-size: 36px;
+    line-height: 36px;
+    text-align: center;
+  }
+}
+
+@include tablet {
+  main {
+    padding-top: 88px;
+  }
+  .actual__title {
+    text-align: left;
+  }
+  .info__row {
+    gap: 25px;
+    max-width: 460px;
+  }
+  .info__title {
+    font-size: 36px;
+  }
+  .info__title::after {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@include desktop {
+  .actual__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .actual__img {
+    flex-grow: 0.7;
+  }
+  .info__row {
+    max-width: 370px;
+  }
+}

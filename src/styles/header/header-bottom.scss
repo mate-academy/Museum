@@ -1,0 +1,143 @@
+.tickets__row {
+  @include flex-sps-center;
+  width: 280px;
+  @include transition(transform, scale(1.2));
+  color: #000;
+}
+
+.tickets__row--green {
+  border: 1px solid #1a5a4c;
+  display: block;
+}
+
+.tickets__link-row {
+  @include center;
+}
+
+.tickets__link--green {
+  background-color: #1a5a4c;
+  padding: 37% 33%;
+
+  &:hover {
+    background-color: #133a31;
+  }
+}
+
+.tickets__link {
+  transition: all 0.3s ease;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.tickets__text {
+  font-family: "IBM Plex Sans", sans-serif;
+  @include center;
+  font-weight: 500;
+  font-size: 16px;
+  width: 100%;
+}
+
+.title {
+  @include monts-bold;
+}
+
+.header__title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 45px;
+}
+
+@include phone-max {
+  .header__title {
+    text-align: center;
+  }
+}
+@include phone {
+  .tickets__row {
+    @include center;
+  }
+  .tickets__link-row {
+    width: 50px;
+    height: 50px;
+  }
+  .header__title {
+    margin-bottom: 20px;
+    font-size: 45px;
+    line-height: 45px;
+    width: 280px;
+  }
+  .header__bottom {
+    @include col-center;
+  }
+  .bottom__subtitle {
+    display: none;
+  }
+}
+
+@include tablet {
+  .header__title {
+    margin-bottom: 38px;
+    font-size: 54px;
+    line-height: 64.8px;
+  }
+  .tickets__row {
+    width: 270px;
+    height: 70px;
+  }
+  .tickets__link-row {
+    width: 70px;
+    height: 70px;
+  }
+  .header__bottom {
+    @include col-center;
+    align-items: flex-start;
+    width: 50%;
+  }
+}
+
+@include desktop {
+  .header__bottom {
+    width: 470px;
+  }
+  .header__title {
+    margin-bottom: 89px;
+    font-size: 72px;
+    line-height: 86px;
+  }
+  .tickets__row {
+    width: 269px;
+    height: 70px;
+    margin-left: 200px;
+    @include center;
+  }
+  .tickets__link-row {
+    width: 70px;
+    height: 70px;
+  }
+  .bottom__subtitle {
+    display: block;
+    padding: 20% 0;
+    position: relative;
+    top: -100px;
+    color: #000;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    transition: all 0.3s;
+    transform: rotate(270deg);
+    &::before {
+      content: "";
+      position: absolute;
+      right: 100px;
+      top: 50%;
+      width: 70px;
+      height: 1px;
+      background-color: #1a5a4c;
+    }
+    &:hover {
+      transform: rotate(360deg);
+    }
+  }
+}

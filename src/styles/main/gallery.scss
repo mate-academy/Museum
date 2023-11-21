@@ -1,0 +1,57 @@
+.gallery__title {
+  margin-bottom: 40px;
+}
+
+.swiper-pagination {
+  position: static;
+}
+
+.swiper-slide {
+@include center;
+}
+
+@include phone {
+  .swiper-img {
+    width: 280px;
+    height: 410px;
+  }
+  .gallery {
+    margin-bottom: 100px;
+  }
+}
+@include tablet {
+  .gallery__title {
+    margin-bottom: 48px;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+}
+
+@include phone {
+  .gallery__grid {
+    display: none;
+  }
+}
+
+@include desktop {
+  .swiper {
+    display: none;
+  }
+  .gallery__grid {
+    display: block;
+  }
+  .grid__row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+   justify-content: center;
+  }
+  .grid__row > img {
+    @include transition(transform,scale(1.05));
+  }
+}

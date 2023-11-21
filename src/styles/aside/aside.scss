@@ -1,0 +1,174 @@
+#menu {
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: #1a5a4c;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  color: #fff;
+  opacity: 0;
+  transition: all 0.5s ease;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+#menu:target {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.grid {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+}
+
+.aside__top {
+  display: flex;
+  position: relative;
+  top: 21px;
+  padding-bottom: 24px;
+  margin-bottom: 49px;
+  width: 100%;
+  color: #fff;
+}
+@include phone {
+  #menu {
+    padding-bottom: 20px;
+  }
+  .aside__top {
+    border-bottom: 1px solid #fff;
+    gap: 10%;
+  }
+
+  .row__aside-text {
+    min-width: 141px;
+    max-width: 240px;
+  }
+}
+
+@include tablet {
+  #menu {
+    padding-bottom: 70px;
+  }
+  .aside__top {
+    border-bottom: none;
+    font-size: 16px;
+  }
+}
+
+.aside__bottom {
+  font-size: 14px;
+}
+
+.aside__row {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid__item {
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.row__item {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  margin-bottom: 16px;
+  width: 158px;
+}
+
+.bottom__title {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 19.69px;
+  margin-bottom: 20px;
+}
+
+.item__day {
+  font-weight: 300;
+}
+
+@include tablet {
+  .aside__container {
+    display: flex;
+    position: relative;
+    top: 7px;
+  }
+  .aside__top {
+    width: 50%;
+    padding-right: 38px;
+    top: 27px;
+    gap: 20%;
+  }
+  .aside__bottom {
+    border-left: 1px solid #fff;
+    position: relative;
+    top: 27px;
+    width: 50%;
+    padding-left: 38px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 15px;
+  }
+  .item__date {
+    width: fit-content;
+  }
+}
+
+@include desktop {
+  .aside__top {
+    width: 50%;
+    padding-right: 0;
+  }
+
+  .aside__bottom {
+    padding-left: 102px;
+  }
+  .aside__grid {
+    font-size: 22px;
+    line-height: 22px;
+    color: #fff;
+    gap: 30px;
+  }
+  .row__aside-text {
+    min-width: 141px;
+    max-width: 165px;
+  }
+  .grid__item {
+    font-size: 22px;
+  }
+}
+
+  .grid__item {
+    position: relative;
+    width: fit-content;
+  }
+
+.aside__grid > ::before {
+  border-bottom: 1px solid #fff;
+}
+
+.grid__item::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  transition: transform 0.3s ease;
+  transform: scale(0);
+}
+
+.grid__item:hover::before {
+  transform-origin: right;
+  transform: scale(1);
+}

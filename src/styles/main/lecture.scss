@@ -1,0 +1,85 @@
+.lecture {
+  position: relative;
+  &__img {
+    width: 100%;
+    height: 210px;
+    background-image: url(../images/pictures/lecture.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  &__info {
+    position: relative;
+    top: -70px;
+    z-index: 3;
+    margin-top: 50px;
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px #1A5A4C40;
+    @include transition(transform, scale(1.2));
+  }
+
+  &__row {
+    display: flex;
+  }
+}
+
+.info {
+  &__title {
+    max-width: 460px;
+    &--no-pseudo::after {
+      content: "";
+      display: none;
+    }
+  }
+}
+
+@include tablet {
+  .lecture__img {
+    width: 89%;
+    height: 390px;
+    margin: 0 auto;
+  }
+
+  .lecture__row {
+    margin: 0 10% 30px;
+    gap: 30%;
+  }
+  .lecture__info {
+    width: 570px;
+    height: 204px;
+    padding: 45px 0 50px;
+    margin: 0  auto 30px;
+  }
+}
+
+@include desktop {
+  .lecture__img {
+    width: 100%;
+    min-height: 550px;
+    &__info {
+      top: 38em;
+    }
+  }
+  .lecture__rwo {
+    max-width: 80%;
+  }
+}
+
+@include phone-max {
+  .lecture {
+    margin-bottom: 120px;
+  }
+  .info__title--no-pseudo {
+    text-align: center;
+  }
+  .lecture__row {
+    justify-content: space-around;
+  }
+  .lecture__top {
+    margin-bottom: 20px;
+  }
+}
+
+.info__title--no-pseudo {
+  pointer-events: none;
+}
