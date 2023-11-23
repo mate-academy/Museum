@@ -1,0 +1,80 @@
+.contacts {
+  &__container {
+    @include pagePaddings;
+    position: relative;
+
+    @include pageGrid;
+    @include onTablet {
+      grid-template-rows: 46px 68px 293px;
+    }
+
+    @include onSmallDesktop {
+      grid-template-rows: 70px 88px 382px;
+    }
+  }
+
+  &__vertical {
+    position: absolute;
+    left: -10px;
+    top: 10px;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    @include onTablet {
+      grid-column: 1 / 4;
+      grid-row: 1 / 2;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 2 / 5;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+    @include onTablet {
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
+    }
+    @include onSmallDesktop {
+      grid-column: 2 / 6;
+    }
+
+    &-content {
+      padding-block: 10px 30px;
+      @include onTablet {
+        padding-block: 0;
+      }
+    }
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+    @include onTablet {
+      grid-column: 1 / 4;
+      grid-row: 3 / 5;
+    }
+    @include onSmallDesktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__picture {
+    margin: 0;
+    display: none;
+    object-fit: cover;
+    height: 100%;
+    min-width: 100%;
+    width: 100%;
+    @include onTablet {
+      display: block;
+      grid-column: 4 / 7;
+      grid-row: 1 / 4;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 7 / 13;
+    }
+  }
+}

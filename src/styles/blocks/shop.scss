@@ -1,0 +1,126 @@
+.shop {
+  @include pageGrid;
+  &__container {
+    grid-column: 1 / -1;
+    position: relative;
+    @include onTablet {
+      @include pageGrid;
+    }
+
+    @include onSmallDesktop {
+      display: grid;
+      grid-template-columns: 80px repeat((2), 1fr);
+      column-gap: 20px;
+    }
+  }
+
+  &__vertical {
+    position: absolute;
+    left: -10px;
+    top: 10px;
+  }
+
+  &__title {
+    @include pagePaddings;
+    text-align: center;
+    @include onTablet {
+      text-align: left;
+    }
+
+    &-content {
+      margin-bottom: 20px;
+      @include onTablet {
+        grid-column: 1 / -1;
+        margin-bottom: 10px;
+      }
+
+      @include onSmallDesktop {
+        margin-bottom: 30px;
+        grid-column: 2 / -1;
+      }
+    }
+  }
+
+  &__nav {
+    @include pagePaddings;
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 2 / 3;
+    }
+  }
+
+  &__list {
+    gap: 34px;
+    margin-bottom: 15px;
+    @include onTablet {
+      margin-bottom: 25px;
+    }
+
+    @include onSmallDesktop {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__link {
+    color: $gray-3;
+    font-family: $poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    position: relative;
+
+    padding-top: 20px;
+    @include onTablet {
+      padding-top: 10px;
+    }
+
+    @include onSmallDesktop {
+      padding-top: 30px;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 150%;
+      letter-spacing: 0.9px;
+    }
+
+    &:hover {
+      color: $gray-1;
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        bottom: -10px;
+        background-color: $gray-1;
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+    &-container {
+      grid-column: 1 / -1;
+      @include pagePaddings;
+      @include onTablet {
+        @include pageGrid;
+      }
+
+      @include onSmallDesktop {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    @include onTablet {
+      grid-column: 3 / 5;
+    }
+    @include onSmallDesktop {
+      width: 280px;
+    }
+  }
+}

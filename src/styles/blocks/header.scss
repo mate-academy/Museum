@@ -1,0 +1,92 @@
+.header {
+  @include pagePaddings;
+  @include containerWidth;
+
+  height: 59px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include onTablet {
+    height: 77px;
+  }
+
+  @include onSmallDesktop {
+    @include pageGrid;
+    grid-template-rows: 1fr;
+    height: 104px;
+    margin-bottom: 40px;
+  }
+
+  &__menu-link {
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+
+  &__logo {
+    @include onSmallDesktop {
+      grid-column: 1 / 4;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    &-link {
+      display: inline-block;
+      background-image: url(../images/icons/logo.svg);
+      width: 24px;
+      height: 24px;
+
+      @include onSmallDesktop {
+        background-image: url(../images/icons/witch-small-desktop.svg);
+        width: 50px;
+        height: 50px;
+        grid-column: 1 / 2;
+      }
+    }
+
+    &-text {
+      display: none;
+      @include onSmallDesktop {
+        display: block;
+
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onSmallDesktop {
+      display: block;
+      grid-column: 7 / 10;
+    }
+  }
+
+  &__list {
+    @include onSmallDesktop {
+      flex-direction: row;
+      gap: 40px;
+    }
+  }
+
+  &__link {
+    @include onSmallDesktop {
+      color: $green;
+      font-family: $poppins;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 150%;
+      text-transform: capitalize;
+      padding-block: 20px;
+    }
+  }
+
+  &__cart-link {
+    @include onSmallDesktop {
+      grid-column: 12 / 13;
+      justify-self: end;
+    }
+  }
+}
