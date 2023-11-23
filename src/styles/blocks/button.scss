@@ -1,0 +1,52 @@
+.button {
+  position: relative;
+  border: 1px solid $colorGreen;
+  height: 50px;
+  min-width: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  @include onTablet {
+    width: 270px;
+    height: 70px;
+  }
+
+  @include onDesktop {
+    margin-left: 200px;
+  }
+
+  &::after {
+    position: absolute;
+    right: 0;
+    content: "";
+    background-image: url(../images/icon/arrow.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: $colorGreen;
+    width: 50px;
+    height: 50px;
+
+    transition: right $transitionTime;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &:hover::after {
+    right: -10px;
+  }
+
+  &__link {
+    color: $colorBlack;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,190 @@
+.footer {
+  &__content {
+    padding: 50px 0 0;
+
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__top {
+    position: relative;
+    padding-bottom: 70px;
+    border-bottom: 1px solid rgba(26, 90, 76, 0.5);
+
+    @include onTablet {
+      padding-bottom: 64px;
+
+      grid-column: 2 / -1;
+    }
+
+    @include onDesktop {
+      padding-right: 64px;
+      padding-bottom: 0;
+      border-right: 1px solid rgba(26, 90, 76, 0.5);
+      border-bottom: none;
+      margin-bottom: 86px;
+
+      grid-column: 3 / 8;
+    }
+  }
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      flex-direction: column;
+      justify-content: start;
+      gap: 62px;
+      margin-bottom: 0;
+
+      grid-column: span 1;
+    }
+
+    @include onDesktop {
+      gap: 64px;
+    }
+  }
+
+  &__logo-link {
+    align-self: flex-start;
+  }
+
+  &__social {
+    display: flex;
+    gap: 20px;
+
+    @include onTablet {
+      gap: 32px;
+    }
+  }
+
+  &__bottom {
+    margin-bottom: 80px;
+
+    @include onTablet {
+      grid-column: 2 / -1;
+      margin-bottom: 120px;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / -1;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include onTablet {
+      justify-content: start;
+    }
+  }
+
+  &__button-scroll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid  $colorGreen;
+
+    position: absolute;
+    right: 0;
+
+    transition: all $transitionTime;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid $colorRed;
+      transform: scale(1.1);
+    }
+
+    &:hover svg path {
+      fill: $colorRed;
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__nav {
+    padding-top: 40px;
+
+    @include onTablet {
+      padding-top: 64px;
+    }
+
+    @include onDesktop {
+      padding-top: 0;
+    }
+  }
+
+  &__nav-list {
+    @extend %resetStyleList;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @include onTablet {
+      justify-content: start;
+    }
+  }
+
+  &__nav-item {
+    flex-basis: 130px;
+    flex-basis: 45%;
+
+    @include onTablet {
+      min-width: 30%;
+      flex-basis: 220px;
+    }
+
+    @include onDesktop {
+      flex-basis: 169px;
+    }
+  }
+
+  &__nav-link {
+    color: $colorBlack;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+
+    @include hover(color, $colorRed);
+  }
+
+  &__copyright {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    color: $colorBlack;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 140%;
+    padding-bottom: 36px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+}
