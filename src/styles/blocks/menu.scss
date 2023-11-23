@@ -1,0 +1,257 @@
+.menu {
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    $green 0, $green 234px,
+    rgba(0, 0, 0, 0.5) 0,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+
+  @include onTablet {
+    min-width: 800px;
+    background: linear-gradient(
+      to bottom, $green 0,
+      $green 225px,
+      rgba(0, 0, 0, 0.5) 0,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+  }
+
+  @include onPhone {
+
+    min-width: 320px;
+    background: $green;
+  }
+
+  &__content {
+    @include container;
+    width: 100%;
+    box-sizing: content-box;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    position: relative;
+
+    &:after {
+      content: "";
+      background-color: $white;
+      position: absolute;
+      display: block;
+      left: 45%;
+      height: 145px;
+      width: 1px;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onPhone {
+        display: block;
+        height: 1px;
+        width: 100%;
+        top: 19%;
+        left: 0;
+      }
+    }
+
+    @include onTablet {
+      width: 100%;
+    }
+
+    @include onPhone {
+      justify-content: start;
+      flex-direction: column;
+    }
+  }
+
+  &__icon {
+    background-image: url(../images/icons/cross_museum.svg);
+    height: 14px;
+    width: 14px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-right: 102px;
+    transition: all 0.3s;
+
+    &:hover {
+      @include hover;
+    }
+
+    @include onTablet {
+      margin-right: 38px;
+    }
+
+    @include onPhone {
+      height: 12px;
+      width: 12px;
+      margin-right: 0;
+    }
+  }
+
+  &__cross {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__link {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: left;
+    color: $white;
+
+    @include onTablet {
+      font-size: 16px;
+    }
+  }
+
+  &__items {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+
+    @include onPhone {
+      width: 80%;
+      margin-right: 0;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__list {
+    width: 170px;
+    margin-right: 30px;
+
+    @include onTablet {
+      width: 100px;
+      margin-right: 20px;
+    }
+
+    @include onPhone {
+      margin-right: 0;
+    }
+  }
+
+  &__list-item {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 24px;
+    }
+    transition: all 0.3s;
+
+    &:hover {
+      @include hover;
+    }
+  }
+
+  &__schedule {
+    margin-right: 260px;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+
+    &:after {
+      @include onTablet {
+        content: "";
+        background-color: $white;
+        height: 145px;
+        width: 1px;
+        position: absolute;
+        left: -30px;
+      }
+
+      @include onPhone {
+        display: none;
+      }
+    }
+
+    @include onTablet {
+      width: 50%;
+      margin-right: 50px;
+    }
+
+    @include onPhone {
+      width: 90%;
+      margin-left: 0;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    display: block;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: left;
+    color: $white;
+    margin-bottom: 20px;
+  }
+
+  &__weekdays {
+    width: 170px;
+    margin-right: 30px;
+    display: inline;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 150%;
+    text-align: left;
+    color: $white;
+
+    &--time {
+      margin: 0;
+    }
+
+    &--day {
+      font-weight: 400;
+    }
+
+    @include onTablet {
+      width: 158px;
+    }
+
+    @include onPhone {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__weekends {
+    margin-top: 40px;
+    width: 170px;
+    display: inline;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: left;
+    color: $white;
+
+    &--day {
+      font-weight: 600;
+      margin: 0;
+    }
+
+    &--info {
+      margin: 0;
+      font-weight: 400;
+    }
+
+    @include onTablet {
+      width: 140px;
+      margin-right: 38px;
+    }
+
+    @include onPhone {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 16px;
+    }
+  }
+}

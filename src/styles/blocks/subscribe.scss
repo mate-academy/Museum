@@ -1,0 +1,133 @@
+.subscribe {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-image: url(../images/form.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    max-width: 1800px;
+    width: 100%;
+    height: 550px;
+
+    @include onTablet {
+      height: 380px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__header {
+    margin-bottom: 16px;
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    color: $white;
+
+    @include onPhone {
+      margin-bottom: 20px;
+      font-size: 36px;
+    }
+  }
+
+  &__motto {
+    display: block;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    color: $white;
+    margin: 0 50px 72px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onPhone {
+      line-height: 150%;
+      margin: 0 20px 50px;
+    }
+  }
+
+  &__form {
+    box-sizing: border-box;
+    display: flex;
+    height: 70px;
+    min-width: 280px;
+    margin: 0 20px;
+    justify-content: space-between;
+
+    @include onPhone {
+      height: 50px;
+    }
+  }
+
+  &__field {
+    box-sizing: border-box;
+    margin-right: 30px;
+    height: 100%;
+    width: 100%;
+    background-color: $white;
+    padding-left: 32px;
+    border: none;
+
+    &::placeholder {
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #687480;
+    }
+
+    &:valid {
+      color: $black;
+      border: 1px solid $green;
+    }
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+
+    &:not(:placeholder-shown):invalid {
+      color: #eb5757;
+      border-bottom: 1px solid #eb5757;
+    }
+
+    @include onPhone {
+      margin-right: 0;
+    }
+  }
+
+  &__main-button {
+    box-sizing: border-box;
+    height: 100%;
+    width: 70px;
+    background-color: $orange;
+    background-image: url(../images/icons/arrow.svg);
+    background-size: 15%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+    border: none;
+    box-shadow: none;
+
+    &:hover {
+      @include hover;
+      background-color: $green;
+    }
+
+    @include onPhone {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}

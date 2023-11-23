@@ -1,0 +1,64 @@
+.page {
+  min-width: 320px;
+  scroll-behavior: smooth;
+
+  &__section {
+    min-width: 320px;
+    margin-bottom: 200px;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+
+    @include onPhone {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__body {
+    &--with-menu {
+      z-index: 100;
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    @include onPhone {
+      padding: 20px;
+    }
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  &__gallery {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 200px;
+
+    @include onTablet {
+      margin-bottom: 100px;
+    }
+  }
+
+  &__subscribe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
