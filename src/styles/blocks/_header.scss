@@ -1,0 +1,192 @@
+.header {
+  &__top {
+    position: relative;
+  }
+
+  &__menu {
+    background-image: url('../images/icons/menu-open.svg');
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    z-index: 100;
+    top: 27px;
+    cursor: pointer;
+    transition: all $effectDuration;
+
+    &-active {
+      transition: all $effectDuration;
+      background-image: url('../images/icons/menu-close.svg');
+    }
+
+    @include onTablet {
+      top: 39px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $dark-text-color;
+    text-align: center;
+    font-family: "Montserrat", Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 100%;
+    text-decoration: none;
+
+    @include onTablet {
+      top: 15px;
+      left: 65%;
+    }
+
+    @include onDesktop {
+      font-size: 36px;
+      left: 55%;
+
+      @include hover(color, $green-color);
+    }
+
+    &:active {
+      transform: translateX(-50%) translateY(3px);
+    }
+  }
+
+  &__img {
+    max-width: 800px;
+    width: 100%;
+
+    @include onTablet {
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      top: 0;
+      width: 50vw;
+    }
+
+    @include onDesktop {
+      width: 56vw;
+    }
+
+    @media (min-width: 1550px) {
+      right: calc((100vw - 1550px) / 2);
+    }
+  }
+
+  &__grid {
+    @include onTablet {
+      @include pageGrid;
+
+    }
+  }
+
+  &__title {
+    grid-column: 1 / 4;
+    color: $dark-text-color;
+    text-align: center;
+    font-family: Montserrat Helvetica, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+    margin-top: 16px;
+
+    @include onTablet {
+      margin-top: 123px;
+      text-align: left;
+      font-size: 7vw;
+
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      grid-column: 1 / 6;
+      line-height: 120%;
+      margin-top: 206px;
+    }
+  }
+
+  &__tickets {
+    border: 1px solid $green-color;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    width: 280px;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      width: 100%;
+      max-width: 270px;
+      margin: 0;
+      margin-top: 20px;
+      margin-bottom: 20vw;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+      margin-top: 90px;
+      justify-self: end;
+
+      @include hover(transform, translateX(10px));
+
+      &:active {
+        transform: translateX(10px) translateY(3px);
+      }
+    }
+
+    &-text {
+      display: flex;
+      justify-content: center;
+      color: $dark-text-color;
+      font-weight: 500;
+      width: calc(100% - 50px);
+
+      @include onTablet {
+        width: calc(100% - 70px);
+      }
+    }
+
+    &-arrow {
+      display: block;
+      width: 50px;
+      padding-block: 11px;
+      background: $green-color;
+
+      @include onTablet {
+        width: 70px;
+        padding-block: 21px;
+      }
+    }
+  }
+
+  &__label {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      position: absolute;
+      color: #687480;
+      font-size: 14px;
+      font-weight: 700;
+      transform: rotate(-90deg);
+      top: 500px;
+      left: 45px;
+      text-decoration: none;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        right: calc(100% + 20px);
+        content: "";
+        width: 70px;
+        height: 1px;
+        background: $green-color;
+      }
+
+      @include hover(transform, rotate(-90deg) translateX(-10px));
+    }
+  }
+}
