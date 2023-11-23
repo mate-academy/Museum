@@ -1,0 +1,134 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 45vh;
+  background-color: rgba(26, 90, 76, 1);
+
+  @include contentPaddingInline;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-100%);
+  transition: all linear 0.3s;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  @include onTablet {
+    @include pageGrid;
+  }
+}
+
+.menu__top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 28px;
+
+  position: relative;
+
+  margin-bottom: 50px;
+  margin-top: 27px;
+  margin-left: -20px;
+
+  @include onTablet {
+    grid-column: 1 / 4;
+    margin-top: 40px;
+  }
+
+  @include onDesktop {
+    margin-left: 50px;
+  }
+}
+
+.menu__top-bar::after {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 1px;
+  bottom: -24px;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: -1;
+
+  @include onTablet {
+    height: 145px;
+    width: 1px;
+    right: 20px;
+    top: 0px;
+  }
+
+  @include onDesktop {
+    right: -50px;
+  }
+}
+
+.menu__close-icon {
+  background-image: url(./../images/icons/namu-icon-close.svg);
+  display: block;
+}
+
+.menu__elements {
+  width: 100px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.menu__text {
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.menu__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include onTablet {
+    grid-column: 4 / -1;
+
+    margin-top: 40px;
+
+    @include pageGrid;
+  }
+
+  @include onDesktop {
+    margin-left: 50px;
+  }
+}
+
+.menu__bottom-text {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+
+  margin-bottom: 20px;
+}
+
+.menu__bottom-wrap {
+  @include onTablet {
+    grid-column: 1 / 4;
+  }
+}
+
+.menu__bottom-title {
+  margin-bottom: 20px;
+}
+
+.ggg {
+  grid-column: 4 / -1;
+
+  @include onTablet {
+    max-width: 145px;
+  }
+}
