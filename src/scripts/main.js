@@ -5,6 +5,7 @@
 let slideIndex = 0;
 const maxSlides = 4;
 let resizeTimer;
+let sliderActive = false; // Dodaj zmienną do śledzenia aktywności slajdera
 
 function showSlides() {
   let i;
@@ -28,20 +29,32 @@ function showSlides() {
   if (slideIndex <= maxSlides) {
     slides[slideIndex - 1].style.display = 'block';
     dots[slideIndex - 1].className += ' active';
-    setTimeout(showSlides, 2000);
+
+    if (sliderActive) {
+      setTimeout(showSlides, 2000);
+    }
   }
 }
 
 function activateSlider() {
-  document.querySelector('.container-gallery')
-    .classList.remove('gallery-desktop');
-  document.querySelector('.slider').classList.add('slider-active');
-  showSlides();
+  if (!sliderActive) {
+    sliderActive = true;
+
+    document.querySelector('.container-gallery')
+      .classList.remove('gallery-desktop');
+    document.querySelector('.slider').classList.add('slider-active');
+    showSlides();
+  }
 }
 
 function activateContainerGallery() {
-  document.querySelector('.slider').classList.remove('slider-active');
-  document.querySelector('.container-gallery').classList.add('gallery-desktop');
+  if (sliderActive) {
+    sliderActive = false;
+    document.querySelector('.slider').classList.remove('slider-active');
+
+    document.querySelector('.container-gallery')
+      .classList.add('gallery-desktop');
+  }
 }
 
 function checkScreenWidth() {
