@@ -66,7 +66,7 @@ const menu = document.querySelector('.menu');
 const hamburger = document.querySelector('.hamburger');
 const closeIcon = document.querySelector('.closeIcon');
 const menuIcon = document.querySelector('.menuIcon');
-const closeMenuLink = document.querySelector('.menu__link');
+const menuLinks = document.querySelectorAll('.menu__link');
 
 function toggleMenu() {
   if (menu.classList.contains('showMenu')) {
@@ -84,8 +84,21 @@ function toggleMenu() {
   }
 }
 
+function closeMenu() {
+  if (menu.classList.contains('showMenu')) {
+    menu.classList.remove('showMenu');
+    closeIcon.style.display = 'none';
+    menuIcon.style.display = 'block';
+
+    document.body.classList.remove('no-scroll');
+  }
+}
+
 hamburger.addEventListener('click', toggleMenu);
-closeMenuLink.addEventListener('click', toggleMenu);
+
+menuLinks.forEach((link) => {
+  link.addEventListener('click', closeMenu);
+});
 
 // upward
 const scroll = document.querySelector('.upward');
