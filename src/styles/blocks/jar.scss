@@ -1,0 +1,85 @@
+.jar {
+  height: 397px;
+  position: relative;
+
+  &__picture {
+    height: 397px;
+    width: 135px;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    background-image: url(../images/icons/Powder-mobile.svg);
+    @include onTablet {
+      background-image: url(../images/icons/Powder-tablet.svg);
+      width: 299px;
+    }
+    @include onSmallDesktop {
+      width: 383px;
+      background-image: url(../images/icons/Powder-desktop.svg);
+    }
+  }
+
+  &__ingredient {
+    white-space: nowrap;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: $gray-1;
+    text-align: right;
+    font-family: $poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 32px;
+      height: 1px;
+      background-color: $gray-1;
+      left: 100%;
+      margin-left: 20px;
+      @include onTablet {
+        width: 76px;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: $gray-1;
+      left: calc(100% + 20px + 32px);
+      @include onTablet {
+        left: calc(100% + 20px + 76px);
+      }
+    }
+
+    &-container {
+      position: absolute;
+      display: flex;
+      justify-content: end;
+      left: -90px;
+      @include onTablet {
+        left: -120px;
+      }
+    }
+
+    $jar-height: 397px;
+    $element-gap: 72px;
+    $first-gap-difference: 22px;
+
+    @function shift($number, $gap, $difference) {
+      @return ($number * $gap) - $difference;
+    }
+    @for $element from 1 through 5 {
+      &--#{$element} {
+        position: absolute;
+        top: shift($element, $element-gap, $first-gap-difference);
+      }
+    }
+  }
+}
