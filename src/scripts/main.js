@@ -5,7 +5,7 @@
 let slideIndex = 0;
 const maxSlides = 4;
 let resizeTimer;
-let sliderActive = false; // Dodaj zmienną do śledzenia aktywności slajdera
+let sliderActive = false;
 
 function showSlides() {
   let i;
