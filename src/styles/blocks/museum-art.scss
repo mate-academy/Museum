@@ -1,0 +1,96 @@
+.museum-art {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include onTablet {
+    gap: 38px;
+  }
+
+  @include onDesktop {
+    gap: 89px;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    color: $title-color;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    align-self: center;
+    padding: 0 50px 0 0;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px -16px rgba(0,0,0,0.75);
+      transition: box-shadow transform;
+      transition-duration: 0.3s;
+    }
+  }
+
+  &__tikets {
+    cursor: pointer;
+    width: 280px;
+    height: 50px;
+    border: 1px solid $menu-color;
+    background-color: $main-color;
+
+    text-transform: uppercase;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: $text-color;
+
+    &::after {
+      content: url(../images/arrow.svg);
+
+      align-self: flex-start;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      height: 100%;
+      width: 50px;
+      background-color: $menu-color;
+      line-height: 50px;
+
+      @include onTablet {
+        width: 70px;
+        line-height: 70px;
+      }
+
+    }
+
+    @include onTablet {
+      align-self: flex-start;
+      width: 270px;
+      height: 70px;
+      padding: 0 50px 0 0;
+    }
+
+    @include onDesktop {
+      align-self: flex-end;
+    }
+  }
+}

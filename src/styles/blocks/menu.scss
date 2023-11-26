@@ -1,0 +1,94 @@
+.menu {
+  box-sizing: border-box;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    background-color: $menu-color;
+    min-height: 400px;
+
+    @include onTablet {
+      min-height: 225px;
+    }
+
+    @include onDesktop {
+      min-height: 233px;
+    }
+  }
+
+  /*Сірий блок що йде розкривається разом з меню*/
+  &__decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    background-color: $menu-decoration-color;
+    opacity: 0.5;
+    z-index: -2;
+  }
+
+  &__icon {
+    @include iconPosition;
+    margin: 0;
+    position: absolute;
+
+  }
+
+  &__container {
+    padding: 27px 0 0;
+
+    @include onTablet {
+      display: flex;
+      justify-content: row;
+      padding: 40px 0 0;
+
+    }
+  }
+
+  &__aside {
+    padding-left: 52px;
+
+    @include onTablet {
+      display: flex;
+      flex-basis: 45%;
+      flex-grow: 1;
+      padding: 0 38px;
+    }
+
+    @include onDesktop {
+      flex-basis: 35%;
+      padding: 0 102px;
+    }
+  }
+
+  &__separator {
+    margin: 0 0 24px;
+    width: 100%;
+    height: 1px;
+    background-color: $main-color;
+
+    @include onTablet {
+      width: 1px;
+      min-height: 145px;
+    }
+  }
+
+  &__shedules {
+    @include onTablet {
+      display: flex;
+      flex-grow: 1;
+      gap: 38px;
+      padding: 0 0 0 38px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+      padding: 0 0 0 102px;
+    }
+  }
+}
