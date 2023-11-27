@@ -1,0 +1,108 @@
+@import "src/styles/utils/mixins";
+
+.header {
+  height: 483px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 70px;
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    align-self: flex-start;
+    position: relative;
+    z-index: 0;
+  }
+
+  &__menu {
+    position: absolute;
+    z-index: 1;
+    top: 27px;
+  }
+
+  &__logo {
+    position: absolute;
+    z-index: 1;
+    top: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include for-tablet {
+      top: 15px;
+      left: 0;
+      transform: none;
+    }
+  }
+
+  &__button {
+    @include for-tablet {
+      margin-left: 34px;
+    }
+
+    @include for-desktop {
+      margin-left: 0;
+      margin-right: 30px;
+      margin-bottom: 118px;
+    }
+  }
+
+  &__background {
+    background-image: url(../images/header_image.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 103% auto;
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+
+    @include for-tablet {
+      width: 100%;
+      height: 384px;
+      grid-column: 4 / -1;
+      grid-row: 1 / -1;
+      background-size: 110% auto;
+    }
+
+    @include for-desktop {
+      height: 655px;
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include for-tablet {
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
+      text-align: left;
+      margin-left: 34px;
+    }
+
+    @include for-desktop {
+      grid-column: 1 / 6;
+      margin-left: 55px;
+      margin-bottom: 89px;
+    }
+  }
+
+  @include for-tablet {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 130px);
+    height: 384px;
+    margin-bottom: 88px;
+  }
+
+  @include for-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(3, 220px);
+    height: 655px;
+    margin-bottom: 200px;
+  }
+}

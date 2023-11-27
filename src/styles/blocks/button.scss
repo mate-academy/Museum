@@ -1,0 +1,117 @@
+@import "src/styles/utils/mixins";
+
+.button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  @include for-tablet {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+  }
+
+  @include for-desktop {
+    grid-column: 4 / 6;
+  }
+
+  &--green {
+    border: 1px solid #1a5a1a4c;
+    width: 280px;
+    height: 50px;
+    transition: transform 0.5s;
+
+    @include for-tablet {
+      width: 270px;
+      height: 70px;
+    }
+
+    &:hover {
+      box-shadow: 1px 4px 16px rgba(52, 87, 58, 0.4);
+      transform: scale(1.02);
+    }
+  }
+
+  &--red {
+    border: transparent;
+    width: 100%;
+    height: 50px;
+    transition: transform 0.5s;
+
+    @include for-tablet {
+      height: 70px;
+    }
+
+    &:hover {
+      box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.4);
+      transform: scale(1.02);
+    }
+
+    &:active {
+      box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.64);
+      transform: scale(1.02);
+      border: 0;
+    }
+  }
+
+  &__tickets {
+    font-family: "IBM Plex Sans", sans-serif;
+    text-decoration: none;
+    color: $color-black;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    padding-left: 80px;
+  }
+
+  &__arrow {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include for-tablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &--green {
+      background-color: $color-green;
+      background-image: url("../images/icons/arrow_right-white.svg");
+    }
+
+    &--red {
+      background-color: #f14a27;
+      background-image: url("../images/icons/arrow_right-black.svg");
+    }
+  }
+
+  &__subscribe {
+    text-align: left;
+    background: $color-white;
+    border: transparent;
+    padding-left: 24px;
+    width: 206px;
+    height: 50px;
+
+    @include for-tablet {
+      width: 350px;
+      height: 70px;
+    }
+
+    @include for-desktop {
+      width: 438px;
+    }
+
+    ::placeholder {
+      color: #687480;
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 14px;
+    }
+  }
+}
