@@ -1,0 +1,220 @@
+.header {
+  background-color: rgb(196, 194, 194);
+
+  @include page-grid;
+
+  @include mobile {
+    background-color: rgba(136, 136, 247, 0.14);
+  }
+
+  @include tablet {
+    padding-inline: 34px;
+    height: 384px;
+    background-color: rgba(245, 245, 83, 0.47);
+  }
+
+  @include desktop {
+    height: 655px;
+    padding: 0;
+    background-color: rgba(247, 7, 7, 0.23);
+
+    @include desktop-container;
+  }
+
+  &__left {
+    @include mobile {
+      position: static;
+      grid-column: span 2;
+      padding-inline: 20px;
+    }
+
+    @include tablet {
+      padding: 0;
+      padding-top: 39px;
+      position: relative;
+      grid-row: 1;
+      font-size: 40px;
+      grid-column: span 3;
+    }
+
+    @include desktop {
+      font-size: 48px;
+      grid-column: span 5;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-size: cover;
+
+    &--menu {
+      background-image: url(../images/icons/menu.svg);
+
+      @include mobile {
+        position: absolute;
+        top: 27px;
+        left: 20px;
+      }
+
+      @include tablet {
+        position: static;
+      }
+    }
+  }
+
+  &__title {
+    color: #000;
+    font-family: $montserrat;
+    font-weight: 700;
+    line-height: 120%;
+    text-transform: uppercase;
+
+    @include mobile {
+      margin: 20px 0;
+      text-align: center;
+      font-size: 45px;
+    }
+
+    @include tablet {
+      font-size: 54px;
+      text-align: left;
+      margin: 64px 0 38px;
+    }
+
+    @include desktop {
+      margin: 143px 0 90px;
+      font-size: 72px;
+    }
+  }
+
+  &__events {
+    display: none;
+    position: absolute;
+    bottom: 90px;
+    left: 0;
+    color: #687480;
+    font-family: $ibm;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%; /* 14px */
+    writing-mode: sideways-lr;
+    text-transform: uppercase;
+
+    @include desktop {
+      display: block;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -90px;
+      left: 50%;
+      height: 70px;
+      width: 1px;
+      background-color: #1a5a4c;
+    }
+  }
+
+  &__right {
+    background-image: url("../images/header-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include mobile {
+      grid-column: span 2;
+      grid-row: 1;
+      height: 300px;
+    }
+
+    @include tablet {
+      height: auto;
+      margin-right: -34px;
+      font-size: 40px;
+      grid-column: span 3;
+    }
+
+    @include desktop {
+      margin-right: -55px;
+      font-size: 48px;
+      grid-column: span 7;
+    }
+  }
+
+  &__logo {
+    text-decoration: none;
+    display: block;
+    margin: 15px 0 0;
+    color: #0f0e08;
+    text-align: center;
+    font-family: $montserrat;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include mobile {
+      margin-top: 9px;
+      font-size: 30px;
+    }
+
+    @include tablet {
+      font-size: 36px;
+      width: 220px;
+    }
+
+    @include desktop {
+      width: 170px;
+    }
+  }
+}
+
+.buy-tickets {
+  display: flex;
+  border: 1px solid #1a5a4c;
+  text-decoration: none;
+
+  @include tablet {
+    width: fit-content;
+    height: 70px;
+  }
+
+  @include desktop {
+    margin-left: auto;
+  }
+
+  &__text {
+    text-transform: uppercase;
+
+    color: #0f0e08;
+    font-family: $ibm;
+    font-size: 16px;
+    font-weight: 500;
+
+    @include mobile {
+      width: 100%;
+      text-align: center;
+      line-height: 48px;
+    }
+
+    @include tablet {
+      line-height: 68px;
+      padding-inline: 68px;
+    }
+  }
+
+  &__arrow {
+    background-color: #1a5a4c;
+    background-image: url("../images/right-arrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include mobile {
+      width: 50px;
+      height: 48px;
+    }
+
+    @include tablet {
+      min-width: 68px;
+      height: 68px;
+    }
+  }
+}
