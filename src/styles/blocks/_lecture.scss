@@ -1,0 +1,101 @@
+.lecture {
+  --height: 210px;
+
+  background-image: url(../images/events/picture3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  height: var(--height);
+
+  @include onTablet {
+    --height: 390px;
+    background-size: calc(100% - 68px) auto;
+  }
+
+  @include onDesktop {
+    --height: 550px;
+    background-size: cover;
+  }
+
+  &__content {
+    --top: 153px;
+    position: relative;
+    top: var(--top);
+
+    background-color: $color-white;
+
+    box-shadow: 0 2px 0 0 #1a5a4c40;
+
+    @include pageGrid;
+
+    @include onTablet {
+      --top: 306px;
+      margin-inline: 65px;
+    }
+
+    @include onDesktop {
+      --top: 448px;
+      margin-inline: 300px;
+    }
+  }
+
+  &__top {
+    grid-column: 1/-1;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      padding: 45px 55px 16px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 30px;
+    }
+
+    @include onDesktop {
+      padding-inline: 100px;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+
+    color: $color-grey;
+  }
+
+  &__date {
+    font-weight: 700;
+
+    color: $secondary-bg-color;
+  }
+
+  &__title {
+    grid-column: 1/-1;
+
+    margin: 0 0 20px;
+
+    font: normal normal 28px/1 "Montserrat", sans-serif;
+    text-align: center;
+
+    color: $secondary-text-color;
+
+    @include onTablet {
+      margin-block-end: 50px;
+      padding-inline: 55px;
+
+      font-size: 36px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      padding-inline: 100px;
+    }
+  }
+}

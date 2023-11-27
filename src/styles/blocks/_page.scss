@@ -1,0 +1,102 @@
+.page {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  font: normal normal 16px/1.5 "IBM Plex Sans", sans-serif;
+  color: $main-text-color;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateX(-100%);
+    transition: all $transition-duration;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+
+      transform: translateX(0);
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__events {
+    --margin-bottom: 183px;
+    margin-block-end: var(--margin-bottom);
+
+    @include onTablet {
+      --margin-bottom: 208px;
+    }
+
+    @include onDesktop {
+      --margin-bottom: 302px;
+    }
+  }
+
+  &__gallery {
+    --margin-bottom: 100px;
+    margin-block-end: var(--margin-bottom);
+
+    @include onTablet {
+      --margin-bottom: 92px;
+    }
+
+    @include onDesktop {
+      --margin-bottom: 200px;
+    }
+  }
+
+  &__subscribe {
+    --margin-bottom: 50px;
+    margin-block-end: var(--margin-bottom);
+
+    @include onTablet {
+      --margin-bottom: 51px;
+    }
+
+    @include onDesktop {
+      --margin-bottom: 47px;
+    }
+  }
+
+  &__contact-us {
+    --margin-bottom: 80px;
+    margin-block-end: var(--margin-bottom);
+
+    @include onTablet {
+      --margin-bottom: 120px;
+    }
+
+    @include onDesktop {
+      --margin-bottom: 87px;
+    }
+  }
+
+  &__footer {
+    --margin-bottom: 64px;
+    margin-block-end: var(--margin-bottom);
+
+    @include onTablet {
+      --margin-bottom: 36px;
+    }
+  }
+}
