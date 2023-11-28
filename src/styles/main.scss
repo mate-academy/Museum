@@ -3,12 +3,16 @@
 @import "./utils/mixins";
 
 .page {
+  font-family: "Montserrat", sans-serif;
+
   &__body {
+    scroll-behavior: smooth;
+    background-color: $white;
     min-width: 320px;
-    font-family: "IBM Plex Sans", sans-serif;
-    font-style: normal;
-    color: $black;
-    line-height: 150%;
+
+    &:has(.menu__page:target) {
+      overflow: hidden;
+    }
   }
 }
 
@@ -33,46 +37,114 @@ h3 {
   line-height: 100%;
 }
 
-.icon {
-  display: block;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
 .container {
   padding: 0 20px;
 }
 
-.header {
-  height: 300px;
-  margin-bottom: 20px;
-  padding-top: 9px;
-  background-image: url("../images/header/main-poster.png");
+.icon {
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: right;
   background-size: contain;
-
-  &__top-action {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    justify-content: space-between;
-    margin-right: 113px;
-  }
 }
 
-.main-logo {
+.menu__icon {
+  height: 24px;
+  width: 24px;
+  background-image: url("../images/icons/menu-button__open.svg");
+  
+  @include hover(transform, rotate(90deg));
+}
+
+.logo__icon {
   width: 55px;
   height: 61px;
   background-image: url("../images/icons/NA-MU__logo.svg");
+
+  @include hover(transform, scale(110%));
 }
 
-.menu {
-  &-button {
-    width: 24px;
-    height: 24px;
-    background-image: url("../images/icons/menu-button__open.svg");
+.header {
+  padding-top: 10px;
+  margin-bottom: 20px;
+  height: 300px;
+  background-image: url("../images/header/main-poster.png");
+  background-repeat: no-repeat;
+  background-position: right;
+
+  &__top-actions {
+    display: flex;
+    align-items: center;
+    gap: 88px;
   }
+
+  &__menu {
+    &-page {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding-top: 30px;
+      height: 100vh;
+      color: $white;
+      background-color: $green;
+  
+      transform: translateX(100%);
+      transition: all 0.5s;
+  
+      &:target {
+        transform: translateX(0);
+        z-index: 1;
+        transition: all 0.5s;
+      }
+    }
+  
+    &__top-actions {
+      display: flex;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid $white;
+    }
+  
+    &__content {
+      display: flex;
+      gap: 28px;
+      font-size: 16px;
+      line-height: 100%;
+    }
+  
+    &__column {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+  
+    &__link {
+      color: $white;
+  
+      @include hover(text-decoration, underline);
+    }
+  
+    &__schedule {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      line-height: 150%;
+  
+      &-details {
+        margin-top: 16px;
+      }
+    }
+  }
+}
+
+.cross__icon {
+  display: block;
+  height: 16px;
+  width: 16px;
+  margin-right: 28px;
+  background-image: url("../images/icons/menu-button__close.svg");
+
+  @include hover(transform, rotate(90deg));
 }
 
 .art-museum {
@@ -92,8 +164,12 @@ h3 {
     width: 100%;
     border: 1px solid $green;
     border-right-width: 50px;
+    color: $black;
+    font-family: IBM Plex Sans, sans-serif;
     font-weight: 500;
     line-height: 100%;
+
+    @include hover(transform, scale(105%));
 
     &-arrow {
       position: absolute;
@@ -116,20 +192,11 @@ h3 {
     margin-bottom: 60px;
 
     &__image {
-      margin-bottom: 16px;
+      margin: 0 auto 16px;
+      display: block;
       width: 100%;
-      height: 210px;
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
 
-      &-1 {
-        background-image: url("../images/blocks/events/img-1.png");
-      }
-
-      &-2 {
-        background-image: url("../images/blocks/events/img-2.png");
-      }
+      @include hover(transform, scale(105%));
     }
 
     &__type {
@@ -165,14 +232,13 @@ h3 {
     }
 
     &__description {
-      width: 281px;
       font-size: 16px;
     }
   }
 }
 
 .lections {
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 
   &__poster {
     height: 210px;
@@ -223,7 +289,9 @@ h3 {
   }
 
   &__slider {
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
+    width: 100%;
+    height: 450px;
   }
 
   &__nav-buttons-box {
@@ -233,6 +301,14 @@ h3 {
     height: 9px;
     margin: 0 auto;
   }
+}
+
+.slider-item {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+
+  @include hover(transform, scale(105%));
 }
 
 .hiden {
@@ -267,6 +343,7 @@ h3 {
 
   &__form {
     display: flex;
+    justify-content: center;
   }
 
   &__button {
@@ -309,6 +386,8 @@ h3 {
   &-link {
     width: 24px;
     height: 24px;
+
+    @include hover(transform, scale(115%));
   }
 }
 
@@ -328,6 +407,8 @@ h3 {
   height: 50px;
   background-image: url(../images/footer/scroll-up_button.svg);
 
+  @include hover(transform, scale(85%));
+
   &::after {
     content: "";
     display: block;
@@ -339,7 +420,7 @@ h3 {
 }
 
 .footer {
-  padding: 50px 20px;
+  padding: 50px 20px 20px;
 
   &__top-action {
     margin-bottom: 40px;
@@ -361,14 +442,6 @@ h3 {
     }
   }
 
-  &__schedule {
-    width: 130px;
-
-    &-title {
-      margin-bottom: 20px;
-    }
-  }
-
   &__contacts {
     width: 128px;
 
@@ -379,35 +452,45 @@ h3 {
     &-item {
       display: block;
       color: $black;
-    }
-  }
 
-  &__menu {
-    font-size: 14px;
-    margin-bottom: 60px;
-
-    &-list {
-      display: flex;
-      gap: 20px;
-    }
-
-    &-item {
-      margin-bottom: 20px;
-    }
-
-    &-link {
-      color: $black;
-    }
-
-    &-column {
-      width: 130px;
+      @include hover(text-decoration, underline);
     }
   }
 }
 
 .schedule {
+  width: 130px;
+
+  &-title {
+    margin-bottom: 20px;
+  }
+
   &-time {
     display: block;
+  }
+}
+
+.menu {
+  font-size: 14px;
+  margin-bottom: 60px;
+
+  &-list {
+    display: flex;
+    gap: 20px;
+  }
+
+  &-item {
+    margin-bottom: 20px;
+  }
+
+  &-link {
+    color: $black;
+
+    @include hover(text-decoration, underline);
+  }
+
+  &-column {
+    width: 130px;
   }
 }
 
