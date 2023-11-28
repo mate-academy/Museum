@@ -1,0 +1,176 @@
+.contacts {
+  margin-top: 138px;
+  font-family: "IBM Plex Sans";
+
+  &__content {
+    position: relative;
+
+    @include pageGrid;
+
+    padding-bottom: 20px;
+
+    row-gap: 40px;
+
+    @include onTablet {
+      border: none;
+      row-gap: 64px;
+    }
+
+    &__middle {
+      --columns: 2;
+      display: grid;
+      column-width: 130px;
+      grid-template-columns: repeat(var(--columns), 1fr);
+
+      grid-column: span 2;
+
+      @include onTablet {
+        padding-bottom: 64px;
+
+        --columns: 4;
+
+        grid-column: 2 / span 4;
+
+        border-bottom: 1px solid #1A5A4C80;
+      }
+
+      @include onDesktop {
+        padding-bottom: 0;
+        padding-right: 65px;
+
+        border: 0;
+
+        border-right: 1px solid #1A5A4C80;
+
+        grid-column: 3 / span 5;
+      }
+    }
+
+    &__top {
+      display: flex;
+
+      align-items: center;
+
+      gap: 62px;
+
+      grid-column: span 2;
+
+      justify-content: space-between;
+
+      @include onTablet {
+        grid-column: 1;
+
+        flex-direction: column;
+
+        align-items: start;
+
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &__bottom {
+
+    padding-top: 20px;
+
+    grid-column: span 2;
+
+    @include onTablet {
+      grid-column: 2 / span 3;
+
+      padding-top: 0;
+    }
+
+    @include onDesktop {
+      padding-left: 45px;
+      grid-column: 8/ span 3;
+    }
+  }
+
+  &__arrow {
+    place-self: end;
+
+    grid-column: 2;
+
+    margin-bottom: -20px;
+
+    @include onTablet {
+      display: none;
+
+      border: none;
+
+      margin-bottom: 0;
+    }
+  }
+
+  &__border {
+    grid-column: span 2;
+
+    border-bottom: 1px solid #1A5A4C80;
+
+    width: 100%;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__logo {
+
+    grid-column: span 2;
+    place-self: center;
+
+    text-decoration: none;
+    color: $black-main;
+    text-transform: uppercase;
+
+    font-family: "Montserrat";
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 100%;
+
+    grid-column: 1;
+  }
+
+  &__right  {
+    display: flex;
+    gap: 20px;
+
+    justify-self: end;
+
+    grid-column: 2;
+
+    @include onTablet {
+      grid-row: 2;
+      grid-column: 1;
+      justify-self: start;
+    }
+  }
+
+  &__schedule {
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+
+    grid-column: span 1;
+
+    @include onTablet {
+      grid-column: span 2;
+    }
+  }
+
+  &__contact-us {
+    display: flex;
+
+    gap: 20px;
+
+    flex-direction: column;
+
+    grid-column: span 1;
+
+    @include onTablet {
+      grid-column: span 2;
+    }
+  }
+}
