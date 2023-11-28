@@ -1,0 +1,166 @@
+$padding-mobile: 27px;
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(24, 24, 26, 0.5);
+  opacity: 0;
+  pointer-events: none;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include OnTablet {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @include OnDesktop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+
+    background-color: $menu-background;
+    padding: $padding-mobile $custom-padding;
+
+    @include OnTablet {
+      grid-column: span 3;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    grid-column: span 2;
+
+    @include OnTablet {
+      grid-column: span 3;
+      border-right: 1px solid rgba(255, 255, 255, 0.5);
+      border-bottom: 0;
+      padding-bottom: 0;
+      padding-right: 40px;
+    }
+
+    @include OnDesktop {
+      padding-right: 102px;
+      grid-column: span 6;
+      gap: 102px;
+    }
+  }
+
+  &__grid-menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 24px;
+    column-gap: 28px;
+    height: fit-content;
+
+    @include OnDesktop {
+      row-gap: 30px;
+      column-gap: 30px;
+    }
+  }
+
+  &__grid-link {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    text-decoration: none;
+    color: white;
+    grid-column: span 1;
+
+    @include OnDesktop {
+      font-size: 22px;
+      line-height: 22px;
+    }
+  }
+
+  &__schedule {
+    padding-top: 24px;
+    grid-column: span 2;
+
+    @include OnTablet {
+      grid-column: span 3;
+      padding-left: 40px;
+      padding-top: 0;
+    }
+
+    @include OnDesktop {
+      padding-left: 102px;
+      grid-column: span 6;
+    }
+  }
+
+  &__schedule-title {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $custom-dark;
+    padding-bottom: 20px;
+    color: white;
+  }
+
+  &__schedule-info {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: white;
+
+    &--bold {
+      font-weight: 600;
+    }
+
+    &--description {
+      font-family: "Montserrat",sans-serif;
+    }
+  }
+
+  &__schedule-box {
+    display: grid;
+    column-gap: 38px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__schedule-box-date {
+    grid-column: span 2;
+
+    @include OnTablet {
+      grid-column: span 1;
+    }
+  }
+
+  &__schedule-description {
+    grid-column: span 2;
+
+    @include OnTablet {
+      grid-column: span 1;
+    }
+  }
+
+  &__non-obliged {
+    display: block;
+    @include OnTablet {
+      display: none;
+    }
+  }
+
+  &__close {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-image: url('../images/close.svg');
+  }
+}

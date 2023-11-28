@@ -1,7 +1,555 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "../styles/header.scss";
+@import "../styles/footer.scss";
+@import "../styles/menu.scss";
 
-body {
-  background: $c-gray;
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.body {
+
+
+  &:has(#menu:target) {
+    overflow: hidden;
+  }
+}
+
+.main {
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+    padding-bottom: 40px;
+    padding-inline: $custom-padding;
+
+    @include OnTablet {
+      text-align: left;
+      padding-inline: $custom-padding-tablet;
+    }
+
+    @include OnDesktop {
+      padding-bottom: 56px;
+      padding-inline: $custom-padding-desktop;
+    }
+  }
+
+  &__events {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  &__event {
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    padding-inline: $custom-padding;
+
+    @include OnTablet {
+      grid-template-columns: repeat(6, 1fr);
+      padding-inline: $custom-padding-tablet;
+    }
+
+    @include OnDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      padding-inline: $custom-padding-desktop;
+      column-gap: 32px;
+    }
+  }
+
+  &__event-box {
+    grid-column: 1 / -1;
+
+    @include OnTablet {
+      grid-column: span 4;
+    }
+
+    @include OnDesktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__event-image {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 210px;
+    transition: transform 0.3s ease-in-out;
+
+    @include OnDesktop {
+      grid-column: span 7;
+
+      max-width: 670px;
+      max-height: 520px;
+
+      &:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+    }
+
+  }
+
+  &__event-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    padding-top: 20px;
+
+    @include OnTablet {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 14px;
+
+      justify-content: left;
+      gap: 30px;
+    }
+
+    &--no-margin-vertical {
+      padding: 0 20px;
+
+      @include OnTablet {
+        padding: 0 55px;
+        justify-content: space-between;
+      }
+
+      @include OnDesktop {
+        padding: 0;
+      }
+    }
+  }
+
+  &__event-title {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    color: $custom-gray;
+    text-transform: uppercase;
+  }
+
+  &__event-time {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: $custom-green;
+    text-transform: uppercase;
+  }
+
+  &__event-name {
+    position: relative;
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 28px;
+    padding-top: 10px;
+    color: $custom-dark;
+
+    &::after {
+      content: "";
+      position: relative;
+      display: inline-block;
+      left: 12px;
+      bottom: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      background-color: $custom-orange;
+
+      @include OnDesktop {
+        width: 15px;
+        height: 15px;
+        transform: translateY(50%);
+      }
+    }
+
+    @include OnTablet {
+      font-size: 36px;
+      padding-top: 15px;
+      line-height: 36px;
+    }
+
+    &--without-after {
+      padding-top: 24px;
+      text-align: center;
+
+      @include OnTablet {
+        text-align: left;
+        padding-inline: 55px;
+      }
+
+      @include OnDesktop {
+        padding-inline: 0;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__event-description {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    color: $custom-darkgray;
+    padding-top: 10px;
+  }
+
+  &__lection {
+    position: relative;
+  }
+
+  &__lection-image {
+    position: relative;
+    width: 100%;
+    min-height: 210px;
+    transition: transform 0.3s ease-in-out;
+
+    @include OnTablet {
+      padding-inline: $custom-padding-tablet;
+    }
+
+    @include OnDesktop {
+      padding-inline: 0;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+    }
+
+  }
+
+  &__lection-container {
+    max-width: 570px;
+    margin: auto;
+    padding: 24px 0 20px;
+    border-bottom: 2px solid #1a5a4c40;
+    background-color: #fff;
+
+    @include OnDesktop {
+      padding: 45px 100px 50px;
+    }
+  }
+
+  &__lection-box {
+    position: relative;
+    bottom: 57px;
+    padding-inline: $custom-padding;
+
+    @include OnDesktop {
+      bottom: 102px;
+    }
+  }
+
+  &__section {
+    padding-bottom: 100px;
+    max-width: 1280px;
+    margin: auto;
+
+    @include OnTablet {
+      padding-bottom: 92px;
+    }
+
+    @include OnDesktop {
+      padding-bottom: 200px;
+    }
+
+    &--event {
+      @include OnDesktop {
+        padding-bottom: 98px;
+      }
+    }
+
+    &--subscribe {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding-bottom: 18px;
+      background-image: url("../images/subscribe.png");
+      max-width: none;
+
+      @include OnTablet {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      @include OnDesktop {
+        grid-template-columns: repeat(12, 1fr);
+        background-image: url("../images/subscribe-desktop.png");
+      }
+    }
+  }
+
+  &__images {
+    display: flex;
+    gap: 16px;
+    margin: auto;
+    padding-left: $custom-padding;
+    overflow-x: hidden;
+    padding-bottom: 20px;
+
+    &--no-carousel {
+      display: none;
+
+      @include OnDesktop {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: 30px;
+      }
+    }
+
+    &--carousel {
+      display: flex;
+
+      @include OnDesktop {
+        display: none;
+      }
+    }
+
+    @include OnTablet {
+      padding-left: $custom-padding-tablet;
+      padding-bottom: 32px;
+      gap: 20px;
+    }
+
+    @include OnDesktop {
+      padding-left: 0;
+
+      padding-inline: $custom-padding-desktop;
+    }
+  }
+
+  &__image-box-slider {
+    box-sizing: content-box;
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+    flex-grow: 1;
+    flex-shrink: 0;
+    min-width: 280px;
+    width: calc(#{(280 / 320) * 100} * 1%);
+
+    @include OnTablet {
+      max-width: 340px;
+    }
+
+    &--smaller {
+      max-width: 370px;
+      max-height: 600px;
+
+      height: 100%;
+      width: 100%;
+
+      grid-column: span 4;
+    }
+
+    &--bigger {
+      max-width: 770px;
+      max-height: 600px;
+
+      height: 100%;
+      width: 100%;
+
+      grid-column: span 8;
+    }
+
+    &--bigger-low {
+      max-width: 770px;
+      max-height: 360px;
+
+      height: 100%;
+      width: 100%;
+
+      grid-column: span 8;
+    }
+
+    &--smaller-low {
+      max-width: 370px;
+      max-height: 360px;
+
+      height: 100%;
+      width: 100%;
+
+      grid-column: span 4;
+    }
+  }
+
+  &__image {
+    position: relative;
+    display: block;
+
+    height: 100%;
+    width: 100%;
+    transition: transform 0.3s ease;
+
+    &--third {
+      display: none;
+    }
+
+    @include OnTablet {
+      &--third {
+        display: block;
+      }
+    }
+
+    @include OnDesktop {
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__points {
+    display: flex;
+    width: 102px;
+    height: 9px;
+    margin: auto;
+    justify-content: space-between;
+
+    @include OnDesktop {
+      display: none;
+    }
+  }
+
+  &__point {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: $custom-grey;
+
+    &--active {
+      background-color: $custom-green;
+    }
+  }
+
+  &__subscribe {
+    grid-column: 1 / -1;
+    padding: 88px $custom-padding;
+
+    @include OnTablet {
+      grid-column: 2 / -2;
+    }
+
+    @include OnDesktop {
+      grid-column: 4 / 10;
+      padding: 164px 0;
+    }
+  }
+
+  &__subscribe-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+    padding-bottom: 20px;
+
+    @include OnTablet {
+      padding-bottom: 16px;
+    }
+  }
+
+  &__subscribe-description {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: center;
+    color: #fff;
+    padding-bottom: 50px;
+
+    @include OnTablet {
+      padding-bottom: 64px;
+    }
+  }
+
+  &__nav-button {
+    position: relative;
+    display: block;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+
+    @include OnDesktop {
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    right:0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    background-color: $custom-orange;
+    outline: 0;
+    border: 0;
+
+    @include OnTablet {
+      width: 70px;
+    }
+  }
+
+  &__arrow-left {
+    position: absolute;
+    display: block;
+    background-image: url('../images/link-icon.svg');
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  &__nav-email {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    background-color: #fff;
+    height: 50px;
+    width: calc(100% - 50px);
+    padding: 18px 0 18px 24px;
+
+
+    @include OnTablet {
+      height: 70px;
+      width: calc(100% - 86px);
+    }
+
+    @include OnDesktop {
+      width: calc(100% - 100px);
+    }
+  }
 }
