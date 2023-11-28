@@ -20,18 +20,18 @@ $padding-mobile: 27px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
-    @include OnTablet {
+    @include on-tablet {
       grid-template-columns: repeat(6, 1fr);
     }
-    @include OnDesktop {
+
+    @include on-desktop {
       grid-template-columns: repeat(12, 1fr);
     }
-
 
     background-color: $menu-background;
     padding: $padding-mobile $custom-padding;
 
-    @include OnTablet {
+    @include on-tablet {
       grid-column: span 3;
     }
   }
@@ -43,7 +43,7 @@ $padding-mobile: 27px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     grid-column: span 2;
 
-    @include OnTablet {
+    @include on-tablet {
       grid-column: span 3;
       border-right: 1px solid rgba(255, 255, 255, 0.5);
       border-bottom: 0;
@@ -51,7 +51,7 @@ $padding-mobile: 27px;
       padding-right: 40px;
     }
 
-    @include OnDesktop {
+    @include on-desktop {
       padding-right: 102px;
       grid-column: span 6;
       gap: 102px;
@@ -61,13 +61,11 @@ $padding-mobile: 27px;
   &__grid-menu {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 24px;
-    column-gap: 28px;
+    gap: 24px 28px;
     height: fit-content;
 
-    @include OnDesktop {
-      row-gap: 30px;
-      column-gap: 30px;
+    @include on-desktop {
+      gap: 30px 30px;
     }
   }
 
@@ -80,7 +78,7 @@ $padding-mobile: 27px;
     color: white;
     grid-column: span 1;
 
-    @include OnDesktop {
+    @include on-desktop {
       font-size: 22px;
       line-height: 22px;
     }
@@ -90,13 +88,13 @@ $padding-mobile: 27px;
     padding-top: 24px;
     grid-column: span 2;
 
-    @include OnTablet {
+    @include on-tablet {
       grid-column: span 3;
       padding-left: 40px;
       padding-top: 0;
     }
 
-    @include OnDesktop {
+    @include on-desktop {
       padding-left: 102px;
       grid-column: span 6;
     }
@@ -107,7 +105,6 @@ $padding-mobile: 27px;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
-    color: $custom-dark;
     padding-bottom: 20px;
     color: white;
   }
@@ -124,7 +121,7 @@ $padding-mobile: 27px;
     }
 
     &--description {
-      font-family: "Montserrat",sans-serif;
+      font-family: Montserrat,sans-serif;
     }
   }
 
@@ -137,7 +134,7 @@ $padding-mobile: 27px;
   &__schedule-box-date {
     grid-column: span 2;
 
-    @include OnTablet {
+    @include on-tablet {
       grid-column: span 1;
     }
   }
@@ -145,14 +142,15 @@ $padding-mobile: 27px;
   &__schedule-description {
     grid-column: span 2;
 
-    @include OnTablet {
+    @include on-tablet {
       grid-column: span 1;
     }
   }
 
   &__non-obliged {
     display: block;
-    @include OnTablet {
+
+    @include on-tablet {
       display: none;
     }
   }
