@@ -1,0 +1,149 @@
+.block {
+
+  &--for-grid {
+    @include onSmallDesktop {
+      @include pageGrid;
+    }
+  }
+
+  &__image {
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    padding-bottom: 75%;
+    max-height: 520px;
+
+    @include onSmallDesktop {
+      padding-bottom: 70%;
+      grid-column: 1 / 8;
+      grid-row: 1 / 6;
+    }
+
+    &--1 {
+      @include hover(transform, scale(1.03));
+      background-image: url(../images/current-events1.png);
+    }
+
+    &--2 {
+      @include hover(transform, scale(1.03));
+
+      background-image: url(../images/current-events2.png);
+    }
+
+    &--3 {
+      padding-bottom: 0;
+      height: 550px;
+      transform: translateX(-20%);
+      width: calc(100vw + 20%);
+      background-image: url(../images/current-events3.png);
+    }
+  }
+
+  &__lection-wrapper {
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+  }
+
+  &__lection {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    width: 280px;
+    height: fit-content;
+    box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+    position: relative;
+    top: -55px;
+
+    background-color: $main-background-color;
+
+    @include onTablet {
+      width: 570px;
+
+      top: -85px;
+    }
+  }
+
+  &__event-days {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 24px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+
+    @include onTablet {
+      margin-top: 44px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 9 / 12;
+      grid-row: 2;
+    }
+
+    &--lection {
+      margin-inline: 20px;
+      // margin-top: 20px;
+
+      @include onTablet {
+        margin-inline: 110px;
+      }
+    }
+  }
+
+  &__event-type {
+    color: #687480;
+    text-transform: uppercase;
+  }
+
+  &__when {
+    font-weight: 700;
+    color: $green-page-color;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    color: $title-color;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 100%;
+
+    margin-top: 10px;
+
+    @include onTablet {
+      margin-top: 32px;
+      font-size: 36px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 9 / 13;
+      grid-row: 3;
+
+    }
+
+    &--lection {
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  &__description {
+    margin-top: 11px;
+
+    @include onTablet {
+      font-size: 16px;
+      margin-top: 15px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 9 / 13;
+      grid-row: 4;
+    }
+  }
+}
