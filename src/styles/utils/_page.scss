@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  scroll-behavior: smooth;
+  min-width: 320px;
+
+  &__body {
+    background-color: $main-background-color;
+    color: $main-text-color;
+
+    font-family: "IBM Plex Sans", "Inter", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%;
+
+  }
+
+  &__body--menu {
+    background-color: rgba($color: #18181a, $alpha: 0.5);
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transition: all $effectDuretion;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+}
