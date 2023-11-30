@@ -1,0 +1,151 @@
+.header {
+  background-image: url(../images/header-photo-bg.png);
+  padding: 9px 20px 0;
+  // background-image: url(../images/header/Natsionalnij-hudozhnij.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  height: 300px;
+  background-position: top right;
+
+  @include onTablet {
+    background-size: 47% auto;
+    padding: 15px 34px 0;
+    height: 384px;
+  }
+
+  @include onDesktop {
+    padding: 15px 55px 0;
+    background-size: 55% auto; //725px 655px
+    height: 655px;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      align-items: start;
+    }
+  }
+
+  &__title {
+    margin-top: 250px;
+    margin-bottom: 38px;
+    text-align: center;
+    font-size: 45px;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      display: flex;
+      max-width: 340px;
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-top: 119px;
+      font-size: 72px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    margin: 38px 0 6px;
+    @include hover(transform, scale(1.02));
+
+    @include onTablet {
+      justify-content: flex-start;
+    }
+
+    @include onDesktop {
+      margin: 89px 0 0 140px;
+
+    }
+  }
+
+  &__button-top {
+    background-color: $white;
+    border: 2px solid $aside;
+    padding: 18px 80px;
+    gap: 78px;
+    color: $aside;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 1.32px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 270px;
+    height: 50px;
+
+    @include onTablet {
+      gap: 59px;
+      width: 270px;
+      height: 70px;
+    }
+
+    .icon--arrow {
+      display: flex;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+
+      @include onTablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  &__button-img {
+    display: flex;
+    border: 4px solid $aside;
+    background-color: $aside;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &:hover {
+      background-color: $line;
+    }
+  }
+
+  &__line {
+    display: none;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: #687480;
+    text-decoration: none;
+    transform: rotate(-90deg);
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 70px;
+      background-color: $line;
+      top: 50%;
+      right: 140%;
+    }
+
+    @include onDesktop {
+      display: inline-block;
+    }
+  }
+}
