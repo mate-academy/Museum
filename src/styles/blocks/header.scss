@@ -1,0 +1,139 @@
+.header {
+  &__cover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 300px;
+    display: block;
+    background-image: url(../images/cover.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include onTablet {
+      width: 374px;
+      height: 384px;
+    }
+    @include onDesktop {
+      width: 725px;
+      height: 655px;
+    }
+  }
+  &__top {
+    grid-column: 1/-1;
+    z-index: 1;
+    margin-top: 8px;
+    display: flex;
+    gap: 88px;
+    align-items: center;
+
+    @include onTablet {
+      gap: 336px;
+      margin-top: 15px;
+    }
+    @include onDesktop {
+      gap: 476px;
+      margin-top: 15px;
+    }
+  }
+  &__title {
+    grid-column: 1 / -1;
+    margin-top: 250px;
+
+    @include onTablet {
+      margin-top: 40px;
+      grid-column: 1 / 4;
+      text-align: start;
+    }
+    @include onDesktop {
+      margin-top: 119px;
+      grid-column: 1 / -8;
+    }
+  }
+  &__button {
+    margin: 20px auto 0;
+    width: 280px;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      margin-top: 38px;
+      grid-column: 1 / 4;
+    }
+    @include onDesktop {
+      margin-top: 89px;
+      grid-column: 3 / 6;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &__text {
+      width: 230px;
+      height: 50px;
+      display: block;
+      text-decoration: none;
+      color: $mainBlack;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 100%;
+      border: 1px solid $mainGreen;
+      text-align: center;
+      padding-top: 16px;
+
+      @include onTablet {
+        width: 200px;
+        height: 70px;
+        padding-top: 25px;
+      }
+    }
+
+    &__photo {
+      position: relative;
+      top: -50px;
+      right: -230px;
+      width: 50px;
+      height: 50px;
+      display: block;
+      background-image: url(../images/greenArrow.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      @include onTablet {
+        width: 70px;
+        height: 70px;
+        top: -70px;
+        right: -200px;
+      }
+    }
+  }
+  &__actions {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: space-between;
+
+      position: absolute;
+      transform: rotate(-90deg);
+
+      &__text {
+
+        color: $titleGrey;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 100%;
+      }
+
+      &__line {
+        width: 70px;
+        height: 1px;
+        background-color: $titleGrey;
+      }
+    }
+  }
+}
