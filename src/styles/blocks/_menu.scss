@@ -1,0 +1,145 @@
+.menu {
+  background-color: rgba(24, 24, 26, 0.5);
+  height: 100vh;
+
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  overflow: auto;
+  z-index: 2;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__container {
+    width: 100%;
+    background-color: $main-green-color;
+  }
+
+  &__content {
+    color: $main-white-color;
+    font-family: $ibm;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%; /* 22px */
+    padding: 27px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      padding: 40px 35px;
+    }
+
+    @include desktop {
+      font-size: 22px;
+
+      @include desktop-container;
+    }
+  }
+
+  &__top {
+    display: flex;
+    width: 100%;
+  }
+
+  &__middle {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    @include tablet {
+      width: 1px;
+      margin-right: 38px;
+      border-left: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    @include desktop {
+      margin-right: 102px;
+    }
+  }
+
+  &__bottom {
+    font-size: 14px;
+    line-height: 150%;
+
+    @include mobile {
+      max-width: 100%;
+      padding-top: 24px;
+    }
+
+    @include tablet {
+      max-width: 50%;
+      padding-top: 0;
+    }
+
+    &--title {
+      margin: 0 0 20px;
+      font-weight: 400;
+      line-height: 140%;
+    }
+  }
+
+  &__data {
+    @include tablet {
+      width: 340px;
+      display: flex;
+      gap: 38px;
+      justify-content: space-between;
+    }
+
+    @include desktop {
+      width: 370px;
+      gap: 0;
+      justify-content: space-between;
+    }
+  }
+}
+
+.nav {
+  width: 100%;
+  justify-content: end;
+  display: flex;
+  gap: 28px;
+
+  @include tablet {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  @include desktop {
+    gap: 31px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    margin-bottom: 24px;
+    width: 100px;
+    list-style-type: none;
+
+    @include desktop {
+      margin-bottom: 30px;
+      width: 169px;
+    }
+  }
+
+  &__link {
+    color: $main-white-color;
+    text-decoration: none;
+  }
+
+  &__icon {
+    display: block;
+    background-size: cover;
+    min-width: 24px;
+    height: 24px;
+  }
+}
