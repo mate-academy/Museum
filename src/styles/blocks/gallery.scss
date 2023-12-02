@@ -2,22 +2,73 @@
   &__img {
     width: 100%;
     height: 100%;
+    transition: all 0.3s;
 
-    &-2,
-    &-3,
-    &-4 {
-      display: none;
+    &:hover {
+      transform: scale(0.9);
+      transition: all 0.3s;
     }
   }
 
   &__slide {
     min-width: 100%;
     height: 410px;
+
+    &-2,
+    &-3,
+    &-4 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &-2 {
+      @include onTablet {
+        display: block;
+        margin-left: 20px;
+      }
+    }
+
+    &-1 {
+      @include onDesktop {
+        grid-column: span 1;
+      }
+    }
+
+    &-2 {
+      @include onDesktop {
+        grid-column: span 3;
+      }
+    }
+
+    &-3 {
+      @include onDesktop {
+        grid-column: span 3;
+      }
+    }
+
+    &-4 {
+      @include onDesktop {
+        grid-column: span 1;
+      }
+    }
+
+    @include onTablet {
+      min-width: 50%;
+    }
   }
 
   &__slides {
     display: flex;
     overflow: hidden;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
   }
 
   &__nav {
@@ -25,6 +76,10 @@
     justify-content: space-between;
     margin-inline: auto;
     width: 100px;
+
+    @include onDesktop {
+      display: none;
+    }
 
     &-btn {
       width: 9px;
