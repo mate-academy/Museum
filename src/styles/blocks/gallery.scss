@@ -3,10 +3,15 @@
     width: 100%;
     height: 100%;
     transition: all 0.3s;
+    object-fit: contain;
+
+    @include onTablet {
+      object-fit: fill;
+    }
 
     @include onDesktop {
       &:hover {
-        transform: scale(0.9);
+        transform: scale(1.05);
         transition: all 0.3s;
       }
     }
@@ -15,6 +20,10 @@
   &__slide {
     min-width: 100%;
     height: 410px;
+
+    @include onTablet {
+      height: 543px;
+    }
 
     &-2,
     &-3,
@@ -35,11 +44,19 @@
       @include onDesktop {
         grid-column: span 3;
       }
+
+      @include onLargeScreen {
+        grid-column: auto;
+      }
     }
 
     &-1 {
       @include onDesktop {
         grid-column: span 1;
+      }
+
+      @include onLargeScreen {
+        grid-column: auto;
       }
     }
 
@@ -47,11 +64,19 @@
       @include onDesktop {
         grid-column: span 3;
       }
+
+      @include onLargeScreen {
+        grid-column: auto;
+      }
     }
 
     &-4 {
       @include onDesktop {
         grid-column: span 1;
+      }
+
+      @include onLargeScreen {
+        grid-column: auto;
       }
     }
 
