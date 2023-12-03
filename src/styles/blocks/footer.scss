@@ -261,18 +261,20 @@
 }
 
 .footer__all {
-  display: flex;
+  position: relative;
 
   @include on-phone {
     grid-row: 4;
     grid-column: 1/3;
-    margin: 20px 0 40px;
+    max-width: 1px;
+    left: -70px;
   }
 
   @include on-tablet {
     grid-column: 2/7;
     grid-row: 3px;
     margin: 0 0 120px;
+    margin-right: 300px;
   }
 
   @include on-desctop {
@@ -281,9 +283,13 @@
   }
 
   .footer__box {
+    position: relative;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    margin: 0 40px 20px 0;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 0 ;
+    top: -20px;
 
     &:last-child {
       margin: 0;
@@ -293,33 +299,44 @@
   .footer__text {
     font-family: $ibm;
     font-size: 14px;
-    transition: 0.3s;
+    width: 100%;
+    margin: 0 90px;
+    transition: 0.3s ease;
 
     &:hover {
-      font-size: 16px;
-      transition: 0.3s;
+      font-size: 18px;
+      transition: 0.3s ease-in-out;
+      margin-bottom: -5px;
     }
   }
 }
 
 .footer__copyright {
+  position: relative;
   font-family: $ibm;
+  font-size: 12px;
   color: $dark;
   width: max-content;
 
   @include on-phone {
     grid-row: 6;
     grid-column: 1/3;
+    left: 40px;
+    top: 30px;
   }
 
   @include on-tablet {
     grid-column: 1/3;
     grid-row: 5;
+    margin-right: -30px;
+    margin-bottom: -40px;
   }
 
   @include on-desctop {
     margin-top: 87px;
     grid-column: 1/3;
+    margin-right: -10px;
+    margin-left: -10px;
   }
 
   &:last-child {
