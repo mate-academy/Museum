@@ -1,0 +1,110 @@
+.header {
+  height: 480px;
+
+  @include onTablet {
+    height: 384px;
+  }
+
+  @include onDesktop {
+    height: 655px;
+  }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    @include pageGrid;
+    z-index: -1;
+
+    @media (min-width: 1920px) {
+      grid-template-columns: repeat(14, 1fr);
+    }
+  }
+
+  &__image--background {
+    grid-column: 1 / -1;
+    height: 300px;
+    width: 100%;
+    background-image: url(../images/namu-header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    // z-index: -1;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      height: 384px;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / -1;
+      height: 655px;
+    }
+  }
+
+  &-content {
+    grid-column: 1 / -1;
+    @include pageGrid;
+    row-gap: 20px;
+
+    @include onTablet {
+      row-gap: 38px;
+    }
+
+    @include onDesktop {
+      row-gap: 89px;
+    }
+
+    &__title {
+      grid-column: 1 / -1;
+      text-align: center;
+
+      @include fontTitle;
+      font-size: 45px;
+      font-weight: 700;
+      line-height: 100%;
+      text-transform: uppercase;
+      color: $c-black;
+
+      @include onTablet {
+        grid-column: 1 / 4;
+        text-align: left;
+        font-size: 54px;
+        line-height: 120%;
+      }
+
+      @include onDesktop {
+        font-size: 72px;
+      }
+    }
+
+    &__events {
+      display: none;
+      position: relative;
+      justify-self: start;
+
+      @include fontDescription;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $blue-gray-color;
+      transform: rotate(270deg);
+      bottom: 95px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        right: 100px;
+        top: 50%;
+        left: -90px;
+        width: 70px;
+        height: 1px;
+        background-color: $green-color;
+      }
+
+      @include onDesktop {
+        display: block;
+        grid-row: 3 / 3;
+      }
+    }
+  }
+}

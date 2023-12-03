@@ -1,0 +1,60 @@
+.menu {
+  --height: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: all 0.3s;
+  transform: translateY(-100%);
+  pointer-events: none;
+  padding: 27px 0;
+  background-color: $green-color;
+  z-index: 4;
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: var(--height);
+    width: 100%;
+    height: calc(100vh - var(--height));
+    background-color: $darck-blue-translucent-color;
+    z-index: 1;
+  }
+
+  @include onTablet {
+    padding: 40px 0;
+  }
+
+  @include onDesktop {
+    padding: 40px 0;
+  }
+
+  &:target {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+  
+  &__border {
+    padding-inline: 20px;
+    grid-column: 1 /-1;
+    display: block;
+    height: 1px;
+    background-color: #ffffff80;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-around;
+      gap: 38px;
+    }
+  }
+}

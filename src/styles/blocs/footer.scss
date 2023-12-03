@@ -1,0 +1,218 @@
+.footer {
+  &__wrapper {
+    @include pageGrid;
+    row-gap: 40px;
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include onTablet {
+      grid-column: 1 / 2;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      gap: 62px;
+    }
+
+    &-logo {
+      display: block;
+      font-size: 36px;
+      text-align: left;
+    }
+
+    &-icon {
+      display: block;
+      width: 24px;
+      height: 24px;
+
+      &--facebook {
+        background-image: url(../images/icons/facebook-letter-logo.svg);
+      }
+
+      &--instagram {
+        background-image: url(../images/icons/instagram-logo.svg);
+
+      }
+      
+      &:hover {
+        transition: transform 0.3s;
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &-schedule {
+    grid-column: 1 / 2;
+
+    @include onTablet {
+      grid-column: 2 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 5;
+    }
+
+    &__wrapper {
+      @include onTablet {
+        flex-direction: column;
+      }
+    }
+
+    &__title {
+      color: $general-text-color;
+    }
+
+    &__item {
+      color: $general-text-color;
+      overflow-wrap: break-word;
+      white-space: wrap;
+    }
+
+    &__weekend {
+      color: $general-text-color;
+    }
+  }
+
+  &-contact {
+    @include onTablet {
+      grid-column: 4 / 6;
+
+      @include onDesktop {
+        grid-column: 5 / 7;
+      }
+    }
+
+    &__title {
+      color: $general-text-color;
+    }
+
+    &__content {
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+      color: $general-text-color;
+
+      @include fontDescription;
+      font-size: 14px;
+      line-height: 150%;
+
+      &--value {
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -1px;
+          display: block;
+          height: 1px;
+          width: 100%;
+          background-color: $green-translucent-color;
+          transition: transform 0.3s;
+          transform: scale(0);
+          transform-origin: left;
+        }
+
+        &:hover::after {
+          transform: scale(1);
+        }
+      }
+
+    }
+  }
+
+  &-border {
+    height: 1px;
+    width: 100%;
+    grid-column: 1 / -1;
+    background-color: $green-translucent-color;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+      grid-row: 2 / 3;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 8;
+      grid-row: 1 / 2;
+      justify-self: center;
+      height: 100%;
+      width: 1px;
+    }
+  }
+
+  &-nav {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+      grid-row: 3 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 12;
+      grid-row: 1 / 1;
+    }
+
+    &__list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      column-gap: 28px;
+      row-gap: 24px;
+      margin: 0;
+      padding: 0;
+      height: 72px;
+      list-style: none;
+    }
+
+    &__link {
+      @include fontDescription;
+      position: relative;
+      font-size: 14px;
+      text-decoration: none;
+      color: $general-text-color;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: $green-translucent-color;
+        transition: transform 0.3s;
+        transform: scale(0);
+        transform-origin: left;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &-copyright {
+    grid-column: 1 / -1;
+
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0 60px;
+
+    @include fontDescription;
+    font-size: 12px;
+    line-height: 140%;
+    text-align: center;
+
+    @include onTablet {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+}
+
+.icon-wrapper {
+  display: flex;
+  gap: 20px;
+}
