@@ -1,11 +1,18 @@
 .menu {
-  padding-block: 27px;
-  padding-inline: 20px;
-  background-color: $green;
+  z-index: 2;
+  background-color: rgba(24, 24, 26, 0.5);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
-  @include onTablet {
-    padding-block: 40px;
-    padding-inline: 34px;
+  .overlay {
+    width: 100%;
+    height: 100vh;
+    background-color: #18181a;
+    opacity: 0.5;
   }
 
   &__wrapper {
@@ -13,10 +20,15 @@
     opacity: 1;
     display: flex;
     flex-direction: column;
+    padding-inline: 20px;
+    padding-block: 27px;
+    background-color: $green;
 
     @include onTablet {
       flex-direction: row;
       align-items: start;
+      padding-block: 40px;
+      padding-inline: 34px;
     }
   }
 
@@ -39,6 +51,13 @@
       flex-basis: 50%;
       padding-bottom: 24px;
       padding-right: 15px;
+
+      transition: all 0.3s;
+
+      &:hover {
+        transform: scale(1.05);
+        transition: all 0.3s;
+      }
     }
 
     &__link {
@@ -54,6 +73,13 @@
     width: 16px;
     height: 16px;
     cursor: pointer;
+
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.3s;
+    }
   }
 
   &__schedule {
