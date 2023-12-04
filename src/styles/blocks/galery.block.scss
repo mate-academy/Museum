@@ -1,0 +1,273 @@
+.galery {
+  @include on-phone {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    justify-content: center;
+    gap: 20px;
+    margin: 0 20px 129px;
+  }
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 90px);
+    justify-content: center;
+    gap: 30px;
+    margin: 0 39px 133px;
+  }
+
+  @include on-desctop {
+    display: grid;
+    grid-template-columns: repeat(12, 70px);
+    justify-content: center;
+    gap: 30px;
+    margin: 0 55px 200px;
+  }
+}
+
+.galery__title {
+  font-family: $mont;
+  font-weight: 700;
+  font-size: 36px;
+
+
+  @include on-phone {
+    grid-column: 1/2;
+    margin: 0 0 0 50px;
+  }
+
+  @include on-tablet {
+    position: relative;
+    grid-row: 1;
+    top: 130px;
+    left: -50px;
+  }
+
+  @include on-desctop {
+    position: relative;
+    grid-row: 1;
+    top: 120px;
+    left: -50px;
+  }
+}
+
+.galery__photo-1 {
+  @include on-phone {
+    width: 280px;
+    height: 410px;
+    grid-column: 1/4;
+    grid-row: 2;
+  }
+
+  @include on-tablet {
+    width: 340px;
+    height: 543px;
+    grid-column: 1/3;
+    grid-row: 2;
+  }
+
+  @include on-desctop {
+    width: 370px;
+    height: 600px;
+    grid-column: 1/4 ;
+    grid-row: 2;
+  }
+}
+
+.galery__photo-2 {
+  @include on-phone {
+    display: none;
+  }
+
+  @include on-tablet {
+    display: block;
+    width: 340px;
+    height: 543px;
+    grid-column: 4/6;
+    grid-row: 2;
+    margin-top: 150px;
+  }
+
+  @include on-desctop {
+    display: block;
+    width: 770px;
+    height: 600px;
+    grid-column: 5/12 ;
+    grid-row: 2;
+  }
+}
+
+.galery__photo-3 {
+  @include on-phone {
+    display: none;
+  }
+
+  @include on-desctop {
+    display: block;
+    width: 770px;
+    height: 360px;
+    grid-column: 1/8 ;
+    grid-row: 3;
+  }
+}
+
+.galery__photo-4 {
+  @include on-phone {
+    display: none;
+  }
+
+  @include on-desctop {
+    display: block;
+    width: 370px;
+    height: 360px;
+    grid-column: 9/13 ;
+    grid-row: 3;
+  }
+}
+
+.slider {
+  display: block;
+  transition: 1s;
+
+  @include on-phone {
+    width: 280px;
+    height: 410px;
+    grid-column: 1/4;
+    grid-row: 2;
+  }
+
+  @include on-tablet {
+    position: relative;
+    width: 340px;
+    height: 543px;
+    grid-column: 1/3;
+    grid-row: 2;
+    top: 150px;
+  }
+
+  @include on-desctop {
+    position: relative;
+    width: 370px;
+    height: 600px;
+    grid-column: 1/4 ;
+    grid-row: 2;
+    top: 150px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    transition: 1s;
+  }
+}
+
+.prev-btn {
+  position: relative;
+  height: 26px;
+  width: 26px;
+  background-image: url(../images/ArrowLeft.png);
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+  border-radius: 12px;
+  color: #000;
+  background-color: rgb(163, 111, 43);
+  animation: move-arrows-left 2s ease-in-out infinite alternate;
+
+  @keyframes move-arrows-left {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @include on-phone {
+    bottom: -500px;
+    left: -200px
+  }
+
+  @include on-tablet {
+     display: none;
+     bottom: -730px;
+     left: -230px;
+     height: 32px;
+     width: 32px;
+  }
+
+  @include on-desctop {
+     display: none;
+     bottom: -780px;
+     left: -190px;
+     height: 32px;
+     width: 32px;
+  }
+
+}
+
+.next-btn {
+  position: relative;
+  height: 26px;
+  width: 26px;
+  background-image: url(../images/ArrowRight.png);
+  background-position: center;
+  background-size: contain;
+  background-color: rgb(163, 111, 43);
+  cursor: pointer;
+  border-radius: 12px;
+  color: #000;
+  animation: move-arrows-right 2s ease-in-out infinite alternate;
+
+  @keyframes move-arrows-right {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-10%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @include on-phone {
+    bottom: -500px;
+    left: 90px
+  }
+
+  @include on-tablet {
+     display: none;
+     bottom: -730px;
+     height: 32px;
+     width: 32px;
+  }
+
+  @include on-desctop {
+     display: none;
+     bottom: -780px;
+     left: -15px;
+     height: 32px;
+     width: 32px;
+  }
+}
+
+.container {
+  @include on-phone {
+    display: block;
+  }
+
+  @include on-tablet {
+    display: none;
+  }
+
+  @include on-desctop {
+    display: none;
+  }
+}
+
+.p {
+  width: 100px;
+  height: 100px;
+}

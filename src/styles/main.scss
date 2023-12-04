@@ -1,7 +1,55 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "blocks/header";
+@import "blocks/menu";
+@import "blocks/actual_content";
+@import "blocks/lectures.block";
+@import "blocks/galery.block";
+@import "blocks/subscription.block";
+@import "blocks/footer";
 
-body {
-  background: $c-gray;
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.4s;
+
+    &:target {
+      transform: translateX(0);
+      overflow-y: hidden;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+
+  /* font-family: "Cinzel", Helvetica, sans-serif;
+  font-family: "Montserrat", Helvetica, sans-serif; */
+}
+
+.link {
+  text-decoration: none;
+  color: #0f0e08;
+  cursor: pointer;
+}
+
+.photo {
+  transition-duration: 1s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
