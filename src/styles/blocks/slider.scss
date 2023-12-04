@@ -1,0 +1,119 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+
+  &__photos {
+    position: relative;
+    display: flex;
+    gap: 16px;
+    height: 410px;
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    @include onTablet {
+      height: 543px;
+      gap: 20px;
+    }
+
+    @include onLaptop {
+      @include pageGrid;
+      height: fit-content;
+      overflow: unset;
+      margin-inline: 0 !important;
+      scroll-snap-type: none !important;
+    }
+  }
+
+  &__link {
+    display: flex;
+  }
+
+  &__img {
+    flex: 1 0 100%;
+
+    @include onTablet {
+      width: 50%;
+      flex: 1 0 50%;
+    }
+
+    @include onLaptop {
+      width: 100%;
+      @include hover(scale, 1.02);
+      z-index: 1;
+    }
+
+    &-1,
+    &-2 {
+      @include onLaptop {
+        height: 600px;
+      }
+    }
+    &-3,
+    &-4 {
+      @include onLaptop {
+        height: 360px;
+      }
+    }
+    &-1 {
+      @include onLaptop {
+        grid-column: 1 / 5;
+      }
+    }
+    &-2 {
+      @include onLaptop {
+        grid-column: 5 / -1;
+        width: 0;
+        height: 0;
+        display: block;
+        padding: 600px 100% 0 0;
+        background: url("../images/slider/slider-3.png") no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+    &-3 {
+      @include onLaptop {
+        grid-column: 1 / 9;
+        height: 0;
+        width: 0;
+        padding: 360px 100% 0 0;
+        background: url("../images/slider/slider-5.png") no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+    &-4 {
+      @include onLaptop {
+        grid-column: 9 / -1;
+      }
+    }
+  }
+
+  &__btns {
+    display: flex;
+    gap: 20px;
+
+    @include onLaptop {
+      display: none;
+    }
+  }
+  &__btn {
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.2);
+    }
+    &--active {
+      background-color: $c-dark-green;
+    }
+  }
+}

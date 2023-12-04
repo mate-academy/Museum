@@ -1,0 +1,211 @@
+.article {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 0;
+    @include pageGrid;
+    margin: 0 34px !important;
+  }
+
+  @include onLaptop {
+    margin: 0 55px !important;
+  }
+
+  &--wide {
+    position: relative;
+    padding-inline: 0;
+    margin-bottom: 87px;
+
+    @include onLaptop {
+      display: flex;
+      margin: 0 !important;
+    }
+  }
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    @include onLaptop {
+      gap: 104px;
+    }
+
+    &-bottom {
+      grid-column: 1 / -1;
+      @include onTablet {
+        @include pageGrid;
+        margin: 0 !important;
+      }
+      @include onLaptop {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        grid-column: 9 / -1;
+      }
+    }
+  }
+
+  &__exhibition {
+    text-transform: uppercase;
+    color: $c-gray-light;
+    font-weight: 500;
+    line-height: 100%;
+
+    &-time {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 20px 15px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 16px;
+
+      @include onTablet {
+        padding-block: 44px 32px;
+        justify-content: left;
+        gap: 20px;
+        grid-column: 1 / -1;
+      }
+
+      @include onLaptop {
+        padding: 0;
+      }
+    }
+  }
+
+  &__time {
+    font-weight: 700;
+    line-height: 150%;
+    color: $c-dark-green;
+  }
+
+  &__link {
+    display: flex;
+    grid-column: 1 / -1;
+
+    @include onLaptop {
+      grid-column: 1 / 8;
+    }
+    &--bg {
+      @include onLaptop {
+        width: 100%;
+      }
+      & img {
+        @include hover(scale, 1);
+      }
+
+    }
+  }
+  &__img {
+    height: 210px;
+    width: 100%;
+
+    @include onTablet {
+      height: 520px;
+    }
+    @include hover(scale, 1.05);
+
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 10px;
+    width: fit-content;
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 100%;
+    color: $c-dark;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+      margin-bottom: 15px;
+      font-size: 36px;
+    }
+
+    @include onLaptop {
+      margin-block: 32px 15px;
+    }
+
+    &--rect::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: 5px;
+      bottom: 0;
+      margin: auto 0;
+      height: 10px;
+      width: 10px;
+      background-color: $c-orange;
+    }
+
+    &--extra {
+      margin-bottom: 20px;
+
+      @include onTablet {
+        display: flex;
+        align-items: left;
+        text-align: left;
+        margin: 0;
+        padding: 0 55px 50px;
+      }
+      @include onLaptop {
+        padding-inline: 100px;
+      }
+    }
+  }
+  &__info {
+    text-align: left;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%;
+    color: #4e4e4e;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+
+  }
+  &__lecture {
+    &-wrapper {
+      position: absolute;
+      bottom: -70px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      height: 140px;
+      width: 280px;
+      background-color: $c-white;
+      box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+
+      @include onTablet {
+        height: 204px;
+        width: 570px;
+        bottom: -82px;
+      }
+
+    }
+    &-time {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 24px 20px;
+
+      font-family: "IBM Plex Sans", sans-serif;
+
+      @include onTablet {
+        justify-content: left;
+        gap: 120px;
+        padding: 45px 55px 16px;
+        font-size: 14px;
+      }
+
+      @include onLaptop {
+        padding-inline: 100px;
+      }
+    }
+  }
+}
