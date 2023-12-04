@@ -9,6 +9,8 @@
   overflow: auto;
   z-index: 2;
 
+  @include add-transition;
+
   &:target {
     opacity: 1;
     pointer-events: all;
@@ -38,6 +40,7 @@
 
     @include desktop {
       font-size: 22px;
+      padding-inline: 0;
 
       @include desktop-container;
     }
@@ -45,7 +48,6 @@
 
   &__top {
     display: flex;
-    width: 100%;
   }
 
   &__middle {
@@ -59,13 +61,14 @@
     }
 
     @include desktop {
-      margin-right: 102px;
+      margin: 0;
     }
   }
 
   &__bottom {
     font-size: 14px;
     line-height: 150%;
+    margin-inline: 102px;
 
     @include mobile {
       max-width: 100%;
@@ -97,49 +100,5 @@
       gap: 0;
       justify-content: space-between;
     }
-  }
-}
-
-.nav {
-  width: 100%;
-  justify-content: end;
-  display: flex;
-  gap: 28px;
-
-  @include tablet {
-    justify-content: center;
-    gap: 20px;
-  }
-
-  @include desktop {
-    gap: 31px;
-  }
-
-  &__list {
-    margin: 0;
-    padding: 0;
-  }
-
-  &__item {
-    margin-bottom: 24px;
-    width: 100px;
-    list-style-type: none;
-
-    @include desktop {
-      margin-bottom: 30px;
-      width: 169px;
-    }
-  }
-
-  &__link {
-    color: $main-white-color;
-    text-decoration: none;
-  }
-
-  &__icon {
-    display: block;
-    background-size: cover;
-    min-width: 24px;
-    height: 24px;
   }
 }
