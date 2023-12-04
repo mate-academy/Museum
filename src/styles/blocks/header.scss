@@ -1,0 +1,61 @@
+.header {
+  position: relative;
+  max-width: 1280px;
+
+  &__content {
+    position: relative;
+
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  @include onDesktop {
+    max-width: $desktop-min-width;
+    margin-left: auto;
+  }
+
+  &__icons {
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    @include inlinePaddindControl;
+    display: flex;
+    align-items: center;
+    padding-top: 9px;
+
+    @include onTablet {
+      @include pageGrid;
+      padding-top: 15px;
+    }
+  }
+
+  &__icon {
+    z-index: 2;
+    @include onTablet {
+      grid-column: span 1;
+    }
+
+    @include onDesktop {
+      grid-column: span 1;
+    }
+  }
+
+  &__logo-link {
+    margin: auto;
+
+    @include onTablet {
+      grid-column: 4/-2;
+      padding-left: 0;
+      text-align: center;
+    }
+
+    @include onDesktop {
+      grid-column: 6/8;
+    }
+  }
+
+  &__top-bar {
+    height: 300px;
+  }
+}

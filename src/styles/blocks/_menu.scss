@@ -1,0 +1,94 @@
+.menu {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  overflow: auto;
+  color: $main-bg-color;
+  font-family: $font-IBM;
+  transition: $effect-duration;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transition: $effect-duration;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  &__top-bar {
+    width: fit-content;
+  }
+
+  &__bg {
+    background-color: $secondary-bg-color;
+    height: 399px;
+    width: 100vw;
+
+    @include onTablet {
+      height: 255px;
+    }
+
+    @include onDesktop {
+      height: 233px;
+    }
+  }
+
+  &__content {
+    padding-top: 27px;
+    display: flex;
+    height: 372px;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-around;
+      gap: 38px;
+      height: 215px;
+      padding-top: 40px;
+    }
+
+    @include onDesktop {
+      gap: 102px;
+      height: 193px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+
+    @include onTablet {
+      // grid-column: span 3;
+      gap: 38px;
+    }
+
+    @include onDesktop {
+      gap: 102px;
+    }
+  }
+
+  &__strip {
+    height: 1px;
+    background-color: $main-bg-color;
+
+    @include onTablet {
+      width: 1px;
+      height: 145px;
+    }
+  }
+
+  &__bottom {
+    height: 100vh;
+    width: 100%;
+    background-color: #18181a;
+    opacity: 0.7;
+  }
+}

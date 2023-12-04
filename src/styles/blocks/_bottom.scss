@@ -1,0 +1,80 @@
+.bottom {
+  grid-area: bot;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  gap: 20px;
+  width: fit-content;
+  @include inlinePaddindControl;
+  margin: 0 auto;
+
+  @include onTablet {
+    grid-column: 1/4;
+    align-items: flex-start;
+    gap: 38px;
+    width: 100%;
+    max-width: 470px;
+    margin-right: auto;
+  }
+
+  @include onDesktop {
+    grid-column: 1/6;
+    margin-left: 0;
+    gap: 89px;
+  }
+
+  &__title {
+    padding-top: 20px;
+    font-size: $font-size-mobile-h1;
+    font-weight: $font-weight-bold;
+    line-height: $line-hight-100;
+    color: $main-title-color;
+    text-align: center;
+    font-family: $font-Montserat;
+
+    @include onTablet {
+      font-size: $font-size-tablet-h1;
+      font-weight: $font-weight-bold;
+      line-height: 120%;
+      text-align: start;
+    }
+
+    @include onDesktop {
+      padding-top: 90px;
+    }
+  }
+
+  &__vertical-container {
+    position: absolute;
+    top: 522px;
+  }
+
+  &__vertical {
+    display: none;
+    position: relative;
+    transform: rotate(270deg);
+    text-decoration: none;
+    color: $accent-text-color;
+    font-family: $font-IBM;
+    font-size: $font-size-main-text-smaller;
+    font-weight: $font-weight-bold;
+    line-height: $line-hight-100;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 1px;
+      right: 60px;
+      bottom: 50%;
+      background-color: $secondary-bg-color;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}

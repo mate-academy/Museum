@@ -1,0 +1,78 @@
+.nav {
+  &__list {
+    list-style: none;
+    padding: 0;
+    height: fit-content;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 24px;
+    column-gap: 28px;
+
+    @include onTablet {
+      row-gap: 24px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+    }
+
+    &--black {
+      padding-top: 40px;
+      font-family: $font-IBM;
+      font-size: $font-size-main-text-smaller;
+      font-weight: $font-weight-normal;
+      line-height: $line-hight-100;
+      row-gap: 20px;
+
+      @include onTablet {
+        padding-top: 64px;
+        column-gap: 150px;
+      }
+
+      @include onDesktop {
+        column-gap: 30px;
+        padding: 0;
+
+      }
+    }
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item {
+    max-width: 169px;
+    @include onTablet {
+      width: 100px;
+    }
+
+    @include onDesktop {
+      width: 169px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    text-decoration: none;
+    color: $main-bg-color;
+    @include hover (transform, scale(1.1));
+
+    &--black {
+      @include hover(color, $secondary-bg-color);
+      @include hover(transform, none);
+
+      color: $main-text-color;
+
+      @include onTablet {
+        width: 220px;
+      }
+
+      @include onDesktop {
+        width: 169px;
+      }
+    }
+  }
+}
