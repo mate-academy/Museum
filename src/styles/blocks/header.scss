@@ -1,0 +1,210 @@
+.header {
+  &__content {
+    // @include pageGrid;
+  }
+
+  &__top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 9px;
+    margin-bottom: 250px;
+
+    @include onTablet {
+      @include pageGrid;
+      align-items: center;
+      padding-top: 15px;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 119px;
+    }
+  }
+
+  &__logo {
+    width: 55px;
+    height: 61px;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include onTablet {
+      grid-column: 4 / 6;
+      width: 220px;
+      height: 72px;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 8;
+      width: 170px;
+      height: 72px;
+    }
+  }
+
+  &__background {
+    background-image: url(..//images/background-image-desktop.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    // width: 100%;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    // grid-column: 1 / -1;
+
+    @include onTablet {
+      // grid-column: 4 / 7;
+      height: 384px;
+      // left: calc(50% + 10px);
+      left: 52%;
+    }
+
+    @include onDesktop {
+      // grid-column: 6 / 13;
+      height: 655px;
+      // left: calc(50% - 85px);
+      left: 44%;
+    }
+  }
+
+  &__info {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+
+    @include onTablet {
+      align-items: start;
+      gap: 38px;
+    }
+
+    @include onDesktop {
+      @include pageGrid;
+      gap: 89px;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 45px;
+    line-height: 100%;
+    font-weight: 700;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__button {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    line-height: 100%;
+    color: $main-col;
+
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    height: 50px;
+    max-width: 350px;
+    width: 100%;
+    border: 1px solid $bg-menu-col;
+    transition: 0.3s;
+
+    // margin: 0 auto;
+
+    &:hover {
+      color: #fff;
+      background-color: $bg-menu-col;
+    }
+
+    @include onTablet {
+      height: 70px;
+      width: 270px;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 6;
+      margin-bottom: 200px;
+    }
+
+    &--text {
+      display: flex;
+      justify-content: center;
+      align-self: center;
+
+      margin: 0 auto;
+    }
+
+    &--square {
+      height: 49px;
+      width: 50px;
+      background-color: $bg-menu-col;
+      border-color: $bg-menu-col;
+      background-image: url(..//images/icon/header-btn-arrow.svg);
+      background-repeat: no-repeat;
+      // background-size: contain;
+      background-position: center;
+
+      @include onTablet {
+        height: 69px;
+        width: 70px;
+      }
+    }
+  }
+
+  &__link {
+    display: none;
+    transition: 0.3s;
+
+    @include onDesktop {
+      display: block;
+      position: absolute;
+      transform: rotate(-90deg);
+      // grid-column: 1 / 2;
+
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 100%;
+      color: #687480;
+      // top: 522px;
+      top: 316px;
+      left: -10px;
+      // padding: 0 55px;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        height: 1px;
+        width: 70px;
+        background-color: $bg-menu-col;
+        color: $bg-menu-col;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

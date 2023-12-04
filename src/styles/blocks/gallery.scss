@@ -1,0 +1,116 @@
+.gallery {
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 129px;
+
+    @include onTablet {
+      @include pageGrid;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &-photo {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+
+      @include onTablet {
+        justify-self: center;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      &--1 {
+        width: 280px;
+
+        @include onTablet {
+          width: 340px;
+          grid-column: 1 / 4;
+        }
+      }
+
+      &--2 {
+        display: none;
+
+        @include onTablet {
+          display: block;
+          width: 340px;
+          grid-column: 4 / 7;
+        }
+      }
+
+      &--img {
+        width: 280px;
+        height: 410px;
+        flex: 1 0 100%;
+        object-fit: cover;
+
+        @include onTablet {
+          width: 100%;
+          height: 543px;
+        }
+      }
+    }
+  }
+
+  &__desktop {
+    display: none;
+
+    @include onDesktop {
+      @include pageGrid;
+      gap: 30px;
+      margin-bottom: 200px;
+      // display: block;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      font-size: 48px;
+      text-align: start;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    &-1 {
+      grid-column: 1 / 5;
+      height: 600px;
+    }
+
+    &-2 {
+      grid-column: 5 / 13;
+      height: 600px;
+    }
+
+    &-3 {
+      grid-column: 1 / 9;
+      height: 360px;
+    }
+
+    &-4 {
+      grid-column: 9 / 13;
+      height: 360px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+}

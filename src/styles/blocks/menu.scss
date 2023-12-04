@@ -1,0 +1,178 @@
+.menu {
+  width: 100%;
+  background-color: $bg-menu-col;
+
+  color: $menu-text-col;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+
+  &__content {
+    padding-bottom: 27px;
+  }
+
+  &__nav {
+    padding-top: 27px;
+
+    @include onTablet {
+      padding-top: 39px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      @include pageGrid;
+      padding-top: 40px;
+    }
+  }
+
+  &__action {
+    display: flex;
+    gap: 28px;
+
+    @include onTablet {
+      gap: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__close {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-image: url(..//images/icon/icon-menu-close.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include onTablet {
+      margin-right: 38px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      margin-right: 20px;
+    }
+  }
+
+  &__link {
+    color: $menu-text-col;
+    transition: 0.3s;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @include onTablet {
+      font-size: 22px;
+    }
+  }
+
+  &__line {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: 24px;
+
+    @include onTablet {
+      // transform: rotate(180deg);
+      height: 145px;
+      width: 1px;
+      margin: 0 38px;
+      // grid-column: 3 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 8;
+      margin: 0;
+    }
+  }
+
+  &__schedule {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+
+    @include onTablet {
+      margin-top: 0;
+      flex-direction: row;
+      // justify-content: space-between;
+      gap: 38px;
+      // grid-column: 4 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 12;
+      margin: 0;
+    }
+
+    &-work {
+      &--title {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 141%;
+        margin-bottom: 20px;
+      }
+
+      &--list {
+        margin-bottom: 16px;
+
+        @include onTablet {
+          // display: flex;
+          // flex-direction: column;
+          // align-items: center;
+        }
+      }
+
+      &--time {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 150%;
+      }
+
+      &--item {
+        font-weight: 400;
+
+        @include onTablet {
+          // display: flex;
+          // flex-direction: row;
+        }
+      }
+    }
+
+    &-holiday {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 150%;
+
+      @include onTablet {
+        width: 144px;
+        padding-top: 40px;
+      }
+
+      @include onDesktop {
+        width: 170px;
+      }
+
+      &--holiday {
+        font-weight: 600;
+      }
+    }
+  }
+}
