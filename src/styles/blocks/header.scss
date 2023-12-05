@@ -1,7 +1,17 @@
 .header {
-  overflow-x: hidden;
+  position: relative;
 
   @include on-phone {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    justify-content: center;
+    gap: 20px;
+    margin: 0 0 70px;
+  }
+
+  @include on-phone-big {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 130px);
     justify-content: center;
@@ -17,6 +27,8 @@
     margin: 0 39px 133px;
   }
 
+
+
   @include on-desctop {
     display: grid;
     grid-template-columns: repeat(12, 70px);
@@ -27,6 +39,7 @@
 }
 
 .header__container {
+  width: 100%;
   background-image: url(../images/header.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -39,6 +52,14 @@
     width: 320px;
     height: 300px;
     grid-column: 1/3;
+    grid-row: 1;
+    margin-left: -20px;
+  }
+
+  @include on-phone-big {
+    width: 550px;
+    height: 450px;
+    grid-column: 1/4;
     grid-row: 1;
     margin-left: -20px;
   }
@@ -69,6 +90,11 @@
     margin: 0 0 0 120px;
   }
 
+  @include on-phone-big {
+    font-size: 30px;
+    margin: 0 0 0 250px;
+  }
+
   @include on-tablet {
     margin: 15px 0 0 80px;
   }
@@ -80,16 +106,27 @@
 }
 
 .header__menu-link {
+    position: relative;
+    
   @include on-phone {
     grid-column: 1/1;
     grid-row: 1;
     margin-top: 25px;
+    left: 10px;
+  }
+
+  @include on-phone-big {
+    grid-column: 1/1;
+    grid-row: 1;
+    margin-top: 25px;
+    left: 20px;
   }
 
   @include on-tablet {
     grid-row: 1;
     grid-column: 1/1;
     margin: 45px 0 0;
+    left: -20px;
   }
 
   @include on-desctop {
@@ -99,8 +136,15 @@
   }
 
   .header__menu {
+    position: relative;
     width: 18px;
     height: 12px;
+
+    @include on-phone {
+      gap: 40px;
+      left: -10px;
+      top: -12px;
+    }
   }
 }
 
@@ -110,6 +154,14 @@
 
   @include on-phone {
     grid-column: 1/3;
+    grid-row: 2;
+    font-size: 45px;
+    text-align: center;
+    margin: 0;
+  }
+
+  @include on-phone-big {
+    grid-column: 1/4;
     grid-row: 2;
     font-size: 45px;
     text-align: center;
@@ -139,6 +191,11 @@
     grid-row: 3;
   }
 
+  @include on-phone-big {
+    grid-column: 1/3;
+    grid-row: 3;
+  }
+
   @include on-tablet {
     grid-column: 1/3;
     grid-row: 1;
@@ -153,6 +210,7 @@
 }
 
 .header__tickets {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -169,6 +227,8 @@
     background-color: green;
   }
 }
+
+
 
 .header__button {
   width: 70px;
@@ -204,6 +264,10 @@
     display: none;
   }
 
+  @include on-phone-big {
+    display: none;
+  }
+
   @include on-tablet {
     display: none;
   }
@@ -216,6 +280,7 @@
   }
 
   .header__cross {
+    position: relative;
     transform: rotate(90deg);
     width: 1px;
     height: 70px;

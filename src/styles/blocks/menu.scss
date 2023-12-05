@@ -19,6 +19,14 @@
     height: 480px;
   }
 
+  @include on-phone-big {
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    justify-content: center;
+    gap: 20px;
+    height: 480px;
+  }
+
   @include on-tablet {
     display: grid;
     grid-template-columns: repeat(6, 90px);
@@ -38,15 +46,23 @@
 }
 
 .menu__cross {
+  position: relative;
   width: 12px;
   height: 12px;
 
   @include on-phone {
     margin: 0 34px 0 0;
+    top: -12px;
+  }
+
+  @include on-phone-big {
+    margin: 0 34px 0 0;
+    left: -100px;
   }
 
   @include on-tablet {
-    margin: 0 44px 0 0;
+    margin: 0 64px 0 0;
+    left: 20px;
   }
 
   @include on-desctop {
@@ -61,6 +77,12 @@
   justify-content: space-between;
 
   @include on-phone {
+    grid-column: 1/2;
+    grid-row: 1;
+    margin: 27px 0 0;
+  }
+
+  @include on-phone-big {
     grid-column: 1/2;
     grid-row: 1;
     margin: 27px 0 0;
@@ -101,6 +123,12 @@
       font-size: 16px;
     }
 
+    @include on-phone-big {
+      margin-right: -50px;
+      padding-right: 20px;
+      font-size: 16px;
+    }
+
     @include on-tablet {
       font-size: 16px;
     }
@@ -126,6 +154,10 @@
     display: none;
   }
 
+  @include on-phone-big {
+    display: none;
+  }
+
   @include on-tablet {
     display: block;
     grid-column: 3;
@@ -148,6 +180,12 @@
     grid-row: 2;
   }
 
+  @include on-phone-big {
+    display: block;
+    grid-column: 1/3;
+    grid-row: 2;
+  }
+
   @include on-tablet {
     display: none;
   }
@@ -162,6 +200,12 @@
   flex-direction: column;
 
   @include on-phone {
+    grid-column: 1/2;
+    grid-row: 3;
+    margin: 0;
+  }
+
+  @include on-phone-big {
     grid-column: 1/2;
     grid-row: 3;
     margin: 0;
@@ -193,6 +237,10 @@
   display: flex;
 
   @include on-phone {
+    flex-direction: column;
+  }
+
+  @include on-phone-big {
     flex-direction: column;
   }
 
@@ -235,6 +283,11 @@
   color: $white;
 
   @include on-phone {
+    margin: 16px 0 0;
+    width: 280px;
+  }
+
+  @include on-phone-big {
     margin: 16px 0 0;
     width: 280px;
   }
