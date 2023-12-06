@@ -72,3 +72,26 @@ box1.addEventListener('mouseout', syncUnhover);
 
 box2.addEventListener('mouseover', syncHover);
 box2.addEventListener('mouseout', syncUnhover);
+
+const menu = document.querySelector('.page__menu');
+const body = document.querySelector('body');
+const html = document.querySelector('html');
+
+function enableScroll() {
+  html.style.overflow = 'auto';
+  body.style.overflow = 'auto';
+}
+
+function disableScroll() {
+  html.style.overflow = 'hidden';
+  body.style.overflow = 'hidden';
+}
+
+menu.addEventListener('click', enableScroll);
+
+const burger = document.querySelector('.header__menu-link');
+
+burger.addEventListener('click', disableScroll);
+
+disableScroll();
+enableScroll();
