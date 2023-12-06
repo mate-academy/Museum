@@ -1,6 +1,8 @@
 .header {
   @include page-grid;
 
+  position: relative;
+
   @include tablet {
     padding-inline: 34px;
     height: 384px;
@@ -8,9 +10,11 @@
 
   @include desktop {
     height: 655px;
-    padding: 0;
+    padding-inline: 0;
 
     @include desktop-container;
+
+    margin-right: 0;
   }
 
   &__left {
@@ -63,7 +67,7 @@
   &__events {
     display: none;
     position: absolute;
-    bottom: 90px;
+    bottom: 105px;
     left: 0;
     color: $main-grey-color;
     font-family: $ibm;
@@ -99,41 +103,50 @@
     }
 
     @include tablet {
-      height: auto;
-      margin-right: -34px;
+      height: 384px;
       font-size: 40px;
-      grid-column: span 3;
+      grid-column: 4 / 7;
+      position: absolute;
+      inset: 0;
+      z-index: -1;
     }
 
     @include desktop {
       margin-right: calc((1170px - 100vw) / 2 + 11px);
       font-size: 48px;
-      grid-column: span 7;
+      grid-column: 6 / -1;
+      z-index: -1;
+      height: 655px;
     }
   }
 
   &__logo {
     text-decoration: none;
     display: block;
-    margin: 15px 0 0;
     color: $secondary-black-color;
     text-align: center;
     font-family: $montserrat;
     font-weight: 700;
     line-height: 100%;
+    height: fit-content;
 
     @include mobile {
-      margin-top: 9px;
       font-size: 30px;
+      position: absolute;
+      top: 9px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     @include tablet {
       font-size: 36px;
-      width: 220px;
+      grid-column: 4 / 6;
+      position: inherit;
+      margin: 15px 0 0;
     }
 
     @include desktop {
-      width: 170px;
+      grid-column: 6 / 8;
     }
   }
 }
