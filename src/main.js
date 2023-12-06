@@ -53,3 +53,22 @@ window.addEventListener('resize', function() {
     container.classList.add('.header');
   }
 });
+
+const box1 = document.querySelector('.header__tickets');
+const box2 = document.querySelector('.header__button');
+
+function syncHover() {
+  box1.classList.add('hovered');
+  box2.classList.add('hovered');
+}
+
+function syncUnhover() {
+  box1.classList.remove('hovered');
+  box2.classList.remove('hovered');
+}
+
+box1.addEventListener('mouseover', syncHover);
+box1.addEventListener('mouseout', syncUnhover);
+
+box2.addEventListener('mouseover', syncHover);
+box2.addEventListener('mouseout', syncUnhover);
