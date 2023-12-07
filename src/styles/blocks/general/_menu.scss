@@ -1,0 +1,141 @@
+.menu {
+  z-index: 1;
+  position: fixed;
+  display: grid;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+  background-color: $green-page-color;
+  height: 400px;
+  width: 100vw;
+
+  @include on-tablet {
+    height: 225px;
+  }
+
+  @include on-desktop {
+    height: 233px;
+  }
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__content {
+    @include page-grid;
+    @include content-padding-inline;
+    padding-block: 27px;
+    margin-inline: auto;
+    color: $white-text-color;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+
+    @include on-tablet {
+      padding-block: 40px;
+    }
+
+    @include on-desktop {
+      padding-top: 40px;
+      padding-bottom: 48px;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    display: block;
+    top: 27px;
+    left: 20px;
+
+    @include on-tablet {
+      top: 39px;
+      left: 39px;
+    }
+
+    @include on-desktop {
+      top: 40px;
+      left: 55px;
+    }
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__line {
+    grid-column: 1 / -1;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.50);
+    margin-block: 24px;
+
+    @include on-tablet {
+      grid-column: 3 / 4;
+      margin-block: 0;
+      height: 100%;
+      width: 1px;
+      margin-left: auto;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 8;
+      margin-left: 0;
+    }
+  }
+
+  &__schedule {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      flex-direction: row;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / 12;
+      gap: 30px;
+    }
+  }
+
+  &__schedule-tittle {
+    line-height: 140%;
+    margin-bottom: 20px;
+  }
+
+  &__hours {
+    font-weight: 600;
+  }
+
+  &__workingDays {
+    white-space: nowrap;
+    margin-bottom: 16px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__workingDay {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__daysOff {
+    margin-top: auto;
+  }
+}
