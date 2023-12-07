@@ -1,0 +1,99 @@
+.nav {
+  display: flex;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    display: flex;
+    gap: 28px;
+
+    @include OnTablet {
+      padding-left: 38px;
+      gap: 20px;
+      position: relative;
+    }
+
+    @include OnDeskTop {
+      padding-left: 102px;
+      gap: 31px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      display: block;
+      width: 100px;
+      height: 1px;
+      background-color: #fff;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &__item {
+    width: 100px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
+    @include OnDeskTop {
+      font-size: 22px;
+    }
+  }
+
+  &__list--1 {
+    display: flex;
+    flex-flow: column;
+    align-content: start;
+    gap: 24px;
+
+    @include OnDeskTop {
+      gap: 30px;
+
+      min-width: 169px;
+    }
+
+  }
+
+  &__list--2 {
+    display: flex;
+    flex-flow: column;
+    align-content: start;
+    gap: 24px;
+
+    @include OnDeskTop {
+      gap: 30px;
+    }
+  }
+}
+
+.works {
+  list-style: none;
+  margin: 0;
+  padding: 20px 0 16px;
+
+  @include OnTablet {
+    padding: 0;
+    min-width: 158px;
+  }
+
+  &__bold {
+    font-weight: 600;
+  }
+}
