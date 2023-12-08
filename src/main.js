@@ -73,7 +73,7 @@ box1.addEventListener('mouseout', syncUnhover);
 box2.addEventListener('mouseover', syncHover);
 box2.addEventListener('mouseout', syncUnhover);
 
-const menu = document.querySelector('.page__menu');
+/* const menu = document.querySelector('.page__menu');
 const body = document.querySelector('body');
 const html = document.querySelector('html');
 
@@ -94,4 +94,4 @@ const burger = document.querySelector('.header__menu-link');
 burger.addEventListener('click', disableScroll);
 
 disableScroll();
-enableScroll();
+enableScroll(); */
