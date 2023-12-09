@@ -1,5 +1,5 @@
 .menu {
-  z-index: 1;
+  z-index: 10;
   position: fixed;
   display: grid;
   top: 0;
@@ -25,6 +25,7 @@
   &__content {
     @include page-grid;
     @include content-padding-inline;
+
     padding-block: 27px;
     margin-inline: auto;
     color: $white-text-color;
@@ -58,20 +59,60 @@
       top: 40px;
       left: 55px;
     }
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   &__nav {
     grid-column: 1 / -1;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    grid-template-rows: min-content;
+    gap: 24px 28px;
+    margin-left: auto;
 
     @include on-tablet {
       grid-column: 1 / 4;
+      grid-row: 1 / -1;
+      padding-left: 24px;
+      margin-inline: auto;
     }
 
     @include on-desktop {
       grid-column: 2 / 6;
+      row-gap: 30px;
+    }
+  }
+
+  &__nav-link {
+    display: block;
+    color: $white-text-color;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    height: min-content;
+
+    &--1 {
+      order: 1;
+    }
+
+    &--2 {
+      order: 3;
+    }
+
+    &--3 {
+      order: 2;
+    }
+
+    &--4 {
+      order: 4;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
     }
   }
 
@@ -83,6 +124,7 @@
 
     @include on-tablet {
       grid-column: 3 / 4;
+      grid-row: 1 / -1;
       margin-block: 0;
       height: 100%;
       width: 1px;
@@ -102,6 +144,7 @@
 
     @include on-tablet {
       grid-column: 4 / -1;
+      grid-row: 1 / -1;
       flex-direction: row;
       gap: 38px;
     }

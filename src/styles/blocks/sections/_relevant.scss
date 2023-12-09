@@ -4,6 +4,8 @@
   &__tittle-wraper {
     @include page-grid;
     @include content-padding-inline;
+
+
     margin-inline: auto;
   }
 
@@ -12,7 +14,7 @@
     grid-row: 1 / 2;
     text-align: center;
     color: $black-text-color;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: 36px;
     font-style: normal;
     font-weight: 700;
@@ -32,10 +34,10 @@
 }
 
 .action {
-  grid-column: 1 / -1;
-
   @include page-grid;
   @include content-padding-inline;
+
+  grid-column: 1 / -1;
   margin-inline: auto;
 
   &--one {
@@ -64,8 +66,17 @@
     }
   }
 
-  &__image {
+  &__image-wrapper {
     grid-column: 1 / -1;
+    overflow: hidden;
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+      grid-row: 1 / -1;
+    }
+  }
+
+  &__image {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -76,14 +87,14 @@
     @include on-tablet {
       height: 520px;
       margin-bottom: 44px;
-
     }
 
     @include on-desktop {
-      grid-column: 1 / 8;
-      grid-row: 1 / -1;
       margin-bottom: 0;
+    }
 
+    &:hover {
+      transform: scale(1.2);
     }
 
     &--one {
@@ -183,7 +194,7 @@
 
   &__text {
     color: $black-text-color;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: 28px;
     font-style: normal;
     font-weight: 400;
@@ -223,7 +234,6 @@
 }
 
 .lection {
-
   position: relative;
   margin-bottom: 100px;
 
@@ -269,7 +279,7 @@
     width: 280px;
     height: 140px;
     padding-block: 20px;
-    box-shadow: 0px 2px 0px 0px rgba(26, 90, 76, 0.25);
+    box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
     transform: translateY(-57px);
     margin-inline: auto;
 
@@ -329,7 +339,7 @@
     width: 100%;
     color: $black-text-color;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: 28px;
     font-style: normal;
     font-weight: 400;

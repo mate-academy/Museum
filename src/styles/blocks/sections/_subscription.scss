@@ -33,6 +33,7 @@
   &__contentWrapper {
     @include page-grid;
     @include content-padding-inline;
+
     margin-inline: auto;
   }
 
@@ -55,7 +56,7 @@
 
   &__tittle {
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: 36px;
     font-weight: 700;
     line-height: 100%;
@@ -105,8 +106,8 @@
     }
   }
 
-  &__email {
-    font-family: 'Montserrat', sans-serif;
+  &__input {
+    font-family: Montserrat, sans-serif;
     box-sizing: border-box;
     border: none;
     height: 70px;
@@ -116,7 +117,7 @@
 
     &::placeholder {
       color: $placeholder-color;
-      font-family: 'Montserrat', sans-serif;
+      font-family: Montserrat, sans-serif;
       font-size: 14px;
       font-weight: 400;
       line-height: 100%;
@@ -132,6 +133,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
 }
 
@@ -150,8 +152,15 @@
   display: block;
 }
 
-.subscription__email:valid + .email-error-message,
-.subscription__email:placeholder-shown + .email-error-message {
+.subscription__input:valid + .email-error-message,
+.subscription__input:placeholder-shown + .email-error-message {
   display: none;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  border: 1px solid $red-page-color;
+  -webkit-text-fill-color: $red-page-color;
+  -webkit-box-shadow: 0 0 0 1000px #000 inset;
+}
