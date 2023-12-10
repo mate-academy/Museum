@@ -1,0 +1,170 @@
+.header {
+  &__img {
+    background-image: url(../images/museum/museum.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+
+    @include onTablet {
+      position: absolute;
+      width: 50%;
+      height: 100vh;
+      top: 0;
+    }
+
+    @include onDesktop {
+      top: 0;
+      width: 725px;
+      height: 655px;
+    }
+  }
+
+&__museum {
+  margin-top: 15px;
+  width: 220px;
+  &--logo{
+    position: absolute;
+    height: 72px;
+    transition: $transition;
+    top: 20px;
+    right: 44%;
+    &:hover {
+    transform: scale(1.1);
+    }
+
+    @include onTablet {
+      right: 38%;
+    }
+
+    @include onDesktop {
+      right: 42%;
+    }
+  }
+}
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 33px;
+
+    @include onDesktop {
+      margin-top: 45px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      text-align: left;
+      margin-top: 125px;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 86px;
+      margin-top: 143px;
+      text-align: left;
+      margin-bottom: 130px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    transition: $transition;
+    &:hover {
+      transform: translateX(2%);
+      transform: scale(1.1);
+    }
+
+    @include onDesktop {
+      margin-left: 187px;
+    }
+  }
+
+  &__link {
+    border: 1px solid $colorMainSubtitle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100vw;
+    text-decoration: none;
+
+    @include onTablet {
+      height: 67px;
+      width: 197px;
+    }
+  }
+
+  &__tickets {
+    color: #0f0e08;
+    font-family: $fontsPlexSans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+  }
+
+  &__btn {
+    background-image: url(../images/details/btn.svg);
+    background-repeat: no-repeat;
+    height: 52px;
+    width: 73px;
+    display: block;
+    background-color: $colorMainSubtitle;
+    background-position: center;
+
+    @include onTablet {
+      height: 69px;
+      width: 70px;
+    }
+  }
+
+    &__verticalText {
+      display: none;
+
+      @include onDesktop {
+      display: block;
+      font-family: $fontsPlexSans;
+      font-weight: 700;
+      color: $colorTitleExhibition;
+      padding: 0;
+      margin:0;
+
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      white-space: nowrap;
+      height: 100px;
+      font-size: 16px;
+      margin-top: -2%;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        border-left: 1px solid $colorMainSubtitle;
+        height: 70px;
+        bottom: 120px;
+        right: 9px;
+      }
+    }
+  }
+}
