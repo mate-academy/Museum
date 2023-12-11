@@ -1,0 +1,113 @@
+.image {
+  display: none;
+
+  @include onTablet {
+    display: flex;
+    position: relative;
+    margin-top: 515px;
+    padding-block: 0 92px;
+  }
+
+  @include onDesktop {
+    margin-top: 640px;
+    padding-block: 0 200px;
+  }
+
+  &__content {
+    @include pageGrid;
+  }
+
+  &__slider {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      grid-column: span 6;
+      gap: 20px;
+    }
+
+    @include onDesktop {
+      flex-wrap: wrap;
+      gap: 30px;
+      grid-column: span 12;
+    }
+  }
+
+  &__button {
+    padding-inline: 179px;
+    display: flex;
+  }
+
+  &__buttonss {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    grid-column: 2/6;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__section-title {
+    color: $color-black-black;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      margin-bottom: 48px;
+      grid-column: 1/4;
+      margin-top: 88px;
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      margin-top: 200px;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    object-fit: contain;
+    transition: transform $time-transition;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    @include onDesktop {
+      width: 370px;
+      height: 600px;
+    }
+  }
+
+  &__photos {
+    width: 100%;
+    object-fit: cover;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__images {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      object-fit: cover;
+      right: 0;
+      transition: transform $time-transition;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+  }
+}
