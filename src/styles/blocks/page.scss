@@ -1,0 +1,118 @@
+.page {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  max-width: 1280px;
+
+  &__body {
+    position: relative;
+    margin: 0;
+    transition: all 0.3s;
+
+    &--with-menu {
+      z-index: 1;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-110%);
+
+    transition-duration: 300ms;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+
+  &__section {
+    // height: 1000px;
+
+    @include onTablet {
+      margin-bottom: 88px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
+    }
+
+    &--header {
+      margin-bottom: 107px;
+    }
+
+    &--events {
+      // margin-bottom: 151px;
+      margin-bottom: 0;
+    }
+
+    &--contacts {
+      margin-bottom: 47px;
+    }
+
+    &--footer {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    color: $c-black-text;
+    font-family: Montserrat, sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    margin-bottom: 56px;
+
+    @include onMobile {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    @include onTablet {
+      text-align: left;
+    }
+
+    @include onDesktop {
+      text-align: left;
+    }
+
+    &--contacts {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 16px;
+
+      @include onMobile {
+        margin-top: 88px;
+        margin-bottom: 20px;
+      }
+
+      @include onTablet {
+        margin-top: 82px;
+      }
+
+      @include onDesktop {
+        margin-top: 163px;
+      }
+    }
+
+    &--gallery {
+      @include onMobile {
+        text-align: center;
+      }
+
+      @include onTablet {
+        text-align: left;
+      }
+
+      @include onDesktop {
+        text-align: left;
+      }
+    }
+  }
+}

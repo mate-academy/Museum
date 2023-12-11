@@ -1,0 +1,116 @@
+.tickets {
+  display: flex;
+  justify-content: left;
+  box-sizing: border-box;
+  gap: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition-duration: 300ms;
+
+  &:hover {
+    transform: scale(105%);
+  }
+
+  @include onMobile {
+    margin-bottom: 70px;
+  }
+
+  @include onTablet {
+    justify-content: start;
+    width: min-content;
+  }
+
+  @include onDesktop {
+    grid-column: 3 / 6;
+    grid-row: 5;
+  }
+
+  &__title {
+    box-sizing: border-box;
+    display: block;
+    height: 50px;
+    flex-grow: 1;
+
+    text-align: center;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 50px;
+    text-transform: uppercase;
+
+    color: $c-black-text;
+
+    border: 1px solid $c-green;
+
+    @include onTablet {
+      height: 70px;
+      width: 200px;
+      flex-grow: 0;
+      line-height: 70px;
+    }
+
+    @include onDesktop {
+      height: 70px;
+      width: 200px;
+      flex-grow: 0;
+      line-height: 70px;
+    }
+  }
+
+  &__button {
+    // display: inline-block;
+    box-sizing: border-box;
+    height: 50px;
+    width: 50px;
+    border: 1px solid $c-green;
+    background-color: $c-green;
+    background-image: url(../images/arrow-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+
+    @include onMobile {
+      width: 50px;
+      height: 50px;
+      border: 0;
+    }
+
+    @include onTablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    @include onDesktop {
+      width: 70px;
+      height: 70px;
+    }
+
+    &--contacts {
+      background-color: $c-red;
+      transition: 300ms;
+
+      @include onMobile {
+        min-width: 50px;
+        height: 50px;
+        border: 0;
+      }
+
+      @include onTablet {
+        box-sizing: border-box;
+        min-width: 70px;
+        height: 70px;
+        margin-left: 16px;
+      }
+
+      @include onDesktop {
+        min-width: 70px;
+        height: 70px;
+        margin-left: 30px;
+      }
+
+      &:hover {
+        transform: scale(105%);
+      }
+    }
+  }
+}
