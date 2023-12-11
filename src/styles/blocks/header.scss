@@ -1,0 +1,94 @@
+.header {
+  position: relative;
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__title {
+    padding: 20px;
+    font-family: $second-family;
+    font-weight: 700;
+    text-align: center;
+    font-size: 45px;
+    line-height: 100%;
+
+    @include onTablet {
+      padding-left: 34px;
+      padding-bottom: 38px;
+      font-size: 54px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      padding-inline: 55px 30px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      grid-column: 2/-1;
+    }
+
+    @include onDesktop {
+      margin-bottom: -5px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      margin-top: 107px;
+      align-items: flex-start;
+      grid-row: 1/2;
+    }
+
+    @include onDesktop {
+      display: grid;
+      margin-top: 186px;
+    }
+  }
+
+  &__aside {
+    @include onTablet {
+      position: relative;
+    }
+  }
+
+  &__mark {
+    display: none;
+
+    @include onDesktop {
+        padding-left: 55px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: end;
+        justify-self: left;
+    }
+  }
+
+  &__mark--title {
+    color: $color-gray;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+  }
+
+  &__mark--line {
+    margin-top: 20px;
+    width: 1px;
+    height: 70px;
+    background-color: $color-green;
+  }
+}
