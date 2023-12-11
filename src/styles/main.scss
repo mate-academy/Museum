@@ -59,6 +59,10 @@ h3 {
   @include onTablet {
     padding: 0 34px;
   }
+
+  @include onDesktop {
+    padding: 0 55px;
+  }
 }
 
 .icon {
@@ -89,8 +93,8 @@ h3 {
 }
 
 .header {
+  margin-bottom: 230px;
   padding-top: 10px;
-  margin-bottom: 20px;
   height: 300px;
   background-image: url("../images/header/main-poster.png");
   background-repeat: no-repeat;
@@ -100,10 +104,17 @@ h3 {
     margin-bottom: 88px;
     padding-top: 15px;
     height: 384px;
-    background-size: 374px 384px;
+    background-size: 50% 384px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+    height: 655px;
+    background-size: 708px 655px;
   }
 
   &__top-actions {
+    margin-bottom: 250px;
     width: 55%;
     justify-content: space-between;
     display: flex;
@@ -111,6 +122,12 @@ h3 {
 
     @include onTablet {
       width: 67%;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      width: 55%;
+      margin-bottom: 120px;
     }
   }
 
@@ -161,6 +178,14 @@ h3 {
       gap: 28px;
       font-size: 16px;
       line-height: 100%;
+
+      @include onDesktop {
+        margin-right: 180px;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 100%;
+      }
     }
   
     &__column {
@@ -168,6 +193,10 @@ h3 {
       display: flex;
       flex-direction: column;
       gap: 24px;
+
+      @include onDesktop {
+        gap: 30px;
+      }
     }
   
     &__link {
@@ -190,6 +219,10 @@ h3 {
         border-left: 1px solid rgba(255, 255, 255, 0.5);
       }
 
+      @include onDesktop {
+        padding-left: 180px;
+      }
+
       &-details {
         margin-top: 16px;
 
@@ -201,6 +234,33 @@ h3 {
       }
     }
   }
+
+  &__events-link {
+    display: none;
+
+    @include onDesktop {
+      padding-bottom: 100px;
+      display: flex;
+      width: max-content;
+      align-items: center;
+      color: #687480;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 100%;
+      text-transform: uppercase;
+      transform: rotate(-90deg);
+
+      &::before {
+        content: "";
+        display: inline-block;
+        margin-right: 20px;
+        width: 70px;
+        height: 1px;
+        background-color: #1a5a4c;
+      }
+    }
+    
+  }
 }
 
 .cross__icon {
@@ -211,9 +271,76 @@ h3 {
   background-image: url("../images/icons/menu-button__close.svg");
 
   @include hover(transform, rotate(90deg));
+
+  @include onDesktop {
+    margin-right: 102px;
+  }
 }
 
 .art-museum {
+
+  @include onTablet {
+    width: 340px;
+    margin: 0;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include onTablet {
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 120%;
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 290px;
+    border: 1px solid $green;
+    border-right-width: 50px;
+    color: $black;
+    font-family: IBM Plex Sans, sans-serif;
+    font-weight: 500;
+    line-height: 100%;
+
+    @include onTablet {
+      height: 70px;
+      border-right-width: 70px;
+    }
+
+    @include onDesktop {
+      margin-left: 145px;
+    }
+
+    @include hover(transform, scale(105%));
+
+    &-arrow {
+      position: absolute;
+      right: -37px;
+      width: 24px;
+      height: 24px;
+      background-image: url("../images/blocks/museum/button__arrow-right.svg");
+      background-repeat: no-repeat;
+
+      @include onTablet {
+        right: -47px;
+      }
+    }
+  }
+}
+
+/*.art-museum {
   margin-bottom: 70px;
 
   @include onTablet {
@@ -222,6 +349,12 @@ h3 {
     top: 127px;
     left: 34px;
     width: 340px;
+  }
+
+  @include onDesktop {
+    padding: 0 55px;
+    top: 206px;
+    left: 55px;
   }
 
   &__title {
@@ -257,18 +390,35 @@ h3 {
       height: 24px;
       background-image: url("../images/blocks/museum/button__arrow-right.svg");
       background-repeat: no-repeat;
+
+      @include onTablet {
+        right: -47px;
+      }
     }
   }
-}
+}*/
 
 .events {
+  margin: 0 auto;
+
   &__title {
     margin-bottom: 40px;
     text-align: center;
+
+    @include onDesktop {
+      text-align: left;
+    }
   }
 
   &-card {
     margin-bottom: 60px;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 110px;
+    }
 
     &__image {
       margin: 0 auto 16px;
@@ -279,6 +429,11 @@ h3 {
 
       @include onTablet {
         margin-bottom: 44px;
+      }
+
+      @include onDesktop {
+        width: 600px;
+        margin: 0;
       }
     }
 
@@ -307,6 +462,13 @@ h3 {
         font-size: 14px;
         width: 220px;
       }
+
+      &__wrapper {
+        @include onDesktop {
+          display: flex;
+          flex-direction: column;
+        }
+      }
     }
 
     &__title {
@@ -330,6 +492,10 @@ h3 {
         width: 460px;
         line-height: 150%;
       }
+
+      @include onDesktop {
+        width: 370px;
+      }
     }
 
     &__last {
@@ -346,6 +512,11 @@ h3 {
   @include onTablet {
     padding: 0 34px;
     margin-bottom: 30px;
+  }
+  
+  @include onDesktop {
+    padding: 0;
+    margin-bottom: 100px;
   }
 
   &__poster {
@@ -409,6 +580,10 @@ h3 {
 .gallery {
   margin-bottom: 100px;
 
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+
   &__title {
     margin-bottom: 40px;
     text-align: center;
@@ -423,6 +598,13 @@ h3 {
     margin: 0 auto 20px;
     width: 100%;
     height: 450px;
+
+    @include onDesktop {
+      height: auto;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
   }
 
   &__nav-buttons-box {
@@ -431,6 +613,10 @@ h3 {
     width: 102px;
     height: 9px;
     margin: 0 auto;
+
+    @include onDesktop {
+      display: none;
+    }
   }
 }
 
@@ -443,6 +629,10 @@ h3 {
   @include onTablet {
     background-image: url("../images/blocks/gallery/img-1__wide.jpg");
   }
+
+  @include onDesktop {
+    background-size: auto;
+  }
 }
 
 .slider-item {
@@ -450,11 +640,19 @@ h3 {
   height: 100%;
   object-fit: scale-down;
 
+  @include onDesktop {
+    object-fit: none;
+  }
+
   @include hover(transform, scale(105%));
 }
 
 .hiden {
   display: none;
+
+  @include onDesktop {
+    display: block;
+  }
 }
 
 .nav-button-item {
@@ -472,7 +670,14 @@ h3 {
   padding: 88px 20px;
   text-align: center;
   color: $white;
-  background-image: url("../images/blocks/subscribe/background.png");
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.8)),
+    url("../images/blocks/subscribe/background__wide.jpg");
+  background-size: cover;
+  background-position: center;
+
+  @include onDesktop {
+    height: 550px;
+  }
 
   &__title {
     margin-bottom: 20px;
