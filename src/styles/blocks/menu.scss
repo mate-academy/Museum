@@ -1,0 +1,136 @@
+.menu {
+  position: fixed;
+  padding: 27px 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $color-green;
+  color: $color-white;
+
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: 2fr 1fr 3fr;
+    padding: 39px 34px;
+  }
+
+  @include on-desktop {
+    padding: 40px 56px 48px;
+  }
+
+  &__top {
+    display: flex;
+  }
+
+  &__top--close {
+    @include hover(transform, scale(1.2));
+  }
+
+  &__column {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-left: 28px;
+    font-size: 16px;
+    font-weight: 500;
+
+    @include on-tablet {
+      margin-left: 38px;
+    }
+
+    @include on-desktop {
+      width: 169px;
+      gap: 30px;
+      font-size: 22px;
+    }
+  }
+
+  &__column--second {
+    margin-left: 28px;
+
+    @include on-desktop {
+      margin-left: 31px;
+    }
+  }
+
+  &__column--item {
+    color: $color-white;
+
+    &:hover {
+      color: $color-orange;
+    }
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    margin-top: 24px;
+    background-color: $color-white;
+
+    @include on-tablet {
+      width: 1px;
+      height: 100%;
+      margin-top: 0;
+    }
+  }
+
+  &__schedule {
+    margin-top: 24px;
+
+    @include on-tablet {
+      margin-top: 0;
+      display: grid;
+      grid-gap: 38px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__schedule--wrap {
+    margin-top: 20px;
+    line-height: 140%;
+
+    @include on-tablet {
+      margin-top: 0;
+    }
+  }
+
+  &__schedule--title {
+    margin-bottom: 20px;
+  }
+
+  &__schedule--time {
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-orange;
+    }
+
+  }
+
+  &__schedule--day {
+    margin-left: 5px;
+    font-weight: 400;
+  }
+
+  &__attention {
+    margin-top: 16px;
+    line-height: 150%;
+
+    @include on-tablet {
+      margin-top: 41px;
+    }
+  }
+
+  &__attention--bold {
+    font-weight: 600;
+  }
+
+  &__line--wrap {
+    @include on-tablet {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

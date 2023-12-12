@@ -1,0 +1,83 @@
+.slider {
+  margin-top: 40px;
+  padding-inline: 20px;
+  overflow: hidden;
+
+  @include on-tablet {
+    padding-inline: 34px;
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+
+  @include on-desktop {
+    margin-top: 56px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 30px;
+  }
+
+    &__item {
+      overflow: hidden;
+
+      @include on-desktop {
+        grid-column: 1/2;
+      }
+    }
+
+    &__img--woman {
+      height: 100%;
+    }
+
+    &__item--village {
+      @include on-desktop {
+        grid-column: 2/-1;
+      }
+    }
+
+    &__item--park {
+      @include on-desktop {
+        grid-column: 1/-2;
+      }
+    }
+
+    &__item--sea {
+      @include on-desktop {
+        grid-column: -2/-1;
+      }
+    }
+
+    &__item--geese,
+    &__item--village,
+    &__item--park,
+    &__item--sea {
+      display: none;
+    }
+
+    &__item--geese {
+      @include on-tablet {
+        display: block;
+        margin-bottom: -81px;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    &__item--village,
+    &__item--park,
+    &__item--sea {
+      @include on-desktop {
+        display: block;
+      }
+    }
+
+    &__img {
+      width: 100%;
+      cursor: pointer;
+
+      @include hover(transform, scale(1.1));
+    }
+}
