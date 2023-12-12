@@ -1,0 +1,253 @@
+.contacts {
+  @include on-tablet {
+   display: grid;
+   gap: 30px;
+   grid-template-columns: repeat(6, 1fr);
+   grid-template-rows: repeat(2, 1fr);
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+
+    @include on-tablet {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      display: grid;
+      justify-content: start;
+      align-items: start;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 2;
+      grid-row: 1 / -1;
+    }
+
+    &-title {
+      margin: 0;
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    &-social {
+      display: flex;
+      gap: 20px;
+
+      @include on-tablet {
+        gap: 32px;
+      }
+
+      &-link {
+        text-decoration: none;
+        width: 24px;
+        height: 24px;
+        transition: 300ms;
+
+        &--facebook {
+          background-image: url(../images/icon/facebook.svg);
+
+          &:hover {
+            background-image: url(../images/icon/facebook-hover.svg);
+          }
+        }
+
+        &--instagram {
+          background-image: url(../images/icon/instagram.svg);
+
+          &:hover {
+            background-image: url(../images/icon/instagram-hover.svg);
+          }
+        }
+      }
+    }
+  }
+
+  &__contact {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      grid-row: 1 / 2;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 7;
+      grid-row: 1 / -1;
+      column-gap: 30px;
+    }
+
+    &-work {
+      &-title {
+        margin: 0;
+        padding-bottom: 20px;
+      }
+    }
+
+    &-address {
+      &-title {
+        margin: 0;
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  &__botton {
+    position: absolute;
+    right: 20px;
+    bottom: -2615px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid $decoration-color;
+    background-image: url(../images/icon/arrow-up.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include on-tablet {
+      visibility: hidden;
+    }
+  }
+
+  &__line {
+    margin-top: 70px;
+    height: 1px;
+    width: 100%;
+    background: rgba(26, 90, 76, 0.50);
+
+    @include on-tablet {
+      margin-top: 34px;
+    }
+
+    @include on-desktop {
+      height: 100%;
+      width: 1px;
+      margin-top: 0;
+      margin-right: 64px;
+      margin-left: 35px;
+    }
+  }
+
+  &__nav {
+    @include on-tablet {
+      grid-column: 2 / 6;
+      grid-row: 2 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 12;
+      grid-row: 1 / -1;
+      display: flex;
+    }
+
+    &-block {
+      padding-top: 40px;
+
+      @include on-tablet {
+        padding-top: 64px;
+      }
+
+      @include on-desktop {
+        padding-top: 0;
+      }
+
+      &-list {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        @include on-desktop {
+          column-gap: 80px;
+        }
+      }
+
+      &-link {
+        position: relative;
+        text-decoration: none;
+        color: $h-color;
+        font-size: 14px;
+        font-weight: 400;
+
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -6px;
+          display: block;
+          height: 1px;
+          width: 100%;
+          background-color: $h-color;
+
+          transition: transform 0.3s;
+          transform: scale(0);
+          transform-origin: center;
+        }
+
+        &:hover::after {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+.work {
+  display: grid;
+  row-gap: 20px;
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 14px;
+    line-height: 150%;
+
+    &-item {
+      @include on-tablet {
+        display: flex;
+        gap: 3px;
+      }
+
+      &-time {
+        flex-shrink: 0;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      &-day {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.address {
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 14px;
+  }
+  &__link {
+    text-decoration: none;
+    color: $h-color;
+    font-weight: 400;
+    line-height: 150%;
+    transition: 0.3s;
+
+    &:hover {
+      color: $decoration-color;
+      font-weight: 500;
+    }
+  }
+}

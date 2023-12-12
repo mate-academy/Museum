@@ -1,0 +1,82 @@
+.menu {
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: rgba(24, 24, 26, 0.5);
+  overflow: auto;
+
+  &__wrap {
+    display: grid;
+    row-gap: 24px;
+    background-color: $decoration-color;
+    padding-block: 27px;
+    color: $white;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+
+    @include on-tablet {
+      grid-template-columns: 3fr 0fr 3fr;
+      column-gap: 38px;
+      padding-block: 40px;
+    }
+
+    @include on-desktop {
+      column-gap: 102px;
+      padding-block: 48px;
+    }
+  }
+
+  &__line {
+    height: 1px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.50);
+
+    @include on-tablet {
+      height: 100%;
+      width: 1;
+    }
+  }
+}
+
+.schedule {
+  @include on-tablet{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 38px;
+  }
+
+  &__title {
+    margin: 0;
+    padding-bottom: 20px;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    &-item {
+      display: flex;
+      column-gap: 3px;
+      text-decoration: none;
+
+      &-time {
+        flex-shrink: 0;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      &-day {
+        margin: 0;
+      }
+
+      &--weekend {
+        padding-top: 16px;
+
+        @include on-tablet {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
