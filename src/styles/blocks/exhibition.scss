@@ -1,0 +1,116 @@
+.exhibition {
+  display: grid;
+  row-gap: 60px;
+
+  @include on-desktop {
+    row-gap: 104px;
+  }
+
+  &__card {
+    @include on-desktop {
+      display: grid;
+      column-gap: 30px;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    &-picture {
+      width: 100%;
+      transition: transform 300ms;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 8;
+        grid-row: 1 / -1;
+      }
+    }
+
+    &-info {
+      transition: transform 300ms;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      @include on-tablet {
+        width: 460px;
+      }
+
+      @include on-desktop {
+        grid-column: 9 / -1;
+        grid-row: 2 / -1;
+      }
+
+      &-date {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 20px;
+        font-size: 16px;
+
+        @include on-tablet {
+          padding-top: 44px;
+          justify-content: left;
+          column-gap: 20px;
+          font-size: 14px;
+        }
+
+        @include on-desktop {
+          padding-top: 0;
+        }
+
+        &-exhib {
+          margin: 0;
+          color: $text-color;
+          font-weight: 500;
+        }
+
+        &-value {
+          margin: 0;
+          color: $decoration-color;
+          font-weight: 700;
+          line-height: 150%;
+        }
+      }
+
+      &-name {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        column-gap: 10px;
+        padding-top: 20px;
+
+        font-size: 19px;
+
+        @include on-tablet {
+          column-gap: 15px;
+          padding-top: 32px;
+          font-size: 25px;
+        }
+
+        &-ico {
+          width: 10px;
+          height: 10px;
+          background: $button-color;
+
+          @include on-tablet {
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+
+      &-description {
+        margin: 0;
+        padding-top: 10px;
+        color: #4E4E4E;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 150%;
+      }
+    }
+  }
+}
