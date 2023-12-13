@@ -1,33 +1,45 @@
 .header {
-  background-image: url(../images/bg-header.png);
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: 100% 300px;
   height: 100%;
-  // background-size: contain;
-
-  // height: 100%;
   padding-block: 0 70px;
 
   @include onTablet {
-    background-position: top right;
-
-    background-size: 374px;
     padding-block: 0 88px;
   }
 
   @include onDesktop {
-    background-size: 55%;
-    padding-block: 0 200px;
-  }
-
-  @include onDesktop1200 {
-    background-size: 50%;
     padding-block: 0 200px;
   }
 
   &__content {
     @include pageGrid;
+  }
+
+  &__image {
+    background-image: url(../images/bg-header.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    margin-bottom: 20px;
+    height: 300px;
+    width: 320px;
+
+    @include onTablet {
+      // background-position: top right;
+      background-size: contain;
+      height: 384px;
+      width: 374px;
+      right: 0;
+
+    }
+
+    @include onDesktop {
+      // background-size: 55%;
+      width: 725px;
+      height: 655px;
+      background-size: contain;
+      right: 0;
+    }
   }
 
   &__text {
@@ -61,7 +73,14 @@
   &__button {
     display: flex;
     align-items: center;
+    justify-content: center;
     grid-column: span 2;
+    transition: transform $time-transition;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
 
     @include onTablet {
       grid-row: 3;
@@ -84,7 +103,6 @@
     @include onTablet {
       height: 70px;
     }
-
   }
 
   &__ticket {
@@ -108,7 +126,6 @@
     padding: 13px;
     background: $color-green;
     display: flex;
-    
 
     @include onTablet {
       padding: 23px;
