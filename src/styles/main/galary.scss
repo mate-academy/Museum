@@ -1,0 +1,153 @@
+.galary {
+  &__title {
+    color: $text-color;
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      font-size: 48px;
+      text-align: left;
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__exhibition {
+    @include onDesktop {
+      @include pageGrid;
+      --rows: 2;
+      row-gap: 30px;
+      margin-top: 56px;
+
+      &--block {
+        background-size: cover;
+        background-position: center;
+        @include hover(scale, 1.02);
+      }
+
+      &--block1 {
+        grid-column: 1 / 5;
+        grid-row: 1 / 2;
+        height: 600px;
+        background-image: url(../images/main/galary/exhibition/img1.png);
+      }
+
+      &--block2 {
+        grid-column: 5 / -1;
+        grid-row: 1 / 2;
+        height: 600px;
+        background-image: url(../images/main/galary/exhibition/img2.png);
+      }
+
+      &--block3 {
+        grid-column: 1 / 9;
+        height: 360px;
+        background-image: url(../images/main/galary/exhibition/img3.png);
+      }
+
+      &--block4 {
+        grid-column: 9 / -1;
+        height: 360px;
+        background-image: url(../images/main/galary/exhibition/img4.png);
+      }
+    }
+  }
+}
+
+.img-container {
+  display: flex;
+  gap: 16px;
+  margin-block: 40px 20px;
+
+  @include onTablet {
+    margin-block: 48px 32px;
+    gap: 20px;
+  }
+
+  @include onDesktop {
+    margin-block: 56px 0;
+    @include pageGrid;
+  }
+
+  &__painting {
+    @include hover(scale, 1.05);
+    transition: 0.4s ease-in-out;
+  }
+}
+
+.img-container__painting img {
+  width: 280px;
+  height: 410px;
+
+  @include onTablet {
+    width: 340px;
+    height: 543px;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+
+  &__btn {
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    background-color: $border-color;
+    cursor: pointer;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+}
+
+input[name="r"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+#r1:checked ~ .s1 {
+  margin-left: 0;
+}
+
+#r2:checked ~ .s1 {
+  margin-left: calc(-280px - 16px);
+}
+
+#r3:checked ~ .s1 {
+  margin-left: calc(-560px - 32px);
+}
+
+#r4:checked ~ .s1 {
+  margin-left: calc(-840px - 48px);
+}
+
+@include onTablet {
+  #r1:checked ~ .s1 {
+    margin-left: 0;
+  }
+
+  #r2:checked ~ .s1 {
+    margin-left: calc(-340px - 20px);
+  }
+
+  #r3:checked ~ .s1 {
+    margin-left: calc(-680px - 40px);
+  }
+
+  #r4:checked ~ .s1 {
+    margin-left: calc(-1020px - 60px);
+  }
+}
