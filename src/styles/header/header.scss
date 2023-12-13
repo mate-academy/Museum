@@ -1,0 +1,147 @@
+.header {
+  box-sizing: border-box;
+  padding-top: 9px;
+
+  @include onTablet {
+    padding-top: 15px;
+    height: 384px;
+  }
+
+  @include onDesktop {
+    height: 655px;
+  }
+
+  &__image {
+    height: 300px;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+
+    background-image: url(../images/header/header-image.png);
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+
+    @include onTablet {
+      position: relative;
+      left: 360px;
+      width: calc(100% - 360px);
+      height: 384px;
+    }
+
+    @include onDesktop {
+      left: 492px;
+      width: calc(100% - 492px);
+      height: 655px;
+    }
+  }
+
+  &__grid-block {
+    margin-top: 251px;
+
+    @include onTablet {
+      @include pageGrid;
+      margin-top: 40px;
+    }
+
+    @include onDesktop {
+      margin-top: 120px;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      gap: 38px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+      gap: 89px;
+    }
+  }
+
+  &__title {
+    color: $title-text-color;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+    }
+  }
+
+  &__button-block {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    @include onTablet {
+      justify-content: start;
+    }
+
+    @include onDesktop {
+      justify-content: end;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+
+    width: 270px;
+    height: 50px;
+    border: 1px solid $border-color;
+
+    @include onTablet {
+      height: 70px;
+    }
+  }
+
+  &__button-text {
+    width: 220px;
+    text-align: center;
+    color: $text-color;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+
+    @include onTablet {
+      width: 200px;
+    }
+  }
+
+  &__button-click {
+    height: 50px;
+    width: 50px;
+    background-color: $border-color;
+    display: flex;
+
+    @include onTablet {
+      height: 70px;
+      width: 70px;
+    }
+  }
+
+  &__button-link {
+    background-image: url(../images/header/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 50%;
+  }
+}

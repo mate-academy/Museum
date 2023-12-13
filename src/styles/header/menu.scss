@@ -1,0 +1,159 @@
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  transition: all 0.6s;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+
+  &__container {
+    padding-top: 27px;
+    @include onTablet {
+      @include pageGrid;
+      padding-top: 40px;
+    }
+  }
+
+  &__line {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      width: 1px;
+      height: 145px;
+      background-color: $white;
+    }
+  }
+
+  &__top {
+    height: 399px;
+    background-color: $border-color;
+
+    @include onTablet {
+      height: 225px;
+    }
+
+    @include onDesktop {
+      height: 233px;
+    }
+  }
+
+  &__naviblock {
+    display: flex;
+    gap: 28px;
+
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid $white;
+
+    @include onTablet {
+      padding: 0;
+      margin: 0 18px 0 0;
+      grid-column: 1 / 4;
+      border-bottom: none;
+      border-right: 1px solid $white;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+      gap: 102px;
+      border-right: none;
+      margin: 0;
+    }
+  }
+
+  &__navi {
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__close {
+    background-image: url(../images/header/close.svg);
+    @include hover(scale, 1.2);
+
+    display: block;
+    height: 24px;
+    width: 24px;
+  }
+
+  &__link {
+    color: $white;
+    font-size: 16px;
+
+    @include onDesktop {
+      font-size: 22px;
+      font-weight: 500;
+    }
+  }
+
+  &__text {
+    @include onTablet {
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / -1;
+    }
+  }
+
+  &__block1 {
+    color: $white;
+
+    &--text2 {
+      padding-top: 16px;
+    }
+
+    @include onTablet {
+      grid-column: 1 /-1;
+
+      &--t {
+        width: 260px;
+        height: auto;
+      }
+
+      &--text2 {
+        padding-top: 0;
+      }
+    }
+  }
+
+  &__block--text {
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 38px;
+    }
+  }
+
+  &:target {
+    z-index: 5;
+    opacity: 1;
+    transform: translatex(0);
+    pointer-events: all;
+  }
+
+  &__shadow {
+    background: $aside-bg-color;
+    opacity: 0.6;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 399px;
+    bottom: 0;
+
+    @include onTablet {
+      top: 225px;
+    }
+
+    @include onDesktop {
+      top: 233px;
+    }
+  }
+}
