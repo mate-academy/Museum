@@ -1,55 +1,37 @@
 # Museum landing page
-Implement landing page according to [Figma design](https://www.figma.com/file/cRBCqE06cDrY3s4jX7h3iY/%D0%9D%D0%90%D0%9C%D0%A3-(Edit)?node-id=0%3A1) - Use BEM and SCSS
+## Welcome to [National Art Museum of Ukraine ]
 
-Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans?query=ibm), [Montserrat](https://fonts.google.com/specimen/Montserrat?query=mon)
+Explore the World of Culture and History
+We warmly welcome you to the interactive world of our museum, where culture and history come to life. You can not only explore fascinating exhibits but also participate in exciting events to learn more about cultural achievements.
 
-- The design 1440px
-- Desktop 1280px
-- Tablet 640px
-- Mobile (> 320px)
+Plan Your Visit
+Familiarize yourself with the museum's schedule to ensure the best time for your visit. We regularly update the schedule so you can enjoy the exhibits at a time convenient for you.
 
-1. Implement the header with hamburger menu.
-1. Implement `Художній Музей` block.
-1. Implement `Актуальні події` block with two similar blocks `Йду і повертаюсь`, `І спогади і мрії`.
-1. Implement `Від класицизму до романтизму` block.
-1. Implement `Галерея` block and slider.
-1. Implement `Підписка` block.
-1. Implement footer.
+Current Events and Exhibitions
+Stay informed about the latest museum events. From captivating exhibitions to intriguing lectures, there is always something new for you. Visit our website or subscribe to receive notifications about upcoming events.
 
-## Checklist for preparing a portfolio project for HR review
+Subscription and Notifications
+Subscribe to our weekly newsletter to receive exclusive information about upcoming exhibitions and events. Stay informed and be the first to learn about all the news.
 
-1. Don’t forget to add a title for the whole web page (it could be the name of your landing)
-2. A landing page is implemented strictly according to the design in Figma
-4. Links in the header and footer menus should lead to the corresponding blocks of the landing page
-5. The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
-6. Placeholders in the forms suggest what to enter, and if there is a validation of the form, then it is clear in what format to enter the phone number
-7. Make sure everything looks neat on mobile and without horizontal scrolling
-8. Add favicon
-9. Add a smooth scroll for the whole page
-10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
-11. The form shouldn’t submit empty
-12. The buttons "exhibitions" and "tickets" should lead to the block with current events
-13. The button "about us" should lead to the email digest
-14. Facebook and Instagram icons in the footer should be clickable and open the museum's social networks in a new tab
-15. Pictures in the gallery and exhibitions sections should increase on hover
-16. OPTIONAL: After everything is done, you can add a slider for viewing pictures in the gallery (for mobile version)
+Ticket Ordering and More
+Conveniently order tickets on our website. We strive to make your visit as comfortable and exciting as possible.
+
+Join Us on Social Media
+Follow our latest updates and join the community on social media. Let's explore culture and history together!
+
+Thank you for choosing [National Art Museum of Ukraine ]. We wish you unforgettable experiences and discoveries!
 
 
-## Github flow
-1. **Fork** the repo.
-2. **Clone** the forked one. (The project link should have your name but not `mate-academy`)
-3. Run `npm install` (or just `npm i`).
-4. Run `npm start`.
-5. Open one more terminal window for the next steps.
-6. `git checkout -b develop` - to create new branch and switch on it.
-7. Write you code in `src` folder.
-8. Run `npm run lint` and fix code style errors.
-9. Run `npm run deploy` to deploy your solution to `gh-pages`.
-10. `git add . && git commit -m 'solution'` to save your changes.
-11. `git push origin develop` - to send you code for PR.
-12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
-13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Museum/).
-14. Copy `DEMO LINK` to the PR description.
+## Programming Languages:
+HTML, CSS, JavaScript: These are the fundamental languages for creating the structure, styling, and dynamic behavior of a website.
 
-> To update you PR repeat steps 7-11.
+
+## Project Adapted to:
+Design: 1440px
+Desktop: 1280px
+Tablet: 640px
+Mobile: (> 320px)
+
+## preview [DEMO LINK](https://Viktoriia6666.github.io/Museum/).
+
+## Implemented landing page according to [Figma design](https://www.figma.com/file/cRBCqE06cDrY3s4jX7h3iY/%D0%9D%D0%90%D0%9C%D0%A3-(Edit)?node-id=0%3A1)
