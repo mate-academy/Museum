@@ -1,0 +1,159 @@
+.footer {
+  padding-top: 50px;
+
+  &__container {
+    @include container;
+    @include page-grid;
+  }
+
+  &__logo-bar {
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--pos {
+      margin-bottom: 40px;
+    }
+
+    @include on-tablet {
+      grid-column: 1 / 2;
+      flex-direction: column;
+      gap: 62px;
+      align-items: flex-start;
+    }
+  }
+
+  &__logo {
+    @include hover(transform, scale(1.1));
+  }
+
+  &__social-media {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__media {
+    &--fb {
+      background-image: url(./../images/icons/fb.svg);
+    }
+
+    &--inst {
+      background-image: url(./../images/icons/inst.svg);
+    }
+  }
+
+  &__schedule {
+    grid-column: 1 / 2;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+    }
+  }
+
+  &__contacts {
+    grid-column: 2 / -1;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 7;
+    }
+  }
+
+  &__up {
+    grid-column: 2 / -1;
+    justify-self: end;
+
+    width: 50px;
+    height: 50px;
+    border: 1px solid #1A5A4C;
+    border-radius: 50%;
+    background-image: url(./../images/icons/arrow_up.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &--pos {
+      margin-bottom: 20px;
+    }
+
+    @include on-tablet {
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__line {
+    grid-column: 1 / -1;
+
+    height: 1px;
+    width: 100%;
+    background-color: rgba(26, 90, 76, 0.50);
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 8;
+      grid-row: 1 / 2;
+
+      height: 100%;
+      width: 1px;
+      justify-self: center;
+    }
+
+    &--pos {
+      margin-bottom: 40px;
+
+      @include on-tablet {
+        margin-bottom: 64px;
+      }
+    }
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / 11;
+      grid-row: 1 / 2;
+    }
+
+    &--pos {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__service-data {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 140%;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}
