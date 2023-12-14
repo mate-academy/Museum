@@ -1,0 +1,94 @@
+@import "../utils/mixins";
+
+.header {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  @include pageGrid;
+  max-width: 280px;
+
+  @include onTablet {
+    max-width: 690px;
+  }
+
+  @include onDesktop {
+    max-width: 1170px;
+  }
+
+  &__bg {
+    width: 100%;
+    height: 100%;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: -8 / -1;
+    }
+  }
+
+  &__title-div {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-row: 1;
+      margin: 127px 0 0;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      grid-column: 1 / 3;
+    }
+
+    @include onDesktop {
+      margin: 206px 0 0;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__logo {
+    width: 63px;
+    height: 72px;
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateX(-50%) scale(1.1);
+    }
+
+    @include onTablet {
+      top: 15px;
+      left: 66%;
+      transform: translateX(-50%);
+    }
+
+    @include onDesktop {
+      left: 52%;
+    }
+  }
+
+  &__burger {
+    background-image: url(../icons/icon-hamburger.svg);
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 27px;
+
+    &:hover {
+      background-image: url(../icons/icon-burger-menu-24-hover-SVG.svg);
+    }
+
+    @include onTablet {
+      top: 40px;
+    }
+  }
+}

@@ -1,0 +1,196 @@
+.actual {
+  @include pageGrid;
+  max-width: 280px;
+
+  @include onTablet {
+    max-width: 690px;
+  }
+
+  @include onDesktop {
+    max-width: 1170px;
+    margin-bottom: 104px;
+  }
+
+  &__group {
+    grid-column: 1 / -1;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      grid-column: -5 / -1;
+    }
+  }
+
+  &__title-h2 {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #0f0e08;
+    margin: 70px 0 40px;
+
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      text-align: left;
+      margin: 88px 0 48px;
+      font-size: 48px;
+      font-weight: 700;
+    }
+
+    @include onDesktop {
+      margin: 200px 0 56px;
+    }
+  }
+
+  &__picture {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__picture-wrapper {
+    overflow: hidden;
+
+    grid-column: 1 / -1;
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__date-description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 10px;
+
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      margin: 44px 0 32px;
+      justify-content: left;
+      gap: 15px;
+
+      grid-column: 1 / 3;
+    }
+
+    @include onDesktop {
+      margin: 0;
+
+      grid-column: -5 / -1;
+    }
+
+    &-title {
+      color: #687480;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      margin: 0;
+
+      @include onTablet {
+        font-size: 14px;
+      }
+
+      @include onDesktop {
+        font-size: 14px;
+        margin-right: 10px;
+      }
+    }
+
+    &-date {
+      color: #1a5a4c;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+
+      @include onTablet {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__title-h3 {
+    @include h3FontStyles;
+
+    margin: 0;
+    position: relative;
+
+    grid-column: 1 / -1;
+
+    @include squareAfterTitle;
+
+    @include onDesktop {
+      margin: 32px 0 15px;
+
+      grid-column: -5 / -1;
+    }
+
+    &--after-1::after {
+      right: 5%;
+      top: 33%;
+
+      @include onTablet {
+        right: 53%;
+        top: 36%;
+      }
+
+      @include onDesktop {
+        right: 14%;
+        top: 36%;
+      }
+    }
+
+    &--after-2::after {
+      right: 5%;
+      top: 33%;
+
+      @include onTablet {
+        right: 62%;
+        top: 36%;
+      }
+
+      @include onDesktop {
+        right: 27%;
+        top: 36%;
+      }
+    }
+
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__p-description {
+    @include pFontStyles;
+    margin: 10px 0 60px;
+
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      margin: 15px 0 64px;
+    }
+
+    @include onDesktop {
+      margin: 0;
+
+      grid-column: -5 / -1;
+    }
+  }
+
+  &-card {
+    box-shadow: 0 2px 0 0 rgba(26, 9, 76, 0.25);
+    height: 140px;
+    padding-bottom: 20px;
+
+    grid-column: 1 / -1;
+  }
+}
