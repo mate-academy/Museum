@@ -1,0 +1,178 @@
+.menu {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(36,36,39,.5);
+
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: all $effect-duration;
+    transform: translateY(-100%);
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+      z-index: 2;
+  }
+
+
+
+  &__container {
+    @include page-grid;
+    @include content-padding-inline;
+
+    padding-top: 27px;
+    background-color: #1a5a4c;
+
+    @include on-tablet {
+      padding-top: 40px;
+    }
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+    margin-bottom: 49px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      margin-bottom: 0;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+      gap: 102px;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      background-color: #fff;
+      height: 1px;
+      width: 100%;
+      bottom: -25px;
+      left: 0;
+
+      @include on-tablet {
+        width: 1px;
+        height: 145px;
+        top: 0;
+        left: 100%;
+      }
+
+      @include on-desktop {
+        left: 100%;
+      }
+    }
+  }
+
+  &__nav {
+    &__list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 24px 28px;
+    }
+
+    &__item {
+      position: relative;
+      text-decoration: none;
+    }
+
+    &__link {
+      text-decoration: none;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 14px;
+      text-align: left;
+      color: #fff;
+      transition: $effect-duration;
+
+      &:hover {
+        color: #2980b9;
+      }
+    }
+  }
+
+  &__schedule {
+    grid-column: 1 / -1;
+    font-weight: 500;
+    line-height: 100%;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 27px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / 12;
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      color: #fff;
+
+      @include on-tablet {
+        display: flex;
+        flex-direction: row;
+        gap: 38px;
+      }
+    }
+
+    &__title {
+      color: #fff;
+    }
+
+    &__list {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+      list-style: none;
+      min-width: max-content;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__weekend {
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+
+      @include on-tablet {
+        max-width: 144px;
+      }
+
+      @include on-desktop {
+        max-width: 170px;
+      }
+    }
+
+    &__text {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      text-align: left;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,108 @@
+.gallery {
+  &__container {
+    padding-block: 43px 100px;
+
+    @include content-padding-inline;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding-top: 40px;
+    scroll-behavior: smooth;
+    overflow: hidden;
+
+    @include on-tablet {
+      padding-top: 48px;
+    }
+
+    @include on-desktop {
+      padding-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(12,1fr);
+      gap: 30px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: $effect-duration;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include on-desktop {
+      width: 100%;
+
+
+    &--first {
+      height: 600px;
+      grid-column: 1/5;
+    }
+
+    &--second {
+      height: 600px;
+      grid-column: 5 / -1;
+    }
+
+    &--third {
+      height: 360px;
+      grid-column: 1 / 8;
+     }
+
+     &--fourth {
+      height: 360px;
+      grid-column: 8 / -1;
+     }
+    }
+
+    &--second,
+    &--third,
+    &--fourth {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+      }
+    }
+
+
+    &--second:target,
+    &--third:target,
+    &--fourth:target {
+      display: block;
+    }
+  }
+
+  &__scrolling {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 102px;
+    margin-inline: auto;
+    margin-top: 20px;
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &__link {
+      height: 9px;
+      width: 9px;
+      background-color: #e0e0e0;
+      border-radius: 50%;
+      text-decoration: none;
+
+      &:hover {
+        background-color: #1a5a4c;
+      }
+    }
+  }
+}
