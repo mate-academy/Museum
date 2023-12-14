@@ -14,26 +14,12 @@
     padding-block: 0 200px;
   }
 
-  &__content {
-    @include pageGrid;
-  }
-
   &__slider {
-    display: none;
+    opacity: 0;
 
     @include onTablet {
-      display: flex;
-      flex-direction: row;
-      grid-column: span 6;
-      gap: 20px;
-    }
-
-    @include onDesktop {
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 30px;
-      grid-column: span 12;
-
+      opacity: 1;
+      @include pageGrid;
     }
   }
 
@@ -74,7 +60,6 @@
   }
 
   &__photo {
-    width: 100%;
     object-fit: contain;
     transition: transform $time-transition;
     cursor: pointer;
@@ -83,43 +68,110 @@
       transform: scale(1.03);
     }
 
+    @include onTablet {
+      width: 100%;
+    }
+
     @include onDesktop {
-      height: 600px;
-      width: 370px;
-      object-fit: cover;
-      // height: 600px;
+      width: 100%;
+      object-fit: contain;
     }
   }
 
   &__photos {
-    width: 100%;
     object-fit: cover;
 
-    @include onDesktop {
-      display: none;
+    @include onTablet {
+      width: 100%;
     }
   }
 
   &__images {
-    display: none;
+    // display: none;
 
     @include onDesktop {
-      display: flex;
-      // object-fit: cover;
-      max-width: fit-content;
-
+      width: 100%;
+      object-fit: contain;
       transition: transform $time-transition;
       cursor: pointer;
 
       &:hover {
         transform: scale(1.03);
       }
+
+      @include onDesktop1200 {
+        width: 100%;
+      }
     }
   }
 
   &__main {
-    max-width: fit-content;
-    width: 100%;
-    display: flex;
+
+    &--four {
+      @include onTablet {
+        grid-column: 1/4;
+      }
+
+      @include onDesktop {
+        grid-column: 1/5;
+      }
+    }
+
+    &--fours {
+
+      @include onTablet {
+        grid-column: 4/-1;
+      }
+
+      @include onDesktop {
+        grid-column: 1/5;
+        position: absolute;
+        opacity: 0;
+      }
+    }
+
+    &--one {
+      @include onTablet {
+        grid-column: 1/5;
+        position: absolute;
+        opacity: 0;
+      }
+
+      @include onDesktop {
+        grid-column: 5/-1;
+        opacity: 1;
+        position: relative;
+        margin-bottom: 30px;
+      }
+    }
+
+    &--two {
+      @include onTablet {
+        grid-column: 1/5;
+        position: absolute;
+        opacity: 0;
+      }
+
+      @include onDesktop {
+        grid-column: 1/9;
+        opacity: 1;
+        position: relative;
+      }
+    }
+
+    &--three {
+
+      @include onTablet {
+        grid-column: 1/5;
+        position: absolute;
+        opacity: 0;
+      }
+
+      @include onDesktop {
+        grid-column: 9/-1;
+        opacity: 1;
+        position: relative;
+      }
+    }
   }
 }
