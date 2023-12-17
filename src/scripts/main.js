@@ -24,3 +24,10 @@ navButtonsBlock.addEventListener('click', (event) => {
   nextImage.classList.remove('hiden');
   nextButton.classList.add('active');
 });
+
+document.getElementById('form').addEventListener('submit',
+  function(e) {
+    e.preventDefault();
+    document.getElementById('email').value = '';
+  }
+);
