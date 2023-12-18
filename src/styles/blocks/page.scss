@@ -1,0 +1,42 @@
+.page {
+  font-family: $title-font;
+  line-height: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    margin: 0;
+    background: $bg-color;
+    min-width: 320px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    background: rgba(24, 24, 26, 0.5);
+
+    transition: all $effectDuration;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+
+    &-wrapp {
+      height: fit-content;
+      background-color: $main-green;
+      width: 100%;
+    }
+  }
+}

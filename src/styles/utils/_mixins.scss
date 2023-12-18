@@ -1,6 +1,33 @@
+@mixin onMobile {
+  @media (max-width: $mobile-max-width) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (max-width: $tablet-max-width) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $effectDuration;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin pageGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include onMobile() {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
   }
 }

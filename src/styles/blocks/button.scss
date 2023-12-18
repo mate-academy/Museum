@@ -1,0 +1,67 @@
+.button {
+  box-sizing: border-box;
+  display: flex;
+  border: 1px solid $main-green;
+  width: fit-content;
+  height: $button-hight;
+  align-self: flex-end;
+  text-decoration: none;
+  transition: transform $effectDuration;
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @include onTablet {
+    align-self: start;
+  }
+
+  @include onMobile {
+    height: $button-hight-mobile;
+    width: 100%;
+  }
+
+  &--tickets {
+    margin-top: 90px;
+
+    @include onTablet {
+      margin-top: 38px;
+    }
+
+    @include onMobile {
+      margin-top: 20px;
+    }
+  }
+
+  &__title {
+    width: $button-title-width;
+    padding: 0;
+    background-color: $bg-color;
+    border: none;
+    color: $title-color;
+    font-family: $secondary-font;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    text-align: center;
+    align-self: center;
+
+    @include onMobile {
+      width: 100%;
+    }
+
+    @include hover(cursor, pointer);
+    @include hover(font-size, 18px);
+  }
+
+  &__arrow {
+    background: url(../images/icons/icon-arrow.png) no-repeat center, $main-green;
+    background-size: 24px, 100%;
+    width: $button-hight;
+    height: 100%;
+
+    @include onMobile {
+      width: $button-hight-mobile;
+    }
+  }
+}

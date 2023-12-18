@@ -1,0 +1,69 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__images {
+    @include pageGrid;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &--tall {
+      height: 600px;
+    }
+
+    &--short {
+      height: 360px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    @include hover(cursor, pointer);
+
+    &--large {
+      grid-column: span 8;
+      @include hover(transform, scale(1.05));
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--narrow {
+      grid-column: span 4;
+      @include hover(transform, scale(1.05));
+    }
+  }
+
+  &__scroll {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      grid-column: span 6;
+      flex-direction: column;
+    }
+
+    @include onMobile {
+      grid-column: span 2;
+    }
+  }
+}
