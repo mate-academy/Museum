@@ -13,6 +13,7 @@
 
   &__image {
     display: flex;
+    position: relative;
     justify-content: center;
     grid-column: 1 / -1;
     grid-row: 1 / -1;
@@ -27,10 +28,11 @@
     @include on-tablet {
       grid-column: 2 / -1;
       background-image: url(./..//images/tablet/header-image-tablet.png);
+      margin-inline: 0;
       margin-left: 15px;
       justify-content: left;
       height: 384px;
-      width: 100%;
+      width: auto;
     }
 
     @include on-desktop {
@@ -38,7 +40,6 @@
       margin-left: -85px;
       padding-right: 85px;
       height: 655px;
-      width: 100%;
     }
   }
 
@@ -78,37 +79,44 @@
 
     position: relative;
     grid-column: 1 / -1;
-    margin-inline: auto;
 
     @include on-tablet {
       grid-row: 1 / -1;
     }
+
+    @include on-desktop {
+      margin-inline: auto;
+    }
   }
 
-  &__burger-menu {
-    z-index: 1;
+  &__burger-menu:hover {
+    transform: scale(1.2);
+  }
+
+  &__burger-menu-phone {
     position: absolute;
-    display: block;
     top: 27px;
     left: 20px;
 
     @include on-tablet {
-      top: 39px;
-      left: 39px;
+      display: none;
+    }
+  }
+
+  &__burger-menu-fromTablet {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: min-content;
+      margin-top: 39px;
     }
 
-    @include on-desktop {
-      top: 39px;
-      left: 55px;
-    }
-
-    &:hover {
-      transform: scale(1.2);
-    }
   }
 
   &__tittle {
     grid-column: 1 / -1;
+
     color: #000;
     text-align: center;
     font-family: Montserrat, sans-serif;
@@ -121,6 +129,7 @@
 
     @include on-tablet {
       grid-column: 1 / 4;
+      text-align: left;
       font-size: 54px;
       line-height: 120%;
       margin-top: 127px;
@@ -143,8 +152,8 @@
 
   @include on-tablet {
     grid-column: 1 / -4;
-    margin-bottom: 19px;
     justify-content: left;
+    margin-bottom: 19px;
   }
 
   @include on-desktop {

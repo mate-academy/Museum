@@ -26,8 +26,8 @@
     @include page-grid;
     @include content-padding-inline;
 
+    position: relative;
     padding-block: 27px;
-    margin-inline: auto;
     color: $white-text-color;
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 14px;
@@ -39,6 +39,7 @@
     }
 
     @include on-desktop {
+      margin-inline: auto;
       padding-top: 40px;
       padding-bottom: 48px;
     }
@@ -76,7 +77,6 @@
     @include on-tablet {
       grid-column: 1 / 4;
       grid-row: 1 / -1;
-      padding-left: 24px;
       margin-inline: auto;
     }
 
@@ -181,4 +181,21 @@
   &__daysOff {
     margin-top: auto;
   }
+}
+
+.dark-bg {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9;
+  opacity: 0.5;
+  background: $dim-page-color;
+}
+
+.menu:target + .dark-bg {
+  display: block;
 }

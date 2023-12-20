@@ -2,16 +2,24 @@
   display: grid;
 
   &__tittle-wraper {
-    @include page-grid;
+    display: flex;
+    justify-content: center;
+
     @include content-padding-inline;
 
+    @include on-tablet {
+      justify-content: left;
+    }
 
-    margin-inline: auto;
+    @include on-desktop {
+      @include page-grid;
+
+      margin-inline: auto;
+    }
   }
 
   &__tittle {
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
+    width: min-content;
     text-align: center;
     color: $black-text-color;
     font-family: Montserrat, sans-serif;
@@ -22,12 +30,14 @@
     margin-bottom: 40px;
 
     @include on-tablet {
+      width: 100%;
       text-align: left;
       font-size: 48px;
       margin-bottom: 48px;
     }
 
     @include on-desktop {
+      grid-column: 1 / -1;
       margin-bottom: 56px;
     }
   }
@@ -66,17 +76,8 @@
     }
   }
 
-  &__image-wrapper {
-    grid-column: 1 / -1;
-    overflow: hidden;
-
-    @include on-desktop {
-      grid-column: 1 / 8;
-      grid-row: 1 / -1;
-    }
-  }
-
   &__image {
+    grid-column: 1 / -1;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -90,6 +91,8 @@
     }
 
     @include on-desktop {
+      grid-column: 1 / 8;
+      grid-row: 1 / -1;
       margin-bottom: 0;
     }
 
@@ -239,7 +242,7 @@
 
   @include on-tablet {
     margin-bottom: 88px;
-    margin-inline: auto;
+    margin-inline: 39px;
   }
 
   @include on-desktop {
@@ -258,15 +261,11 @@
     @include on-tablet {
       background-image: url(./../images/tablet/lection-paintiong-tablet.png);
       height: 390px;
-      width: 690px;
-      margin-inline: 39px;
     }
 
     @include on-desktop {
       background-image: url(./../images/desktop/lection-paintiong-desktop.png);
       height: 550px;
-      width: 100%;
-      margin-inline: 0;
     }
   }
 
