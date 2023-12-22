@@ -1,0 +1,64 @@
+.page {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  background: $color-light;
+
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 150%;
+  color: $color-dark;
+
+  &__body {
+    margin: 0;
+  }
+
+  &__menu {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+    transition: opacity 0.5s,
+                transform 0.5s;
+  }
+
+  &__menu:target {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}
+
+.container {
+  padding: 0 20px;
+
+  @media (min-width: $tablet-width) {
+    max-width: 690px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: $desktop-width) {
+    max-width: 1170px;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
