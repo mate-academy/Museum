@@ -1,0 +1,166 @@
+.subscription {
+  margin-top: 92px;
+  margin-bottom: 50px;
+
+  @include on-tablet {
+    margin-top: 84px;
+  }
+
+  @include on-desktop {
+    margin-top: 200px;
+  }
+
+  &__bg {
+    display: grid;
+    background-image: url(./../images/phone/subscription-bg-phone.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 386px;
+
+    @include on-tablet {
+      background-image: url(./../images/tablet/subscription-bg-tablet.png);
+      height: 380px;
+    }
+
+    @include on-desktop {
+      background-image: url(./../images/desktop/subscription-bg-desktop.png);
+      height: 550px;
+    }
+  }
+
+  &__contentWrapper {
+    @include page-grid;
+    @include content-padding-inline;
+
+    margin-inline: auto;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    padding-block: 88px;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      padding-block: 82px;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 10;
+      padding-block: 163px;
+    }
+  }
+
+  &__tittle {
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+    color: $white-text-color;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__description {
+    color: $white-text-color;
+    text-align: center;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      line-height: 100%;
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__form {
+    position: relative;
+    display: flex;
+    width: 100%;
+
+    @include on-tablet {
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+
+    &:hover {
+      gap: 0;
+    }
+  }
+
+  &__input {
+    font-family: Montserrat, sans-serif;
+    box-sizing: border-box;
+    border: none;
+    height: 70px;
+    width: 100%;
+    padding-inline: 24px;
+    outline: none;
+
+    &::placeholder {
+      color: $placeholder-color;
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 100%;
+    }
+  }
+
+  &__submit {
+    border: none;
+    height: 70px;
+    width: 70px;
+    min-width: 70px;
+    background-color: $red-page-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+.email-error-message {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  position: absolute;
+  color: red;
+  bottom: -20px;
+  background-color: #fff;
+}
+
+.subscription__email:invalid + .email-error-message {
+  display: block;
+}
+
+.subscription__input:valid + .email-error-message,
+.subscription__input:placeholder-shown + .email-error-message {
+  display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  border: 1px solid $red-page-color;
+  -webkit-text-fill-color: $red-page-color;
+  -webkit-box-shadow: 0 0 0 1000px #000 inset;
+}

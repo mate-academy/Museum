@@ -1,0 +1,82 @@
+.gallery {
+  display: grid;
+  margin-inline: auto;
+
+  &__tittle-wraper {
+    @include page-grid;
+    @include content-padding-inline;
+
+    margin-inline: auto;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__tittle {
+    grid-column: 1 / -1;
+    color: $black-text-color;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include on-tablet {
+      text-align: left;
+      font-size: 48px;
+    }
+  }
+
+  &__photos {
+    display: none;
+
+    @include on-desktop {
+      @include page-grid;
+      @include content-padding-inline;
+
+      row-gap: 30px;
+      margin-inline: auto;
+    }
+  }
+
+  &__photo {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &--1 {
+      grid-column: span 4;
+      background-image: url(./../images/desktop/gallery-1.png);
+      height: 600px;
+    }
+
+    &--2 {
+      grid-column: span 8;
+      background-image: url(./../images/desktop/gallery-2.png);
+      height: 600px;
+    }
+
+    &--3 {
+      grid-column: span 8;
+      background-image: url(./../images/desktop/gallery-3.png);
+      height: 360px;
+    }
+
+    &--4 {
+      grid-column: span 4;
+      background-image: url(./../images/desktop/gallery-4.png);
+      height: 360px;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

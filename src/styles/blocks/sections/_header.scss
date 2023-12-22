@@ -1,0 +1,243 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 70px;
+
+  @include on-tablet {
+    margin-bottom: 88px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 200px;
+  }
+
+  &__image {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    margin-inline: auto;
+    height: 300px;
+    width: 100%;
+    background-image: url(./../images/phone/header-image-phone.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include on-tablet {
+      grid-column: 2 / -1;
+      background-image: url(./..//images/tablet/header-image-tablet.png);
+      margin-inline: 0;
+      margin-left: 15px;
+      justify-content: left;
+      height: 384px;
+      width: auto;
+    }
+
+    @include on-desktop {
+      background-image: url(./../images/desktop/header-image-desktop.png);
+      margin-left: -85px;
+      padding-right: 85px;
+      height: 655px;
+    }
+  }
+
+  &__logo-wrapper {
+    display: flex;
+    justify-content: center;
+
+    @include on-tablet {
+      width: 220px;
+    }
+
+    @include on-desktop {
+      width: 170px;
+    }
+  }
+
+  &__logo {
+    @include logo-styles;
+
+    margin-top: 9px;
+    text-decoration: none;
+    z-index: 1;
+    height: min-content;
+
+    @include on-tablet {
+      margin-top: 15px;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__content  {
+    @include page-grid;
+    @include content-padding-inline;
+
+    position: relative;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-row: 1 / -1;
+    }
+
+    @include on-desktop {
+      margin-inline: auto;
+    }
+  }
+
+  &__burger-menu:hover {
+    transform: scale(1.2);
+  }
+
+  &__burger-menu-phone {
+    position: absolute;
+    top: 27px;
+    left: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__burger-menu-fromTablet {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: min-content;
+      margin-top: 39px;
+    }
+
+  }
+
+  &__tittle {
+    grid-column: 1 / -1;
+
+    color: #000;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+      margin-top: 127px;
+      margin-bottom: 38px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      font-size: 72px;
+      margin-top: 206px;
+      margin-bottom: 89px;
+    }
+  }
+}
+
+.buttonTickets {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+
+  @include on-tablet {
+    grid-column: 1 / -4;
+    justify-content: left;
+    margin-bottom: 19px;
+  }
+
+  @include on-desktop {
+    grid-column: 3 / 6;
+    margin-bottom: 118px;
+  }
+
+  &__text-wraper {
+    box-sizing: border-box;
+    border: 1px solid $green-page-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    height: 50px;
+
+    @include on-tablet {
+      width: 200px;
+      height: 70px;
+    }
+  }
+
+  &__text {
+    text-decoration: none;
+    text-align: center;
+    color: $black-text-color;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    padding-block: 17px;
+    width: 100%;
+
+    @include on-tablet {
+      padding-block: 27px;
+    }
+  }
+
+  &__pointer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    background-color: $green-page-color;
+
+    @include on-tablet {
+      height: 70px;
+      width: 70px;
+    }
+  }
+}
+
+.buttonTickets:hover .buttonTickets__pointer {
+  transform: translateX(30px);
+}
+
+.vertical {
+  display: none;
+
+  @include on-desktop {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 70px;
+    transform-origin: left bottom;
+    transform: rotate(-90deg);
+
+    &__line {
+      height: 1px;
+      width: 70px;
+      background-color: $green-page-color;
+    }
+
+    &__text {
+      color: $grey-text-color;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%
+    }
+  }
+}

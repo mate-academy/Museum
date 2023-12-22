@@ -1,0 +1,352 @@
+.relevant {
+  display: grid;
+
+  &__tittle-wraper {
+    display: flex;
+    justify-content: center;
+
+    @include content-padding-inline;
+
+    @include on-tablet {
+      justify-content: left;
+    }
+
+    @include on-desktop {
+      @include page-grid;
+
+      margin-inline: auto;
+    }
+  }
+
+  &__tittle {
+    width: min-content;
+    text-align: center;
+    color: $black-text-color;
+    font-family: Montserrat, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      width: 100%;
+      text-align: left;
+      font-size: 48px;
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / -1;
+      margin-bottom: 56px;
+    }
+  }
+}
+
+.action {
+  @include page-grid;
+  @include content-padding-inline;
+
+  grid-column: 1 / -1;
+  margin-inline: auto;
+
+  &--one {
+    grid-row: 2 / 3;
+    margin-bottom: 60px;
+
+    @include on-tablet {
+    margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+    margin-bottom: 104px;
+    }
+  }
+
+  &--two {
+    grid-row: 3 / 4;
+    margin-bottom: 60px;
+
+    @include on-tablet {
+      margin-bottom: 112px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 104px;
+    }
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 210px;
+    margin-bottom: 16px;
+
+    @include on-tablet {
+      height: 520px;
+      margin-bottom: 44px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+      grid-row: 1 / -1;
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &--one {
+      background-image: url(./../images/phone/action-one-painting-phone.png);
+
+      @include on-tablet {
+        background-image: url(./../images/tablet/action-one-painting-tablet.png);
+      }
+
+      @include on-desktop {
+        background-image: url(./../images/desktop/action-one-painting-desktop.png);
+      }
+    }
+
+    &--two {
+      background-image: url(./../images/phone/action-two-painting-phone.png);
+
+      @include on-tablet {
+        background-image: url(./../images/tablet/action-two-painting-tablet.png);
+      }
+
+      @include on-desktop {
+        background-image: url(./../images/desktop/action-two-painting-desktop.png);
+      }
+    }
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    @include page-grid;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      grid-column: 9 / -1;
+      grid-row: 1 / -1;
+    }
+  }
+}
+
+.details {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+
+  @include on-tablet {
+    grid-column: 1 / 3;
+    margin-bottom: 32px;
+  }
+
+  @include on-desktop {
+    justify-content: left;
+    gap: 30px;
+  }
+
+  &__kind {
+    color: $grey-text-color;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+
+    @include on-tablet {
+      font-size: 14px;
+    }
+  }
+
+  &__when {
+    color: $green-page-color;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+
+    @include on-tablet {
+      font-size: 14px;
+    }
+  }
+}
+
+.action-tittle {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+
+  @include on-tablet {
+    grid-column: 1 / 5;
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    color: $black-text-color;
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+
+    @include on-tablet {
+      font-size: 36px;
+    }
+  }
+
+  &__red-squere {
+    height: 10px;
+    width: 10px;
+    background-color: $red-page-color;
+    margin-block: 12px;
+
+    @include on-tablet {
+      height: 15px;
+      width: 15px;
+    }
+
+  }
+}
+
+.description {
+  grid-column: 1 / -1;
+  color: $description-text-color;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%;
+
+  @include on-tablet {
+    grid-column: 1 / 5;
+  }
+}
+
+.lection {
+  position: relative;
+  margin-bottom: 100px;
+
+  @include on-tablet {
+    margin-bottom: 88px;
+    margin-inline: 39px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 200px;
+    margin-inline: 0;
+  }
+
+  &__image {
+    background-image: url(./../images/phone/lection-painting-phone.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 210px;
+
+    @include on-tablet {
+      background-image: url(./../images/tablet/lection-paintiong-tablet.png);
+      height: 390px;
+    }
+
+    @include on-desktop {
+      background-image: url(./../images/desktop/lection-paintiong-desktop.png);
+      height: 550px;
+    }
+  }
+
+  &__content {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $white-text-color;
+    width: 280px;
+    height: 140px;
+    padding-block: 20px;
+    box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+    transform: translateY(-57px);
+    margin-inline: auto;
+
+    @include on-tablet {
+      width: 570px;
+      height: 204px;
+      padding: 45px 55px 50px;
+      transform: translateY(-84px);
+    }
+
+    @include on-desktop {
+      padding: 45px 100px 50px;
+      transform: translateY(-102px);
+    }
+  }
+
+  &__details {
+    font-family: 'IBM Plex Sans', sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 21px;
+    margin-bottom: 20px;
+    width: 100%;
+
+    @include on-tablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__kind {
+    color: $grey-text-color;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+
+    @include on-tablet {
+      font-size: 14px;
+    }
+  }
+
+  &__when {
+    color: $green-page-color;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+
+    @include on-desktop {
+      font-size: 14px;
+    }
+  }
+
+  &__tittle {
+    width: 100%;
+    color: $black-text-color;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+
+    @include on-tablet {
+      text-align: left;
+      font-size: 36px;
+    }
+  }
+}
