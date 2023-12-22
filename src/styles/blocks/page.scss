@@ -1,0 +1,61 @@
+.page {
+  scroll-behavior: smooth;
+
+  &:has(#menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  &__menu {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transform: translateY(-120%);
+    transition: transform $t-anim;
+    height: 100%;
+    width: 100%;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link--down {
+  color: $main-c;
+  @extend %p;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+
+  @include hover (opacity, $v-opac);
+}
+
+.main {
+  width: 100%;
+}
