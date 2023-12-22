@@ -1,7 +1,47 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "./utils";
+@import "./fonts";
+@import "./typography";
+@import "./blocks/header.scss";
+@import "./blocks/menu.scss";
+@import "./blocks/actual.scss";
+@import "./blocks/galery.scss";
+@import "./blocks/slider.scss";
+@import "./blocks/about.scss";
+@import "./blocks/footer.scss";
+@import "./blocks/lecture.scss";
+@import "./blocks/form.scss";
 
 body {
-  background: $c-gray;
+  background: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.page {
+  &:has(.menu:target) {
+    overflow: hidden;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 20px;
+
+  @include tab640 {
+    padding: 0 34px;
+  }
+
+  @include desk1280 {
+    padding: 0 55px;
+    margin: 0;
+  }
+}
+
+.actual {
+  display: flex;
+  justify-content: center;
 }

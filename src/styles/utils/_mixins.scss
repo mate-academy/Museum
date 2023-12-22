@@ -4,3 +4,38 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin mob320 {
+  @media (min-width: $mob320) {
+    @content;
+  }
+}
+
+@mixin tab640 {
+  @media (min-width: $tab640) {
+    @content;
+  }
+}
+
+@mixin desk1280 {
+  @media (min-width: $desk1280) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include tab640() {
+    --columns: 6;
+    column-gap: 30px;
+  }
+
+  @include desk1280() {
+    --columns: 12;
+    column-gap: 30px;
+  }
+}

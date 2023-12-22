@@ -1,0 +1,177 @@
+.menu {
+  z-index: 101;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000, $alpha: 0.4);
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+  transition: 0.3s;
+  overflow: hidden;
+  font-family: "IBM Plex Sans", monospace;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #fff;
+
+  &__link {
+    color: $white;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+
+    @include hover (opacity, $v-opac);
+
+    @include tab640 {
+      width: 100px;
+    }
+  }
+
+  &__back {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+
+  &__container {
+    padding: 0 20px;
+    background-color: $green;
+    height: 400px;
+
+    @include tab640 {
+      display: flex;
+      gap: 38px;
+      padding: 0 34px;
+      height: 225px;
+    }
+
+    @include desk1280 {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      padding: 0 55px;
+    }
+
+  }
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__nav {
+    display: flex;
+    gap: 28px;
+    padding-top: 27px;
+    font-family: "IBX Plex Sans", sans-serif;
+
+    @include tab640 {
+      padding-top: 40px;
+      gap: 0;
+    }
+
+    &-link {
+      width: 24px;
+      height: 24px;
+    }
+
+    &_second {
+      display: flex;
+      flex-direction: column;
+      width: 100px;
+      gap: 20px;
+
+      @include desk1280 {
+        width: 170px;
+        margin: 0;
+      }
+    }
+
+    &_first {
+      display: flex;
+      flex-direction: column;
+      width: 100px;
+      gap: 20px;
+
+      @include tab640 {
+        margin: 0 20px 0 38px;
+      }
+
+      @include desk1280 {
+        width: 170px;
+        margin: 0 31px 0 102px;
+      }
+    }
+  }
+}
+
+.whiteline {
+  margin-top: 24px;
+  height: 1px;
+  width: 100%;
+  background-color: $white;
+
+  @include tab640 {
+    width: 1px;
+    height: 145px;
+    margin-top: 40px;
+  }
+
+  @include desk1280 {
+    margin: 40px 102px 0 72px;
+  }
+}
+
+.info {
+  margin-top: 24px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+
+  @include tab640 {
+    margin-top: 40px;
+  }
+
+  &__schedule {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  &__time {
+    margin-top: 20px;
+    line-height: 21px;
+    font-weight: 300;
+    font-size: 14px;
+
+    @include desk1280 {
+      width: 170px;
+    }
+  }
+
+  &__description {
+    line-height: 21px;
+    font-weight: 300;
+    font-size: 14px;
+
+    @include tab640 {
+      width: 144px;
+      margin-top: 20px;
+    }
+
+    @include desk1280 {
+      width: 170px;
+    }
+  }
+
+  &__container {
+    @include tab640 {
+      display: flex;
+      gap: 38px;
+    }
+  }
+}
