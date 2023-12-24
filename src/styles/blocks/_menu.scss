@@ -31,6 +31,7 @@
       gap: 38px;
       grid-column: span 3;
       padding: 0;
+      margin: 0;
       border: none;
       border-right: 1px solid rgba(255, 255, 255, 0.5);
     }
@@ -72,6 +73,7 @@
     @media (min-width: $tablet-width) {
       flex-direction: row;
       align-items: center;
+      gap: 26px;
     }
   }
 
@@ -81,17 +83,36 @@
     padding: 0;
   }
 
+  &__timetable-item {
+    @media (min-width: $desktop-width) {
+      &:hover {
+        .menu__timetable-time{
+          color: $color-dark;
+          transform: translateX(-10px) scale(1.2);
+        }
+      }
+    }
+  }
+
   &__timetable-time {
+    display: inline-block;
     font-weight: 600;
+    transition: color 0.2s,
+                transform 0.5s;
+  }
+
+  &__timetable-texts {
+    @media (min-width: $tablet-width) {
+      max-width: 146px;
+    }
+
+    @media (min-width: $desktop-width) {
+      max-width: 170px;
+    }
   }
 
   &__timetable-text {
     margin: 0;
-    max-width: 280px;
-
-    @media (min-width: $tablet-width) {
-      max-width: 144px;
-    }
 
     @media (min-width: $desktop-width) {
       grid-column: 8 / 12;

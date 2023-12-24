@@ -1,0 +1,51 @@
+.btn {
+  cursor: pointer;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  line-height: 100%;
+  text-transform: uppercase;
+  padding: 18px 130px 18px 80px;
+  border: 1px solid $color-accent;
+  position: relative;
+  transition: border-color 0.5s,
+              background-color 0.5s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: $color-accent;
+    border: 1px solid transparent;
+    background-image: url('../images/icons/icon-right-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: center;
+    transition: background-color 0.5s,
+                border-color 0.5s;
+  }
+
+  &:hover {
+    border-color: transparent;
+    background-color: $color-accent;
+    color: $color-light;
+
+    &::before {
+      background-image: url('../images/icons/icon-right-arrow-hover.svg');
+      border-color: $color-accent;
+      background-color: $color-light;
+    }
+  }
+
+  @media (min-width: $tablet-width) {
+    padding: 27px 138px 27px 68px;
+
+    &::before {
+      width: 70px;
+    }
+  }
+}
