@@ -1,0 +1,57 @@
+@mixin ondesktop {
+    @media (min-width: 1281px) {
+        @content;
+    }
+}
+
+@mixin ontablet {
+    @media (min-width: 769px) and (max-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin onmobile {
+    @media (min-width: 0) and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin pagegrid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+
+    @include ontablet {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 30px;
+    }
+
+    @include onmobile {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+    }
+}
+
+@mixin maingrid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+    margin: 0 55px;
+
+
+    @include ontablet {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 30px;
+        margin: 0 39px;
+    }
+
+    @include onmobile {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+        margin: 0 20px;
+    }
+}
