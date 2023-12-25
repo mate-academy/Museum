@@ -1,0 +1,139 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-sizing: border-box;
+    @include paddingInLine;
+    padding-top: 9px;
+    position: relative;
+
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link__wrapper {
+    margin: 0 auto;
+
+    @include onTablet {
+      width: 220px;
+      padding-left: 70px;
+      margin-left: 336px;
+    }
+
+    @include onLargeScreen {
+      margin-left: 476px;
+    }
+  }
+
+  &__bottom {
+    padding-top: 250px;
+    margin-bottom: 70px;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      align-items: start;
+      padding: 0;
+      margin-bottom: 19px;
+    }
+
+    @include onLargeScreen {
+      align-items: end;
+      margin-bottom: 118px;
+      width: 470px;
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    color: $c-black;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin: 64px 0 38px;
+      font-size: 54px;
+      line-height: 64px;
+      text-align: left;
+    }
+
+    @include onLargeScreen {
+      width: 470px;
+      font-size: 72px;
+      line-height: 86px;
+      margin: 143px 0 89px;
+    }
+  }
+
+  &__bottom__container {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid transparent;
+    transition: all 0.3s;
+    @include forHoverBtn;
+  }
+
+  &__bottom__link {
+    @include forLinks;
+    background-color: $background-c-white;
+    display: block;
+    border: 1px solid $background-c-green;
+    font-weight: 500;
+    height: 50px;
+    width: 280px;
+    padding: 15px 0;
+
+    box-sizing: border-box;
+
+    @include onTablet {
+      width: 200px;
+      height: 70px;
+      padding: 28px 0;
+    }
+  }
+
+  &__bottom__button {
+    box-sizing: border-box;
+    background-color: $background-c-green;
+    padding: 15px 21px;
+    transition: all 0.3s;
+
+    @include onTablet {
+      padding: 25.5px 31px;
+    }
+  }
+
+  &__side__title {
+    display: none;
+
+    @include onLargeScreen {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 14px;
+      color: #687480;
+      text-transform: uppercase;
+      width: 133px;
+
+      transform: rotate(270deg) translateX(44%);
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &__side__title__name::before {
+    display: inline-block;
+    content: "";
+    border-top: 1px solid #000;
+    width: 70px;
+    height: 5px;
+    color: $background-c-green;
+  }
+}

@@ -4,3 +4,76 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesctop {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin paddingInLine {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 34px;
+  }
+
+  @include onDesctop {
+    padding-inline: 55px;
+  }
+}
+
+@mixin forTitles {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 36px;
+  color: $c-for-text;
+}
+
+@mixin forInteractiveImage {
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 50px 0 50px 50px;
+  border-bottom: 3px solid $c-black;
+  border-left: 3px solid $c-black;
+}
+
+@mixin forHoverBtn {
+  &:hover {
+    cursor: pointer;
+    border-bottom: 2px solid $c-orange;
+    border-left: 2px solid $c-orange;
+  }
+}
+
+@mixin forLinks {
+  text-decoration: none;
+  color: $c-for-text;
+
+  &:hover {
+    cursor: pointer;
+    color: $c-orange;
+    transition: all 0.3s;
+  }
+}
+
+@mixin forLogo {
+  transition: all 0.3s;
+  
+  &:hover {
+    transform: scale(110%);
+  }
+}
