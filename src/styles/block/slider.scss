@@ -1,0 +1,141 @@
+.slider {
+  display: flex;
+  height: 100%;
+  width: 500%;
+
+  @include onTablet {
+    width: 100%;
+    gap: 20px;
+  }
+
+  @include onDesctop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+    width: 100%;
+    gap: 30px;
+  }
+
+  &__navigator {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    gap: 22px;
+
+    @include onTablet {
+      padding-top: 32px;
+    }
+
+    @include onDesctop {
+      display: none;
+    }
+  }
+
+  &__bar {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: $dot-color;
+
+    &:hover {
+      background-color: $border-color;
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__image {
+    width: 20%;
+    transition: $transition-time;
+
+    @include onTablet {
+      width: 100%;
+
+      &:hover {
+        transform: scale(105%);
+        transition: $transition-time;
+      }
+    }
+
+    &--tablet-hidden {
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesctop {
+        display: block;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesctop {
+        display: none;
+      }
+    }
+
+    &--grid-first {
+      grid-column: 1 / 5;
+    }
+
+    &--grid-second {
+      grid-column: 5 / 13;
+    }
+
+    &--grid-third {
+      grid-column: 1 / 9;
+    }
+
+    &--grid-fourth {
+      grid-column: 9 / 13;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    @include onTablet {
+      object-fit: cover;
+    }
+
+    @include onDesctop {
+      object-fit: contain;
+    }
+  }
+
+  #img1:checked ~ .slider__image--first {
+    margin-left: 0;
+  }
+
+  #img2:checked ~ .slider__image--first {
+    margin-left: -20%;
+
+    @include onTablet {
+      margin-left: 0;
+    }
+  }
+
+  #img3:checked ~ .slider__image--first {
+    margin-left: -40%;
+    @include onTablet {
+      margin-left: 0;
+    }
+  }
+
+  #img4:checked ~ .slider__image--first {
+    margin-left: -60%;
+    @include onTablet {
+      margin-left: 0;
+    }
+  }
+}

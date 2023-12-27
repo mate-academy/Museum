@@ -1,0 +1,97 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include onDesctop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &--menu {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 28px;
+
+    @include onTablet {
+      gap: 20px 24px;
+    }
+
+    @include onDesctop {
+      gap: 30px;
+    }
+  }
+
+  &--tablet {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include onDesctop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &--desctop {
+    display: block;
+
+    @include onDesctop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 104px 0;
+    }
+  }
+
+  &--row {
+    grid-row: 1;
+  }
+
+  &__item {
+
+    @for $start from 1 through $grid-mobile {
+      @for $end from $start through $grid-mobile {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    &--header {
+      grid-row: 1;
+    }
+
+    &--footer {
+      @include onDesctop {
+        grid-row: 1;
+      }
+    }
+
+    @include onTablet {
+      @for $start from 1 through $grid-tablet {
+        @for $end from $start through $grid-tablet {
+          &--tablet-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include onDesctop {
+      @for $start from 1 through $grid-desctop {
+        @for $end from $start through $grid-desctop {
+          &--desctop-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}

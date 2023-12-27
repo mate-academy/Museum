@@ -1,6 +1,81 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
   }
+}
+
+@mixin onTabletTitle {
+  @media (min-width: 700px) {
+    @content;
+  }
+}
+
+@mixin onDesctop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin theTitle {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 100%;
+  text-align: center;
+  color: $text-color;
+
+  @include onTablet {
+    font-size: 48px;
+    text-align: left;
+  }
+}
+
+@mixin secondTitle {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 100%;
+  color: $text-color;
+
+  @include onTablet {
+    font-size: 36px;
+  }
+}
+
+@mixin fontText {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: $text-color-2;
+  text-transform: uppercase;
+
+  @include onTablet {
+    font-size: 14px;
+  }
+}
+
+@mixin fontData {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: $border-color;
+
+  @include onTablet {
+    font-size: 14px;
+  }
+}
+
+@mixin fontFooter {
+  font-weight: 400;
+  font-size: 14px;
+  color: $text-color;
+}
+
+@mixin iconPosition {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+@mixin imgPosition {
+  background-size: cover;
+  background-repeat: no-repeat;
 }
