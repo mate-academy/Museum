@@ -1,6 +1,81 @@
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
+
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin ibm {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+@mixin mon {
+  font-family: "Montserrat", sans-serif;
+}
+
+@mixin title {
+  color: $title;
+  @include mon;
+}
+
+@mixin text {
+  color: $text;
+  @include ibm;
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+  }
+
+  @media (max-width: 460px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@mixin glass($color, $size) {
+  $color-dark: darken($color, 15%);
+  $color-light: lighten($color, 15%);
+  position: relative;
+  box-sizing: border-box;
+  height: $size;
+  width: $size;
+  background-color: $color;
+  border-radius: 50%;
+  box-shadow: inset -0.8rem 1rem 0.8rem 0.2rem $color-dark,
+    inset 0.8rem -1rem 0.7rem 0.5rem $color-light;
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+
+  &:before {
+    height: 3px;
+    width: 4px;
+    right: 8px;
+    top: 17px;
+    transform: rotate(55deg);
+    box-shadow: 0 0 15px #fff, 0 0 10px #fff, 0 0 5px #fff;
+  }
+
+  &:after {
+    height: 8px;
+    width: 6px;
+    right: 12px;
+    top: 9px;
+    transform: rotate(-45deg);
+    box-shadow: 0 0 15px #fff, 0 0 10px #fff, 0 0 5px #fff;
   }
 }

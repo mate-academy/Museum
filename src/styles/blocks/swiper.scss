@@ -1,0 +1,69 @@
+.swiper {
+  width: calc(100% + 55px);
+  overflow: visible;
+
+  @media (min-width: 1025px) {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    width: calc(100% + 39px);
+  }
+  @media (max-width: 460px) {
+    width: calc(100% + 20px);
+  }
+
+  &-slide {
+    @extend .author;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      bottom: 1rem;
+      right: 1rem;
+      padding-left: 1rem;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      z-index: 100;
+      &::before {
+        font-size: 0.9rem;
+      }
+    }
+
+  }
+
+  &-img {
+    display: flex;
+    min-width: 100%;
+    height: 543px;
+    object-fit: cover;
+    object-position: top;
+
+    @media (max-width: 768px) {
+      height: 410px;
+    }
+  }
+
+  &-pagination {
+    display: flex;
+    height: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    position: static;
+    width: 100%;
+    gap: 20px;
+
+    &-bullet {
+      height: 9px;
+      width: 9px;
+      background-color: #e0e0e0;
+    }
+    &-bullet-active {
+      transform: scale(1.2);
+      background-color: $green;
+    }
+  }
+
+}

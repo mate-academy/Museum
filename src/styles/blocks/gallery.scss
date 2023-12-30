@@ -1,0 +1,63 @@
+.gallery {
+  margin-bottom: 200px;
+  position: relative;
+  overflow: hidden;
+
+  &__title {
+    @include title;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    margin-bottom: 56px;
+
+    @media (max-width: 1024px) {
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 768px) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__album {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__img-box {
+    @extend .author;
+    display: flex;
+    overflow: hidden;
+
+    &:hover {
+      transform: scale(1.01);
+      box-shadow: 0 5px 15px -3px $title;
+    }
+  }
+
+  &__img-box:nth-child(1) {
+    grid-column: 1 / 5;
+  }
+
+  &__img-box:nth-child(2) {
+    grid-column: 5 / 13;
+  }
+
+  &__img-box:nth-child(3) {
+    grid-column: 1 / 8;
+  }
+
+  &__img-box:nth-child(4) {
+    grid-column: 8 / 13;
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
