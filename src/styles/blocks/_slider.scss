@@ -1,11 +1,11 @@
 .slider {
   box-sizing: border-box;
-  width: 280px;
+  min-width: 280px;
   height: 410px;
   overflow: hidden;
 
   @include onTablet {
-    width: 700px;
+    min-width: 700px;
     height: 543px;
   }
 
@@ -18,6 +18,10 @@
     padding: 0;
 
     display: flex;
+    gap: 20px;
+
+    max-width: 100%;
+    overflow-x: auto;
     list-style: none;
     width: 1120px;
 
@@ -31,15 +35,21 @@
 
   &__item {
     flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 280px;
   }
 
   &__image {
     display: block;
-    width: 280px;
     height: 410px;
 
+    max-width: 100%;
+
     @include onTablet {
-      width: 340px;
+      min-width: 340px;
       height: 543px;
     }
 
@@ -49,14 +59,18 @@
   }
 
   &__pagination {
-    margin: 20px 0 0 89px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    flex-direction: row;
+
+    align-items: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     width: 102px;
 
     @include onTablet {
-      margin: 32px 0 0 299px;
+      margin-top: 32px;
     }
 
     @include onDesktop {
