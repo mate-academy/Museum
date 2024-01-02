@@ -14,15 +14,17 @@
   }
 
   &__content {
-    @include pageGrid;
+    @include onTablet {
+      @include pageGrid;
+    }
   }
 
   &__icon {
     grid-column: span 2;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 149px;
 
     @include onTablet {
       flex-direction: column;
@@ -35,15 +37,16 @@
     display: flex;
     gap: 20px;
     padding-top: 40px;
+    grid-column: span 4;
+
 
     @include onTablet {
-      grid-column: span 4;
       padding-top: 0;
     }
   }
 
   &__contacts {
-    width: 128px;
+    min-width: 128px;
 
     @include onTablet {
       width: 220px;
