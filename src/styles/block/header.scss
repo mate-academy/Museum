@@ -1,0 +1,145 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 3fr 2fr;
+  grid-template-columns: 5fr;
+
+  @include on-tablet {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.top-bar {
+
+  grid-row: 1 / 2;
+  background-image: url("../images/header.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @include on-tablet {
+    grid-column: 2 / -1;
+    grid-row: 1 / -1;
+  }
+
+  &__content {
+    height: 100%;
+  }
+
+  &__burger {
+    display: inline-block;
+
+    &-logo {
+      margin-top: 20px;
+      left: 20px;
+      position: fixed;
+
+      @include on-tablet {
+        left: 34px;
+      }
+    }
+  }
+
+  &__logo-container{
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__base-logo {
+    text-align: center;
+    margin: 0;
+
+    color: $c-base-logo;
+    font-family: $ff-m;
+    font-weight: $fw-700;
+    font-size: 30px;
+    line-height: 100%;
+
+    @include on-tablet {
+    }
+  }
+}
+
+.botton-bar {
+  grid-row: 2 / -1;
+
+  @include on-tablet {
+    grid-column: 1 / 2;
+    grid-row: 2 / -1;
+  }
+
+  &__title {
+    margin: 20px 0;
+    color: #000;
+    font-size: 45px;
+    font-family: $ff-m;
+    font-weight: $fw-700;
+    line-height: 100%;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 54px;
+      line-height: 120%;
+      margin-bottom: 38px;
+      margin-left: 34px;
+      text-align: start;
+    }
+  }
+
+  &__ticket {
+    display: flex;
+    margin-left: 20px;
+
+    @include on-tablet {
+      margin-left: 34px;
+    }
+
+    &-hd {
+      display: flex;
+      height: 50px;
+      
+    }
+
+    &__title {
+      display: inline-block;
+      width: min-content;
+      color: #0F0E08;
+      font-family: $ff-ibm;
+      font-weight: $fw-500;
+      line-height: 100%;
+      border: 1px solid $button-ticket-color;
+
+      padding: 16px 80px;
+      margin: 0;
+
+      @include on-tablet {
+        // padding: 25px 68px;
+      }
+    }
+
+    &__button {
+      padding: 0;
+      background-color: $button-ticket-color;
+      width: 50px;
+      height: 50px;
+      border: 1px solid $button-ticket-color;
+    }
+
+    &__img {
+      background-color: $button-ticket-color;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
