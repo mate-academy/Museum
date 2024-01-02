@@ -1,0 +1,104 @@
+.slider {
+  box-sizing: border-box;
+  min-width: 280px;
+  height: 410px;
+  overflow: hidden;
+  margin-left: 20px;
+
+  @include onTablet {
+    margin-left: 34px;
+    min-width: 700px;
+    height: 543px;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    gap: 20px;
+
+    max-width: 100%;
+    list-style: none;
+    width: 1120px;
+
+    transition: transform .5s ease;
+
+    @include onTablet {
+      width: 1360px;
+      gap: 20px;
+    }
+  }
+
+  &__item {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 280px;
+
+    @include onTablet {
+      max-width:  348px;
+    }
+  }
+
+  &__image {
+    display: block;
+    height: 410px;
+
+    max-width: 100%;
+
+    @include onTablet {
+      min-width: 340px;
+      height: 543px;
+    }
+
+    @include onDesktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    align-items: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 102px;
+
+    @include onTablet {
+      margin-top: 32px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--link {
+      border: 1px solid $colorGary;
+      background-color: $colorGary;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+
+      &:active {
+        background-color: $colorGary;
+        opacity: 0.5;
+        transition: all .5s;
+      }
+
+      &:hover {
+        background-color: $colorGreen;
+      }
+    }
+  }
+}
+

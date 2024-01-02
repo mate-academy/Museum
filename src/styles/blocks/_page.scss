@@ -1,0 +1,36 @@
+.page {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  &__header {
+    @keyframes slide-down {
+      from {
+        opacity: 0;
+        transform: tarslatey(-25%);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    animation: slideDown 2s forwards;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    right: 0;
+    z-index: 3;
+    transform: translateX(100%);
+    transition: all .5s ease-out;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      transition: all .5s ease;
+    }
+  }
+}
