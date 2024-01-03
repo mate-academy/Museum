@@ -1,6 +1,4 @@
 .menu {
-  display: block;
-
   &__backdrop {
     position: fixed;
     width: 100%;
@@ -13,35 +11,146 @@
   }
 
   &__content {
+    padding-top: 40px;
+    padding-bottom: 27px;
+
+    @include pageGrid;
+
     z-index: 7;
     position: absolute;
-    height: 50vh;
+    top: 0;
+    height: 60vh;
     width: 100%;
-    color: #fff;
+    color: $white-color;
     background-color: $green-color;
+
+    @include onTablet {
+      height: 30vh;
+
+      padding-bottom: 48px;
+    }
+
+    @include onDesktop {
+      height: 30vh;
+      padding-bottom: 48px;
+    }
   }
 
   &__icon {
-    background-image: url(../images/icons/close.svg);
+    display: block;
+  }
+
+  &__nav {
+    margin: 0;
+    padding: 0;
+    grid-column: 1/-1;
+
+    @include onTablet {
+      grid-column: 1/3;
+    }
+
+    @include onDesktop {
+      grid-column: 1/6;
+    }
+  }
+
+  &__line {
+    display: block;
+    background: rgba(255, 255, 255, 0.5);
+    width: 280px;
+    height: 1px;
+    margin: 24px auto;
+    grid-column: 1/-1;
+    text-align: center;
+
+    @include onTablet {
+      height: 1px;
+      width: 145px;
+      transform: rotate(90deg);
+      grid-column: 3/3;
+    }
+
+    @include onDesktop {
+      grid-column: 6/6;
+    }
+  }
+
+  &__absatz {
+    display: block;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
   }
 
   &__schedule {
-  }
+    margin: 0;
+    padding: 0;
+    display: block;
 
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  &__item {
-  }
-
-  &__link {
-    color: #fff;
+    color: $white-color;
     font-family: IBM Plex Sans;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
-    font-weight: 500;
-    line-height: 100%; /* 16px */
+    font-weight: 600;
+    line-height: 150%; /* 21px */
+
+    @include onTablet {
+      width: 144px;
+
+      margin-top: 20px;
+    }
+
+    @include onDesktop {
+      grid-column: 8/9;
+      width: 170px;
+    }
+
+    & span {
+      font-weight: 400;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    display: block;
+
+    grid-column: 1/-1;
+
+    color: $white-color;
+    font-family: IBM Plex Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+
+    margin-top: 16px;
+
+    @include onTablet {
+      grid-column: 6/6;
+      width: 144px;
+
+      margin-top: 41px;
+    }
+
+    @include onDesktop {
+      grid-column: 9/11;
+      width: 170px;
+    }
+
+    & span {
+      font-weight: 600;
+    }
+  }
+
+  &__temp {
+    grid-column: 1/-1;
+
+    @include onTablet {
+      grid-column: 4/5;
+    }
+
+    @include onDesktop {
+      grid-column: 7/9;
+    }
   }
 }
