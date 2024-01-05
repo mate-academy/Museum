@@ -1,13 +1,3 @@
-p {
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
-  margin: 0;
-  padding: 0;
-}
-
 .header {
   height: 100vh;
   display: grid;
@@ -18,10 +8,13 @@ h1 {
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
   }
+
+  @include on-desktop {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
 }
 
 .top-bar {
-
   grid-row: 1 / 2;
   background-image: url("../images/header.jpeg");
   background-repeat: no-repeat;
@@ -33,40 +26,46 @@ h1 {
     grid-row: 1 / -1;
   }
 
+  @include on-desktop {
+    grid-column: 6 / -1;
+  }
+
   &__content {
     height: 100%;
   }
 
   &__burger {
-    display: inline-block;
 
     &-logo {
       margin-top: 20px;
       left: 20px;
-      position: fixed;
+      position: absolute;
 
       @include on-tablet {
         left: 34px;
+        margin-top: 39px;
+      }
+
+      @include on-desktop {
+        left: 55px;
       }
     }
   }
 
-  &__logo-container{
-    justify-content: center;
-    align-items: center;
-  }
-
   &__base-logo {
-    text-align: center;
-    margin: 0;
-
-    color: $c-base-logo;
-    font-family: $ff-m;
-    font-weight: $fw-700;
-    font-size: 30px;
-    line-height: 100%;
+    position: absolute;
+    left: 45%;
+    top: 9px;
+    height: 61px;
 
     @include on-tablet {
+      height: 72px;
+      top: 15px;
+      left: 60%
+    }
+
+    @include on-desktop {
+      left: 45%;
     }
   }
 }
@@ -77,6 +76,10 @@ h1 {
   @include on-tablet {
     grid-column: 1 / 2;
     grid-row: 2 / -1;
+  }
+
+  @include on-desktop {
+    grid-column: 1 / 6;
   }
 
   &__title {
@@ -95,36 +98,54 @@ h1 {
       margin-left: 34px;
       text-align: start;
     }
+
+    @include on-desktop {
+      font-size: 72px;
+      margin-bottom: 89px;
+    }
   }
 
   &__ticket {
     display: flex;
-    margin-left: 20px;
+    justify-content: center;
 
     @include on-tablet {
       margin-left: 34px;
     }
 
+    @include on-desktop {
+      grid-column: 3 / 6;
+      justify-content: end;
+      margin-right: 30px;
+    }
+
     &-hd {
       display: flex;
       height: 50px;
-      
+
+
+      @include on-tablet {
+        width: 340px;
+        height: 70px;
+      }
     }
 
     &__title {
       display: inline-block;
       width: min-content;
       color: #0F0E08;
+      font-size: 16px;
       font-family: $ff-ibm;
       font-weight: $fw-500;
       line-height: 100%;
       border: 1px solid $button-ticket-color;
 
+
       padding: 16px 80px;
       margin: 0;
 
       @include on-tablet {
-        // padding: 25px 68px;
+        line-height: 250%;
       }
     }
 
@@ -134,6 +155,11 @@ h1 {
       width: 50px;
       height: 50px;
       border: 1px solid $button-ticket-color;
+
+      @include on-tablet {
+        width: 70px;
+        height: 70px;
+      }
     }
 
     &__img {

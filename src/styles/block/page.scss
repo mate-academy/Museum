@@ -1,0 +1,41 @@
+.page {
+  font-size: 16px;
+  line-height: 140%;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+  }
+
+  &__menu {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, $acide-bcg 66vh, rgba(24, 24, 26, 0.5) 66vh);
+
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+
+    @include on-tablet {
+      height: 225px;
+      padding: 0 35px;
+
+    }
+
+    @include on-desktop {
+      height: 233;
+    }
+  }
+
+  &__menu:target {
+    opacity: 1;
+    pointer-events: all;
+    overflow: auto;
+  }
+}
