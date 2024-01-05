@@ -1,0 +1,100 @@
+.gallery {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @include onTablet {
+    padding-bottom: 133px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 200px;
+  }
+
+  &__title {
+    color: #0f0e08;
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 48px */
+  }
+}
+
+.pictures {
+  display: grid;
+  gap: 15px;
+
+  &__item--small {
+    grid-column: 1/4;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__item--big {
+    display: none;
+    grid-column: 5/12;
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__item--left {
+    display: none;
+    grid-column: 1/8;
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__item--right {
+    display: none;
+    grid-column: 9/12;
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+  &__item--small--gus {
+    display: none;
+    grid-column: 5/8;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.pictures:not(:last-child) {
+  margin-bottom: 30px;
+}

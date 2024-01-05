@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    color: $hover-color;
+    transition-duration: 400ms;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+img:hover {
+  scale: 1.05;
+  transition-duration: 400ms;
+}
+
+.page {
+  scroll-behavior: smooth;
+  font-family: "IBM Plex Sans", sans-serif;
+
+  &__body {
+    margin: 0;
+    background: $white-color;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms;
+
+    z-index: 1;
+
+    @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+      overflow: auto;
+    }
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+.logo {
+  margin: 0;
+
+  display: block;
+  color: $main-color;
+  // text-align: center;
+  font-family: Montserrat;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 36px */
+}
