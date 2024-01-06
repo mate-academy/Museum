@@ -1,0 +1,218 @@
+.header {
+  @include column;
+
+  display: grid;
+  text-align: center;
+  align-items: flex-start;
+
+  &__image {
+    display: grid;
+    grid-area: 1/1/1/3;
+    animation: $animation-right;
+
+    @media (min-width:640px) {
+      grid-column: 4/7;
+    }
+
+    @media (min-width:1280px) {
+      grid-column: 6/13;
+    }
+  }
+
+  &__museum {
+    grid-area: 1/1/1/3;
+    width: 100%;
+    height: 300px;
+
+    @media (min-width:640px) {
+      height: 350px;
+    }
+
+    @media (min-width:1280px) {
+      height: 655px;
+    }
+  }
+
+  &__container {
+    @include padding-inline;
+
+    padding-left: 20px;
+    padding-top: 27px;
+    display: grid;
+    grid-area: 1/1/1/3;
+    animation: $animation-left;
+
+    @media (min-width:640px) {
+      padding-top: 39px;
+    }
+  }
+
+  &__menu-burger {
+    background-image: url(/images/header/header-menu-burger.png);
+    background-position: 50%;
+    width: 24px;
+    height: 24px;
+    animation: $animation-content;
+
+    &:hover {
+      animation: shake 0.5s ease-in-out;
+    }
+
+    @media (min-width:640px) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__title {
+    text-decoration: none;
+    grid-area: 1/1/2/3;
+
+    @media (min-width:640px) {
+      grid-column: 1/3;
+      width: 220px;
+    }
+
+    &-top {
+      color: $color-dark;
+      font-size: 30px;
+      padding-top: 9px;
+      animation: $animation-content;
+
+      &:hover {
+        transform: $transform-button;
+      }
+
+      @media (min-width:640px) {
+        padding-top: 15px;
+      }
+    }
+  }
+
+  &__section {
+    @include column;
+
+    padding-top: 269px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (min-width:640px) {
+      padding-top: 64px;
+      text-align: left;
+    }
+
+    @media (min-width:1280px) {
+      gap: 89px;
+    }
+
+    &-title {
+      color: #000;
+
+    @media (min-width:1280px) {
+      font-size: 72px;
+    }
+    }
+
+    &-container {
+      display: flex;
+      justify-content: center;
+      transition: $animation-content;
+
+      &:hover {
+        transform: $transform-button;
+      }
+
+      @media (min-width:1280px) {
+        justify-content: end;
+      }
+    }
+
+    &-button {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      width: 230px;
+      justify-content: center;
+      border: 1px solid $color-green;
+
+      @media (min-width:640px) {
+        width: 200px;
+      }
+    }
+
+    &-ticket {
+      color: $color-dark;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100%;
+      text-decoration: none;
+      animation: $animation-content;
+
+      &:hover {
+        animation: shake 0.5s ease-in-out;
+      }
+    }
+
+    &-content {
+      background-color: $color-green;
+      height: 50px;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media (min-width:640px) {
+        height: 70px;
+        width: 70px;
+      }
+    }
+
+    &--arrow-icon {
+      animation: $animation-content;
+
+      &:hover {
+        animation: shake 0.5s ease-in-out;
+      }
+    }
+  }
+
+  &__side-text {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $color-grey;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    display: none;
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 522px;
+    left: 55px;
+
+    &::before {
+      content: "";
+      background-color: $color-green;
+      position: absolute;
+      width: 1px;
+      height: 70px;
+      transform: rotate(-90deg);
+      bottom: -28px;
+      left: -50px;
+    }
+
+    @media (min-width:1280px) {
+      display: flex;
+    }
+  }
+
+  &__side-line {
+    width: 1px;
+    height: 70px;
+    background-color: $color-green;
+    transform: rotate(90deg);
+  }
+}
