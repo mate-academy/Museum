@@ -1,0 +1,45 @@
+.page {
+  font-size: 16px;
+  line-height: 140%;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+  }
+
+  &__menu {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, $acide-bcg 400px, rgba(24, 24, 26, 0.5) 9vh);
+
+    opacity: 0;
+    pointer-events: none;
+
+    @include on-tablet {
+      height: 225px;
+      width: 100%;
+      padding: 0 35px;
+      display: flex;
+      height: 100vh;
+      background: linear-gradient(to bottom, $acide-bcg 225px, rgba(24, 24, 26, 0.5) 9vh);
+    }
+
+    @include on-desktop {
+      height: 233px;
+      height: 100vh;
+      background: linear-gradient(to bottom, $acide-bcg 233px, rgba(24, 24, 26, 0.5) 9vh);
+    }
+  }
+
+  &__menu:target {
+    opacity: 1;
+    pointer-events: all;
+    overflow: auto;
+  }
+}

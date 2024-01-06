@@ -1,0 +1,173 @@
+.header {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 3fr 2fr;
+  grid-template-columns: 5fr;
+
+  @include on-tablet {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include on-desktop {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+.top-bar {
+  grid-row: 1 / 2;
+  background-image: url("../images/header.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @include on-tablet {
+    grid-column: 2 / -1;
+    grid-row: 1 / -1;
+  }
+
+  @include on-desktop {
+    grid-column: 6 / -1;
+  }
+
+  &__content {
+    height: 100%;
+  }
+
+  &__burger {
+
+    &-logo {
+      margin-top: 27px;
+      left: 20px;
+      position: absolute;
+
+      @include on-tablet {
+        left: 34px;
+        margin-top: 39px;
+      }
+
+      @include on-desktop {
+        left: 55px;
+      }
+    }
+  }
+
+  &__base-logo {
+    position: absolute;
+    left: 45%;
+    top: 9px;
+    height: 61px;
+
+    @include on-tablet {
+      height: 72px;
+      top: 15px;
+      left: 60%
+    }
+
+    @include on-desktop {
+      left: 45%;
+    }
+  }
+}
+
+.botton-bar {
+  grid-row: 2 / -1;
+
+  @include on-tablet {
+    grid-column: 1 / 2;
+    grid-row: 2 / -1;
+  }
+
+  @include on-desktop {
+    grid-column: 1 / 6;
+  }
+
+  &__title {
+    margin: 20px 0;
+    color: #000;
+    font-size: 45px;
+    font-family: $ff-m;
+    font-weight: $fw-700;
+    line-height: 100%;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 54px;
+      line-height: 120%;
+      margin-bottom: 38px;
+      margin-left: 34px;
+      text-align: start;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__ticket {
+    display: flex;
+    justify-content: center;
+
+    @include on-tablet {
+      margin-left: 34px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 6;
+      justify-content: end;
+      margin-right: 30px;
+    }
+
+    &-hd {
+      display: flex;
+      height: 50px;
+
+
+      @include on-tablet {
+        width: 340px;
+        height: 70px;
+      }
+    }
+
+    &__title {
+      display: inline-block;
+      width: min-content;
+      color: #0F0E08;
+      font-size: 16px;
+      font-family: $ff-ibm;
+      font-weight: $fw-500;
+      line-height: 100%;
+      border: 1px solid $button-ticket-color;
+
+
+      padding: 16px 80px;
+      margin: 0;
+
+      @include on-tablet {
+        line-height: 250%;
+      }
+    }
+
+    &__button {
+      padding: 0;
+      background-color: $button-ticket-color;
+      width: 50px;
+      height: 50px;
+      border: 1px solid $button-ticket-color;
+
+
+
+      @include on-tablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    &__img {
+      background-color: $button-ticket-color;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
