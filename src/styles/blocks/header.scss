@@ -1,0 +1,148 @@
+.header {
+  @include tablet-view {
+    height: $header-bg-image-height-tablet;
+    padding: 15px 34px 0;
+    background-image: url('../images/header/tablet/bg-img.png');
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+  }
+
+  @include desktop-view {
+    height: $header-bg-image-height-desktop;
+    padding-inline: $padding-inline-main-desktop;
+    background-image: url('../images/header/desktop/bg-img.png');
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 88px;
+
+    @include tablet-view {
+      gap: 417px;
+    }
+
+    @include desktop-view {
+      gap: 532px;
+    }
+
+    &-container {
+      height: $header-bg-image-height-mobile;
+      padding: 9px 20px 0;
+      background-image: url('../images/header/mobile/bg-img.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      @include tablet-view {
+        background-image: none;
+        height: fit-content;
+        padding: 0;
+      }
+    }
+  }
+
+  &__bot {
+    padding-inline: $padding-inline-main-mobile;
+    margin-top: 20px;
+
+    @include tablet-view {
+      margin-top: 40px;
+      width: 340px;
+      padding: 0;
+    }
+
+    @include desktop-view {
+      width: 470px;
+      margin-top: 119px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__links {
+    margin-top: 20px;
+
+    @include tablet-view {
+      margin-top: 38px;
+    }
+
+    @include desktop-view {
+      margin-top: 90px;
+      position: relative;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: 16px;
+    line-height: 16px;
+
+    &--main {
+      padding-block: 16px;
+      border: 1px solid $color-accent;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 500;
+      width: calc(100% - $btn-width-mobile);
+      position: relative;
+
+      @include tablet-view {
+        width: calc(270px - $btn-width);
+        padding-block: 26px;
+      }
+
+      @include desktop-view {
+        margin-left: 200px;
+      }
+
+      &::after {
+        content: '';
+        background-image: url('../images/icons/arrow.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $color-accent;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        padding: 13px;
+
+        @include tablet-view {
+          padding: 23px;
+        }
+      }
+    }
+
+    &--side {
+      display: none;
+
+      @include desktop-view {
+        font-size: 14px;
+        line-height: 14px;
+        font-weight: 700;
+        color: $color-text-secondary;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        position: absolute;
+        top: 178px;
+        left: 0;
+        transform-origin: 0 0;
+        transform: rotate(-90deg);
+
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 70px;
+          height: 1px;
+          background-color: $color-text-secondary;
+        }
+      }
+    }
+  }
+}
+

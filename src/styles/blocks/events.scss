@@ -1,0 +1,170 @@
+.events {
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-top: 40px;
+
+    @include tablet-view {
+      margin-top: 48px;
+      gap: 64px;
+    }
+
+    @include desktop-view {
+      margin-top: 56px;
+      gap: 104px;
+    }
+  }
+
+  &__card-exhibition {
+    @include desktop-view {
+      display: flex;
+      gap: 130px;
+      align-items: center;
+    }
+  }
+
+  &__card-lecture {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  &__image {
+
+    &--exhibition {
+      @include default-transition-on-state(transform, hover, scale(1.05));
+    }
+
+    &--lecture {
+      width: calc(100% + ($padding-inline-main-mobile * 2));
+      margin-left: -$padding-inline-main-mobile;
+
+      @include tablet-view {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      @include desktop-view {
+        width: calc(100% + ($padding-inline-main-desktop * 2));
+        margin-left: -$padding-inline-main-desktop;
+      }
+    }
+  }
+
+
+
+  &__card-description {
+
+    &-top {
+      display: flex;
+      align-items: baseline;
+      gap: 70px;
+      margin-top: 20px;
+
+      @include tablet-view {
+        margin-top: 40px;
+
+      }
+
+      @include desktop-view {
+        margin-top: 0;
+      }
+
+      &--lecture {
+        margin-top: 0;
+        gap: 0;
+        width: 100%;
+        justify-content: space-around;
+
+        @include tablet-view {
+        justify-content: start;
+        gap: 160px;
+         }
+      }
+    }
+
+    &--lecture {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: $color-text-menu;
+      margin-top: -56px;
+      padding-block: 20px;
+      box-shadow: 0 2px #1A5A4C40;
+      align-self: center;
+
+      @include tablet-view {
+       padding: 45px 55px 40px;
+       max-width: 570px;
+       margin-top: -84px;
+      }
+
+      @include desktop-view {
+       margin-top: -102px;
+      }
+    }
+  }
+
+  &__type {
+    color: $color-text-secondary;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 500;
+  }
+
+  &__date {
+    color: $color-accent;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+
+  &__card-title {
+    margin-top: 10px;
+    position: relative;
+
+    @include tablet-view {
+      margin-top: 30px;
+    }
+
+    &--exhibition {
+      width: fit-content;
+
+      &::after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background-color: $color-accent-secondary;
+        position: absolute;
+        top: 12px;
+        left: 106%;
+
+        @include tablet-view {
+          width: 15px;
+          height: 15px;
+        }
+
+      }
+    }
+
+    &--lecture {
+      margin-top: 20px;
+    }
+  }
+
+  &__card-text {
+    color: $color-text-main;
+    margin-top: 10px;
+    font-weight: 300;
+
+    @include tablet-view {
+      margin-top: 15px;
+    }
+  }
+
+}

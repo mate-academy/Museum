@@ -1,0 +1,45 @@
+.page {
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    margin: 0;
+  }
+
+  &__menu {
+    @include hidden-slider;
+  }
+
+  &__menu:target {
+    background-color: rgba(0, 0, 0, 0.7);
+
+    @include visible-slider;
+  }
+
+  &__section {
+    margin-top: 70px;
+    padding-inline:  $padding-inline-main-mobile;
+
+    @include tablet-view {
+      margin-top: 88px;
+      padding-inline:  $padding-inline-main-tablet;
+    }
+
+    @include desktop-view {
+      margin-top: 200px;
+      padding-inline:  $padding-inline-main-desktop;
+    }
+
+    &--gallery {
+      margin-top: 100px;
+      padding-inline-end: 0;
+
+      @include desktop-view {
+        padding-inline:  $padding-inline-main-desktop;
+      }
+    }
+  }
+}
