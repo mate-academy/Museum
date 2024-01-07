@@ -1,6 +1,41 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin tablet-view {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop-view {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin hidden-slider {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition: transform 550ms;
+}
+
+@mixin visible-slider {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(0);
+  transition: transform 550ms;
+}
+
+@mixin default-transition-on-state($property, $state, $value) {
+   transition: #{$property} 550ms;
+  -webkit-transition: #{$property} 550ms;
+  -o-transition: #{$property} 550ms;
+  -moz-transition: #{$property} 550ms;
+
+  &:#{$state} {
+    #{$property} : $value;
+    @content;
   }
 }
