@@ -1,0 +1,217 @@
+/* #region header */
+.header {
+  width: 100%;
+
+  @include on-tablet {
+    height: 384px;
+  }
+
+  @include on-desktop {
+    height: 655px;
+  }
+
+  &__background {
+    height: 300px;
+    width: 100%;
+    background-image: url(../images/Namuzej-mob.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    @include on-tablet {
+      background-image: url(../images/museum-bg.svg);
+      left: 51%;
+      width: 49%;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      left: 46%;
+      width: 54%;
+      height: 655px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    gap: 20px;
+    margin-top: 243px;
+
+    @include on-tablet {
+      width: 340px;
+      gap: 38px;
+      margin-top: 25px;
+    }
+
+    @include on-desktop {
+      width: 470px;
+      gap: 0;
+      margin-top: 104px;
+    }
+  }
+
+  &__title {
+    color: $black;
+    text-align: center;
+    font-family: inherit;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+    text-transform: uppercase;
+    margin: 0;
+
+    @include on-tablet {
+      font-size: 54px;
+      text-align: left;
+      line-height: 120%;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    @include hover(color, $green-line);
+
+    @include on-tablet {
+      justify-content: flex-start;
+    }
+
+    @include on-desktop {
+      justify-content: flex-end;
+      transform: translateX(-40px);
+    }
+  }
+
+  &__tickets-left {
+    position: relative;
+    width: 230px;
+    height: 50px;
+    border: 1px solid $green;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $l-black;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all $effect-duration ease-in-out;
+
+    @include hover(font-weight, 700);
+    @include hover(color, $green);
+
+    &--container {
+      position: absolute;
+      bottom: -50px;
+      left: 13%;
+      visibility: hidden;
+      opacity: 0;
+      transition: all $effect-duration ease-in-out;
+    }
+
+    &:hover &--container {
+      transition: $effect-duration ease-in-out;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    @include on-tablet {
+      height: 70px;
+      width: 202px;
+    }
+  }
+
+  .hint {
+    width: min-content;
+    transition: $effect-duration ease-in-out;
+
+    &__phone,
+    &__mail,
+    &__text {
+      margin: 0;
+      color: $green-shadow;
+      text-decoration: none;
+      padding: 1px;
+      transition: $effect-duration ease-in-out;
+
+      @include hover(font-weight, 700);
+      @include hover(color, $green);
+    }
+  }
+
+  &__tickets-right {
+    width: 50px;
+    height: 50px;
+    background-color: $green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $green;
+    cursor: pointer;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &--arrow {
+      background-image: url(../images/arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 50%;
+    }
+  }
+
+  &__mark {
+    display: none;
+
+    @include on-desktop {
+      padding-left: 0;
+      margin-top: -20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      place-self: flex-end flex-start;
+      transform: translateX(-455px);
+      text-decoration: none;
+
+      &--title {
+        color: $l-gray;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        writing-mode: vertical-rl;
+        transform: rotate(-180deg);
+        transition: all $effect-duration;
+
+        @include hover(transform, scale(1.2));
+      }
+
+      &--line {
+        margin-top: 10px;
+        width: 1px;
+        height: 70px;
+        background-color: $green-line;
+      }
+    }
+  }
+}
+
+/* #endregion */

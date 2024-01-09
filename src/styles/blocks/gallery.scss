@@ -1,0 +1,212 @@
+.gallery {
+  &__title {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    margin-top: 0;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      font-size: 48px;
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__exhibition {
+    margin: 0;
+    overflow: hidden;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    @include on-desktop {
+      @include page-grid;
+
+      --rows: 2;
+
+      row-gap: 30px;
+
+      .pictures__author {
+        background-size: cover;
+        background-position: center;
+
+        @include hover(transform, scale(1.02));
+
+        &::before {
+          transition: $effect-duration;
+          display: inline-block;
+          position: absolute;
+          z-index: 2;
+          right: 2rem;
+          bottom: 2rem;
+          font-family: "IBM Plex Sans", sans-serif;
+          font-size: 0.6rem;
+          font-weight: bold;
+          content: attr(data-author);
+          color: $l-gray;
+          opacity: 0;
+          text-shadow: 0 0 5px $white;
+        }
+
+        &:hover::before {
+          opacity: 1;
+          text-shadow: 0 0 5px $white,
+          -2px 2px 10px $white,
+          2px -2px 10px $white,
+          -2px -2px 10px $white,
+          2px 2px 10px $white;
+          font-size: 1rem;
+        }
+      }
+
+      &--picture1 {
+        grid-column: 1 / 5;
+        grid-row: 1 / 2;
+        height: 600px;
+        background-image: url(../images/women.svg);
+      }
+
+      &--picture2 {
+        grid-column: 5 / -1;
+        grid-row: 1 / 2;
+        height: 600px;
+        background-image: url(../images/cart.svg);
+      }
+
+      &--picture3 {
+        grid-column: 1 / 9;
+        height: 360px;
+        background-image: url(../images/settle.svg);
+      }
+
+      &--picture4 {
+        grid-column: 9 / -1;
+        height: 360px;
+        background-image: url(../images/beach.svg);
+      }
+    }
+  }
+
+  &__radio {
+    display: none;
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 280px;
+    height: 410px;
+    margin: 40px auto 0;
+
+    @include on-tablet {
+      display: none;
+      margin: 48px auto 0;
+    }
+
+    @include on-desktop {
+      margin-block: 56px 0;
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+    position: relative;
+    width: 280px;
+    height: 410px;
+    box-shadow: $green-shadow;
+    transition: all $effect-duration;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  .slides {
+    position: absolute;
+    width: 280px;
+    height: 410px;
+    opacity: 0;
+    z-index: 0;
+    transform: scale(1.2);
+    transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+  }
+
+  .wrapper input:nth-child(1):checked ~ .slider > .slide1 {
+    opacity: 1;
+	  z-index: 1;
+	  transform: scale(1);
+  }
+
+  .wrapper input:nth-child(2):checked ~ .slider > .slide2 {
+    opacity: 1;
+	  z-index: 1;
+	  transform: scale(1);
+  }
+
+  .wrapper input:nth-child(3):checked ~ .slider > .slide3 {
+    opacity: 1;
+	  z-index: 1;
+	  transform: scale(1);
+  }
+
+  .wrapper input:nth-child(4):checked ~ .slider > .slide4 {
+    opacity: 1;
+	  z-index: 1;
+	  transform: scale(1);
+  }
+
+  &__controls {
+    position: absolute;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__dott {
+    position: relative;
+    display: inline-block;
+    background-color: $dott;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    margin: 0 24px 0 0;
+    cursor: pointer;
+    left: 70%;
+
+    @include hover(background-color, $green);
+
+    @include on-tablet {
+      left: 225%;
+      top: 560px;
+      margin: 0 24px 0 0;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  .slide-block {
+    margin: 0;
+    overflow: hidden;
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 20px;
+      width: 100%;
+      height: 543px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
