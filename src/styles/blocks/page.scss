@@ -1,0 +1,48 @@
+/* #region page */
+.page {
+  width: 100%;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  color: $black;
+  background-color: $white;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  overflow-x: hidden;
+
+  &__body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+    text-decoration: none;
+    list-style: none;
+    transition: all $effect-duration;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    transition: all $effect-duration;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      z-index: 1;
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
+
+.container {
+  @include content-padding-inline;
+}
+
+/* #endregion */
