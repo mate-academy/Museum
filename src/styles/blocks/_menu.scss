@@ -1,0 +1,187 @@
+.menu {
+  background-color: $green-colour;
+  position: relative;
+
+  &__nav  {
+    grid-column: 1 / 7;
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  &__rigth {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__description {
+    color: $whitey;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 100%;
+
+    &--top {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__rag {
+    background: rgba(255, 255, 255, 0.50);
+    width: 1px;
+    height: 100%;
+  }
+
+
+  &__schedule {
+    grid-column: 7/11;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    color: $whitey;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140.63%;
+    padding-bottom: 20px;
+  }
+
+  &__work {
+    max-width: 170px;
+  }
+
+  &__lines {
+    display: none;
+  }
+
+  &__item {
+    color: $whitey;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__output {
+    max-width: 170px;
+    padding-top: 40px;
+  }
+
+  &__overlay {
+    display: none;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $bc-black;
+    opacity: 0.5;
+  }
+
+  &__overlay.--open {
+    display: block;
+  }
+
+  &--page {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s, opacity 0.3s;
+    z-index: 6;
+  }
+
+  &--open {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .menu {
+    &__description {
+      font-size: 18px;
+
+      &--top {
+        padding-bottom: 24px;
+      }
+    }
+
+    &__schedule {
+      grid-column: 7/-1;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    &__nav {
+      grid-column: 1/4;
+    }
+
+    &__description {
+      font-size: 16px;
+
+      &--top {
+        padding-bottom: 20px;
+      }
+    }
+
+    &__schedule {
+      grid-column: 4/-1;
+    }
+
+    &__work {
+      width: 153px;
+    }
+
+    &__output {
+      width: 144px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .menu {
+    &__nav {
+      grid-column: 1/-1;
+    }
+
+    &__description {
+      font-size: 16px;
+
+      &--top {
+        padding-bottom: 20px;
+      }
+    }
+
+    &__work {
+      width: 153px;
+    }
+
+    &__line {
+      display: none;
+    }
+
+    &__lines {
+      padding: 24px 0;
+      display: block;
+      grid-column: 1/-1;
+      width: 100%;
+      height: 1px;
+    }
+
+    &__schedule {
+      grid-column: 1 / -1;
+      flex-direction: column;
+    }
+  }
+}
