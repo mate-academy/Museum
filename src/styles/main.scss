@@ -1,7 +1,85 @@
 @import "utils";
-@import "fonts";
-@import "typography";
+@import "./blocks/reset";
+@import "./blocks/normalaize";
+@import "./blocks/titles";
+@import "./blocks/header";
+@import "./blocks/menu";
+@import "./blocks/events";
+@import "./blocks/direction";
+@import "./blocks/gallery";
+@import "./blocks/subscription";
+@import "./blocks/footer";
 
 body {
   background: $c-gray;
+}
+
+.container {
+  max-width: 1270px;
+  margin: 0 auto;
+  padding: 0 55px;
+
+  @media (max-width: 1280px) {
+    max-width: 1170px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 690px;
+    padding: 0 40px;
+  }
+
+  @media (max-width: 320px) {
+    padding: 0 20px;
+  }
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+
+  &--tablet {
+    display: none;
+  }
+
+  &--menu {
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(6, 1fr);
+
+    &--desktop {
+      display: none;
+    }
+
+    &--tablet {
+      display: grid;
+    }
+
+    &--menu {
+      padding-top: 27px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+  }
+}
+
+.animation {
+  @include hover (transform, scale(1.08));
+}
+
+.square {
+  width: 15px;
+  height: 15px;
+  background: #F14A27;
+
+  @media (max-width: 768px) {
+    width: 10px;
+    height: 10px;
+  }
 }
