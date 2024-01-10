@@ -1,0 +1,65 @@
+.form {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+
+  @include on-tablet {
+    gap: 16px;
+  }
+
+  @include on-mobile {
+    gap: 0;
+  }
+
+  &__input {
+    width: 470px;
+    padding: 28px 32px;
+    border: none;
+    outline: none;
+    transition: all $effect-duration;
+
+    @include on-tablet {
+      width: 374px;
+      padding-inline: 24px;
+    }
+
+    @include on-mobile {
+      width: 228px;
+      padding: 18px 24px;
+    }
+
+    &::placeholder {
+      color: #687480;
+      font-family: Montserrat;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 100%;
+    }
+
+    &:focus {
+      border-radius: 10px;
+
+      @include on-tablet {
+        border-radius: 0;
+      }
+    }
+  }
+
+  &__btn {
+    border: none;
+    width: 72px;
+    height: 72px;
+    background-color: #F14A27;
+
+    @include hover(border-radius, 40%);
+
+    @include on-tablet {
+      @include hover(border-radius, 0);
+    }
+
+    @include on-mobile {
+      width: 52px;
+      height: 52px;
+    }
+  }
+}

@@ -1,0 +1,106 @@
+.gallery {
+  margin-bottom: 200px;
+
+  @include on-tablet {
+    margin-bottom: 92px;
+  }
+
+  @include on-mobile {
+    margin-bottom: 100px;
+  }
+
+  &__title {
+    margin-bottom: 56px;
+
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+
+    @include on-mobile {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-rows: 600px 360px;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+
+    @include on-tablet {
+      grid-template-rows: 543px;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 20px;
+    }
+
+    @include on-mobile {
+      display: block;
+      margin: 0 auto;
+      width: 280px;
+      height: 410px;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @include hover(transform, scale(1.05));
+
+    @include on-tablet {
+      @include hover(transform, none);
+
+      &:nth-child(n+3) {
+        display: none;
+      }
+    }
+
+    @include on-mobile {
+      &:nth-child(n+2) {
+        display: none;
+      }
+    }
+
+    &--thin {
+      grid-column: span 4;
+
+      @include on-tablet {
+        grid-column: span 3;
+      }
+    }
+
+    &--wide {
+      grid-column: span 8;
+
+      @include on-tablet {
+        grid-column: span 3;
+      }
+    }
+  }
+
+  &__dots {
+    margin: 32px auto 0;
+    display: none;
+    justify-content: space-between;
+    width: 102px;
+
+    @include on-tablet {
+      display: flex;
+    }
+
+    @include on-mobile {
+      margin-top: 20px;
+    }
+  }
+
+  &__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+
+    &.active {
+      background-color: $menu-background-color;
+    }
+  }
+}
