@@ -1,0 +1,55 @@
+.actual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__wrap {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include on-tablet {
+      width: 700px;
+    }
+
+    @include on-desktop {
+      width: 1170px;
+
+      display: grid;
+      grid-template-columns: repeat(12, 70px);
+      column-gap: 30px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 36px;
+    text-align: center;
+    color: #0F0E08;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 48px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__blocks {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    @include on-desktop {
+      grid-column: 1 / -1;
+    }
+  }
+}
