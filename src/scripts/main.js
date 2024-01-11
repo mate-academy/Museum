@@ -1,12 +1,13 @@
-import $ from 'jquery';
+const j = jQuery.noConflict();
 
-$(document).ready(function () {
-  $('.center').slick({
+j(document).ready(function() {
+  j('.center').slick({
     autoplaySpeed: 0,
     autoplay: false,
     infinite: false,
     centerMode: false,
     dots: false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1280,
@@ -32,6 +33,7 @@ $(document).ready(function () {
           autoplaySpeed: 2000,
           infinite: true,
           dots: true,
+          adaptiveHeight: true,
           centerMode: true,
           arrows: false,
           draggable: false,
