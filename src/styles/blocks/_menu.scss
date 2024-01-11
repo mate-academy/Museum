@@ -1,0 +1,77 @@
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  transition: all $effect-duration;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+
+  height: 233px;
+  background-color: $menu-background-color;
+  color: $menu-text-color;
+  padding: 40px 0 48px;
+
+  @include on-tablet {
+    height: 225px;
+    padding: 40px 0;
+  }
+
+  @include on-mobile {
+    height: 400px;
+    padding: 27px 0;
+  }
+
+  &:target{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    @include on-mobile {
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: start;
+    }
+  }
+
+  &__close {
+    height: 24px;
+
+    @include hover(transform, scale(1.5));
+  }
+
+  &__div {
+    width: 1px;
+    height: 145px;
+    background: rgba(255, 255, 255, 0.50);
+
+    @include on-mobile {
+      width: 100%;
+      height: 1px;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 233px;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.5;
+    background: #18181A;
+
+    @include on-tablet {
+      top: 225px;
+    }
+
+    @include on-mobile {
+      top: 400px;
+    }
+  }
+}
