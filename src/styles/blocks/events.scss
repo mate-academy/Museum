@@ -1,0 +1,123 @@
+.events {
+  &__content {
+    @include page-grid;
+
+    margin-bottom: 60px;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 104px;
+    }
+  }
+
+  &__img {
+    margin-bottom: 16px;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      margin-bottom: 40px;
+      grid-column: span 6;
+    }
+
+    @include on-desktop {
+      max-height: 520px;
+      object-fit: cover;
+      margin-bottom: 0;
+      grid-column: span 7;
+    }
+  }
+
+  &__info {
+    @include page-grid;
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: column;
+      padding-top: 160px;
+      grid-column: 9 / 13;
+    }
+
+    @include on-max-width-mobile {
+      row-gap: 10px;
+    }
+
+    &-title {
+      position: relative;
+      grid-column: 1 / span 2;
+
+      @include on-tablet {
+        margin-bottom: 15px;
+        grid-column: 1 / span 4;
+      }
+
+      @include on-desktop {
+        grid-column: span 12;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        background: url("../images/icons/red-square.svg");
+        width: 10px;
+        height: 10px;
+        top: 50%;
+        margin-left: 20px;
+        transform: translateY(-50%);
+
+        @include on-tablet {
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+
+    &-text {
+      display: flex;
+      justify-content: space-between;
+      grid-column: span 2;
+
+      @include on-tablet {
+        @include page-grid;
+
+        margin-bottom: 30px;
+        grid-column: span 6;
+      }
+
+      @include on-desktop {
+        grid-column: span 12;
+      }
+    }
+
+    &-date {
+      grid-column: 2;
+
+      @include on-tablet {
+        grid-column: 2 / span 2;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+      }
+    }
+
+    &-description {
+      grid-column: 1 / span 2;
+
+      @include on-tablet {
+        grid-column: 1 / span 4;
+      }
+
+      @include on-desktop {
+        grid-column: span 12;
+      }
+    }
+  }
+}

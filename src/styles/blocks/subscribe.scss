@@ -1,0 +1,100 @@
+.subscribe {
+  background: url("../images/subscribe-bg.jpg") center no-repeat;
+  background-size: cover;
+  padding-block: 88px;
+
+  @include on-tablet {
+    padding-block: 82px;
+  }
+
+  @include on-desktop {
+    padding-block: 163px;
+  }
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+
+    @include on-tablet {
+      grid-column: 3 / span 2;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / span 4;
+    }
+  }
+
+  &__description {
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      margin-bottom: 72px;
+      grid-column: 4 / span 6;
+    }
+
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / span 8;
+    }
+  }
+
+  &__email {
+    box-sizing: border-box;
+    padding: 15px 32px;
+    height: 50px;
+    width: 230px;
+    font-weight: 500;
+    border: none;
+    padding-block: 16px;
+    color: $primary-color;
+
+    &:focus {
+      outline: none;
+      border: 1px solid #F14A27;
+    }
+
+    @include on-tablet {
+      height: 70px;
+      width: 374px;
+      margin-right: 16px;
+    }
+
+    @include on-desktop {
+      width: 470px;
+      margin-right: 30px;
+    }
+  }
+
+  &__arrow {
+    background-color: #F14A27;
+
+    @include arrow;
+
+    &::after {
+      background-image: url("../images/icons/black-arrow-right.svg");
+    }
+  }
+}
+
+input[type="email"] {
+  &[autocomplete] {
+    -webkit-autofill: none;
+  }
+}

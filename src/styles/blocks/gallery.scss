@@ -1,0 +1,92 @@
+.gallery {
+  margin-bottom: 100px;
+
+  @include on-tablet {
+    margin-bottom: 92px;
+  }
+
+  @include on-tablet {
+    margin-bottom: 200px;
+  }
+
+  &__img {
+    height: 545px;
+    padding-right: 16px;
+
+    @include on-max-width-mobile {
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @include on-desktop {
+      height: 100%;
+
+      @include hover(transform, scale(1.05));
+    }
+  }
+
+  &__content {
+    display: none;
+
+    @include on-desktop {
+      @include page-grid;
+
+      row-gap: 30px;
+    }
+  }
+
+  &__woman {
+    grid-column: 1 / 5;
+  }
+
+  &__home {
+    grid-column: 5 / 13;
+  }
+
+  &__park {
+    grid-column: 1 / 9;
+  }
+
+  &__sea-sm {
+    grid-column: 9 / 13;
+  }
+}
+
+.center {
+  overflow: hidden;
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 20px;
+}
+
+.slick-dots button {
+  font-size: 0;
+  line-height: 0;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+
+  background: #e0e0e0;
+  background-size: cover;
+  border: none;
+  border-radius: 50%;
+}
+
+.slick-dots>li {
+  font-size: 0;
+  line-height: 0;
+}
+
+.slick-active>button {
+  background: $dark-green;
+}
