@@ -1,0 +1,77 @@
+.menu {
+  background: rgba(24, 24, 26, 0.4);
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  transition: all $effect-duration;
+  transform: translateX(-100%);
+  pointer-events: none;
+  overflow: hidden !important;
+  z-index: 1000;
+  color: #fff;
+
+  &:target {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+    overflow: hidden !important;
+  }
+
+  &__content {
+    padding-block: 27px;
+    background: $dark-green;
+
+    @include on-tablet {
+      padding-block: 40px;
+    }
+  }
+
+  &__top {
+    @include page-grid;
+  }
+
+  &__bottom {
+    padding-top: 24px;
+    border-top: 1px solid rgb(255, 255, 255, 0.5);
+    grid-column: 1 / 3;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 20px;
+      padding-top: 0;
+      padding-left: 38px;
+      border-top: none;
+      border-left: 1px solid rgb(255, 255, 255, 0.5);
+      grid-column: 4 / 7;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 12;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.schedule {
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    @include on-max-width-mobile {
+      margin-bottom: 16px;
+    }
+
+    @include on-tablet {
+      grid-column: 1 / span 2;
+    }
+  }
+
+  &__day-off {
+    @include on-tablet {
+      grid-column: 3 / span 2;
+    }
+  }
+}
