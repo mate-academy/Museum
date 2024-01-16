@@ -1,0 +1,114 @@
+.exhibition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include onDesktop {
+    margin-bottom: 104px;
+  }
+
+  &__photo {
+    height: 210px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 16px;
+
+    @include hover(transform scale(1.1));
+
+    &--1 {
+      background-image: url(../images/events/event1.jpg);
+    }
+
+    &--2 {
+      background-image: url(../images/events/event2.jpg);
+    }
+
+    @include onTablet {
+      margin-bottom: 40px;
+      height: 520px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    margin: auto;
+  }
+
+  &__information {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      justify-content: left;
+      gap: 30px;
+    }
+  }
+
+  &__information-title {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: $colorTitleGrey;
+  }
+
+  &__information-date {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: $colorMainGreen;
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    color: $colorDark;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+
+    @include hover (color $colorOrange);
+
+    &::after {
+      display: inline-block;
+      margin-left: 15px;
+      content: "";
+      @include square(10px);
+      background-color: #f14a27;
+    }
+
+    @include onTablet {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__description {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: $colorTextGrey;
+    margin-bottom: 60px;
+
+    @include onDesktop {
+      margin: 0;
+    }
+  }
+}

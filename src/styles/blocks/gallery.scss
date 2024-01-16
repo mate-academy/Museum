@@ -1,0 +1,63 @@
+.gallery {
+
+  padding-bottom: 80px;
+
+  @include onTablet {
+    padding-bottom: 82px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 200px;
+  }
+
+  &__title {
+    @extend %h2Title;
+    margin: 40px 0;
+
+    @include onTablet {
+      text-align: left;
+      margin: 6px 0 48px;
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      margin: 118px 0 56px;
+    }
+  }
+
+  &__img {
+    height: 360px;
+    width: 100%;
+    display: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include hover(transform scale(1.05));
+    
+    @include onDesktop {
+      display: inline-block;
+    }
+
+    &:nth-child(-n+2) {
+      height: 600px;
+      margin-bottom: 30px;
+    }
+
+    &--1 {
+      background-image: url(../images/gallery/picture1.jpg);
+    }
+
+    &--2 {
+      background-image: url(../images/gallery/picture2.jpg);
+    }
+
+    &--3 {
+      background-image: url(../images/gallery/picture3.jpg);
+    }
+
+    &--4 {
+      background-image: url(../images/gallery/picture4.jpg);
+    }
+  }
+}
