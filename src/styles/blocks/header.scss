@@ -1,0 +1,238 @@
+.header {
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0 auto;
+  transition: all 0.3s;
+
+  @include onTablet {
+    margin-bottom: 88px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__menu {
+    margin-left: 23px;
+    margin-top: 33px;
+    height: 12px;
+    width: 18px;
+    background-image: url(../images/menu.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &:hover {
+      background-image: url(../images/menu-hover.svg);
+    }
+
+
+    @include onTablet {
+      display: none;
+      margin-left: 0;
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        margin-left: 3;
+        margin-top: 45px;
+        margin-bottom: 70px;
+
+      }
+
+      @include onDesktop {
+        display: block;
+        margin-left: 3;
+        margin-top: 45px;
+        margin-bottom: 149px;
+
+      }
+    }
+  }
+
+  &__logo {
+    margin-left: 91px;
+    margin-top: 9px;
+    @extend %montserrat-700;
+    font-size: 30px;
+    line-height: 100%;
+    text-align: center;
+    color: $main-color-black;
+    text-decoration: none;
+
+    &:hover {
+      color: $button-color-green;
+    }
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 100%;
+      margin-left: 70px;
+      margin-top: 15px;
+    }
+  }
+
+  &__bg {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    width: 100%;
+    background-image: url(
+      ../images/head.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top left;
+
+    @include onTablet {
+      height: 100%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+    @include onTablet {
+      padding-left: 20px;
+      align-items: flex-start;
+      min-width: 384px;
+    }
+
+    @include onDesktop {
+      padding-left: 55px;
+      min-width: 655px;
+    }
+
+    &-title {
+      @extend %montserrat-700;
+      font-size: 45px;
+      line-height: 100%;
+      text-align: center;
+      color: $color-title-black;
+      padding-top: 20px;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        text-align: left;
+        font-size: 54px;
+        line-height: 120%;
+        margin-bottom: 38px;
+      }
+
+      @include onDesktop {
+        font-size: 72px;
+        line-height: 120%;
+        margin-bottom: 89px;
+      }
+    }
+
+    &-element {
+      display: none;
+
+      @include onDesktop {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        top: -59px;
+        left: -48px;
+        gap: 20px;
+
+
+        transform: rotate(-90deg);
+
+        &--link {
+          font-family: 'IBM Plex Sans';
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 100%;
+          color: #687480;
+          text-decoration: none;
+
+          &:hover {
+            color: $button-color-green;
+          }
+        }
+
+        &--line {
+          content: "";
+          display: block;
+          width: 70px;
+          height: 1px;
+          background-color: $button-color-green;
+        }
+      }
+    }
+
+    &-button {
+      display: flex;
+      width: 230px;
+      height: 50px;
+      box-sizing: border-box;
+      border: 1px solid $button-color-green;
+      @extend %ibm-500;
+      font-size: 16px;
+      line-height: 100%;
+      color: $main-color-black;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 70px;
+      transition: all 0.3s;
+
+      &:hover {
+        transition: all 0.3s;
+        color: #fff;
+        background-color: $button-color-green;
+      }
+
+      &:active {
+        transition: all 0.3s;
+        box-shadow: 0px 8px 14px rgba(167, 55%, 23%, 0.48);
+      }
+
+      &::after {
+        content: "";
+        background-color: $button-color-green;
+        width: 50px;
+        height: 50px;
+        background-image: url(../images/arrow-right.svg);
+        background-repeat: no-repeat;
+        background-size: 15%;
+        background-position: center;
+        transform: translateX(61px);
+      }
+
+      @include onTablet {
+        width: 270px;
+        height: 70px;
+
+        &::after {
+          width: 70px;
+          height: 70px;
+          transform: translateX(71px);
+        }
+      }
+
+      @include onDesktop {
+        margin-right: 30px;
+        margin-left: 300px;
+      }
+    }
+  }
+
+}
+
+
