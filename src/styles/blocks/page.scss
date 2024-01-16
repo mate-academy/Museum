@@ -1,0 +1,79 @@
+.page {
+  --section-gap: 100px;
+
+  font-family: "IBM Plex Sans", sans-serif;
+  color: $color-text-body;
+
+  scroll-behavior: smooth;
+
+  @include onTablet {
+    --section-gap: 88px;
+  }
+
+  @include onDesktop {
+    --section-gap: 200px;
+  }
+
+  &__body {
+    margin: 0;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      visibility: visible;
+      opacity: 0;
+      transition: opacity 0.2s ease-in;
+    }
+
+    &--with-menu {
+      overflow: hidden;
+
+      &::before {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__header {
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: var(--section-gap);
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: $transition;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    &:not(:last-child) {
+      margin-bottom: var(--section-gap);
+    }
+
+    &:first-child {
+      margin-bottom: 200px;
+
+      @include onDesktop {
+        margin-bottom: 300px;
+      }
+    }
+  }
+}
