@@ -1,0 +1,132 @@
+.menu__top {
+  display: flex;
+  width: 100%;
+
+  @include onMob {
+    display: block;
+  }
+
+  // @include onTablet {
+  //  display: flex;
+  //  height: 50px;
+  // }
+
+  &--list {
+    display: flex;
+    min-width: 340px;
+
+    // justify-content: space-between;
+    @include onMob {
+      display: block;
+      min-width: 280px;
+    }
+  }
+
+  &-content {
+    display: flex;
+    width: 100%;
+    height: min-content;
+    // justify-content: space-between;
+    padding-top: 35px;
+    flex-direction: row;
+    gap: 28px;
+    &-time {
+      @include onMob {
+        padding-top: 0;
+      }
+    }
+    &--part {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &--text {
+      width: max-content;
+      color: #fff;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100%;
+      text-decoration: none;
+      transition: 0.5s;
+    }
+
+    &--time {
+      display: flex;
+
+      @include onMob {
+        display: block;
+      }
+    }
+  }
+
+  &-slide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    // background-color: #1a5a4c;
+    background: linear-gradient(#1a5a4c 36%, rgba(#18181a, 0.5) 3%);
+    height: 750px;
+    width: 100%;
+
+    @include onMob {
+      height: 665px;
+      width: 320px;
+      background: linear-gradient(#1a5a4c 62%, rgba(#18181a, 0.5) 4%);
+    }
+
+    @include onTablet {
+      height: 975px;
+      background: linear-gradient(#1a5a4c 25%, rgba(#18181a, 0.5) 5%);
+    }
+
+    scroll-behavior: smooth;
+    transition: transform 0.3s;
+    transform: translateY(-100%);
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+}
+
+.menu__cross {
+  margin-right: 70px;
+
+  @include onMob {
+    margin-right: 0;
+  }
+
+  @include onTablet {
+    margin-right: 20px;
+  }
+
+  &:hover {
+    scale: 130%;
+  }
+}
+
+.menu__top-line {
+  display: flex;
+  height: 1px;
+  flex-shrink: 0;
+  background-color: #fff;
+  width: 150px;
+  margin: 140px 20px;
+  transform: rotate(90deg);
+
+  @include onMob {
+    margin: 24px 0;
+    width: 100%;
+    transform: rotate(0deg);
+  }
+
+  @include onTablet {
+    margin: 120px 5px;
+  }
+}

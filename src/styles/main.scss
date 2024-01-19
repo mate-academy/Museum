@@ -2,6 +2,557 @@
 @import "fonts";
 @import "typography";
 
+@import "mixins";
+
+@import "container";
+
+@import "header";
+
+@import "buttons";
+
+@import "menu";
+
+@import "footer";
+
+@import "logo";
+
 body {
-  background: $c-gray;
+  background: #fff;
+  margin: 0;
+}
+
+body:has(.menu__top-slide:target) {
+  overflow: hidden;
+  height: 100vh;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+span {
+  font-weight: 700;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.a:hover {
+  scale: 120%;
+  color: aqua;
+}
+
+.title {
+  color: #0f0e08;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 100%;
+  width: 220px;
+  text-align: center;
+
+  @include onMob {
+    min-width: 320px;
+    font-size: 30px;
+    // align-items: center;
+    margin: 0 auto;
+    font-weight: 700;
+    line-height: 100%;
+  }
+
+  &-main {
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    text-align: left;
+    min-width: 320px;
+    margin: 150px 0 90px;
+
+    @include onMob {
+      font-size: 45px;
+      margin: 250px 0 20px;
+      text-align: center;
+      width: 100%;
+
+    }
+
+    @include onTablet {
+      font-size: 54px;
+      margin: 40px 0;
+    }
+  }
+}
+
+.top__action {
+  display: flex;
+  padding-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 500px;
+  @include onMob {
+    padding-top: 9px;
+    margin-right: 50px;
+  }
+
+  @include onTablet {
+    margin-right: 150px;
+  }
+}
+
+.discription {
+  color: #0f0e08;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  align-items: center;
+  justify-content: center;
+
+  &-top {
+    display: flex;
+    width: 200px;
+    height: 70px;
+    border: 3px solid #1a5a4c;
+    margin-left: 201px;
+
+    @include onMob {
+      width: 230px;
+      height: 50px;
+      margin-left: 0;
+    }
+
+    @include onTablet {
+      margin-left: 0;
+    }
+  }
+
+  &-color {
+    display: flex;
+    color: #687480;
+    width: min-content;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+    transform: rotate(270deg);
+
+    @include onMob {
+      display: none;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}
+
+.before {
+  background-color: #1a5a4c;
+  margin-right: 20px;
+  width: 70px;
+  height: 3px;
+}
+
+.list {
+  height: 90px;
+  display: flex;
+  width: content;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+  color: #fff;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin-right: 5px;
+}
+
+.img {
+  height: 520px;
+  background-repeat: no-repeat;
+  width: 670px;
+ 
+  @include onTablet {
+    margin-bottom: 44px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  @include onMob {
+    height: 210px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+  }
+
+  &-1 {
+    background-image: url(../images/Rectangle_1_1280.png);
+  }
+
+  @include onTablet {
+    background-image: url(../images/Rectangle_1_740.png);
+  }
+
+  @include onMob {
+    background-image: url(../images/Rectangle_1_320.png);
+  }
+
+  &-2 {
+    background-image: url(../images/Rectangle_2_1280.png);
+
+    @include onTablet {
+      background-image: url(../images/Rectangle_2_740.png);
+    }
+
+    @include onMob {
+      background-image: url(../images/Rectangle_2_320.png);
+    }
+  }
+}
+
+.bacground__picture {
+  // position: relative;
+  width: 1280px;
+  height: 550px;
+  margin: 0 auto;
+  background-image: url(../images/Rectangle_3_1280.png);
+  background-repeat: no-repeat;
+  @include onTablet {
+    height: 390px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../images/Rectangle_3_740.png);
+    margin: 0 auto;
+  }
+
+  @include onMob {
+    height: 210px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../images/Rectangle_3_320.png);
+    align-items: center;
+  }
+
+  &-banner {
+    width: max-content;
+    margin: auto;
+    padding-top: 45px;
+
+    @include onMob {
+      padding-top: 20px;
+      text-align: center;
+    }
+  }
+}
+
+.ivent {
+  color: #687480;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  text-align: left;
+  width: 460px;
+  margin-bottom: 32px;
+  justify-content: space-between;
+  @include onMob {
+    // text-align: center;
+    min-width: 280px;
+    margin-bottom: 15px;
+  }
+
+  &__block {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 104px;
+
+    @include onMob {
+      display: block;
+      margin-bottom: 60px;
+    }
+
+    @include onTablet {
+      display: block;
+      margin-bottom: 64px;
+    }
+
+  }
+
+  &-date {
+    color: #1a5a4c;
+    font-weight: 700;
+    line-height: 150%;
+    text-align: right;
+    margin-left: 135px;
+
+    @include onMob {
+      margin-left: 60px;
+    }
+
+  }
+
+  &-discrioption {
+    max-width: 370px;
+    color: #4e4e4e;
+    font-weight: 300;
+    line-height: 150%;
+    @include onTablet {
+      width: 460px;
+    }
+    @include onMob {
+      width: 100%;
+    }
+  }
+}
+
+.banner {
+  // position: absolute;
+  // display: flex;
+  background-color: #fff;
+  width: 570px;
+  height: 204px;
+  // bottom: 0;
+  // left: 355px;
+  margin: 0 auto;
+  transform: translateY(220%);
+  box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+  @include onTablet {
+    transform: translateY(140%);
+  }
+  @include onMob {
+    width: 280px;
+    height: 140px;
+    transform: translateY(120%);
+  }
+
+}
+
+.galery {
+  position: relative;
+  display: block;
+  gap: 20px;
+  margin: 0 auto;
+  margin-bottom: 200px;
+
+  @include onMob {
+    display: flex;
+    overflow: scroll;
+    overflow-y: hidden;
+    height: 410px;
+    margin-bottom: 130px;
+  }
+
+  @include onTablet {
+    display: flex;
+    overflow: scroll;
+    overflow-y: hidden;
+    height: 560px;
+    margin-bottom: 130px;
+  }
+
+  &-main {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    width: 1280px;
+    height: 600px;
+    margin-bottom: 30px;
+    &-photo-1 {
+      width: 370px;
+      background-repeat: no-repeat;
+      background-image: url(../images/Rectangle-galery-1-1280-desk.png);
+    }
+
+    &-photo-2 {
+      width: 770px;
+      background-repeat: no-repeat;
+      background-image: url(../images/Rectangle-2-1280.jpg);
+    }
+
+    @include onMob {
+      // width: 1200px;
+      gap: 20px;
+      margin: 0;
+
+      &-photo-1 {
+        width: 280px;
+        background-repeat: no-repeat;
+        background-image: url(../images/Rectangle_galery-1-320-mob.png);
+      }
+
+      &-photo-2 {
+        width: 280px;
+        background-repeat: no-repeat;
+        background-image: url(../images/Rectangle_galery-1-320-mob.png);
+      }
+
+      &-photo-3 {
+        width: 280px;
+        background-repeat: no-repeat;
+        background-image: url(../images/Rectangle_galery-1-320-mob.png);
+      }
+    }
+
+    @include onTablet {
+      // width: 1300px;
+      gap: 20px;
+      margin: 0;
+
+      &-photo-1 {
+        width: 320px;
+        background-repeat: no-repeat;
+        background-image: url(../images/Rectangle_galery-1-740-Tabl.png);
+      }
+
+      &-photo-2 {
+        width: 320px;
+        background-repeat: no-repeat;
+        background-image: url(../images/Rectangle-2-740.jpg);
+      }
+
+      &-photo-3 {
+        width: 320px;
+        height: 543px;
+        background-repeat: no-repeat;
+        background-image: url(../images/Rectangle_galery-1-740-Tabl.png);
+      }
+    }
+  }
+  &-slave {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    width: 1280px;
+
+    &-photo-3 {
+      width: 770px;
+      height: 360px;
+      background-repeat: no-repeat;
+      background-image: url(../images/Rectangle-3-1280.jpg);
+    }
+
+    &-photo-4 {
+      width: 370px;
+      height: 360px;
+      background-repeat: no-repeat;
+      background-image: url(../images/Rectangle-4-1280.jpg);
+    }
+
+    @include onMob {
+      display: none;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}
+
+.subscribe {
+  position: relative;
+  height: 550px;
+  width: 1280px;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  background-image: url(../images/subscribe_background-1280.png);
+
+  @include onTablet {
+    height: 380px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../images/subscribe_background-740.png);
+  }
+
+  @include onMob {
+    height: 386px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../images/subscribe_background-320.png);
+  }
+}
+
+.subscribe_block {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 224px;
+  margin: 163px auto;
+  justify-content: space-between;
+
+  @include onMob {
+    // width: 280px;
+    height: 210px;
+    margin: 88px auto;
+  }
+
+  @include onTablet {
+    // width: 460px;
+    margin: 82px auto;
+    height: 215px;
+  }
+
+  &-height {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onMob {
+      height: 82px;
+    }
+  }
+}
+
+.subscribe_form {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  height: 70px;
+  background-color: #fff;
+  outline: none;
+  font-size: 36px;
+  padding-left: 20px;
+  border: none;
+
+  @include onMob {
+    font-size: 18px;
+    width: 320px;
+    height: 50px;
+  }
+}
+
+.subscribe_position {
+  display: flex;
+  flex-direction: row;
+  width: 570px;
+  margin: 0 auto;
+  justify-content: center;
+
+  @include onMob {
+    width: 280px;
+  }
 }
