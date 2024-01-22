@@ -92,9 +92,16 @@
 
   &__picture {
     height: 100%;
+    max-width: 256px;
+    object-fit: contain;
+
+    @include onTablet {
+      max-width: none;
+    }
 
     @include onDesktop {
       object-fit: contain;
+      max-width: none;
     }
   }
 
@@ -143,29 +150,32 @@
     }
 
     &--2:checked ~ .slideshow__inner > .slideshow__list {
-      left: -100%;
+      // left: -100%;
+      left: -272px;
     }
 
     &--3:checked ~ .slideshow__inner > .slideshow__list {
-      left: -200%;
+      // left: -200%;
+      left: -544px;
     }
 
     &--5:checked ~ .slideshow__inner > .slideshow__list {
-      left: -400% ;
+      // left: -400%;
+      left: -815px;
     }
 
-    @include onTablet {
-      &--2:checked ~ .slideshow__inner > .slideshow__list {
-        left: -20%;
-      }
+    // @include onTablet {
+    //   &--2:checked ~ .slideshow__inner > .slideshow__list {
+    //     left: -20%;
+    //   }
 
-      &--3:checked ~ .slideshow__inner > .slideshow__list {
-        left: -90%;
-      }
+    //   &--3:checked ~ .slideshow__inner > .slideshow__list {
+    //     left: -90%;
+    //   }
 
-      &--5:checked ~ .slideshow__inner > .slideshow__list {
-        left: -180%;
-      }
-    }
+    //   &--5:checked ~ .slideshow__inner > .slideshow__list {
+    //     left: -180%;
+    //   }
+    // }
   }
 }
