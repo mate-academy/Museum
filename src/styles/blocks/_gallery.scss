@@ -53,15 +53,18 @@
   }
 
   .swiper-wrapper {
-    gap: 15px;
+    gap: 16px;
+    padding-bottom: 25px;
   }
 
-  .swiper-slide {
+  .swiper .swiper-slide {
     // text-align: center;
     // font-size: 18px;
     background: #fff;
     display: flex;
-    width: fit-content;
+    width: fit-content !important;
+    // width: 100% !important;
+    // width: 100%;
     // justify-content: center;
     // align-items: center;
   }
@@ -71,25 +74,39 @@
     // width: 100%;
     height: 410px;
     object-fit: cover;
+    width: 100%;
+
+    @include onTablet {
+      height: 543px;
+    }
+
+    @include onDesktop {
+      height: 600px;
+    }
   }
 
-  // .swiper-pagination {
-  //   position: absolute;
-  //   bottom: 10px;
-  //   width: 100%;
-  //   height: 10px;
-  //   text-align: center;
-  //   // background-color: #678;
-  // }
+  .swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    height: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+  }
 
-  // .swiper-pagination .swiper-pagination-bullet-active {
-  //   background-color: red;
-  // }
+  .swiper-pagination .swiper-pagination-bullet {
+    background-color: $dot-color;
+    opacity: 0.5;
+    height: 9px;
+    width: 9px;
+  }
 
-  // .swiper-pagination .swiper-pagination-bullet {
-  //   background-color: blue;
-  //   opacity: 0.5;
-  // }
+  .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: $secondary-bg-color;
+    opacity: 1;
+  }
 
   // .swiper {
   //   margin-left: auto;
