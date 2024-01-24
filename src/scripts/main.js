@@ -38,3 +38,9 @@ menuOpener.addEventListener('click', (event) => {
   event.stopPropagation();
   modal.classList.toggle('show');
 });
+
+const burger = document.querySelector('.header_logo');
+
+burger.addEventListener('click', () => {
+  modal.classList.toggle('show');
+});
