@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 // let modal;
 
@@ -25,25 +25,16 @@
 
 //   subscribeTextarea.value = '';
 // };
-function toggleModal(event) {
+
+const modal = document.getElementById('modalMenu');
+
+modal.addEventListener('click', () => {
+  modal.classList.remove('show');
+});
+
+const menuOpener = document.querySelector('.menu__opener');
+
+menuOpener.addEventListener('click', (event) => {
   event.stopPropagation();
-
-  const modal = document.getElementById('modalMenu');
-
   modal.classList.toggle('show');
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  modal = document.getElementById('modalMenu');
-
-  modal.addEventListener('click', () => {
-    modal.classList.remove('show');
-  });
-
-  const menuOpener = document.querySelector('.menu__opener');
-
-  menuOpener.addEventListener('click', (event) => {
-    event.stopPropagation();
-    modal.classList.toggle('show');
-  });
 });
