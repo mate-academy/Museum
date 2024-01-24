@@ -1,0 +1,139 @@
+.museum {
+  &__title {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 7;
+    }
+  }
+
+  &__events {
+    grid-row-start: 3;
+
+    grid-column: 1 / 3;
+    transform: translateX(-50px) translateY(52px);
+
+    &-link {
+      display: none;
+
+      @include on-desktop {
+        display: inline-block;
+
+        transform: rotate(270deg);
+        top: 587px;
+        left: 0;
+        z-index: 3;
+      }
+    }
+
+    &-title {
+      color: $secondary-text;
+
+      display: inline-block;
+      font-size: 14px;
+      line-height: 14px;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+
+  &__tickets {
+    display: inline-block;
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    padding-right: 50px;
+    text-transform: uppercase;
+    position: relative;
+    color: #000;
+    cursor: pointer;
+
+    @include on-tablet {
+      height: 70px;
+      line-height: 70px;
+      padding-right: 70px;
+    }
+
+    @include on-desktop {
+      margin-top: 89px;
+    }
+
+    span {
+      border: 1px solid $green-bg-color;
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      margin: 0;
+      position: relative;
+    }
+
+    &:hover {
+      color: $green-bg-color;
+
+      span::before {
+        width: 100%;
+      }
+    }
+
+    span::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: #ccc;
+      transition: width 0.3s ease;
+      z-index: -1;
+    }
+  }
+
+  &__tickets::before {
+    content: '>';
+    position: absolute;
+    margin: 0;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background-color: $green-bg-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $text-color-white;
+    font-size: 12px;
+
+    @include on-tablet {
+      height: 70px;
+      width: 70px;
+    }
+  }
+
+  &__line {
+    display: inline-block;
+    width: 70px;
+    border: 1px solid $green-bg-color;
+    margin: 4px;
+  }
+}

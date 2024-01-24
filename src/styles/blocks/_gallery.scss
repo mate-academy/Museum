@@ -1,0 +1,121 @@
+.gallery {
+  &__title {
+    @include content-padding-in-line;
+    @include on-desktop {
+      padding-inline: 0;
+    }
+  }
+
+  &__wrapper {
+    display: none;
+
+    @include on-desktop {
+      display: grid;
+      row-gap: 30px;
+      padding-top: 56px;
+    }
+
+  }
+  &__photos {
+    overflow: hidden;
+
+    @include on-desktop {
+      @include page-grid;
+      }
+  }
+
+  &__container {
+    padding-bottom: 100px;
+
+    @include on-tablet {
+      padding-bottom: 92px;
+    }
+    @include on-desktop {
+      @include content-padding-in-line;
+      padding-bottom: 200px;
+    }
+
+  }
+
+  &__photo-container {
+    margin-left: 39px;
+
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  &__link {
+    @include hover(transform, scale(1.05));
+
+    &--wide {
+      @include on-desktop {
+        grid-column: span 8;
+      }
+    }
+    &--narrow {
+      @include on-desktop {
+        grid-column: span 4;
+      }
+    }
+    &--carousel {
+      height: 410px;
+      width: 280px;
+
+      @include on-tablet {
+        height: 543px;
+        width: 340px;
+      }
+    }
+  }
+
+  &__photo {
+    height: 100%;
+    object-fit: cover;
+
+    @include on-desktop {
+      width: 100%;
+    }
+  }
+
+  &-carousel {
+    padding-top: 40px;
+
+    @include on-tablet {
+      padding-top: 48px;
+    }
+    @include on-desktop {
+      display: none;
+    }
+  }
+  &__dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+
+    @include on-tablet {
+      padding-top: 32px;
+    }
+    @include on-desktop {
+      display: none;
+    }
+  }
+  &__dot {
+    cursor: pointer;
+    height: 9px;
+    width: 9px;
+    margin: 0 22px;
+    background-color: $dots-color;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+
+    &--active {
+    background-color: $green-bg-color;
+
+  }
+  }
+
+}

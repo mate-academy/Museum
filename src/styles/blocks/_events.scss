@@ -1,0 +1,114 @@
+.events {
+  display: grid;
+  row-gap: 40px;
+
+  @include on-tablet {
+    row-gap: 48px;
+  }
+  @include on-desktop {
+    row-gap: 56px;
+  }
+
+  &__exhibitions {
+    display: grid;
+    row-gap: 60px;
+
+      @include on-tablet {
+        row-gap: 64px;
+      }
+      @include on-desktop {
+        row-gap: 104px;
+      }
+  }
+  &__container {
+    @include content-padding-in-line;
+  }
+}
+
+.event {
+  @include page-grid;
+    row-gap: 20px;
+
+    @include on-tablet {
+      row-gap: 40px;
+    }
+
+  &__photo {
+    height: 100%;
+    width: 100%;
+    grid-column: 1 / -1;
+
+    @include hover(transform, scale(1.05));
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+    }
+  }
+  &__info {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+    @include on-desktop {
+      grid-column: 9 / 13;
+      align-self: center;
+    }
+  }
+
+  &__date {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    color: $secondary-text;
+    padding-bottom: 15px;
+
+    @include on-tablet {
+      padding-bottom: 30px;
+    }
+    span {
+      color: $green-bg-color;
+      font-weight: 700;
+      line-height: 24px;
+    }
+    &--lection {
+      justify-content: space-around;
+
+    @include on-tablet {
+      justify-content: space-between;
+    }
+    }
+  }
+  &__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 100%;
+    font-size: 28px;
+
+    @include on-tablet {
+      text-align: left;
+      padding-bottom: 15px;
+      font-size: 36px;
+
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__icon {
+    margin-inline: 10px;
+  }
+  &__lection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+}
