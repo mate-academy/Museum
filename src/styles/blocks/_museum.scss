@@ -57,6 +57,27 @@
     }
   }
 
+  &__tickets::before {
+    content: '>';
+    position: absolute;
+    margin: 0;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background-color: $green-bg-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $text-color-white;
+    font-size: 12px;
+
+    @include on-tablet {
+      height: 70px;
+      width: 70px;
+    }
+  }
+
   &__tickets {
     display: inline-block;
     height: 50px;
@@ -88,14 +109,6 @@
       position: relative;
     }
 
-    &:hover {
-      color: $green-bg-color;
-
-      span::before {
-        width: 100%;
-      }
-    }
-
     span::before {
       content: '';
       position: absolute;
@@ -107,26 +120,13 @@
       transition: width 0.3s ease;
       z-index: -1;
     }
-  }
 
-  &__tickets::before {
-    content: '>';
-    position: absolute;
-    margin: 0;
-    right: 0;
-    top: 0;
-    width: 50px;
-    height: 50px;
-    background-color: $green-bg-color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $text-color-white;
-    font-size: 12px;
+    &:hover {
+      color: $green-bg-color;
 
-    @include on-tablet {
-      height: 70px;
-      width: 70px;
+      span::before {
+        width: 100%;
+      }
     }
   }
 
