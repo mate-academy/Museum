@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="./styles/main.scss">
     <link rel="icon" href="images/NA MU.png"
      type="image/x-icon">
+    <script src="./main.js" defer></script>
   </head>
   <body class="body">
     <header class="header">
       <div class="header_first-block">
         <div class="header_logo">
-          <img src="images/logo.svg" alt="logo" class="logo"/>
+          <img src="images/logo.svg" onclick="toggleModal(event)" alt="logo" class="logo"/>
         </div>
-
         <div class="header_title">ХУДОЖНІЙ МУЗЕЙ</div>
         <div class="header_tickets-wrapper">
         <div class="header_tickets">
           <div></div>
-          <div class="header_tickets-text">Квитки</div>
+          <button class="header_tickets-text">Квитки</button>
           <div></div>
           <div class="header_tickets-chevron"></div>
 
@@ -29,6 +29,49 @@
           <div class="header_events-line"></div>
           <div class="header_events-text">Події</div>
         </div>
+      </div>
+
+      <div class="modal" id="modalMenu">
+        <div class="modal--navigation">
+            <a href="#" class="icon--close menu__opener" onclick="closeModal()"></a>
+        </div>
+        <nav>
+            <ul class="modal__content">
+                <img class="menu-cross" src="./images/cross.svg">
+                <div class="modal_content-div">
+                    <div class="menu-group">
+                        <li><a class="modal_a" href="#compare" onclick="closeModal()">Галерея</a></li>
+                        <li><a class="modal_a" href="#about" onclick="closeModal()">Виставки та події</a></li>
+                    </div>
+                </div>
+                <div class="modal_content-div">
+                    <div class="menu-group">
+                        <li><a class="modal_a" href="#details" onclick="closeModal()">Про нас</a></li>
+                        <li><a class="modal_a" href="#contacts" onclick="closeModal()">Контакти</a></li>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+        <div class="modal-line"></div>
+        <div class="menu-group">
+      <div class="modal_worktime">
+
+        <p class="modal_contacts">Графік роботи</p>
+       <p><strong>12:00
+— 20:00</strong> середа<br>
+<strong>12:00
+— 20:00</strong> четвер<br>
+<strong>12:00 — 20:00</strong> п’ятниця<br>
+<strong>11:00 — 19:00</strong> субота<br>
+<strong>11:00 — 19:00</strong> неділя<br>
+</p>
+</div>
+</div>
+<div class="modal_worktime2">
+<strong>Вихідні:</strong> понеділок, вівторок<br>
+Каса припиняє роботу за 1 годину
+до закриття музею
+</div>
       </div>
 
       <div class="header_second-block">
@@ -114,8 +157,8 @@
       <h1 class="footer_subscribe-title"> Підписка</h1>
       <p class="footer_subscribe-subtitle">Бути в курсі всіх актуальних подій та останніх новин.</p>
       <div class="footer_subscribe-wrapper">
-      <textarea class="footer_subscribe-textarea" placeholder="Email"></textarea>
-      <button class="footer_subscribe-button"><img src="./images/chevron-right.svg"></button>
+      <textarea class="footer_subscribe-textarea" id="subscribe" placeholder="Email"></textarea>
+      <button onclick="sendForm()" class="footer_subscribe-button"><img src="./images/chevron-right.svg"></button>
       </div>
     </main>
       <footer class="footer">
@@ -125,8 +168,12 @@
               NA<br>MU
             </div>
             <div class="footer_social-img">
+              <a href="https://www.facebook.com/namu.museum/?locale=ua_ua" target="_blank">
               <img class="img-facebook" src="./images/facebook.svg"/>
+            </a>
+              <a href="https://www.instagram.com/namu.museum/" target="_blank">
               <img class="img-instagram" src="./images/instagram.svg"/>
+            </a>
             </div>
           </div>
           <div class="footer_block2">
@@ -148,10 +195,21 @@
           </div>
           <div class="footer_block3">
             <p class="footer_contacts">Контакти</p>
-            <p class="footer_contacts-content">вул. М. Грушевського, 6;<br> Київ, 01001 <br>
-              тел. +38 (044) 278-13-57
-              факс +38 (044) 278-74-54 <br>
-              e-mail: info@namu.kiev.ua</p>
+            <div class="footer_contacts-content">
+              <address>
+                <a href="https://www.google.com/maps?q=вул.%20М.%20Грушевського%2C%206%2C%20Київ%2C%2001001" target="_blank">
+                  вул. М. Грушевського, 6;<br>
+                  Київ, 01001
+                </a>
+              </address>
+              </address>
+
+              <p>
+                <strong>Телефон:</strong> <a href="tel:+380442781357">+38 (044) 278-13-57</a><br>
+                <strong>Факс:</strong> <a href="tel:+380442787454">+38 (044) 278-74-54</a> <br>
+                <strong>e-mail:</strong> <a href="mailto:info@namu.kiev.ua">info@namu.kiev.ua</a>
+              </p>
+            </div>
 
           </div>
           <div class="footer-line"></div>
