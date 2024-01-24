@@ -26,12 +26,6 @@
 //   subscribeTextarea.value = '';
 // };
 
-const burger = document.querySelector('.header_logo');
-
-burger.addEventListener('click', () => {
-  modal.classList.toggle('show');
-});
-
 const modal = document.getElementById('modalMenu');
 
 modal.addEventListener('click', () => {
@@ -43,10 +37,22 @@ const menuOpener = document.querySelector('.menu__opener');
 menuOpener.addEventListener('click', (event) => {
   event.stopPropagation();
   modal.classList.toggle('show');
-})
+});
 
 const burger = document.querySelector('.header_logo');
 
 burger.addEventListener('click', () => {
   modal.classList.toggle('show');
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const subscribeButton = document.querySelector('.footer_subscribe-button');
+
+  const sendForm = () => {
+    const subscribeTextarea = document.getElementById('subscribe');
+
+    subscribeTextarea.value = '';
+  };
+
+  subscribeButton.addEventListener('click', sendForm);
 });
