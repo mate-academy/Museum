@@ -1,25 +1,34 @@
 .menu {
   height: 100vh;
   background: rgba(24, 24, 26, 0.5);
-  z-index: 1;
+  z-index: 5;
 
   &__container {
     width: 100%;
+    height: 400px;
     position: absolute;
     display: block;
-    height: 233px;
     background: $green;
     opacity: 2;
-    z-index: 2;
+    z-index: 10;
+
+    @include on-tablet {
+      height: 225px;
+    }
   }
 
   &__content {
-    display: flex;
-    flex-direction: row;
-    padding-top: 40px;
-    gap: 40px;
+    display: block;
+    padding-top: 27px;
 
-    @include onDesktop {
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      padding-top: 40px;
+      gap: 40px;
+    }
+
+    @include on-desktop {
       gap: 100px;
     }
   }
@@ -29,41 +38,74 @@
     flex-direction: column;
     gap: 20px;
 
-    @include onDesktop {
+    @include on-desktop {
       gap: 30px;
     }
 
     &-time {
       display: flex;
+      flex-direction: column;
       gap: 10px;
+
+      @include on-tablet {
+        flex-direction: row;
+        gap: 20px;
+      }
+    }
+
+    &-link {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 24px;
     }
   }
 
   &__title {
     color: #FFF;
-    font-family: "IBM Plex Sans";
+    font-family: "IBM Plex Sans", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 100%;
 
-    @include onDesktop {
+    @include on-desktop {
       font-size: 22px;
+    }
+
+    &:hover {
+      color: #FFF;
     }
   }
 
   &__span {
-    width: 1px;
-    height: 145px;
+    width: 280px;
+    height: 1px;
     background: rgba(255, 255, 255, 0.50);
-    margin: 0 auto;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      width: 1px;
+      height: 145px;
+      background: rgba(255, 255, 255, 0.50);
+      margin: 0 auto;
+      margin-bottom: 0;
+    }
   }
 
   &__text {
+    width: 160px;
     color: #FFF;
-    font-family: "IBM Plex Sans";
+    font-family: "IBM Plex Sans", sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+
+    @include on-tablet {
+      max-width: 160px;
+    }
+
+    @include on-desktop {
+      max-width: 170px;
+    }
   }
 }
