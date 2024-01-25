@@ -1,0 +1,53 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.body {
+  font-family: "IBM Plex Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 60px;
+  background: $c-gray;
+  min-width: 320px;
+
+  &:has(.body__aside:target) {
+    overflow: hidden;
+  }
+
+  &__header {
+    margin-bottom: 70px;
+
+    @include on-tablet {
+      margin-bottom: 88px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all $efect-durathion;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  &__main {
+    display: grid;
+    row-gap: 100px;
+
+    @include on-desktop {
+      row-gap: 200px;
+    }
+  }
+}
