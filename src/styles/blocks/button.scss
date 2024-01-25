@@ -1,0 +1,81 @@
+.button {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  border: 1px solid $green-page-color;
+  align-items: center;
+  justify-content: end;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+  list-style: none;
+  text-decoration: none;
+  color: $title-color;
+  transition: all;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+
+    width: 0;
+    height: 50px;
+    background: $green-page-color;
+    opacity: 0.8;
+    transition: all 0.5s ease;
+
+    z-index: -1;
+
+    @include on-desktop {
+      height: 70px;
+    }
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+
+  &__text {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  &__arrow-box {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: $green-page-color;
+
+    background-image: url(../images/icons/right-arrow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include hover(scale, 1.1);
+
+    @include on-desktop {
+      width: 70px;
+      height: 70px;
+    }
+
+    &--anothe-color {
+      background-color: #f14a27;
+
+      @include hover(scale, none);
+      @include hover(background-position, right);
+
+      cursor: pointer;
+      border: none;
+
+      @include on-tablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  @include on-desktop {
+    width: 270px;
+    height: 70px;
+  }
+}

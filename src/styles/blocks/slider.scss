@@ -1,0 +1,103 @@
+
+.slider {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  padding-bottom: 30px;
+
+  @include on-tablet {
+    padding-bottom: 42px;
+  }
+
+  &__imgs {
+    width: 400%;
+    height: 543px;
+    display: flex;
+
+    @include on-tablet {
+      width: 200%;
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked + label {
+      background-color: $green-page-color;
+    }
+  }
+
+  &__slide {
+    width: 25%;
+    transition: 2s;
+    display: flex;
+  }
+
+  &__image {
+    width: 330px;
+    height: 543px;
+    margin: 0 auto;
+    filter: grayscale(30%);
+
+    transition: all 0.3s;
+
+    &:hover {
+      filter: grayscale(0);
+      cursor: pointer;
+      transform: scale(1.04);
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 100%;
+    bottom: 0;
+    left: 50%;
+    cursor: pointer;
+    transition: 1s;
+
+    &:hover {
+      background-color: $green-page-color;
+      opacity: 70%;
+    }
+    &--1 {
+      left: calc(50% - 39px);
+    }
+
+    &--2 {
+      left: calc(50% - 13px);
+    }
+
+    &--3 {
+      left: calc(50% + 13px);
+    }
+
+    &--4 {
+      left: calc(50% + 39px);
+    }
+  }
+}
+
+.slider__input:checked ~ .slide--first {
+  margin-left: 0;
+}
+
+.slider__input:checked ~ .first {
+  margin-left: -25%;
+}
+
+.slider__input:checked ~ .second {
+  margin-left: -50%;
+}
+
+.slider__input:checked ~ .third {
+  margin-left: -75%;
+}
+
+.slider__input:checked ~ .fourth {
+  margin-left: -100%;
+}
