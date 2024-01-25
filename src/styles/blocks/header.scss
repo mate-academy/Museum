@@ -1,0 +1,132 @@
+.header {
+  --h-img: 300px;
+
+  &__container {
+    position: relative;
+
+    padding-top: var(--h-img);
+
+    @include on-tablet {
+      --h-img: 384px;
+
+      padding-top: 0;
+      height: var(--h-img);
+
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    @include on-desktop {
+      --h-img: 655px;
+    }
+
+  }
+
+  &__top {
+    position: absolute;
+    top: 9px;
+    width: 100%;
+
+    @include on-desktop {
+      left: 50%;
+      transform: translate(-50%);
+    }
+  }
+
+  &__bottomn {
+    @include header-aside-container;
+    @include page-grid;
+  }
+
+  &__img {
+    position: absolute;
+    height: var(--h-img);
+    width: 100vw;
+    top: 0;
+    right: 0;
+    z-index: -1;
+
+    background-image: url(./../images/Natsionalnij-hudozhnij-muzej.png);
+    background-size: cover;
+    background-position: center;
+
+    @include on-tablet {
+      width: calc(50vw - 15px);
+    }
+
+    @include on-desktop {
+      width: calc(50vw + 70px);
+    }
+  }
+
+  &__title {
+    font-size: 45px;
+    margin: 0;
+    margin-block: 20px;
+    text-align: center;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      text-align: start;
+
+      line-height: 120%;
+
+      margin: 0;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 700px) {
+      font-size: 54px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      font-size: 72px;
+    }
+  }
+
+  &__tickets {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      margin-bottom: 20px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 6;
+      margin-bottom: 118px;
+    }
+  }
+
+  &__events {
+    grid-column: 1 / 3;
+    transform: rotate(-90deg);
+    transform-origin: left;
+    width: fit-content;
+    color: #687480;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    gap: 20px;
+    align-items: center;
+    display: none;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 70px;
+      background-color: #1A5A4C;
+    }
+
+    @include hover(transform, scale(1.1) rotate(-90deg));
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+}
