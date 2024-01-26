@@ -27,22 +27,38 @@
 // };
 
 const modal = document.getElementById('modalMenu');
-
-modal.addEventListener('click', () => {
-  modal.classList.remove('show');
-});
-
 const menuOpener = document.querySelector('.menu__opener');
+const logo = document.querySelector('.header_logo img');
 
 menuOpener.addEventListener('click', (event) => {
   event.stopPropagation();
   modal.classList.toggle('show');
+
+  // Проверяем, открыто ли модальное окно
+  if (modal.classList.contains('show')) {
+    logo.src = '/cross.64d8e85c.svg'; // Изменяем src на крестик
+  } else {
+    logo.src = '/logo.cd13699a.svg'; // Возвращаем src на логотип
+  }
 });
 
-const burger = document.querySelector('.header_logo');
+// Добавляем обработчик для закрытия модального окна при клике вне него
+modal.addEventListener('click', () => {
+  modal.classList.remove('show');
+  logo.src = '/logo.cd13699a.svg'; // Возвращаем src на логотип
+});
 
-burger.addEventListener('click', () => {
+// Добавляем обработчик для открытия модального окна при клике на логотип
+logo.addEventListener('click', (event) => {
+  event.stopPropagation();
   modal.classList.toggle('show');
+
+  // Проверяем, открыто ли модальное окно
+  if (modal.classList.contains('show')) {
+    logo.src = '/cross.64d8e85c.svg'; // Изменяем src на крестик
+  } else {
+    logo.src = '/logo.cd13699a.svg'; // Возвращаем src на логотип
+  }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
