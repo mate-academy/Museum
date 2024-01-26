@@ -1,7 +1,7 @@
 .menu {
   &__container {
     @include content-padding-in-line;
-    
+
     padding-top: 27px;
     display: grid;
     row-gap: 24px;
@@ -21,6 +21,11 @@
       margin-inline: auto;
 
       padding-top: 40px;
+    }
+    &:target{
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
     }
   }
 
@@ -86,6 +91,23 @@
 
     span {
       font-weight: 600;
+    }
+  }
+  &__overlay {
+    position: fixed;
+    top: 430px;
+
+    width: 100%;
+    height: 100vh;
+    opacity: 0.5;
+    background: #18181A;
+
+    @include on-tablet {
+      top: 225px;
+    }
+
+    @include on-desktop {
+      top: 233px;
     }
   }
 }
