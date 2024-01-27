@@ -29,6 +29,8 @@
 const modal = document.getElementById('modalMenu');
 const menuOpener = document.querySelector('.menu__opener');
 const logo = document.querySelector('.header_logo img');
+const logoChevron = document.querySelector('.logo-chevron-hidden');
+const logoCross = document.querySelector('.logo-cross-hidden');
 
 menuOpener.addEventListener('click', (event) => {
   event.stopPropagation();
@@ -36,16 +38,16 @@ menuOpener.addEventListener('click', (event) => {
 
   // Проверяем, открыто ли модальное окно
   if (modal.classList.contains('show')) {
-    logo.src = '/cross.64d8e85c.svg'; // Изменяем src на крестик
+    logo.src = logoCross.src; // Изменяем src на крестик
   } else {
-    logo.src = '/logo.cd13699a.svg'; // Возвращаем src на логотип
+    logo.src = logoChevron.src; // Возвращаем src на логотип
   }
 });
 
 // Добавляем обработчик для закрытия модального окна при клике вне него
 modal.addEventListener('click', () => {
   modal.classList.remove('show');
-  logo.src = '/logo.cd13699a.svg'; // Возвращаем src на логотип
+  logo.src = logoCross.src; // Возвращаем src на логотип
 });
 
 // Добавляем обработчик для открытия модального окна при клике на логотип
@@ -55,9 +57,9 @@ logo.addEventListener('click', (event) => {
 
   // Проверяем, открыто ли модальное окно
   if (modal.classList.contains('show')) {
-    logo.src = '/cross.64d8e85c.svg'; // Изменяем src на крестик
+    logo.src = logoCross.src; // Изменяем src на крестик
   } else {
-    logo.src = '/logo.cd13699a.svg'; // Возвращаем src на логотип
+    logo.src = logoChevron.src; // Возвращаем src на логотип
   }
 });
 
