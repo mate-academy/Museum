@@ -38,9 +38,16 @@ menuOpener.addEventListener('click', (event) => {
 
   // Проверяем, открыто ли модальное окно
   if (modal.classList.contains('show')) {
-    logo.src = logoCross.src; // Изменяем src на крестик
+    logo.src = logoCross.src; // Change src to cross
+    logo.style.position = 'fixed'; // Set position to fixed
+    logo.style.left = '3%'; // Set left to 3%
+    logo.style.top = '3%'; // Set top to 3%
   } else {
-    logo.src = logoChevron.src; // Возвращаем src на логотип
+    logo.src = logoChevron.src; // Revert src to logo
+    // Optionally, you might want to reset the styles if the modal doesn't contain 'show' class
+    logo.style.position = ''; // Reset position
+    logo.style.left = ''; // Reset left
+    logo.style.top = ''; // Reset top
   }
 });
 
@@ -57,9 +64,16 @@ logo.addEventListener('click', (event) => {
 
   // Проверяем, открыто ли модальное окно
   if (modal.classList.contains('show')) {
-    logo.src = logoCross.src; // Изменяем src на крестик
+    logo.src = logoCross.src; // Change src to cross
+    logo.style.position = 'fixed'; // Set position to fixed
+    logo.style.left = '3%'; // Set left to 3%
+    logo.style.top = '3%'; // Set top to 3%
   } else {
-    logo.src = logoChevron.src; // Возвращаем src на логотип
+    logo.src = logoChevron.src; // Revert src to logo
+    // Optionally, you might want to reset the styles if the modal doesn't contain 'show' class
+    logo.style.position = ''; // Reset position
+    logo.style.left = ''; // Reset left
+    logo.style.top = ''; // Reset top
   }
 });
 
