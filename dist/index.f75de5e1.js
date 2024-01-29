@@ -22,25 +22,25 @@ const menuOpener = document.querySelector(".menu__opener");
 const logo = document.querySelector(".header_logo img");
 const logoChevron = document.querySelector(".logo-chevron-hidden");
 const logoCross = document.querySelector(".logo-cross-hidden");
+const backdrop = document.getElementById("backdrop");
 menuOpener.addEventListener("click", (event)=>{
     event.stopPropagation();
     modal.classList.toggle("show");
-    // Проверяем, открыто ли модальное окно
-    if (modal.classList.contains("show")) logo.src = logoCross.src; // Изменяем src на крестик
-    else logo.src = logoChevron.src; // Возвращаем src на логотип
+    backdrop.classList.toggle("show");
+    if (modal.classList.contains("show")) logo.src = logoCross.src;
+    else logo.src = logoChevron.src;
 });
-// Добавляем обработчик для закрытия модального окна при клике вне него
 modal.addEventListener("click", ()=>{
     modal.classList.remove("show");
-    logo.src = logoCross.src; // Возвращаем src на логотип
+    backdrop.classList.remove("show");
+    logo.src = logoCross.src;
 });
-// Добавляем обработчик для открытия модального окна при клике на логотип
 logo.addEventListener("click", (event)=>{
     event.stopPropagation();
     modal.classList.toggle("show");
-    // Проверяем, открыто ли модальное окно
-    if (modal.classList.contains("show")) logo.src = logoCross.src; // Изменяем src на крестик
-    else logo.src = logoChevron.src; // Возвращаем src на логотип
+    backdrop.classList.toggle("show");
+    if (modal.classList.contains("show")) logo.src = logoCross.src;
+    else logo.src = logoChevron.src;
 });
 document.addEventListener("DOMContentLoaded", function() {
     const subscribeButton = document.querySelector(".footer_subscribe-button");
@@ -49,6 +49,22 @@ document.addEventListener("DOMContentLoaded", function() {
         subscribeTextarea.value = "";
     };
     subscribeButton.addEventListener("click", sendForm);
+});
+document.addEventListener("DOMContentLoaded", function() {
+    // Smooth scrolling for internal links
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    for (const link of internalLinks)link.addEventListener("click", function(event) {
+        event.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+            const yOffset = -100; // Adjust as needed
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
+            });
+        }
+    });
 });
 
 //# sourceMappingURL=index.f75de5e1.js.map

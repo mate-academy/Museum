@@ -10,6 +10,34 @@
   overflow-x: hidden;
 }
 
+textarea {
+  border-width: 0px;
+  outline: transparent;
+  border: 1px solid;
+  transition: border-color 0.3s ease;
+  font-size: 20px;
+}
+
+
+textarea:focus {
+  border-color: #FFA500;
+}
+
+
+textarea:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+textarea:not(:placeholder-shown) {
+  font-weight: bold;
+}
+
+
+textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 a:hover {
   text-decoration: underline;
 }
@@ -35,10 +63,10 @@ textarea{
 .footer_subscribe-textarea:hover,
 .footer_subscribe-textarea:focus,
 .footer_subscribe-textarea:active {
-  border-color: #007bff;
+
   border-width: 1px;
   border-style: solid;
-  border-color: #007bff;
+  border-color:inherit
 }
 
 .header_tickets {
@@ -526,6 +554,22 @@ background: #F14A27;
 margin-left: 12px;
 }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Initially transparent */
+  z-index: 999;
+  display: none;
+}
+
+.backdrop.show {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 .main_event-p{
   color: #4E4E4E;
 
@@ -756,8 +800,11 @@ line-height: 140.625%;
 
 .header_tickets:hover {
     cursor: pointer;
-  }
 
+  }
+  .header_tickets-text:hover{
+    text-decoration: none;
+  }
   .header_tickets-text {
     padding: 8px 16px;
     color: black;
