@@ -1,0 +1,178 @@
+.header {
+  position: relative;
+  margin-bottom: 70px;
+  background: url('../images/Museum.jpg') top / cover no-repeat;
+  background-size: 100% 300px;
+
+  @include on-tablet {
+    height: 384px;
+    padding-top: 0;
+    margin-bottom: 88px;
+    background-position: right;
+    background-size: 55% auto;
+  }
+
+  @include on-desktop {
+    height: 665px;
+    margin-bottom: 200px;
+    padding-top: 0;
+  }
+
+  &__content {
+    width: 100%;
+    padding-top: 320px;
+
+    @include on-tablet {
+      padding-top: 127px;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      padding-top: 320px;
+      height: 665px;
+    }
+  }
+
+  &__logo {
+    margin: 0;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include on-tablet {
+      left: 60%;
+      transform: translateX(-60%);
+    }
+
+    @include on-desktop {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__humburger {
+    position: absolute;
+    z-index: 3;
+    top: 40px;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 143px;
+    }
+  }
+
+  &__title {
+    color: #000;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      font-size: 64px;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+
+    @include on-desktop {
+      justify-content: end;
+      align-items: end;
+    }
+
+    &__btn {
+      width: 280px;
+      height: 50px;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid $green;
+      background: #fff;
+      z-index: 0;
+
+      @include on-tablet {
+        width: 270px;
+        height: 70px;
+      }
+
+      &-rigth {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background: $green;
+
+        @include on-tablet {
+          width: 70px;
+          height: 70px;
+        }
+      }
+    }
+
+    &__text {
+      color: #0F0E08;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 100%;
+      padding: 20px 68px;
+      margin: 0 auto;
+
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+
+  &__event {
+    display: none;
+    position: absolute;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: right;
+    white-space: nowrap;
+    padding-top: 90px;
+    bottom: 0;
+
+    color: #687480;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    &:visited {
+      color: #687480;
+    }
+
+    &::before {
+      content: '';
+      display: flex;
+      position: absolute;
+      height: 70px;
+      width: 1px;
+      right: 50%;
+      top: 0;
+
+      background: $green;
+    }
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+}
