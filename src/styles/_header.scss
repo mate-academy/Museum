@@ -1,0 +1,128 @@
+.header {
+  position: relative;
+  max-height: 655px;
+
+  &__nav {
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    text-align: center;
+    padding: 20px 20px 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    &_link_contacts {
+      height: 70px;
+      border: 1px solid #1A5A4C;
+      display: flex;
+      justify-content: space-between;
+      &_text {
+        margin: 27px 80px;
+      }
+      &_box {
+        background-color: #1A5A4C;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s ease-in-out;
+      }
+      &:hover {
+        .header__content_link_contacts_text {
+          display: none;
+        }
+        .header__content_link_contacts_box {
+          width: 100%;
+
+        }
+      }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    pointer-events: none;
+    background-color: $c-date;
+
+    width: 100%;
+    transition: 0.3s linear;
+    z-index: 2;
+
+    &:target {
+      opacity:1;
+      pointer-events: all;
+
+      &::after {
+        content: "";
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        top: 100%;
+        right: 0;
+        z-index: -1;
+        opacity: 0.5;
+        background-color: black;
+      }
+    }
+
+    &_nav {
+      display: flex;
+      gap: 20px;
+      height: fit-content;
+      &_list {
+        max-width: 220px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &_item {
+          width: 100px;
+          height: fit-content;
+
+        }
+      }
+    }
+
+    &_hr {
+      background-color: rgba(255, 255, 255, 0.50);
+    }
+
+    &_schedule {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      &_content{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        &_work{
+          display: flex;
+          flex-flow: column nowrap;
+        }
+
+        &_weekend {
+          max-width: 170px;
+        }
+      }
+    }
+  }
+
+}
+
+.page:has(.header__menu:target){
+  overflow: hidden;
+}
+
+.menu-text-list {
+  width: 100px;
+}

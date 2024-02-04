@@ -1,0 +1,87 @@
+.galery {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  &__slider {
+    position: relative;
+    min-height: 390px;
+    overflow-x: scroll;
+    overflow-x: hidden;
+
+    &_slid {
+      position: relative;
+      min-width: 100%;
+      min-height: 410px;
+      transition: all 0.3s ease;
+    }
+
+    &_button {
+      position: absolute;
+      visibility: hidden;
+    }
+  }
+
+  &__nuv {
+    gap: 22px;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    &_bur {
+      width: 9px;
+      height: 9px;
+      border-radius: 9px;
+      opacity: 0.5;
+      background-color: $c-date;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.slide01 {
+  @include background-image;
+
+  background-image: url(../images/galery-img01.png);
+}
+
+.slide02 {
+  @include background-image;
+
+  background-image: url(../images/galery-img02.png);
+}
+
+.slide03 {
+  @include background-image;
+
+  background-image: url(../images/galery-img03.png);
+}
+
+.slide04 {
+  @include background-image;
+
+  background-image: url(../images/galery-img04.png);
+}
+
+.button_nuv01:checked ~ .slide01 {
+  margin-left: 0;
+}
+
+.button_nuv02:checked ~ .slide01 {
+  margin-left: -100%;
+}
+
+.button_nuv03:checked ~ .slide01 {
+  margin-left: -200%;
+}
+
+.button_nuv04:checked ~ .slide01 {
+  margin-left: -300%;
+}
