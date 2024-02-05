@@ -1,0 +1,84 @@
+.work-chart {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include on-desktop {
+    column-gap: 38px;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: -20px;
+    height: 1px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.50);
+
+    @include on-tablet {
+      top: 0;
+      width: 1px;
+      height: 144px;
+      transform: translateX(-40px);
+    }
+
+    @include on-desktop {
+      transform: translateX(-100px);
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+    font-weight: 400;
+    line-height: 140.63%;
+
+    &--color-text {
+      font-size: 14px;
+      margin-bottom: 0;
+      color: $color-text-second;
+    }
+  }
+
+  &__date {
+    grid-column: 1 / -1;
+    margin-bottom: 16px;
+
+    &--marg {
+      margin-bottom: 0;
+    }
+
+    @include on-tablet {
+      grid-column: 1 / -2;
+      margin-bottom: 0;
+    }
+  }
+
+  &__time {
+    font-weight: 600;
+    line-height: 150%;
+
+    &--color-text {
+      color: $color-text-second;
+    }
+  }
+
+  &__day {
+    font-weight: 400;
+    line-height: 150%;
+
+    &--color-text {
+      color: $color-text-second;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / -1;
+    }
+  }
+}
+
