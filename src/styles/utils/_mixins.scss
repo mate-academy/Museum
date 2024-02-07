@@ -1,17 +1,17 @@
 @mixin on-tablet {
-  @media (min-width: $tablet-min-width){
-    @content;
-  }
-}
-
-@mixin on-desktop {
   @media (min-width: $tablet-min-width) {
     @content;
   }
 }
 
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
 
-@mixin wrapper(){
+
+  @mixin wrapper(){
   padding-inline: 20px;
 
   @include on-tablet {
@@ -19,9 +19,10 @@
   }
 
   @include on-desktop {
+    max-width: $desktop-max-width;
     margin-inline: auto;
     padding-inline: 55px;
-    max-width: $desktop-max-width;
+    
   }
 }
 
@@ -34,14 +35,14 @@
 
 @mixin grid() {
   --columns: 2;
-  
+
   display: grid;
   column-gap: 20px;
   grid-template-columns: repeat(var(--columns), 1fr);
 
   @include on-tablet {
     --columns: 6;
-    
+
     column-gap: 30px;
   }
 
@@ -50,7 +51,7 @@
   }
 }
 
-@mixin style-article-category(){
+@mixin style-article-category {
   font-weight: 500;
   color: $c-grey;
   text-transform: uppercase;
