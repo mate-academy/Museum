@@ -1,6 +1,104 @@
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+
+  @mixin wrapper(){
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 39px;
+  }
+
+  @include on-desktop {
+    max-width: $desktop-max-width;
+    margin-inline: auto;
+    padding-inline: 55px;
+    
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-duration;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin grid() {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+  }
+}
+
+@mixin style-article-category {
+  font-weight: 500;
+  color: $c-grey;
+  text-transform: uppercase;
+  line-height: 100%;
+}
+
+@mixin style-article-date {
+  color: $c-main;
+  line-height: 150%;
+  font-weight: 700;
+}
+
+@mixin style-article-title {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 100%;
+  color: $c-button-text;
+
+  @include on-tablet {
+    font-size: 36px;
+  }
+}
+
+@mixin footer-links-hover {
+  &::after {
+    content: "";
+
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    background-color: $c-red;
+    border-radius: 2px;
+
+    opacity: 0.7;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform $transition-duration ease-in-out;
+    z-index: -2;
+  }
+
+  &:hover::after {
+    transform-origin: center;
+    transform: scaleX(1);
   }
 }

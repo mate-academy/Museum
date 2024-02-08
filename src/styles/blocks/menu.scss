@@ -1,0 +1,76 @@
+.menu {
+  --offset: 27px;
+
+  display: block;
+  padding-block: var(--offset);
+  background-color: $c-main;
+  overscroll-behavior: auto;
+  z-index: 2;
+
+  @include on-tablet {
+    --offset: 40px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    margin-top: var(--offset);
+    opacity: 0.5;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 4;
+  }
+
+  &__close {
+    @include hover(transform, scale(1.2));
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    @include on-tablet {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      gap: 102px;
+    }
+  }
+
+  &__item {
+    flex: 1;
+
+    @include on-tablet {
+      flex: auto;
+    }
+  }
+
+  &__separator {
+    flex-basis: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    @include on-tablet {
+      flex: 0 0 auto;
+      width: 1px;
+      height: auto;
+    }
+  }
+
+  &__schedule {
+    color: $c-white;
+  }
+
+  &__schedule-content {
+    flex-direction: column;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+}

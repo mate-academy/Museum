@@ -1,0 +1,195 @@
+.footer {
+  --padding-block: 50px;
+  
+  padding-block: var(--padding-block);
+
+  &__content {
+    @include grid;
+  }
+
+  &__top {
+    --margin-bottom: 40px;
+
+    grid-column: 1/-1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: var(--margin-bottom);
+
+    @include on-tablet {
+      grid-column: 1;
+
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 62px;
+    }
+  }
+
+  &__logo {
+    @include hover(transform, scale(1.2));
+  }
+
+  &__social {
+    --gap: 20px;
+
+    display: flex;
+    gap: 20px;
+
+    @include on-tablet {
+      --gap: 0;
+
+      justify-content: space-between;
+    }
+  }
+
+  &__social-link {
+    @include hover(transform, scale(1.2));
+  }
+
+  &__schedule {
+    grid-column: 1;
+
+    @include on-tablet {
+      grid-column: 2/4;
+    }
+
+    @include on-desktop {
+      grid-column: 3/5;
+    }
+  }
+
+  &__schedule-content {
+    flex-direction: column;
+  }
+
+  &__contacts {
+    grid-column: span 1;
+
+    @include on-tablet {
+      grid-column: span 2;
+    }
+
+    @include on-desktop {
+      grid-column: 5/7;
+    }
+  }
+
+  &__to-top {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: flex-end;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__button {
+    padding: 17px;
+    border: 1px solid $c-main;
+    border-radius: 50%;
+
+    transition: box-shadow $transition-duration ease-in-out;
+
+    &--span {
+      transition: transform $transition-duration ease-in-out;
+    }
+
+    &:hover > &--span {
+      transform: translateY(-8px);
+    }
+
+    &:hover {
+      box-shadow: 0 7px 11px rgba(29, 28, 28, 0.15);
+    }
+  }
+
+  &__separator {
+    --margin-block: 20px 40px;
+
+    grid-column: 1/-1;
+    margin-block: var(--margin-block);
+
+    width: 100%;
+    height: 2px;
+
+    background-color: $c-main;
+    opacity: 0.5;
+
+    @include on-tablet {
+      grid-column: 2/-2;
+
+      --margin-block: 64px;
+    }
+
+    @include on-desktop {
+      --margin-block: 0;
+
+      grid-column: 7/8;
+      justify-self: center;
+      height: 260px;
+      width: 1px;
+    }
+  }
+
+  &__nav {
+    grid-column: 1/-1;
+
+    --margin-bottom: 80px;
+
+    margin-block-end: var(--margin-bottom);
+
+    @include on-tablet {
+      grid-column: 2/-2;
+    }
+
+    @include on-desktop {
+      grid-column: 8/12;
+    }
+  }
+
+  &__nav-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+  }
+
+  &__nav-order {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__nav-link {
+    display: block;
+    color: $c-button-text;
+    font-size: 14px;
+    line-height: 1;
+
+    &:hover {
+      color: $c-red;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    @include on-tablet {
+      gap: 0;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include on-desktop {
+      margin-block-start: 87px;
+    }
+  }
+}

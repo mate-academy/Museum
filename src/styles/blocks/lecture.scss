@@ -1,0 +1,107 @@
+.lecture {
+  position: relative;
+
+  &__image {
+    --height: 210px;
+
+    position: absolute;
+    width: 100%;
+    height: var( --height);
+    object-fit: cover;
+    
+    @include on-tablet {
+      --height: 390px;
+      
+      padding-inline: 34px;
+    }
+
+    @include on-desktop {
+      --height: 550px;
+
+      padding-inline: 0;
+    }
+  }
+
+  &__container {
+    --margin-top: 153px;
+
+    @include grid;
+
+    margin-top: var(--margin-top);
+
+    @include on-tablet {
+      --margin-top: 306px;
+      
+      max-width: 570px;
+      margin-inline: auto;
+    }
+
+    @include on-desktop {
+      --margin-top: 448px;
+    }
+  }
+
+  &__content {
+    --padding-bottom: 20px;
+
+    grid-column: 1 / -1;
+    padding-bottom: var(--padding-bottom);
+    cursor: pointer;
+
+
+
+    box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+    background-color: $c-white;
+
+    @include on-tablet {
+      --padding-inline: 55px;
+      --padding-bottom: 50px;
+
+      padding-inline: var(--padding-inline);
+    }
+
+    @include on-desktop {
+      --padding-inline: 100px;
+    }
+  }
+
+  &__info {
+    --padding-inline: 20px;
+    --padding-block: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding-block: var(--padding-block);
+    padding-inline: var(--padding-inline);
+
+    @include on-tablet {
+      --padding-block: 45px 16px;
+      --padding-inline: 0;
+    }
+  }
+
+  &__category {
+    @include style-article-category;
+  }
+
+  &__date {
+    @include style-article-date;
+
+    @include on-tablet {
+      width: 220px;
+    }
+  }
+
+
+  &__title {
+     text-align: center;
+    
+     @include style-article-title;
+
+    @include on-tablet {
+      text-align: left;
+    }
+  }
+}
