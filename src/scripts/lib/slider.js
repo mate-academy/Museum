@@ -16,15 +16,18 @@ export const checkDot = function(dot, dots) {
 
 export const translateGallery = function(gallery, item, i) {
   const maxXTranslate = gallery.clientWidth - windowWidth;
-  const itemXTranslate = item.clientWidth + 16;
+  const itemXTranslate = (item.clientWidth + 16) * i;
+  let setTranslete;
 
   if (windowWidth >= 768 && windowWidth < 1280) {
-    gallery.style.transform = `translateX(-${(itemXTranslate * i) <= maxXTranslate
-      ? itemXTranslate * i
-      : maxXTranslate + 58}px)`;
+    setTranslete = itemXTranslate <= maxXTranslate
+      ? itemXTranslate
+      : maxXTranslate + 58;
   } else {
-    gallery.style.transform = `translateX(-${(itemXTranslate * i) <= maxXTranslate
-      ? itemXTranslate * i
-      : maxXTranslate + 48}px)`;
+    setTranslete = itemXTranslate <= maxXTranslate
+      ? itemXTranslate
+      : maxXTranslate + 48;
   };
+
+  gallery.style.transform = `translateX(-${setTranslete}px)`;
 };

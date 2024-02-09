@@ -1,61 +1,68 @@
-import { animOnScroll } from './lib/animOnScroll';
+import { animateOnScroll } from './lib/animateOnScroll';
 import { openMenu, closeMenu } from './lib/menu';
 import { resetForm } from './lib/form';
 import { scrollToTop } from './lib/scrollToTop';
 import { popupOpen, popupClose } from './lib/popup';
 import { logScreenWidth, checkDot, translateGallery } from './lib/slider';
 
-const refs = {
+const menuRefs = {
   menuCloseBtnRef: document.querySelector('[data-close-menu]'),
   menuOpenBtnRef: document.querySelector('[data-open-menu]'),
   menuLinks: document.querySelectorAll('.nav__link'),
-  form: document.querySelector('.form'),
-  animItems: document.querySelectorAll('.js-anim-items'),
-  sliderArrowLeft: document.querySelector('.slider__arrow--left'),
-  sliderArrowRight: document.querySelector('.slider__arrow--right'),
-  footerScrollTop: document.querySelector('[data-footer-button]'),
+};
+
+const galleryRefs = {
   galleryDots: document.querySelectorAll('.gallery__dot'),
   galleryDot: document.querySelector('.gallery__dot'),
   galleryList: document.querySelector('.gallery__list'),
   galleryItems: document.querySelectorAll('.gallery__item'),
   galleryItem: document.querySelector('.gallery__item'),
+};
+
+const popupRefs = {
   popupLinks: document.querySelectorAll('.popup-link'),
   popupImages: document.querySelectorAll('.popup-link .gallery__image'),
   popupImg: document.querySelector('.popup__image'),
   popupCloseIcon: document.querySelectorAll('.close-popup'),
 };
 
-refs.menuOpenBtnRef.addEventListener('click', openMenu);
-refs.menuCloseBtnRef.addEventListener('click', closeMenu);
-refs.form.addEventListener('submit', resetForm);
-refs.footerScrollTop.addEventListener('click', scrollToTop);
+const etc = {
+  form: document.querySelector('.form'),
+  animateItems: document.querySelectorAll('.js-anim-items'),
+  footerScrollTop: document.querySelector('[data-footer-button]'),
+};
+
+menuRefs.menuOpenBtnRef.addEventListener('click', openMenu);
+menuRefs.menuCloseBtnRef.addEventListener('click', closeMenu);
+etc.form.addEventListener('submit', resetForm);
+etc.footerScrollTop.addEventListener('click', scrollToTop);
 
 window.addEventListener('resize', function() {
-  logScreenWidth(refs.galleryList);
-  checkDot(refs.galleryDot, refs.galleryDots);
+  logScreenWidth(galleryRefs.galleryList);
+  checkDot(galleryRefs.galleryDot, galleryRefs.galleryDots);
 });
 
-if (refs.galleryDots.length > 0) {
-  refs.galleryDots.forEach((galleryDot, index) => {
+if (galleryRefs.galleryDots.length > 0) {
+  galleryRefs.galleryDots.forEach((galleryDot, index) => {
     galleryDot.addEventListener('click', function() {
-      checkDot(galleryDot, refs.galleryDots);
-      translateGallery(refs.galleryList, refs.galleryItem, index);
+      checkDot(galleryDot, galleryRefs.galleryDots);
+      translateGallery(galleryRefs.galleryList, galleryRefs.galleryItem, index);
     });
   });
 }
 
-if (refs.animItems.length > 0) {
-  window.addEventListener('scroll', animOnScroll);
+if (etc.animateItems.length > 0) {
+  window.addEventListener('scroll', animateOnScroll);
 }
 
 setTimeout(() => {
-  animOnScroll();
+  animateOnScroll();
 }, 300);
 
-if (refs.menuLinks.length > 0) {
-  refs.menuLinks.forEach(menuBurgerLink => {
+if (menuRefs.menuLinks.length > 0) {
+  menuRefs.menuLinks.forEach(menuBurgerLink => {
     menuBurgerLink.addEventListener('click', function(e) {
-      const expanded = refs.menuCloseBtnRef
+      const expanded = menuRefs.menuCloseBtnRef
         .getAttribute('aria-expanded') === 'true' || false;
 
       if (expanded) {
@@ -65,35 +72,37 @@ if (refs.menuLinks.length > 0) {
   });
 }
 
-if (refs.popupImages.length > 0) {
-  refs.popupImages.forEach(popupImage => {
+if (popupRefs.popupImages.length > 0) {
+  popupRefs.popupImages.forEach(popupImage => {
     popupImage.addEventListener('click', function(e) {
       const popupSrc = popupImage.getAttribute('srcset').split(' ');
       const popupAlt = popupImage.getAttribute('alt');
 
-      refs.popupImg.src = `${popupSrc[popupSrc.length - 2]}`;
-      refs.popupImg.alt = `${popupAlt}`;
+      popupRefs.popupImg.src = `${popupSrc[popupSrc.length - 2]}`;
+      popupRefs.popupImg.alt = `${popupAlt}`;
     });
   });
 }
 
-if (refs.popupLinks.length > 0) {
-  refs.popupLinks.forEach(popupLink => {
+if (popupRefs.popupLinks.length > 0) {
+  popupRefs.popupLinks.forEach(popupLink => {
     popupLink.addEventListener('click', function(e) {
+      e.preventDefault();
+
       const popupName = popupLink.getAttribute('href').replace('#', '');
       const curentPopup = document.getElementById(popupName);
 
       popupOpen(curentPopup);
-      e.preventDefault();
     });
   });
 }
 
-if (refs.popupCloseIcon.length > 0) {
-  refs.popupCloseIcon.forEach(el => {
+if (popupRefs.popupCloseIcon.length > 0) {
+  popupRefs.popupCloseIcon.forEach(el => {
     el.addEventListener('click', function(e) {
-      popupClose(el.closest('.popup'));
       e.preventDefault();
+
+      popupClose(el.closest('.popup'));
     });
   });
 }

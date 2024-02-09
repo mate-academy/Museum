@@ -6,17 +6,17 @@ const refs = {
   body: document.querySelector('.page__body'),
 };
 
-export const openMenu = () => {
+export function openMenu() {
   bodyLock();
   toggleMobileMenu();
 };
 
-export const closeMenu = () => {
+export function closeMenu() {
   bodyUnlock();
   toggleMobileMenu();
 };
 
-const toggleMobileMenu = () => {
+function toggleMobileMenu() {
   const expandedOpen = refs.menuOpenBtnRef
     .getAttribute('aria-expanded') === 'true' || false;
 

@@ -1,5 +1,5 @@
-let unlock = true;
-const timeout = 500;
+let isUnlock = true;
+const timeout = 800;
 
 const refs = {
   lockPadding: document.querySelectorAll('.lock-padding'),
@@ -7,7 +7,7 @@ const refs = {
 };
 
 export const popupOpen = function(curentPopup) {
-  if (curentPopup && unlock) {
+  if (curentPopup && isUnlock) {
     const popupActive = document.querySelector('.popup__open');
 
     if (popupActive) {
@@ -27,8 +27,8 @@ export const popupOpen = function(curentPopup) {
   }
 };
 
-export const popupClose = function(popupActive, doUnlock = true) {
-  if (unlock) {
+export const popupClose = function(popupActive, isDoUnlock = true) {
+  if (isUnlock) {
     popupActive.classList.remove('popup__open');
     window.removeEventListener('keydown', onKeydownCloseModal);
 
@@ -39,7 +39,7 @@ export const popupClose = function(popupActive, doUnlock = true) {
       popupImg.alt = '';
     }
 
-    if (doUnlock) {
+    if (isDoUnlock) {
       bodyUnlock();
     }
   }
@@ -58,10 +58,10 @@ function bodyLock() {
   refs.body.style.paddingRight = lockPaddingValue;
   refs.body.classList.add('lock');
 
-  unlock = false;
+  isUnlock = false;
 
   setTimeout(function() {
-    unlock = true;
+    isUnlock = true;
   }, timeout);
 };
 
@@ -70,14 +70,15 @@ function bodyUnlock() {
     refs.lockPadding.forEach(el => {
       el.style.paddingRight = '0px';
     });
+
     refs.body.style.paddingRight = '0px';
     refs.body.classList.remove('lock');
   }, timeout);
 
-  unlock = false;
+  isUnlock = false;
 
   setTimeout(function() {
-    unlock = true;
+    isUnlock = true;
   }, timeout);
 }
 

@@ -4,6 +4,12 @@
   }
 }
 
+@mixin on-tablet-to-desctop {
+  @media (min-width: $tablet-min-width) and (max-width: calc($desktop-min-width - 1px)) {
+    @content;
+  }
+}
+
 @mixin on-desktop {
   @media (min-width: $desktop-min-width) {
     @content;
@@ -11,7 +17,7 @@
 }
 
 @mixin add-transition {
-  transition-duration: 500ms;
+  transition-duration: 800ms;
   transition-timing-function: cubic-bezier(0, .98, .79, .97);
 }
 
@@ -88,4 +94,11 @@
   display: grid;
   grid-template-columns: repeat($columns, 1fr);
   column-gap: $gap;
+}
+
+@mixin absolute-position() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
