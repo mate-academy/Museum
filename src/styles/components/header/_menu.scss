@@ -1,0 +1,99 @@
+.menu {
+  &__container {
+    @include content-padding-inline;
+
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__controls {
+    position: relative;
+    display: flex;
+    gap: 28px;
+    align-items: start;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $menu-border-color;
+
+    @include on-tablet {
+      grid-column: span 3;
+      gap: 38px;
+      border-bottom: none;
+      padding-bottom: 0;
+      padding-right: 46px;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 8px;
+        top: 0;
+        width: 1px;
+        height: 145px;
+        background-color: $menu-border-color;
+
+        @include on-desktop {
+          right: -130px;
+        }
+      }
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+
+      @include element-grid(5, 30px);
+
+      padding-right: 0;
+      justify-content: stretch;
+    }
+  }
+
+  &__button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    padding: 0;
+    cursor: pointer;
+
+    @include on-desktop {
+      grid-column: span 1;
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__nav {
+    display: flex;
+    gap: 28px;
+
+    @include on-tablet {
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / -1;
+      gap: 31px;
+
+      position: relative;
+      transform: translateX(30px);
+    }
+  }
+
+  &__schedule {
+    padding-top: 24px;
+
+    @include on-tablet {
+      grid-column: span 3;
+      padding-top: 0;
+      align-items: end;
+      display: flex;
+      gap: 26px;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / -2;
+
+      @include element-grid(4, 30px);
+    }
+  }
+}

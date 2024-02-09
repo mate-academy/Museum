@@ -1,0 +1,158 @@
+.gallery {
+  @include anim-on-scroll(__title, transform,
+    translate(0, 120%), translate(0, 0), 0);
+  @include anim-on-scroll(__container, transform,
+    translate(0, 120%), translate(0, 0), 400ms);
+
+  &__content {
+    margin-bottom: 4px;
+
+    @include on-desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    color: $main-text-title-color;
+
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      @include content-padding-inline;
+
+      font-size: 28px;
+      text-align: left;
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__container {
+    position: relative;
+    height: 450px;
+
+    overflow: hidden;
+
+    @include on-tablet {
+      height: 603px;
+    }
+
+    @include on-desktop {
+      @include content-padding-inline;
+
+      height: auto;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 16px;
+
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-block: 20px;
+    padding-left: 20px;
+    transition: all;
+
+    @include add-transition;
+
+    @include on-tablet {
+      padding-block: 30px;
+      padding-left: 30px;
+    }
+
+    @include on-desktop {
+      position: static;
+      padding-left: 0;
+
+      @include page-grid;
+    }
+  }
+
+  &__item {
+    width: 280px;
+    height: 410px;
+
+    @include on-tablet {
+      width: 340px;
+      height: 543px;
+    }
+
+    @include on-desktop {
+      width: 100%;
+
+      &:nth-child(1) {
+        grid-column: 1 / 5;
+        height: 600px;
+      }
+
+      &:nth-child(2) {
+        grid-column: 5 / -1;
+        height: 600px;
+      }
+
+      &:nth-child(3) {
+        grid-column: 1 / 9;
+        height: 360px;
+      }
+
+      &:nth-child(4) {
+        grid-column: 9 / -1;
+        height: 360px;
+      }
+    }
+  }
+
+  &__item-link {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 31px;
+
+    @include on-tablet {
+      margin-top: 8px;
+      gap: 22px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    background-color: $gallery-dots-color;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    transition: all;
+    cursor: pointer;
+
+  @include hover(transform, scale(1.1));
+
+  &.active {
+    background-color: $gallery-dots-color-active;
+  }
+ }
+}

@@ -1,0 +1,75 @@
+.nav {
+  flex: 1;
+
+  &__container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-desktop {
+      gap: 30px;
+      grid-column: span 2;
+      max-width: 169px;
+    }
+
+    &--footer {
+      grid-column: span 1;
+      gap: 20px;
+
+      @include on-desktop {
+        grid-column: span 2;
+        max-width: 169px;
+      }
+    }
+  }
+
+  &__item {
+    color: inherit;
+    width: fit-content;
+  }
+
+  &__link {
+    position: relative;
+    color: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    transition: all;
+    width: 100%;
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 100%;
+      bottom: -10px;
+      height: 2px;
+      background-color: $button-background-hover;
+      border-radius: 1px;
+      transform: scale(0);
+      opacity: 0;
+      transform-origin: left;
+      transition: all;
+
+      @include add-transition;
+    }
+
+    &--footer {
+      font-weight: 400;
+
+      @include on-desktop {
+        font-size: 14px;
+      }
+    }
+
+    &:hover::after {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}

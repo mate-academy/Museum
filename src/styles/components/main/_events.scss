@@ -1,0 +1,60 @@
+.events {
+  margin-top: 20px;
+
+  @include anim-on-scroll(__title, transform,
+    translate(0, 120%), translate(0, 0), 0);
+  @include anim-on-scroll(__item, transform,
+    translate(0, 120%), translate(0, 0), 800ms);
+
+  @include on-desktop {
+    margin-top: 0;
+  }
+
+  &__title {
+    color: $main-text-title-color;
+
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include content-padding-inline;
+
+    @include on-tablet {
+      text-align: left;
+      font-size: 48px;
+    }
+  }
+
+  &__list {
+    margin-top: 40px;
+    display: grid;
+    row-gap: 60px;
+    margin-bottom: 133px;
+
+    @include on-tablet {
+      margin-top: 48px;
+      margin-bottom: 120px;
+    }
+
+    @include on-desktop {
+      margin-top: 56px;
+      row-gap: 104px;
+      margin-bottom: 127px;
+    }
+  }
+
+  &__card {
+    &--padding {
+      @include content-padding-inline
+    }
+
+    &--padding-lecture {
+      @include on-tablet-to-desctop {
+        padding-inline: 30px;
+        max-width: $tablet-min-width;
+        margin-inline: auto;
+      }
+    }
+  }
+}

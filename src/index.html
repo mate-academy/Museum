@@ -1,13 +1,556 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uK" class="page">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Художній музей</title>
+
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="./images/icons/favicon.jpg"
+    >
+
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    >
+
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="attr-req-value"
+    >
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.6.0/modern-normalize.min.css">
+
     <link rel="stylesheet" href="./styles/main.scss">
+
+    <script
+      type="module"
+      src="scripts/main.js"
+      defer
+    ></script>
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
-    <script type="text/javascript" src="scripts/main.js"></script>
+  <body class="page__body lock-padding">
+    <header class="header" id="home">
+      <div class="header__container">
+        <div class="header__content">
+          <div class="top-bar header__top-bar">
+            <button
+            type="button"
+            class="top-bar__button"
+            aria-expanded="true"
+            data-open-menu="open-menu"
+            >
+              <svg
+                class="icon icon__menu top-bar__icon-menu"
+                width="24"
+                height="24"
+                aria-label="Відкрити мобільне меню"
+              >
+                <use href="./images/icons/sprite.svg#icon-menu"></use>
+              </svg>
+            </button>
+
+            <div class="menu top-bar__menu">
+              <div class="menu__container">
+                <div class="menu__controls">
+                  <button
+                  type="button"
+                  class="menu__button"
+                  aria-expanded="false"
+                  data-close-menu="close-menu"
+                  >
+                    <svg
+                      class="icon icon__close menu__icon-close"
+                      width="24"
+                      height="24"
+                      aria-label="Закрити мобільне меню"
+                    >
+                      <use href="./images/icons/sprite.svg#icon-close"></use>
+                    </svg>
+                  </button>
+
+                  <div class="nav menu__nav">
+                    <ul class="nav__container">
+                      <li class="nav__item">
+                        <a href="#gallery" class="nav__link">Галерея</a>
+                      </li>
+                      <li class="nav__item">
+                        <a href="#events" class="nav__link">Виставки та події</a>
+                      </li>
+                    </ul>
+                    <ul class="nav__container">
+                      <li class="nav__item">
+                        <a href="#describe" class="nav__link">Про Нас</a>
+                      </li>
+                      <li class="nav__item">
+                        <a href="#contacts" class="nav__link">Контакти</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="schedule menu__schedule">
+                  <div class="schedule__container">
+                    <p class="schedule__title">Графік роботи</p>
+
+                    <ul class="schedule__list">
+                      <li class="schedule__item">
+                        <p><span class="schedule__item--strong">12:00 — 20:00</span> середа</p>
+                      </li>
+                      <li class="schedule__item">
+                        <p><span class="schedule__item--strong">12:00 — 20:00</span> четвер</p>
+                      </li>
+                      <li class="schedule__item">
+                        <p><span class="schedule__item--strong">12:00 — 20:00</span> п’ятниця</p>
+                      </li>
+                      <li class="schedule__item">
+                        <p><span class="schedule__item--strong">11:00 — 19:00</span> субота</p>
+                      </li>
+                      <li class="schedule__item">
+                        <p><span class="schedule__item--strong">11:00 — 19:00</span> неділя</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <p class="schedule__weekend">
+                    <span class="schedule__weekend--strong">Вихідні:</span> понеділок, вівторок<br> Каса припиняє роботу за 1 годину до закриття музею
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="logo top-bar__logo">
+              <p>na<br>mu</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header__overlay"></div>
+    </header>
+
+    <main class="main">
+      <section class="section">
+        <div class="section__container">
+          <div class="hero js-anim-items">
+            <div class="hero__overlay">
+              <img
+                src="./images/hero/hero-mobile.jpg"
+                srcset="./images/hero/hero-mobile.jpg 320w, ./images/hero/hero-1x.jpg 400w, ./images/hero/hero-2x.jpg 750w"
+                alt="Фото музею"
+                class="hero__image"
+                sizes="(max-width: 767px) 320px, (max-width: 1279px) 400px, (min-width: 1280px) 750px"
+              >
+            </div>
+
+            <div class="hero__info">
+              <h1 class="hero__title anim-show js-anim-no-hide">Художній музей</h1>
+              <a href="#describe" class="button hero__button anim-show js-anim-no-hide">
+                Квитки
+                <div class="button__icons">
+                  <svg
+                  class="icon button__icon"
+                  width="24"
+                  height="24"
+                  aria-label="Квитки"
+                  >
+                    <use href="./images/icons/sprite.svg#arrow-button"></use>
+                  </svg>
+                </div>
+              </a>
+              <a href="#events" class="hero__events">Події</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="events">
+        <div class="events js-anim-items">
+          <div class="events__content">
+            <h2 class="events__title anim-show js-anim-no-hide">Актуальні події</h2>
+
+            <ul class="events__list">
+              <li class="events__item">
+                <article class="card events__card events__card--padding js-anim-items">
+                  <div class="card__images card__images-first anim-show">
+                    <img
+                      src="./images/events/goReturn-mobile.jpg"
+                      srcset="./images/events/goReturn-mobile.jpg 320w, ./images/events/goReturn-1x.jpg 400w, ./images/events/goReturn-2x.jpg 750w"
+                      alt="Виставка - Йду і повертаюсь"
+                      class="card__image card__image--hover"
+                      sizes="(max-width: 767px) 320px, (max-width: 1279px) 400px, (min-width: 1280px) 750px"
+                    >
+                  </div>
+
+                  <div class="card__content card__content-first anim-show">
+                    <div class="card__subcontent">
+                      <p class="card__subtitle">Виставка</p>
+                      <p class="card__date">26.08-29.11.2019</p>
+                    </div>
+                    <h3 class="card__title">Йду і повертаюсь</h3>
+                    <p class="card__description">
+                      Національний Художній Музей України презентує унікальну частину колекції Градобанку - українське мистецтво другої половини 1980-1995 років.
+                    </p>
+                  </div>
+                </article>
+              </li>
+
+              <li class="events__item">
+                <article class="card events__card events__card--padding js-anim-items">
+                  <div class="card__images card__images-second anim-show">
+                    <img
+                      src="./images/events/dreams-mobile.jpg"
+                      srcset="./images/events/dreams-mobile.jpg 320w, ./images/events/dreams-1x.jpg 400w, ./images/events/dreams-2x.jpg 750w"
+                      alt="Виставка - І спогади і мрії"
+                      class="card__image card__image--hover"
+                      sizes="(max-width: 767px) 320px, (max-width: 1279px) 400px, (min-width: 1280px) 750px"
+                    >
+                  </div>
+
+                  <div class="card__content card__content-second anim-show">
+                    <div class="card__subcontent">
+                      <p class="card__subtitle">Виставка</p>
+                      <p class="card__date">26.08-29.11.2019</p>
+                    </div>
+                    <h3 class="card__title">І спогади і мрії</h3>
+                    <p class="card__description">
+                      Національний художній музей України до 100 річчя від дня народження видатної української художниці Тетяни Яблонської
+                      відкриває ретроспективну ювілейну виставку «І спогади і мрії».
+                    </p>
+                  </div>
+                </article>
+              </li>
+
+              <li class="events__item anim-show">
+                <article class="card events__card--padding-lecture">
+                  <div class="card__images card__images--lecture">
+                    <img
+                      src="./images/events/lecture-mobile.jpg"
+                      srcset="./images/events/lecture-mobile.jpg 320w, ./images/events/lecture-1x.jpg 400w, ./images/events/lecture-2x.jpg 750w"
+                      alt="Лекція - Від класицизму до романтизму"
+                      class="card__image"
+                      sizes="(max-width: 767px) 320px, (max-width: 1279px) 400px, (min-width: 1280px) 750px"
+                    >
+                  </div>
+
+                  <div class="card__content card__content--lecture">
+                    <div class="card__subcontent card__subcontent--lecture">
+                      <p class="card__subtitle card__subtitle--lecture">Лекція</p>
+                      <p class="card__date card__date--lecture">26/08/2019 - 11:00</p>
+                    </div>
+                    <h3 class="card__title card__title--lecture">Від класицизму до романтизму</h3>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section main__gallery" id="gallery">
+        <div class="gallery js-anim-items">
+          <div class="gallery__content">
+            <h2 class="gallery__title anim-show">Галерея</h2>
+            <div class="gallery__container anim-show">
+
+              <ul class="gallery__list">
+                <li class="gallery__item">
+                  <a href="#image" class="gallery__item-link popup-link">
+                    <img
+                      src="./images/gallery/gallery1-mobile.jpg"
+                      srcset="./images/gallery/gallery1-mobile.jpg 320w, ./images/gallery/gallery1-1x.jpg 400w, ./images/gallery/gallery1-2x.jpg 750w"
+                      alt="Картина - Україська жінка"
+                      sizes="(max-width: 767px) 320px, (max-width: 1279px) 400px, (min-width: 1280px) 750px"
+                      class="gallery__image"
+                    >
+                  </a>
+                </li>
+
+                <li class="gallery__item">
+                  <a href="#image" class="gallery__item-link popup-link">
+                    <img
+                      src="./images/gallery/gallery2-mobile.jpg"
+                      srcset="./images/gallery/gallery2-mobile.jpg 320w, ./images/gallery/gallery2-1x.jpg 400w, ./images/gallery/gallery2-2x.jpg 750w"
+                      alt="Картина - Хата у селі"
+                      sizes="(max-width: 767px) 320px, (max-width: 1279px) 400px, (min-width: 1280px) 750px"
+                      class="gallery__image"
+                    >
+                  </a>
+                </li>
+
+                <li class="gallery__item">
+                  <a href="#image" class="gallery__item-link popup-link">
+                    <img
+                      src="./images/gallery/gallery3-mobile.jpg"
+                      srcset="./images/gallery/gallery3-mobile.jpg 320w, ./images/gallery/gallery3-1x.jpg 400w, ./images/gallery/gallery3-2x.jpg 750w"
+                      alt="Картина - Жінка на лавці"
+                      sizes="(max-width: 767px) 320px, (max-width: 1279px) 400px, (min-width: 1280px) 750px"
+                      class="gallery__image"
+                    >
+                  </a>
+                </li>
+
+                <li class="gallery__item">
+                  <a href="#image" class="gallery__item-link popup-link">
+                    <img
+                      src="./images/gallery/gallery4-mobile.jpg"
+                      srcset="./images/gallery/gallery4-mobile.jpg 320w, ./images/gallery/gallery4-1x.jpg 400w, ./images/gallery/gallery4-2x.jpg 750w"
+                      alt="Картина - Море на сході сонця"
+                      sizes="(max-width: 767px) 320px, (max-width: 1279px) 400px, (min-width: 1280px) 750px"
+                      class="gallery__image"
+                    >
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <ul class="gallery__dots">
+              <li class="gallery__dot active"></li>
+              <li class="gallery__dot"></li>
+              <li class="gallery__dot"></li>
+              <li class="gallery__dot"></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section main__describe" id="describe">
+        <div class="section__container">
+          <div class="describe js-anim-items">
+            <div class="describe__content">
+              <h2 class="describe__title anim-show">Підписка</h2>
+              <p class="describe__description anim-show">Бути в курсі всіх актуальних подій та останніх новин.</p>
+
+              <form
+                action="mailto:hello@miami.com"
+                name="describe-form"
+                enctype="text/plain"
+                method="post"
+                class="form describe__form"
+              >
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="E-mail"
+                  required
+                  class="form__fields"
+                  autocomplete="on"
+                >
+                <button type="submit" class="form__button">
+                  <svg
+                    class="icon icon__button form__icon-button"
+                    width="24"
+                    height="24"
+                    aria-label="Підписка"
+                  >
+                    <use href="./images/icons/sprite.svg#arrow-button"></use>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer js-anim-items">
+      <div class="footer__container">
+        <div class="footer__content">
+          <div class="footer__contacts" id="contacts">
+            <div class="footer__logo-container">
+              <div class="logo footer__logo">
+                <a href="#home">na<br>mu</a>
+              </div>
+
+              <ul class="socials footer__socials">
+                <li class="icon socials__icon">
+                  <a
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                    class="socials__icon-link"
+                  >
+                    <svg
+                      class="icon icon__facebook"
+                      width="24"
+                      height="24"
+                      aria-label="Фейсбук"
+                    >
+                      <use href="./images/icons/sprite.svg#facebook"></use>
+                    </svg>
+                  </a>
+                </li>
+
+                <li class="icon socials__icon">
+                  <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    class="socials__icon-link"
+                  >
+                    <svg
+                      class="icon icon__instagram"
+                      width="24"
+                      height="24"
+                      aria-label="Інстаграм"
+                    >
+                      <use href="./images/icons/sprite.svg#instagram"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="schedule footer__schedule">
+              <p class="schedule__title">Графік роботи</p>
+
+              <ul class="schedule__list">
+                <li class="schedule__item">
+                  <p><span class="schedule__item--strong">12:00 — 20:00</span> середа</p>
+                </li>
+                <li class="schedule__item">
+                  <p><span class="schedule__item--strong">12:00 — 20:00</span> четвер</p>
+                </li>
+                <li class="schedule__item">
+                  <p><span class="schedule__item--strong">12:00 — 20:00</span> п’ятниця</p>
+                </li>
+                <li class="schedule__item">
+                  <p><span class="schedule__item--strong">11:00 — 19:00</span> субота</p>
+                </li>
+                <li class="schedule__item">
+                  <p><span class="schedule__item--strong">11:00 — 19:00</span> неділя</p>
+                </li>
+              </ul>
+
+              <p class="schedule__weekend schedule__weekend--footer">
+                <span class="schedule__weekend--strong-footer">Вихідні</span> понеділок, вівторок<br> Каса припиняє роботу за 1
+                годину до закриття музею
+              </p>
+            </div>
+
+            <address class="contacts footer__contact">
+              <p class="contacts__title">Контакти:</p>
+
+              <ul class="contacts__list">
+                <li class="contacts__item">
+                  <a
+                    href="https://www.google.com.ua/maps/place/%D1%83%D0%BB.+%D0%9C%D0%B8%D1%85%D0%B0%D0%B8%D0%BB%D0%B0+%D0%93%D1%80%D1%83%D1%88%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE,+6,+%D0%9A%D0%B8%D0%B5%D0%B2,+02000/@50.4494431,30.5281844,17z/data=!3m1!4b1!4m6!3m5!1s0x40d4ce52445a8315:0x5e30ef474eddac89!8m2!3d50.4494397!4d30.5307593!16s%2Fg%2F11l76wtstx?entry=ttu"
+                    class="contacts__data"
+                    target="_blank"
+                  >
+                    вул. М. Грушевського, 6; Київ, 01001
+                  </a>
+                </li>
+
+                <li class="contacts__item">
+                  <a href="tel:+38 (044) 278-13-57"
+                    class="contacts__data"
+                  >
+                    тел. +38 (044) 278-13-57
+                  </a>
+                </li>
+
+                <li class="contacts__item">
+                  <a
+                    href="tel:+38 (044) 278-74-54"
+                    class="contacts__data"
+                  >
+                    факс +38 (044) 278-74-54
+                  </a>
+                </li>
+
+                <li class="contacts__item">
+                  <a
+                    href="mailto:info@namu.kiev.ua"
+                    class="contacts__data"
+                  >
+                    e-mail: info@namu.kiev.ua
+                  </a>
+                </li>
+              </ul>
+            </address>
+          </div>
+
+          <div class="footer__menu">
+            <button
+              class="footer__scrollTop"
+              type="button"
+              data-footer-button="scroll-top"
+            >
+              <svg
+                class="icon icon__top footer__scrollTop-icon"
+                width="16"
+                height="16"
+                aria-label="Прокрутка до верху сторінки"
+              >
+                <use href="./images/icons/sprite.svg#arrow-up"></use>
+              </svg>
+            </button>
+
+            <div class="nav footer__nav">
+              <ul class="nav__container nav__container--footer">
+                <li class="nav__item">
+                  <a href="#gallery" class="nav__link nav__link--footer">Галерея</a>
+                </li>
+
+                <li class="nav__item">
+                  <a href="#events" class="nav__link nav__link--footer">Виставки та події</a>
+                </li>
+              </ul>
+
+              <ul class="nav__container nav__container--footer">
+                <li class="nav__item">
+                  <a href="#describe" class="nav__link nav__link--footer">Про Нас</a>
+                </li>
+
+                <li class="nav__item">
+                  <a href="#contacts" class="nav__link nav__link--footer">Контакти</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer__copy">
+            <p class="footer__designed">Designed by Zhyriada Marina</p>
+            <p class="footer__copyright">Copyright &#169; 2019. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="popup" id="image">
+      <div class="popup__body">
+        <div class="popup__content popup__content--image">
+          <button
+            type="button"
+            class="icon popup__close close-popup"
+          >
+            <svg
+              class="icon icon__close menu__icon-close"
+              width="24"
+              height="24"
+              aria-label="Закрити попап"
+            >
+              <use href="./images/icons/sprite.svg#icon-close"></use>
+            </svg>
+          </button>
+
+          <div class="popup__img">
+            <div class="popup__shadow">
+              <img
+                src="#"
+                alt="#"
+                class="popup__image"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,61 @@
+.form {
+  display: flex;
+
+  @include on-tablet {
+    gap: 16px;
+  }
+
+  @include on-desktop {
+    gap: 30px;
+  }
+  
+  &__fields {
+    flex: 1;
+    height: 50px;
+    border: none;
+    padding-left: 24px;
+
+    color: $main-text-title-color;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 50px;
+
+    @include on-tablet {
+      height: 70px;
+      line-height: 70px;
+    }
+
+    &::placeholder {
+      color: $form-placeholder-color-text;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    &:focus,
+    &:active {
+      border: none;
+      outline: 0;
+      outline-offset: 0;
+    }
+  }
+
+  &__button {
+    width: 50px;
+    background-color: $form-button-color;
+    border: none;
+    cursor: pointer;
+    transition: all;
+
+    @include on-tablet {
+      width: 70px;
+    }
+
+    @include hover(background-color, $button-background-color);
+
+    &:hover .form__icon-button {
+      fill: $icon-color;
+    }
+  }
+}

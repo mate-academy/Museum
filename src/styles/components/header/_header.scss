@@ -1,0 +1,27 @@
+.header {
+  @include absolute-position;
+
+  z-index: 1;
+
+  &__container {
+    @include content-padding-inline;
+  }
+
+  &__overlay {
+    @include absolute-position;
+    @include add-transition;
+
+    z-index: 0;
+    background-color: $menu-overlay-color;
+    height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    transition-property: all;
+
+    &.open-menu {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+}

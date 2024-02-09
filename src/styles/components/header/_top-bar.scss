@@ -1,0 +1,71 @@
+.top-bar {
+  margin-top: 8px;
+
+  @include on-tablet {
+    @include page-grid;
+
+    align-items: center;
+  }
+
+  @include on-desktop {
+    margin-top: 15px;
+  }
+
+  &__menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $menu-background-color;
+    color: $menu-text-color;
+    z-index: 1;
+
+    padding-block: 27px;
+    transform: translateY(-120%);
+    transition-property: transform;
+
+    @include add-transition;
+
+    @include on-desktop {
+      padding-block: 40px 48px;
+    }
+
+    &.open-menu {
+      transform: translateX(0);
+    }
+  }
+
+  &__button {
+    position: absolute;
+    left: 20px;
+    top: 27px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    @include on-tablet {
+      position: static;
+      grid-column: span 1;
+      width: fit-content;
+      height: fit-content;
+      display: block;
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include on-tablet {
+      grid-column: 4 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / 8;
+    }
+  }
+}
