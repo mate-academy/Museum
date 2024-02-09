@@ -1,0 +1,59 @@
+.button {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border: 1px solid $button-background-color;
+
+  padding-right: 50px;
+  color: $main-text-title-color;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 50px;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+
+  @include on-tablet {
+    padding-right: 70px;
+    height: 70px;
+    line-height: 70px;
+  }
+
+  @include add-transition;
+
+  &__icon {
+      fill: $icon-color;
+  }
+
+  &__icons {
+    background-color: $button-background-color;
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include on-tablet {
+      width: 70px;
+    }
+
+    @include add-transition;
+  }
+
+  &:hover {
+    border: 1px solid $form-button-color;
+
+    .button__icons {
+      background-color: $form-button-color;
+
+      .button__icon {
+        fill: $main-text-title-color;
+      }
+    }
+  }
+}

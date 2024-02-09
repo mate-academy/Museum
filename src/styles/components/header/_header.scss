@@ -1,0 +1,32 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  &__container {
+    @include content-padding-inline;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    background-color: $menu-overlay-color;
+    height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    transition-property: all;
+
+    @include add-transition;
+
+    &.open-menu {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+}
