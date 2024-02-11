@@ -1,0 +1,79 @@
+.menu {
+  height: 100vh;
+  background: rgba(24, 24, 26, 0.5);
+
+  &__wrapper {
+    background: $color-border;
+    padding-block: 27px;
+
+    @include on-tablet {
+      padding-block: 40px;
+    }
+
+    @include on-desktop {
+      padding-block: 40px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__icon-close {
+    position: absolute;
+    display: block;
+    top: 0;
+    height: 24px;
+    width: 24px;
+    background-image: url('../images/icons/icon-close.svg');
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      left: 34px;
+    }
+
+    @include on-desktop {
+      position: relative;
+      left: 0;
+    }
+  }
+
+  &__nav {
+    margin-left: 44px;
+
+    @include on-tablet {
+      grid-column: 1 / span 3;
+      margin: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__line {
+    position: relative;
+
+    @include on-desktop {
+      grid-column: 7 / 8;
+    }
+  }
+
+  &__work-chart {
+    @include on-tablet {
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / -2;
+    }
+  }
+}

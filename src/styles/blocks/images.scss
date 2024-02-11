@@ -1,0 +1,49 @@
+.images {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include on-tablet {
+    flex-direction: column;
+    justify-content: inherit;
+    align-items: start;
+    row-gap: 62px;
+  }
+
+  &__logo {
+    text-decoration: none;
+    color: $color-text-second;
+    font-family: Montserrat, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__icons {
+    display: flex;
+    gap: 20px;
+
+    @include on-tablet {
+      gap: 32px;
+    }
+
+    @include on-desktop {
+      gap: 22px;
+    }
+  }
+
+  &__icon {
+    height: 24px;
+    width: 24px;
+    background-image: url('../images/icons/icon-facebook.svg');
+    background-size: cover;
+
+    &--instagram {
+      background-image: url('../images/icons/icon-instagram.svg');
+    }
+
+    @include hover(opacity, 0.5);
+  }
+}
