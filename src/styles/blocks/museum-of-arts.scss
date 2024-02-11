@@ -1,0 +1,64 @@
+.museum-of-arts {
+  &__title {
+    color: $color-text;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 100%;
+
+    @include on-tablet {
+      font-size: 54px;
+      line-height: 120%;
+      margin-bottom: 38px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+
+    @include on-tablet {
+      justify-content: start;
+    }
+
+    @include on-desktop {
+      justify-content: end;
+    }
+  }
+
+  &__line {
+    display: none;
+    text-decoration: none;
+    margin-top: 33px;
+    position: relative;
+    color: $color-text-third;
+    line-height: 100%;
+    font-weight: 700;
+    transform-origin: left top;
+    transform: rotate(-90deg);
+
+    @include on-desktop {
+      display: block;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: 1px;
+      width: 70px;
+      background: $color-border;
+      transform: translate(-123%, 7px);
+    }
+
+    @include hover(color, $color-text);
+  }
+}
