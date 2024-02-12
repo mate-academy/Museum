@@ -1,4 +1,22 @@
-%h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+%hover-underline {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    transform: scale(0);
+    transform-origin: left;
+
+    @include transition(transform)
+  }
+
+  &:hover {
+    &::before {
+      transform: scale(1);
+    }
+  }
+
 }

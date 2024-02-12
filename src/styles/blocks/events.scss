@@ -1,0 +1,111 @@
+.events {
+
+  &__wrapper-container {
+    margin-bottom: clamp-calc($min-break-point, $pc, -68px, -100px);
+    transform: translateY(-50%);
+    max-width: 570px;
+    width: 100%;
+  }
+
+  &__title {
+    margin-bottom: clamp-calc($min-break-point, $pc, 40px, 56px);
+  }
+
+  &__item {
+    @include page-grid;
+
+    align-items: center;
+    margin-bottom: clamp-calc($min-break-point, $pc, 60px, 104px);
+    row-gap: clamp-calc($min-break-point, $pc, 40px, 15px);
+  }
+
+  &__item-img {
+    grid-column: 1 / 8;
+
+    @include pc {
+      grid-column: span 6;
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    grid-column: 9 / -1;
+
+    @include pc {
+      grid-column: span 4;
+    }
+  }
+
+  &__info-date {
+    margin-bottom: clamp-calc($min-break-point, $pc, 10px, 30px);
+  }
+
+  &__info-title {
+    margin-bottom: clamp-calc($min-break-point, $pc, 10px, 15px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &::after {
+      content: '';
+      margin-top: 5px;
+      width: 15px;
+      height: 15px;
+      background-color: $pomegranate;
+    }
+  }
+
+  &__info-text {
+    font-size: 16px;
+    font-weight: 300;
+    color: $text-color;
+    line-height: 1.5;
+  }
+
+  &__img {
+    width: 100%;
+    max-height: 550px;
+    object-fit: cover;
+    min-height: 210px;
+  }
+
+  &__event-item {
+    margin: 0 auto;
+    background-color: $bg-color;
+    box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+    padding: clamp-calc($min-break-point, $pc, 20px, 45px) clamp-calc($min-break-point, $pc, 0, 45px);
+  }
+
+  &__event-info-date,
+  &__event-item-text {
+    max-width: 370px;
+    margin: 0 auto;
+  }
+
+  &__event-item-text {
+    @include mobile {
+      text-align: center;
+    }
+  }
+
+  &__event-info-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+    margin-bottom: 20px;
+
+    @include mobile {
+      padding: 0 20px;
+    }
+  }
+
+  &__info-title,
+  &__event-item-text {
+    font-size: clamp-calc($min-break-point, $pc, 28px, 36px);
+    font-family: $second-family;
+  }
+
+}

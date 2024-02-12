@@ -1,6 +1,61 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+// @import 'vars';
+
+@mixin transition($transition-val) {
+  transition: $transition-val 0.3s;
+}
+
+@mixin pc() {
+  @media (max-width: $pc) {
+    @content;
   }
+}
+
+@mixin laptop() {
+  @media (max-width: $laptop) {
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin mobile-small() {
+  @media (max-width: $mobile-small) {
+    @content;
+  }
+}
+
+// clamp-calc
+@function clamp-calc($min-width, $max-width, $size-at-min-width, $size-at-max-width) {
+  $slope: (
+    $size-at-max-width - $size-at-min-width) / ($max-width - $min-width
+  );
+$y-axis-intersection: -1 * $min-width * $slope + $size-at-min-width;
+$return-value: clamp(#{$size-at-min-width}, #{$y-axis-intersection} + #{$slope} * 100vw, #{$size-at-max-width});
+
+@return $return-value;
+}
+
+// grid
+
+@mixin page-grid() {
+  --columns: 12;
+
+  display: grid;
+  column-gap: $grid-gap;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include pc {
+    --columns: 6;
+  }
+
+  @include mobile {
+    --columns: 2;
+
+    column-gap: $grid-gap-small;
+  }
+
 }

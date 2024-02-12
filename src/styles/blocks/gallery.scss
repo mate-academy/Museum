@@ -1,0 +1,99 @@
+.gallery {
+
+  &__title {
+    margin-bottom: clamp-calc($min-break-point, $pc, 40px, 56px);
+  }
+
+  &__wrapper {
+    @media (min-width:$pc) {
+      @include page-grid;
+
+      row-gap: $grid-gap;
+      grid-template-areas:
+        'a b b'
+        'c c d'
+      ;
+    }
+
+    padding-bottom: 40px;
+  }
+
+  &__slide {
+    overflow: hidden;
+
+    @include pc {
+      max-width: clamp-calc($min-break-point, $pc, 280px, 340px);
+    }
+
+    @media (min-width:$pc) {
+      &:nth-child(1) {
+        grid-area: 'a';
+      }
+
+      &:nth-child(2) {
+        grid-area: 'b';
+      }
+
+      &:nth-child(3) {
+        grid-area: 'c';
+      }
+
+      &:nth-child(4) {
+        grid-area: 'd';
+      }
+
+      &:nth-child(1),
+      &:nth-child(4) {
+        grid-column: span 4;
+      }
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        grid-column: span 8;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        max-height: 600px;
+        height: 100%;
+      }
+
+      &:nth-child(3),
+      &:nth-child(4) {
+        max-height: 360px;
+      }
+    }
+  }
+
+  &__slide-img {
+    height: 100%;
+    width: 100%;
+
+    @include transition(transform);
+
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    @include pc {
+      height: clamp-calc($min-break-point, $pc, 410px, 543px);
+    }
+  }
+
+  &__pagination {
+    display: none;
+
+    @include pc {
+      display: block;
+    }
+
+    bottom: 0 !important;
+
+    .swiper-pagination-bullet {
+      width: 9px;
+      height: 9px;
+      background-color: $green-pea;
+    }
+  }
+
+}

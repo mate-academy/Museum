@@ -1,0 +1,175 @@
+.header {
+  position: fixed;
+  padding: 15px 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  @include transition(background-color);
+
+  &.header-scroll {
+    background-color: rgb(255, 255, 255, 0.95);
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__burger-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 32px;
+    z-index: 4;
+
+    @include transition(transform);
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  &__burger-line {
+    width: 24px;
+    height: 2px;
+    position: relative;
+    background-color: $main-color;
+
+    &::before,
+    &::after {
+      content: '';
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $main-color;
+      position: absolute;
+
+      @include transition(all)
+    }
+
+    &::before {
+      top: -5px;
+    }
+
+    &::after {
+      bottom: -5px;
+    }
+
+    .menu-open & {
+      background-color: transparent;
+
+      &::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+      }
+
+      &::before,
+      &::after {
+        background-color: $bg-color;
+      }
+    }
+  }
+
+  &__logo {
+    margin: 0 auto;
+
+    @include pc {
+      margin-right: 250px;
+    }
+
+    @include mobile {
+      margin: 0 auto;
+      max-width: 55px;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    background: $green-pea;
+    width: 100%;
+    padding: 40px 0 48px;
+    color: $bg-color;
+    transform: translateY(-100%);
+
+    @include transition(transform);
+
+    .menu-open & {
+      transform: translateY(0);
+    }
+  }
+
+  &__menu-container {
+    display: flex;
+    justify-content: space-around;
+    gap: $grid-gap;
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    @include mobile {
+      gap: 24px;
+    }
+  }
+
+  &__menu-nav {
+    padding-left: 50px;
+  }
+
+  &__menu-nav-list {
+    --columns-width: 168px;
+
+    display: grid;
+    gap: $grid-gap;
+    grid-template-columns: repeat(2, var(--columns-width));
+
+    @include pc {
+      --columns-width: 100px;
+    }
+  }
+
+  &__menu-link {
+    font-size: 22px;
+    font-weight: 500;
+
+    &::before {
+      background-color: $bg-color;
+    }
+
+    @extend %hover-underline;
+
+    @include pc {
+      font-size: 16px;
+    }
+  }
+
+  &__menu-separator {
+    width: 1px;
+    height: 145px;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    @include mobile {
+      height: 1px;
+      width: 100%;
+    }
+  }
+
+}
