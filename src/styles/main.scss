@@ -1,7 +1,45 @@
+@import "reset";
 @import "utils";
 @import "fonts";
-@import "typography";
+@import "helpers";
+@import "blocks/page";
+@import "blocks/title";
+@import "blocks/header";
+@import "blocks/logo";
+@import "blocks/work-schedule";
+@import "blocks/hero";
+@import "blocks/events";
+@import "blocks/info-date";
+@import "blocks/gallery";
+@import "blocks/subscription";
+@import "blocks/form";
+@import "blocks/footer";
 
 body {
-  background: $c-gray;
+  font-family: $font-family;
+  font-size: 14px;
+  line-height: 1;
+  color: $main-color;
+
+  &::before {
+    content: '';
+    background-color: transparent;
+
+    @include transition(background-color);
+  }
+
+  .menu-open & {
+    overflow: hidden;
+    touch-action: none;
+    overscroll-behavior: none;
+
+    &::before {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+  }
+
 }

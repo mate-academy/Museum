@@ -1,0 +1,162 @@
+.hero {
+  position: relative;
+
+  &__container {
+    @include page-grid;
+
+    align-items: center;
+    padding-right: 0;
+
+    @include pc {
+      align-items: end;
+    }
+
+    @include mobile {
+      padding-left: 0;
+      row-gap: $grid-gap-small;
+    }
+  }
+
+  &__text-item {
+    grid-column: 1 / 6;
+
+    @include pc {
+      padding-bottom: 10px;
+    }
+
+    @include mobile {
+      grid-row: 2;
+      padding: 0 $horizontal-paddings;
+    }
+  }
+
+  &__title {
+    font-family: $second-family;
+    font-weight: 700;
+    font-size: 72px;
+    margin-bottom: 90px;
+    line-height: 1.2;
+    color: #000;
+
+    @include laptop {
+      margin-bottom: 38px;
+      font-size: 54px;
+    }
+
+    @include mobile {
+      font-size: 45px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: end;
+
+    &:hover {
+
+      .hero__link-text,
+      .hero__link-btn {
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    &:active {
+
+      .hero__link-text,
+      .hero__link-btn {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.25);
+        transform: translateY(2px);
+      }
+    }
+
+    @include pc {
+      justify-content: start;
+    }
+
+    @include mobile {
+      justify-content: center;
+    }
+  }
+
+  &__link-text {
+    max-width: 200px;
+    width: 100%;
+    border: solid 1px $green-pea;
+    padding: 26px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+
+    @include transition(all);
+  }
+
+  &__link-btn {
+    min-width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $green-pea;
+
+    @include transition(all);
+
+    &:hover {
+      background-color: #0a332a;
+    }
+
+    &::before {
+      content: '';
+      background-image: url('../images/icons/vector-gray.svg');
+      background-repeat: no-repeat;
+      width: 8px;
+      height: 12px;
+    }
+  }
+
+  &__nav-link {
+    position: absolute;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    bottom: 0;
+    color: $pale-sky;
+
+    &::before {
+      content: '';
+      width: 1px;
+      height: 70px;
+      background-color: $green-pea;
+    }
+
+    @include pc {
+      display: none;
+    }
+  }
+
+  &__img-item {
+    grid-column: 6 / -1;
+  }
+
+  &__text-item,
+  &__img-item {
+    @include pc {
+      grid-column: span 3;
+    }
+
+    @include mobile {
+      grid-column: span 2;
+    }
+  }
+
+  &__img {
+    @include mobile {
+      width: 100%;
+      max-height: 348px;
+      object-fit: cover;
+    }
+  }
+
+}

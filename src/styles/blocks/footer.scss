@@ -1,0 +1,158 @@
+.footer {
+  padding: 48px 0 35px;
+
+  &__items {
+    @include page-grid;
+
+    margin-bottom: 80px;
+  }
+
+  &__logo-item {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    @include mobile {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: $grid-gap;
+  }
+
+  &__icon {
+    @include transition(transform);
+
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
+
+  &__work-schedule-item {
+    grid-column: 3 / 5;
+
+    @include pc {
+      grid-row: 1;
+      grid-column: 2 / 4;
+    }
+
+    @include mobile {
+      grid-row: 2;
+      grid-column: span 1;
+    }
+  }
+
+  &__contacts-item {
+    grid-column: 5 / 7;
+
+    @include pc {
+      grid-column: 4 / 6;
+      grid-row: 1;
+    }
+
+    @include mobile {
+      grid-row: 2;
+      grid-column: span 1;
+    }
+  }
+
+  &__contacts-title {
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  &__contacts-link {
+    display: block;
+    line-height: 1.5;
+  }
+
+  &__separator {
+    grid-column: 7 / 8;
+    width: 1px;
+    height: 260px;
+    background-color: rgba(26, 90, 76, 0.5);
+    justify-self: center;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+
+    @include pc {
+      grid-row: 2;
+      grid-column: 2 / 6;
+      height: 1px;
+      width: 100%;
+      margin: 64px 0;
+    }
+
+    @include mobile {
+      grid-row: 3;
+      grid-column: span 2;
+      margin-top: 70px;
+    }
+  }
+
+  &__home-link {
+    margin-bottom: 20px;
+    width: 48px;
+    height: 48px;
+
+    @media (min-width: $mobile) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    grid-column: 8 / 11;
+
+    @include pc {
+      grid-row: 3;
+      grid-column: 2 / 6;
+    }
+
+    @include mobile {
+      grid-row: 4;
+      grid-column: span 2;
+    }
+  }
+
+  &__nav-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $grid-gap-small $grid-gap;
+  }
+
+  &__contacts-link,
+  &__nav-link {
+    @extend %hover-underline;
+
+    &::before {
+      background-color: $main-color;
+    }
+  }
+
+  &__additional-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px $grid-gap-small;
+    justify-content: space-between;
+
+    @include mobile-small {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__copy,
+  &__designer-info {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+}
