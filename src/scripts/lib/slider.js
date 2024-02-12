@@ -8,11 +8,11 @@ let mySwiper = null;
 const swiperWrapper = document.querySelector('.gallery__wrapper');
 
 function initSlider() {
-  const pcBreakPoint = 1170;
+  const pcBreakPoint = 1210;
 
   if (
-    window.innerWidth <= pcBreakPoint
-    && document.querySelector('.gallery__slider')
+    window.innerWidth <= pcBreakPoint &&
+    document.querySelector('.gallery__slider')
   ) {
     swiperWrapper.classList.add('swiper-wrapper');
 
@@ -30,11 +30,11 @@ function initSlider() {
   }
 }
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   initSlider();
 });
 
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
   if (mySwiper !== null) {
     mySwiper.destroy();
     mySwiper = null;
