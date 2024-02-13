@@ -1,0 +1,133 @@
+.header {
+  @include on-tablet {
+    &__grid {
+      @include page-grid;
+
+      position: relative;
+    }
+  }
+
+  &__top {
+    background-image: url(../images/header/header-museum.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    margin-bottom: 20px;
+    display: none;
+    overflow: hidden;
+
+    @include on-tablet {
+      display: block;
+      position: absolute;
+      order: 2;
+      height: 384px;
+      left: 52%;
+      width: 50vw;
+    }
+
+    @include on-desktop {
+      height: 655px;
+    }
+
+    &--mobile {
+      display: block;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__bottom {
+    margin-bottom: 70px;
+
+    @include on-tablet {
+      order: 1;
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 5;
+    }
+  }
+
+  &__action-link {
+    display: none;
+
+    @include on-desktop {
+      font-weight: 600;
+      text-transform: uppercase;
+      width: 133px;
+      text-align: left;
+      display: flex;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 14px;
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      color: $gray-main-color;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 70px;
+        height: 1px;
+        background-color: $green-color;
+        margin-top: 7px;
+        margin-right: 20px;
+      }
+    }
+
+    @include hover(font-size, 20)
+  }
+
+  &__museum {
+    padding-top: 27px;
+    display: flex;
+    gap: 88px;
+
+    @include on-tablet {
+      padding-top: 15px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: $black-color;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+
+    @include hover(cursor, poiner);
+
+    @include on-tablet {
+      justify-content: flex-start;
+    }
+
+    @include on-desktop {
+      justify-content: flex-end;
+      margin-bottom: 46px;
+    }
+
+    &--left {
+      padding: 18px 80px;
+      border: 1px solid $green-color;
+
+      @include on-tablet {
+        padding: 27px 67px;
+      }
+    }
+
+    &--right {
+      background-color: $green-color;
+      padding: 13px;
+
+      @include on-tablet {
+        padding: 23px;
+      }
+    }
+  }
+}
