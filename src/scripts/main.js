@@ -13,17 +13,22 @@ duplicateContentTwo.innerHTML = sourceContentTwo;
 const page = document.querySelector('.page');
 const locking = document.querySelector('.header__burger-menu');
 
-locking.addEventListener('click', function() {
+const unlockingIcon = document.querySelector('.burger-menu__close');
+const unlockingMenu = document.querySelectorAll('#menu li > a');
+
+// functions to lock the page
+function lockingPage() {
   page.classList.add('page__lock');
-});
+}
 
-const unlockingClose = document.querySelector('.burger-menu__close');
-const unlockingMenu = document.querySelector('.menu__list');
-
-unlockingClose.addEventListener('click', function() {
+function unlockPage() {
   page.classList.remove('page__lock');
-});
+};
 
-unlockingMenu.addEventListener('click', function() {
-  page.classList.remove('page__lock');
+// event processing
+locking.addEventListener('click', lockingPage);
+unlockingIcon.addEventListener('click', unlockPage);
+
+unlockingMenu.forEach(event => {
+  event.addEventListener('click', unlockPage);
 });
