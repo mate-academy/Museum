@@ -1,0 +1,56 @@
+.gallery {
+  @include grid (2);
+
+  &__container {
+    margin: 0 20px 100px;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    
+    @include font-style (700, 48px, 48px, $dark-gray);
+  }
+
+  &__slide {
+    grid-column: 1 / -1;
+    margin: 40px auto 0;
+  }
+
+  &__pictures {
+
+    &--img {
+      object-fit: cover;
+      object-position: center;
+
+      &:nth-child(n + 2) {
+        display: none;
+      }
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 22px;
+
+    &--switch {
+      cursor: pointer;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $light-gray;
+    }
+
+    &--select:checked + &--active {
+      display: block;
+      background-color: $green;
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+    }
+  }
+}
+
+

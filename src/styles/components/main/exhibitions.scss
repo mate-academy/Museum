@@ -1,0 +1,106 @@
+.exhibitions {
+  @include grid (2);
+
+  margin: 50px auto 183px;
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include font-style (700, 36px, 36px, $dark-gray);
+
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+    text-align: start;
+
+    @include flex-column;
+
+    gap: 60px;
+
+    margin: 40px 20px 60px;
+  }
+
+  &__date {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    @include font-style (700, 16px, 40px, $green);
+
+    &::before {
+      content: "Виставка";
+
+      @include font-style (500, 16px, 16px, $grayish);
+
+      text-transform: uppercase;
+    }
+  }
+
+  &__subtitle {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @include font-style (400, 28px, 30px, $dark-gray);
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: $pink;
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &__text {
+    @include font-style (300, 16px, 24px, $gray);
+
+    margin-top: 10px;
+  }
+
+  &__botton {
+    grid-column: 1 / -1;
+
+    background-image: url(../images/background/rectangle-20.3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 210px;
+
+    &__block {
+      @include flex-column;
+
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+
+      min-width: 280px;
+      min-height: 140px;
+      margin: 150px 20px;
+
+      box-shadow: 0 2px 0 0 $dark-green;
+      background-color: $white;
+    }
+
+    &--date {
+      display: flex;
+      align-items: center;
+      gap: 65px;
+
+      @include font-style (700, 16px, 24px, $green);
+
+      &::before {
+        content: "Лекція";
+
+        @include font-style (500, 16px, 16px, $grayish);
+
+        text-transform: uppercase;
+      }
+    }
+
+    &--subtitle {
+      @include font-style (400, 28px, 28px, $dark-gray);
+    }
+  }
+}
