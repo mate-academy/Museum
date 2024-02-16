@@ -1,29 +1,31 @@
 .gallery {
   position: relative;
-  padding-top: 183px;
 
   @include ontable {
     padding-top: 0;
   }
 
   &-title {
-    @include contentpadding;
-
     margin: 0;
-
+    margin-top: 183px;
     font-family: Montserrat, sans-serif;
     font-weight: 700;
     font-size: 36px;
     text-align: center;
 
     @include ontable {
-      padding-top: 208px;
+      margin-left: 34px;
+      margin-top: 208px;
       text-align: left;
       font-size: 48px;
     }
 
     @include ondesktop {
-      padding-top: 302px;
+      padding-left: 105px;
+
+      @include contentpadding;
+
+      margin-top: 302px;
     }
   }
 
@@ -34,15 +36,18 @@
     left: 0;
     right: 0;
     margin-left: 20px;
-    padding-top: 40px;
+    margin-top: 40px;
+    width: 1170px;
 
     @include ontable {
-      margin-left: 355px;
-      padding-top: 48px;
+      margin-left: 34px;
+      margin-top: 48px;
     }
 
     @include ondesktop {
-      padding-top: 56px;
+      @include contentpadding;
+
+      margin-top: 56px;
     }
   }
 
@@ -51,6 +56,10 @@
 
     @include ontable {
       margin-right: 20px;
+    }
+
+    @include ondesktop {
+      margin-right: 30px;
     }
   }
 
@@ -61,10 +70,6 @@
     @include ontable {
       width: 340px;
       height: 543px;
-    }
-
-    @include ondesktop {
-      padding-top: 56px;
     }
 
     &--first {
@@ -79,33 +84,21 @@
         width: 770px;
         height: 600px;
       }
-
     }
 
-    &__fordesktop {
-      display: none;
-
-      &--third {
-        @include ondesktop {
-          margin-left: 355px;
-          display: block;
-          position: absolute;
-          left: 0;
-          margin-top: 737px;
-          width: 770px;
-          height: 360px;
-        }
+    &--third {
+      @include ontable {
+        width: 340px;
+        height: 543px;
       }
 
-      &--fourth {
-        @include ondesktop {
-          display: block;
-          position: absolute;
-          left: 1145px;
-          margin-top: 737px;
-          width: 370px;
-          height: 360px;
-        }
+      @include ondesktop {
+        display:flex;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 770px;
+        height: 600px;
       }
     }
   }
@@ -128,7 +121,7 @@
 
   &__dot-wrapper {
     position: absolute;
-    margin-top: 689px;
+    margin-top: 514px;
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
@@ -137,7 +130,7 @@
     width: 102px;
 
     @include ontable {
-      margin-top: 879px;
+      margin-top: 667px;
     }
 
     @include ondesktop {
@@ -146,3 +139,26 @@
   }
 }
 
+.gallery__fordesktop {
+  display: none;
+
+  @include ondesktop {
+    position: absolute;
+    margin-top: 686px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    justify-content: space-between;
+    width: 1170px;
+
+    @include contentpadding;
+  }
+
+  &--hover {
+    transition: transform 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

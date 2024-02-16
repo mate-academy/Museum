@@ -1,15 +1,15 @@
 .subscribe {
   margin: 0;
-  padding-top: 579px;
+  margin-top: 579px;
 
   @include ontable {
-    padding-top: 724px;
+    margin-top: 724px;
   }
 
   @include ondesktop {
-    padding-top: 1246px;
+    margin-top: 1246px;
+    height: 550px;
   }
-
 
   &__background {
     background-image: url(../images/sub__image.png);
@@ -19,6 +19,7 @@
     height: 386px;
 
     @include ontable {
+      // margin-top: 724px;
       height: 380px;
     }
 
@@ -74,8 +75,11 @@
   &__email {
     margin: 248px 0 0;
     position: absolute;
+    outline: none;
+    border: none;
     width: 280px;
     left: 50%;
+
     transform: translate(-50%, 0);
 
     @include ontable {
@@ -98,6 +102,10 @@
       padding: 16px 24px;
       background-color: $main-white-color;
 
+      &:autofill {
+        background-color: $main-white-color;
+      }
+
       @include ontable {
         width: 374px;
       }
@@ -111,12 +119,11 @@
         width: 100% ;
         outline: none;
         border: none;
-        color: $main-black-color;
+        background-color: $main-white-color;
+        appearance: none;
 
-
-        &:autofill {
-          border: 3px solid $main-black-color;
-          background-color: $main-white-color;
+        &:focus {
+          -webkit-box-shadow: 0 0 0 1000px $main-white-color inset !important;
         }
       }
     }
@@ -129,6 +136,11 @@
       background-color: $color-for-button;
       bottom: 0;
       right: 0;
+      transition: 0.5s ease-in-out;
+
+      &:hover {
+        opacity: 80%;
+      }
 
       &__vector {
         position: absolute;

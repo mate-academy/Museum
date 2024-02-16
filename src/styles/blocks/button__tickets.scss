@@ -1,68 +1,70 @@
 .button {
-  margin: 0;
-  margin: 433px 0 0 20px;
-  position: absolute;
+  cursor: pointer;
+  margin-top: 133px;
+  margin-left: 20px;
+  position: relative;
   box-sizing: border-box;
-  border: 1px solid $main-green-color;
   width: 280px;
   height: 50px;
-  grid-column: 1 / -1;
-  z-index: -3;
+  border: 1px solid $main-green-color;
+  display: flex;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   @include ontable {
+    position: absolute;
+    top: 0;
+    margin-top: 295px;
+    margin-left: 34px;
     width: 270px;
     height: 70px;
-    margin: 295px 0 0 34px;
-    grid-column: 1 / 2;
   }
 
   @include ondesktop {
     margin-top: 467px;
-    grid-column: 3 / 6;
+    margin-left: 256px;
+  }
+
+  &__link {
+    text-decoration: none;
   }
 
   &__text {
+    text-decoration: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: $main-black-color;
     font-weight: 500;
-    font-size: 16px;
-    margin-top: 16px;
+    line-height: 14px;
+    margin-top: 17px;
     margin-left: 80px;
-
-    @include ontable {
-      margin-top: 27px;
-    }
   }
 
-  &__click {
-    cursor: pointer;
+  &__green {
     position: absolute;
-    border: 0;
-    padding: 0;
-    margin-left: 230px;
+    top: 0;
+    bottom: 0;
+    right: 0;
     background-color: $main-green-color;
-    width: 49px;
+    width: 50px;
     height: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @include ontable {
-      margin-left: 200px;
-      width: 69px;
+      width: 70px;
       height: 69px;
     }
   }
 
   &__icon {
-    cursor: pointer;
     background-image: url(../images/button__icon.svg);
     background-size: cover;
-    margin-left: 21px;
-    width: 8px;
+    width: 7px;
     height: 12px;
-
-    @include ontable {
-      margin-left: 21px;
-    }
-
-    @include ondesktop {
-      margin-left: 31px;
-    }
   }
 }
