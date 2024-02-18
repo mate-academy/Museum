@@ -1,0 +1,118 @@
+.menu {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  opacity: 0;
+  pointer-events: none;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    overflow: auto;
+  }
+
+  &__container {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 400px;
+    background-color: $main-green-color;
+    z-index: 1;
+
+    @include ontable {
+      height: 255px;
+    }
+
+    @include ondesktop {
+      height: 233px;
+    }
+  }
+
+  &__foropacity {
+    opacity: 50%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $main-black-color;
+    z-index: 0;
+  }
+
+  &__icon {
+    margin: 33px 0 0 23px;
+    background-size: cover;
+    position: absolute;
+
+    @include ontable {
+      margin: 45px 0 0 39px;
+    }
+
+    @include ondesktop {
+      margin: 45px 0 0 62px;
+    }
+  }
+
+  &__links {
+    font-family: 'IBM Plex Sans', sans-serif;
+    display: flex;
+    margin: 27px 0 0 72px;
+    position: absolute;
+
+    &__position {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 24px;
+
+      &--second{
+        margin: 0 0 0 28px;
+      }
+    }
+
+    @include ontable {
+      margin: 39px 0 0 96px;
+    }
+
+    @include ondesktop {
+      margin: 40px 0 0 182px;
+    }
+  }
+
+  &__rectangle {
+    box-sizing: border-box;
+    border: 1px solid $main-white-color;
+    width: 280px;
+    margin: 123px 0 0 20px;
+
+    @include ontable {
+      position: absolute;
+      width: 1px;
+      height: 145px;
+      margin: 40px 0 0 354px;
+    }
+
+    @include ondesktop {
+      margin: 40px 0 0 652px;
+    }
+  }
+
+  &__text {
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    color: $main-white-color;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      color: $main-black-color;
+    }
+  }
+}

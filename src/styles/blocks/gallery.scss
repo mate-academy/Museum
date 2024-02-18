@@ -1,0 +1,167 @@
+.gallery {
+  position: relative;
+
+  @include ontable {
+    padding-top: 0;
+  }
+
+  &-title {
+    margin: 0;
+    margin-top: 183px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+
+    @include ontable {
+      margin-left: 34px;
+      margin-top: 208px;
+      text-align: left;
+      font-size: 48px;
+    }
+
+    @include ondesktop {
+      padding-left: 105px;
+
+      @include contentpadding;
+
+      margin-top: 302px;
+    }
+  }
+
+  &__slider {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: 20px;
+    margin-top: 40px;
+    width: 1170px;
+
+    @include ontable {
+      margin-left: 34px;
+      margin-top: 48px;
+    }
+
+    @include ondesktop {
+      @include contentpadding;
+
+      margin-top: 56px;
+    }
+  }
+
+  &-slide {
+    margin-right: 16px;
+
+    @include ontable {
+      margin-right: 20px;
+    }
+
+    @include ondesktop {
+      margin-right: 30px;
+    }
+  }
+
+  &__image {
+    width: 280px;
+    height: 410px;
+
+    @include ontable {
+      width: 340px;
+      height: 543px;
+    }
+
+    &--first {
+      @include ondesktop {
+        width: 370px;
+        height: 600px;
+      }
+    }
+
+    &--second {
+      @include ondesktop {
+        width: 770px;
+        height: 600px;
+      }
+    }
+
+    &--third {
+      width: 280px;
+      height: 410px;
+
+      @include ontable {
+        width: 340px;
+        height: 543px;
+      }
+
+      @include ondesktop {
+        display:flex;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 770px;
+        height: 600px;
+      }
+    }
+  }
+
+  &__dot {
+    cursor: pointer;
+    border-radius: 50%;
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background-color: $color-for-dot;
+
+    &:hover {
+      background-color: $main-green-color;
+    }
+    &:active {
+      background-color: $main-green-color;
+    }
+  }
+
+  &__dot-wrapper {
+    position: absolute;
+    margin-top: 514px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    justify-content: space-between;
+    width: 102px;
+
+    @include ontable {
+      margin-top: 667px;
+    }
+
+    @include ondesktop {
+      display: none;
+    }
+  }
+}
+
+.gallery__fordesktop {
+  display: none;
+
+  @include ondesktop {
+    position: absolute;
+    margin-top: 686px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    justify-content: space-between;
+    width: 1170px;
+
+    @include contentpadding;
+  }
+
+  &--hover {
+    transition: transform 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
