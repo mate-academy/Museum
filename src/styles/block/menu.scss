@@ -1,0 +1,83 @@
+.menu {
+  width: 100%;
+
+  &__top {
+    @include on-tablet {
+      min-width: 354px;
+    }
+
+    @include on-desktop {
+      min-width: 652px;
+    }
+
+    position: relative;
+  }
+
+  &__footer {
+    @include on-tablet {
+      min-width: 413px;
+      flex: 1;
+    }
+  }
+
+  &__top::after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '';
+    display: block;
+    width: 87.5%;
+    height: 1px;
+    background-color: #FFF;
+
+    @include on-tablet {
+      transform: rotate(270deg);
+      transform-origin: left;
+      left: 354px;
+      right: 0;
+      bottom: 40px;
+      width: 145px;
+    }
+
+    @include on-desktop {
+      left: 652px;
+      right: 0;
+      bottom: 48px;
+    }
+  }
+
+  &__icon {
+    background-image: url(../images/icons/menu-exit.png);
+    background-size: 12.73px 12.73px;
+    z-index: 1;
+  }
+
+  &__content {
+    background-color: #1A5A4C;
+    height: 399px;
+
+    @include on-tablet {
+      height: 225px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include on-desktop {
+      height: 233px;
+    }
+  }
+
+  &__bottom {
+    height: calc(100vh - 399px);
+    background-color: rgba($color: #000, $alpha: 0.5);
+    cursor: default;
+
+    @include on-tablet {
+      height: calc(100vh - 225px);
+    }
+
+    @include on-desktop {
+      height: calc(100vh - 233px);
+    }
+  }
+}
