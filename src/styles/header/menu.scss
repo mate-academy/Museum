@@ -1,0 +1,30 @@
+.menu {
+  height: max-content;
+  width: 100vw;
+  background-color: $green;
+  z-index: 1;
+  overflow: auto;
+}
+
+.page {
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all .3s;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+      // background-color: none;
+    }
+  }
+}
+.page.target-active {
+  background-color: rgba(0, 0, 0, 0.5);
+}

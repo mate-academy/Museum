@@ -1,0 +1,131 @@
+.header {
+  padding-top: 9px;
+  position: relative;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &__photo {
+    background-image: url(../images/photos/museum.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+
+    @include on-tablet {
+      width: 50%;
+      right: 0;
+      height: 374px;
+    }
+
+    @include on-desktop {
+      width: 56%;
+      height: 655px;
+    }
+  }
+
+  &__communication {
+    position: relative;
+    top: 226px;
+    margin: 20px auto;
+    display: grid;
+    --columns: 2;
+
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    @include on-tablet {
+      --columns: 6;
+      margin: 0;
+      top: 0;
+      column-gap: 30px;
+    }
+
+    @include on-desktop {
+      --columns: 12;
+    }
+  }
+
+  &__title {
+    font-size: 45px;
+    text-align: center;
+    margin-bottom: 20px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      font-size: 54px;
+      text-align: left;
+      line-height: 120%;
+      margin: 40px 0 38px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      font-size: 72px;
+      margin: 119px 0 89px;
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @include on-desktop {
+      grid-column: 1 / 1;
+      grid-row: 3 / 3;
+      display: flex;
+      position: relative;
+      bottom: 15px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: $grey;
+      text-transform: uppercase;
+      gap: 20px;
+      align-items: baseline;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+
+      &::before {
+        content: '';
+        display: block;
+        height: 89px;
+        width: 1px;
+        background-color: $green;
+      }
+    }
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+    background-color: white;
+    border: 1px solid $green;
+    display: flex;
+    position: relative;
+    padding-right: 50px;
+
+    @include on-tablet {
+      grid-column: 1 / 3;
+      width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 6;
+    }
+  }
+
+  &__buy {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 50px;
+    text-transform: uppercase;
+    margin: auto;
+  }
+}
+
