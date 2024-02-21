@@ -1,25 +1,46 @@
 .header {
   position: relative;
-
-  height: 100vh;
+  margin-bottom: 40px;
+  overflow-x: hidden;
 
   &__content {
-    position: absolute;
-    top: 50%;
+    padding-block: 30px;
 
-    padding-block: 20px;
+    @include on-tablet {
+      max-width: 340px;
+      padding-top: 127px;
+      height: 380px;
+    }
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: column;
+      padding-top: 206px;
+      max-width: calc(50% - 30px);
+      height: 655px;
+    }
   }
 
   &__bg {
-    position: absolute;
-    inset: 0;
-    bottom: 50%;
-    z-index: -1;
-
+    height: 500px;
     background-image: url('./../images/header-bg.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+
+    @include on-tablet {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 50%;
+      z-index: -2;
+
+      height: 380px;
+    }
+
+    @include on-desktop {
+      height: 655px;
+    }
   }
 
   &__title {
@@ -31,12 +52,24 @@
     line-height: 100%;
     text-align: center;
     text-transform: uppercase;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+      margin-bottom: 90px;
+    }
   }
 
   &__btn {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
     width: 100%;
-    padding-block: 18px;
     border: 1px solid $color-bg-main;
     text-align: center;
 
@@ -44,5 +77,35 @@
     font-weight: 500;
     line-height: 100%;
     text-transform: uppercase;
+
+    @include on-tablet {
+      height: 70px;
+      max-width: 270px;
+    }
+
+    @include on-desktop {
+      align-self: flex-end;
+    }
+
+    & > .btn-text {
+      display: block;
+      width: 100%;
+    }
+
+    & > .arrow {
+      display: block;
+      height: 50px;
+      width: 50px;
+      background-color: $color-bg-main;
+      background-image: url('./../images/icons/icon-arrow.png');
+      background-size: 20px 20px;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @include on-tablet {
+        height: 70px;
+        width: 70px;
+      }
+    }
   }
 }
