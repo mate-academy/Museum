@@ -4,6 +4,149 @@
   background-color: $green;
   z-index: 1;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 27px;
+
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400;
+  color: white;
+
+  @include on-tablet {
+    flex-direction: row;
+  }
+
+  &__nav {
+    &--footer {
+      grid-column: 1 / -1;
+      display: grid;
+
+      @include on-desktop {
+        grid-row: 1 / 2;
+        grid-column: 8 / 13;
+      }
+    }
+  }
+
+  &__ul {
+    padding-left: $icon-side + 28px;
+    font-weight: 500;
+    display: flex;
+    gap: 28px;
+
+    &--footer {
+      width: 100%;
+      padding-left: 0;
+      grid-column: 1 / -1;
+
+      @include on-tablet {
+        @include grid(2, 6, 12);
+      }
+    }
+  }
+
+  &__left {
+    &--footer {
+      grid-column: 2 / 4;
+
+      @include on-desktop {
+        grid-column: 1 / 5;
+      }
+    }
+  }
+
+  &__right {
+    &--footer {
+      grid-column: 4;
+
+      @include on-desktop {
+        grid-column: 6 / 13;
+      }
+    }
+  }
+
+  &__left, &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &--footer {
+      gap: 20px;
+    }
+  }
+
+  &__line {
+    height: 1px;
+    width: 100%;
+    background-color: white;
+    margin-block: 24px;
+
+    @include on-tablet {
+      height: 100;
+      width: 1px;
+      margin-block: 0;
+      margin-inline: 38px;
+    }
+  }
+  &__link {
+    &--footer {
+      color: $black;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}
+
+.hours {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include on-tablet {
+    flex-direction: row;
+    gap: 26px;
+  }
+
+  &--footer {
+    @include on-tablet {
+      grid-column: 2 / 4;
+      flex-direction: column;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+    }
+  }
+
+  &__shedule {
+    font-weight: 400;
+  }
+
+  &__work {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-wrap: nowrap;
+  }
+
+  &__holiday {
+    font-weight: 400;
+
+    @include on-tablet {
+      margin-top: 38px;
+    }
+  }
+
+  &__list {
+    font-weight: 400;
+  }
+
+  &__time {
+    line-height: 150%;
+    font-weight: 600;
+  }
 }
 
 .page {
@@ -21,10 +164,10 @@
       opacity: 1;
       transform: translateY(0);
       pointer-events: all;
-      // background-color: none;
     }
   }
 }
+
 .page.target-active {
   background-color: rgba(0, 0, 0, 0.5);
 }
