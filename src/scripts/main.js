@@ -1,14 +1,23 @@
 'use strict';
 
-const openMenu = document.querySelector('.icon--menu');
-const closeMenu = document.querySelector('.icon--close');
+const menuListItems = document.querySelectorAll('.menu__list');
+const closeButton = document.querySelector('.icon--close');
+const menuButton = document.querySelector('.icon--menu');
 
-openMenu.addEventListener('click', function() {
-  document.querySelector('.page').classList.toggle('target-active');
-});
+document.addEventListener('DOMContentLoaded', function() {
+  menuButton.addEventListener('click', function() {
+    document.querySelector('.page').style.overflow = 'hidden';
+  });
 
-closeMenu.addEventListener('click', function() {
-  document.querySelector('.page').classList.toggle('target-active');
+  closeButton.addEventListener('click', function() {
+    document.querySelector('.page').style.overflow = 'auto';
+  });
+
+  menuListItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+      document.querySelector('.page').style.overflow = 'auto';
+    });
+  });
 });
 
 let counter = 1;
