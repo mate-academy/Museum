@@ -1,6 +1,6 @@
 .footer {
   margin-block: 50px;
-  
+
   @include grid(2, 6, 12);
 
   &__links {
@@ -65,6 +65,19 @@
     font-weight: 400;
     line-height: 150%;
   }
+
+  &__link {
+    color: $black;
+    position: relative;
+
+    &::after {
+      @include after-line;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
 }
 
 .move-top {
@@ -77,6 +90,11 @@
   border-radius: 50%;
   justify-self: end;
   grid-column: 2;
+  transition: transform .3s;
+
+  &:hover {
+    @include scale;
+  }
 
   &--a {
     display: block;
