@@ -1,9 +1,16 @@
 .header {
+  // display: none !important;
   position: relative;
   margin-bottom: 40px;
   overflow-x: hidden;
 
+  &__top-bar {
+    position: absolute;
+    z-index: 1;
+  }
+
   &__content {
+    position: relative;
     padding-block: 30px;
 
     @include on-tablet {
@@ -106,6 +113,35 @@
         height: 70px;
         width: 70px;
       }
+    }
+  }
+
+  &__events {
+    position: absolute;
+    left: -50px;
+    bottom: 55px;
+
+    display: none;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 10px;
+    color: #687480;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    transform: rotate(-90deg);
+    text-transform: uppercase;
+
+    @include on-desktop {
+      display: flex;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 70px;
+      background-color: #687480;
     }
   }
 }
