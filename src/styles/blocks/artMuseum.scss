@@ -8,6 +8,7 @@
 
   &__content {
     padding: 0 20px;
+    position: relative;
 
     @include column-flex;
 
@@ -64,5 +65,38 @@
     }
   }
 
+  &__add {
+    display: none;
+    position: absolute;
+    bottom: -90px;
+    left: 0;
+    color: rgb(104, 116, 128);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    text-transform: uppercase;
+  }
+
+  &__event {
+    position: relative;
+    transform: rotate(180deg);
+    writing-mode: vertical-lr;
+    transition: $main-transition;
+
+    &:hover {
+      transform: scale(1.15) rotate(180deg);
+    }
+
+    &::before {
+      content: '';
+      width: 1px;
+      height: 70px;
+      background-color: $green;
+      position: absolute;
+      bottom: 130%;
+      left: 45%;
+    }
+  }
 
 }
