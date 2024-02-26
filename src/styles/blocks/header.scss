@@ -1,0 +1,238 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.header {
+  margin-bottom: 70px;
+  gap: 20px;
+  position: relative;
+
+  @include landscape {
+    margin-bottom: 40px;
+  }
+
+  @include page-grid;
+
+  @include on-tablet {
+    grid-auto-flow: column;
+    margin-bottom: 88px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 200px;
+  }
+
+  &__top {
+    background-image: url("../images/header-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / -1;
+    margin-inline: -20px;
+
+    @include landscape {
+      height: 100vh;
+    }
+
+    @include on-tablet {
+      margin: 0;
+      height: 384px;
+      grid-column: 4 / 7;
+      justify-content: left;
+      margin-right: -34px;
+    }
+
+    @include on-desktop-s {
+      height: 655px;
+      margin-right: -55px;
+      grid-column: 7 / 13;
+    }
+  }
+
+  &__logo-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    height: 63px;
+
+    @include on-tablet {
+      margin-top: 15px;
+      width: 220px;
+    }
+
+    @include on-desktop-s {
+      width: 170px;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+    position: relative;
+    row-gap: 20px;
+    display: grid;
+
+    @include landscape {
+      justify-items: end;
+      justify-content: center;
+    }
+
+    @include on-tablet-s {
+      grid-column: span 3;
+      align-content: end;
+    }
+
+    @include on-tablet {
+      row-gap: 38px;
+    }
+
+    @include on-desktop-s {
+      grid-column: span 6;
+      row-gap: 89px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: flex-end;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    color: #000;
+    text-align: center;
+    grid-column: 1 / -1;
+
+    @include landscape {
+      font-size: 35px;
+      font-weight: 600;
+    }
+
+    @include on-tablet-s {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: fit-content;
+      text-align: left;
+      line-height: 1.2;
+      font-size: 54px;
+    }
+
+    @include on-desktop-s {
+      font-size: 72px;
+    }
+  }
+
+  &__btn {
+    background-color: inherit;
+    border: 1px solid $green-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    width: 280px;
+
+    @include landscape {
+      width: 250px;
+    }
+
+    transition: $transform;
+
+    &:hover {
+      transform: scale(1.05);
+
+      @include on-desktop-s {
+        transform: scale(1.1);
+      }
+    }
+
+    &::after {
+      content: url("../images/icons/btn-arrow.svg");
+      height: 50px;
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $green-color;
+
+      @include on-tablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    @include on-tablet-s {
+      width: 270px;
+    }
+
+    @include on-tablet {
+      margin-bottom: 20px;
+    }
+
+    @include on-desktop-s {
+      margin-bottom: 118px;
+    }
+  }
+
+  &__btn-link {
+    font-weight: 500;
+    padding: 5px 10px;
+    width: calc(280px - 50px);
+
+    @include landscape {
+      width: calc(250px - 50px);
+    }
+
+    @include on-tablet-s {
+      width: calc(270px - 70px);
+    }
+  }
+
+  &__events-link {
+    display: none;
+    position: relative;
+
+    @include on-desktop-s {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: absolute;
+      bottom: 60px;
+      left: -55px;
+      font-size: 14px;
+      font-weight: 700;
+      color: $input-color;
+      transform: rotate(270deg);
+    }
+
+    &::before {
+      content: "";
+      height: 1px;
+      width: 70px;
+      background-color: $green-color;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      height: 1px;
+      background-color: $input-color;
+      display: none;
+      width: 100%;
+      transform: scale(0);
+      transform-origin: right;
+      transition: $transform;
+
+      @include on-desktop-s {
+        display: block;
+      }
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}

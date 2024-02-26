@@ -1,0 +1,156 @@
+.menu {
+  padding: 27px 20px;
+  background-color: $green-color;
+  color: $white-color;
+  position: fixed;
+  z-index: 4;
+
+  &::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    bottom: -100vh;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: -2;
+  }
+
+  @include on-tablet {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 34px;
+  }
+
+  @include on-desktop-s {
+    padding-inline: 56px;
+  }
+
+  @include design {
+    justify-content: start;
+  }
+
+  &__top {
+    display: flex;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid $white-color;
+    column-gap: 28px;
+
+    @include on-tablet {
+      column-gap: 38px;
+      border: none;
+      border-right: 1px solid $white-color;
+      padding: 0;
+      margin: 0;
+      padding-right: 38px;
+      margin-right: 38px;
+    }
+
+    @include on-desktop {
+      padding-right: 102px;
+      margin-right: 102px;
+      column-gap: 102px;
+    }
+  }
+
+  &__list-top {
+    display: grid;
+    grid-template: repeat(2, min-content) / repeat(2, 100px);
+    gap: 24px 28px;
+
+    @include on-tablet {
+      gap: 24px 20px;
+    }
+
+    @include on-desktop-s {
+      grid-template: repeat(2, min-content) / repeat(2, 170px);
+    }
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 14px;
+    border-bottom: 1px solid transparent;
+
+    transition: border-bottom-color 0.3s ease;
+
+    &:hover {
+      border-bottom-color: $white-color;
+    }
+
+    @include on-desktop-s {
+      font-size: 22px;
+    }
+  }
+
+  &__work-schedule {
+    font-size: 14px;
+    line-height: 1.5;
+
+    @include on-tablet-s {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__schedule {
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 38px;
+    }
+
+    @include landscape {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include on-tablet-s {
+      justify-content: center;
+      text-align: center;
+    }
+
+    @include on-tablet {
+      justify-content: left;
+      text-align: left;
+    }
+  }
+
+  &__list-bottom {
+    margin-bottom: 16px;
+
+    @include on-tablet-s {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include on-tablet {
+      display: block;
+      margin: 0;
+    }
+  }
+
+  &__item-text {
+    display: flex;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  &__span-desc {
+    font-weight: 600;
+    padding-right: 4px;
+  }
+}

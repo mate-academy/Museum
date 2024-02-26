@@ -1,7 +1,107 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "./utils/mixins";
+@import "./utils/variables";
+@import "./blocks/header";
+@import "./blocks/menu";
+@import "./blocks/events";
+@import "./blocks/gallery";
+@import "./blocks/subscribe";
+@import "./blocks/footer";
 
-body {
-  background: $c-gray;
+.page {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  background-color: $white-color;
+  font-weight: 400;
+  scroll-behavior: smooth;
+  color: $main-text;
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
+    transform: translateX(-200%);
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+  }
+
+  &__menu:target {
+    pointer-events: all;
+    transform: translateX(0);
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  transition: $transform;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.icon--burger {
+  background-image: url("../images/icons/burger-menu.svg");
+  position: absolute;
+  top: 27px;
+  z-index: 1;
+
+  @include on-tablet-s {
+    top: 39px;
+  }
+}
+
+.icon--close {
+  background-image: url("../images/icons/close-icon.svg");
+}
+
+.icon--facebook {
+  background-image: url("../images/icons/facebook.svg");
+}
+
+.icon--instagram {
+  background-image: url("../images/icons/instagram.svg");
+}
+
+.logo {
+  transition: $transform;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.section-title {
+  font-family: Montserrat, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+
+  @include landscape {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  @include on-tablet {
+    font-size: 48px;
+    margin-bottom: 48px;
+    text-align: left;
+  }
+
+  @include design {
+    text-align: center;
+  }
+}
+
+.section-title--color {
+  color: $white-color;
+  margin-bottom: 20px;
 }
