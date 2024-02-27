@@ -1,0 +1,56 @@
+.aside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  visibility: hidden;
+  pointer-events: none;
+  background-color: #1A5A4C;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__wrap {
+    font-family: "IBM Plex Sans", sans-serif;
+    color: #fff;
+    height: 399px;
+    padding: 27px 20px;
+
+    @include on-tablet {
+      padding-top: 39px;
+      width: 700px;
+      height: 225px;
+      display: grid;
+      grid-template-columns: repeat(6, 90px);
+      column-gap: 30px;
+    }
+
+    @include on-desktop {
+      width: 1170px;
+      grid-template-columns: repeat(12, 70px);
+    }
+  }
+
+  &:target {
+    pointer-events: all;
+    visibility: visible;
+  }
+}
+
+.overlay {
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.aside:target ~ .overlay {
+  visibility: visible;
+}
