@@ -33,6 +33,7 @@
   &__slides {
     display: flex;
     transition: transform 0.5s ease;
+    width: 100%;
 
     @include landscape {
       max-width: 230px;
@@ -56,16 +57,12 @@
 
   &__picture {
     transition: $transform;
+    object-fit: cover;
+    object-position: center;
+    padding: 5px;
 
-    @include landscape {
-      object-fit: cover;
-      object-position: center;
-      width: 100%;
-    }
-
-    @include on-desktop-s {
-      object-position: top center;
-      object-fit: cover;
+    @include on-tablet-s {
+      padding: 0;
     }
 
     &:hover {
@@ -80,50 +77,30 @@
   }
 
   &__picture--m {
-    max-width: 340px;
+    @include on-tablet-s {
+      max-width: 340px;
+    }
 
     @include on-desktop-s {
       max-width: 100%;
-      margin: 0;
       grid-column: 1 / 5;
     }
   }
 
   &__picture--l {
-    display: none;
-
-    @include landscape {
-      display: block;
-    }
-
     @include on-desktop-s {
-      display: block;
       grid-column: 5 / 13;
     }
   }
 
   &__picture--l-b {
-    display: none;
-
-    @include landscape {
-      display: block;
-    }
-
     @include on-desktop-s {
-      display: block;
       grid-column: 1 / 9;
     }
   }
 
   &__picture--s {
-    display: none;
-
-    @include landscape {
-      display: block;
-    }
-
     @include on-desktop-s {
-      display: block;
       grid-column: 9 / 13;
     }
   }
@@ -183,6 +160,9 @@
 
   &__span1:target ~ &__slides {
     transform: translateX(0%);
+
+    @include on-tablet {
+    }
   }
 
   &__span2:target ~ &__slides {
@@ -190,10 +170,14 @@
   }
 
   &__span3:target ~ &__slides {
-    transform: translateX(-200%);
+    transform: translateX(-180%);
+
+    @include on-tablet-s {
+      transform: translateX(-205%);
+    }
   }
 
   &__span4:target ~ &__slides {
-    transform: translateX(-300%);
+    transform: translateX(-280%);
   }
 }

@@ -51,14 +51,7 @@
 
   &__form {
     display: flex;
-
-    @include landscape {
-      justify-content: center;
-    }
-
-    @include on-tablet-s {
-      justify-content: center;
-    }
+    justify-content: center;
   }
 
   &__input {
@@ -87,7 +80,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: $transform;
+    transition:
+      $transform,
+      box-shadow 0.3s;
 
     &::after {
       content: "";
@@ -101,6 +96,11 @@
 
       @include on-desktop-s {
         transform: scale(1.1);
+      }
+
+      &:active {
+        transform: scale(1);
+        box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, 0.7);
       }
     }
 
