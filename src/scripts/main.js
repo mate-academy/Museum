@@ -5,3 +5,13 @@ document.addEventListener('click', function(event) {
     document.body.style.overflow = 'auto';
   }
 });
+
+const btn = document.querySelector('.subscribe__button');
+
+btn.addEventListener('click', function handleClick(event) {
+  event.preventDefault();
+
+  const firstNameInput = document.querySelector('.subscribe__input');
+
+  firstNameInput.value = '';
+});
