@@ -1,0 +1,107 @@
+@import '../utils';
+
+
+.menu {
+  background-color: $green;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: $white;
+  font-family: "IBM Plex Sans",sans-serif;
+  transform: translateY(-100%);
+  transition: $main-transition;
+  padding: 30px 20px;
+  z-index: 5;
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__content {
+    gap: 20px;
+    display: grid;
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 33px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  &__schedule {
+    @include column-flex;
+
+    gap: 15px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__schedule-main {
+    @include column-flex;
+
+    gap: 20px;
+  }
+
+  &__list {
+
+    &--navigation {
+      display: grid;
+      gap: 25px;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 240px
+    }
+
+    &--schedule {
+      @include column-flex;
+    }
+  }
+
+  &__link {
+    transition: color 0.3s;
+
+    &:hover {
+      color: #b7b7b7;
+    }
+  }
+
+  &__bold {
+    font-weight: 600;
+  }
+
+
+
+  &__icon-close {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    transition: $main-transition;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: 120%;
+      height: 1.5px;
+      background-color: $white;
+      top: 50%;
+      left: 0;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+    &:hover {
+      transform: $menu-scale;
+    }
+  }
+}

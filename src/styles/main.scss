@@ -1,7 +1,440 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import 'utils';
+@import 'fonts';
+@import 'typography';
+@import 'reset';
+@import './blocks/topBar';
+@import './blocks/artMuseum';
+@import './blocks/menu';
+@import './blocks/current';
+@import './blocks/from';
+@import './blocks/swiper';
+@import './blocks/gallery';
+@import './blocks/subscribe';
+@import './blocks/footer';
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: $c-gray;
+}
+
+.title-font {
+  font-family: Montserrat, sans-serif;
+}
+
+.page-body {
+  overflow: hidden;
+}
+
+[class*="__container"] {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.after {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $white;
+    transform-origin: left;
+    transition: $main-transition;
+    transform: scale(0);
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
+
+
+
+@media (min-width: 768px) {
+  .menu {
+    padding: 0;
+
+    &__container {
+      padding: 40px 20px;
+    }
+
+    &__content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    &__navigation {
+      border-bottom: 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    &__list {
+      &--navigation {
+        width: 100%;
+        height: 32px;
+      }
+    }
+
+    &__schedule {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__day-off {
+      align-self: flex-end;
+      transform: translateY(20px);
+    }
+  }
+
+  .art-museum {
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__picture {
+      order: 2;
+      height: 384px;
+    }
+
+    &__content {
+      align-self: flex-end;
+      padding-bottom: 20px;
+      gap: 38px;
+    }
+
+    &__title {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+  }
+
+  .top-bar {
+    width: 100%;
+    padding-top: 15px;
+
+    &__container {
+      width: 100%;
+    }
+
+    &__content {
+      width: 65%;
+      justify-content: space-between;
+    }
+  }
+
+  .current-events {
+    margin-top: 90px;
+    margin-bottom: 110px;
+
+    &__block {
+      gap: 44px;
+    }
+
+    &__content {
+      max-width: 460px;
+    }
+
+    &__title {
+      text-align: left;
+      font-size: 48px;
+    }
+
+    &__subtitle {
+      font-size: 36px;
+
+      &::after {
+        right: 100px;
+        width: 15px;
+        height: 15px;
+      }
+
+      &--after {
+        &::after {
+          right: 150px;
+        }
+      }
+    }
+
+    &__day {
+      font-size: 14px;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+  }
+
+  .from-classicism-to-romanticism {
+    margin: 0 20px;
+    height: 390px;
+
+    &__main {
+      max-width: 570px;
+      padding: 45px 55px;
+      margin: 0 auto;
+
+      @include column-flex;
+
+      gap: 24px;
+    }
+
+    &__day {
+      justify-content: space-between;
+      max-width: 370px;
+    }
+
+    &__title {
+      text-align: start;
+      font-size: 36px;
+    }
+  }
+
+  .gallery {
+    &__container {
+      width: 100%;
+      padding: 0 20px;
+    }
+  }
+
+  $swiper-height: 583px;
+
+  .swiper {
+    height: $swiper-height;
+    width: 100%;
+
+    &-slide {
+      width: 340px!important;
+      height: calc($swiper-height - 40px)!important;
+    }
+  }
+
+  .subscribe {
+    &__title {
+      font-size: 48px;
+    }
+
+    &__subtitle {
+      line-height: 100%;
+      font-size: 19px;
+      text-align: left;
+    }
+
+    &__form {
+      gap: 16px;
+    }
+  }
+
+  .footer {
+    &__container {
+      gap: 120px;
+    }
+
+    &__info {
+      max-width: 460px;
+      gap: 64px;
+    }
+
+    &__content {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    &__icons {
+      flex-direction: column;
+      gap: 62px;
+    }
+
+    &__list {
+      &--navigation {
+        column-gap: 125px;
+      }
+    }
+
+    &__copyright {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__designed {
+      order: 2;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .top-bar__container,
+  .art-museum__content,
+  .current-events__container {
+    padding: 0;
+  }
+
+  .top-bar {
+    &__menu {
+      width: 24px;
+      background-size: cover;
+    }
+  }
+
+  .menu {
+    &__container {
+      padding: 40px 0;
+    }
+
+    &__content {
+      gap: 100px;
+    }
+
+    &__list {
+      &--navigation {
+        height: auto;
+        max-width: 368px;
+      }
+    }
+
+    &__navigation {
+      font-size: 22px;
+      gap: 100px;
+    }
+
+    &__day-off {
+      max-width: 175px;
+      transform: translateY(0);
+    }
+
+    &__schedule {
+      grid-template-columns: repeat(2, max(175px));
+    }
+
+    &__icon-close {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .art-museum {
+    height: $picture-height;
+
+    &__picture {
+      height: 655px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      max-height: none;
+    }
+
+    &__title {
+      font-size: 72px;
+      max-width: 470px;
+    }
+
+    &__content {
+      gap: 89px;
+      align-items: flex-end;
+      padding-bottom: 0;
+      align-self: center;
+    }
+
+    &__add {
+      display: block;
+    }
+  }
+
+  .current-events {
+    margin-top: 200px;
+
+    &__picture {
+      max-width: 670px;
+    }
+
+    &__block {
+      flex-direction: row;
+    }
+
+    &__main {
+      align-self: center;
+      gap: 30px;
+    }
+
+    &__content {
+      gap: 15px;
+    }
+  }
+
+  .from-classicism-to-romanticism {
+    margin: 0;
+    height: 550px;
+
+    &__main {
+      padding: 45px 100px;
+      transform: translateY(210%);
+    }
+  }
+
+  .swiper {
+    display: none!important;
+  }
+
+  .gallery {
+    &__main {
+          display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    }
+    &__container {
+      padding: 0;
+    }
+  }
+
+  .subscribe {
+    &__content {
+      max-width: 570px;
+      padding: 163px 0;
+    }
+
+    &__subtitle {
+      text-align: center;
+    }
+
+    &__form {
+      gap: 30px;
+    }
+  }
+
+  .footer {
+    &__container {
+      padding: 0;
+    }
+    &__content {
+      gap: 130px;
+    }
+
+    &__info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: none;
+      gap: 30px;
+    }
+
+    &__main {
+      border-bottom: 0;
+      border-right: 1px solid rgba(26, 90, 76, 0.5);
+      padding-right: 65px;
+      padding-bottom: 0;
+    }
+
+    &__navigation {
+      padding-left: 65px;
+    }
+
+    &__list {
+      &--navigation {
+        column-gap: 60px;
+        max-height: 20px;
+      }
+    }
+
+  }
 }
