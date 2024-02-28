@@ -1,0 +1,68 @@
+.article {
+  grid-column: 1/-1;
+
+  @include on-desktop {
+    @include page-grid;
+  }
+
+  &__img {
+    height: 210px;
+    width: 100%;
+    object-fit: cover;
+    display: flex;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      height: 510px;
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: span 7;
+      margin-bottom: 104px;
+    }
+
+    @include hover(transform, scale(1.1))
+  }
+
+  &__info {
+    margin-bottom: 60px;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+      width: 460px;
+    }
+
+    @include on-desktop {
+      width: fit-content;
+      grid-column: 9/13;
+      align-self: center;
+    }
+
+    &--bottom {
+      @include on-tablet {
+        margin-bottom: 112px;
+      }
+    }
+  }
+
+  &__relative {
+    position: relative;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__description {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: $gray-second-color;
+
+    @include on-desktop {
+      height: 97px;
+    }
+  }
+}
