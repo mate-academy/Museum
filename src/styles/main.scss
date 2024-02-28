@@ -2,15 +2,15 @@
 @import 'fonts';
 @import 'typography';
 @import 'reset';
-@import './blocks/topBar';
-@import './blocks/artMuseum';
+@import './blocks/header';
 @import './blocks/menu';
-@import './blocks/current';
-@import './blocks/from';
-@import './blocks/swiper';
-@import './blocks/gallery';
+@import './blocks/exhibitions';
+@import './blocks/events';
+@import './blocks/visit';
+@import './blocks/news';
 @import './blocks/subscribe';
 @import './blocks/footer';
+
 
 html {
   scroll-behavior: smooth;
@@ -20,17 +20,37 @@ body {
   background: $c-gray;
 }
 
-.title-font {
-  font-family: Montserrat, sans-serif;
+[class*="__container"] {
+  margin: 0 auto;
+  max-width: 1170px;
+}
+
+
+.button {
+  font-family: Raleway, sans-serif;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 100%;
+  padding: 22px 0;
+  text-align: center;
+  transition: $all-transition;
+  border: 1px solid $main-red;
+
+  &:hover {
+    transform: translateY(-10px);
+    background-color: rgb(12 160 160);
+    border: 1px solid rgb(12 160 160);
+    color: $main-white;
+  }
+
+  &:active {
+    transform: scale(0.95) translateY(-10px);
+  }
 }
 
 .page-body {
   overflow: hidden;
-}
-
-[class*="__container"] {
-  max-width: 1170px;
-  margin: 0 auto;
 }
 
 .after {
@@ -38,15 +58,13 @@ body {
 
   &::after {
     content: '';
+    display: block;
     position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: $white;
-    transform-origin: left;
     transition: $main-transition;
     transform: scale(0);
+    transform-origin: left;
+    width: 100%;
+    height: 1px;
   }
 
   &:hover::after {
@@ -54,323 +72,275 @@ body {
   }
 }
 
+.swiper {
+  width: 280px;
+  height: 450px;
 
-
-@media (min-width: 768px) {
-  .menu {
-    padding: 0;
-
-    &__container {
-      padding: 40px 20px;
-    }
-
-    &__content {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
-    }
-
-    &__navigation {
-      border-bottom: 0;
-      border-right: 1px solid rgba(255, 255, 255, 0.5);
-    }
-
-    &__list {
-      &--navigation {
-        width: 100%;
-        height: 32px;
-      }
-    }
-
-    &__schedule {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    &__day-off {
-      align-self: flex-end;
-      transform: translateY(20px);
-    }
-  }
-
-  .art-museum {
-    flex-direction: row;
-    justify-content: space-between;
-
-    &__picture {
-      order: 2;
-      height: 384px;
-    }
-
-    &__content {
-      align-self: flex-end;
-      padding-bottom: 20px;
-      gap: 38px;
-    }
-
-    &__title {
-      font-size: 54px;
-      line-height: 120%;
-      text-align: left;
-    }
-  }
-
-  .top-bar {
-    width: 100%;
-    padding-top: 15px;
-
-    &__container {
-      width: 100%;
-    }
-
-    &__content {
-      width: 65%;
-      justify-content: space-between;
-    }
-  }
-
-  .current-events {
-    margin-top: 90px;
-    margin-bottom: 110px;
-
-    &__block {
-      gap: 44px;
-    }
-
-    &__content {
-      max-width: 460px;
-    }
-
-    &__title {
-      text-align: left;
-      font-size: 48px;
-    }
-
-    &__subtitle {
-      font-size: 36px;
-
-      &::after {
-        right: 100px;
-        width: 15px;
-        height: 15px;
-      }
-
-      &--after {
-        &::after {
-          right: 150px;
-        }
-      }
-    }
-
-    &__day {
-      font-size: 14px;
-      justify-content: flex-start;
-      gap: 10px;
-    }
-  }
-
-  .from-classicism-to-romanticism {
-    margin: 0 20px;
-    height: 390px;
-
-    &__main {
-      max-width: 570px;
-      padding: 45px 55px;
-      margin: 0 auto;
-
-      @include column-flex;
-
-      gap: 24px;
-    }
-
-    &__day {
-      justify-content: space-between;
-      max-width: 370px;
-    }
-
-    &__title {
-      text-align: start;
-      font-size: 36px;
-    }
-  }
-
-  .gallery {
-    &__container {
-      width: 100%;
-      padding: 0 20px;
-    }
-  }
-
-  $swiper-height: 583px;
-
-  .swiper {
-    height: $swiper-height;
-    width: 100%;
-
-    &-slide {
-      width: 340px!important;
-      height: calc($swiper-height - 40px)!important;
-    }
-  }
-
-  .subscribe {
-    &__title {
-      font-size: 48px;
-    }
-
-    &__subtitle {
-      line-height: 100%;
-      font-size: 19px;
-      text-align: left;
-    }
-
-    &__form {
-      gap: 16px;
-    }
-  }
-
-  .footer {
-    &__container {
-      gap: 120px;
-    }
-
-    &__info {
-      max-width: 460px;
-      gap: 64px;
-    }
-
-    &__content {
-      flex-direction: row;
-      align-items: flex-start;
-    }
-
-    &__icons {
-      flex-direction: column;
-      gap: 62px;
-    }
-
-    &__list {
-      &--navigation {
-        column-gap: 125px;
-      }
-    }
-
-    &__copyright {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    &__designed {
-      order: 2;
-    }
+  &-button-next,
+  &-button-prev {
+    top: 60%!important;
+    color: $main-green!important;
+    font-weight: 900;
   }
 }
 
-@media (min-width: 1280px) {
-  .top-bar__container,
-  .art-museum__content,
-  .current-events__container {
-    padding: 0;
+@media (min-width: 768px) {
+  .button {
+    max-width: 330px;
   }
 
-  .top-bar {
-    &__menu {
-      width: 24px;
-      background-size: cover;
-    }
-  }
+  .header {
+    height: 1092px;
 
-  .menu {
     &__container {
-      padding: 40px 0;
+      height: 100%;
+      padding: 0 40px;
+
+      @include on-tablet;
+    }
+
+    &__logo {
+      background-image: url(../images/topBar/NAMU.svg);
     }
 
     &__content {
-      gap: 100px;
-    }
-
-    &__list {
-      &--navigation {
-        height: auto;
-        max-width: 368px;
-      }
-    }
-
-    &__navigation {
-      font-size: 22px;
-      gap: 100px;
-    }
-
-    &__day-off {
-      max-width: 175px;
-      transform: translateY(0);
-    }
-
-    &__schedule {
-      grid-template-columns: repeat(2, max(175px));
-    }
-
-    &__icon-close {
-      width: 24px;
-      height: 24px;
-    }
-  }
-
-  .art-museum {
-    height: $picture-height;
-
-    &__picture {
-      height: 655px;
-      position: absolute;
-      top: 0;
-      right: 0;
-      max-height: none;
+      max-width: 569px;
     }
 
     &__title {
       font-size: 72px;
-      max-width: 470px;
     }
 
-    &__content {
-      gap: 89px;
-      align-items: flex-end;
-      padding-bottom: 0;
-      align-self: center;
+    &__subtitle {
+      max-width: 330px;
     }
 
-    &__add {
-      display: block;
+    &__image {
+      position: static;
+      align-self: flex-end;
+      grid-column: 1 / -1;
+      height: 493px ;
+      width: 443px;
+    }
+
+    &__icons {
+      gap: 44px;
+    }
+  }
+
+  .menu {
+    &__container {
+      padding: 0 40px;
+    }
+
+    &__logo  {
+      background-image: url(../images/topBar/NAMU.svg);
+    }
+
+    &__navigation {
+      font-size: 48px;
+      line-height: 120%;
+    }
+
+    &__list {
+      gap: 30px;
+    }
+
+    &__info {
+      display: flex;
+      gap: 123px;
+    }
+
+    &__image {
+      grid-column: 1 / -1;
+      background-image: url(../images/menu/boy.png);
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+      justify-self: center;
+      height: 466px;
+      width: 422px;
+    }
+
+    &__icons {
+      gap: 44px;
+    }
+  }
+
+  .exhibitions {
+    &__container {
+      display: grid;
+
+      @include on-tablet;
+    }
+
+    &__title {
+      max-width: none;
+      font-size: 40px;
+      grid-column: span 4;
+    }
+
+    &__blocks {
+      order: 3;
+      grid-column: 1 / -1;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    &__button {
+      &--white {
+        grid-column: 5 / -1;
+
+        &::after {
+          right: 25px;
+          top: 20px;
+        }
+      }
+    }
+
+    &__main {
+      gap: 40px;
+    }
+
+    &__text {
+      gap: 20px;
+    }
+
+    &__subtitle {
+      font-size: 24px;
+    }
+
+    &__info {
+      font-size: 16px;
+    }
+
+    &__item {
+      justify-content: space-between;
     }
   }
 
   .current-events {
-    margin-top: 200px;
+    margin-top: 164px;
 
-    &__picture {
-      max-width: 670px;
+    &__container {
+      display: grid;
+
+      @include on-tablet;
     }
 
-    &__block {
-      flex-direction: row;
+    &__title {
+      max-width: none;
+      font-size: 40px;
+      grid-column: span 4;
     }
 
-    &__main {
-      align-self: center;
+    &__blocks {
+      order: 3;
+      grid-column: 1 / -1;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      row-gap: 70px;
+    }
+
+    &__item {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 30px;
     }
 
-    &__content {
-      gap: 15px;
+    &__button {
+      max-width: none;
+
+      &--white {
+        grid-column: 5 / -1;
+
+        &::after {
+          right: 25px;
+          top: 20px;
+        }
+      }
+    }
+
+    &__main {
+      gap: 50px;
+    }
+
+    &__subtitle {
+      font-size: 24px;
+    }
+
+    &__info {
+      font-size: 16px;
     }
   }
 
-  .from-classicism-to-romanticism {
-    margin: 0;
-    height: 550px;
+  .plan-visit {
+    margin-top: 100px;
 
-    &__main {
-      padding: 45px 100px;
-      transform: translateY(210%);
+    &__container {
+      @include on-tablet;
+
+      row-gap: 60px;
+    }
+
+    &__content {
+      grid-column: 1 / 6;
+      gap: 20px;
+    }
+
+    &__title {
+      max-width: none;
+      font-size: 62px;
+      margin-top: 80px;
+    }
+
+    &__text {
+      max-width: 430px;
+    }
+
+    &__button {
+      margin-bottom: 80px;
+    }
+  }
+
+  .news {
+    margin-top: 100px;
+
+    &__container {
+      @include on-tablet;
+    }
+
+    &__title {
+      grid-column: 1 / 3;
+      font-size: 40px;
+    }
+
+    &__button {
+      grid-column: 5 / -1;
+
+      &::after {
+        right: 25px;
+        top: 20px;
+      }
+    }
+
+    &__blocks {
+      display: grid;
+      order: 3;
+      grid-column: 1 / -1;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    &__item {
+      transition: $all-transition;
+
+      &:hover {
+        transform: translateY(-10px);
+        border: 2px solid $main-red;
+        box-shadow: 5px 5px 2px 1px rgb(186 186 186);;
+      }
     }
   }
 
@@ -378,64 +348,243 @@ body {
     display: none!important;
   }
 
-  .gallery {
-    &__main {
-          display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    }
+  .subscribe-digest {
     &__container {
-      padding: 0;
+      @include on-tablet;
     }
-  }
 
-  .subscribe {
     &__content {
-      max-width: 570px;
-      padding: 163px 0;
+      grid-column: 1 / 6;
     }
 
-    &__subtitle {
-      text-align: center;
+    &__title {
+      font-size: 40px;
     }
 
     &__form {
+      grid-column: 1 / 5;
+    }
+  }
+
+  .footer {
+    &__container  {
+      @include on-tablet;
+    }
+
+    &__main {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__contacts {
       gap: 30px;
+    }
+
+    &__icons {
+      margin-top: 20px;
+    }
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__list {
+      gap: 10px;
+    }
+
+    &__schedule,
+    &__links {
+      gap: 30px;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .button {
+    max-width: 270px;
+  }
+
+  .header {
+    height: 800px;
+
+    &__container {
+      row-gap: 90px;
+      height: auto;
+
+      @include on-desktop;
+    }
+
+    &__top-bar {
+      padding-top: 30px;
+      height: 70px;
+    }
+
+    &__title {
+      font-size: 96px;
+    }
+
+    &__image {
+      position: absolute;
+      right: 0;
+      height: 663px;
+      width: 625px;
+      background-position: bottom;
+    }
+
+    &__main {
+      gap: 80px;
+    }
+  }
+
+  .menu {
+    &__container {
+      padding: 0;
+    }
+
+    &__main {
+      gap: 70px;
+    }
+
+    &__navigation {
+      padding-bottom: 60px;
+      max-width: 570px;
+    }
+
+    &__list {
+      gap: 60px;
+    }
+
+    &__image {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 697px;
+      width: 624px;
+    }
+
+    &__top-bar {
+      padding-top: 30px;
+    }
+  }
+
+  .exhibitions {
+    &__container   {
+      @include on-desktop;
+
+      padding: 0;
+    }
+
+    &__title {
+      font-size: 48px;
+      grid-column: span 7;
+    }
+
+    &__button {
+      grid-column: 10 / -1;
+    }
+  }
+
+  .current-events {
+    margin-top: 200px;
+
+    &__container {
+      padding: 0;
+    }
+
+    &__button {
+      &--white {
+        max-width: none;
+
+        &::after {
+          right: 85px;
+          top: 19px;
+        }
+      }
+    }
+  }
+
+  .plan-visit {
+    margin-top: 110px;
+
+    height: 800px;
+    position: relative;
+    display: flex;
+
+    &__container  {
+      @include on-desktop;
+
+      row-gap: 50px;
+      align-self: center;
+    }
+
+    &__content {
+      grid-column: 6 / -1;
+    }
+
+    &__title {
+      font-size: 80px;
+    }
+
+    &__button {
+      grid-column: 6 / -1;
+    }
+
+    &__image {
+      display: block;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  .news {
+    margin-top: 110px;
+
+    &__container {
+      @include on-desktop;
+    }
+
+    &__image {
+      max-height: 420px;
+    }
+
+    &__title {
+      font-size: 48px;
+    }
+
+    &__button {
+      grid-column: 10 / -1;
+    }
+  }
+
+  .subscribe-digest {
+    &__container {
+      @include on-desktop;
+    }
+
+    &__content {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__title {
+      font-size: 48px;
+    }
+
+    &__form {
+      gap: 40px;
     }
   }
 
   .footer {
     &__container {
-      padding: 0;
-    }
-    &__content {
-      gap: 130px;
-    }
-
-    &__info {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      max-width: none;
-      gap: 30px;
-    }
-
-    &__main {
-      border-bottom: 0;
-      border-right: 1px solid rgba(26, 90, 76, 0.5);
-      padding-right: 65px;
-      padding-bottom: 0;
-    }
-
-    &__navigation {
-      padding-left: 65px;
+      @include on-desktop;
     }
 
     &__list {
-      &--navigation {
-        column-gap: 60px;
-        max-height: 20px;
+      &--icons {
+        gap: 20px;
       }
     }
-
   }
 }
-

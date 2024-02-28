@@ -1,144 +1,105 @@
 @import '../utils';
 
-
 .footer {
-  padding: 50px 0;
+  background-color: $main-green;
+  color: $main-white;
+  margin-top: 80px;
 
-  &__container,
-  &__content,
-  &__info {
+  &__container {
+    @include grid;
+
+    gap: 60px;
+  }
+
+  &__contacts,
+  &__main,
+  &__list,
+  &__schedule,
+  &__links {
     @include column-flex;
   }
 
-  &__content,
-  &__info {
-    gap: 40px;
-  }
-
-  &__container {
-    padding: 0 20px;
-    gap: 80px;
-  }
-
-  &__socials,
-  &__icons {
-    display: flex;
-  }
-
-  &__icons {
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  &__icon,
-  &__logo {
-    transition: $main-transition;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  &__socials {
+  &__contacts {
     gap: 20px;
-  }
-
-  &__info {
-    color: $black;
-    font-family: "IBM Plex Sans", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 150%;
   }
 
   &__main {
-    display: grid;
-    column-gap: 20px;
-    grid-template-columns: repeat(2, 1fr) ;
-    padding-bottom: 25px;
-    border-bottom: 1px solid rgba(26, 90, 76, 0.5);
+    grid-column: 1 / -1;
+    gap: 50px;
+    margin-top: 30px;
   }
 
-  &__schedule {
-    @include column-flex;
-
-    gap: 15px;
-    font-size: 14px;
-    font-weight: 400;
+  &__title {
+    font-family: "Playfair Display", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
     line-height: 150%;
   }
 
-  &__schedule-main,
-  &__contacts {
-    @include column-flex;
-
-    gap: 20px;
-  }
-
-  &__bold {
-    font-weight: 600;
-  }
-
-  &__navigation {
-    display: flex;
-  }
-
   &__list {
+    font-family: Raleway, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    gap: 5px;
 
-    &--navigation {
-      display: grid;
+    &--icons {
+      flex-direction: row;
       gap: 25px;
-      grid-template-columns: repeat(2, 1fr);
     }
+  }
 
-    &--schedule {
-      @include column-flex;
-    }
+  &__schedule {
+    gap: 10px;
+  }
+
+  &__links {
+    gap: 10px;
+  }
+
+  &__copyright {
+    grid-column: 1 / -1;
+    display: flex;
+    font-size: 14px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  &__copy {
+    display: flex;
+    gap: 22px;
   }
 
   &__link {
-    transition: color 0.3s;
+    transition: $all-transition;
+    &::after {
+      background-color: $main-white;
+    }
 
     &:hover {
-      color: #b7b7b7;
+      color: #a39b9b;
+    }
+
+  }
+
+  &__image {
+    transition: $main-transition;
+
+    &:hover {
+      transform: scale(1.15);
     }
   }
 
   &__button {
-    grid-column: 2;
-    border: 1px solid $green;
-    display: block;
+    transition: $all-transition;
+    border: 1px solid transparent;
+    padding: 15px;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    position: relative;
-    transition: $main-transition;
-    justify-self: end;
 
     &:hover {
-      transform: scale(1.1);
-      border-style: dashed;
+      transform: scale(1.2);
+      border: 1px solid $main-white;
     }
   }
-
-  &__arrows {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  &__copyright {
-    @include column-flex;
-
-    gap: 10px;
-    color: $black;
-    font-family: "IBM Plex Sans", sans-serif;
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 140.63%;
-    text-align: center;
-  }
-
 }
-

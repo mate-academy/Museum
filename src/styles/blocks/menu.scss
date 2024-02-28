@@ -1,107 +1,136 @@
 @import '../utils';
 
-
 .menu {
-  background-color: $green;
   position: fixed;
+  height: 100vh;
+  overflow: auto;
+  z-index: 5;
   top: 0;
   left: 0;
   right: 0;
-  color: $white;
-  font-family: "IBM Plex Sans",sans-serif;
-  transform: translateY(-100%);
-  transition: $main-transition;
-  padding: 30px 20px;
-  z-index: 5;
+  background-color: $main-green;
+  transform: translateX(100%);
+  transition: $all-transition;
+  color: $main-white;
+  opacity: 0;
 
   &:target {
-    transform: translateY(0);
+    transform: translateX(0);
+    opacity: 1
   }
 
-  &__content {
-    gap: 20px;
-    display: grid;
+  &__container {
+    @include grid;
+
+    gap: 30px;
   }
 
-  &__navigation {
+  &__top-bar {
     display: flex;
-    gap: 33px;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    grid-column: 1 / -1;
+  }
+
+  &__logo  {
+    background-image: url(../images/topBar/logo.svg);
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 123px;
+    height: 40px;
+    transition: $main-transition;
+
+    &:hover {
+      transform: scale(.95);
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__lang {
+    color: rgb(241, 245, 244);
+    font-family: Raleway, sans-serif;
     font-size: 16px;
     font-weight: 500;
-    line-height: 100%;
-    padding-bottom: 25px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  }
-
-  &__schedule {
-    @include column-flex;
-
-    gap: 15px;
-    font-size: 14px;
-    font-weight: 400;
     line-height: 150%;
   }
 
-  &__schedule-main {
+  &__icon-close {
+    background-image: url(../images/menu/icon-close.svg);
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 25px;
+    height: 20px;
+    transition: $main-transition;
+
+    &:hover {
+      transform: scale(.95);
+    }
+  }
+
+  &__main {
+    grid-column: 1 / -1;
+    line-height: 150%;
+
+    @include column-flex;
+
+    gap: 40px;
+  }
+
+  &__info {
+    font-family: Raleway, sans-serif;
+    font-size: 14px;
+  }
+
+  &__bold {
+    font-weight: 700;
+  }
+
+  &__navigation {
+    font-family: "Playfair Display", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 40px;
+    border-bottom: 1px solid $main-white;
+  }
+
+  &__list {
     @include column-flex;
 
     gap: 20px;
   }
 
-  &__list {
-
-    &--navigation {
-      display: grid;
-      gap: 25px;
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 240px
-    }
-
-    &--schedule {
-      @include column-flex;
-    }
-  }
-
   &__link {
-    transition: color 0.3s;
+    transition: $all-transition;
 
     &:hover {
-      color: #b7b7b7;
+      color: #a39b9b;
+    }
+    &::after {
+      background-color: $main-white;
     }
   }
 
-  &__bold {
-    font-weight: 600;
+  &__button {
+    background-color: $main-red;
+    grid-column: 1 / -1;
   }
 
-
-
-  &__icon-close {
-    position: relative;
-    width: 15px;
-    height: 15px;
-    transition: $main-transition;
-
-    &::before,
-    &::after {
-      position: absolute;
-      content: '';
-      width: 120%;
-      height: 1.5px;
-      background-color: $white;
-      top: 50%;
-      left: 0;
-    }
-
-    &::before {
-      transform: rotate(45deg);
-    }
-    &::after {
-      transform: rotate(-45deg);
-    }
+  &__adress {
+    transition: $all-transition;
 
     &:hover {
-      transform: $menu-scale;
+      color: #a39b9b;
+    }
+
+    &::after {
+      background-color: $main-white;
     }
   }
 }
