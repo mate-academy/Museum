@@ -1,0 +1,245 @@
+.header{
+  --columns: 12;
+
+  margin-top: 39px;
+  margin-bottom: 200px;
+
+  display: grid;
+  column-gap: 30px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @media (max-width: 1280px){
+    --columns: 6;
+
+    margin-bottom: 88px;
+  }
+
+  @media (max-width: 768px){
+    --columns: 2;
+
+    margin-top: 9px;
+    margin-bottom: 70px;
+  }
+
+  &__bar{
+    margin-bottom: 0;
+
+    @media (max-width: 768px){
+      margin-top: 18px;
+      margin-bottom: 300px;
+    }
+
+    &--icon {
+      display: flex;
+      grid-column: span 5;
+
+      @media (max-width: 1280px){
+        grid-column: 1 / 3;
+      }
+
+      &--menu {
+        width: 24px;
+        height: 24px;
+        background-image: url(../images/baseline-menu-24px.png);
+
+        transition: transform 500ms;
+        &:hover {
+          transform: scale(1.2)
+        }
+      }
+    }
+
+    &--logo {
+      text-decoration: none;
+      color: $main-black;
+      transform: translateX(60px);
+      grid-column: 6 / 7;
+
+      @media (max-width: 1280px){
+        transform: translateX(0);
+        grid-column: 4 / 5;
+      }
+
+      @media (max-width: 768px){
+        grid-column: 2;
+      }
+
+      &--text {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 36px;
+
+        grid-column: 1 / 8;
+
+        @media (max-width: 1280px){
+          grid-column: 3 / 6;
+        }
+
+        @media (max-width: 768px){
+          font-size: 30px;
+        }
+
+        transition: transform 500ms;
+        &:hover {
+          transform: scale(1.1)
+        }
+      }
+    }
+  }
+
+  &__items {
+    grid-column: 1 / 6;
+
+    @media (max-width: 1280px){
+      grid-column: 1 / 3;
+    }
+
+    @media (max-width: 768px){
+      grid-column: 1 / -1;
+    }
+
+    &--title{
+      display: grid;
+
+      &-t {
+        &--text {
+          font-family: Montserrat, sans-serif;
+          font-size: 72px;
+          font-weight: 700;
+          margin-bottom: 89px;
+
+          @media (max-width: 1280px){
+            font-size: 50px;
+            margin-bottom: 32px;
+          }
+
+          @media (max-width: 768px){
+            font-size: 45px;
+            width: 280px;
+            margin: auto;
+            text-align: center;
+            margin-bottom: 20px;
+          }
+
+        }
+      }
+
+      &-form {
+        position: relative;
+        left: 41%;
+        width: 280px;
+        text-decoration: none;
+        margin-bottom: 150px;
+
+        @media (max-width: 1280px){
+          width: 270px;
+          left: 0;
+          grid-column: 1 / 3;
+          margin-bottom: 0;
+        }
+
+        @media (max-width: 768px){
+          margin-bottom: 0;
+          width: 100%;
+          left: 0;
+          grid-column: 1 / -1;
+        }
+
+        &--text{
+          width: 100%;
+          text-align: center;
+        }
+
+        &--button {
+          content: "";
+          flex-shrink: 0;
+          margin-left: auto;
+
+          width: 70px;
+          height: 70px;
+
+          background-image: url(../images/arrow-icon.png);
+          background-repeat: no-repeat;
+          background-color: $c-green;
+          background-position: 32px;
+
+          transition: background-position 500ms;
+        }
+
+        &--input {
+          display: flex;
+
+          justify-content: center;
+          align-items: center;
+          font-family: $ibm-font;
+          font-size: 16px;
+          font-weight: 500;
+          color: $main-black;
+          text-decoration: none;
+          border: 1px solid $c-green;
+          height: 70px;
+
+          &:hover .header__items--title-form--button{
+            background-position: 40px;
+          }
+        }
+      }
+  }
+
+    &--events {
+      display: flex;
+      width: 150px;
+      gap: 30px;
+      grid-column: 1 / 1;
+      transform-origin: 40px;
+      transform: rotate(-90deg) translate(0%, -40%);
+      align-items: center;
+      text-decoration: none;
+      color: $main-black;
+
+      @media (max-width: 1280px){
+        display: none;
+      }
+
+      &--line {
+        width: 70px;
+        height: 1px;
+        background-color: $main-black;
+      }
+
+      transition: transform 500ms;
+      &:hover {
+        transform: rotate(-90deg) translate(0%, -40%) scale(1.1)
+      }
+    }
+  }
+
+  &__bg {
+    height: 0;
+
+    &--photo {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: 55%;
+      height: 655px;
+      background-image: url(../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: -1;
+
+      @media (max-width: 1280px){
+        height: 348px;
+        background-position: bottom;
+      }
+
+      @media (max-width: 768px){
+        width: 100%;
+        background-position: top;
+      }
+    }
+  }
+
+}

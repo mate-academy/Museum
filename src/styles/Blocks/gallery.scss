@@ -1,0 +1,104 @@
+.gallery {
+  margin-bottom: 150px;
+
+  @media (max-width: 768px){
+    margin-bottom: 100px;
+  }
+  &__title {
+    grid-column: 1 / -1;
+    margin-bottom: 56px;
+  }
+
+  .swiper{
+    @media (max-width: 1280px){
+      display: flex;
+      width: 100%;
+      padding-bottom: 50px;
+    }
+  }
+  .swiper-wrapper{
+    --columns: 12;
+
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    @media (max-width: 1280px){
+      column-gap: 10px;
+    }
+  }
+
+  .swiper-slide {
+    @media (max-width: 1280px){
+      width: 330px !important;
+    }
+
+    @media (max-width: 768px){
+      width: 250px !important;
+    }
+  }
+
+  .swiper-pagination {
+    --swiper-theme-color: #1A5A4C;
+  }
+
+  .first {
+    @media (min-width: 1281px){
+      grid-column: 1 / 5;
+      height: 600px;
+    }
+  }
+  .second {
+    @media (min-width: 1281px){
+      grid-column: 5 / -1;
+      height: 600px;
+    }
+  }
+  .third {
+    @media (min-width: 1281px){
+      grid-column: 1 / 8;
+      height: 360px;
+    }
+  }
+  .fourth {
+    @media (min-width: 1281px){
+      grid-column: 8 / -1;
+      height: 360px;
+    }
+  }
+  &__swiper {
+    &--photo-1,
+    &--photo-2,
+    &--photo-3,
+    &--photo-4 {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @media (max-width: 1280px){
+        width: 340px;
+        height: 543px;
+      }
+
+      @media (max-width: 768px){
+        width: 100%;
+        height: 410px;
+      }
+    }
+
+    &--photo-1 {
+      background-image: url(../images/gallery/classical-clothes.png);
+    }
+    &--photo-2 {
+      background-image: url(../images/gallery/classical-houses.png);
+    }
+    &--photo-3 {
+      background-image: url(../images/gallery/oldschool-summer.png);
+    }
+    &--photo-4 {
+      background-image: url(../images/gallery/ink-sea.png);
+    }
+  }
+}
