@@ -1,0 +1,124 @@
+.header {
+  @include on-tablet {
+    height: 384px;
+  }
+
+  @include on-desktop {
+    height: 655px;
+  }
+
+  &__img {
+    display: block;
+    background-image: url(../images/header-img.svg);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+
+    @include on-tablet {
+      height: 374px;
+      width: 50vw;
+    }
+
+    @include on-desktop {
+      height: 655px;
+      width: 55%;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    @include grid-page;
+  }
+
+  &__top {
+    display: flex;
+    height: 24px;
+    align-items: center;
+    width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    margin-top: 27px;
+
+
+    @include on-tablet {
+      margin-top: 39px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include on-tablet {
+      transform: translateX(80px);
+    }
+
+    @include on-desktop {
+      left: 42%;
+    }
+  }
+
+  &__inform {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    gap: 20px;
+    margin-top: 269px;
+
+    @include on-tablet {
+      gap: 38px;
+      grid-column: 1 / 4;
+      margin-top: 64px;
+    }
+
+    @include on-desktop {
+      gap: 89px;
+      grid-column: 1 / 6;
+      margin-top: 143px;
+    }
+  }
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 45px;
+    text-transform: uppercase;
+    text-align: center;
+    color: $dark-title-color;
+
+    @include on-tablet {
+      font-size: 54px;
+      text-align: left;
+      line-height: 65px;
+      margin-top: 2px;
+    }
+
+    @include on-desktop {
+  font-size: 72px;
+  line-height: 86px;
+    }
+  }
+
+  &__tickets {
+    @include on-desktop {
+      align-self: flex-end;
+    }
+
+    @include hover-effect (transform, scale(1.1));
+  }
+
+  &__events {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: rotate(-0.25turn) translateX(-50%);
+  }
+}
