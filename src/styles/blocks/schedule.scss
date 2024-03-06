@@ -3,8 +3,20 @@
   margin-inline: auto;
   grid-template-columns: repeat(2,1fr);
   column-gap: 20px;
-  max-width: 280px;
+  max-width: 100%;
   position: relative;
+
+   @include on-tablet {
+    grid-template-columns: repeat(6, 1fr);
+    margin-inline: auto;
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    margin-inline: auto;
+    column-gap: 30px;
+  }
 
   @include content-padding-inline;
 
@@ -13,12 +25,24 @@
     margin: 50px 0 40px;
     width: 63px;
     grid-column: 1/1;
+
+    @include on-tablet {
+    grid-column: 1 /1;
+   }
   }
 
   &__social {
     display: flex;
     gap: 20px;
     margin: 74px 0 64px auto;
+
+    @include on-tablet {
+      margin: 0;
+      position: absolute;
+      top: 185px;
+    }
+
+    @include content-padding-inline;
   }
 
   &__fb {
@@ -31,6 +55,18 @@
     height: 24px;
   }
 
+  &__work {
+    @include on-tablet {
+      grid-column: 2 / 4;
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      margin-top: 50px;
+      grid-column: 3 / 5;
+    }
+  }
+
   &__title {
     margin: 40px 0 20px;
     color: #0f0e08;
@@ -39,6 +75,15 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+
+    @include on-tablet {
+      margin: 50px 0 20px;
+      // line-height: 140.63%;
+    }
+
+    @include on-desktop {
+      margin: 0 0 20px;
+    }
   }
 
   &__days {
@@ -53,6 +98,25 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 150%;
+
+    @include on-desktop {
+      font-weight: 600;
+    }
+  }
+
+  &__contacts {
+    @include on-tablet {
+      grid-column: 4 / -2;
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      height: 260px;
+      padding-right: 65px;
+      margin-top: 50px;
+      border-right: 1px solid rgba(26, 90, 76, .5);
+      grid-column: 5 / 8;
+    }
   }
 
   &__time {
@@ -61,11 +125,13 @@
 
   &__day--p {
   margin: 30px 0 0;
+  list-style-type: none;
   }
 
   &__adresses {
-        margin: 0;
+    margin: 0;
     padding: 0;
+    list-style-type: none;
   }
 
   &__adres {
@@ -81,6 +147,11 @@
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+
+     &:hover {
+      color: #f14a27;
+      // transition: all 0.5s;
+    }
   }
 
   &__line {
@@ -89,27 +160,76 @@
     margin: 70px 0 40px;
     grid-column: 1/-1;
 
+    @include on-tablet {
+      margin: 64px 0;
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
   }
 
   &__gallery {
     padding-bottom: 20px;
     grid-column: 1/1;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      margin-top: 50px;
+      padding: 0;
+      grid-column: 9 / 11;
+      grid-row: 1;
+    }
   }
 
   &__about-us {
     padding-bottom: 20px;
     grid-column: 2/2;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include on-desktop {
+      margin-top: 50px;
+      padding: 0;
+      grid-column: 11 / 12;
+      grid-row: 1;
+    }
   }
 
   &__events {
     grid-column: 1/1;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      margin-top: 80px;
+      grid-column: 9 / 11;
+      grid-row: 1;
+    }
   }
 
   &__contact {
     grid-column: 2/2;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include on-desktop {
+      margin-top: 80px;
+      grid-column: 11 / 12;
+      grid-row: 1;
+    }
   }
   &__link {
-    all: initial;
     color: #0f0e08;
     font-family: 'IBM Plex Sans',sans-serif;
     font-size: 14px;
