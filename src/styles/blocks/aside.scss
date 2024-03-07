@@ -1,15 +1,9 @@
 .aside {
-      // background-color: #1a5a4c;
-      // max-height: 0;
-      // overflow: auto;
-      // z-index: 5;
-      // transition: max-height .3s ease-in-out,opacity .3s ease-in-out;
-
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: #1a5a4c;
+  background-color: $green-page-color;
   opacity: 0;
   pointer-events: none;
 
@@ -22,21 +16,21 @@
     pointer-events: all;
    }
 
-     @include on-tablet {
-        display: flex;
-      }
+    @include on-tablet {
+      display: flex;
+    }
 
-    &__content {
-      color: #fff;
-      grid-template-columns: repeat(2,1fr);
-      column-gap: 20px;
-      padding: 27px 20px;
-      font-family: 'IBM Plex Sans',sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 150%;
-      display: grid;
-      position: relative;
+  &__content {
+    color: $white-text-color;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 20px;
+    padding: 27px 20px;
+    font-family: 'IBM Plex Sans',sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    display: grid;
+    position: relative;
 
     @include on-tablet {
       grid-template-columns: repeat(6,1fr);
@@ -45,25 +39,25 @@
     }
   }
 
-    &__top {
-      display: flex;
-      gap: 28px;
-      grid-column: 1/-1;
+  &__top {
+    display: flex;
+    gap: 28px;
+    grid-column: 1/-1;
 
-      @include on-tablet {
-        margin-top: 40px;
-        height: 145px;
-        grid-column: 1/4;
-      }
+    @include on-tablet {
+      margin-top: 40px;
+      height: 145px;
+      grid-column: 1/4;
     }
+  }
 
-    &__menu {
-      grid-column: 1/-1;
-      grid-template-rows: min-content;
-      grid-template-columns: repeat(2,100px);
-      gap: 24px 28px;
-      margin-left: auto;
-      display: grid;
+  &__menu {
+    grid-column: 1/-1;
+    grid-template-rows: min-content;
+    grid-template-columns: repeat(2,100px);
+    gap: 24px 28px;
+    margin-left: auto;
+    display: grid;
 
       @include on-tablet {
         grid-area: 1 / 1/-1 / 4;
@@ -75,88 +69,82 @@
         grid-column: 2/6;
         row-gap: 30px;
       }
-
     }
 
-    &__close-icon {
-      background-image: url(../images/icons/icon--close.svg);
-      background-repeat: no-repeat;
-      width: 24px;
-      height: 24px;
-    }
-    &__titles {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
+  &__close-icon {
+    background-image: url(../images/icons/icon--close.svg);
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__titles {
+    color: $white-text-color;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
+    @include on-tablet {
       font-size: 16px;
-      line-height: 100%;
-
-       @include on-tablet {
-          font-size: 16px;
-      }
     }
+  }
 
-    &__line {
-      background-color: rgba(255, 255, 255, 0.5);
-      height: 1px;
-      grid-column: 1/-1;
-      margin-bottom: 24px;
+  &__line {
+    background-color: $line-text-color;
+    height: 1px;
+    grid-column: 1/-1;
+    margin-bottom: 24px;
 
-       @include on-tablet {
-        display: none;
-      }
+    @include on-tablet {
+      display: none;
     }
+  }
 
-    &__work {
-      grid-column: 1/-1;
-      margin: 0 20px;
+  &__work {
+    grid-column: 1/-1;
+    margin: 0 20px;
 
-      @include on-tablet {
-        grid-column: 4/-2;
-        grid-row: 1;
-        margin: 40px 0;
-      }
-
-      // @include on-desktop {
-
-      // }
-
+    @include on-tablet {
+      grid-column: 4/-2;
+      grid-row: 1;
+      margin: 40px 0;
     }
+  }
 
-    &__text {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 400;
-      font-family: 'IBM Plex Sans',sans-serif;
+  &__text {
+    text-decoration: none;
+    color: $white-text-color;
+    font-weight: 400;
+    font-family: 'IBM Plex Sans',sans-serif;
+  }
+
+  &__title {
+    margin: 0 0 20px;
+
+  }
+
+   &__days {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__time {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  &__p {
+    margin: 16px 0 27px 20px;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 5/-1;
+      grid-row: 1;
+      margin: 80px 0 0 40px;
     }
-
-    &__title {
-      margin: 0 0 20px;
-
-    }
-
-    &__days {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    &__time {
-      font-weight: 600;
-      font-size: 14px;
-    }
-
-    &__p {
-      margin: 16px 0 27px 20px;
-      grid-column: 1/-1;
-
-
-      @include on-tablet {
-        grid-column: 5/-1;
-        grid-row: 1;
-        margin: 80px 0 0 40px;
-      }
-    }
+  }
 }
 
 
