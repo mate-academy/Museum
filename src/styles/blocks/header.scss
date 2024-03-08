@@ -121,8 +121,10 @@
   }
 
   &__tickets-link {
-    display: flex;
+    display: inline-flex;
     height: 50px;
+    width: 230px;
+    grid-column: 1 / -1;
     border: 1px solid $green-page-color;
     align-items: center;
     text-decoration: none;
@@ -132,6 +134,14 @@
     font-weight: 500;
     padding-left: 100px;
     position: relative;
+
+    @include on-tablet {
+      width: 68px;
+    }
+    &:hover {
+      background-color: $green-page-color;
+      color: #fff
+    }
 
     &::after {
       content: "";
@@ -146,6 +156,10 @@
       position: absolute;
       right: 0;
       top:  0;
+
+    &:hover {
+      transform: translate(30px)
+    }
 
       @include on-tablet {
         height: 70px;
