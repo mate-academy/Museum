@@ -1,0 +1,41 @@
+.page {
+  min-width: 320px;
+  max-width: 1440px;
+  margin: auto;
+
+  scroll-behavior: smooth;
+  transition: all $effect-duration;
+
+  font-family: $main-font-family;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: $main-text-color;
+
+  &__body {
+    background: $page-bg-color;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: all $effect-duration;
+    transform: translateY(-100%);
+
+    opacity: 0;
+    pointer-events: none;
+
+    &:target {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &:has(&__menu:target) {
+    overflow: hidden;
+  }
+}
