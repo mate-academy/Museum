@@ -1,0 +1,87 @@
+.art-museum {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+
+  @include on-tablet {
+    padding-top: 127px;
+  }
+
+  @include on-desktop {
+    padding-top: 206px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 38px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 89px;
+    }
+  }
+
+  &__ticket-link {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    height: 50px;
+    width: 100%;
+    border: 1px solid $art-museum-b-c;
+    font-size: 16px;
+    font-weight: 500;
+    color: #0F0E08;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 50px;
+
+    @include on-tablet {
+      grid-template-columns: 1fr 70px;
+      max-width: 270px;
+      height: 70px;
+      line-height: 70px;
+    }
+
+    @include on-desktop {
+      align-self: flex-end;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: $art-museum-b-c;
+      background-image: url(../images/icons/artmuseum-bt-arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  &__event {
+    position: relative;
+    left: -14px;
+    display: none;
+    width: fit-content;
+    font-size: 14px;
+    color: $art-museum-event-c;
+    text-align: left;
+    text-transform: uppercase;
+    line-height: 14px;
+    transform: rotate(-90deg);
+
+    @include on-desktop {
+      display: flex;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: -90px;
+      display: block;
+      width: 70px;
+      height: 1px;
+      background-color: $art-museum-b-c;
+    }
+  }
+}

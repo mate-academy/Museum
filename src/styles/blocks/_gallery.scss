@@ -1,0 +1,72 @@
+.gallery {
+  padding-inline: 20px;
+  overflow-x: hidden;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  &__title {
+    padding-block: 40px;
+
+    @include on-tablet {
+      padding-block: 0 48px;
+    }
+  }
+
+  &__img-block {
+    display: flex;
+    column-gap: 20px;
+    height: 410px;
+    transition: transform $effect-duration ease-in-out;
+
+    @media (width >= $gallery-width) {
+      height: 480px;
+    }
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 543px;
+    }
+  }
+
+  &__img {
+    display: block;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    @include on-tablet {
+      min-width: 340px;
+      grid-row: 1;
+    }
+  }
+
+  &__btn-block {
+    display: flex;
+    justify-content: center;
+    column-gap: 22px;
+    padding-block: 20px 100px;
+  }
+
+  &__btn {
+    width: $gallery-btn-w;
+    height: $gallery-btn-h;
+    border-radius: 50%;
+    background-color: $gallery-btn-c;
+    cursor: pointer;
+
+    &--active {
+      background-color: $gallery-btn-active-c;
+    }
+
+    @include on-tablet {
+      &:nth-child(n + 3) {
+        display: none;
+      }
+    }
+  }
+}
