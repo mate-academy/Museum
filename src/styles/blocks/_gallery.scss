@@ -29,6 +29,15 @@
       grid-template-columns: repeat(4, 1fr);
       height: 543px;
     }
+
+    @include on-desktop {
+      @include page-grid;
+
+      grid-template-rows: 600px 360px;
+      row-gap: 30px;
+      height: auto;
+      margin-bottom: 200px;
+    }
   }
 
   &__img {
@@ -39,9 +48,45 @@
     object-fit: cover;
     object-position: center;
 
+    @include hover(transform, scale(1.05));
+
     @include on-tablet {
       min-width: 340px;
       grid-row: 1;
+    }
+
+    &--first {
+      @include on-desktop {
+        grid-column: 1 / 5;
+        grid-row: 1;
+      }
+    }
+
+    &--second {
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    &--third {
+      @include on-desktop {
+        grid-row: 1;
+        grid-column: 5 / -1;
+      }
+    }
+
+    &--fourth {
+      @include on-desktop {
+        grid-row: 2;
+        grid-column: 1 / 9;
+      }
+    }
+
+    &--fifth {
+      @include on-desktop {
+        grid-row: 2;
+        grid-column: span 4;
+      }
     }
   }
 
@@ -50,6 +95,10 @@
     justify-content: center;
     column-gap: 22px;
     padding-block: 20px 100px;
+
+    @include on-desktop {
+      display: none;
+    }
   }
 
   &__btn {

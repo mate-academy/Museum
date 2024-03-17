@@ -3,11 +3,26 @@
     @include page-grid;
   }
 
+  &__container {
+    @include on-tablet {
+      @include page-grid;
+
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: -5 / -1;
+      padding-block: 159px;
+    }
+  }
+
   &__photo {
     width: 100%;
     padding-bottom: 20px;
     object-fit: cover;
     object-position: center;
+
+    @include hover(transform, scale(1.01));
 
     @include on-tablet {
       grid-column: 1 / -1;
@@ -16,6 +31,8 @@
 
     @include on-desktop {
       grid-column: 1 / 8;
+      height: 520px;
+      padding-bottom: 0;
     }
   }
 
@@ -72,11 +89,16 @@
       height: 10px;
       background-color: $current-event-title-after-c;
       transform: translateY(2px);
+      transition: $effect-duration;
 
       @include on-tablet {
         width: 15px;
         height: 15px;
       }
+    }
+
+    &:hover::after {
+      transform: rotate(45deg);
     }
   }
 
@@ -89,6 +111,10 @@
     @include on-tablet {
       grid-column: 1 / -3;
       font-weight: 300;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / -1;
     }
   }
 }

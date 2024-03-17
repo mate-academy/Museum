@@ -35,6 +35,28 @@
     text-align: center;
     text-transform: uppercase;
     line-height: 50px;
+    transition: $effect-duration ease-out;
+
+    &:hover {
+      background-color: $art-museum-b-c;
+      border-radius: 20px;
+      color: #FFF;
+      overflow: hidden;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: $art-museum-b-c;
+      background-image: url(../images/icons/artmuseum-bt-arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: $effect-duration ease-in;
+    }
+
+    &:hover::after {
+      background-position: left;
+    }
 
     @include on-tablet {
       grid-template-columns: 1fr 70px;
@@ -45,15 +67,6 @@
 
     @include on-desktop {
       align-self: flex-end;
-    }
-
-    &::after {
-      content: "";
-      display: block;
-      background-color: $art-museum-b-c;
-      background-image: url(../images/icons/artmuseum-bt-arrow.svg);
-      background-repeat: no-repeat;
-      background-position: center;
     }
   }
 

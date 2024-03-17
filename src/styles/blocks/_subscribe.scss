@@ -12,10 +12,13 @@
     padding-block: 88px;
 
     @include on-tablet {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      column-gap: 20px;
+      @include page-grid;
+
       padding-block: 82px;
+    }
+
+    @include on-desktop {
+      padding-block: 163px;
     }
   }
 
@@ -55,12 +58,26 @@
       column-gap: 20px;
       height: 70px;
     }
+
+    @include on-desktop {
+      grid-column: 4 / -4;
+      column-gap: 30px;
+    }
   }
 
   &__email {
     padding-left: 24px;
     border: 1px solid transparent;
     outline: none;
+    transition: all $effect-duration;
+
+    &:hover {
+      border-radius: 20px;
+      &::placeholder {
+        color: $subscribe-btn-c;
+        opacity: 0.5;
+      }
+    }
   }
 
   &__button {
@@ -70,5 +87,10 @@
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+    transition: $effect-duration;
+
+    &:hover {
+      border-radius: 20px;
+    }
   }
 }
