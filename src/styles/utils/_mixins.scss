@@ -5,14 +5,18 @@
   }
 }
 
-@mixin image-hover {
+@mixin float-hover(
+  $height: 10px,
+  $shadow-blur: 10px,
+  $color: rgba(0, 0, 0, 0.4)
+) {
   transition:
     transform $transition-time,
-    box-shadow $transition-time;
+    filter $transition-time;
 
   &:hover {
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
-    transform: translateY(-10px);
+    filter: drop-shadow(0 $height $shadow-blur $color);
+    transform: translateY(-$height);
   }
 }
 
