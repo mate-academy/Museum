@@ -1,0 +1,72 @@
+.gallery {
+  margin-top: 193px;
+
+  @include on-tablet {
+    margin-top: 208px;
+  }
+
+  @include on-desktop {
+    margin-top: 300px;
+  }
+
+  &__title {
+    font-family: $second-font-family;
+    font-size: 36px;
+    line-height: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 48px;
+      text-align: left;
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__image {
+    border-radius: 50px;
+    height: 410px;
+    object-fit: cover;
+
+    @include on-tablet {
+      height: 543px;
+    }
+
+    @include on-desktop {
+      height: 650px;
+    }
+  }
+
+  &__photos {
+    display: flex;
+  }
+
+  &__panel {
+    cursor: pointer;
+    flex: 0.5;
+    margin: 0 5px;
+    transition: flex $transition-time ease-in-out;
+    overflow: hidden;
+
+    &:nth-child(3) .gallery__image {
+      object-position: 75% top;
+
+      @include on-desktop {
+        object-position: 75% bottom;
+      }
+    }
+  }
+
+  &__panel.active {
+    flex: 5;
+
+    @include on-desktop {
+      flex: 4;
+    }
+  }
+}
