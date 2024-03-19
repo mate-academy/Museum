@@ -1,6 +1,8 @@
 .menu {
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
 
   opacity: 0;
   pointer-events: none;
@@ -26,6 +28,14 @@
 
     background-color: #1a5a4c;
     padding-block: 27px;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+
+    @include on-desktop {
+      gap: 102px;
+    }
   }
 
   &__top-container {
@@ -37,6 +47,14 @@
   &__close-button {
     height: 24px;
     transform: translateY(-4px);
+
+    @include on-tablet {
+      margin-right: 38px;
+    }
+
+    @include on-tablet {
+      margin-right: 102px;
+    }
   }
 
   &__links-container {
@@ -55,6 +73,11 @@
     grid-column: 1 / -1;
     height: 1px;
     background-color: #fff;
+
+    @include on-tablet {
+      width: 1px;
+      height: auto;
+    }
   }
 
   &__schelude-container {
@@ -63,10 +86,30 @@
     gap: 20px;
   }
 
+  &__schelude-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: end;
+      gap: 26px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
   &__schelude-entry {
+    margin-right: 20px;
     font-size: 14px;
     line-height: 20px;
     color: #fff;
+    flex-basis: 50%;
   }
 
   &__background {

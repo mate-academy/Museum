@@ -3,7 +3,19 @@
 
   box-sizing: border-box;
   padding-block: 88px;
-  background-image: url(../images/subscription-background.png);
+  background-image: url(../images/subscription-background-mobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @include on-tablet {
+    background-image: url(../images/subscription-background-tablet.png);
+  }
+
+  @include on-desktop {
+    margin: 0;
+    background-image: url(../images/subscription-background-desktop.png);
+  }
 
   &__title {
     margin: 0;
@@ -12,6 +24,10 @@
     font-weight: 700;
     text-align: center;
     color: #fff;
+
+    @include on-desktop {
+      font-size: 48px;
+    }
   }
 
   &__subtitle {
@@ -31,12 +47,24 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #fff;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      height: 70px;
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 10;
+    }
   }
 
   &__input-field {
-    margin-left: 24px;
-    font-family: Montserrat;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    padding-left: 24px;
+    font-family: inherit;
     font-size: 14px;
     line-height: 14px;
     border: none;

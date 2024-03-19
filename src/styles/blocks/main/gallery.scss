@@ -10,6 +10,11 @@
     font-size: 36px;
     font-weight: 700;
     text-align: center;
+
+    @include on-tablet {
+      text-align: left;
+      font-size: 48px;
+    }
   }
 
   &__images {
@@ -26,6 +31,45 @@
     &::-webkit-scrollbar {
       display: none;
     }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__images-grid {
+    @include page-grid;
+
+    display: none;
+
+    @include on-desktop {
+      display: grid;
+      grid-template:
+        'a b b'
+        'a b b'
+        'c c d';
+      gap: 30px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    &--tall {
+      grid-area: a;
+    }
+
+    &--square {
+      grid-area: b;
+    }
+
+    &--wide {
+      grid-area: c;
+    }
+
+    &--small-quare {
+      grid-area: d;
+    }
   }
 
   &__dots {
@@ -34,6 +78,10 @@
     display: flex;
     justify-content: center;
     gap: 22px;
+
+    @include on-desktop {
+      display: none;
+    }
   }
 
   &__dot {
