@@ -1,7 +1,18 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-time;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin imageHover {
+  transition:
+    transform $transition-time,
+    box-shadow $transition-time;
+
+  &:hover {
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
+    transform: translateY(-10px);
   }
 }
 
