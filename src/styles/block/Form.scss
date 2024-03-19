@@ -1,0 +1,83 @@
+.form {
+  display: flex;
+  max-width: 280px;
+  margin-inline: auto;
+
+  @include on-tablet {
+    max-width: 460px;
+    justify-content: space-between;
+  }
+
+  @include on-desktop {
+    max-width: 570px;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    width: 230px;
+    height: 50px;
+    border-radius: 0;
+    background-color: white;
+    border: none;
+    padding: 18px 0 18px 24px;
+
+    @include on-tablet {
+      width: 374px;
+      height: 70px;
+      padding-block: 28px;
+    }
+
+    @include on-desktop {
+      width: 470px;
+    }
+
+    &:focus {
+      border: 1px solid #F14A27;
+      border-right: 1px solid white;
+      outline: none;
+      padding: 17px 0 17px 23.2px;
+
+      @include on-tablet {
+        border: 1px solid #F14A27;
+        padding-block: 27px;
+      }
+    }
+  }
+
+  &__button {
+    padding: 0;
+    height: 50px;
+    width: 50px;
+    border: none;
+    background-image: url(../images/icons/item-submit.png);
+    background-color: #F14A27;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:hover {
+      background-color: #da3e1f;
+    }
+
+    &:focus {
+      animation-name: move;
+      animation-duration: 0.5s;
+      animation-iteration-count: 2;
+      animation-direction: alternate;
+    }
+
+    @include on-tablet {
+      height: 70px;
+      width: 70px;
+    }
+  }
+}
+
+@keyframes move {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(20px);
+  }
+}

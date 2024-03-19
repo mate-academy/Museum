@@ -1,0 +1,155 @@
+.header{
+  position: relative;
+  margin-bottom: 70px;
+
+  @include on-tablet{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 88px;
+  }
+
+  @include on-desktop{
+    margin-bottom: 200px;
+  }
+
+  &__content{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding: 9px 20px 0;
+    background-image: url(../images/header-photo.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    width: 100%;
+
+    @include on-tablet{
+      height: 384px;
+      padding: 12px 0 0;
+      justify-content: left;
+    }
+
+    @include on-desktop{
+      height: 665px;
+      padding: 15px 0 0;
+    }
+  }
+
+   &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Montserrat, sans-serif;
+    text-decoration: none;
+    color: #0F0E08;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 30px;
+    height: 61px;
+    width: 55px;
+    transition: 0.2s;
+
+    @include on-tablet {
+      width: 220px;
+      height: 72px;
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    @include on-desktop {
+      width: 170px;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__icon {
+    background-image: url(../images/icons/vector.png);
+    background-size: 18px 12px;
+  }
+
+  &__title {
+    padding-inline: 20px;
+
+    @include on-tablet {
+      padding-left: 34px;
+      padding-top: 107px;
+    }
+
+    @include on-desktop {
+      padding: 206px 30px 0 55px;
+    }
+  }
+
+  &__first-title {
+    margin-block: 20px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 54px;
+      line-height: 64.8px;
+      text-align: left;
+      width: 340px;
+      margin-bottom: 38px;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+      line-height: 86.4px;
+      width: 470px;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__actual{
+    position: relative;
+    font-family: IBMPlexSans, sans-serif;
+    font-size: 14px;
+    color: #687480;
+  }
+
+  &__actual::before {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 63px;
+    bottom: 8px;
+    height: 1px;
+    width: 70px;
+    background-color: #1A5A4C;
+
+    transition: all 1s;
+  }
+
+  &__icon-actual{
+    display: none;
+    justify-content: right;
+    align-items: center;
+    text-decoration: none;
+    width: 133px;
+    height: 14px;
+    position: absolute;
+    left: 69px;
+    bottom: 0;
+    transform: rotate(270deg);
+    transform-origin: bottom left;
+
+    @include on-desktop {
+      display: flex;
+    }
+
+    &:hover {
+      .header__actual::before {
+        right: 53px;
+        width: 80px;
+      }
+    }
+  }
+
+}
