@@ -1,0 +1,135 @@
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+
+  transition:
+    opacity $transition-time,
+    visibility $transition-time;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    visibility: visible;
+  }
+
+  &__container {
+    @include page-grid;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    background-color: $green-color;
+    padding-block: 27px;
+
+    z-index: 2;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+
+    @include on-desktop {
+      gap: 102px;
+    }
+  }
+
+  &__top-container {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__close-button {
+    height: 24px;
+    margin-top: -4px;
+
+    @include float-hover(2px, 4px, rgba(255, 255, 255, 0.4));
+
+    @include on-tablet {
+      margin-right: 38px;
+    }
+
+    @include on-tablet {
+      margin-right: 102px;
+    }
+  }
+
+  &__links-container {
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+
+    @include float-hover(2px, 4px, rgba(255, 255, 255, 0.4));
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+  }
+
+  &__line {
+    grid-column: 1 / -1;
+    height: 1px;
+    background-color: #fff;
+
+    @include on-tablet {
+      width: 1px;
+      height: auto;
+    }
+  }
+
+  &__schelude-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__schelude-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: end;
+      gap: 26px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__schelude-entry {
+    margin-right: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    flex-basis: 50%;
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    height: 120vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+}
