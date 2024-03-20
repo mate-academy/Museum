@@ -1,0 +1,81 @@
+$width: calc(100% + 20px);
+
+.header {
+  &__content {
+    position: relative;
+    margin-bottom: 70px;
+
+    @include on-table {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    width: 120%;
+    right: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 300px;
+    padding-top: 9px;
+    background-image: url(../images/header-background.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include on-table {
+      position: relative;
+      justify-content: start;
+      right: -55px;
+      min-height: 384px;
+      width: 50%;
+      padding-top: 15px;
+    }
+
+    @include on-desktop {
+      right: -94px;
+      width: 60%;
+      min-height: 665px;
+    }
+  }
+
+  &__logo {
+    color: $color-dark;
+    font-family: $font-montserrat;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include on-table {
+      margin-left: 100px;
+    }
+
+    @include on-desktop {
+      font-size: 36px;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 27px;
+    z-index: 2;
+
+    @include on-table {
+      top: 39px;
+      left: 0;
+    }
+
+    @include on-desktop {
+      left: 0;
+    }
+  }
+}
