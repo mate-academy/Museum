@@ -7,7 +7,6 @@
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  z-index: 1;
 
   transition:
     opacity $transition-time,
@@ -22,12 +21,16 @@
   &__container {
     @include page-grid;
 
+    position: relative;
+
     display: flex;
     flex-direction: column;
     gap: 24px;
 
     background-color: $green-color;
     padding-block: 27px;
+
+    z-index: 2;
 
     @include on-tablet {
       flex-direction: row;
@@ -68,9 +71,14 @@
 
   &__link {
     text-decoration: none;
+    font-weight: 500;
     color: #fff;
 
     @include float-hover(2px, 4px, rgba(255, 255, 255, 0.4));
+
+    @include on-desktop {
+      font-size: 22px;
+    }
   }
 
   &__line {
@@ -123,6 +131,6 @@
     width: 100%;
     opacity: 40%;
     background-color: #000;
-    z-index: -1;
+    z-index: 1;
   }
 }
