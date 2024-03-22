@@ -1,0 +1,97 @@
+.footer {
+  margin-block: 50px;
+
+  @include grid(2, 6, 12);
+
+  &__links {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      grid-column: 1 / 1;
+      flex-direction: column;
+      gap: 62px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__line {
+    height: 1px;
+    background-color: $c-green;
+    width: 100%;
+    grid-column: 1 / -1;
+    margin: 20px 0 40px;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      grid-row: 1;
+      grid-column: 7;
+      justify-self: center;
+      height: 100%;
+      width: 1px;
+    }
+  }
+}
+
+.move-top {
+  width: 50px;
+  height: 50px;
+  border: 1px solid $c-green;
+  background-image: url(../images/icon/arrow-up.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  justify-self: end;
+  grid-column: 2;
+  transition: $effectDuration;
+
+  &:hover {
+    @include scale;
+  }
+
+  &--a {
+    display: block;
+    width: 50px;
+    height: 50px;
+  }
+
+  @include on-tablet {
+    grid-column: 5;
+  }
+
+  @include on-desktop {
+    grid-column: 12;
+  }
+}
+
+.rights {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  grid-column: 1 / -1;
+  font-size: 12px;
+  color: $c-black-text;
+  gap: 10px;
+
+  @include on-tablet {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  &__copy, &__design {
+    font-weight: 300;
+  }
+}
