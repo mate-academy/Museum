@@ -1,0 +1,154 @@
+.header {
+  @include grid-container;
+  row-gap: 20px;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+
+  &__title-wrapper {
+    grid-row: 2;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-row: 1;
+      grid-column: span 3;
+      align-self: end;
+    }
+
+    @include on-desktop {
+      grid-column: span 5;
+    }
+  }
+
+  &__img img {
+    object-position: center;
+  }
+
+  &__img {
+    grid-row: 1;
+    grid-column: span 2;
+    margin-inline: calc(0px - var(--padding-inline));
+    min-height: 300px;
+    background: bottom / cover no-repeat
+      url('../images/pictures/main/main-m.png');
+
+    @include on-tablet {
+      grid-column: span 3;
+      margin-left: 0;
+      margin-right: -25vw;
+      min-height: 384px;
+    }
+
+    @include on-desktop {
+      background: bottom / cover no-repeat
+        url('../images/pictures/main/main.png');
+      grid-column: span 7;
+
+      min-height: 765px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    line-height: 120%;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      text-align: left;
+    }
+
+    @include on-desktop {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__logo {
+    width: 55px;
+    height: 61px;
+    display: block;
+    margin: 9px auto 0;
+
+    @include on-tablet {
+      margin: 15px 0 0 80px;
+    }
+
+    @include on-desktop {
+      margin-left: 70px;
+    }
+  }
+
+  &__menu-open {
+    display: flex;
+
+    position: absolute;
+    left: var(--padding-inline);
+    top: 27px;
+    width: 24px;
+
+    cursor: pointer;
+
+    @include on-tablet {
+      top: 45px;
+      left: 38px;
+    }
+
+    @include on-desktop {
+      left: 58px;
+      top: 47px;
+    }
+  }
+
+  &__menu-open:hover .menu-vector {
+    d: path(
+      'M0 11C0 11.5523 0.447715 12 1 12H8C8.55229 12 9 11.5523 9 11C9 10.4477 8.55229 10 8 10H1C0.447715 10 0 10.4477 0 11ZM0 6C0 6.55228 0.447715 7 1 7H17C17.5523 7 18 6.55228 18 6C18 5.44772 17.5523 5 17 5H1C0.447716 5 0 5.44772 0 6ZM1 0C0.447715 0 0 0.447715 0 1C0 1.55228 0.447715 2 1 2H12C12.5523 2 13 1.55228 13 1C13 0.447715 12.5523 0 12 0H1Z'
+    );
+  }
+
+  &__working-hours {
+    @include on-tablet {
+      padding-left: 38px;
+    }
+
+    @include on-desktop {
+      padding-left: 102px;
+    }
+  }
+
+  &__actions {
+    text-transform: uppercase;
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: relative;
+      left: -60px;
+      bottom: 50px;
+      color: $secondary;
+      width: 135px;
+      font-size: 14px;
+      transform: rotate(-90deg);
+      text-align: right;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 70px;
+        height: 1px;
+        left: 0;
+        top: 50%;
+        background-color: $secondary;
+      }
+    }
+  }
+
+  &__button {
+    @include on-tablet {
+      margin-bottom: 24px;
+    }
+    @include on-desktop {
+      margin-left: auto;
+      margin-right: var(--padding-inline);
+      margin-bottom: 128px;
+    }
+  }
+}

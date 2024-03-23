@@ -1,0 +1,116 @@
+.event {
+  display: grid;
+  grid-template-columns: 280px;
+  justify-content: center;
+
+  @include on-tablet {
+    @include grid-container;
+
+    row-gap: 40px;
+  }
+
+  &__img {
+    height: 210px;
+
+    @include on-tablet {
+      height: 520px;
+      grid-column: span 6;
+    }
+
+    @include on-desktop {
+      height: 520px;
+      grid-column: span 7;
+    }
+  }
+
+  &__img img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__wrapper {
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / span 4;
+      align-self: center;
+    }
+  }
+
+  &__data {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      margin-bottom: 15px;
+      justify-content: flex-start;
+      font-size: 14px;
+    }
+  }
+
+  &__data-event {
+    text-transform: uppercase;
+    font-weight: 100%;
+    color: $secondary;
+
+    @include on-tablet {
+      padding-right: 30px;
+    }
+  }
+
+  &__data-value {
+    font-weight: 700;
+    line-height: 150%;
+    color: $green;
+  }
+
+  &__name {
+    @include secondary-font;
+    display: inline-block;
+    margin-bottom: 10px;
+    text-align: left;
+    position: relative;
+
+    @include on-tablet {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__name::after {
+    content: '';
+    position: absolute;
+    top: 35%;
+    right: -20px;
+    height: 10px;
+    width: 10px;
+    background-color: $orange;
+
+    @include on-tablet {
+      top: 25%;
+      width: 15px;
+      height: 15px;
+      right: -30px;
+    }
+
+    @include on-desktop {
+      top: 35%;
+    }
+  }
+
+  &__description {
+    line-height: 150%;
+    font-weight: 300;
+
+    @include on-tablet {
+      width: 460px;
+    }
+
+    @include on-desktop {
+      width: 100%;
+    }
+  }
+}

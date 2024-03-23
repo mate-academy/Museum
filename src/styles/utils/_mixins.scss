@@ -4,3 +4,38 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin secondary-font {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+}
+
+@mixin on-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin grid-container {
+  --column-count: 2;
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), 130px);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --column-count: 6;
+    grid-template-columns: repeat(var(--column-count), 90px);
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    --column-count: 12;
+    grid-template-columns: repeat(var(--column-count), 70px);
+  }
+}
