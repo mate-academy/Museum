@@ -1,0 +1,50 @@
+.galery {
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__wrapper {
+    height: 410px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  &__slider {
+    @include grid-container;
+
+    justify-content: center;
+    grid-template-rows: 410px;
+    grid-auto-rows: 410px;
+    gap: 20px;
+    transition: transform var(--transition);
+  }
+
+  &__slide {
+    grid-column: span 2;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity var(--transition);
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+  }
+
+  &__slide-img {
+    object-fit: contain;
+    object-position: center;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  &__dots-for-slider {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.active-slide {
+  opacity: 1;
+}
