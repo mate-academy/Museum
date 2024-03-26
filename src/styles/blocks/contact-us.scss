@@ -1,0 +1,173 @@
+.contact-us {
+  display: grid;
+
+  @include onTablet {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: min-content 1fr 1fr;
+    grid-column-gap: 0;
+  }
+
+  &__image-side {
+    display: none;
+
+    @include onDesktop {
+      display: inherit;
+      background-image: url(../images/img_Desktop/contact-us-side.svg);
+      background-size: cover;
+      height: 132px;
+      width: 18px;
+      margin-right: 82px;
+      grid-column: 1 / 2;
+      grid-row: 1 / 5;
+    }
+  }
+
+  &__image {
+    @include onTablet {
+      background-image: url(../images/img_Table/image_for_contact-form.svg);
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      background-position: 50%;
+      grid-row: 5 / -1;
+      grid-column: 2 / -1;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/img_Desktop/contact-us-desktop.svg);
+      grid-column: 3 / -1;
+    }
+  }
+
+  &__text-block {
+    @include onDesktop {
+      width: 380px;
+    }
+
+    &--title {
+      @include titleDefault;
+
+      @include onTablet {
+        grid-column: 1 / 2;
+      }
+
+      @include onDesktop {
+        grid-column: 2 / 3;
+        margin-bottom: 30px;
+      }
+    }
+
+    &--text {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      width: 280px;
+      margin: 0 0 30px;
+
+      @include onTablet {
+        grid-column: 1 / 2;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0 0 20px;
+        width: 342px;
+      }
+
+      @include onDesktop {
+        grid-column: 2 / 3;
+        margin: 0 0 40px;
+      }
+    }
+
+    &--form {
+      @include onTablet {
+        grid-column: 1 / 2;
+      }
+
+      @include onDesktop {
+        grid-column: 2 / 3;
+      }
+
+      display: grid;
+      row-gap: 25px;
+
+      &--field {
+        width: 100%;
+        height: 27px;
+        padding: 5px 0;
+        background-color: $backgroung-color;
+        font-family: "Poppins", sans-serif;
+        box-sizing: border-box;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19.6px;
+        border: none;
+        outline: none;
+
+        &:invalid {
+          color: #eb5757;
+          border-bottom: 1px solid #eb5757;
+        }
+
+        &:focus {
+          color: #333333;
+          border-bottom: 1px solid #333333;
+        }
+
+        &:valid {
+          color: #344f10;
+          border-bottom: 1px solid #344f10;
+        }
+
+        &:-webkit-autofill {
+          -webkit-box-shadow: inset 0 0 0 50px $backgroung-color;
+        }
+
+        &:placeholder-shown {
+          border-bottom: 1px solid #bdbdbd;
+        }
+      }
+
+      &--message {
+        height: 51px;
+        padding-top: 25px;
+        resize: none;
+      }
+    }
+  }
+
+  &__button {
+    @include buttonStyle;
+    border: 2px #333333 solid;
+
+    @include onTablet {
+      width: 280px;
+      margin-right: 100%;
+      margin-top: 5px;
+    }
+
+    @include onDesktop {
+      margin-top: 50px;
+    }
+  }
+
+  &__contact {
+    &--style {
+      margin: 0 0 24px;
+    }
+
+    &--category {
+      font-size: 14px;
+      line-height: 19.6px;
+      margin: 0 0 8px;
+    }
+
+    &--content {
+      font-weight: 400;
+      text-decoration: none;
+    }
+  }
+}

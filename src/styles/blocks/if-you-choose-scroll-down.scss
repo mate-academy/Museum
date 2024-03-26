@@ -1,0 +1,89 @@
+.if-you-choose-scroll-down {
+  row-gap: 40px;
+
+  @include constentPaddingInLine;
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    height: 346px;
+
+    padding-inline: 0;
+  }
+
+  &__top-underline {
+    display: none;
+
+    @include onDesktop {
+      display: inherit;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+
+      content: "";
+      position: relative;
+      height: 1px;
+      width: 100%;
+      background-color: #828282;
+      right: 120px;
+    }
+  }
+
+  &__text-desktop {
+    display: none;
+
+    @include onDesktop {
+      display: inherit;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      width: 380px;
+      margin: auto;
+      margin-top: 100px;
+      margin-right: 120px;
+    }
+  }
+
+  &__slogan {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    color: $second-color;
+    text-transform: uppercase;
+    margin: 100px 0 0;
+
+    @include onTablet {
+      justify-content: center;
+      width: 280px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 3;
+      grid-row: 1;
+
+      text-align: left;
+      width: 380px;
+      margin: 105px 0 0;
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+
+  &__bottom-underline {
+    display: none;
+
+    @include onDesktop {
+      display: inherit;
+      grid-column: 2 / 3;
+      grid-row: 2;
+
+      content: "";
+      position: relative;
+      height: 1px;
+      width: 100%;
+      background-color: #828282;
+    }
+  }
+}
