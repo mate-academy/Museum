@@ -1,0 +1,189 @@
+.header {
+  @include on-tablet {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+&__top {
+    background-image: url(../images/bg-image/background-image-mob.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    background-position: 50%;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      height: 386px;
+      margin-bottom: 0;
+    }
+
+    @include on-desctop {
+      height: 655px;
+    }
+  }
+
+  &__bottom {
+    margin-bottom: 70px;
+    position: relative;
+
+    @include on-tablet {
+      padding-top: 39px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__element {
+    display: none;
+    transform: rotate(-90deg);
+    position: absolute;
+    margin-top: 70px;
+    font-weight: 700;
+    color: $color-grey;
+
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 71px;
+      height: 1px;
+      top: 50%;
+      left: -90px;
+      background-color: $color-green;
+    }
+
+    @include on-desctop {
+      display: inline-block;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    padding-top: 9px;
+
+    @include on-tablet {
+      padding-top: 15px;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      text-align: left;
+      font-size: 54px;
+      margin-bottom: 42px;
+      line-height: 1.2;
+    }
+
+    @include on-desctop {
+      font-size: 72px;
+      margin-bottom: 89px;
+    }
+  }
+}
+
+.icon {
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.icon--menu {
+  background-image: url(../images/icons/baseline-menu.svg);
+
+  @include on-tablet {
+    display: none;
+  }
+}
+
+.icon--menu--tablet {
+  display: none;
+  background-image: url(../images/icons/baseline-menu.svg);
+
+  @include on-tablet {
+    display: block;
+    margin-bottom: 34px;
+  }
+
+  @include on-desctop {
+    display: block;
+    margin-bottom: 143px;
+  }
+}
+
+.logo {
+  width: 55px;
+  height: 61px;
+  margin: 0 auto;
+  background-image: url(../images/logo.svg);
+  background-repeat: no-repeat;
+
+  @include on-tablet{
+    width: 80px;
+    height: 72px;
+    background-size: contain;
+    margin: 0;
+  }
+}
+
+.button {
+  position: relative;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 80px;
+  height: 50px;
+  border: 1px solid $color-green;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+  transition: all 0.3s;
+
+  @include on-tablet {
+    width: 270px;
+    height: 70px;
+    padding: 27px 68px;
+    text-align: left;
+  }
+
+  @include on-desctop {
+    margin-left: auto;
+    
+    @include hover(background-color, rgba(128, 128, 128, 0.19));
+  }
+
+  &::after {
+    content: '>';
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  color: $color-white;
+  background-color: $color-green;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: -50px;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+      padding: 25px 0;
+    }
+  }
+}
+
