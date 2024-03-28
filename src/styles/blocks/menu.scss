@@ -10,11 +10,11 @@
 }
 
 .menu {
-  background-color: $color-green;
   color: $color-white;
   opacity: 0;
   pointer-events: none;
   transform: translateX(-100%);
+  background-color: rgba(128, 128, 128, 0.63);
   transition: all 0.3s;
 
   &:target {
@@ -27,6 +27,7 @@
     @include on-tablet {
       display: flex;
       column-gap: 38px;
+      justify-content: center;
     }
 
     @include on-desctop {
@@ -36,10 +37,14 @@
 
   &__box {
     background-color: $color-green;
-    padding: 27px 0;
+    padding: 27px 20px;
 
     @include on-tablet {
-      padding: 39px 0;
+      padding: 39px 35px;
+    }
+    
+    @include on-desctop {
+      padding: 39px 55px;
     }
   }
 
@@ -75,7 +80,17 @@
 }
 
 .icon--close-menu {
-  background-image: url(../images/icons/menu-close.svg);
+  background-image: url(/src/images/icons/menu-close.svg);
+
+  @include on-tablet {
+    position: absolute;
+    top: 39px;
+    left: 34px;
+  }
+
+  @include on-desctop {
+    left: 55px;
+  }
 }
 
 .navigation {
@@ -149,6 +164,3 @@
   }
 }
 
-.custom-container {
-  margin: 0;
-}
