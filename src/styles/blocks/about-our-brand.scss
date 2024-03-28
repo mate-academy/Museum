@@ -1,0 +1,129 @@
+.about-our-brand {
+  display: grid;
+
+  @include onTablet {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-column-gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: min-content 1fr 1fr;
+    grid-column-gap: 0;
+  }
+
+  &__side-img {
+    display: none;
+
+    @include onDesktop {
+      display: inherit;
+      background-image: url(../images/img_Desktop/about_our_brand-side.svg);
+      background-size: cover;
+      height: 302px;
+      width: 18px;
+      grid-column: 1 / 2;
+      grid-row: 1 / -1;
+    }
+  }
+
+  &__title {
+    @include titleDefault;
+
+    @include onTablet {
+      grid-column: 1 / 2;
+    }
+
+    @include onDesktop {
+      margin: 0 120px 0 82px;
+      width: 380px;
+      grid-column: 2 / 3;
+    }
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    margin: 0 0 30px;
+
+    @include onTablet {
+      grid-column: 1 / 2;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include onDesktop {
+      margin: 0 120px 0 82px;
+      width: 380px;
+      grid-column: 2 / 3;
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onDesktop {
+        display: inherit;
+        grid-column: 2 / 3;
+      }
+    }
+  }
+
+  &__image {
+    grid-row: 1 / -1;
+    grid-column: 2 / -1;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: 1fr 0.48fr;
+      column-gap: 20px;
+
+      grid-row: 1 / -1;
+      grid-column: 3 / -1;
+    }
+
+    &--always {
+      @include onTablet {
+        grid-row: 1 / -1;
+        grid-column: 2 / -1;
+        background-image: url(../images/img_Table/middle_table.svg);
+        background-size: cover;
+        background-position: 50%;
+        height: 321px;
+        width: 100%;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 2;
+        height: 529px;
+        background-image: url(../images/img_Desktop/about_our_brand-long.svg);
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onDesktop {
+        background-size: cover;
+        display: block;
+        margin-top: auto;
+        background-image: url(../images/img_Desktop/about_our_brand-short.svg);
+        height: 430px;
+      }
+    }
+  }
+
+  &__button {
+    @include buttonForInfoDefault;
+    width: 86px;
+
+    @include onTablet {
+      grid-column: 1 / 2;
+    }
+
+    @include onDesktop {
+      margin: 0 120px 0 82px;
+      grid-column: 2 / 3;
+    }
+  }
+}

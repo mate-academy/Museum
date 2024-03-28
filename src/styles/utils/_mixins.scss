@@ -1,6 +1,127 @@
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin constentPaddingInLine() {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 27px;
+  }
+
+  @include onDesktop {
+    padding-inline: 50px;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin titleDefault {
+  font-size: 24px;
+  line-height: 36px;
+  color: $second-color;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0 10px;
+
+  @include onDesktop {
+    font-size: 36px;
+    line-height: 39.6px;
+  }
+}
+
+@mixin buttonDefault {
+  display: grid;
+  box-sizing: border-box;
+  margin: auto;
+  width: 100%;
+  line-height: 60px;
+  border: 2px #333333 solid;
+  text-align: center;
+  text-decoration: none;
+  color: #f2f2f2;
+  background-color: #292929;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    border: 2px #333333 solid;
+    background-color: #e4dfd3;
+    color: #333333;
+  }
+
+  @include onTablet {
+    width: 280px;
+  }
+}
+
+@mixin buttonForInfoDefault {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18.2px;
+  margin: 0;
+  cursor: pointer;
+
+  position: relative;
+  color: $second-color;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+
+    left: 0;
+    margin-top: 10px;
+
+    height: 1px;
+    width: 100%;
+    background-color: $second-color;
+
+    transition: transform $effectDuration;
+    transform: scale(0);
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
+
+@mixin buttonStyle {
+  display: grid;
+  box-sizing: border-box;
+  margin: auto;
+  width: 100%;
+  line-height: 60px;
+  text-align: center;
+  text-decoration: none;
+  color: #f2f2f2;
+  background-color: #292929;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    border: 2px #333333 solid;
+    background-color: #e4dfd3;
+    color: #333333;
   }
 }

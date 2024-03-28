@@ -1,20 +1,25 @@
-# Museum landing page
-Implement landing page according to [Figma design](https://www.figma.com/file/cRBCqE06cDrY3s4jX7h3iY/%D0%9D%D0%90%D0%9C%D0%A3-(Edit)?node-id=0%3A1) - Use BEM and SCSS
-
-Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans?query=ibm), [Montserrat](https://fonts.google.com/specimen/Montserrat?query=mon)
-
+# Eco cosmetics landing page
+Implement landing page according to [Figma design](https://www.figma.com/file/Fz588JKGuPS2Bk21De4KE5/Brand-of-eco-cosmetics-_FE-students?node-id=21779%3A631&t=Gtk1Kj4TKq6BJit2-1) - Use BEM and SCSS
 - The design 1440px
 - Desktop 1280px
 - Tablet 640px
 - Mobile (> 320px)
 
-1. Implement the header with hamburger menu.
-1. Implement `Художній Музей` block.
-1. Implement `Актуальні події` block with two similar blocks `Йду і повертаюсь`, `І спогади і мрії`.
-1. Implement `Від класицизму до романтизму` block.
-1. Implement `Галерея` block and slider.
-1. Implement `Підписка` block.
+1. Implement the header with `nav`.
+1. Implement `Brand of eco-cosmetics and magic candles` block.
+1. Implement `If you choose the gifts of nature and care about it’s - scroll down` block.
+1. Implement `About our brand` block.
+1. Implement `Shop` block:
+  - implement tabs
+  - implement slider
+1. Implement `About the creators` block.
+1. Implement `Ayurvedic Tooth Powder` block.
+1. Implement `Contact us` block.
 1. Implement footer.
+
+## Fonts
+Use `Sharp Sans No2 Medium` and `Avenir`, which you can find in fonts directory.
+
 
 ## Checklist for preparing a portfolio project for HR review
 
@@ -26,13 +31,16 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 7. Make sure everything looks neat on mobile and without horizontal scrolling
 8. Add favicon
 9. Add a smooth scroll for the whole page
-10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
-11. The form shouldn’t submit empty
-12. The buttons "exhibitions" and "tickets" should lead to the block with current events
-13. The button "about us" should lead to the email digest
-14. Facebook and Instagram icons in the footer should be clickable and open the museum's social networks in a new tab
-15. Pictures in the gallery and exhibitions sections should increase on hover
-16. OPTIONAL: After everything is done, you can add a slider for viewing pictures in the gallery (for mobile version)
+13. The user must have the opportunity to write 2-3 lines of text in the message field
+14. It would be more realistic if the "shopping cart" button was active and clickable
+15. Buttons “shop”, “to contact us”, “all products” must be with hover styles
+16. All items in the shop section must have hover effects
+17. All “learn more” buttons should also have hover styles
+18. All the social icons in the footer should be clickable and open the social networks in a new tab
+19. The phone number and mail in the footer must be clickable and when clicked, the browser must offer to call the specified number or write a letter to the specified mail.
+20. The form shouldn’t accept incorrect data in a field with a phone number (for example, a number with a letter and there was no error), give this and all inputs a correct input type
+21. The form shouldn’t submit empty
+22. The "contact us" form should be automatically reset after submit and don’t show 404/405 errors after sending
 
 
 ## Github flow
@@ -49,7 +57,7 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Museum/).
+  [DEMO LINK](https://yboiku.github.io/Museum/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.
