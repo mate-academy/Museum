@@ -15,21 +15,25 @@
     font-family: Montserrat, sans-serif;
     font-size: 14px;
     line-height: 14px;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-align: left;
     padding-left: 24px;
 
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-text-fill-color: #fff !important;
+    }
+
     &::placeholder {
       font: inherit;
+      font-weight: normal;
       color: #687480;
     }
 
-    &:hover {
-      font-weight: bold;
-    }
-
-    &:focus {
-      font-weight: bold;
+    &:focus-visible {
+      outline: none;
     }
   }
 
@@ -45,7 +49,7 @@
     justify-content: center;
 
     &-arrow {
-      @include hover(transform, scale(2)){
+      @include hover(transform, scale(2)) {
         z-index: 10;
       }
     }

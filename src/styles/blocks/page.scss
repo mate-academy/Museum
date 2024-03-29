@@ -7,12 +7,48 @@
     overflow: hidden;
   }
 
+  &__sidelable {
+    &-wrapper {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &-cont {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transform-origin: top left;
+      transform: rotate(-90deg);
+      position: absolute;
+      top: -200px;
+      left: 0;
+    }
+
+    &-line {
+      width: 70px;
+      height: 1px;
+      border-bottom: 1px solid $color-drk-green;
+    }
+
+    &-txt {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 14px;
+    }
+  }
+
   &__menu-icon {
     position: absolute;
     top: 27px;
     left: $pad-inline-mobile;
 
-    @include hover(transform, scale(1.2)){
+    @include hover(transform, scale(1.2)) {
       z-index: 10;
     }
 
@@ -39,6 +75,7 @@
 
     @include on-tablet {
       @include page-grid;
+
       grid-template-rows: repeat(2, auto);
     }
 
@@ -103,7 +140,6 @@
         padding: 20px $pad-inline-mobile;
 
         @include on-tablet {
-          padding: 127px 0 38px 0;
           text-align: left;
           padding: 127px $pad-inline-tablet 38px;
         }
@@ -120,7 +156,6 @@
     padding-inline: $pad-inline-mobile;
 
     @include on-tablet {
-      width: 270px;
       padding: 0;
       padding-left: $pad-inline-tablet;
     }
@@ -130,7 +165,6 @@
     }
 
     &-cont {
-      width: 100%;
       height: 50px;
       display: flex;
       border: 1px solid $color-drk-green;
@@ -143,6 +177,12 @@
 
       @include on-tablet {
         height: 70px;
+        width: 270px;
+        margin-left: 0;
+      }
+
+      @include on-desktop {
+        margin-left: auto;
       }
     }
 
@@ -152,6 +192,7 @@
       font-size: 16px;
       font-weight: 500;
       line-height: 16px;
+      text-transform: uppercase;
     }
 
     &-arw {
@@ -163,6 +204,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      @include on-tablet {
+        width: 70px;
+      }
     }
   }
 
@@ -208,6 +253,7 @@
 
     &-mn-cont {
       @include page-grid;
+
       grid-template-rows: repeat(6, auto);
 
       @include on-tablet {
@@ -306,12 +352,20 @@
 
       &-contacts {
         @extend %p;
-        font-weight: normal;
 
-        @include hover(transform, scale(1.02)) {
+        font-weight: normal;
+        transition: all $transition-duration;
+
+        &:hover {
           z-index: 10;
           font-weight: bold;
+          transform: scale(1.05);
         }
+
+        // @include hover(transform, scale(1.02)) {
+        //   z-index: 10;
+        //   font-weight: bold;
+        // }
 
         &-cont {
           display: flex;
@@ -380,6 +434,7 @@
     &-link {
       &-cont {
         padding-bottom: 20px;
+
         &--1 {
           grid-row: 4;
           grid-column: 1;
@@ -445,8 +500,9 @@
         }
       }
 
-      display: inline-block;
       @extend %p;
+
+      display: inline-block;
       font-size: 14px;
       line-height: 100%;
 

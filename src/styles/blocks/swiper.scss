@@ -1,101 +1,104 @@
-#swiper.swiper {
-  width: 100%;
-  height: 100%;
-  padding-top: 40px;
-  padding-bottom: 30px;
-  overflow: hidden;
-
-  @include on-desktop {
-    padding-top: 56px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-inline: $pad-inline-desktop;
-  }
-
-  @include on-desktop-lg {
-    max-width: $desktop-min-width;
-  }
-
-  & .swiper-wrapper {
-    @include on-desktop {
-      box-sizing: content-box;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: space-between;
-    }
-  }
-
-  & .swiper-slide {
-    width: 280px !important;
-    height: 410px !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    @include hover(transform, scale(1.1)){
-      z-index: 10;
-    };
-
-
-
-    &:first-child {
-      padding-left: $pad-inline-mobile;
-    }
-
-    @include on-tablet {
-      height: 543px !important;
-      width: 340px !important;
-
-      &:first-child {
-        padding-left: $pad-inline-tablet;
-      }
-    }
-
-    @include on-desktop {
-      height: 600px !important;
-      width: 370px !important;
-      padding: 0 !important;
-      margin-right: 0 !important;
-
-      &:nth-child(2),
-      &:nth-child(3) {
-        width: 770px !important;
-      }
-    }
-  }
-
-  & .swiper-slide img {
-    display: block;
+  /* stylelint-disable */
+  #swiper.swiper {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-  }
-
-  & .swiper-pagination {
-    bottom: 0;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    overflow: hidden;
 
     @include on-desktop {
-      display: none;
+      padding-top: 56px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-inline: $pad-inline-desktop;
+    }
+
+    @include on-desktop-lg {
+      max-width: 1170px;
+    }
+
+    & .swiper-wrapper {
+      @include on-desktop {
+        box-sizing: content-box;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: space-between;
+      }
+    }
+
+    & .swiper-slide {
+      width: 280px !important;
+      height: 410px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include hover(transform, scale(1.05)) {
+        z-index: 10;
+      }
+
+      ;
+
+
+
+      &:first-child {
+        padding-left: $pad-inline-mobile;
+      }
+
+      @include on-tablet {
+        height: 543px !important;
+        width: 340px !important;
+
+        &:first-child {
+          padding-left: $pad-inline-tablet;
+        }
+      }
+
+      @include on-desktop {
+        height: 600px !important;
+        width: 370px !important;
+        padding: 0 !important;
+        margin-right: 0 !important;
+
+        &:nth-child(2),
+        &:nth-child(3) {
+          width: 770px !important;
+        }
+      }
+    }
+
+    & .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    & .swiper-pagination {
+      bottom: 0;
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    & .swiper-button-next,
+    & .swiper-button-prev {
+      box-sizing: content-box;
+      --swiper-navigation-size: 25px;
+      --swiper-navigation-color: #{$color-white};
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 25%;
+      padding: 5px;
+      font-weight: 900;
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    & .swiper-button-disabled {
+      opacity: 0;
     }
   }
-
-  & .swiper-button-next,
-  & .swiper-button-prev {
-    box-sizing: content-box;
-    --swiper-navigation-size: 25px;
-    --swiper-navigation-color: #{$color-white};
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 25%;
-    padding: 5px;
-    font-weight: 900;
-
-    @include on-desktop {
-      display: none;
-    }
-  }
-
-  & .swiper-button-disabled {
-    opacity: 0;
-  }
-}

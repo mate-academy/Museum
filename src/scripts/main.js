@@ -1,3 +1,6 @@
+// @ts-nocheck
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 'use strict';
 
 const swiper = new Swiper('.swiper', {
