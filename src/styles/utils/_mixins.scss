@@ -4,3 +4,91 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin ibm {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: $par-color;
+}
+
+@mixin work-shedule-text {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  text-align: left;
+  color: $h-color;
+}
+
+@mixin lection {
+            display: flex;
+            align-items: center;
+            font-family: "IBM Plex Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 14px;
+            text-align: left;
+            color: $grey-color;
+}
+
+@mixin date {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  color: $green-color;
+}
+
+@mixin montserat {
+  font-family: "Montserrat", sans-serif;
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 45px;
+  color: $h-color;
+}
+
+@mixin on-phone {
+  @media (min-width: $phone-min-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+    column-gap: 30px;
+  }
+}
+
+@mixin slider-button {
+  padding: 0;
+  height: 9px;
+  width: 9px;
+  border: none;
+  border-radius: 50%;
+  background-color: $button-color;
+}

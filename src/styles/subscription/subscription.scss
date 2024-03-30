@@ -1,0 +1,112 @@
+.subscription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include on-desktop {
+    padding-top: 120px;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 50px;
+
+    &__big_text {
+      @include montserat;
+      font-size: 36px;
+      line-height: 36px;
+      text-align: center;
+      color: $white-color;
+      padding-bottom: 20px;
+
+      @include on-tablet {
+        font-size: 48px;
+        line-height: 48px;
+      }
+    }
+
+    &__text {
+      font-family: "IBM Plex Sans",sans-serif;
+      font-size: 18px;
+      line-height: 27px;
+      text-align: center;
+      color: $white-color;
+    }
+  }
+
+  &__form {
+    display: flex;
+
+    &:hover {
+      outline: none;
+      transform: scale(1.1);
+    }
+
+    &__input {
+      padding: 0;
+      height: 50px;
+      width: 220px;
+      padding-left: 10px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      line-height: 14px;
+      color: $par-color;
+      border: none;
+
+      @include  on-tablet {
+        width: 374px;
+        height: 70px;
+        padding-left: 15px;
+        margin-right: 10px;
+      }
+
+      &:focus {
+        outline: none;
+        background-color: $button-color;
+      }
+
+      &:hover {
+        border: none;
+      }
+    }
+
+    &__button {
+      padding: 0;
+      border: none;
+      background-color: $red-color;
+      height: 50px;
+      width: 50px;
+      @include montserat;
+      font-size: 30px;
+      background-image: url(../images/icons/arrow-right-black.png);
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @include on-tablet {
+        width: 70px;
+        height: 70px;
+      }
+
+      &:hover {
+        background-image: url(../images/icons/arrow-right-black-done.png);
+        transition: background-image 0.1s;
+      }
+
+      &:active {
+        background-color: $green-color;
+      }
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  border: 1px solid $green-color;
+  background-color: $green-color;
+  border-radius: 10px;
+  -webkit-text-fill-color: $h-color;
+}
