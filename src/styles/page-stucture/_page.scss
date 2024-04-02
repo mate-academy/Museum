@@ -1,0 +1,41 @@
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    font-family: $main-font;
+    margin: 0;
+
+    background: #fff;
+    min-width: 320px;
+  }
+
+  &__content {
+    @include page-grid;
+    @include content-padding-inline;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.3s;
+
+    &:target {
+      pointer-events: all;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

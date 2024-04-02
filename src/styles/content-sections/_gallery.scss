@@ -1,0 +1,124 @@
+.gallery {
+  @include page-grid;
+
+  max-width: $max-content-width;
+
+  margin-bottom: 100px;
+
+  @include on-tablet {
+    margin-bottom: 92px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 200px;
+  }
+
+  &__title-block {
+    grid-column: 1 / -1;
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    @include page-grid;
+
+    margin-top: 40px;
+
+    @include on-tablet {
+      margin-top: 48px;
+    }
+
+    @include on-desktop {
+      margin-top: 56px;
+
+      grid-template-rows: auto auto;
+      row-gap: 30px;
+    }
+  }
+
+  &__photo {
+    display: flex;
+
+    @include hover(scale, 1.03);
+
+    &--photo-1 {
+      grid-column: 1 / -1;
+
+      @include on-tablet {
+        grid-column: 1 / 4;
+      }
+
+      @include on-desktop {
+        grid-area: 1 / 1 / 1 / 5;
+      }
+    }
+
+    &--photo-2 {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+
+        grid-column: 4 / -1;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    &--photo-3 {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+
+        grid-area: 1 / 5 / 1 / -1;
+      }
+    }
+
+    &--photo-4 {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+
+        grid-area: 2 / 1 / 2 / 9;
+      }
+    }
+
+    &--photo-5 {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+
+        grid-area: 2 / 9 / 2 / -1;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__carousel {
+    margin-inline: auto;
+    margin-top: 20px;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 3 / 5;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    background-image: url(../images/gallery/carousel.png);
+
+    width: 102px;
+    height: 9px;
+  }
+}
