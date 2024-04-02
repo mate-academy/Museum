@@ -25,17 +25,12 @@ const swiper = new Swiper('.swiper', {
 });
 
 /* #region hide menu icon on click */
+
 const menuIcon = document.querySelector('.page__menu-icon-img');
 const closeIcon = document.querySelector('.menu__close-link');
-// const icons = document.querySelector('.top-bar__icons');
-// const logoTopBar = document.querySelector('.menu .top-bar__logo-img');
 const menuLinks = document.querySelectorAll(
   '.menu__nav-list .menu__nav-list-item',
 );
-
-console.log(menuIcon);
-console.log(closeIcon);
-console.log(menuLinks);
 
 menuIcon?.addEventListener('click', () => {
   menuIcon.classList.toggle('page__menu-icon-img--hide-show');
@@ -44,10 +39,6 @@ menuIcon?.addEventListener('click', () => {
 closeIcon?.addEventListener('click', () => {
   menuIcon.classList.toggle('page__menu-icon-img--hide-show');
 });
-
-// logoTopBar?.addEventListener('click', () => {
-//   icons.classList.toggle('top-bar__icons--show');
-// });
 
 menuLinks?.forEach((node) => {
   node?.addEventListener('click', () => {
