@@ -1,0 +1,109 @@
+.main-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  color: $white;
+  background-color: $orange;
+  // padding: 22px 78px 22px 79px;
+  padding-block: 22px;
+  white-space: nowrap;
+  text-align: center;
+  width: 100%;
+
+  @include hover(background-color, $dark-orange);
+
+  &:active {
+    background-color: $light-orange;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.secondary-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  color: $orange;
+  background-color: $white;
+  border: 1px solid $orange;
+  // padding: 22px 62px;
+  padding-block: 22px;
+  width: 100%;
+  max-height: 60px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    // background-image: url('/src/images/Icons/orange-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @include hover(color, $dark-orange);
+  @include hover(border, 1px solid $dark-orange);
+  &:hover::after {
+    // background-image: url('/src/images/Icons/dark-orange-arrow.svg');
+  }
+
+  &:active {
+    color: $light-orange;
+    border: 1px solid $light-orange;
+  }
+
+  &:active::after {
+    // background-image: url('/src/images/Icons/light-orange-arrow.svg');
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.lang-btn {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: $white;
+  font-size: 16px;
+  position: relative;
+  opacity: 0;
+  pointer-events: none;
+
+  @include onTable {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  & span {
+    background-color: $white;
+    display: block;
+    height: 1px;
+    width: 4.6px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -13px;
+
+    &:nth-child(1) {
+      right: -13px;
+      transform: rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      right: -16px;
+      transform: rotate(-45deg);
+    }
+  }
+}

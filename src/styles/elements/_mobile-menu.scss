@@ -1,0 +1,122 @@
+.mobile-menu {
+  background-color: $bg-green;
+  color: $white;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  transition: transform 0.3s;
+  right: 0;
+  z-index: 10;
+  transform: scale(0);
+  transform-origin: top right;
+  pointer-events: none;
+
+  &:target {
+    transform: scale(1);
+    pointer-events: auto;
+    overflow: auto;
+    scroll-behavior: smooth;
+  }
+
+  &__wrap {
+    @include pageGrid;
+    position: relative;
+    padding-top: 10px;
+
+    @include onTable {
+      padding-top: 30px;
+    }
+
+    @include onDesktop {
+      padding-top: 40px;
+    }
+  }
+
+  &__time {
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+
+    @include onTable {
+      grid-column: 1 / 3;
+      margin-bottom: 0;
+    }
+  }
+
+  &__thin-text {
+    font-size: 14px;
+    line-height: 19.6px;
+  }
+
+  &__adress {
+    grid-column: 1 / -1;
+
+    @include hover(opacity, 0.6);
+
+    @include onTable {
+      grid-column: 3 / 6;
+    }
+  }
+
+  &__bold-text {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    grid-column: 1 / -1;
+    display: inline-block;
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__nav ul {
+    flex-direction: column;
+    padding-block: 40px;
+    border-bottom: 1px solid $white;
+
+    @include onTable {
+      padding-block: 50px;
+    }
+
+    @include onDesktop {
+      padding-top: 70px;
+      padding-bottom: 60px;
+    }
+  }
+
+  &__btn {
+    grid-column: 1 / -1;
+    margin-top: 40px;
+
+    @include onTable {
+      grid-column: 1 / 4;
+      margin-top: 50px;
+    }
+
+    @include onDesktop {
+      margin-top: 60px;
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include onTable {
+      display: block;
+      margin-top: 30px;
+      grid-column: 2 / -2;
+    }
+
+    @include onDesktop {
+      position: absolute;
+      right: -155px;
+      z-index: -1;
+    }
+  }
+}
