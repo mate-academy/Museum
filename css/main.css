@@ -39,8 +39,9 @@ button {
   }
 }
 
+/* stylelint-disable */
 h1 {
-  font-family: "IBM-PLex-Sans";
+  font-family: "PlayfairDisplay";
   font-weight: 700;
   font-size: 48px;
   line-height: 100%;
@@ -57,7 +58,7 @@ h1 {
 }
 
 h2 {
-  font-family: "IBM-PLex-Sans";
+  font-family: "PlayfairDisplay";
   font-weight: 700;
   font-size: 38px;
   line-height: 100%;
@@ -74,7 +75,7 @@ h2 {
 }
 
 h3 {
-  font-family: "IBM-PLex-Sans";
+  font-family: "PlayfairDisplay";
   font-weight: 700;
   font-size: 28px;
   line-height: 120%;
@@ -91,7 +92,7 @@ h3 {
 }
 
 h4 {
-  font-family: "IBM-PLex-Sans";
+  font-family: "PlayfairDisplay";
   font-weight: 700;
   font-size: 20px;
   line-height: 125%;
@@ -103,29 +104,35 @@ h4 {
 }
 
 h5 {
-  font-family: "IBM-PLex-Sans";
+  font-family: "PlayfairDisplay";
   font-weight: 700;
   font-size: 20px;
   line-height: 30px;
 }
 
 .main-text {
-  font-family: "Montserrat";
+  font-family: "Raleway";
   font-weight: 400;
   line-height: 24px;
   font-size: 16px;
 }
 
 .sub-title {
-  font-family: "Montserrat";
+  font-family: "Raleway";
   font-weight: 400;
   line-height: 24px;
   font-size: 16px;
   color: #CD4D31;
 }
 
+p {
+  font-family: inherit;
+}
+
+/* stylelint-enable */
+/* stylelint-disable */
 .main-btn {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 16px;
@@ -149,7 +156,7 @@ h5 {
 }
 
 .secondary-btn {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 16px;
@@ -172,6 +179,7 @@ h5 {
   display: block;
   width: 20px;
   height: 20px;
+  background-image: url("../images/Icons/orange-arrow.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -181,9 +189,15 @@ h5 {
 .secondary-btn:hover {
   border: 1px solid #AF3419;
 }
+.secondary-btn:hover::after {
+  background-image: url("../images/Icons/dark-orange-arrow.svg");
+}
 .secondary-btn:active {
   color: #EA340D;
   border: 1px solid #EA340D;
+}
+.secondary-btn:active::after {
+  background-image: url("../images/Icons/light-orange-arrow.svg");
 }
 .secondary-btn:disabled {
   cursor: not-allowed;
@@ -191,7 +205,7 @@ h5 {
 }
 
 .lang-btn {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   color: #F1F5F4;
   font-size: 16px;
@@ -224,6 +238,7 @@ h5 {
   transform: rotate(-45deg);
 }
 
+/* stylelint-enable */
 .burger {
   height: 30px;
   width: 30px;
@@ -396,6 +411,8 @@ h5 {
 
 .nav {
   color: #F1F5F4;
+  /* stylelint-disable */
+  /* stylelint-enable */
 }
 .nav__list {
   display: flex;
@@ -412,7 +429,7 @@ h5 {
   }
 }
 .nav__item {
-  font-family: "IBM-PLex-Sans";
+  font-family: "PlayfairDisplay", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -449,7 +466,28 @@ h5 {
 @media (min-width: 640px) {
   .exhibition-card {
     grid-column: span 3;
+    --column: 2;
+    display: grid;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+    grid-template-columns: repeat(var(--column), 1fr);
   }
+}
+@media (min-width: 640px) and (min-width: 640px) {
+  .exhibition-card {
+    --column: 6;
+    -moz-column-gap: 30px;
+         column-gap: 30px;
+  }
+}
+@media (min-width: 640px) and (min-width: 1280px) {
+  .exhibition-card {
+    --column: 12;
+    -moz-column-gap: 30px;
+         column-gap: 30px;
+  }
+}
+@media (min-width: 640px) {
   .exhibition-card:not(:last-of-type) {
     margin-bottom: 0;
   }
@@ -513,6 +551,11 @@ h5 {
     grid-column: span 6;
   }
 }
+@media (min-width: 738px) and (max-width: 880px) {
+  .exhibition-card__title {
+    height: 60px;
+  }
+}
 @media (min-width: 1280px) {
   .exhibition-card__title {
     grid-column: span 12;
@@ -536,6 +579,7 @@ h5 {
 .exhibition-card__btn {
   height: 60px;
   grid-column: span 6;
+  align-self: self-end;
 }
 @media (min-width: 1280px) {
   .exhibition-card__btn {
@@ -735,6 +779,7 @@ h5 {
   background-color: #3F5252;
   color: #F1F5F4;
   padding-top: 50px;
+  /* stylelint-disable */
 }
 @media (min-width: 640px) {
   .first {
@@ -843,13 +888,14 @@ h5 {
   }
 }
 .first__line-text {
-  font-family: "IBM-PLex-Sans";
+  font-family: "PlayfairDisplay", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 17.5px;
   white-space: nowrap;
 }
 
+/* stylelint-enable */
 .exhibition {
   padding-block: 90px 120px;
 }
@@ -926,16 +972,16 @@ h5 {
 }
 
 .events {
-  padding-bottom: 90;
+  padding-bottom: 90px;
 }
 @media (min-width: 640px) {
   .events {
-    padding-bottom: 100;
+    padding-bottom: 100px;
   }
 }
 @media (min-width: 1280px) {
   .events {
-    padding-bottom: 110;
+    padding-bottom: 110px;
   }
 }
 @media (min-width: 640px) {
@@ -1019,6 +1065,7 @@ h5 {
 @media (min-width: 1280px) {
   .visit {
     padding-block: 205px;
+    background-image: url("../images/visit-bg.png");
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -1280,6 +1327,7 @@ h5 {
   }
 }
 
+/* stylelint-disable */
 .footer {
   background-color: #3F5252;
   color: #F1F5F4;
@@ -1386,7 +1434,7 @@ h5 {
   gap: 5px;
 }
 .footer__nav ul li {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -1453,30 +1501,36 @@ h5 {
   opacity: 0.6;
 }
 
+/* stylelint-enable */
+/* stylelint-disable */
 @font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat/Montserrat-Regular.woff") format("woff");
+  font-family: "Raleway";
+  src: url("../fonts/Raleway/Raleway-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat/Montserrat-SemiBold.woff") format("woff");
+  font-family: "Raleway";
+  src: url("../fonts/Raleway/Raleway-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
-  font-family: "IBM-PLex-Sans";
-  src: url("../fonts/IBM-PLex-Sans/IBMPlexSans-Bold.woff") format("woff");
+  font-family: "PlayfairDisplay";
+  src: url("../fonts/PlayfairDisplay/PlayfairDisplay-Black.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
+/* stylelint-enable */
+/* stylelint-disable */
 html {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   background-color: #F1F5F4;
   font-size: 16px;
   scroll-behavior: smooth;
 }
 html:has(.mobile-menu:target) {
   overflow: hidden;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/* stylelint-enable *//*# sourceMappingURL=main.css.map */
