@@ -1,0 +1,184 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+  z-index: 100;
+  width: 100vw;
+
+  transition: transform 0.3s ease-in-out;
+
+  &--open {
+    transform: translateY(0);
+  }
+
+  &__background {
+    background-color: $c-main-text;
+    height: 100vh;
+    opacity: 0.4;
+  }
+
+  &__content {
+    @include grid;
+
+    grid-auto-flow: column;
+
+    padding: 27px 20px;
+    background-color: $c-green;
+
+    z-index: 100;
+    width: 100%;
+
+    @include onTable {
+      padding: 40px 39px;
+    }
+
+    @include onDesktop {
+      padding: 40px 56px 48px;
+    }
+  }
+
+  &__close {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    grid-column: 1;
+    grid-row: 1;
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active + .nav {
+      top: -100%;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 28px;
+
+    grid-column: 1 / 3;
+    grid-row: 1;
+
+    margin-left: 52px;
+
+    @include onTable {
+      grid-column: 1 / 4;
+      margin-left: 62px;
+      gap: 24px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+      gap: 0;
+
+      margin-left: 126px;
+    }
+  }
+
+  &__item {
+    flex-basis: calc(50% - 20px);
+
+    &-link {
+      @include ffPlexSans;
+
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+
+      text-decoration: none;
+      color: $c-gray;
+    }
+  }
+
+  &__work {
+    @include ffPlexSans;
+    font-size: 14px;
+    line-height: 21px;
+    color: $c-gray;
+
+    @include onTable {
+      min-width: 170px;
+    }
+
+    &-span {
+      font-weight: 600;
+    }
+
+    &-item {
+      &:first-child {
+        margin: 16px 0 0;
+      }
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    grid-column: 1 / 3;
+
+    @include onTable {
+      align-items: flex-start;
+      grid-column: 4 / 7;
+      flex-direction: row;
+
+      gap: 26px;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 13;
+    }
+  }
+
+  &__border {
+    width: 100%;
+    height: 1px;
+    background-color: $c-gray;
+
+    grid-column: 1 / 3;
+
+    margin: 24px 0;
+
+    @include onTable {
+      height: 100%;
+      width: 1px;
+      grid-column: 3;
+      grid-row: 1;
+
+      transform: translateX(90px);
+
+      margin: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 7;
+      transform: translateX(0);
+    }
+  }
+
+  &__subtitle {
+    @include ffPlexSans;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: $c-gray;
+
+    @include onTable {
+      margin: 37px 0 0;
+    }
+
+    &-span {
+      font-weight: 600;
+    }
+  }
+}

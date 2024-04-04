@@ -1,0 +1,155 @@
+.header {
+  width: 100%;
+  height: 100%;
+
+  &__content {
+    position: relative;
+    @include grid;
+
+    align-items: flex-start;
+  }
+
+  &__background {
+    background-image: url(/images/header/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    z-index: -1;
+
+    height: 300px;
+
+    margin: -88px -20px 0;
+
+    grid-column: 1 / 3;
+
+    @include onTable {
+      grid-column: 4 / 7;
+
+      min-height: 384px;
+
+      margin: -107px -39px 0 0;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 13;
+      min-height: 655px;
+    }
+  }
+
+  &__btn {
+    width: 24px;
+    height: 24px;
+
+    transition: top 0.3s ease-in-out;
+
+    &:target > .nav {
+      transform: translateY(100%);
+    }
+  }
+
+  &__logo {
+    width: 50px;
+    height: 52px;
+
+    transform: translate(-70%, -20%);
+
+    @include onTable {
+      grid-column: 5 / 6;
+
+      transform: translate(-75%, -25%);
+    }
+
+    @include onDesktop {
+      grid-column: 7;
+
+      transform: translate(-80%);
+    }
+  }
+
+  &__title {
+    @include ffMontserrat;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    color: $c-black;
+
+    grid-column: 1 / 3;
+
+    margin: 20px 0 0;
+
+    @include onTable {
+      grid-column: 1 / 4;
+      grid-row-start: 2;
+      align-self: flex-start;
+
+      font-size: 54px;
+      line-height: 64px;
+
+      text-align: left;
+      margin: 64px 0 0;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 5;
+      font-size: 70px;
+      line-height: 86px;
+
+      margin: 118px 0 0;
+    }
+  }
+
+  &__block {
+    margin: 20px 0 0;
+
+    grid-column: 1 / 3;
+
+    @include onTable {
+      margin: 0;
+
+      grid-column: 1 / 4;
+      grid-row: 2;
+      align-self: flex-end;
+
+      max-width: 270px;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 6;
+
+      margin: 0 0 118px;
+    }
+  }
+
+  &__line {
+    display: none;
+    position: absolute;
+    left: -40px;
+    bottom: 75px;
+
+    @include ffPlexSans;
+    font-weight: 700;
+    color: $c-main-text;
+    text-transform: uppercase;
+    text-decoration: none;
+    transform: rotate(-90deg);
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: 70px;
+      background: #1a5a4c;
+      transform: rotate(90deg) translate(30px, 55px);
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}
