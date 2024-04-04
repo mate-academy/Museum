@@ -41,5 +41,9 @@ const submitButton = document.getElementById('submitButton');
 submitButton.addEventListener('click', function(event) {
   event.preventDefault();
 
-  emailInput.value = '';
+  if (emailInput.checkValidity()) {
+    emailInput.value = '';
+  } else {
+    alert('Не коректний email');
+  }
 });
