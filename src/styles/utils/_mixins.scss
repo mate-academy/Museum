@@ -1,3 +1,20 @@
+body {
+  --column-count: 2;
+  --column-width: 130px;
+  --column-gap: 20px;
+
+  @media (min-width: 768px) {
+    --column-count: 6;
+    --column-width: 90px;
+    --column-gap: 30px;
+  }
+
+  @media (min-width: 1280px) {
+    --column-count: 12;
+    --column-width: 70px;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
@@ -23,22 +40,7 @@
 }
 
 @mixin grid-container {
-  --column-count: 2;
-
   display: grid;
-  grid-template-columns: repeat(var(--column-count), 130px);
-  column-gap: 20px;
-
-  @include on-tablet {
-    --column-count: 6;
-
-    grid-template-columns: repeat(var(--column-count), 90px);
-    column-gap: 30px;
-  }
-
-  @include on-desktop {
-    --column-count: 12;
-
-    grid-template-columns: repeat(var(--column-count), 70px);
-  }
+  grid-template-columns: repeat(var(--column-count), var(--column-width));
+  column-gap: var(--column-gap);
 }

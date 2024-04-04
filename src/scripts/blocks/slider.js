@@ -6,22 +6,26 @@ window.addEventListener('DOMContentLoaded', () => {
   const dotsWrapper = document.querySelector('.js-dots');
   let dots;
 
-  const sliderHeight = Number(
-    getComputedStyle(sliderWrapper).height.slice(0, -2),
-  );
+  const slideWidth = Number(getComputedStyle(slides[0]).width.slice(0, -2));
+
   const sliderGap = getComputedStyle(slider).gap.split(' ');
-  const sliderGapRow = Number(sliderGap[0].slice(0, -2));
-  const sliderGapColumn = Number(sliderGap[1].slice(0, -2));
-  const transformHeight = sliderGapRow + sliderHeight;
+
+  let sliderGapColumn;
+
+  if (Number(sliderGap.length > 1)) {
+    sliderGapColumn = Number(sliderGap[1].slice(0, -2));
+  } else {
+    sliderGapColumn = 0;
+  }
+
+  let transformWidth = sliderGapColumn + slideWidth;
 
   const qtySlides = slides.length;
 
+  slider.style.width = `${transformWidth * qtySlides}px`;
   slides[0].classList.add('active-slide');
 
   if (window.innerWidth >= 768) {
-    const slideWidth = Number(getComputedStyle(slides[0]).width.slice(0, -2));
-
-    console.log(slideWidth);
     slides[1].classList.add('active-slide');
   }
 
@@ -47,14 +51,14 @@ window.addEventListener('DOMContentLoaded', () => {
     dots[i].classList.add('active-dot');
     if (i === 0) {
       slides[i].classList.add('active-slide');
-      slider.style.transform = 'translateY(0px)';
+      slider.style.transform = 'translateX(0px)';
 
       if (window.innerWidth >= 768) {
         slides[i + 1].classList.add('active-slide');
       }
     } else {
       slides[i].classList.add('active-slide');
-      slider.style.transform = `translateY(${-transformHeight * i}px)`;
+      slider.style.transform = `translateX(${-transformWidth * i}px)`;
 
       if (window.innerWidth >= 768 && slides[i + 1]) {
         slides[i + 1].classList.add('active-slide');

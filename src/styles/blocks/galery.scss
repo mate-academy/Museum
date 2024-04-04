@@ -5,18 +5,33 @@
 
   &__wrapper {
     height: 410px;
+    max-width: calc((var(--column-width) * 2) + (var(--column-gap)));
+    margin: 0 auto;
     overflow: hidden;
     margin-bottom: 20px;
+
+    @include on-tablet {
+      max-width: calc((var(--column-width) * 6) + (var(--column-gap) * 5));
+    }
+
+    @include on-desktop {
+      height: fit-content;
+      max-width: fit-content;
+    }
   }
 
   &__slider {
-    @include grid-container;
-
-    justify-content: center;
-    grid-template-rows: 410px;
-    grid-auto-rows: 410px;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--column-width));
+    column-gap: var(--column-gap);
     transition: transform var(--transition);
+
+    @include on-desktop {
+      @include grid-container;
+
+      grid-template-rows: 600px 360px;
+      row-gap: 30px;
+    }
   }
 
   &__slide {
@@ -25,11 +40,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity var(--transition);
+    transition:
+      opacity var(--transition),
+      transform var(--transition);
 
     @include on-tablet {
       grid-column: span 3;
     }
+
+    @include on-desktop {
+      opacity: 1;
+      grid-column: span 4;
+    }
+
+    &--long {
+      @include on-desktop {
+        grid-column: span 8;
+      }
+    }
+  }
+
+  &__slide:hover {
+    transform: scale(0.98);
   }
 
   &__slide-img {
@@ -42,6 +74,10 @@
   &__dots-for-slider {
     display: flex;
     justify-content: center;
+
+    @include on-desktop {
+      display: none;
+    }
   }
 }
 
