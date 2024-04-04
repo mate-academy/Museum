@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
+'use strict';
+
+document.addEventListener('DOMContentLoaded', function () {
   const closeBtn = document.querySelector('.nav__close');
   const navMenu = document.querySelector('.nav');
 
