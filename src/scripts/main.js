@@ -3,8 +3,13 @@
 document.addEventListener('DOMContentLoaded', function () {
   const closeBtn = document.querySelector('.nav__close');
   const navMenu = document.querySelector('.nav');
+  const navBackground = document.querySelector('.nav__background');
 
   closeBtn.addEventListener('click', function() {
+    navMenu.classList.remove('nav--open');
+  });
+
+  navBackground.addEventListener('click', function() {
     navMenu.classList.remove('nav--open');
   });
 });
