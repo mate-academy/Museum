@@ -23,19 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  const galleryWrapper = document.querySelector('.gallery__wrapper');
-  const galleryImages = document.querySelector('.gallery__gallery');
-  const galleryButtons = galleryWrapper.querySelectorAll('.gallery__circle');
+document.addEventListener("DOMContentLoaded", function() {
+  const images = document.querySelectorAll(".gallery__img");
+  const circles = document.querySelectorAll(".gallery__circle");
 
-  galleryButtons.forEach(function(button, index) {
-    button.addEventListener('click', function() {
-      const containerWidth = galleryImages.offsetWidth;
-
-      galleryImages.style.transition = 'transform 0.3s ease-in-out';
-
-      galleryImages.style.transform = 'translateX(-'
-        + +(containerWidth * index) + 'px)';
+  circles.forEach((circle, index) => {
+    circle.addEventListener("click", function() {
+      images.forEach(image => {
+        image.style.display = "none";
+      });
+      images[index].style.display = "block";
     });
   });
 });
