@@ -3,10 +3,105 @@
     @include page-grid;
 
     row-gap: 60px;
+
+    @include on-tablet {
+      row-gap: 64px;
+    }
+
+    @include on-desktop {
+      row-gap: 104px;
+    }
   }
 
   &__event {
     grid-column: 1 / -1;
   }
+}
 
+.event {
+  @include page-grid;
+
+  @include on-desktop {
+    align-items: center;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 15px;
+
+    @include on-tablet {
+      justify-content: left;
+      gap: 17px;
+      margin: 44px 0 32px;
+    }
+
+    @include on-desktop {
+      margin: 0 0 30px;
+    }
+  }
+
+  &__div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      justify-content: left;
+      gap: 10px;
+    }
+
+    &-title {
+      font-family: $montserrat-font;
+      font-size: 28px;
+      line-height: 28px;
+      font-weight: 400;
+      margin: 0;
+
+      @include on-tablet {
+        font-size: 36px;
+        line-height: 36px;
+      }
+    }
+  }
+
+  &__description {
+    color: $gray-text;
+    margin: 10px 0 0;
+    font-weight: 300;
+
+    @include on-tablet {
+      margin-top: 15px;
+    }
+  }
+
+  &__caption {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__photo {
+    grid-column: span 2;
+    width: 100%;
+    height: 210px;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      grid-column: span 6;
+      height: 520px;
+    }
+
+    @include on-desktop {
+      grid-column: span 7;
+    }
+  }
 }
