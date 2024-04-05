@@ -29,10 +29,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
   circles.forEach((circle, index) => {
     circle.addEventListener("click", function() {
-      images.forEach(image => {
-        image.style.display = "none";
+      const gallery = document.querySelector(".gallery__gallery");
+      const scrollAmount = images[index].offsetLeft - gallery.offsetLeft;
+      gallery.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+
+      circles.forEach(circle => {
+        circle.classList.remove("active");
       });
-      images[index].style.display = "block";
+      circle.classList.add("active");
     });
   });
 });
