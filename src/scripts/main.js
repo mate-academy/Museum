@@ -1,26 +1,34 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   const closeBtn = document.querySelector('.nav__close');
   const navMenu = document.querySelector('.nav');
   const navBackground = document.querySelector('.nav__background');
+  const body = document.querySelector('body');
 
   closeBtn.addEventListener('click', function() {
     navMenu.classList.remove('nav--open');
+    updateBodyOverflow();
   });
 
   navBackground.addEventListener('click', function() {
     navMenu.classList.remove('nav--open');
+    updateBodyOverflow();
   });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
   const headerBtn = document.querySelector('.header__btn');
-  const navMenu = document.querySelector('.nav');
-
   headerBtn.addEventListener('click', function() {
     navMenu.classList.toggle('nav--open');
+    updateBodyOverflow();
   });
+
+  function updateBodyOverflow() {
+    if (navMenu.classList.contains('nav--open')) {
+      body.classList.add('no-scroll');
+    } else {
+      body.classList.remove('no-scroll');
+    }
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function() {
