@@ -1,0 +1,139 @@
+.info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include on-desktop {
+    grid-column: 1 / 8;
+  }
+
+  &__wrap {
+    @include padding-inline;
+
+    width: 280px;
+    padding-bottom: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      width: 700px;
+      display: grid;
+      grid-template-columns: repeat(6, 90px);
+      column-gap: 30px;
+    }
+
+    @include on-desktop {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      gap: 130px;
+      padding: 0;
+    }
+  }
+
+  &__logo-social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      grid-column: 1 / 2;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 62px;
+    }
+  }
+
+  &__logo {
+    width: 62.9px;
+    height: 72px;
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: space-between;
+    width: 64px;
+    height: 24px;
+
+    @include on-tablet {
+      width: 80px;
+    }
+  }
+
+  &__social {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-position: center;
+
+    &--facebook {
+      background-image: url(../images/icons/facebook.svg);
+
+      @include transformer(1.1);
+    }
+
+    &--instagram {
+      background-image: url(../images/icons/instagram.svg);
+
+      @include transformer(1.1);
+    }
+  }
+
+  &__main-info {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+
+    @include on-tablet {
+      margin: 0;
+      grid-column: 2 / 6;
+
+      display: grid;
+      grid-template-columns: repeat(4, 90px);
+      column-gap: 30px;
+    }
+
+    @include on-desktop {
+      display: flex;
+      gap: 31px;
+    }
+  }
+
+  &__circleup {
+    align-self: flex-end;
+    width: 50px;
+    height: 50px;
+    background-image: url(../images/arrow.svg);
+    background-position: center;
+    background-size: cover;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    @include transformer(1.05)
+  }
+
+  &__line {
+    margin-top: 20px;
+    height: 1px;
+    background-color: rgba($color: #1A5A4C80, $alpha: 0.5);
+
+    @include on-tablet {
+      margin-top: 64px;
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      margin: 0;
+
+      position: absolute;
+      right: 50px;
+      top: 0;
+
+      width: 1px;
+      height: 260px;
+    }
+  }
+}
