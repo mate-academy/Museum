@@ -1,21 +1,30 @@
 .header {
-  background-color: $bg-green;
+  background-color: transparent;
+  padding-top: 10px;
+  position: relative;
 
-  &__wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
+
+  @include onTable {
+    padding-top: 15px;
   }
 
-  &__btns {
-    display: flex;
-    flex-direction: row-reverse;
+  &__wrap {
+    @include pageGrid;
     align-items: center;
-    gap: 40px;
+  }
+
+  &__logo {
+    grid-column: 1 / -1;
+    justify-self: center;
+    grid-row: 1 / 2;
+    z-index: 2;
 
     @include onTable {
-      flex-direction: row;
+      grid-column: 4 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 8;
     }
   }
 }

@@ -3,15 +3,37 @@
 @import './elements/index';
 @import './sectoins/index';
 @import './fonts';
-/* stylelint-disable */
+
+
 html {
-  font-family: "Raleway", sans-serif;
+  font-family: 'IBM-PLex-Sans', sans-serif;
   background-color: $white;
+  color: $black;
   font-size: 16px;
   scroll-behavior: smooth;
+  position: relative;
+  z-index: 4;
 
-  &:has(.mobile-menu:target) {
+  &.active {
     overflow: hidden;
   }
 }
-/* stylelint-enable */
+
+.main {
+  position: relative;
+}
+
+.dark-background {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+
+.dark-background.active {
+  display: block;
+}

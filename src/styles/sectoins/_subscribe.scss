@@ -1,96 +1,80 @@
 .subscribe {
-  padding-bottom: 80px;
+  background-image: url(../images/subscibe-bg.png);
+  background-position: center;
+  background-size: cover;
 
-  @include onTable {
-    padding-bottom: 130px;
-  }
-
-  @include onDesktop {
-    padding-bottom: 200px;
+  & .container {
+    @include pageGrid;
   }
 
   &__wrap {
+    color: $white;
+    grid-column: 1 / -1;
+    padding-block: 88px;
 
     @include onTable {
-      @include pageGrid;
+      grid-column: 2 / -2;
+      padding-block: 82px;
+    }
+
+    @include onDesktop {
+      grid-column: 4 / 10;
+      padding-block: 163px;
     }
   }
 
   &__title {
+    text-align: center;
     margin-bottom: 20px;
 
     @include onTable {
-      margin-bottom: 50px;
-      grid-column: 1 / 6;
+      margin-bottom: 16px;
     }
   }
 
   &__text {
+    text-align: center;
     margin-bottom: 50px;
-    line-height: 24px;
 
     @include onTable {
-      grid-column: 1 / 6;
+      margin-bottom: 64px;
     }
 
     @include onDesktop {
-      grid-column: 7 / 13;
+      margin-bottom: 72px;
     }
   }
 
   &__form {
-    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 50px;
 
     @include onTable {
-      grid-column: 1 / 5;
+      gap: 16px;
     }
 
     @include onDesktop {
-      margin-bottom: 40px;
-      grid-column: 1 / 6;
+      gap: 30px;
     }
   }
 
   &__email {
-    width: 100%;
-    padding-bottom: 3px;
-    outline: none;
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    border-bottom: 1px solid $black;
     background-color: $white;
-    line-height: 24px;
+    padding: 18px 0 18px 24px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    height: 50px;
+    width: 100%;
 
-    &:focus,
-    &:active {
-      outline: none;
-      border-bottom: 1px solid $dark-orange;
-
-      &::placeholder {
-        color: $dark-orange;
-      }
-    }
-
-    &::placeholder {
-      transition: color 0.3s;
-      font-weight: 400;
-    }
-
-    @include hover(border-bottom, 1px solid $orange);
-
-    &:hover::placeholder {
-      color: $orange
-    }
-  }
-
-  &__btn {
     @include onTable {
-      grid-column: 1 / 4;
+      padding: 28px 0 28px 24px;
+      height: 70px;
+    }
+
+    @include onTable {
+      padding: 28px 0 28px 32px;
     }
   }
+
 }
-
-
-
-

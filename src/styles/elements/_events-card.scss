@@ -1,86 +1,81 @@
 .events-card {
   &:not(:last-of-type) {
     margin-bottom: 60px;
-  }
-
-  @include onTable {
-    grid-column: span 6;
-    
-    @include pageGrid;
-    grid-template-rows: min-content 1fr;
-
-    &:not(:last-of-type) {
-      margin-bottom: 70px;
-    }
-  }
-
-  @include onDesktop {
-    grid-column: span 12;
-
-  }
-
-  &__img {
-    margin-bottom: 20px;
 
     @include onTable {
-      margin-bottom: 0;
-      grid-column: 1 / 4;
-      grid-row: span 2;
-    }
-
-    @media (min-width: 860px) {
-      grid-column: 1 / 3;
+      margin-bottom: 64px;
     }
 
     @include onDesktop {
-      grid-column: 1 / 5;
+      margin-bottom: 104px;
+    }
+  }
+
+  @include onTable {
+    @include pageGrid;
+  }
+
+  &__img {
+    margin-bottom: 16px;
+    @include hover(scale, 1.02);
+
+    @include onTable {
+      margin-bottom: 40px;
+      grid-column: 1 / -1;
+      grid-row: 1 / -1;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+      grid-column: 1 / 8;
     }
   }
 
   &__content {
+
     @include onTable {
-      grid-column: 4 / 7;
+      grid-column: 1 / 5;
+      justify-self: center;
     }
 
-    @media (min-width: 860px) {
-      grid-column: 3 / 6;
+    @media (min-width: 1140px) {
+      grid-row: 1 / -1;
+      grid-column: 5 / 7;
+      align-self: center;
     }
 
     @include onDesktop {
-      grid-column: 5 / 11;
+      margin-bottom: 0;
+      grid-column: 9 / 13;
+
     }
   }
 
-  &__date {
+  &__date-row {
+    display: flex;
+    gap: 40px;
+    align-items: center;
     margin-bottom: 10px;
-    line-height: 24px;
+
+    @media (min-width: 340px) {
+      gap: 58px;
+    }
+
+    @include onTable {
+      margin-bottom: 30px;
+    }
   }
 
   &__title {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+
+    @include onTable {
+      margin-bottom: 15px;
+    }
   }
 
   &__text {
-    margin-bottom: 30px;
-
-    @include onTable {
-      margin-bottom: 50px;
-    }
-  }
-
-  &__btn {
-
-    @include onTable {
-      grid-column: 4 / 7;
-      height: 60px;
-    }
-
-    @media (min-width: 860px) {
-      grid-column: 3 / 6;
-    }
-
-    @include onDesktop {
-      grid-column: 5 / 8;
-    }
+    line-height: 24px;
+    color: $dark-gray;
   }
 }

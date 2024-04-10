@@ -1,0 +1,103 @@
+.lecture {
+  height: 210px;
+  background-image: url("../images/lecture-mobile.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @include onTable {
+    background-image: none;
+    height: 390px;
+  }
+
+  @include onDesktop {
+    background-image: url("../images/lecture-desktop.png");
+    height: 550px;
+    background-size: cover;
+    background-position: bottom;
+  }
+
+  &__wrap {
+    position: relative;
+
+    @include onTable {
+      background-image: url("../images/lecture-tablet.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 390px;
+    }
+
+    @include onDesktop {
+      background-image: none;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: block;
+    max-width: 570px;
+    margin: 0 auto;
+    background-color: $white;
+    padding-block: 20px;
+    transform: translateY(153px);
+
+    @include onTable {
+      transform: translateY(306px);
+      padding: 45px 55px 50px;
+    }
+
+    @include onDesktop {
+      transform: translateY(448px);
+    }
+  }
+
+  &__date-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 20px;
+
+    @include onTable {
+      padding: 0 90px 0 0;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+
+    &::after {
+      display: none;
+    }
+
+    @include onTable {
+      text-align: left;
+    }
+  }
+
+  &__line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-image: linear-gradient(90deg, rgb(238, 216, 20), rgb(49, 154, 240), rgb(32, 124, 9), rgb(238, 216, 20));
+    background-size: 200% 100%;
+    animation: moveGradient 4s linear infinite;
+  }
+
+  @keyframes moveGradient {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+}
+
+
