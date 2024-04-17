@@ -1,0 +1,81 @@
+.events-card {
+  &:not(:last-of-type) {
+    margin-bottom: 60px;
+
+    @include onTable {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 104px;
+    }
+  }
+
+  @include onTable {
+    @include pageGrid;
+  }
+
+  &__img {
+    margin-bottom: 16px;
+    @include hover(scale, 1.02);
+
+    @include onTable {
+      margin-bottom: 40px;
+      grid-column: 1 / -1;
+      grid-row: 1 / -1;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__content {
+
+    @include onTable {
+      grid-column: 1 / 5;
+      justify-self: center;
+    }
+
+    @media (min-width: 1140px) {
+      grid-row: 1 / -1;
+      grid-column: 5 / 7;
+      align-self: center;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+      grid-column: 9 / 13;
+
+    }
+  }
+
+  &__date-row {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @media (min-width: 340px) {
+      gap: 58px;
+    }
+
+    @include onTable {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+
+    @include onTable {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__text {
+    line-height: 24px;
+    color: $dark-gray;
+  }
+}
