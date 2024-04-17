@@ -1,5 +1,6 @@
 // 'use strict';
 import Swiper from 'swiper';
+import { Pagination, Autoplay } from 'swiper/modules';
 
 const burger = document.querySelector('.burger');
 const mobileMenu = document.querySelector('.mobile-menu');
@@ -43,4 +44,33 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     removeMobileMenu();
   }
+});
+
+
+const swiper = new Swiper('.swiper', {
+  modules: [Autoplay, Pagination],
+  loop: false,
+  slidesPerView: 1,
+  centeredSlides: true,
+  spaceBetween: 16,
+
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  autoplay: {
+    delay: 2000,
+  },
+
+  // speed: 1500,
+
+  breakpoints: {
+    640: {
+      slidesPerView: 2.1,
+    },
+    1000: {
+      slidesPerView: 3
+    },
+  },
 });
