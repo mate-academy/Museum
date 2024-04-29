@@ -1,0 +1,104 @@
+.quote {
+  margin-bottom: 185px;
+  position: relative;
+
+  @include onTablet {
+    padding-inline: 34px;
+  }
+
+  @include onDesktop {
+    padding: 0;
+  }
+
+  &__img {
+    background-image: url(../images/main/Actual-third.png);
+    width: 100%;
+    height: 210px;
+    background-size: cover;
+    background-position: center;
+    transition: $transition;
+
+    scale: 0.8; opacity: 0;
+    animation: fade-in ease-in-out forwards;
+    animation-timeline: view();
+    animation-range: 250px 500px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      background-image:  url(../images/main/Actual-third-big.png);
+      height: 390px;
+    }
+
+    @include onDesktop {
+      height: 550px;
+    }
+  }
+
+  &__wrapper {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    padding-block: 20px;
+    background-color: $main-white;
+    border-bottom: 2px solid #1A5A4C40;
+
+    scale: 0.8; opacity: 0;
+    animation: fade-in ease-in-out forwards;
+    animation-timeline: view();
+    animation-range: 250px 500px;
+
+    @include onTablet {
+      width: 570px;
+      padding-inline: 55px;
+      padding-bottom: 50px;
+      padding: 45px 55px 50px;
+      top: 80%;
+    }
+  }
+
+  &__schedule {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      justify-content: space-between
+    }
+  }
+
+  &__text {
+    @include text;
+
+    @include onTablet {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &__time {
+    @include time;
+
+    @include onTablet {
+      width: 220px;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__title {
+    @include title;
+    text-align: center;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 36px;
+      text-align: left;
+    }
+  }
+}

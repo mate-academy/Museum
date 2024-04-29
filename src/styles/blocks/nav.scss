@@ -1,0 +1,95 @@
+.nav {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  display: flex;
+  gap: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.50);
+
+  @include onTablet {
+    border-bottom: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.50);
+    margin-right: 38px;
+    padding-right: 38px;
+  }
+
+  @include onDesktop {
+    gap: 102px;
+    margin-right: 102px;
+    padding-right: 102px;
+  }
+
+  &__item {
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -8px;
+      height: 1px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.50);
+
+      transition: transform $effectDuration;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &--footer {
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -8px;
+        height: 1px;
+        width: 100%;
+        background: #F14A27;
+
+        transition: transform $effectDuration;
+        transform: scale(0);
+        transform-origin: left;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &__list {
+    width: 100px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &--footer {
+      width: 130px;
+      gap: 20px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $main-white;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+
+    @include onDesktop {
+      font-size: 22px;
+      line-height: 22px;
+    }
+
+    &--footer {
+      color: $main-black;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+}

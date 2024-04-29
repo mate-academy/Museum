@@ -1,0 +1,96 @@
+.info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 20px;
+  padding-inline: 20px;
+
+  @include onTablet {
+    flex-direction: column;
+    padding-inline: 0;
+    gap: 38px;
+    margin-top: 127px;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 45px;
+    animation: fade-in-left 0.5s;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 64.8px;
+      width: 340px;
+      text-align: start;
+    }
+
+    @include onDesktop {
+      line-height: 86.4px;
+      font-size: 72px;
+    }
+  }
+
+  &__links {
+    margin: auto;
+    display: flex;
+    width: 280px;
+    transition: $transition;
+    animation: fade-in-left 0.5s;
+    @include hover(box-shadow, 1px 4px 16px 0 rgba(2, 55, 45, 0.4));
+
+    @include onTablet {
+      margin: 0;
+      width: 270px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--tickets {
+      width: 230px;
+      height: 50px;
+      border: 1px solid $main-green;
+
+      @include onTablet {
+        height: 70px;
+        width: 200px;
+      }
+    }
+
+    &--svg {
+      width: 50px;
+      height: 50px;
+      background-color: $main-green;
+      transition: $transition;
+
+      &:hover {
+        transform: rotate(90deg);
+      }
+
+      @include onTablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  &__link-text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  &__link-arrow {
+    display: block;
+    background-image: url(../images/header/keyboard_arrow_right-24px.svg);
+    background-size: cover;
+    height: 24px;
+    width: 24px;
+  }
+}

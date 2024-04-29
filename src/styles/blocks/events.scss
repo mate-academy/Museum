@@ -1,0 +1,124 @@
+.events {
+  &__event {
+    margin-bottom: 60px;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 130px;
+    }
+  }
+
+  &__wrapper {
+    scale: 0.8; opacity: 0;
+    transition: $transition;
+    animation: fade-in ease-in-out forwards;
+    animation-timeline: view();
+    animation-range: 250px 500px;
+
+    @include onTablet {
+      width: 460px;
+    }
+
+    @include onDesktop {
+      width: 370px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      text-align: start;
+      line-height: 48px;
+      font-size: 48px;
+    }
+  }
+
+  &__img {
+    scale: 0.8; opacity: 0;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: $transition;
+    animation: fade-in ease-in-out forwards;
+    animation-timeline: view();
+    animation-range: 250px 500px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      height: 520px;
+    }
+
+    @include onDesktop {
+      width: 670px;
+    }
+  }
+
+  &__schedule {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+  }
+
+  &__event-title {
+    @include title;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-color: #F14A27;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 36px;
+    }
+  }
+
+  &__text {
+    @include text;
+
+    @include onTablet {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &__time {
+    @include time;
+
+    @include onTablet {
+      width: 360px;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    color: #4E4E4E;
+  }
+}
