@@ -1,0 +1,73 @@
+.museum {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  padding-block: 20px 70px;
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-block: 127px 0;
+    padding-inline: 34px 20px;
+  }
+
+  @include on-desktop {
+    padding-inline: 55px 30px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-family: $second-font-family;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+
+    @include on-tablet {
+      margin-bottom: 38px;
+      font-size: 54px;
+      line-height: 120%;
+      text-align: start;
+    }
+
+    @include on-desktop {
+      margin-bottom: 89px;
+      font-size: 72px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__event-label {
+    position: relative;
+    top: 50px;
+    left: 8px;
+    display: none;
+
+    transform: rotate(-90deg);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $events-type-text-color;
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 65px;
+      top: 8px;
+      display: block;
+      width: 90px;
+      height: 1px;
+      background-color: $design-main-color;
+    }
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+}
