@@ -1,0 +1,161 @@
+.museum {
+  position: relative;
+  padding-block: 320px 70px;
+
+  @include on-tablet{
+    padding-block: 127px 88px;
+  }
+
+  @include on-desktop{
+    padding-block: 206px 200px;
+  }
+
+  @media (min-width: $design-max-width) {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  &__photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
+    height: 300px;
+
+    @include on-tablet{
+      height: 384px;
+      max-width: 374px;
+    }
+
+    @include on-desktop{
+      height: 670px;
+      max-width: 725px;
+    }
+  }
+
+  &__img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    min-height: 300px;
+  }
+
+  &__text {
+    @include on-tablet{
+      max-width: 340px;
+    }
+
+    @include on-desktop{
+      max-width: 470px;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 45px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include on-tablet{
+      font-size: 54px;
+      line-height: 65px;
+      margin-bottom: 38px;
+      text-align: start;
+    }
+
+    @include on-desktop{
+      font-size: 72px;
+      line-height: 86px;
+      margin-bottom: 89px;
+    }
+  }
+
+ &__link {
+  display: block;
+  width: 100%;
+  padding: 18px 130px 18px 80px;
+  border: 1px solid $green-color;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $dark-color;
+  transition: border 0.3s;
+
+  &::after{
+    content: url('../images/icon/arrow-white.svg');
+    background-color: $green-color;
+    height: 100%;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+
+
+    @include on-tablet{
+      width: 70px;
+    }
+
+    @include on-desktop{
+      text-align: end;
+    }
+  }
+
+  &:hover{
+    border: 1px solid $dark-color;
+
+    &::after{
+      background-color: $dark-color;
+    }
+
+  }
+
+  @include on-tablet{
+    padding-block: 27px;
+  }
+
+  @include on-desktop{
+    margin-left: auto;
+    width: 270px;
+  }
+  }
+
+  &__events{
+    display: none;
+
+    @include on-desktop{
+      display: block;
+      padding-top: 90px;
+      position: relative;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $grey-light-color;
+      line-height: 14px;
+      writing-mode: tb-rl;
+      transform: translateY(-10px) rotate(180deg);
+
+
+      &::before{
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 70px;
+        left: 6px;
+        top: 0;
+        align-items: center;
+        background-color: $green-color;
+
+      }
+    }
+  }
+}
