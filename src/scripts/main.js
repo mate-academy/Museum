@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
           clickable: true,
         },
       },
-      // When window width is >= 760px
       760: {
         slidesPerView: 2,
         pagination: {
@@ -42,12 +41,13 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-const input = document.querySelector('.follow__input');
-const inputBtn = document.querySelector('.follow__button');
+const form = document.querySelector ('.follow__forms');
 
-inputBtn.addEventListener('click', () => {
-  input.value = '';
-});
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  form.reset();
+})
 
 const arrowBtn = document.querySelector('.content__button');
 
