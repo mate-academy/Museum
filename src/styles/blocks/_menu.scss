@@ -1,0 +1,47 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: $green-color;
+  color: $white-color;
+  transition: transform 0.3s;
+  transform: translateY(-100%);
+
+  &:target{
+    transform: translateY(0);
+  }
+
+  &__content {
+    position: relative;
+    padding-block: 27px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+
+    @include on-tablet{
+      flex-direction: row;
+      column-gap: 38px;
+      padding-block: 40px;
+    }
+
+    @include on-desktop{
+      column-gap: 102px;
+    }
+  }
+
+  &__close{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url('../images/icon/menu-close.svg');
+    position: absolute;
+    top: 27px;
+    left: 0;
+
+    @include on-tablet{
+      top: 40px;
+    }
+  }
+}
