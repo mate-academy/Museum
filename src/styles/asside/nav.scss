@@ -1,0 +1,132 @@
+.nav {
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba($color: #fff, $alpha: 0.5);
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+
+  @include on-tablet {
+    height: 145px;
+    grid-column: 1 / 4;
+    border-bottom: none;
+    border-right: 1px solid rgba($color: #fff, $alpha: 0.5);
+  }
+
+  @include on-desktop {
+    grid-column: 1 / 7;
+    gap: 102px;
+  }
+
+  &__close-icon {
+    width: 24px;
+    height: 24px;
+
+    background-image: url(../images/icons/close.svg);
+    background-position: center;
+    background-size: cover;
+
+    &:hover {
+      transition: 0.2s;
+      transform: scale(1.2);
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 28px;
+
+    @include on-tablet {
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 31px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    gap: 24px;
+  }
+
+  &__link {
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 16px;
+
+    @include on-desktop {
+      font-size: 22px;
+      line-height: 22px;
+    }
+
+    @include transformer(1.08);
+  }
+}
+
+.aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background-color: #1A5A4C;
+  transition: opacity 0.4s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__wrap {
+    font-family: "IBM Plex Sans", sans-serif;
+    color: #fff;
+    height: 399px;
+    padding: 27px 20px;
+
+    @include on-tablet {
+      padding-top: 39px;
+      width: 700px;
+      height: 225px;
+      display: grid;
+      grid-template-columns: repeat(6, 90px);
+      column-gap: 30px;
+    }
+
+    @include on-desktop {
+      width: 1170px;
+      grid-template-columns: repeat(12, 70px);
+    }
+  }
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.overlay {
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.aside:target ~ .overlay {
+  opacity: 1;
+  pointer-events: all;
+}

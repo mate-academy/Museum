@@ -1,0 +1,58 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include on-desktop {
+    grid-column: 8 / -1;
+  }
+
+  &__wrap {
+    width: 280px;
+
+    @include on-tablet {
+      width: 700px;
+      display: grid;
+      grid-template-columns: repeat(6, 90px);
+      column-gap: 30px;
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+
+      display: grid;
+      grid-template-columns: repeat(2, 200px);
+      column-gap: 30px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      width: 220px;
+    }
+  }
+
+  &__link {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    color: #0F0E08;
+    text-decoration: none;
+
+    @include transformer(1.02);
+  }
+}
