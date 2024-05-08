@@ -1,7 +1,46 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import './header/header';
+@import './header/burger-menu';
+@import './main/events';
+@import './main/lection';
+@import './main/slider';
+@import './main/subscribe';
+@import './footer/footer';
 
-body {
-  background: $c-gray;
+html {
+  scroll-behavior: smooth;
+}
+
+.page {
+  margin: 0;
+  padding: 0;
+  background: $c-white;
+  z-index: 10;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+    background-color: gray;
+    z-index: 10;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0%);
+      pointer-events: all;
+    }
+  }
 }
