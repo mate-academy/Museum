@@ -1,0 +1,132 @@
+.menu {
+  box-sizing: border-box;
+  height: 100%;
+  padding-block: 27px;
+  display: flex;
+  flex-direction: column;
+
+  @include on-tablet {
+    flex-direction: row;
+    padding-block: 40px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $color-white;
+
+    @include on-tablet {
+      align-items: start;
+      padding: 0;
+      border-right: 1px solid $color-white;
+      border-bottom: none;
+      flex-grow: 1;
+    }
+  }
+
+  &__buttom {
+    display: flex;
+    justify-content: center;
+
+    @include on-tablet {
+      width: 50%;
+    }
+
+    &__cont {
+      padding-top: 24px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+
+      @include on-tablet {
+        padding: 0 0 0 38px;
+        flex-direction: row;
+        gap: 26px;
+      }
+
+      @include on-desktop {
+        padding: 0 0 0 102px;
+      }
+
+      @include on-desktop {
+        flex-direction: row;
+        gap: 26px;
+      }
+    }
+  }
+
+  &__work-sched {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    width: 50%;
+    color: $color-white;
+  }
+
+  &__close-link {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin-right: 28px;
+    background: url(../images/icons/ri-close-fill.png) no-repeat center/contain;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      margin-right: 38px;
+    }
+
+    @include on-desktop {
+      margin-right: 102px;
+    }
+  }
+
+  &__nav-list {
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 24px 28px;
+
+    @include on-tablet {
+      gap: 24px 20px;
+    }
+
+    &-item {
+      list-style: none;
+    }
+
+    &-link {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 16px;
+      position: relative;
+      color: $color-white;
+      border-bottom: 2px solid transparent;
+      transition: all $transition-duration;
+
+      @include on-desktop {
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 22px;
+
+      }
+
+      &:visited {
+        color: $color-white;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        border-bottom: 2px solid $color-white;
+      }
+    }
+  }
+}

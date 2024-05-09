@@ -1,0 +1,289 @@
+.section {
+  &__title {
+    padding-bottom: 40px;
+
+    &--articles {
+      @include on-desktop {
+        padding-bottom: 56px;
+      }
+    }
+  }
+
+  &__articles-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding-bottom: 60px;
+
+    @include on-tablet {
+      padding-bottom: 64px;
+    }
+
+    @include on-desktop {
+      gap: 104px;
+      padding-bottom: 104px;
+    }
+  }
+
+  &__article {
+    @include on-tablet {
+      @include page-grid;
+
+      grid-template-rows: repeat(4, auto);
+    }
+
+    @include on-desktop {
+      align-items: center;
+      grid-template-rows: auto;
+    }
+
+    &-descr-cont {
+      @include on-tablet {
+        grid-column: span 4;
+      }
+
+      @include on-desktop {
+        grid-column: 9 / span 4;
+      }
+    }
+
+    &-title {
+      display: inline-flex;
+      justify-content: flex-start;
+      gap: 10px;
+      margin-bottom: 11px;
+
+      @include on-tablet {
+        grid-row: 3;
+        grid-column: span 4;
+        margin-bottom: 15px;
+      }
+
+      @include hover(transform, scale(1.05)) {
+        z-index: 10;
+      }
+
+      &-red-rect {
+        object-fit: contain;
+        margin-block: auto;
+      }
+    }
+
+    &-body {
+      @include on-tablet {
+        grid-row: 4;
+        grid-column: span 4;
+      }
+    }
+
+    &-img {
+      width: 100%;
+
+      &-link {
+        display: block;
+        padding-bottom: 20px;
+
+        @include hover(transform, scale(1.05)) {
+          z-index: 10;
+        }
+
+        @include on-tablet {
+          grid-row: 1;
+          grid-column: 1/-1;
+          padding-bottom: 40px;
+        }
+
+        @include on-desktop {
+          grid-column: span 7;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__exeb-cont {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+
+    @include on-tablet {
+      grid-row: 2;
+      grid-column: span 3;
+      padding-bottom: 32px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__lectures {
+    position: relative;
+    padding-bottom: 100px;
+
+    &-bg {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+
+      @include on-desktop-lg {
+        max-width: $desktop-min-width;
+        margin-inline: auto;
+        padding-inline: $pad-inline-desktop;
+        overflow: hidden;
+      }
+    }
+
+    &-info {
+      &-cont {
+        box-sizing: border-box;
+        position: relative;
+        background-color: $color-white;
+        margin-top: -50px;
+        padding: 24px 21px 20px;
+        z-index: 1;
+        box-shadow: 0 2px 0 0 $color-border-green;
+
+        @include on-tablet {
+          margin-inline: auto;
+          max-width: 570px;
+        }
+      }
+
+      &-datetype-cont {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+      }
+
+      &-title {
+        text-align: center;
+
+        @include on-tablet {
+          text-align: left;
+        }
+
+        @include hover(transform, scale(1.05)) {
+          z-index: 10;
+        }
+      }
+    }
+  }
+
+  &__galery {
+    position: relative;
+    padding-bottom: 70px;
+
+    @include on-mobile {
+      padding-bottom: 60px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 170px;
+    }
+
+
+    &-swiper-cont {
+      padding-top: 40px;
+      padding-bottom: 30px;
+
+
+      @include on-desktop {
+        padding-top: 56px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-inline: $pad-inline-desktop;
+      }
+
+      @include on-desktop-lg {
+        max-width: 1170px;
+      }
+    }
+
+    &-title {
+      text-align: center;
+
+      @include on-tablet {
+        text-align: left;
+      }
+    }
+  }
+
+  &__subscribe {
+    background: url(../images/Rectangle\ 22.png) no-repeat center/cover;
+    height: 386px;
+
+    &-cont {
+      @include page-grid;
+
+      margin: 0;
+      padding: 0;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    @include on-tablet {
+      height: 380px;
+    }
+
+    @include on-desktop {
+      height: 550px;
+    }
+
+    &-body-cont {
+      grid-column: 1/-1;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      @include on-tablet {
+        grid-column: 2/6;
+      }
+
+      @include on-desktop {
+        grid-column: 4/10;
+      }
+    }
+
+    &-title {
+      color: white;
+      text-align: center;
+      padding-bottom: 20px;
+
+      @include on-tablet {
+        padding-bottom: 16px;
+      }
+    }
+
+    &-body {
+      color: white;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 18px;
+      text-align: center;
+      padding-bottom: 50px;
+
+      @include on-tablet {
+        padding-bottom: 64px;
+      }
+
+      @include on-desktop {
+        padding-bottom: 72px;
+      }
+    }
+
+    &-field {
+      width: 100%;
+      height: 50px;
+
+      @include on-tablet {
+        height: 70px;
+      }
+    }
+  }
+
+  &__contact-us {
+    background-attachment: fixed;
+  }
+}
