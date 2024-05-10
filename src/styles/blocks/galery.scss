@@ -1,0 +1,51 @@
+.gallery {
+  &__content {
+    display: flex;
+
+    @include on-desktop {
+      display: grid;
+      row-gap: 30px;
+      height: 100%;
+
+      @include page-grid;
+    }
+  }
+
+  &__link {
+    &--wide {
+      @include on-desktop {
+        grid-column: span 8;
+      }
+    }
+
+    &--square {
+      @include on-desktop {
+        grid-column: span 4;
+      }
+    }
+
+    &--long {
+      @include on-desktop {
+        height: 600px;
+      }
+    }
+
+    &--short {
+      @include on-desktop {
+        height: 360px;
+      }
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include hover(transform, scale(1.02));
+
+    &:first-child {
+      object-position: top;
+    }
+  }
+}
