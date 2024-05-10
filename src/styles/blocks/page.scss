@@ -1,0 +1,42 @@
+.page {
+  background: $c-gray;
+  font-family: $font;
+  font-size: 16px;
+  line-height: 24px;
+  color: $main-text-color;
+
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden; /* not to scroll the page */
+  }
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 100vw;
+
+    transition: all 0.3s ease-in;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      z-index: 3;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+}
+
+.container {
+  @include content-padding-inline;
+}
