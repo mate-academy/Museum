@@ -1,0 +1,158 @@
+.footer {
+  padding: 50px 0;
+
+  &__content {
+    @include on-desctop {
+      display: flex;
+    }
+  }
+
+  &__info {
+    @include on-tablet {
+      display: flex;
+      column-gap: 40px;
+    }
+
+    @include on-desctop {
+      column-gap: 130px;
+    }
+  }
+
+  &__logo-and-social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      flex-direction: column;
+      justify-content: flex-start;
+      row-gap: 62px;
+    }
+  }
+
+  &__schedule-and-contacts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    border-bottom: 1px solid #1A5A4C;
+    align-items: flex-start;
+    padding-bottom: 20px;
+
+    @include on-tablet {
+      column-gap: 40px;
+      padding-bottom: 64px;
+    }
+
+    @include on-desctop {
+      display: flex;
+      column-gap: 10px;
+      border-bottom: none;
+      border-right: 1px solid #1A5A4C;
+      padding-bottom: 0;
+      margin-bottom: 87px;
+      padding-right: 65px;
+    }
+  }
+
+  &__button {
+    grid-column: 2;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid $color-green;
+    justify-self: end;
+
+    // place-self: start; /*перевір як спрацювало!*/
+    position: relative;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__arrow-up {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__navigation {
+    margin-top: 40px;
+    margin-bottom: 80px;
+    display: flex;
+    gap: 28px;
+
+    @include on-tablet {
+      margin-top: 64px;
+      margin-left: 111px;
+      column-gap: 145px;
+    }
+
+    @include on-desctop {
+      padding-left: 65px;
+      margin: 0;
+      gap: 65px;
+    }
+  }
+
+  &__bottom {
+   text-align: center;
+
+   @include on-tablet {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+   }
+  }
+}
+
+.social {
+  display: flex;
+  gap: 14px;
+
+  &__facebook {
+    display: inline-block;
+    border: 1px solid transparent;
+    transition: border 0.3s;
+    padding: 2px;
+
+    @include hover(border, 1px solid black);
+
+    border-radius: 5px;
+  }
+}
+
+.schedule {
+
+  &__info {
+    @include on-tablet {
+      margin: 0;
+    }
+  }
+  &__list {
+    margin-bottom: 22px;
+  }
+}
+
+.contacts {
+font-size: 14px;
+
+@include on-desctop {
+  max-width: 175px;
+
+  &__link {
+  transition: all 0.3s;
+}
+  &__link:hover {
+   background-color: rgba(181, 89, 40, 0.20);
+   border-radius: 5px;
+  }
+}
+  &__title {
+    margin-bottom: 20px;
+  }
+
+}
