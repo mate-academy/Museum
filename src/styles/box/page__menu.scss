@@ -1,0 +1,155 @@
+.page__menu {
+  background-color: #1a5a4c;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  opacity: 0;
+  transition: all $transition-speed;
+  transform: translateX(-100%);
+  pointer-events: none;
+
+  padding: 27px 20px;
+  z-index: 2;
+
+  @include on-tablet {
+    padding: 39px 40px;
+    height: 225px;
+  }
+
+  @include on-desktop {
+    padding: 40px 55px;
+    height: 234px;
+  }
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include on-tablet {
+    flex-wrap: nowrap;
+  }
+
+  &:target {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+
+  &-section {
+    &--line {
+      border-top: 1px solid #fff;
+      width: 100%;
+      height: 1px;
+
+      @include on-tablet {
+        border-top: none;
+        border-left: 1px solid #fff;
+        width: 1px;
+        height: 100%;
+      }
+    }
+
+    &--first {
+      width: 100%;
+
+      @include on-tablet {
+        width: auto;
+        gap: 20px;
+      }
+
+      @include on-desktop {
+        width: auto;
+        gap: 31px;
+      }
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &--element {
+        display: flex;
+        flex-direction: column;
+
+        &--a {
+          font-family: 'IBM Plex Sans', sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 16px;
+          text-align: left;
+          color: #fff;
+          width: 100px;
+
+          margin-bottom: 24px;
+        }
+      }
+    }
+
+    &--second {
+      @include on-tablet {
+        display: flex;
+        gap: 38px;
+      }
+
+      &--element {
+        margin-bottom: 20px;
+        margin-top: 24px;
+
+        @include on-tablet {
+          margin-bottom: 0;
+          margin-top: 0;
+
+          // max-width: 144px;
+        }
+
+        &-text {
+          @include on-tablet {
+            display: flex;
+            gap: 20px;
+            flex-flow: column wrap;
+          }
+        }
+
+        &--a {
+          font-family: 'IBM Plex Sans', sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 21px;
+          text-align: left;
+          color: #fff;
+
+          &-grafic {
+            display: block;
+            margin-bottom: 20px;
+          }
+        }
+
+        &-span {
+          font-family: 'IBM Plex Sans', sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 21px;
+          text-align: left;
+          color: #fff;
+        }
+
+        &-weekends {
+          @include on-tablet {
+            max-width: 144px;
+            align-self: end;
+          }
+
+          @include on-desktop {
+            max-width: 170px;
+            margin-right: 100px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
