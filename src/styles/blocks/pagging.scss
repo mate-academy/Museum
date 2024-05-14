@@ -1,0 +1,41 @@
+.pagging {
+  width: 100%;
+
+  @media (min-width: $mobile) {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(22);
+  }
+
+  &__item {
+    cursor: pointer;
+
+    &::before {
+      font-size: rem(9);
+      color: #e0e0e0;
+    }
+
+    @media (any-hover: hover) {
+      &::before {
+        transition: color $duration;
+      }
+
+      &:hover {
+        &::before {
+          color: $main-bg;
+        }
+      }
+    }
+
+    &--active {
+      &::before {
+        color: $main-bg;
+      }
+    }
+  }
+}

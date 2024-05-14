@@ -1,0 +1,87 @@
+.galery {
+  @media (max-width: $mobile) {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+  }
+
+  @media (min-width: $mobile) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: rem(30);
+  }
+
+  &__item {
+    position: relative;
+    padding-bottom: 97.07%;
+    cursor: pointer;
+
+    @media (any-hover: hover) {
+      transition: transform $duration;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    @media (max-width: $mobile) {
+      flex: 0 0 50%;
+      margin: 0 -5px;
+    }
+
+    @media (max-width: $mobile-small) {
+      flex: 0 0 100%;
+    }
+
+    @media (min-width: $mobile-small) {
+      padding-bottom: 74.67%;
+    }
+
+    @media (min-width: $mobile) {
+      padding-bottom: 80%;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      @media (max-width: $mobile) {
+        padding: 0 15px;
+      }
+
+      @media (max-width: $mobile-small) {
+        padding: 0 10px;
+      }
+    }
+  }
+
+  &__item--1 {
+    @media (min-width: $mobile) {
+      grid-column: span 4;
+    }
+  }
+
+  &__item--2 {
+    @media (min-width: $mobile) {
+      grid-column: span 8;
+    }
+  }
+
+  &__item--3 {
+    @media (min-width: $mobile) {
+      grid-column: span 8;
+      padding-bottom: 20%;
+    }
+  }
+
+  &__item--4 {
+    @media (min-width: $mobile) {
+      grid-column: span 4;
+      padding-bottom: 100%;
+    }
+  }
+}
