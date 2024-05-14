@@ -1,0 +1,59 @@
+.header {
+  padding: rem(45) 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 10;
+
+  .menu-open & {
+    pointer-events: all;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    height: rem(24);
+    width: rem(24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    pointer-events: all;
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    margin-left: rem($padding-container-mobile-small);
+
+    @media (min-width: $mobile) {
+      margin-left: rem($padding-container-mobile);
+    }
+
+    @media (min-width: $tablet) {
+      margin-left: rem($padding-container);
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    transition: background-color $duration;
+    pointer-events: none;
+
+    .menu-open & {
+      pointer-events: all;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
