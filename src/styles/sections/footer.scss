@@ -24,7 +24,7 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       column-gap: rem(30);
-      place-items: center start;
+      place-items: start center;
 
       &::before {
         height: 100%;
@@ -67,6 +67,17 @@
     }
   }
 
+  &__logo {
+    @media (any-hover: hover) {
+      transition: transform $duration;
+      transform: scale(1);
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
   &__socials {
     display: flex;
     align-items: center;
@@ -76,6 +87,22 @@
   &__social {
     &::before {
       font-size: rem(24);
+    }
+
+    @media (any-hover: hover) {
+      &::before {
+        transition:
+          color $duration,
+          transform $duration;
+        transform: scale(1);
+      }
+
+      &:hover {
+        &::before {
+          color: $main-bg;
+          transform: scale(1.2);
+        }
+      }
     }
   }
 
