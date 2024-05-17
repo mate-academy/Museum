@@ -1,0 +1,57 @@
+.gallery {
+  &__content {
+    @include page-grid;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &__list {
+    @include page-grid;
+
+    row-gap: 30px;
+
+    & > :nth-child(4n + 1) {
+      grid-column: 4 span;
+      height: 600px;
+    }
+
+    & > :nth-child(4n + 2) {
+      grid-column: 8 span;
+      height: 600px;
+    }
+
+    & > :nth-child(4n + 3) {
+      grid-column: 8 span;
+      height: 360px;
+    }
+
+    & > :nth-child(4n + 4) {
+      grid-column: 4 span;
+      height: 360px;
+    }
+  }
+
+  &__slider {
+    grid-column: 2 span;
+
+    @include on-tablet {
+      grid-column: 3 span;
+    }
+  }
+
+  &__item {
+    min-width: 100%;
+
+    @include hover(scale, 1.01);
+  }
+
+  &__link {
+    height: 100%;
+  }
+
+  &__img {
+    object-fit: cover;
+  }
+}

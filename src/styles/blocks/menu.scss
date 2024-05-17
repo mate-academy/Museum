@@ -1,0 +1,99 @@
+.menu {
+  z-index: 2;
+  height: 100vh;
+  background-color: rgba($color: $c-primary-light-black, $alpha: 0.5);
+
+  &__wrapper {
+    padding-block: 27px;
+    background-color: $c-primary-green;
+
+    @include on-tablet {
+      padding-block: 40px 48px;
+    }
+  }
+
+  &__content {
+    @include menu-grid;
+
+    position: relative;
+  }
+
+  &__btn {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  &__nav {
+    padding-left: 52px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      padding: 0;
+      grid-column: 2 / 6;
+    }
+
+    &-list {
+      @include nested-menu-grid;
+    }
+
+    &-item {
+      grid-column: 1 span;
+
+      @include on-tablet {
+        grid-column: 2 span;
+      }
+    }
+  }
+
+  &__divider {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      width: 1px;
+      height: 100%;
+      margin-inline: auto;
+      grid-column: 6;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      grid-column: 7;
+    }
+  }
+
+  &__schedule {
+    @include nested-menu-grid;
+
+    color: $c-primary-white;
+    grid-column: 1 / -1;
+    row-gap: 0;
+
+    @include on-tablet {
+      grid-column: 7 / -1;
+    }
+
+    @include on-desktop {
+      row-gap: 0;
+      grid-column: 8 / 12;
+    }
+
+    &-title {
+      grid-column: 1 / -1;
+    }
+
+    &-list {
+      margin-bottom: 16px;
+    }
+
+    &-title,
+    &-description {
+      color: $c-primary-white;
+    }
+
+    &-list,
+    &-description {
+      grid-column: 2 span;
+    }
+  }
+}

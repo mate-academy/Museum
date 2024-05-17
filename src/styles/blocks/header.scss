@@ -1,0 +1,109 @@
+.header {
+  &__content {
+    @include page-grid;
+
+    row-gap: 20px;
+
+    @include on-tablet {
+      min-height: 384px;
+    }
+
+    @include on-desktop {
+      min-height: 655px;
+    }
+  }
+
+  &__info {
+    position: relative;
+    padding-bottom: 20px;
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      padding-top: 127px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      padding-top: 206px;
+    }
+  }
+
+  &__extra {
+    position: absolute;
+    bottom: 0;
+    left: 18px;
+    transform: rotate(-90deg);
+    transform-origin: bottom left;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: $c-primary-grey;
+    text-transform: uppercase;
+
+    display: none;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 1px;
+      background-color: $c-primary-green;
+    }
+
+    @include on-desktop {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+  }
+
+  &__bg {
+    background-image: url('../images/header/natsionalnij-hudozhnij-muzej-ukrayini-kiyiv--lg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1.07;
+    margin-inline: -20px;
+    grid-column: 1 / -1;
+    grid-row: 1;
+
+    @include on-tablet {
+      aspect-ratio: auto;
+      margin-right: -34px;
+      margin-left: 0;
+
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      margin-right: -55px;
+
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+      margin-bottom: 38px;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+      margin-bottom: 89px;
+    }
+  }
+}

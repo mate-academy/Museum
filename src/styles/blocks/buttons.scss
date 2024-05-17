@@ -1,0 +1,89 @@
+.btn {
+  cursor: pointer;
+
+  &--header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    border: 1px solid $c-primary-green;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: -50%;
+      top: 50%;
+      aspect-ratio: 1;
+      height: 100%;
+      background: $c-primary-green;
+      transform: rotate(45deg) translateY(-100%);
+      transform-origin: 0 0;
+      z-index: -1;
+      transition: left $effect-duration ease-in-out;
+    }
+
+    &:hover::after {
+      left: -15%;
+
+      @include on-tablet {
+        left: -23%;
+      }
+    }
+
+    @include on-tablet {
+      height: 70px;
+      max-width: 270px;
+    }
+
+    @include on-desktop {
+      margin-left: auto;
+    }
+  }
+
+  &__text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: $c-primary-black;
+    text-transform: uppercase;
+
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  &--c-primary {
+    background-color: $c-primary-green;
+  }
+
+  &--circle,
+  &--square {
+    display: grid;
+    place-items: center;
+  }
+
+  &--square {
+    aspect-ratio: 1 / 1;
+  }
+
+  &--circle {
+    border-radius: 50%;
+  }
+
+  &--toggle-menu {
+    width: 24px;
+  }
+
+  &--back-to-top {
+    width: 50px;
+    height: 50px;
+    border: 1px solid $c-primary-green;
+    margin-left: auto;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}

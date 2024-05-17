@@ -1,0 +1,49 @@
+@use 'sass:color';
+
+.page {
+  &__body {
+    margin: 0;
+    min-width: 320px;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  scroll-behavior: smooth;
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: color.adjust($c-primary-white, $lightness: -10);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $c-primary-green;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: color.adjust($c-primary-green, $lightness: 5);
+  }
+}

@@ -1,6 +1,95 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $effect-duration;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin padding-inline-content {
+  padding-inline: $padding-inline-mobile;
+
+  @include on-tablet {
+    padding-inline: $padding-inline-tablet;
+  }
+
+  @include on-desktop {
+    padding-inline: $padding-inline-desktop;
+  }
+}
+
+.container {
+  @include padding-inline-content;
+
+  @include on-desktop {
+    max-width: $desktop-min-width;
+    margin-inline: auto;
+  }
+}
+
+@mixin grid-template {
+  --columns: 2;
+
+  display: grid;
+  column-gap: $column-gap-mobile;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    column-gap: $column-gap-tablet-desktop;
+  }
+}
+
+@mixin page-grid {
+  @include grid-template;
+
+  @include on-tablet {
+    --columns: 6;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+  }
+}
+
+@mixin menu-grid {
+  @include grid-template;
+
+  row-gap: 24px;
+
+  @include on-tablet {
+    --columns: 12;
+  }
+}
+
+@mixin nested-menu-grid {
+  @include grid-template;
+
+  row-gap: 24px;
+
+  @include on-tablet {
+    --columns: 4;
+  }
+
+  @include on-desktop {
+    row-gap: 30px;
+  }
+}
+
+@mixin footer-nav-grid {
+  @include grid-template;
+
+  @include on-tablet {
+    --columns: 4;
   }
 }

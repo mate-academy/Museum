@@ -1,0 +1,38 @@
+.slider {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  transform: translateX(0);
+  transition: transform $effect-duration ease-in-out;
+
+  @include on-tablet {
+    height: 543px;
+    gap: 20px;
+  }
+
+  &__dots {
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    all: unset;
+    cursor: pointer;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: $c-primary-beige;
+    transition: background-color $effect-duration ease-in-out;
+
+    &--active {
+      background-color: $c-primary-green;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+.subscription {
+  background-blend-mode: multiply;
+  background-image: url('../images/subscription-bg.jpg');
+  background-color: rgba(0, 0, 0, 0.75);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &__content {
+    padding-block: 88px;
+
+    @include on-tablet {
+      @include page-grid;
+
+      padding-block: 82px;
+    }
+
+    @include on-desktop {
+      padding-block: 163px;
+    }
+  }
+
+  &__wrapper {
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 10;
+    }
+  }
+
+  &__title,
+  &__subtitle {
+    text-align: center;
+    color: $c-primary-white;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      line-height: 1;
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__form {
+    height: 50px;
+    display: flex;
+
+    @include on-tablet {
+      height: 70px;
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__input,
+  &__btn {
+    height: 100%;
+  }
+
+  &__input {
+    flex-grow: 1;
+    padding-inline: 24px 12px;
+    margin: 0;
+
+    @include on-desktop {
+      padding-inline: 32px 16px;
+    }
+  }
+
+  &__btn {
+    all: unset;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    background-color: $c-primary-orange;
+    aspect-ratio: 1 / 1;
+
+    @include hover(background-color, darken($c-primary-orange, 10%));
+  }
+}

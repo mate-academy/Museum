@@ -1,0 +1,40 @@
+.nav {
+  &__list {
+    display: flex;
+  }
+
+  &__link {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 100%;
+    color: $c-primary-white;
+
+    &--menu {
+      font-size: 16px;
+      position: relative;
+
+      &::before {
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        left: -15px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: block;
+        width: 6px;
+        aspect-ratio: 1;
+        background-color: transparent;
+        transition: background-color $effect-duration ease-in-out;
+      }
+
+      &:hover::before {
+        background-color: $c-primary-orange;
+      }
+
+      @include on-desktop {
+        font-size: 22px;
+      }
+    }
+  }
+}
