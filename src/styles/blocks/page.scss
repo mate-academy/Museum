@@ -12,18 +12,35 @@
 
   scroll-behavior: smooth;
 
+  &__overlay,
   &__menu {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
 
-    opacity: 0;
     pointer-events: none;
+  }
+
+  &__overlay {
+    z-index: 2;
+    height: 100vh;
+    background-color: rgba($color: $c-primary-light-black, $alpha: 0.5);
+    opacity: 0;
+    transition: opacity $effect-duration ease-in-out;
+
+    &:has(.page__menu:target) {
+      opacity: 1;
+    }
+  }
+
+  &__menu {
+    transform: translateY(-100%);
+    transition: transform $effect-duration ease-in-out;
 
     &:target {
-      opacity: 1;
       pointer-events: all;
+      transform: translateY(0);
     }
   }
 

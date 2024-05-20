@@ -1,5 +1,7 @@
 .btn {
   cursor: pointer;
+  border: none;
+  padding: 0;
 
   &--header {
     width: 100%;
@@ -57,18 +59,31 @@
     background-color: $c-primary-green;
   }
 
-  &--circle,
-  &--square {
+  &__circle,
+  &__square {
     display: grid;
     place-items: center;
   }
 
-  &--square {
+  &__square {
+    height: 100%;
     aspect-ratio: 1 / 1;
+
+    &--secondary {
+      background-color: $c-primary-orange;
+
+      @include hover(background-color, darken($c-primary-orange, 10%));
+    }
   }
 
-  &--circle {
+  &__circle {
     border-radius: 50%;
+
+    &--back-to-top {
+      width: 50px;
+      height: 50px;
+      border: 1px solid $c-primary-green;
+    }
   }
 
   &--toggle-menu {
@@ -76,9 +91,6 @@
   }
 
   &--back-to-top {
-    width: 50px;
-    height: 50px;
-    border: 1px solid $c-primary-green;
     margin-left: auto;
     margin-bottom: 20px;
 
