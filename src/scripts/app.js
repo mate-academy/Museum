@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-const slider = document.querySelector('.gallery__slider');
+const slider = document.querySelector('#gallery-list');
 const slides = Array.from(document.querySelectorAll('.gallery__item'));
-const sliderWidth = document.querySelector('.gallery__slider').offsetWidth;
+let sliderWidth = document.querySelector('.gallery__slider').offsetWidth;
 const dotsContainer = document.querySelector('.slider__dots');
 
 let orderIndex = 0;
@@ -21,9 +21,30 @@ const desktopMinWidth = 1280;
 const numberOfSlides = slides.length;
 const isMobileScreen = window.innerWidth < tabletMinWidth;
 const isDesktopScreen = window.innerWidth >= desktopMinWidth;
-const currentPadding = isMobileScreen ? gapSmall : gapBig;
-const slideWidth = sliderWidth + currentPadding;
-const maxTranslate = -(numberOfSlides - 1) * slideWidth;
+let currentPadding = isMobileScreen ? gapSmall : gapBig;
+let slideWidth = sliderWidth + currentPadding;
+let maxTranslate = -(numberOfSlides - 1) * slideWidth;
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= desktopMinWidth) {
+    slider.classList.add('gallery__list');
+    slider.classList.remove('gallery__slider', 'slider');
+    slider.removeEventListener('touchstart', touchStart);
+    slider.removeEventListener('touchend', touchEnd);
+    slider.removeEventListener('touchmove', touchMove);
+    slider.removeAttribute('style');
+  } else {
+    slider.classList.remove('gallery__list');
+    slider.classList.add('gallery__slider', 'slider');
+    currentPadding = window.innerWidth < tabletMinWidth ? gapSmall : gapBig;
+    sliderWidth = document.querySelector('.gallery__slider').offsetWidth;
+    slideWidth = sliderWidth + currentPadding;
+    maxTranslate = -(numberOfSlides - 1) * slideWidth;
+    slider.addEventListener('touchstart', touchStart, { passive: true });
+    slider.addEventListener('touchend', touchEnd, { passive: true });
+    slider.addEventListener('touchmove', touchMove, { passive: true });
+  }
+});
 
 if (isDesktopScreen) {
   slider.classList.add('gallery__list');
