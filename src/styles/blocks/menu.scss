@@ -1,0 +1,174 @@
+@import 'nav';
+
+.menu {
+  height: 399px;
+  background-color: $rousseau-green;
+
+  padding-block: 26px;
+
+  @include on-tablet {
+    padding-block: 40px;
+    height: 225px;
+  }
+
+  &__content {
+    @include on-tablet {
+      @include page-grid;
+
+    }
+  }
+
+  &__top {
+    display: flex;
+    gap: 28px;
+    border-bottom: 1px solid #FFFFFF80;
+
+    @include on-tablet {
+      gap: 48px;
+      border: 0;
+      border-right: 1px solid #FFFFFF80;
+
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      gap: 102px;
+
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__icon--close {
+    svg {
+      @include hover(transform, scale(1.04));
+
+      @include hover-path-fill(fill, $grey-color);
+      
+    }
+  }
+
+  &__nav {
+    padding-bottom: 24px;
+
+    &-list {
+      display: flex;
+
+      gap: 28px;
+
+      @include on-tablet {
+        gap: 20px;
+      }
+
+      @include on-desktop {
+        gap: 31px;
+      }
+    }
+
+    &-item {
+      list-style: none;
+      width: 100px;
+
+      @include on-desktop {
+        min-width: 170px;
+      }
+
+      &-column {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        @include on-desktop {
+          gap: 30px;
+        }
+      }
+    }
+
+    &-link {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 16px;
+      color: $white-color-main;
+
+      position: relative;
+
+      &::after {
+        background-color: $white-color-main;
+      }
+
+      @include on-desktop {
+        font-size: 22px;
+        line-height: 22px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__bottom {
+    margin-top: 24px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    color: $white-color-main;
+
+    @include on-tablet {
+      display: grid;
+      column-gap: 30px;
+      grid-template-columns: repeat(2, 1fr);
+
+      grid-column: 4 / 7;
+
+      margin-top: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / 12;
+    }
+
+    &-wrapper-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      @include on-tablet {
+        grid-auto-flow: column;
+        min-width: 141px;
+      }
+
+      @include on-desktop {
+        width: 170px;
+      }
+    }
+
+    &-title {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19.69px;
+    }
+
+    &-schedule {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+
+      &-strong {
+        font-weight: 600;
+      }
+    }
+
+    &-weekend {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+
+      @include on-tablet {
+        padding-top: 40px;
+      }
+
+      &-strong {
+        font-weight: 600;
+      }
+    }
+  }
+}

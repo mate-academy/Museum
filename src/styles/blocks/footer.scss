@@ -1,0 +1,263 @@
+@import 'nav';
+
+.footer {
+
+  &__content {
+    @include page-grid;
+
+    @include on-tablet {
+      margin-block: 51px 120px;
+
+    }
+  }
+
+  &__images {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    grid-column: span 2;
+    grid-row: 1;
+
+    @include on-tablet {
+      grid-column: 1 / 1;
+
+      flex-direction: column;
+      justify-content: start;
+      gap: 62px;
+    }
+  }
+
+  &__logo {
+    @include hover(transform, scale(1.04));
+
+    @include hover-path-fill(fill, $rousseau-green);
+
+  }
+
+  &__icons {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__icon-facebook {
+    text-decoration: none;
+    @include hover-path-fill(fill, $rousseau-green);
+
+  }
+
+  &__icon-instagram {
+    text-decoration: none;
+    @include hover-path-fill(fill, $rousseau-green);
+    
+  }
+
+  &__top {
+    @include page-grid;
+
+    color: $black-second-color;
+    border-bottom: 1px solid $rousseau-green;
+
+    margin-bottom: 40px;
+
+    grid-column: span 2;
+    grid-row: 2;
+
+    @include on-tablet {
+      display: grid;
+      grid-row: 1;
+      column-gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      border-bottom: 0;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column: 3 / 8;
+      border-right: 1px solid $rousseau-green;
+    }
+
+
+    &-wrapper-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      &-first {
+        grid-column: 1 / 1;
+
+        margin-bottom: 70px;
+
+        @include on-tablet {
+          grid-column: span 2;
+        }
+      }
+
+      &-second {
+        grid-column: 2 / 2;
+
+        position: relative;
+
+        @include on-tablet {
+          grid-column: span 2;
+        }
+      }
+    }
+
+    &-title {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19.69px;
+    }
+
+    &-schedule {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+
+      &-strong {
+        font-weight: 600;
+      }
+    }
+
+    &-weekend {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+
+      @include on-tablet {
+        padding-top: 40px;
+      }
+
+      &-strong {
+        font-weight: 600;
+      }
+    }
+
+    &-contacts {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+
+      &-link {
+        color: $black-second-color;
+        text-decoration: none;
+        cursor: pointer;
+
+        @include hover (color, $grey-color);
+      }
+    }
+
+    &-button-up {
+      height: 50px;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $rousseau-green;
+      border-radius: 50%;
+      position: absolute;
+      right: 0;
+      bottom: 20px;
+      cursor: pointer;
+      transition: all $effect-duration;
+
+      @include on-tablet {
+        display: none;
+      }
+
+
+      &:hover {
+        border-color: $hypnotic-color;
+
+        svg {
+          width: 20px;
+          height: 20px;
+
+          path {
+            fill: $black-second-color;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    margin-bottom: 80px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 6;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: span 5;
+    }
+  }
+
+  &__nav {
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+
+      @include on-tablet {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+
+    &-item {
+      list-style: none;
+
+      &-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &-first {
+          grid-column: 1 / 1;
+
+          @include on-tablet {
+            grid-column: 2 / 4;
+          }
+        }
+
+        &-second {
+          grid-column: 2 / 2;
+
+          @include on-tablet {
+            grid-column: 4 / 6;
+          }
+        }
+      }
+    }
+
+    &-link {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 14px;
+      color: $black-second-color;
+
+      &::after {
+        background-color: $black-second-color;
+      }
+    }
+  }
+
+  &__info {
+    font-size: 12px;
+    line-height: 16.88px;
+    text-align: center;
+    color: $black-second-color;
+    margin-bottom: 36px;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+}
