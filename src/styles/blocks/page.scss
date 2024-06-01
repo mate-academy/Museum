@@ -1,0 +1,33 @@
+.page {
+  font-family: 'IBM Plex Sans', sans-serif;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    background-color: $white-color-main;
+    color: $black-color-main;
+    min-width: 320px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transition: all $effect-duration;
+    transform: translate(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translate(0%);
+      pointer-events: all;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
