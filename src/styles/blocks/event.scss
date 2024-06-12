@@ -125,10 +125,14 @@
   }
 
   &__title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     font-family: Montserrat, sans-serif;
     font-size: 28px;
     font-weight: 400;
     line-height: 28px;
+    hyphens: none;
     margin-bottom: 10px;
 
     @include on-tablet {
@@ -142,6 +146,20 @@
 
       @include on-tablet {
         text-align: left;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: $orange-color;
+    }
+
+    &:last-child {
+      &::after {
+        display: none;
       }
     }
   }
