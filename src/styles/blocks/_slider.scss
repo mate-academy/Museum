@@ -1,0 +1,92 @@
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider input[type='radio'] {
+  display: none;
+}
+
+.slider .slides {
+  width: 363%;
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  transition: 1s;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 20px;
+  padding-inline: 20px;
+
+  @include on-tablet {
+    gap: 20px;
+    margin-bottom: 32px;
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.slider .slide {
+  width: 280px;
+  height: 410px;
+  transition: 1s;
+
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+
+  @include on-tablet {
+    width: 340px;
+    height: 543px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+input[name='slide'][value='1']:checked ~ .slides {
+  transform: translateX(0);
+}
+
+input[name='slide'][value='2']:checked ~ .slides {
+  transform: translateX(-280px);
+}
+
+input[name='slide'][value='3']:checked ~ .slides {
+  transform: translateX(-560px);
+}
+
+input[name='slide'][value='4']:checked ~ .slides {
+  transform: translateX(-840px);
+}
+
+.slider .dots {
+  width: 100%;
+  text-align: center;
+}
+
+.slider .dots label {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-right: 22px;
+  }
+}
+
+.slider input[name='slide'][value='1']:checked ~ .dots label[for='slide-1'],
+.slider input[name='slide'][value='2']:checked ~ .dots label[for='slide-2'],
+.slider input[name='slide'][value='3']:checked ~ .dots label[for='slide-3'],
+.slider input[name='slide'][value='4']:checked ~ .dots label[for='slide-4'] {
+  background-color: $color-primary;
+}
