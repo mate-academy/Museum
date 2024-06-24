@@ -1,0 +1,79 @@
+.header {
+  @include page-grid;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: grid;
+    background-image: url(../images/bg_images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.svg);
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    left: 0;
+    transform: scale(1);
+    z-index: -1;
+
+    @include on-tablet {
+      height: 384px;
+      width: 48%;
+      right: 0;
+      left: auto;
+    }
+
+    @include on-desktop-small {
+      height: 655px;
+      width: 57%;
+      right: 0;
+      left: auto;
+    }
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+  }
+}
+
+.link-events {
+  grid-column: 1 / -1;
+
+  display: none;
+
+  @include on-desktop-small {
+    display: flex;
+    align-items: start;
+    cursor: pointer;
+    margin-left: -50px;
+
+    @include hover(transform, scale(1.05));
+
+    transform-origin: left;
+  }
+}
+
+.text-decoration {
+  text-decoration: none;
+}
+
+.link-event {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: end;
+  rotate: -90deg;
+
+  &-text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    color: $c-text-h2;
+    margin: 0;
+    text-decoration: none;
+  }
+
+  &-line {
+    width: 70px;
+    height: 1px;
+    background-color: $c-green;
+  }
+}

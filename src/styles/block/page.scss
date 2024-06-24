@@ -1,0 +1,45 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    display: grid;
+    margin: 0;
+    min-width: 320px;
+
+    &:has(.page__menu:target) {
+      overflow: hidden;
+    }
+  }
+
+  &__menu,
+  &__bgc-gray {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__bgc-gray {
+    opacity: 0;
+    background-color: rgba(24, 24, 26, 0.5);
+    height: 100vh;
+    transition: opacity 0.3s ease-in-out;
+
+    &:has(.page__menu:target) {
+      opacity: 1;
+    }
+  }
+
+  &__menu {
+    transition: all $effect-duration;
+    transform: translateX(100%);
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
