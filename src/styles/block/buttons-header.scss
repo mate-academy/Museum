@@ -1,0 +1,81 @@
+.buttons {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: center;
+
+  @include on-tablet {
+    grid-column: 1 / 4;
+    justify-content: start;
+  }
+
+  @include on-desktop-small {
+    grid-column: 3 / 6;
+  }
+
+  @include on-desktop {
+    grid-column: 2 / 6;
+  }
+
+  &__content {
+    display: flex;
+    width: 280px;
+    height: 50px;
+    border: 1px solid $c-green;
+    margin-top: 20px;
+
+    @include hover(transform, scale(1.05));
+
+    @include on-tablet {
+      margin-top: 38px;
+      width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop-small {
+      margin-top: 89px;
+      width: 270px;
+      height: 70px;
+    }
+  }
+
+  &--text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 230px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: $c-text-black;
+    text-transform: uppercase;
+  }
+
+  &--button-square {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: $c-green;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &--arrow {
+      background-position: center;
+      background-size: cover;
+      height: 24px;
+      width: 24px;
+
+      &-right {
+        background-image: url(../images/button/arrow_right.png);
+      }
+    }
+  }
+}
