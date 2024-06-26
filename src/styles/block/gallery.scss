@@ -10,13 +10,13 @@
     color: $text-color;
     margin-bottom: 40px;
     
-    @include onTablet {
+    @include on-tablet {
       text-align: start;
       font-size: 48px;
       margin-bottom: 48px;
     }
 
-    @include onDesktop {
+    @include on-desktop {
       margin-bottom: 56px;
     }
   }
@@ -27,11 +27,11 @@
     margin-bottom: 20px;
     transition: all 0.3s;
 
-    @include onTablet {
+    @include on-tablet {
       margin-bottom: 32px;
     }
 
-    @include onDesktop {
+    @include on-desktop {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       column-gap: 30px;
@@ -47,7 +47,7 @@
 
     flex-direction: row;
 
-    @include onDesktop {
+    @include on-desktop {
       display: block;
     }
 
@@ -59,11 +59,11 @@
     justify-content: center;
     margin-bottom: 100px;
 
-    @include onTablet {
+    @include on-tablet {
       margin-bottom: 92px;
     }
     
-    @include onDesktop {
+    @include on-desktop {
       display: none;
       margin: 0;
     }
@@ -79,18 +79,10 @@
     background-color: rgb(228, 214, 214);
     transition: all 0.3s;
 
-    &--last {
-      display: none;
-
-      @include onTablet {
-        display: block;
-      }
-    }
-
-    &:checked {
-      color: $color-green;
-      background-color: $color-green;
-    }
+    // &:checked {
+    //   color: $color-green;
+    //   background-color: $color-green;
+    // }
 
     &:hover {
       transform: scale(1.4);
@@ -102,13 +94,14 @@
     width: 280px;
     height: 410px;
     transition: all 0.3s;
+    object-fit: contain;
 
-    @include onTablet {
+    @include on-tablet {
       width: 340px;
       height: 543px;
     }
 
-    @include onDesktop {
+    @include on-desktop {
       background-position: 50%;
       background-size: cover;
       width: 100%;
@@ -121,9 +114,9 @@
     &--1 {
       background-image: url(../images/gallery-1.jpg);
 
-      @include onDesktop {
-        object-fit: cover;
-        object-position: 50%;
+      @include on-desktop {
+        background-size: contain;
+        background-repeat: no-repeat;
         grid-column: 1 / 5;
         height: 600px;
         margin-bottom: 30px;
@@ -134,7 +127,7 @@
     &--2 {
       background-image: url(../images/gallery-2.jpg);
 
-      @include onDesktop {
+      @include on-desktop {
         grid-column: 5 / 13;
         height: 600px;
         
@@ -145,7 +138,7 @@
     &--3 {
       background-image: url(../images/gallery-3.jpg);
 
-      @include onDesktop {
+      @include on-desktop {
         grid-column: 1 / 9;
         height: 360px;
       }
@@ -154,10 +147,15 @@
     &--4 {
       background-image: url(../images/gallery-4.jpg);
 
-      @include onDesktop {
+      @include on-desktop {
         grid-column: 9 / 13;
         height: 360px;
       }
     }
   }
+}
+
+.is-active {
+  color: $color-green;
+  background-color: $color-green;
 }
