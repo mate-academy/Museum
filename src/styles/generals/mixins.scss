@@ -1,0 +1,38 @@
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin onDesktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin mainTitles {
+  font-family: $monserratFont;
+  font-weight: $fontWeightBold;
+  font-size: 36px;
+  line-height: $lineHeightAdditional;
+  color: $colorBlackMain;
+
+  text-align: center;
+
+  @include onTablet {
+    font-size: 48px;
+    text-align: start;
+  }
+}
+
+@mixin marginBottom {
+  &:not(:last-child) {
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+}

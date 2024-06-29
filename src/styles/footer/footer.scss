@@ -1,0 +1,109 @@
+.footer {
+  &__wrapper {
+    padding: 50px 0 56px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__top {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 80px minmax(0, 1fr);
+      gap: 40px;
+
+      .nav {
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
+    }
+    @include onDesktop {
+      grid-template-columns: 80px repeat(2, minmax(0, 1fr));
+      column-gap: 10vw;
+
+      .nav {
+        grid-column-start: 3;
+        grid-column-end: 4;
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 420px) {
+      justify-content: start;
+    }
+    @include onTablet {
+      flex-direction: column;
+    }
+  }
+
+  &__bottom {
+    padding-top: 80px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include onTablet {
+      padding-top: 120px;
+
+      flex-direction: row;
+      justify-content: space-between;
+
+      .footer__text {
+        &:nth-child(1) {
+          order: 2;
+        }
+        &:nth-child(2) {
+          order: 1;
+        }
+      }
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+.footer-info {
+  position: relative;
+
+  border-bottom: 1px solid $colorGreen;
+  padding-bottom: 70px;
+
+  @include onDesktop {
+    border-bottom: none;
+    padding-bottom: 0;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      right: -5vw;
+
+      height: 100%;
+      width: 1px;
+
+      background-color: $colorGreen;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+  }
+}
