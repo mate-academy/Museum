@@ -4,8 +4,11 @@ const swiper = new Swiper('.mySwiper', {
   delay: 3000,
   pauseOnMouseEnter: true,
 },
-  // loop: true,
+  loop: true,
+  loopFillGroupBlank: false,
+  slidesOffsetAfter:0,
   slidesPerView: 1,
+  slidesPerGroup: 2,
   spaceBetween: 16,
   scrollbar: {
     draggable: true,
@@ -19,15 +22,15 @@ const swiper = new Swiper('.mySwiper', {
 
   breakpoints: {
     768: {
-      slidesPerView: 1,
+      slidesPerView: 'auto',
       spaceBetween: 10,
       width: 340,
     },
   },
 });
 
-// const link = document.getElementById('link');
+const link = document.getElementById('link');
 
-// if (window.screen.availWidth >= 1280) {
-//   link.href = '#gallery';
-// }
+if (window.screen.availWidth >= 1280) {
+link.href = '#gallery';
+}
