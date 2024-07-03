@@ -1,0 +1,130 @@
+.header {
+  position: relative;
+  z-index: 1;
+  padding-block: 9px 70px;
+
+  &__bottom {
+    @include on-tablet {
+      display: flex;
+      margin-top: 64px;
+    }
+
+    @include on-desktop {
+      margin-top: 143px;
+    }
+  }
+
+  &__background-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+  &__background {
+    width: 100%;
+
+    @include on-tablet {
+      max-width: 374px;
+      height: 384px;
+    }
+
+    @include on-desktop-mini {
+      max-width: 525px;
+      height: 455px;
+    }
+
+    @include on-desktop {
+      max-width: 725px;
+      height: 655px;
+    }
+  }
+
+  &__bottom-content {
+    padding-top: 260px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-tablet {
+      padding-top: 0;
+      align-items: flex-start;
+    }
+
+    @include on-desktop {
+      margin-left: 20px;
+      align-items: flex-end;
+    }
+  }
+
+  &__arrow-button {
+    position: relative;
+  }
+
+  &__button {
+    padding: 15.4px 130px 15.4px 80px;
+    width: 100%;
+    text-transform: uppercase;
+    border: 1px solid $c-button-green;
+
+    @include IBM-Plex-Sans-500;
+
+    @include on-tablet {
+      padding: 25px 138px 26px 68px;
+    }
+
+    @include on-desktop {
+      margin-top: 89px;
+    }
+
+    &::after {
+      content: '';
+      background-color: $c-button-green;
+      background-image: url('/src/images/icon/arrow-white-3@.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 24px;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      @include on-tablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  &__desktop-block {
+    display: none;
+    position: absolute;
+    left: 55px;
+    top: 85%;
+
+    @include on-desktop {
+      display: block;
+      text-transform: uppercase;
+      color: $c-hidden;
+      font-weight: 500;
+      transform: rotate(270deg);
+    }
+  }
+
+  &__desktop-content {
+    position: relative;
+
+    &::before {
+      content: '';
+      width: 1px;
+      height: 70px;
+      background-color: $c-hidden;
+      transform: rotate(90deg);
+      position: absolute;
+      left: -55px;
+      top: -23px;
+    }
+  }
+}
