@@ -1,0 +1,105 @@
+.subscription {
+  background-image: url(/src/images/subscription-background-mobile.png);
+  min-height: 386px;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-top: 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include on-tablet {
+    background-image: url(/src/images/subscription-background-tab-and-desk.png);
+    min-height: 380px;
+    margin-top: 92px;
+  }
+
+  @include on-desktop {
+    min-height: 550px;
+    margin-top: 200px;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+
+
+  &__arrow {
+    background-image: url(/src/images/icons/icon-arrow-black.svg);
+    background-color: $c-red;
+
+    &:hover {
+      background-color: $c-green;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    color: $c-white;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    color: $c-white;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: center;
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      line-height: 18px;
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+     margin-bottom: 72px;
+    }
+  }
+
+  &__button {
+
+    @include on-tablet {
+      min-width: 460px;
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      min-width: 570px;
+      gap: 30px;
+    }
+
+    &--input {
+      flex-grow: 1;
+      height: 100%;
+      background-color: $c-white;
+      border: none;
+      padding-left: 24px;
+
+      @include on-tablet {
+        height: 70px;
+      }
+    }
+
+    &--input::placeholder {
+      font-family: $second-font-family;
+      font-size: 14px;
+      line-height: 14px;
+      font-weight: 400;
+      color: $c-grey-text;
+    }
+  }
+}

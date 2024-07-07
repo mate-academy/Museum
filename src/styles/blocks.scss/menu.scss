@@ -1,0 +1,97 @@
+.menu {
+  width: 100%;
+  overflow: auto;
+  z-index: 2;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding-block: 27px;
+    background-color: $c-green;
+    color: $c-white;
+
+    @include on-tablet {
+      padding-block: 39px;
+      flex-direction: row;
+    }
+  }
+
+  &__line {
+    height: 1px;
+    width: 100%;
+    opacity: 0.5;
+    background-color: $c-white;
+    margin-block: 24px;
+
+    @include on-tablet {
+      width: 1px;
+      height: 145px;
+      margin-block: 0;
+      margin-inline: 38px;
+    }
+
+    @include on-desktop {
+      margin-inline: 102px;
+    }
+  }
+
+  &__dark {
+    background-color: $c-black;
+    opacity: 0.2;
+    height: 100vh;
+  }
+
+  &__schedule {
+    gap: 20px;
+
+    @include on-tablet {
+      column-gap: 38px;
+
+    }
+
+    @include on-desktop {
+      column-gap: 30px;
+    }
+  }
+
+  &__nav {
+
+    &--list {
+      padding-left: 52px;
+      row-gap: 24px;
+      column-gap: 28px;
+
+      @include on-tablet {
+        padding-left: 62px;
+        column-gap: 20px;
+      }
+
+      @include on-desktop {
+        padding-left: 126px;
+        gap: 30px;
+      }
+    }
+
+    &--link {
+      color: $c-white;
+      font-weight: 500;
+
+      @include on-desktop {
+        font-size: 22px;
+        line-height: 22px;
+      }
+
+      &::after {
+        @include after-line;
+        background-color: $c-white;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+
+

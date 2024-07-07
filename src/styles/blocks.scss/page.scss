@@ -1,0 +1,31 @@
+.page {
+  font-family: $main-font-family;
+  line-height: 100%;
+  font-size: 16px;
+
+  &__body {
+    background-color: $c-white;
+    scroll-behavior: smooth;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100%);
+    transition: all $effect-duration;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}

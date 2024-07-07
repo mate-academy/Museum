@@ -1,0 +1,81 @@
+.slider {
+  overflow: hidden;
+  width: 100%;
+
+  &__point {
+  width: 9px;
+  display: inline-block;
+  height: 9px;
+  background-color:#E0E0E0;
+  border-radius: 50%;
+  margin-right: 22px;
+  margin-top: 20px;
+  transition: background-color $effect-duration;
+  }
+
+  &__switch {
+    display: none;
+  }
+}
+
+.slides {
+  display: flex;
+  transition: transform $effect-duration ease-in-out;
+}
+
+
+.slide {
+    min-width: 100%;
+    width: 100%;
+    display: block;
+    transition: transform $effect-duration ease-in-out;
+
+    @include on-tablet {
+      min-width: 48.5%;
+      width: 48.5%;
+    }
+
+    &__image {
+      width: 100%;
+      display: block;
+      height: 100%;
+    }
+  }
+
+
+#slide1:checked ~ .gallery__slides {
+  transform: translateX(0%);
+}
+
+#slide2:checked ~ .gallery__slides {
+  transform: translateX(-100%);
+
+  @include on-tablet {
+    transform: translateX(-40%);
+  }
+}
+
+#slide3:checked ~ .gallery__slides {
+  transform: translateX(-200%);
+
+  @include on-tablet {
+    transform: translateX(-90%);
+  }
+
+}
+
+#slide4:checked ~ .gallery__slides {
+  transform: translateX(-300%);
+
+  @include on-tablet {
+    transform: translateX(-120%);
+  }
+}
+
+#slide1:checked ~ .slider__navigation .slider__point[for="slide1"],
+#slide2:checked ~ .slider__navigation .slider__point[for="slide2"],
+#slide3:checked ~ .slider__navigation .slider__point[for="slide3"],
+#slide4:checked ~ .slider__navigation .slider__point[for="slide4"] {
+  background-color: $c-green;
+}
+
