@@ -4,3 +4,47 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $tabet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desctop {
+  @media (min-width: $desctop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-the-design {
+  @media (min-width: $design-min-width) {
+    @content;
+  }
+}
+
+
+@mixin page-grid {
+  --columns: 2;
+
+  padding-inline: 20px;
+  display: grid;
+  gap: 20px;
+  row-gap: 0;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+    column-gap: 30px;
+    padding-inline: 34px;
+  }
+
+  @include on-desctop {
+    --columns: 12;
+    padding-inline: 55px;
+  }
+}
+
+.text-decoration {
+  text-decoration: none;
+}
