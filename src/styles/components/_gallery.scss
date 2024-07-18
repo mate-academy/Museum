@@ -1,0 +1,140 @@
+.gallery {
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include on-tablet {
+    align-items: flex-start;
+  }
+
+  @include on-desktop {
+    padding-bottom: 200px;
+  }
+
+  &__title {
+    @extend %h2;
+
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      padding-left: 75px;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__list {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    transition: transform $transition;
+
+    @include on-desktop {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    margin-right: 20px;
+
+    @include on-desktop {
+      margin-right: 30px;
+      margin-bottom: 30px;
+      min-width: auto;
+
+      &:nth-child(odd) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__image {
+    margin-inline: auto;
+    width: 280px;
+    height: 410px;
+    display: block;
+    background-size: contain;
+    transform: scale(1);
+    transition: transform $transition;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.05);
+    }
+
+    @include on-tablet {
+      width: 340px;
+      height: 563px;
+    }
+
+    @include on-desktop {
+      margin-inline: 0;
+      &.image-1 {
+        width: 370px;
+        height: 600px;
+      }
+
+      &.image-2 {
+        display: none;
+      }
+
+      &.image-3 {
+        width: 770px;
+        height: 600px;
+      }
+
+      &.image-4 {
+        width: 770px;
+        height: 360px;
+      }
+
+      &.image-5 {
+        width: 370px;
+        height: 360px;
+      }
+    }
+  }
+
+  &__indicators {
+    display: flex;
+    justify-content: center;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__indicator {
+    padding: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: $slider-button-color;
+    border: none;
+    cursor: pointer;
+    transition: background-color $transition;
+
+    &:not(:last-child) {
+      margin-right: 22px;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $accent-color;
+    }
+
+    &.active {
+      background-color: $accent-color;
+    }
+  }
+}

@@ -1,0 +1,138 @@
+.current-events {
+  display: grid;
+  grid-column: 1 / -1;
+
+  &__title {
+    @extend %h2;
+
+    margin-bottom: 40px;
+    text-align: center;
+
+    @include on-tablet {
+      margin-bottom: 48px;
+      text-align: start;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__list {
+    .item {
+      margin-bottom: 60px;
+
+      @include on-tablet {
+        margin-bottom: 64px;
+      }
+
+      @include on-desktop {
+        display: flex;
+        align-items: center;
+        margin-bottom: 104px;
+      }
+
+      &__link {
+        @include on-desktop {
+          margin-right: 130px;
+        }
+      }
+
+      &__image {
+        margin-bottom: 20px;
+        width: 100%;
+        grid-column: 1 / -1;
+        object-fit: contain;
+        object-position: center center;
+        transform: scale(1);
+        transition: transform $transition;
+
+        &:hover,
+        &:focus {
+          transform: scale(1.05);
+        }
+
+        @include on-tablet {
+          margin-bottom: 40px;
+        }
+      }
+
+      &__date-field {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &--name {
+          text-transform: uppercase;
+          font-size: 16px;
+          line-height: 16px;
+          font-weight: 500;
+          color: $current-events-name-color;
+
+          @include on-tablet {
+            margin-right: 40px;
+            font-size: 14px;
+          }
+        }
+
+        &--data {
+          font-weight: 600;
+          color: $current-events-data-color;
+
+          @include on-tablet {
+            font-size: 14px;
+          }
+        }
+
+        @include on-tablet {
+          margin-bottom: 32px;
+          justify-content: flex-start;
+          width: 460px;
+        }
+      }
+
+      &__title-field {
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        @include on-tablet {
+          width: 460px;
+        }
+      }
+
+      &__title {
+        margin-right: 10px;
+        position: relative;
+        font-size: 28px;
+        font-weight: 300;
+        line-height: 28px;
+        color: $current-events-title-color;
+
+        @include on-tablet {
+          margin-right: 15px;
+          font-size: 36px;
+          line-height: 36px;
+        }
+      }
+
+      &__red-square {
+        width: 10px;
+        height: 10px;
+
+        background-color: #f14a27;
+      }
+
+      &__description {
+        font-weight: 200;
+        color: $event-description-color;
+
+        @include on-tablet {
+          width: 460px;
+        }
+      }
+    }
+  }
+}
