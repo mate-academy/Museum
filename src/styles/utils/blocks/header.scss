@@ -1,0 +1,171 @@
+.header {
+  padding-left: 55px;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat($d-columns, 1fr);
+    gap: $g-gap;
+    margin: 0 auto;
+    position: relative;
+    max-width: $max-content-width;
+    min-height: 655px;
+  }
+
+  &__l-container {
+    grid-column: 1 / 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title {
+    font-size: 72px;
+    line-height: 86px;
+    text-transform: uppercase;
+    padding-bottom: 89px;
+  }
+
+  &__t-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__t-button {
+    display: flex;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  &__t-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $g-color;
+    width: 200px;
+    height: 70px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    background: $bg-color;
+  }
+
+  &__t-show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    background-color: $g-color;
+  }
+
+  &__e-container {
+    position: absolute;
+    left: -67px;
+    bottom: 60px;
+    display: flex;
+    transform: rotate(-90deg);
+  }
+
+  &__e-line {
+    align-self: center;
+    border-bottom: 1px solid $g-color;
+    margin-right: 20px;
+    width: 70px;
+  }
+
+  &__e-text {
+    color: $e-color;
+    font-size: 14px;
+  }
+
+  &__bg {
+    grid-column: 6 / -1;
+    background-image: url(../images/museum.jpg);
+    background-repeat: no-repeat;
+  }
+}
+
+@include onTablet {
+  .header {
+    padding-left: 34px;
+
+    &__container {
+      min-height: 384px;
+      position: relative;
+      grid-template-columns: repeat($t-columns, 1fr);
+    }
+
+    &__l-container {
+      padding-top: 127px;
+      grid-column: 1 / 4;
+      display: block;
+    }
+
+    &__title {
+      padding-bottom: 38px;
+      font-size: 54px;
+      line-height: 65px;
+    }
+
+    &__t-container {
+      justify-content: flex-start;
+    }
+
+    &__bg {
+      grid-column: 4 / -1;
+      background-size: cover;
+      background-position: center;
+    }
+
+    &__e-container {
+      display: none;
+    }
+  }
+}
+
+@include onPhone {
+  .header {
+    padding: 0;
+    &__container {
+      grid-template-columns: repeat($m-columns, 1fr);
+      grid-template-areas:
+        'a a a'
+        'b b b';
+    }
+
+    &__container {
+      row-gap: 20px;
+    }
+
+    &__title {
+      text-align: center;
+      font-size: 45px;
+      padding-bottom: 20px;
+    }
+
+    &__l-container {
+      display: flex;
+      align-items: center;
+      grid-area: b;
+      padding: 0 20px;
+    }
+
+    &__bg {
+      grid-area: a;
+      aspect-ratio: 1;
+      background-position: center;
+      background-size: cover;
+    }
+
+    &__t-text {
+      width: 230px;
+      height: 50px;
+    }
+
+    &__t-show {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
