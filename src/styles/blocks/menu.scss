@@ -1,0 +1,182 @@
+.menu {
+  display: flex;
+  grid-template-columns: inherit;
+  width: 100vw;
+  background-color: $accent-color;
+  position: fixed;
+  top: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 1s;
+  overflow: auto;
+  z-index: 3;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  flex-direction: column;
+  gap: 24px;
+
+  @include on-tablet {
+    display: grid;
+    column-gap: 30px;
+    padding-top: 39px;
+    padding-bottom: 39px;
+  }
+
+  .dimming {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background: #000;
+    opacity: 0;
+    z-index: 0;
+    transition: all 1s;
+    pointer-events: none;
+  }
+
+  &:target {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+
+    &:has(+ .dimming) + .dimming {
+      opacity: 0.7;
+    }
+  }
+
+  &__nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      flex-direction: row;
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+
+    &__container {
+      display: flex;
+    }
+
+    &__links {
+      height: min-content;
+      width: min-content;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 24px 35px;
+      margin-left: 28px;
+      flex-grow: 1;
+      max-width: 220px;
+
+      @include on-tablet {
+        column-gap: 25px;
+        margin-left: 38px;
+      }
+
+      @include on-desktop {
+        gap: 30px 60px;
+        margin-left: 102px;
+      }
+
+      &__link {
+        color: $white;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 16px;
+        text-align: left;
+        text-decoration: none;
+
+        @include on-desktop {
+          font-size: 22px;
+          line-height: 22px;
+        }
+
+        @include hover(transform, scale(1.2));
+
+        &--m {
+          @include on-desktop {
+            display: none;
+          }
+        }
+
+        &--d {
+          display: none;
+
+          @include on-desktop {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+
+  &__devider {
+    width: 100%;
+    height: 1px;
+    background-color: $white;
+    margin-top: 24px;
+
+    @include on-tablet {
+      width: 1px;
+      height: 100%;
+      margin-top: 0;
+      margin-right: 25px;
+    }
+
+    @include on-desktop {
+      margin-right: 70px;
+      grid-column: 7 / 8;
+    }
+
+    &--on-tablet {
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    &--on-desktop {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+      }
+    }
+  }
+
+  &__timetable {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.69px;
+    text-align: left;
+    color: $white;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      display: flex;
+      gap: 30px;
+
+      & > div {
+        width: 50%;
+      }
+
+      & div:nth-child(2) {
+        margin-top: 40px;
+      }
+    }
+
+    @include on-desktop {
+      grid-column: 8 / -2;
+    }
+  }
+}
