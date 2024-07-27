@@ -1,6 +1,4 @@
 .header {
-  padding-left: 55px;
-
   &__container {
     display: grid;
     grid-template-columns: repeat($d-columns, 1fr);
@@ -8,7 +6,7 @@
     margin: 0 auto;
     position: relative;
     max-width: $max-content-width;
-    min-height: 655px;
+    min-height: $d-header-min-height;
   }
 
   &__l-container {
@@ -94,16 +92,17 @@
     display: flex;
     justify-content: center;
     height: max-content;
+    line-height: 36px;
     padding-top: 15px;
   }
 }
 
-@include onTablet {
+@include on-tablet {
   .header {
     padding-left: 34px;
 
     &__container {
-      min-height: 384px;
+      min-height: $t-header-min-height;
       position: relative;
       grid-template-columns: repeat($t-columns, 1fr);
     }
@@ -137,7 +136,7 @@
   }
 }
 
-@include onPhone {
+@include on-phone {
   .header {
     padding: 0;
     &__container {

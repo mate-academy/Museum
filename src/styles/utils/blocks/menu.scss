@@ -1,0 +1,94 @@
+.menu {
+  color: #fff;
+  height: $d-aside-height;
+  background: $aside-background;
+
+  &__grid-wrapper {
+    max-width: $max-content-width;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat($d-columns, 1fr);
+    column-gap: $g-gap;
+    margin-top: 40px;
+  }
+
+  &__nav {
+    grid-column: 1 / 6;
+    justify-self: center;
+    column-count: 2;
+    column-gap: 90px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 22px;
+  }
+
+  &__item {
+    width: max-content;
+    &:nth-child(odd) {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__link {
+    color: inherit;
+  }
+
+  &__devider {
+    grid-column: 7;
+    height: 145px;
+    border-left: 1px solid #fff;
+  }
+}
+
+@include on-tablet {
+  .menu {
+    height: $t-aside-height;
+
+    &__nav {
+      font-size: 16px;
+      line-height: 16px;
+      column-gap: 20px;
+      grid-column: 2 / 5;
+      justify-self: flex-start;
+    }
+
+    &__devider {
+      grid-column: 6;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+
+    &__item {
+      &:nth-child(odd) {
+        padding-bottom: 24px;
+      }
+    }
+  }
+}
+
+@include on-phone {
+  .menu {
+    height: $m-aside-height;
+    padding-inline: 20px;
+    &__nav {
+      margin-left: 52px;
+      grid-column: 1 / -1;
+      justify-self: auto;
+      padding-bottom: 24px;
+    }
+
+    &__grid-wrapper {
+      grid-template-columns: repeat($m-columns, 1fr);
+      margin-top: 27px;
+    }
+
+    &__devider {
+      grid-column: 1 / -1;
+      width: 100%;
+      height: 0;
+      border-bottom: 1px solid #fff;
+    }
+  }
+}

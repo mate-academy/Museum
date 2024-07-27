@@ -1,0 +1,56 @@
+.page {
+  background: $bg-color;
+  font-family: Montserrat, Arial, sans-serif;
+  font-weight: 700;
+  color: $t-color;
+  scroll-behavior: smooth;
+
+  &__left-padding {
+    padding-left: $d-padding;
+  }
+
+  &__right-padding {
+    padding-right: $d-padding;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100%);
+    transition: all 0.3s;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+  }
+}
+
+@include on-tablet {
+  .page {
+    &__left-padding {
+      padding-left: $t-padding;
+    }
+
+    &__right-padding {
+      padding-right: $t-padding;
+    }
+  }
+}
+
+@include on-phone {
+  .page {
+    &__left-padding {
+      padding: $m-padding;
+    }
+
+    &__right-padding {
+      padding: $m-padding;
+    }
+  }
+}
