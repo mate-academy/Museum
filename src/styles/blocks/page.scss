@@ -1,0 +1,74 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.page {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+
+  &:has(.page__aside:target) {
+    overflow: hidden;
+  }
+
+  &__aside {
+    position: fixed;
+
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+    transition: all 0.3s;
+
+    &:target {
+      transform: translateX(0);
+      opacity: 1;
+      z-index: 100;
+      pointer-events: all;
+    }
+  }
+
+  &__header {
+    background-color: $main-page-color;
+    grid-column: 1 / -1;
+  }
+
+  &__main {
+    @include page-grid;
+
+    grid-column: 1 / -1;
+
+    &-title {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 36px;
+
+      @include on-mobile {
+        text-align: center;
+      }
+
+      @include on-tablet {
+        text-align: left;
+      }
+
+      &--subscription {
+        color: $c-white;
+
+        @include on-tablet {
+          text-align: center;
+          font-size: 48px;
+        }
+      }
+    }
+  }
+
+  &__footer {
+    grid-column: 1 / -1;
+  }
+}

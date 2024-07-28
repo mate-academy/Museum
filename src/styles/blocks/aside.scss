@@ -1,0 +1,164 @@
+.aside {
+  @include page-grid;
+
+  box-sizing: border-box;
+  background-color: $c-green;
+  overflow-x: hidden;
+
+  display: flex;
+  justify-content: space-between;
+
+  @include on-mobile {
+    height: 399px;
+    flex-direction: column;
+  }
+
+  @include on-tablet {
+    height: 225px;
+    flex-direction: row;
+  }
+
+  @include on-desktop {
+    height: 223px;
+  }
+
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 100%;
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
+    z-index: -1;
+  }
+
+  &__part1 {
+    margin: 34px 0 0;
+    display: flex;
+
+    @include on-tablet {
+      margin: 47px 0 0;
+    }
+
+    &-close-menu {
+      margin: -4px 0 0;
+    }
+
+    &-list {
+      grid-column: 1 / -1;
+
+      margin: 0;
+
+      list-style-type: none;
+
+      display: flex;
+      gap: 28px;
+
+      &-item {
+        display: flex;
+        flex-direction: column;
+
+        gap: 24px;
+
+        &-link {
+          text-decoration: none;
+
+          color: $c-white;
+          font-family: 'IBM Plex Sans', sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 16px;
+          text-align: left;
+
+          @include on-desktop {
+            font-size: 22px;
+            line-height: 22px;
+          }
+        }
+      }
+    }
+  }
+
+  &__center-line {
+    background-color: $c-white;
+
+    @include on-mobile {
+      height: 1px;
+      width: 100%;
+    }
+
+    @include on-tablet {
+      margin: 47px 0 0;
+      height: 60%;
+      width: 1px;
+    }
+  }
+
+  &__schedule {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      margin: 47px 35px 0 0;
+    }
+
+    @include on-desktop {
+      margin: 47px 155px 0 0;
+    }
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.69px;
+    text-align: left;
+    color: $c-white;
+
+    &-title {
+      margin: 0 0 20px;
+    }
+
+    &-week {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+
+      margin: 0 0 16px;
+
+      @include on-tablet {
+        flex-direction: row;
+      }
+
+      &-days {
+        white-space: nowrap;
+      }
+
+      &-holidays {
+        &-text {
+          margin: 0;
+
+          &:first-child {
+            white-space: nowrap;
+          }
+
+          @include on-tablet {
+            &:first-child {
+              white-space: normal;
+            }
+          }
+        }
+
+        @include on-tablet {
+          width: 150px;
+        }
+      }
+    }
+  }
+}
