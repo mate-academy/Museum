@@ -4,8 +4,8 @@ Implement landing page according to [Figma design](https://www.figma.com/file/cR
 Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans?query=ibm), [Montserrat](https://fonts.google.com/specimen/Montserrat?query=mon)
 
 - The design 1440px
-- Desktop 1280px   1024
-- Tablet 640px    1024
+- Desktop 1280px
+- Tablet 640px
 - Mobile (> 320px)
 
 1. Implement the header with hamburger menu.
