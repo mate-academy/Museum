@@ -7,7 +7,7 @@
 
 .gallery {
   box-sizing: border-box;
-  padding-left: 34px;
+
   margin-top: 88px;
   margin-bottom: 133px;
 
@@ -20,18 +20,96 @@
   }
 }
 
-.gallery-cell {
-  width: 340px;
-  height: 543px;
-  margin-right: 10px;
-}
+.slider {
+  display: flex;
+  width: 100%;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  grid-column: 1 / -1;
 
-.gallery-cell::before {
-  display: block;
-  text-align: center;
-  content: counter('');
-  max-width: 100%;
-  height: auto;
-  width: auto;
-  max-height: 100%;
+  &__wrapper {
+    display: grid;
+    place-content: center;
+    justify-content: center;
+    margin-top: 138px;
+
+    @include on-tablet {
+      margin-top: 158px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    & > h2 {
+      margin-bottom: 40px;
+
+      @include on-tablet {
+        text-align: left;
+        padding-left: 40px;
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__item {
+    flex-shrink: 0;
+
+    height: 410px;
+    scroll-snap-align: center;
+
+    &:nth-child(1) {
+      padding-left: 20px;
+    }
+
+    &:nth-last-child(1) {
+      padding-right: 20px;
+    }
+
+    @include on-tablet {
+      height: 543px;
+
+      &:nth-child(1) {
+        padding-left: 40px;
+      }
+
+      &:nth-last-child(1) {
+        padding-right: 40px;
+      }
+    }
+
+    &__image {
+      width: 100%;
+      height: inherit;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__points {
+    display: flex;
+    justify-self: center;
+    gap: 22px;
+    margin-top: 20px;
+    grid-column: 1 / -1;
+
+    &__point {
+      display: inline;
+      height: 9px;
+      width: 9px;
+      border-radius: 5px;
+      background-color: #687480;
+
+      &--active {
+        background-color: #1a5a4c;
+      }
+    }
+  }
 }
