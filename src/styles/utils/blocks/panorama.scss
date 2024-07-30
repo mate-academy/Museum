@@ -1,0 +1,114 @@
+.panorama {
+  &__bg {
+    background-image: url(../images/divide-block-image/divide-block-image.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    max-width: 100%;
+    height: 550px;
+  }
+
+  &__description {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: $g-gap;
+    padding-top: 45px;
+    padding-bottom: 50px;
+
+    background-color: $bg-color;
+    margin: -102px auto $d-space-between-sections;
+    height: 204px;
+    max-width: 570px;
+    box-shadow: 0 2px 0 0 $box-shadow-color;
+  }
+
+  &__schedule-container {
+    align-self: center;
+    grid-column: 2 / 6;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px ;
+  }
+
+  &__shedule-key {
+    align-self: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    color: $grey-color;
+    text-transform: uppercase;
+  }
+
+  &__shedule-value {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    color: $green-text;
+  }
+
+  &__title {
+    grid-column: 2 / 6;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 36px;
+  }
+}
+
+@include on-tablet {
+  .panorama {
+    padding-inline: $t-padding;
+
+    &__bg {
+      height: 390px;
+    }
+
+    &__description {
+      margin-top: -84px;
+      margin-bottom: $t-space-between-sections;
+    }
+  }
+}
+
+@include on-phone {
+  .panorama {
+    padding-inline: $m-padding-no-space;
+    &__bg {
+      height: 210px;
+    }
+
+    &__container {
+      margin-inline: 20px;
+      margin-bottom: $m-space-between-sections-panoram;
+    }
+
+    &__description {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: -57px;
+      height: 140px;
+      padding-block: 20px;
+    }
+
+    &__schedule-container {
+      grid-column: span 2;
+      justify-content: space-around;
+      padding-bottom: 20px;
+    }
+
+    &__shedule-key {
+      font-size: 16px;
+      line-height: 16px;
+    }
+
+    &__shedule-value {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &__title {
+      grid-column: 1 / -1;
+      font-size: 28px;
+      line-height: 28px;
+      text-align: center;
+    }
+  }
+}
