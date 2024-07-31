@@ -1,10 +1,16 @@
 .header {
   margin: 0;
+  @include pageGrid;
 
   &-link {
     display: flex;
     width: 100%;
     position: relative;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+    }
 
     &-photo {
       width: 100%;
@@ -22,6 +28,12 @@
     top: 0;
     left: 0;
     padding-inline: 20px;
+
+    @include onTablet {
+      gap: 409px;
+      padding-inline: 34px;
+      padding-top: 15px;
+    }
   }
 
   &-burger-menu {
@@ -42,3 +54,59 @@
     }
   }
 }
+
+.art-museum {
+  grid-column: 1 / -1;
+  padding-inline: 20px;
+
+
+  @include onTablet {
+    grid-column: 1 / 4;
+    grid-row: 1;
+    padding-top: 127px;
+    padding-inline: 34px;
+  }
+
+  &-title-and-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      align-items: start;
+      gap: 38px;
+    }
+  }
+
+  &-title {
+    margin: 0;
+    font-family: Montserrat;
+    font-size: 45px;
+    font-weight: 700;
+
+    text-align: center;
+    color: #000000;
+
+    @include onTablet {
+      text-align: left;
+    }
+  }
+
+  &-link {
+    // margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    @include onTablet {
+      // justify-content: left;
+    }
+
+    &-img {
+      width: 280px;
+    }
+  }
+}
+
