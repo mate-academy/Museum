@@ -3,10 +3,11 @@
 
 const icons = document.querySelectorAll('.nav-icon');
 const links = document.querySelectorAll(
-  '.nav__link, .logo, .button__link--type--up');
+  '.nav__link, .logo, .button__link--type--up',
+);
 const menu = document.querySelector('.page__menu');
 
-icons.forEach(icon => {
+icons.forEach((icon) => {
   icon.addEventListener('click', (event) => {
     for (const ic of icons) {
       ic.classList.toggle('open');
@@ -15,7 +16,7 @@ icons.forEach(icon => {
   });
 });
 
-links.forEach(link => {
+links.forEach((link) => {
   link.addEventListener('click', clickHandler, (event) => {
     for (const ic of icons) {
       ic.classList.remove('open');
@@ -45,7 +46,6 @@ function clickHandler(e) {
 /* eslint-disable no-undef */
 
 const swiper = new Swiper('.swiper', {
-
   direction: 'horizontal',
   loop: true,
 
@@ -68,3 +68,9 @@ const swiper = new Swiper('.swiper', {
     clickable: true,
   },
 });
+
+function submitForm() {
+  const form = document.querySelector('.subscribe__input');
+  form.reset();
+  return false;
+}
