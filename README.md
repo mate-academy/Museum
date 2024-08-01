@@ -49,5 +49,4 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 13. Replace `<your_account>` with your Github username in the
   [DEMO LINK](https://mrsvolodya.github.io/Museum/).
 14. Copy `DEMO LINK` to the PR description.
-
 > To update you PR repeat steps 7-11.
