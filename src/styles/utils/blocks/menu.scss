@@ -1,7 +1,7 @@
 .menu {
-  color: #fff;
-  height: $d-aside-height;
+  @include height-aside-menu(height);
   background: $aside-background;
+  color: #fff;
 
   &__grid-wrapper {
     @extend %max-content;
@@ -9,7 +9,8 @@
     display: grid;
     grid-template-columns: repeat($d-columns, 1fr);
     column-gap: $g-gap;
-    margin-top: 40px;
+    margin: 40px auto 0;
+    padding-inline: $d-padding;
   }
 
   &__nav {
@@ -68,9 +69,22 @@
   }
 }
 
+.menu::before {
+  content: '';
+  height: 100vh;
+  position: fixed;
+  @include height-aside-menu(top);
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(17, 17, 17, 0.5);
+}
+
 @include on-tablet {
   .menu {
-    height: $t-aside-height;
+    &__grid-wrapper {
+      padding-inline: $t-padding;
+    }
 
     &__nav {
       font-size: 16px;
@@ -105,7 +119,6 @@
 
 @include on-phone {
   .menu {
-    height: $m-aside-height;
     &__nav {
       margin-left: 52px;
       grid-column: 1 / -1;
@@ -116,6 +129,7 @@
     &__grid-wrapper {
       grid-template-columns: repeat($m-columns, 1fr);
       margin-top: 27px;
+      padding-inline: $m-padding;
     }
 
     &__devider {
