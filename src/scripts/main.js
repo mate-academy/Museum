@@ -68,9 +68,3 @@ const swiper = new Swiper('.swiper', {
     clickable: true,
   },
 });
-
-function submitForm() {
-  const form = document.querySelector('.subscribe__input');
-  form.reset();
-  return false;
-}
