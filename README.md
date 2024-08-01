@@ -15,7 +15,6 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 1. Implement `Галерея` block and slider.
 1. Implement `Підписка` block.
 1. Implement footer.
-
 ## Checklist for preparing a portfolio project for HR review
 
 1. Don’t forget to add a title for the whole web page (it could be the name of your landing)
