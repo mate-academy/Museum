@@ -33,7 +33,6 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 15. Pictures in the gallery and exhibitions sections should increase on hover
 16. OPTIONAL: After everything is done, you can add a slider for viewing pictures in the gallery (for mobile version)
 
-
 ## Github flow
 1. **Fork** the repo.
 2. **Clone** the forked one. (The project link should have your name but not `mate-academy`)
