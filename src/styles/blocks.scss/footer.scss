@@ -1,236 +1,214 @@
-.container {
-  @include on-mob-tabl {
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 250px;
-  }
-}
-
 .footer {
-  @include on-tabl-desk {
-    padding-left: 34px;
-    margin-top: 70px;
-  }
-
+  margin-top: 395px;
   padding-left: 55px;
   box-sizing: border-box;
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  line-height: 21px;
-  width: 100%;
-  top: 407px;
-  height: 457px;
+  line-height: 14px;
   color: black;
-  position: relative;
+  display: grid;
+  column-gap: 30px;
+  grid-template-columns: repeat(12, 70px);
 
   @include on-tabl-desk {
-    height: 657px;
-    top: 150px;
+    margin-top: 230px;
+    padding-left: 39px;
+    column-gap: 30px;
+    grid-template-columns: repeat(6, 90px);
+
   }
 
- 
-
-  &__bottom {
-    margin-top: 0;
-
-    @include on-tabl-desk {
-      justify-content: left;
-      position: absolute;
-      top: 390px;
-      left: 50px;
-    }
-
-    @include on-mob-tabl {
-      position: relative;
-      top: 60px;
-      left: -110px;
-    }
-  }
-
-  &__wrapper {
-    display: flex;
+  @include on-mob-tabl {
+    padding-left: 20px;
+    column-gap: 20px;
+    grid-template-columns: repeat(2, 130px);
+    margin-top: 150px;
   }
 
   &__logo {
-    width: 170px;
+    grid-column: 1;
+
     height: 72px;
 
-    @include on-mob-tabl {
-      position: absolute;
-      top: -265px;
-      left: 20px;
+    @include on-tabl-desk{
+      grid-column: 1;
+    }
+  }
+
+  .header__all--text{
+    @include on-mob-tabl{
+      grid-column: 1/1;
     }
   }
 
   &__un {
-    width: 68px;
-    position: relative;
-    text-decoration: none;
+    @include hover(transform, scale(1.07));
 
-    @include on-mob-tabl {
+    width: 23.96px;
+    height: 24px;
+    display: flex;
+    gap: 22px;
+
+    @include on-mob-tabl{
       position: relative;
-      left: 280px;
-      top: -105px;
-    }
-
-    &--right {
-      margin-left: 10px;
+      left: 200px;
+      top: -100px;
     }
   }
 
-  &__menu {
-    box-sizing: border-box;
-    display: flex;
-    margin-left: 20px;
-    margin-top: 15px;
+  &__menu--schedule {
+    grid-column: 2/3;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    width: 170px;
+    height: 271px;
+    color: black;
+    text-decoration: none;
 
-    @include on-tabl-desk {
+    @include on-tabl-desk{
+      grid-column: 2/3;
+    }
+
+    @include on-mob-tabl{
+      grid-column: 1;
       margin-left: 0;
+      margin-top: 40px;
+      width: 130px;
+height: 336px;
+
+
+    }
+  }
+
+  &__menu--contact {
+    grid-column: 5/6;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    width: 169px;
+    height: 169px;
+
+    @include on-tabl-desk{
+      grid-column: 4/5;
     }
 
-    @include on-mob-tabl {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: absolute;
-      top: -250px;
-      left: 15px;
-    }
-
-    &--contact {
-      @include on-tabl-desk {
-        width: 220px;
-        height: 145px;
-        margin-left: 200px;
-      }
-
-      @include on-mob-tabl {
-        width: 130px;
-        height: 210px;
-        position: relative;
-        top: 106px;
-        left: 150px;
-      }
-
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 21px;
-      width: 169px;
-      height: 166px;
-    }
-
-    &--schedule {
-      @include on-tabl-desk {
-        width: 230px;
-        height: 250px;
-        position: absolute;
-        left: 154px;
-        top: 14px;
-      }
-
-      @include on-mob-tabl {
-        width: 130px;
-        height: 356px;
-        position: absolute;
-        top: 105px;
-        left: 20px;
-      }
-    }
-
-    &--schedule2 {
-      @include on-tabl-desk {
-        position: relative;
-        left: 0;
-        top: 0;
-      }
-
-      @include on-mob-tabl {
-        width: 130px;
-        position: absolute;
-        top: 250px;
-        left: 30px;
-      }
+    @include on-mob-tabl{
+      grid-column: 2;
+      margin-top: 40px;
+      width: 128px;
+height: 189px;
     }
   }
 
   &__hr {
-    position: relative;
-    left: 48px;
-    border: 1px solid #1a5a4c(50%);
-    grid-column: 7/7;
+    grid-column: 7;
     height: 260px;
+    color: #1a5a4c80;
 
-    @include on-tabl-desk {
+    @include on-tabl-desk{
+      transform: rotate(-90deg);
+      grid-column: 3/5;
       height: 460px;
-      transform: rotate(-90deg);
-      position: absolute;
-      left: 378px;
-      top: 105px;
+      margin-top: -166px;
     }
 
-    @include on-mob-tabl {
+    @include on-mob-tabl{
       transform: rotate(-90deg);
-      left: -90px;
-      top: 200px;
-      height: 280px;
-      margin-bottom: 40px;
+      grid-column: 1/-1;
+      margin-top: -30px;
     }
   }
-}
 
-.footer__inst {
-  position: relative;
-}
-
-.footer__facebook {
-  text-decoration: none;
-}
-
-.footer__link {
-  &__d {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 14px;
-    text-align: left;
+  &__menu--adress {
     color: black;
-  }
-  &__m {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 14px;
-    text-align: left;
-    color: black;
+    text-decoration: none;
+
+    @include hover(transform, scale(1.07));
   }
 
+  &__menu--phone {
+    color: black;
+    text-decoration: none;
+
+    @include hover(transform, scale(1.07));
+  }
+
+  &__menu--phone1 {
+    color: black;
+    text-decoration: none;
+
+    @include hover(transform, scale(1.07));
+  }
+
+  &__menu--email {
+    color: black;
+    text-decoration: none;
+
+    @include hover(transform, scale(1.07));
+  }
+}
+
+.menu__content1--c1 {
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
   text-align: left;
+
   color: black;
+  grid-column: 8/9;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include on-tabl-desk{
+    grid-column: 2;
+    margin-top: -166px;
+  }
+
+  @include on-mob-tabl{
+    grid-column: 1;
+    margin-top: -100px;
+  }
+
 }
 
+.menu__content1--c2 {
+  color: black;
+  grid-column: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include on-tabl-desk{
+    grid-column: 4;
+    margin-top: -166px;
+  }
+
+  @include on-mob-tabl{
+    grid-column: -1;
+    margin-top: -100px;
+  }
+}
+
+
 .footik {
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 35 55px;
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 12px;
   font-weight: 300;
   line-height: 16.88px;
   color: #0f0e08;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-right: 55px;
-  top: 120px;
+  margin-top: 67px;
 
   @include on-tabl-desk {
     padding-right: 34px;
-    top: 400px;
+    margin-top: 1px;
   }
 
   @include on-mob-tabl {
@@ -239,4 +217,48 @@
     text-align: center;
     top: 500px;
   }
+}
+
+.footer__link {
+
+  &__d {
+    @include hover(transform, scale(1.07));
+
+    @include on-mob-tabl {
+      display: none;
+    }
+
+    @include on-tabl-desk {
+      display: none;
+    }
+  }
+
+  &__m {
+    @include hover(transform, scale(1.07));
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__a{
+    @include hover(transform, scale(1.07));
+  }
+
+  &__b{
+    @include hover(transform, scale(1.07));
+  }
+
+  &__c{
+    @include hover(transform, scale(1.07));
+  }
+}
+
+.nondecor {
+  color: black;
+  text-decoration: none;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
 }
