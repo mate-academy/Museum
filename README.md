@@ -7,7 +7,6 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 - Desktop 1280px
 - Tablet 640px
 - Mobile (> 320px)
-
 1. Implement the header with hamburger menu.
 1. Implement `Художній Музей` block.
 1. Implement `Актуальні події` block with two similar blocks `Йду і повертаюсь`, `І спогади і мрії`.

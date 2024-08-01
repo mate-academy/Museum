@@ -2,7 +2,7 @@
 const btnContainer = document.querySelector('.gallery__controls-list');
 
 function isScroll(event) {
-  const isScroll = event.target.href?.slice(-4) === 'menu';
+  const isScroll = event.target.href.slice(-4) === 'menu';
 
   if (isScroll) {
     document.documentElement.style.cssText = `
