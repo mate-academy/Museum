@@ -6,6 +6,7 @@ const links = document.querySelectorAll(
   '.nav__link, .logo, .button__link--type--up',
 );
 const menu = document.querySelector('.page__menu');
+const body = document.querySelector('body');
 
 icons.forEach((icon) => {
   icon.addEventListener('click', (event) => {
@@ -13,6 +14,7 @@ icons.forEach((icon) => {
       ic.classList.toggle('open');
     }
     menu.classList.toggle('page__menu__open');
+    body.classList.toggle('body--no-scroll');
   });
 });
 
@@ -31,6 +33,7 @@ function clickHandler(e) {
   const offsetTop = document.querySelector(href).offsetTop;
 
   menu.classList.remove('page__menu__open');
+  body.classList.remove('body--no-scroll');
 
   for (const ic of icons) {
     ic.classList.remove('open');
