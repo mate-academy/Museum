@@ -1,0 +1,73 @@
+.nav {
+  color: inherit;
+  width: 100%;
+
+  @include on-desktop {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+
+    @include on-tablet {
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      column-gap: 30px;
+    }
+  }
+
+  &__item {
+    grid-column: span 1;
+  }
+
+  &__link {
+    text-decoration: none;
+    width: 100%;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $c-white;
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: center;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &--highlight--black {
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: $c-black;
+        transition: transform 0.3s;
+        transform: scale(0);
+        transform-origin: center;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+  }
+}

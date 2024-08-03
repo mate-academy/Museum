@@ -1,0 +1,179 @@
+.swiper {
+  grid-column: 1 / -1;
+
+  display: block;
+  height: 100%;
+  position: relative;
+  overflow: hidden visible;
+  list-style: none;
+  padding: 0;
+  row-gap: 20px;
+
+  @include page-grid;
+
+  @include on-tablet {
+    row-gap: 32px;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &-wrapper {
+    grid-column: 1 / -1;
+
+    position: relative;
+    max-width: 100%;
+    transition-property: transform;
+    transition-timing-function: $transition-speed;
+    box-sizing: border-box;
+    display: flex;
+  }
+}
+
+.swiper-horizontal {
+  touch-action: pan-y;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+}
+
+.slide-image {
+  width: 100%;
+  min-height: 410px;
+  transition: all, $transition-speed;
+  background-position: 50% 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @include on-tablet {
+    min-height: 540px;
+  }
+
+  @include on-desktop {
+    background-position: center;
+    transition: all, $transition-speed;
+
+    -webkit-mask-image: linear-gradient(
+      45deg,
+      #000 25%,
+      rgba(0, 0, 0, 0.2) 50%,
+      #000 75%
+    );
+    mask-image: linear-gradient(
+      45deg,
+      #000 25%,
+      rgba(0, 0, 0, 0.2) 50%,
+      #000 75%
+    );
+    -webkit-mask-size: 800%;
+    mask-size: 800%;
+    -webkit-mask-position: 0;
+    mask-position: 0;
+
+    &:hover {
+      transition:
+        transform $scale-transition-speed ease,
+        mask-position 2s ease,
+        -webkit-mask-position 2s ease;
+      transform: scale(1.01);
+      -webkit-mask-position: 120%;
+      mask-position: 120%;
+      opacity: 1;
+    }
+  }
+
+  &--bg--1 {
+    background-image: url(../images/paintings/girl.png);
+  }
+  &--bg--2 {
+    background-image: url(../images/paintings/gooses.png);
+
+    @include on-desktop {
+      background-image: url(../images/paintings/winter.png);
+    }
+  }
+  &--bg--3 {
+    background-image: url(../images/paintings/winter.png);
+
+    @include on-desktop {
+      background-image: url(../images/paintings/park.png);
+    }
+  }
+  &--bg--4 {
+    background-image: url(../images/paintings/sea.png);
+  }
+
+  &--layout--rectangle {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      grid-column: span 8;
+    }
+  }
+
+  &--layout--square {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      grid-column: span 4;
+    }
+  }
+}
+
+.swiper-pagination {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  text-align: center;
+  transition: 300ms opacity;
+  transform: translate3d(0, 0, 0);
+}
+
+.swiper-pagination.swiper-pagination-hidden {
+  opacity: 0;
+}
+
+.swiper-pagination-disabled > .swiper-pagination,
+.swiper-pagination.swiper-pagination-disabled {
+  display: none !important;
+}
+
+.swiper-pagination-bullet {
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+  border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
+  background: $c-green;
+  opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.2);
+}
+
+button.swiper-pagination-bullet {
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.swiper-pagination-clickable .swiper-pagination-bullet {
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet:only-child {
+  display: none !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: $c-green;
+}

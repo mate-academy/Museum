@@ -1,0 +1,130 @@
+.header {
+  width: 100%;
+  margin-bottom: 70px;
+
+  max-width: $design-min-width;
+  margin-inline: auto;
+
+  @include on-tablet {
+    margin-bottom: 88px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 200px;
+  }
+
+  &__content {
+    justify-content: center;
+    position: relative;
+    gap: 20px;
+
+    @include page-grid;
+
+    @include on-tablet {
+      row-gap: 40px;
+    }
+
+    @include on-desktop {
+      row-gap: 0;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  &__logo-link {
+    max-height: min-content;
+
+    margin-top: 10px;
+    text-decoration: none;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    z-index: -1;
+
+    @include on-tablet {
+      grid-column: 4 / span 2;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / span 2;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / span 2;
+
+    @include on-tablet {
+      grid-column: 1 / span 3;
+      grid-row: 3;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / span 5;
+      grid-row: 3;
+    }
+  }
+
+  &__background {
+    object-fit: cover;
+
+    width: 100vw;
+    grid-column: 1 / span 2;
+    margin-inline: -20px;
+    margin-top: -33%;
+    z-index: -2;
+
+    @include on-tablet {
+      position: relative;
+      right: 0;
+      width: 150%;
+
+      grid-column: 4 / span 3;
+      grid-row: 1 / span 5;
+      margin: 0;
+    }
+
+    @include on-desktop {
+      grid-row: 1 / span 6;
+      grid-column: 6 / span 7;
+      margin: 0;
+      max-height: 655px;
+      object-position: -50% 80%;
+    }
+
+    @include on-design {
+      max-height: 755px;
+      width: 180%;
+    }
+  }
+
+  &__side-text {
+    display: none;
+
+    @include on-desktop {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      align-self: self-end;
+
+      text-align: left;
+      display: inline-block;
+      writing-mode: vertical-rl;
+
+      transform: rotate(-180deg);
+
+      &::before {
+        display: inline-block;
+        margin-bottom: 20px;
+        content: '';
+        width: 1px;
+        height: 70px;
+        background-color: $c-green;
+      }
+    }
+  }
+}
