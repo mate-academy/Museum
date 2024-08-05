@@ -1,17 +1,19 @@
 .header {
-  &__container {
-    display: grid;
-    grid-template-columns: repeat($d-columns, 1fr);
-    gap: $g-gap;
-    margin: 0 auto;
+  &__flex-box {
+    padding-left: $d-padding;
+    display: flex;
+    flex-direction: row;
+    max-height: $d-header-min-height;
+  }
 
+  &__container {
     position: relative;
-    max-width: $max-content-width;
-    min-height: $d-header-min-height;
+    margin-top: 206px;
+    padding-right: 30px;
+    max-width: 500px;
   }
 
   &__l-container {
-    grid-column: 1 / 6;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,7 +44,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid $g-color;
+    border: 1px solid $border-btn;
     width: 200px;
     height: 70px;
     font-weight: 500;
@@ -57,7 +59,7 @@
     align-items: center;
     width: 70px;
     height: 70px;
-    background-color: $g-color;
+    background-color: $second-back-color;
   }
 
   &__e-container {
@@ -70,7 +72,7 @@
 
   &__e-line {
     align-self: center;
-    border-bottom: 1px solid $g-color;
+    border-bottom: 1px solid $border-btn;
     margin-right: 20px;
     width: 70px;
   }
@@ -81,14 +83,16 @@
   }
 
   &__bg {
-    grid-column: 6 / -1;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 30px;
     background-image: url(../images/museum.jpg);
     background-repeat: no-repeat;
+    background-position: center;
     z-index: -1;
     background-size: cover;
+    min-height: $d-header-min-height;
   }
 
   &__bg-t {
@@ -103,18 +107,15 @@
 
 @include on-tablet {
   .header {
-    padding-left: 34px;
-
-    &__container {
-      min-height: $t-header-min-height;
-      position: relative;
-      grid-template-columns: repeat($t-columns, 1fr);
+    &__flex-box {
+      padding-left: $t-padding;
+      z-index: -1;
     }
 
-    &__l-container {
-      padding-top: 127px;
-      grid-column: 1 / 4;
-      display: block;
+    &__container {
+      padding: 0;
+      margin-top: 127px;
+      position: relative;
     }
 
     &__title {
@@ -132,6 +133,7 @@
       grid-column: 4 / -1;
       background-size: cover;
       background-position: center;
+      min-height: $t-header-min-height;
     }
 
     &__e-container {
@@ -142,13 +144,17 @@
 
 @include on-phone {
   .header {
-    padding: 0;
+    &__flex-box {
+      padding: $m-padding-no-space;
+      flex-direction: column-reverse;
+      max-height: 100%;
+      align-items: center;
+    }
+
     &__container {
-      grid-template-columns: repeat($m-columns, 1fr);
-      row-gap: 20px;
-      grid-template-areas:
-        'a a a'
-        'b b b';
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
     }
 
     &__title {
@@ -161,7 +167,7 @@
       display: flex;
       align-items: center;
       grid-area: b;
-      padding: 0 20px;
+      padding: 0;
     }
 
     &__bg {
@@ -170,6 +176,8 @@
       aspect-ratio: 1;
       background-position: center;
       background-size: cover;
+
+      height: 100%;
     }
 
     &__bg-t {

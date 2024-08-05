@@ -142,3 +142,21 @@ submitBtn.addEventListener('click', onSubmit);
 ticketBtn.addEventListener('click', () => {
   document.querySelector('.performances').scrollIntoView();
 });
+
+window.addEventListener('resize', (e) => {
+  const content = document.querySelector('.page__container');
+
+  const rect = content.getBoundingClientRect();
+  const header = document.querySelector('.header__flex-box');
+
+  header.style.marginLeft = `${rect.x}px`;
+});
+
+window.addEventListener('load', (e) => {
+  const content = document.querySelector('.page__container');
+
+  const rect = content.getBoundingClientRect();
+  const header = document.querySelector('.header__flex-box');
+
+  header.style.marginLeft = `${rect.x}px`;
+});
