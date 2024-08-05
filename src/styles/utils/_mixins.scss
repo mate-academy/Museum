@@ -73,10 +73,15 @@
 @mixin link-hover {
   position: relative;
 
+  @include transition-page;
+
   &:hover {
     color: $rect-bg;
   }
-  &:hover::before {
+
+  &::before {
+    @include transition-page;
+
     content: '';
     position: absolute;
     top: 50%;
@@ -84,6 +89,10 @@
     transform: translateY(-50%);
     width: 9px;
     height: 9px;
+    background-color: transparent;
+  }
+
+  &:hover::before {
     background-color: $rect-bg;
   }
 }
