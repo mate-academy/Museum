@@ -1,11 +1,15 @@
 .panorama {
   &__bg {
-    background-image: url(../images/divide-block-image/divide-block-image.png);
+    background-image: url(../images/panorama/panorama.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     max-width: 100%;
     aspect-ratio: 3 / 1;
+  }
+
+  &__container {
+    perspective-origin: center;
   }
 
   &__description {
@@ -16,10 +20,17 @@
     padding-bottom: 50px;
 
     background-color: $bg-color;
-    margin: -102px auto $d-space-between-sections;
+    margin: -102px auto 0;
     height: 204px;
     max-width: 570px;
     box-shadow: 0 2px 0 0 $box-shadow-color;
+    @include transition-page;
+
+    &:hover {
+
+      @include transition-page;
+      transform: perspective(600px) rotateX(15deg);
+    }
   }
 
   &__schedule-container {
@@ -27,7 +38,7 @@
     grid-column: 2 / 6;
     display: flex;
     justify-content: space-between;
-    padding-bottom: 16px ;
+    padding-bottom: 16px;
   }
 
   &__shedule-key {
@@ -60,7 +71,6 @@
 
     &__description {
       margin-top: -84px;
-      margin-bottom: $t-space-between-sections;
     }
   }
 }
@@ -75,7 +85,6 @@
 
     &__container {
       margin-inline: 20px;
-      margin-bottom: $m-space-between-sections-panoram;
     }
 
     &__description {

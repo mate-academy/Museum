@@ -2,19 +2,29 @@
   overflow: hidden;
   &__title {
     @include section-title;
+
   }
 
   &__container-list {
     display: grid;
     grid-template-columns: repeat($d-columns, 1fr);
     gap: $g-gap;
-    margin-bottom: $d-space-between-sections;
+
+    @include transition-page;
   }
 
   &__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    @include transition-page;
+    &:hover {
+
+      @include transition-page;
+
+      transform: scale(1.05);
+    }
   }
 
   &__image-1 {
@@ -55,6 +65,10 @@
       background: transparent;
     }
   }
+
+  &__active-btn {
+    background-color: $btn-active;
+  }
 }
 
 @include on-tablet {
@@ -74,6 +88,12 @@
       gap: 20px;
       grid-column: 1 / 4;
       margin-bottom: 32px;
+    }
+
+    &__image {
+      &:hover {
+        transform: scale(1);
+      }
     }
 
     &__image-1,

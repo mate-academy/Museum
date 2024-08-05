@@ -44,3 +44,55 @@
     #{$_property}: $m-aside-height;
   }
 }
+
+@mixin on-action-hover($__value) {
+  @include transition-page;
+
+  &:hover {
+    @include transition-page;
+
+    background-color: $menu-mask-color-active;
+    transform: rotate(#{$__value});
+  }
+}
+
+@mixin transition-page {
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin on-hover-img {
+  @include transition-page;
+
+  &:hover {
+    transform: scale(1.1);
+
+    @include transition-page;
+  }
+}
+
+@mixin link-hover {
+  position: relative;
+
+  &:hover {
+    color: $rect-bg;
+  }
+  &:hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    transform: translateY(-50%);
+    width: 9px;
+    height: 9px;
+    background-color: $rect-bg;
+  }
+}
+
+@mixin on-hover-btn {
+  @include transition-page;
+  &:hover {
+    @include transition-page;
+
+    transform: translateX(5%);
+  }
+}
