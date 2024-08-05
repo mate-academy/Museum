@@ -143,20 +143,15 @@ ticketBtn.addEventListener('click', () => {
   document.querySelector('.performances').scrollIntoView();
 });
 
-window.addEventListener('resize', (e) => {
+function handleResize() {
   const content = document.querySelector('.page__container');
+  const header = document.querySelector('.header__container');
 
-  const rect = content.getBoundingClientRect();
-  const header = document.querySelector('.header__flex-box');
+  if (content && header) {
+    const rect = content.getBoundingClientRect();
+    header.style.marginLeft = `${rect.x}px`;
+  }
+}
 
-  header.style.marginLeft = `${rect.x}px`;
-});
-
-window.addEventListener('load', (e) => {
-  const content = document.querySelector('.page__container');
-
-  const rect = content.getBoundingClientRect();
-  const header = document.querySelector('.header__flex-box');
-
-  header.style.marginLeft = `${rect.x}px`;
-});
+window.addEventListener('resize', handleResize);
+window.addEventListener('load', handleResize);

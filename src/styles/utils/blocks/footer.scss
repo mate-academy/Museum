@@ -51,18 +51,6 @@
     font-weight: 400;
   }
 
-  &__scroll-to-top {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border: 1px solid $border-btn;
-    border-radius: 50%;
-    background: none;
-    cursor: pointer;
-  }
-
   &__contacts-title {
     font-weight: inherit;
     margin-bottom: 20px;
@@ -109,6 +97,38 @@
     font-weight: 300;
     font-size: 12px;
     line-height: 17px;
+  }
+
+  .footer__scroll-to-top-img {
+    -webkit-mask-image: url(../images/icon/arrow-up.svg);
+    mask-image: url(../images/icon/arrow-up.svg);
+    background-color: $second-back-color;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+
+    @include transition-page;
+  }
+
+  &__scroll-to-top {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid $border-btn;
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+
+    &:hover {
+      .footer__scroll-to-top-img {
+        transform: translateY(-20%);
+        background-color: $rect-bg;
+
+        @include transition-page;
+      }
+    }
   }
 }
 
