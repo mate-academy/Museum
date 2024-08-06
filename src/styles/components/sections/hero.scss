@@ -1,0 +1,84 @@
+.hero {
+  padding-top: 320px;
+  position: relative;
+
+  // @include page-grid;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background-image: url("../images/hero-bg-small.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    z-index: -1;
+
+    @include onTablet {
+      left: auto;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background-image: url("../images/hero-bg-big.jpg");
+      background-position: center;
+    }
+
+    @include onDesktop {
+      width: 57%;
+    }
+  }
+
+  @include onTablet {
+    padding-top: 127px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    @include onTablet {
+      align-items: flex-start;
+      gap: 38px;
+    }
+
+    @include onDesktop {
+      @include page-grid;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+
+    @include onTablet {
+      text-align: left;
+      max-width: 340px;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__btn {
+    @include onTablet {
+      margin-bottom: 19px;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 6;
+    }
+  }
+}
