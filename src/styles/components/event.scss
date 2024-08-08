@@ -1,0 +1,132 @@
+.event {
+  @include page-grid;
+
+  row-gap: 20px;
+
+  @include onTablet {
+    row-gap: 40px;
+  }
+
+  @include onDesktop {
+    row-gap: 130px;
+    align-items: center;
+  }
+
+  &__img {
+    display: flex;
+    grid-column: 1 / -1;
+
+    @include onDesktop {
+      grid-column: span 7;
+    }
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: span 4;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__info {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__info-type {
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 100%;
+    color: #687480;
+  }
+
+  &__info-date {
+    font-weight: 700;
+    color: $color-accent;
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    margin: 0 0 10px;
+    display: flex;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-color: $color-special;
+      margin: 12px 0 0 11px;
+    }
+
+    @include onTablet {
+      font-size: 36px;
+      &::after {
+        width: 15px;
+        height: 15px;
+      margin: 12px 0 0 20px;
+      }
+    }
+  }
+
+  &__text {
+    color: $color-text-dark;
+    margin: 0;
+  }
+
+  &--lecture {
+    row-gap: 0;
+
+    .event__img {
+      grid-column: 1 / -1;
+    }
+
+    .event__content {
+      background-color: $color-light;
+      margin-top: -57px;
+      padding: 20px;
+      box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+
+      @include onTablet {
+        box-sizing: border-box;
+        grid-column: 1 / -1;
+        max-width: 570px;
+        width: 100%;
+        justify-self: center;
+        padding: 45px 55px 50px;
+        margin-top: -84px;
+      }
+
+      @include onDesktop {
+        padding-inline: 100px;
+        margin-top: -102px;
+      }
+    }
+
+    .event__title {
+      text-align: center;
+
+      &::after {
+        display: none;
+      }
+
+      @include onTablet {
+        text-align: left;
+      }
+    }
+  }
+}

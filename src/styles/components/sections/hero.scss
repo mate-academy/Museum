@@ -28,6 +28,7 @@
 
     @include onDesktop {
       width: 57%;
+      max-width: 725px;
     }
   }
 
@@ -36,6 +37,7 @@
   }
 
   &__container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,6 +81,38 @@
 
     @include onDesktop {
       grid-column: 3 / 6;
+      margin-bottom: 118px;
+    }
+  }
+
+  &__link {
+    display: none;
+
+    @include onDesktop {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      text-transform: uppercase;
+      color: #687480;
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      padding-left: 90px;
+      transform-origin: left bottom;
+      transform: rotate(-90deg) translateY(100%);
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 70px;
+        height: 1px;
+        background-color: $color-accent;
+      }
     }
   }
 }
