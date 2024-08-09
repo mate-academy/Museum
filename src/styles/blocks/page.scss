@@ -1,0 +1,39 @@
+.page {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  scroll-behavior: smooth;
+  min-width: 320px;
+  position: relative;
+
+  &:has(.is-active)::after {
+    top: 0;
+    z-index: 0;
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-color: $bg-dark-color;
+    opacity: 0.5;
+  }
+
+  &__body {
+    background: $bg-light-color;
+    color: $text-dark-color;
+  }
+
+  &__menu {
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+
+    min-width: 320px;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+  }
+}

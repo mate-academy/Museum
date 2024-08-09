@@ -1,0 +1,30 @@
+.nav {
+  @include nav-link;
+
+  &__list {
+    height: 96px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(2, 170px);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 30px;
+
+    @include on-tablet {
+      height: 72px;
+      grid-template-columns: repeat(2, 100px);
+      column-gap: 20px;
+    }
+
+    @include on-phone {
+      column-gap: 28px;
+    }
+  }
+
+  &__item {
+    @include hover(transform, scale(1.1));
+  }
+
+  &__link {
+    display: inline-block;
+  }
+}
