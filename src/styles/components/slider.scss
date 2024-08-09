@@ -2,11 +2,6 @@
   overflow: hidden;
   margin: 0 auto;
 
-  // @include onTablet {
-  //   min-width: 700px;
-  //   max-width: 800px;
-  // }
-
   &__list {
     list-style: none;
     padding: 0;
@@ -18,6 +13,32 @@
 
     @include onTablet {
       gap: 20px;
+    }
+
+    @include onDesktop {
+      overflow: visible;
+
+      @include page-grid;
+
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    @include onDesktop {
+      grid-column: span 4;
+
+      &--big {
+        grid-column: span 8;
+      }
+
+      &--wide {
+        grid-column: span 8;
+
+        .slider__img {
+          height: 360px;
+        }
+      }
     }
   }
 
@@ -34,6 +55,11 @@
       width: 340px;
       height: 543px;
     }
+
+    @include onDesktop {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__buttons {
@@ -44,6 +70,14 @@
     align-items: center;
     justify-content: center;
     gap: 22px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__buttons-item {
+    display: flex;
   }
 
   &__buttons-btn {
