@@ -1,0 +1,64 @@
+.timetable {
+  font-size: 14px;
+
+  &__title {
+    display: inline-block;
+    line-height: 140%;
+    margin-bottom: 20px;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onTablet {
+      flex-direction: row;
+      align-items: center;
+      gap: 26px;
+    }
+
+    @include onDesktop {
+      &:hover {
+        .timetable__time,
+        .timetable__text span {
+          color: $color-special;
+        }
+      }
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    @include onTablet {
+      min-width: 158px;
+    }
+
+    @include onDesktop {
+      min-width: 170px;
+    }
+  }
+
+  &__time {
+    font-weight: 600;
+    transition: color 0.5s;
+  }
+
+  &__texts {
+    @include onTablet {
+      max-width: 170px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+  }
+
+  &__text span {
+    font-weight: 600;
+    transition: color 0.5s;
+  }
+}

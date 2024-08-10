@@ -16,6 +16,7 @@
   &__menu {
     overflow: auto;
     position: fixed;
+    z-index: 1000;
     top: 0;
     left: 0;
     right: 0;
@@ -25,9 +26,22 @@
     transition: opacity 0.5s, transform 0.5s;
   }
 
+  &__overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: $color-dark;
+    opacity: 0.5;
+  }
+
   &__menu:target {
     opacity: 1;
     transform: translateY(0);
     pointer-events: all;
+
+    & ~ .page__overlay {
+      display: block;
+    }
   }
 }

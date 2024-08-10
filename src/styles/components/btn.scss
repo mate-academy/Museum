@@ -1,19 +1,19 @@
 .btn {
-  cursor: pointer;
   box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
   text-transform: uppercase;
   width: 280px;
+  height: 50px;
   padding: 18px 130px 18px 80px;
   border: 1px solid $color-accent;
-  position: relative;
-  transition: border-color 0.5s,
-              background-color 0.5s;
+  transition: border-color 0.5s, background-color 0.5s;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 50px;
     right: 0;
@@ -21,12 +21,21 @@
     bottom: 0;
     background-color: $color-accent;
     border: 1px solid transparent;
-    background-image: url('../images/icons/icon-right-arrow.svg');
+    background-image: url("../images/icons/icon-right-arrow.svg");
     background-repeat: no-repeat;
     background-size: 24px;
     background-position: center;
-    transition: background-color 0.5s,
-                border-color 0.5s;
+    transition: background-color 0.5s, border-color 0.5s;
+
+    @include onTablet {
+      width: 70px;
+    }
+  }
+
+  @include onTablet {
+    padding: 27px 138px 27px 68px;
+    width: 270px;
+    height: 70px;
   }
 
   &:hover {
@@ -35,17 +44,40 @@
     color: $color-light;
 
     &::before {
-      background-image: url('../images/icons/icon-right-arrow-hover.svg');
+      background-image: url("../images/icons/icon-right-arrow-hover.svg");
       border-color: $color-accent;
       background-color: $color-light;
     }
   }
 
-  @include onTablet {
-    padding: 27px 138px 27px 68px;
+  &--square {
+    max-width: 50px;
+    padding: 13px;
+    border: 1px solid $color-special;
+    border: none;
 
     &::before {
-      width: 70px;
+      background-image: url("../images/icons/icon-right-arrow-black.svg");
+      background-color: $color-special;
+      width: auto;
+      left: 0;
+    }
+
+    &:hover {
+      &::before {
+        background-image: url("../images/icons/icon-right-arrow-hover-orange.svg");
+        border-color: $color-special;
+        background-color: $color-light;
+      }
+    }
+
+    @include onTablet {
+      max-width: 70px;
+      padding: 23px;
+
+      &::before {
+        width: auto;
+      }
     }
   }
 }

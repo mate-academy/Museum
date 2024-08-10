@@ -10,11 +10,26 @@
   @include onDesktop {
     row-gap: 130px;
     align-items: center;
+
+    &:hover {
+      .event__img {
+        transform: scale(1.05);
+      }
+
+      .event__info-type {
+        color: $color-special;
+      }
+
+      .event__title::before {
+        transform: scale(1);
+      }
+    }
   }
 
   &__img {
     display: flex;
     grid-column: 1 / -1;
+    transition: transform 0.5s;
 
     @include onDesktop {
       grid-column: span 7;
@@ -49,6 +64,7 @@
     font-weight: 500;
     line-height: 100%;
     color: #687480;
+    transition: color 0.5s;
   }
 
   &__info-date {
@@ -57,12 +73,15 @@
   }
 
   &__title {
+    text-decoration: none;
+    color: inherit;
     font-family: Montserrat, sans-serif;
     font-weight: 400;
     font-size: 28px;
     line-height: 100%;
     margin: 0 0 10px;
     display: flex;
+    position: relative;
 
     &::after {
       content: "";
@@ -78,7 +97,19 @@
       &::after {
         width: 15px;
         height: 15px;
-      margin: 12px 0 0 20px;
+        margin: 12px 0 0 20px;
+      }
+    }
+
+    @include onDesktop {
+      width: fit-content;
+      border-radius: 10px;
+
+      @include hover-line($color-special);
+
+      &:focus {
+        outline: transparent;
+        box-shadow: 0 0 0 2px $color-dark;
       }
     }
   }
@@ -103,6 +134,7 @@
       justify-self: center;
       background-color: $color-light;
       box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+      transition: transform 0.5s;
 
       @include onTablet {
         grid-column: 1 / -1;
@@ -127,6 +159,20 @@
 
       @include onTablet {
         text-align: left;
+      }
+    }
+
+    &:hover {
+      .event__img {
+        transform: none;
+      }
+
+      .event__info-type {
+        color: $color-special;
+      }
+
+      .event__content {
+        transform: scale(1.05);
       }
     }
   }

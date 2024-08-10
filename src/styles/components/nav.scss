@@ -1,16 +1,16 @@
 .nav {
+  font-weight: 400;
 
   &__list {
     margin: 0;
     padding: 0;
     list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 100px 100px;
     gap: 24px 28px;
 
     @include onTablet {
       gap: 24px 20px;
-      grid-template-columns: 100px 100px;
     }
 
     @include onDesktop {
@@ -22,38 +22,58 @@
   &__link {
     color: inherit;
     text-decoration: none;
-    display: block;
     line-height: 100%;
+    display: block;
+    width: fit-content;
+    padding: 2px;
 
-    // width: fit-content;
-    // // position: relative;
-    // // transition: box-shadow 0.5s;
-
-    // // &::before {
-    // //   content: '';
-
-    // //   position: absolute;
-    // //   bottom: -7px;
-    // //   height: 1px;
-    // //   width: 100%;
-    // //   background-color: $color-light;
-
-    // //   transition: transform 0.5s;
-    // //   transform: scale(0);
-    // //   transform-origin: left;
-    // // }
+    @include onTablet {
+      max-width: 100%;
+    }
 
     @include onDesktop {
       font-size: 22px;
+      max-width: 128px;
+      border-radius: 10px;
 
-      // &:hover::before {
-      //   transform: scale(1);
-      // }
+      @include hover-line;
 
-      // &:focus {
-      //   outline: transparent;
-      //   box-shadow: 0 0 0 2px $color-light;
-      // }
+      &:focus {
+        outline: transparent;
+        box-shadow: 0 0 0 2px $color-light;
+      }
+    }
+  }
+
+  &--footer {
+    font-size: 14px;
+
+    .nav__list {
+      grid-template-columns: 130px 130px;
+      gap: 20px;
+    }
+
+    @include onTablet {
+      .nav__list {
+        grid-template-columns: 220px 220px;
+      }
+    }
+
+    @include onDesktop {
+      .nav__list {
+        grid-template-columns: 169px 169px;
+        gap: 20px 32px;
+      }
+
+      .nav__link {
+        font-size: 14px;
+
+        @include hover-line($color-dark);
+
+        &:focus {
+          box-shadow: 0 0 0 2px $color-dark;
+        }
+      }
     }
   }
 }
