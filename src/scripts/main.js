@@ -131,4 +131,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initializeSettings();
   window.addEventListener('resize', initializeSettings);
+
+  // Touch
+  let isDragging = false;
+  let startPos = 0;
+  let currentTranslate = 0;
+  let prevTranslate = 0;
+
+  slider.addEventListener('touchstart', touchStart);
+  slider.addEventListener('touchmove', touchMove);
+  slider.addEventListener('touchend', touchEnd);
+
+  function touchStart(event) {
+    isDragging = true;
+    startPos = event.touches[0].clientX;
+    prevTranslate = currentTranslate;
+  }
+
+  function touchMove(event) {
+    if (isDragging) {
+      const currentPosition = event.touches[0].clientX;
+
+      currentTranslate = prevTranslate + currentPosition - startPos;
+      sliderList.style.transform = `translateX(${currentTranslate}px)`;
+    }
+  }
+
+  function touchEnd(e) {
+    isDragging = false;
+
+    const movedBy = startPos - e.changedTouches[0].clientX;
+
+    if (movedBy > 50 && currentIndex < slides.length - settings.frameSize) {
+      currentIndex += settings.step;
+    } else if (movedBy < -50 && currentIndex > 0) {
+      currentIndex -= settings.step;
+    }
+
+    // Використання вашої логіки перемикання
+    const buttons = document.querySelectorAll('.slider__buttons-btn');
+
+    buttons[currentIndex / settings.step].click();
+  }
 });
