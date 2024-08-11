@@ -1,5 +1,6 @@
 'use strict';
 const TABLET_MIN_WIDTH = 767;
+const DESKTOP_MIN_WIDTH = 1280;
 
 document.addEventListener('DOMContentLoaded', () => {
   const headerEvents = document.querySelector('.header__events');
@@ -16,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateStyles() {
     const header = document.querySelector('.header');
     const headerImage = document.querySelector('.header__image');
+    const lectureSpace = document.querySelector('.events__space');
+    const lectureCard = document.querySelector('.lecture__card');
 
     if (window.innerWidth > TABLET_MIN_WIDTH) {
       if (header && headerImage) {
@@ -28,9 +31,20 @@ document.addEventListener('DOMContentLoaded', () => {
         headerImage.style.width = '';
       }
     }
+
+    if (lectureSpace && lectureCard) {
+      const lectureCardHeight = lectureCard.offsetHeight;
+
+      if (window.innerWidth >= DESKTOP_MIN_WIDTH) {
+        lectureSpace.style.height = `${0.5 * lectureCardHeight}px`;
+      } else {
+        lectureSpace.style.height = `${0.6 * lectureCardHeight}px`;
+      }
+    }
   }
 
   updateStyles();
+
 
   window.addEventListener('resize', () => {
     if (window.innerWidth !== lastWidth) {
@@ -40,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const menuButton = document.querySelector('.header__icon');
-  const menuCloseButton = document.querySelector('.menu__icon');
+  const menuCloseButtons = document.querySelectorAll('.menu__icon');
   const pageMenu = document.querySelector('.page__menu');
 
   function toggleMenu() {
@@ -59,9 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
     menuButton.addEventListener('click', toggleMenu);
   }
 
-  if (menuCloseButton) {
-    menuCloseButton.addEventListener('click', closeMenu);
-  }
+  menuCloseButtons.forEach(button => {
+    button.addEventListener('click', closeMenu);
+  });
 
   const navLinks = document.querySelectorAll('.nav__link');
   navLinks.forEach(link => {
@@ -71,7 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', (event) => {
     const isClickInsideMenu = pageMenu && pageMenu.contains(event.target);
     const isClickOnMenuButton = menuButton && menuButton.contains(event.target);
-    const isClickOnMenuCloseButton = menuCloseButton && menuCloseButton.contains(event.target);
+    const isClickOnMenuCloseButton = menuCloseButtons.length > 0 &&
+    Array.from(menuCloseButtons).some(button => button.contains(event.target));
+
 
     if (pageMenu && !isClickInsideMenu && !isClickOnMenuButton && !isClickOnMenuCloseButton) {
       closeMenu();
