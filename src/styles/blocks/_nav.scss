@@ -1,0 +1,63 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
+
+  @include on-tablet {
+    gap: 20px;
+  }
+
+  @include on-mobile {
+    gap: 28px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    width: 168px;
+    list-style: none;
+
+    @include on-tablet {
+      gap: 24px;
+      width: 100px;
+    }
+  }
+
+  &__link {
+    font:
+      500 22px/1 'IBM Plex Sans',
+      sans-serif;
+
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+
+    @include on-tablet {
+      font-size: 16px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -8px;
+      width: 100px;
+      height: 1px;
+      background-color: $white-color;
+
+      transform: scale(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}

@@ -1,0 +1,192 @@
+.header {
+  &__content {
+    display: grid;
+    z-index: 1;
+    overflow: hidden;
+    height: 668px;
+
+    @include page-grid;
+
+    @include on-tablet {
+      height: 399px;
+    }
+
+    @include on-mobile {
+      height: 502px;
+    }
+  }
+
+  &__top {
+    display: grid;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url(./../images/museum-header-img.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 655px;
+    width: 725px;
+    z-index: 1;
+    grid-column-start: 6;
+    grid-row: 1 / 2;
+
+    @include on-tablet {
+      width: 374px;
+      height: auto;
+      max-height: 655px;
+      min-height: 384px;
+      grid-column-start: 4;
+    }
+
+    @include on-mobile {
+      width: 100%;
+      min-height: 300px;
+    }
+  }
+
+  &__logo-link {
+    z-index: 2;
+    width: 170px;
+    height: 72px;
+    padding-top: 15px;
+    text-align: center;
+
+    @include on-tablet {
+      width: 220px;
+    }
+
+    @include on-mobile {
+      position: absolute;
+      left: 46%;
+      top: 9px;
+      width: 55px;
+      height: 61px;
+      padding: 0;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    grid-column: 1 / 6;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-mobile {
+      padding-top: 28px;
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__title {
+    z-index: 10;
+    margin: 0;
+    margin-bottom: 89px;
+    font:
+      700 72px/1 Montserrat,
+      sans-serif;
+    text-align: left;
+    color: $black-color;
+    text-transform: uppercase;
+    grid-column: 1 / 6;
+
+    @include on-tablet {
+      margin-bottom: 38px;
+      font:
+        700 54px/1.2 Montserrat,
+        sans-serif;
+    }
+
+    @include on-mobile {
+      margin-bottom: 20px;
+      font-size: 45px;
+      text-align: center;
+    }
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    place-items: center;
+    align-self: flex-end;
+    z-index: 10;
+    width: 270px;
+
+    @include on-tablet {
+      align-self: flex-start;
+    }
+
+    @include on-mobile {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+
+  &__button-text {
+    box-sizing: border-box;
+    height: 70px;
+    width: 200px;
+    border: 1px solid $dark-grey-color;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 70px;
+    background-color: $white-color;
+    color: $fonts-main-color;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition-duration: $effect-duration;
+
+    &:hover {
+      background-color: $light-grey-color;
+    }
+
+    @include on-mobile {
+      line-height: 50px;
+      width: 230px;
+      height: 50px;
+    }
+  }
+
+  &__events {
+    display: block;
+    position: relative;
+    bottom: 15px;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &-link {
+      font-weight: 500;
+      line-height: 1;
+      color: $medium-gray-color;
+      text-decoration: none;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      transition-duration: $effect-duration;
+
+      &:hover {
+        color: $red-accent;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -84px;
+        right: 6px;
+
+        width: 1px;
+        height: 70px;
+        background-color: $dark-grey-color;
+      }
+    }
+  }
+}

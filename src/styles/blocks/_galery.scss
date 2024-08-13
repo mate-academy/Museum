@@ -1,0 +1,108 @@
+.gallery {
+  &-track {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    row-gap: 30px;
+
+    @include page-grid;
+
+    cursor: pointer;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      column-gap: 30px;
+      overflow-x: auto;
+
+      scroll-snap-type: x mandatory;
+      scroll-snap-stop: always;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+    }
+
+    @include on-mobile {
+      column-gap: 20px;
+    }
+
+    &__item {
+      height: 600px;
+      margin: 0;
+      padding: 0;
+
+      &--small {
+        height: 360px;
+      }
+
+      &--high {
+        grid-column: span 4;
+        grid-row: 1 / 2;
+      }
+
+      &--big {
+        grid-column: 5 / span 8;
+        grid-row: 1 / 2;
+      }
+
+      &--wide {
+        grid-column: span 8;
+        grid-row: 2 / 3;
+      }
+
+      &--square {
+        grid-column: 9 / span 4;
+        grid-row: 2 / 3;
+      }
+
+      @include on-tablet {
+        min-width: calc(50% - 15px);
+        height: 540px;
+        scroll-snap-align: start;
+        pointer-events: none;
+      }
+
+      @include on-mobile {
+        min-width: 100%;
+        height: 410px;
+      }
+
+      &-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+
+        @include hover(transform, scale(1.02));
+      }
+    }
+  }
+
+  &-pagination {
+    @include on-tablet {
+      text-align: center;
+      margin: 0;
+      margin-top: 32px;
+      padding: 0;
+      list-style: none;
+      cursor: pointer;
+    }
+
+    @include on-mobile {
+      margin-top: 20px;
+    }
+
+    &__item {
+      display: inline-block;
+      width: 9px;
+      aspect-ratio: 1;
+      margin-inline: 11px;
+      border-radius: 50%;
+      background-color: $dots-color;
+      transition: 0.6s ease;
+
+      &--active {
+        background-color: $dark-grey-color;
+      }
+    }
+  }
+}
