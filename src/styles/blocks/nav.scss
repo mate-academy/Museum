@@ -1,0 +1,75 @@
+.nav {
+  @include local-grid;
+
+  height: min-content;
+  gap: 24px 28px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &__item {
+    position: relative;
+    width: max-content;
+    height: min-content;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: #fff;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &--first {
+      grid-area: 1 / 1 / 2 / 2;
+      align-self: end;
+    }
+
+    &--second {
+      grid-area: 1 / 2 / 2 / 3;
+      align-self: end;
+    }
+
+    &--third {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+
+    &--fourth {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+
+    &--for-footer {
+      &::after {
+        background-color: $section-title-color;
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-family: $ibm-plex-font;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: #fff;
+
+    @include on-desktop {
+      font-size: 22px;
+      line-height: 22px;
+    }
+
+    &--for-footer {
+      color: $section-title-color;
+    }
+  }
+}

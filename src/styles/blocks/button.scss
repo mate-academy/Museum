@@ -1,0 +1,50 @@
+.button {
+  --right-side-width: 50px;
+  --radius-value: 0;
+
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #1A5A4C;
+  text-decoration: none;
+  width: 100%;
+  height: 50px;
+  background-color: $c-gray;
+
+  @include on-tablet {
+    --right-side-width: 70px;
+
+    max-width: 270px;
+    height: 70px;
+  }
+
+  @include hover(background-color, #1A5A4C);
+  @include hover(border-radius, 25px);
+
+  &__left-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - var(--right-side-width));
+    height: 100%;
+    background-color: var(--left-side-color);
+  }
+
+  &__text {
+    font-family: $ibm-plex-font;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: $section-title-color;
+  }
+
+  &__right-side {
+    width: var(--right-side-width);
+    height: 100%;
+    background-color: #1A5A4C;
+    background-image: url(../images/icon/arrow-right.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: var( --radius-value);
+  }
+}
