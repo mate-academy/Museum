@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const headerImage = document.querySelector('.header__image');
     const lectureSpace = document.querySelector('.events__space');
     const lectureCard = document.querySelector('.lecture__card');
+    const galleryGrid = document.querySelector('.gallery-grid');
+    const slider = document.querySelector('.gallery__image-slider');
 
     if (window.innerWidth > TABLET_MIN_WIDTH) {
       if (header && headerImage) {
@@ -32,13 +34,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    if (galleryGrid) {
+      if (window.innerWidth >= DESKTOP_MIN_WIDTH) {
+          galleryGrid.style.display = '';
+          slider.style.display = 'none'
+        } else {
+          slider.style.display = '';
+          galleryGrid.style.display = 'none';
+      }
+  }
+
     if (lectureSpace && lectureCard) {
       const lectureCardHeight = lectureCard.offsetHeight;
 
       if (window.innerWidth >= DESKTOP_MIN_WIDTH) {
-        lectureSpace.style.height = `${0.5 * lectureCardHeight}px`;
+        lectureSpace.style.height = `${Math.round(0.5 * lectureCardHeight)}px`;
       } else {
-        lectureSpace.style.height = `${0.6 * lectureCardHeight}px`;
+        lectureSpace.style.height = `${Math.round(0.6 * lectureCardHeight)}px`;
       }
     }
   }
@@ -93,4 +105,25 @@ document.addEventListener('DOMContentLoaded', () => {
       closeMenu();
     }
   });
+});
+
+const swiper = new Swiper('.image-slider', {
+  loop: true,
+  grabCursor: true,
+  spaceBetween: 20,
+
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1.07,
+      spaceBetween: 16,
+    },
+    768: {
+      slidesPerView: 2.09,
+    }
+  }
 });

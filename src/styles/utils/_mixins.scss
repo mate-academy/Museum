@@ -1,5 +1,10 @@
-@mixin hover($_property, $_toValue) {
+@mixin transition($_property) {
   transition: #{$_property} $hover-duration;
+}
+
+@mixin hover($_property, $_toValue) {
+  @include transition($_property);
+
   &:hover {
     #{$_property}: $_toValue;
   }
@@ -7,7 +12,7 @@
 
 @mixin hover-after($_property, $_toValue) {
   &::after {
-    transition: #{$_property} $hover-duration;
+    @include transition($_property);
   }
 
   &:hover::after {
@@ -32,6 +37,7 @@
   margin-inline: auto;
 
   @include on-tablet {
+    max-width: 1300px;
     margin-inline: $content-padding--m;
   }
 
@@ -48,5 +54,9 @@
   @include on-tablet {
     grid-template-columns: repeat(6, 1fr);
     column-gap: 20px;
+  }
+
+  @include on-phone {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
