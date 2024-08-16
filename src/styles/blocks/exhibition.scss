@@ -16,6 +16,22 @@
 
   &__details {
     grid-column: 9 / span 4;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      opacity: 0;
+      content: '';
+      display: block;
+      position: absolute;
+      height: 110%;
+      width: 110%;
+      background-color: rgba($primary-decor-color, 0.1);
+      top: -5%;
+      left: -5%;
+    }
+
+    @include hover-after(opacity, 1);
 
     @include on-tablet {
       @include page-grid;

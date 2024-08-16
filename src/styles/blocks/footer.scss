@@ -121,29 +121,6 @@
     }
   }
 
-  &__to-top {
-    display: none;
-    border: 1px solid $primary-decor-color;
-    background-image: url('../assets/icons/carbon_arrow-up.svg');
-    background-color: $bg-light-color;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-sizing: border-box;
-    z-index: 20;
-
-    position: fixed;
-    right: $content-padding--s;
-    bottom: 100px;
-
-    @include on-phone {
-      display: block;
-    }
-  }
-
   &__legal {
     grid-column: 1 / -1;
     display: flex;
@@ -161,5 +138,27 @@
     @include copyright;
 
     color: $heading-color;
+  }
+
+  &__contact {
+    position: relative;
+    border-bottom: 1px solid transparent;
+
+    @include hover(color, $primary-decor-color);
+    @include hover(border-bottom, 1px solid $primary-decor-color);
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 9px;
+      aspect-ratio: 1;
+      background-color: $primary-decor-color;
+      right: -15px;
+      bottom: 0;
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+
+    @include hover-after(opacity, 1);
   }
 }
