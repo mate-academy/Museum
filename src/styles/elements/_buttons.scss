@@ -1,0 +1,131 @@
+.main-btn {
+  font-family: 'IBM-PLex-Sans';
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: 1px solid $green;
+  height: 70px;
+  display: flex;
+  // gap: 68px;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  min-width: 270px;
+  padding-right: 68px;
+  transition: padding 0.3s ease;
+
+  @include onTable {
+    width: 270px;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    height: 70px;
+    width: 70px;
+    margin-right: auto;
+    background-color: $green;
+    background-image: url('../images/Icons/arrow-right-24px.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translateX(-100%);
+    transition: transform .3s ease;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    height: 70px;
+    width: 70px;
+    margin-left: auto;
+    background-color: $green;
+    background-image: url('../images/Icons/arrow-right-24px.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translateX(calc(0% + 70px));
+    transition: transform .3s ease;
+  }
+
+  &:hover {
+    padding-left: 68px;
+    padding-right: 0;
+
+    &::before {
+      width: 70px;
+      transform: translateX(calc(0% - 70px));
+      pointer-events: none;
+    }
+
+    &::after {
+      transform: translateX(calc(0% + 140px));
+      pointer-events: none;
+    }
+  }
+}
+
+.btn-secondary {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: $orange;
+  background-image: url(../images/btn-arrow.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.5s;
+  overflow: hidden;
+
+
+  @include onTable {
+    width: 70px;
+    height: 70px;
+  }
+
+  &:hover {
+     background-position: 50px;
+
+     @include onTable {
+      background-position: 80px;
+     }
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-image: url(../images/btn-arrow.svg), linear-gradient(to right, transparent, rgb(120, 30, 1));
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translateX(-100%);
+    transition: all 0.5s;
+    // border-right: 1px solid black;
+
+    @include onTable {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &:hover::before {
+    transform: translateX(0);
+  }
+}
+
+
+
+
+.btn-scroll-top {
+  width: 50px;
+  height: 50px;
+  padding: 17px;
+  border: 1px solid $green;
+  border-radius: 50%;
+  position: relative;
+  animation: pulse 2s linear infinite;
+  background-color: $white;
+  z-index: 5;
+
+  @include onTable {
+    display: none;
+  }
+}

@@ -1,0 +1,163 @@
+
+.first {
+  position: relative;
+  transform: translateY(-77px);
+  // margin-bottom: 70px;
+
+  @include onTable {
+    transform: translateY(-82px);
+    // margin-bottom: 90px;
+    @include pageGrid;
+  }
+
+  @include onDesktop {
+    // margin-bottom: 200px;
+    // display: flex;
+    // flex-direction: row-reverse;
+    // gap: 5px;
+    @include contentPaddingInLine;
+  }
+
+  &__img {
+  @include onTable {
+    grid-column: 4 / 7;
+    align-self: stretch;
+  }
+
+  @include onDesktop {
+    grid-column: 6 / 13;
+    // position: absolute;
+    // right: 0;
+    // width: 56.6%;
+    // // width: 50%;
+    // max-height: 655px;
+    object-fit: cover;
+    // object-position: bottom;
+  }
+}
+
+  & .container {
+    @include onTable {
+      grid-column: 1 / 4;
+      grid-row: 1 / 1;
+    }
+
+    @include onDesktop {
+       grid-column: 1 / 6;
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding-right: 0;
+    }
+  }
+
+
+  &__content {
+    margin-top: 20px;
+
+    @include onTable {
+      margin-top: 127px;
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      margin-top: 206px;
+      max-width: 407px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include onTable {
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 640px) and (max-width: 665px) {
+      font-size: 50px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__link-ticket {
+    display: block;
+
+    @include onDesktop {
+      margin-left: auto;
+    }
+  }
+
+  &__btn {
+    @include onTable {
+      margin-bottom: 20px;
+    }
+
+    @include onDesktop {
+      margin-left: auto;
+      margin-bottom: 120px;
+    }
+  }
+
+  &__link {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      font-size: 14px;
+      color: $gray;
+      text-transform: uppercase;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      transform: rotate(270deg);
+      transform-origin: left;
+      position: absolute;
+      bottom: 0;
+
+      & span {
+        height: 1px;
+        width: 15px;
+        background-color: $gray;
+        position: absolute;
+        transition: all ease 0.4s;
+
+        &:nth-of-type(1) {
+          top: 30px;
+          left: -1px;
+          opacity: 0;
+          transform: rotate(-45deg);
+        }
+
+        &:nth-of-type(2) {
+          bottom: 30px;
+          left: -1px;
+          opacity: 0;
+          transform: rotate(45deg);
+        }
+      }
+
+      &:hover span:nth-of-type(1) {
+        top: 3px;
+        opacity: 1;
+        transform: rotate(-225deg);
+      }
+
+      &:hover span:nth-of-type(2) {
+        bottom: 2px;
+        opacity: 1;
+        transform: rotate(225deg);
+      }
+
+      &::before {
+        content: '';
+        position: relative;
+        width: 70px;
+        height: 1px;
+        background-color: $gray;
+      }
+    }
+  }
+}

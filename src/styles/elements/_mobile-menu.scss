@@ -1,0 +1,106 @@
+.mobile-menu {
+  background-color: $green;
+  color: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  font-size: 14px;
+  line-height: 19.7px;
+  transform: translateY(-100%);
+  transition: transform .3s ease;
+
+  &.active {
+    transform: translateY(0%);
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    padding-block: 35px;
+
+    @include onTable {
+      padding-block: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include onDesktop {
+      padding-block: 40px 50px;
+    }
+  }
+
+  &__left {
+    padding-left: 52px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $white;
+
+    @include onTable {
+      padding-inline: 62px 38px;
+      padding-bottom: 0px;
+      border-bottom: none;
+      margin-left: auto;
+    }
+
+    @include onDesktop {
+      margin: 0 auto;
+    }
+  }
+
+  &__nav ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 28px;
+
+    @media (min-width: 387px) {
+      row-gap: 24px;
+    }
+
+    @include onTable {
+      row-gap: 10px;
+      width: 220px;
+    }
+
+    @include onDesktop {
+      column-gap: 70px;
+      width: 370px;
+    }
+  }
+
+  &__right {
+    padding-top: 24px;
+    line-height: 21px;
+
+    @include onTable {
+      display: grid;
+      column-gap: 26px;
+      padding-top: 0;
+      padding-left: 38px;
+      border-left: 1px solid $white;
+    }
+
+    @media (min-width: 760px) {
+      grid-template-columns: 170px 170px;
+    }
+
+    @include onDesktop {
+      padding-left: 100px;
+    }
+  }
+
+  &__sub-title {
+    padding-bottom: 20px;
+  }
+
+  &__shedule {
+    padding-bottom: 16px;
+  }
+
+  &__time {
+    font-weight: 600;
+    margin-right: 5px;
+  }
+}
