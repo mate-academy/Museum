@@ -2,7 +2,7 @@
   margin: 0;
 
   &-title {
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     font-size: 36px;
     text-align: center;
     color: #0F0E08;
@@ -10,13 +10,140 @@
     padding-top: 200px;
   }
 
-  &-link {
+  &-container-for-display-grid {
+    @include pageGrid;
+  }
+
+  &-first-link {
     display: flex;
     width: 100%;
     margin-top: 40px;
 
+    grid-column: 1 / -1;
+
+    overflow: hidden;
+
     &-photo {
       width: 100%;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin-top: 48px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 5;
+      grid-row: 1;
+      margin-top: 56px;
+    }
+  }
+
+  &-second-link {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      width: 100%;
+      margin-top: 48px;
+
+      grid-column: 4 / 7;
+
+      overflow: hidden;
+
+      &-photo {
+        width: 100%;
+
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &-third-link {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      width: 100%;
+      margin-top: 56px;
+
+      grid-column: 5 / 13;
+      grid-row: 1;
+
+      overflow: hidden;
+
+      &-photo {
+        width: 100%;
+
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  &-fourth-link {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      width: 100%;
+      margin-top: 30px;
+
+      grid-column: 1 / 9;
+      grid-row: 2;
+
+      overflow: hidden;
+
+      &-photo {
+        width: 100%;
+
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  &-fifth-link {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      width: 100%;
+      margin-top: 30px;
+
+      grid-column: 9 / 13;
+      grid-row: 2;
+
+      overflow: hidden;
+
+      &-photo {
+        width: 100%;
+
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
     }
   }
 
@@ -25,5 +152,9 @@
     justify-content: center;
     width: 100%;
     margin-top: 20px;
+
+    @include onDesktop {
+      display: none;
+    }
   }
 }
