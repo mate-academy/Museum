@@ -1,6 +1,84 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin on-mobile {
+  @media (max-width: $mobile-max-width) {
+    @content;
   }
+}
+
+@mixin on-tablet {
+  @media (max-width: $tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin tablet-above {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (max-width: $desktop-max-width) {
+    @content;
+  }
+}
+
+@mixin desktop-above {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin desktop-below {
+  @media (max-width: $tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: 55px;
+  max-width: 1280px;
+  margin-inline: auto;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-mobile {
+    padding-inline: 20px;
+  }
+}
+
+@mixin hover($property, $toValue) {
+  transition: #{$property} 0.3s;
+  &:hover {
+    #{$property}: $toValue;
+  }
+}
+
+@mixin page-grid {
+  --columns: 12;
+
+  display: grid;
+  column-gap: 30px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+  }
+
+  @include on-mobile {
+    --columns: 2;
+
+    column-gap: 20px;
+  }
+}
+
+@mixin linear-gradient($height) {
+  background: linear-gradient(
+    to bottom,
+    $dark-grey-color 0,
+    $dark-grey-color #{$height}px,
+    rgb(0, 0, 0, 0.5) 0,
+    rgb(0, 0, 0, 0.5) 100%
+  );
 }

@@ -1,0 +1,225 @@
+.footer {
+  &__content {
+    @include page-grid;
+
+    margin-bottom: 35px;
+
+    @include on-mobile {
+      margin-bottom: 65px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    row-gap: 62px;
+    width: 70px;
+    height: 158px;
+
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+
+    @include on-mobile {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 280px;
+      height: 72px;
+      margin-bottom: 40px;
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    flex-direction: row;
+    column-gap: 22px;
+
+    @include on-tablet {
+      column-gap: 32px;
+    }
+
+    @include on-mobile {
+      column-gap: 20px;
+    }
+  }
+
+  &__schedule {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    width: 170px;
+    margin-bottom: 87px;
+
+    color: $fonts-main-color;
+    grid-column: 3 / 5;
+    grid-row: 1 / 2;
+
+    @include on-tablet {
+      width: 220px;
+      margin-bottom: 64px;
+      grid-column: 2 / 4;
+      grid-row: 1 / 2;
+    }
+
+    @include on-mobile {
+      width: 130px;
+      height: 365px;
+      margin-bottom: 70px;
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+  }
+
+  &__contacts {
+    width: 170px;
+    height: 261px;
+    padding-right: 65px;
+    border-right: 1px solid $dark-grey-color;
+    color: $fonts-main-color;
+    text-align: left;
+    grid-column: 5 / 8;
+    grid-row: 1 / 2;
+
+    @include on-tablet {
+      width: 220px;
+      padding-right: 0;
+      border: none;
+      grid-column: 4 / 6;
+      grid-row: 1 / 2;
+    }
+
+    @include on-mobile {
+      width: 128px;
+      height: 189px;
+      grid-column: 2 / -1;
+      grid-row: 2 / 3;
+    }
+
+    &-title {
+      margin: 0;
+      margin-bottom: 20px;
+    }
+
+    &-link {
+      display: block;
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        color: $dark-grey-color;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 30px;
+    width: 370px;
+
+    grid-column: 8 / 12;
+    grid-row: 1 / 2;
+
+    @include on-tablet {
+      width: 471px;
+      margin-bottom: 120px;
+      padding-top: 64px;
+      border-top: 1px solid $dark-grey-color;
+      grid-column: 2 / 6;
+      grid-row: 2 / 3;
+    }
+
+    @include on-mobile {
+      gap: 20px;
+      width: 280px;
+      margin-bottom: 80px;
+      padding-top: 40px;
+      grid-column: 1 / -1;
+      grid-row: 3 / 4;
+    }
+
+    &-list {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 20px;
+      height: 62px;
+      width: 170px;
+      list-style: none;
+
+      @include on-tablet {
+        width: 220px;
+      }
+
+      @include on-mobile {
+        width: 130px;
+        height: 42px;
+      }
+    }
+
+    &-link {
+      position: relative;
+      line-height: 1;
+      color: $fonts-main-color;
+      text-decoration: none;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -4px;
+        width: 100%;
+        height: 1px;
+        background-color: $fonts-main-color;
+
+        transform: scale(0);
+        transition: transform 0.3s;
+        transform-origin: left;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      grid-row: 3 / 4;
+    }
+
+    @include on-mobile {
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+
+      grid-column: 1 / -1;
+      grid-row: 4 / 5;
+    }
+
+    &-item {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 300;
+      color: $fonts-main-color;
+    }
+  }
+}
