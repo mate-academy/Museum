@@ -12,18 +12,54 @@ window.addEventListener('scroll', () => {
 
 const carousel = document.querySelector('.gallery-slider');
 const carouselTrack = document.querySelector('.gallery-track');
-const mediaObject = window.matchMedia("(max-width: 1023px)");
-
 let pagination;
 let pages;
 let currentPageIndex = 0;
 
-mediaObject.addEventListener('change', createPagination);
-createPagination(mediaObject);
+const screenSizes = {
+  smallScreen: window.matchMedia("(max-width: 767px)"),
+  mediumScreen: window.matchMedia("(min-width: 768px) and (max-width: 1023px)"),
+  largeScreen: window.matchMedia("(min-width: 1024px)"),
+};
 
-function createPagination(mediaObj) {
-  if (!mediaObj.matches) {
-    return;
+for (const key in screenSizes) {
+  screenSizes[key].addEventListener('change', () => handleScreenSize(screenSizes));
+}
+
+handleScreenSize(screenSizes);
+
+function handleScreenSize(obj) {
+  for (const key in obj) {
+    if (obj[key].matches) {
+      switch (key) {
+        case 'smallScreen':
+          createPagination();
+          break;
+
+        case 'mediumScreen':
+          createPagination();
+          break;
+
+        case 'largeScreen':
+          if (!pagination) {
+            return;
+          } else {
+            pagination.removeEventListener('touchstart', handlePaginationTouch);
+            pagination.remove();
+          }
+          break;
+
+          default:
+            break;
+      }
+    }
+  }
+}
+
+function createPagination(e) {
+  if (pagination) {
+    pagination.removeEventListener('touchstart', handlePaginationTouch);
+    pagination.remove();
   }
 
   const numberOfPages = Math.round(carouselTrack.scrollWidth / carousel.clientWidth);
@@ -41,9 +77,11 @@ function createPagination(mediaObj) {
   carousel.append(pagination);
   pages = pagination.children;
 
+  carouselTrack.removeEventListener('scroll', onScroll);
   carouselTrack.addEventListener('scroll', onScroll);
-}
 
+  pagination.addEventListener('touchstart', handlePaginationTouch);
+}
 
 let isScrolling;
 
@@ -63,13 +101,10 @@ function onScroll() {
   }, 50);
 }
 
-
-if (pagination) {
-  pagination.addEventListener('touchstart', (event) => {
-    if (event.target.classList.contains('gallery-pagination__item')) {
-      toggleActivity(event.target.dataset.index);
-    }
-  });
+function handlePaginationTouch(event) {
+  if (event.target.classList.contains('gallery-pagination__item')) {
+    toggleActivity(event.target.dataset.index);
+  }
 }
 
 function toggleActivity(index) {
