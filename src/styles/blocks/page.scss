@@ -1,0 +1,65 @@
+.page {
+  min-width: 320px;
+  max-width: 1440px;
+  margin: auto;
+  position: relative;
+
+  scroll-behavior: smooth;
+  transition: all $transition-duration;
+
+  font-family: $main-font-family;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: $primary-text-color;
+
+  &__to-top {
+    display: block;
+    cursor: pointer;
+    box-sizing: border-box;
+    z-index: 20;
+    background-color: #fff;
+    background-image: url(../images/icons/arrow-up.svg);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border: 1px solid #1a5a4c;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: background-color .3s;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__body {
+    background: $background-color;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: all $transition-duration;
+    transform: translateY(-100%);
+
+    opacity: 0;
+    pointer-events: none;
+
+    &:target {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &:has(&__menu:target) {
+    overflow: hidden;
+  }
+}
