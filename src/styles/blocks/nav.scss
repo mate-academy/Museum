@@ -1,0 +1,77 @@
+.nav {
+  border-bottom: 1px solid $menu-line-color;
+  padding-left: 52px;
+
+  @include on-tablet {
+    padding-left: 60px;
+    padding-right: 20px;
+    border-bottom: none;
+    border-right: 1px solid $menu-line-color;
+  }
+
+  @include on-desktop {
+    padding-left: 126px;
+  }
+
+  &--footer {
+    padding: 0;
+    padding-top: 40px;
+    border: none;
+    border-top: 1px solid $footer-line-color;
+    color: $primary-text-color;
+
+    @include on-desktop {
+      padding-left: 65px;
+      border: none;
+      border-left: 1px solid $footer-line-color;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+
+    font-family: $main-font-family;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+
+    @include on-desktop {
+      gap: 10%;
+      font-size: 22px;
+    }
+
+    &--footer {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+
+  &__item {
+    position: relative;
+    flex-basis: 45%;
+    margin-bottom: 24px;
+    padding-bottom: 6px;
+
+    @include on-desktop {
+      flex-basis: 40%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 1px;
+      background-color: currentColor;
+      transition: transform 0.3s ease;
+      transform: scaleX(0);
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+}
