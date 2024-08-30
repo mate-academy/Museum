@@ -1,0 +1,205 @@
+.header {
+  overflow: hidden;
+  &__container {
+    position: relative;
+    padding-left: $d-padding;
+    max-height: $d-header-min-height;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    max-width: 1440px;
+    height: $d-header-min-height;
+  }
+
+  &__left-container {
+    position: relative;
+    margin-top: 206px;
+    padding-right: 30px;
+    max-width: 500px;
+  }
+
+  &__l-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title {
+    font-size: 72px;
+    line-height: 86px;
+    text-transform: uppercase;
+    padding-bottom: 89px;
+  }
+
+  &__t-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__t-button {
+    display: flex;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+
+    @include on-hover-btn;
+  }
+
+  &__t-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $border-btn;
+    width: 200px;
+    height: 70px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    background: $bg-color;
+  }
+
+  &__t-show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    background-color: $second-back-color;
+  }
+
+  &__e-container {
+    position: absolute;
+    left: -67px;
+    bottom: 60px;
+    display: flex;
+    transform: rotate(-90deg);
+  }
+
+  &__e-line {
+    align-self: center;
+    border-bottom: 1px solid $border-btn;
+    margin-right: 20px;
+    width: 70px;
+  }
+
+  &__e-text {
+    color: $grey-color;
+    font-size: 14px;
+  }
+
+  &__bg {
+    position:absolute;
+    left: 550px;
+    width: 59vw;
+
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 30px;
+    background-image: url(../images/museum-bg.png);
+    background-repeat: no-repeat;
+    z-index: -1;
+    background-position: center;
+    background-size: cover;
+    min-height: $d-header-min-height;
+  }
+
+  &__bg-t {
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: center;
+    height: max-content;
+    line-height: 36px;
+    padding-top: 15px;
+  }
+}
+
+@include on-tablet {
+  .header {
+    &__container {
+      padding-left: $t-padding;
+      z-index: -1;
+    }
+
+    &__left-container {
+      padding: 0;
+      margin-top: 127px;
+      position: relative;
+    }
+
+    &__title {
+      padding-bottom: 38px;
+      font-size: 54px;
+      line-height: 65px;
+    }
+
+    &__t-container {
+      justify-content: flex-start;
+    }
+
+    &__bg {
+      grid-template-columns: repeat(3, 1fr);
+      grid-column: 4 / -1;
+      background-size: cover;
+      background-position: center;
+      min-height: $t-header-min-height;
+    }
+
+    &__e-container {
+      display: none;
+    }
+  }
+}
+
+@include on-phone {
+  .header {
+    &__container {
+      padding: $m-padding-no-space;
+      flex-direction: column-reverse;
+      max-height: 100%;
+      align-items: center;
+    }
+
+    &__left-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    &__title {
+      text-align: center;
+      font-size: 45px;
+      padding-bottom: 20px;
+    }
+
+    &__l-container {
+      display: flex;
+      align-items: center;
+      grid-area: b;
+      padding: 0;
+    }
+
+    &__bg {
+      position: static;
+      grid-template-columns: repeat(2, 1fr);
+      grid-area: a;
+      background-position: center;
+      background-size: cover;
+      width: 100vw;
+      height: 100%;
+    }
+
+    &__bg-t {
+      padding-top: 9px;
+    }
+
+    &__t-text {
+      width: 230px;
+      height: 50px;
+    }
+
+    &__t-show {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

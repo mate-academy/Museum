@@ -1,0 +1,75 @@
+.page {
+  background: $bg-color;
+  font-family: Montserrat, Arial, sans-serif;
+  font-weight: 700;
+  color: $t-color;
+
+  &__left-padding {
+    @extend %max-content;
+
+    padding-left: $d-padding;
+  }
+
+  &__container {
+    @extend %max-content;
+
+    padding-inline: $d-padding;
+  }
+
+  &__section-space {
+    margin-bottom: $d-space-between-sections;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100%);
+    transition: all 0.3s;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+  }
+}
+
+@include on-tablet {
+  .page {
+    &__left-padding {
+      padding-left: $t-padding;
+    }
+
+    &__container {
+      padding-inline: $t-padding;
+    }
+
+    &__section-space {
+      margin-bottom: $t-space-between-sections;
+    }
+  }
+}
+
+@include on-phone {
+  .page {
+    &__left-padding {
+      padding: $m-padding-no-space;
+    }
+
+    &__container {
+      padding-inline: $m-padding;
+    }
+
+    &__section-space {
+      margin-bottom: $m-space-between-sections-x;
+    }
+
+    &__header-space-for-mobile {
+      margin-bottom: $m-space-between-sections-s;
+    }
+  }
+}

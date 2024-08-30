@@ -4,3 +4,105 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (max-width: $t-max-width) {
+    @content;
+  }
+}
+
+@mixin on-phone {
+  @media (max-width: $m-max-width) {
+    @content;
+  }
+}
+
+@mixin section-title {
+  font-size: 48px;
+  line-height: 48px;
+  margin-bottom: 56px;
+
+  @include on-tablet {
+    margin-bottom: 48px;
+  }
+
+  @include on-phone {
+    font-size: 36px;
+    line-height: 36px;
+    margin-bottom: 40px;
+  }
+}
+
+@mixin height-aside-menu($_property) {
+  #{$_property}: $d-aside-height;
+
+  @include on-tablet {
+    #{$_property}: $t-aside-height;
+  }
+
+  @include on-phone {
+    #{$_property}: $m-aside-height;
+  }
+}
+
+@mixin on-action-hover($__value) {
+  @include transition-page;
+
+  &:hover {
+    @include transition-page;
+
+    background-color: $menu-mask-color-active;
+    transform: rotate(#{$__value});
+  }
+}
+
+@mixin transition-page {
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin on-hover-img {
+  @include transition-page;
+
+  &:hover {
+    transform: scale(1.1);
+
+    @include transition-page;
+  }
+}
+
+@mixin link-hover {
+  position: relative;
+
+  @include transition-page;
+
+  &:hover {
+    color: $rect-bg;
+  }
+
+  &::before {
+    @include transition-page;
+
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    transform: translateY(-50%);
+    width: 9px;
+    height: 9px;
+    background-color: transparent;
+  }
+
+  &:hover::before {
+    background-color: $rect-bg;
+  }
+}
+
+@mixin on-hover-btn {
+  @include transition-page;
+
+  &:hover {
+    @include transition-page;
+
+    transform: translateX(5%);
+  }
+}

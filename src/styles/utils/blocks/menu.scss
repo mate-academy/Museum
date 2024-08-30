@@ -1,0 +1,129 @@
+.menu {
+  @include height-aside-menu(height);
+
+  background: $aside-background;
+  color: #fff;
+
+  &__grid-wrapper {
+    @extend %max-content;
+
+    display: grid;
+    grid-template-columns: repeat($d-columns, 1fr);
+    column-gap: $g-gap;
+    margin: 40px auto 0;
+    padding-inline: $d-padding;
+  }
+
+  &__nav {
+    grid-column: 1 / 6;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 22px;
+  }
+
+  &__item {
+    width: max-content;
+    &:nth-child(odd) {
+      margin-bottom: 30px;
+    }
+
+    @include link-hover;
+  }
+
+  &__link {
+    color: inherit;
+  }
+
+  &__separator {
+    grid-column: 7;
+  }
+
+  &__schedule {
+    grid-column: 8 / 10;
+    width: max-content;
+  }
+
+  &__schedule-describe {
+    width: fit-content;
+    margin-top: 40px;
+    grid-column: 10 / 12;
+  }
+}
+
+.menu::before {
+  content: '';
+  height: 100vh;
+  position: fixed;
+
+  @include height-aside-menu(top);
+
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(17, 17, 17, 0.5);
+}
+
+@include on-tablet {
+  .menu {
+    &__grid-wrapper {
+      padding-inline: $t-padding;
+    }
+
+    &__nav {
+      font-size: 16px;
+      line-height: 16px;
+      column-gap: 20px;
+      grid-column: 2 / 5;
+    }
+
+    &__separator {
+      grid-column: 6;
+    }
+
+    &__item {
+      &:nth-child(odd) {
+        margin-bottom: 24px;
+      }
+    }
+
+    &__schedule {
+      grid-column: 7 / 9;
+    }
+
+    &__schedule-describe {
+      width: fit-content;
+      grid-column: 9 / -1;
+    }
+  }
+}
+
+@include on-phone {
+  .menu {
+    &__nav {
+      margin-left: 52px;
+      grid-column: 1 / -1;
+      justify-self: auto;
+      padding-bottom: 24px;
+    }
+
+    &__grid-wrapper {
+      grid-template-columns: repeat($m-columns, 1fr);
+      margin-top: 27px;
+      padding-inline: $m-padding;
+    }
+
+    &__separator {
+      grid-column: 1 / -1;
+      margin-bottom: 24px;
+    }
+
+    &__schedule {
+      grid-column: 1;
+    }
+
+    &__schedule-describe {
+      margin-top: 16px;
+      grid-column: 1 / -1;
+    }
+  }
+}

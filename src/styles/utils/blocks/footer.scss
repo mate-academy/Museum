@@ -1,0 +1,254 @@
+.footer {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-block: $footer-pad-top $d-footer-pad-bottom;
+    height: 457px;
+  }
+
+  &__grid-container {
+    display: grid;
+    grid-template-columns: repeat($d-columns, 1fr);
+    column-gap: $g-gap;
+  }
+
+  &__social-container {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 1;
+  }
+
+  &__title {
+    font-size: 36px;
+    line-height: 36px;
+    margin-bottom: 63px;
+  }
+
+  &__icons {
+    display: flex;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-color: $social-default-color;
+
+    &--facebook {
+      -webkit-mask-image: url(../images/icon/facebook.svg);
+      mask-image: url(../images/icon/facebook.svg);
+
+      &:hover {
+        background-color: $facebook-active;
+      }
+    }
+
+    &--instagram {
+      -webkit-mask-image: url(../images/icon/instagram.svg);
+      mask-image: url(../images/icon/instagram.svg);
+
+      &:hover {
+        background-color: $instagram-active;
+      }
+    }
+
+    &:first-child {
+      margin-right: 22px;
+    }
+
+    @include on-hover-img;
+  }
+
+  &__schedule {
+    grid-column: 3 / 5;
+  }
+
+  &__contacts {
+    grid-column: 5 / 7;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+  }
+
+  &__contacts-title {
+    font-weight: inherit;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  &__contacts-link {
+    color: inherit;
+    display: inline-block;
+    position: relative;
+
+    @include link-hover;
+  }
+
+  &__separator {
+    grid-column: 7;
+    margin: 0 auto;
+  }
+
+  &__nav {
+    grid-column: 8 / 12;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  &__nav-item {
+    width: max-content;
+    &:nth-child(odd) {
+      padding-bottom: 20px;
+    }
+  }
+
+  &__nav-link {
+    color: inherit;
+
+    @include link-hover;
+  }
+
+  &__rights-container {
+    display: flex;
+    justify-content: space-between;
+
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .footer__scroll-to-top-img {
+    -webkit-mask-image: url(../images/icon/arrow-up.svg);
+    mask-image: url(../images/icon/arrow-up.svg);
+    background-color: $second-back-color;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+
+    @include transition-page;
+  }
+
+  &__scroll-to-top {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid $border-btn;
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+
+    &:hover {
+      .footer__scroll-to-top-img {
+        transform: translateY(-20%);
+        background-color: $rect-bg;
+
+        @include transition-page;
+      }
+    }
+  }
+}
+
+@include on-tablet {
+  .footer {
+    &__container {
+      padding-bottom: $d-footer-pad-bottom;
+      height: 651px;
+    }
+
+    &__grid-container {
+      grid-template-columns: repeat($t-columns, 1fr);
+    }
+
+    &__icon {
+      &:first-child {
+        margin-right: 32px;
+      }
+    }
+
+    &__schedule {
+      grid-column: 2 / 4;
+      margin-bottom: 64px;
+    }
+
+    &__contacts {
+      grid-column: 4 / 6;
+    }
+
+    &__separator {
+      grid-column: 2 / 6;
+      margin-bottom: 64px;
+    }
+
+    &__nav {
+      grid-column: 2 / 6;
+      margin-bottom: 120px;
+    }
+  }
+}
+
+@include on-phone {
+  .footer {
+    &__container {
+      padding-bottom: $m-footer-pad-bottom;
+      height: 877px;
+    }
+
+    &__grid-container {
+      grid-template-columns: repeat($m-columns, 1fr);
+    }
+
+    &__social-container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      grid-column: span 2;
+      margin-bottom: 40px;
+    }
+
+    &__title {
+      margin: 0;
+    }
+
+    &__icon {
+      &:first-child {
+        margin-right: 20px;
+      }
+    }
+
+    &__schedule {
+      grid-column: span 1;
+      margin-bottom: 70px;
+    }
+
+    &__contacts {
+      grid-column: 2;
+    }
+
+    &__scroll-to-top {
+      display: flex;
+      grid-column: 2;
+      margin-left: auto;
+      margin-bottom: 20px;
+    }
+
+    &__separator {
+      grid-column: span 2;
+      margin-bottom: 40px;
+    }
+
+    &__nav {
+      grid-column: span 2;
+      margin-bottom: 80px;
+    }
+
+    &__rights-container {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+  }
+}
