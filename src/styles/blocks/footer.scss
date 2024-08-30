@@ -1,6 +1,7 @@
 .footer {
   margin-top: 50px;
   background-color: white;
+
   &-namu {
     background-image: url(../images/icons/NA_MU.svg);
     width: 63px;
@@ -14,8 +15,8 @@
     }
   }
 
-  &-face {
-    background-image: url(../images/icons/facebook.svg);
+  &-face,
+  &-insta {
     width: 24px;
     height: 24px;
     display: block;
@@ -23,13 +24,12 @@
     background-size: contain;
   }
 
+  &-face {
+    background-image: url(../images/icons/facebook.svg);
+  }
+
   &-insta {
     background-image: url(../images/icons/instagram.svg);
-    width: 24px;
-    height: 24px;
-    display: block;
-    background-repeat: no-repeat;
-    background-size: contain;
     margin-left: 20px;
   }
 
@@ -40,12 +40,9 @@
 
     @include on-tablet {
       flex-direction: column;
-      align-items: normal;
-    }
-
-    @include on-tablet {
+      align-items: flex-start;
       margin-right: 40px;
-      justify-content: normal;
+      justify-content: flex-start;
     }
 
     @include on-desktop {
@@ -57,15 +54,31 @@
     color: black;
   }
 
-  &-list {
+  &-list,
+  &-contacts {
     margin: 0;
     padding: 0;
     margin-top: 20px;
   }
 
+  &-contacts {
+    @include on-desktop {
+      width: 180px;
+    }
+
+    &__link {
+      color: #0f0e08;
+      font-family: 'IBM Plex Sans', sans-serif; // Added quotes and fallback font
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      text-align: left;
+    }
+  }
+
   &-weekend {
     width: 130px;
-    font-family: IBM Plex Sans;
+    font-family: 'IBM Plex Sans', sans-serif; // Added quotes and fallback font
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
@@ -80,25 +93,6 @@
       margin-top: 40px;
       font-weight: 600;
       width: 170px;
-    }
-  }
-
-  &-contacts {
-    margin: 0;
-    padding: 0;
-    margin-top: 20px;
-
-    @include on-desktop {
-      width: 180px;
-    }
-
-    &__link {
-      color: #0f0e08;
-      font-family: IBM Plex Sans;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 21px;
-      text-align: left;
     }
   }
 
@@ -118,6 +112,7 @@
 
   &-div3 {
     margin-left: 20px;
+
     @include on-desktop {
       border-right: 1px solid #1a5a4c80;
       padding-right: 65px;
@@ -146,7 +141,7 @@
   &-link {
     text-decoration: none;
     color: #0f0e08;
-    font-family: IBM Plex Sans;
+    font-family: 'IBM Plex Sans', sans-serif; // Added quotes and fallback font
     font-size: 14px;
     font-weight: 400;
     line-height: 14px;
@@ -161,6 +156,10 @@
 
   &-flex2 {
     margin-left: 20px;
+
+    @include on-tablet {
+      display: flex; // Moved from the duplicated .footer-flex2 selector
+    }
   }
 
   &-person {
@@ -173,7 +172,7 @@
     }
 
     &__text {
-      font-family: IBM Plex Sans;
+      font-family: 'IBM Plex Sans', sans-serif; // Added quotes and fallback font
       font-size: 12px;
       font-weight: 300;
       line-height: 16.88px;
@@ -184,6 +183,7 @@
 
   &-div4 {
     display: none;
+
     @include on-desktop {
       display: block;
       margin-left: 65px;
@@ -197,10 +197,4 @@
 
 .mt {
   margin-top: 20px;
-}
-
-.footer-flex2 {
-  @include on-tablet {
-    display: flex;
-  }
 }
