@@ -1,0 +1,57 @@
+.menu {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s;
+  transform: translateX(-100%);
+  pointer-events: none;
+  background-color: #1a5a4c;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
+  }
+
+  &-nav {
+    gap: 28px;
+    padding-top: 27px;
+
+    @include on-tablet {
+      padding-top: 39px;
+    }
+
+    display: flex;
+    border-bottom: 1px solid $main-text-color;
+    padding-bottom: 24px;
+
+    @include on-tablet {
+      border-bottom: none;
+    }
+
+    &__item {
+      text-decoration: none;
+      color: $main-text-color;
+    }
+
+    &__gallery {
+      margin-bottom: 24px;
+    }
+
+    &__about {
+      margin-bottom: 24px;
+    }
+  }
+
+  &-flex {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+}

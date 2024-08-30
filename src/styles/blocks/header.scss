@@ -1,0 +1,155 @@
+.header {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include on-tablet {
+    flex-direction: row;
+  }
+
+  @include on-desktop {
+    justify-content: space-between;
+  }
+
+  &-namu {
+    display: flex;
+    background-image: url(../images/photos/Художній_музей.png);
+    height: 50vh;
+    background-size: cover;
+
+    @include on-tablet {
+      width: 374px;
+      height: 384px;
+      display: block;
+      background-size: contain;
+
+      flex: 1;
+      background-repeat: no-repeat;
+    }
+
+    @include on-desktop {
+      max-width: 725px;
+      min-height: 625px;
+      display: block;
+      background-size: contain;
+      background-position: right center;
+      flex: 1;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &-museum {
+    @include on-tablet {
+      padding-left: 55px;
+    }
+
+    &__title {
+      margin-top: 20px;
+      margin-bottom: 39px;
+      font-family: Montserrat, sans-serif; // Added quotes and fallback font
+      font-size: 45px;
+      font-weight: 700;
+      line-height: 45px;
+      text-align: center;
+
+      @include on-tablet {
+        font-family: Montserrat, sans-serif; // Added quotes and fallback font
+        font-size: 54px;
+        font-weight: 700;
+        line-height: 64.8px;
+        max-width: 340px;
+      }
+
+      @include on-desktop {
+        margin-top: 70px;
+        font-family: Montserrat, sans-serif; // Added quotes and fallback font
+        font-size: 72px;
+        font-weight: 700;
+        line-height: 86.4px;
+        text-align: left;
+        max-width: 470px;
+        margin-bottom: 89px;
+      }
+    }
+
+    &__ticket {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 85px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 280px;
+      height: 50px;
+      border: 1px solid $main-bcg-color;
+      text-decoration: none;
+      color: black;
+
+      @include on-tablet {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 280px;
+        height: 70px; // Corrected for tablet
+        border: 1px solid $main-bcg-color;
+        text-decoration: none;
+        color: black;
+      }
+
+      @include on-desktop {
+        padding-left: 68px;
+        margin-left: 201px;
+      }
+
+      &::after {
+        content: '';
+        width: 50px;
+        height: 50px;
+        background-color: $main-bcg-color;
+        background-image: url(../images/icons/icon_button.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-left: auto;
+
+        @include on-tablet {
+          width: 70px;
+          height: 70px;
+          background-color: $main-bcg-color;
+          background-image: url(../images/icons/icon_button.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          margin-left: auto;
+        }
+      }
+    }
+
+    &__events {
+      @include on-mobile {
+        display: none;
+      }
+
+      @include on-desktop {
+        transform: rotate(270deg);
+        transform-origin: left top;
+        display: inline-block;
+        color: #687480;
+        font-family: 'IBM Plex Sans', sans-serif; // Added quotes and fallback font
+        font-size: 14px;
+        line-height: 14px;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 70px;
+          height: 1px;
+          background-color: #687480;
+          position: absolute;
+          left: -220%;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}
