@@ -1,9 +1,14 @@
 .header {
+  overflow: hidden;
   &__container {
+    position: relative;
     padding-left: $d-padding;
+    max-height: $d-header-min-height;
     display: flex;
     flex-direction: row;
-    max-height: $d-header-min-height;
+    margin: 0 auto;
+    max-width: 1440px;
+    height: $d-header-min-height;
   }
 
   &__left-container {
@@ -83,14 +88,17 @@
   }
 
   &__bg {
-    width: 100%;
+    position:absolute;
+    left: 550px;
+    width: 59vw;
+
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 30px;
-    background-image: url(../images/museum.jpg);
+    background-image: url(../images/museum-bg.png);
     background-repeat: no-repeat;
-    background-position: center;
     z-index: -1;
+    background-position: center;
     background-size: cover;
     min-height: $d-header-min-height;
   }
@@ -171,12 +179,12 @@
     }
 
     &__bg {
+      position: static;
       grid-template-columns: repeat(2, 1fr);
       grid-area: a;
-      aspect-ratio: 1;
       background-position: center;
       background-size: cover;
-
+      width: 100vw;
       height: 100%;
     }
 
