@@ -1,0 +1,200 @@
+.header {
+  margin: 0 0 70px;
+  flex-direction: column;
+
+  @include page-grid;
+
+  &__image {
+    grid-column: 1/-1;
+    justify-content: center;
+    width: 100%;
+    height: 320px;
+    background-image: url(../images/pictures/header-img.png);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+
+    @include on-phone {
+      justify-content: center;
+
+      width: 100%;
+      max-width: 100%;
+      height: 320px;
+    }
+
+    @include on-tablet {
+      grid-column: 4/-1;
+      order: 2;
+      height: 384px;
+
+      justify-content: left;
+    }
+
+    @include on-desktop {
+      grid-column: 6/-1;
+      height: 655px;
+    }
+  }
+
+  &__logo {
+    @include hover(scale, 1.01);
+
+    visibility: visible;
+    margin-top: 9px;
+    width: 55px;
+    height: 61px;
+
+    @include on-tablet {
+      grid-column: 4/5;
+      margin: 15px 90px;
+    }
+
+    @include on-desktop {
+      margin: 15px 50px;
+      height: 70px;
+      width: 70px;
+    }
+
+    &-link {
+      visibility: hidden;
+    }
+  }
+
+  &__description {
+    @include content-padding-inline;
+
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 1/4;
+      order: 1;
+      margin: 127px 0 0;
+      padding-right: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 1/6;
+      height: 655px;
+      margin: 206px 0 0;
+    }
+
+    &--title {
+      font-family: Montserrat, sans-serif;
+      font-size: 45px;
+      font-weight: 700;
+      line-height: 45px;
+      text-align: center;
+
+      @include on-tablet {
+        margin: 0 0 38px;
+        font-family: Montserrat, sans-serif;
+        font-size: 54px;
+        font-weight: 700;
+        line-height: 64.8px;
+        text-align: left;
+      }
+
+      @include on-desktop {
+        font-size: 72px;
+        line-height: 86.4px;
+      }
+    }
+
+    &__buttons {
+      display: block;
+
+      @include on-tablet {
+        display: flex;
+      }
+
+      @include on-desktop {
+        display: flex;
+        height: 200px;
+      }
+    }
+
+    &--tickets {
+      border: 1px solid $menu-background-font-button-color;
+      background-color: transparent;
+      display: flex;
+      justify-content: space-between;
+
+      @include hover(scale, 1.01);
+
+      @include on-tablet {
+        width: 270px;
+        height: 70px;
+      }
+
+      @include on-desktop {
+        display: flex;
+      }
+
+      &--text {
+        font-family: 'IBM Plex Sans', sans-serif;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 16px;
+        position: relative;
+        left: 40%;
+
+        @include on-tablet {
+          left: 30%;
+          margin: 27px 0;
+        }
+      }
+
+      &--button {
+        width: 50px;
+        height: 50px;
+        background-color: $menu-background-font-button-color;
+
+        @include hover(background-color, darken($font-light-color, 10%));
+
+        @include on-tablet {
+          width: 70px;
+          height: 70px;
+        }
+      }
+    }
+
+    &--events {
+      display: none;
+
+      @include on-desktop {
+        display: inline-block;
+        position: relative;
+        font-family: 'IBM Plex Sans', serif;
+        text-transform: uppercase;
+        font-size: 14px;
+        line-height: 14px;
+        text-align: left;
+        font-weight: 600;
+        color: $uppercase-font-light-color;
+      }
+
+      &::before {
+        display: block;
+        position: absolute;
+        content: '';
+        height: 1px;
+        width: 70px;
+        background-color: $menu-background-font-button-color;
+        margin: 7px 20px 0 0;
+        left: -80px;
+      }
+
+      &-link {
+        @include on-desktop {
+          display: block;
+          text-align: center;
+          transform: rotate(270deg) translateX(-10px);
+          transform-origin: center left;
+          text-decoration: none;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
