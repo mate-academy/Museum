@@ -1,0 +1,43 @@
+.page {
+  font-family: $main-font-family;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  scroll-behavior: smooth;
+
+  &__body {
+    min-width: 320px;
+    max-width: 1280px;
+    margin: auto;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+
+    background-color: $accent-color;
+
+    transform: translateY(-300px);
+    transition-property: transform, opacity;
+    transition-duration: $transition-time;
+
+    &:target {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &:has(&__menu:target) {
+    overflow: hidden;
+  }
+}
+
+.container {
+  @include content-padding-inline;
+}
