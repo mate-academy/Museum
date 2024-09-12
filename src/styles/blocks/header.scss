@@ -1,0 +1,143 @@
+.header {
+  position: relative;
+  height: 483px;
+
+  @include on-tablet {
+    height: 384px;
+  }
+
+  @include on-desktop {
+    height: 655px;
+  }
+
+  &__img {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-image: url(../images/header-img.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include on-tablet {
+      position: absolute;
+      left: calc(50vw - $scroll-width);
+      width: 50vw;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      height: 655px;
+    }
+
+    &--logo-position {
+      margin: 0 auto;
+      padding-top: 9px;
+
+      @include on-tablet {
+        position: absolute;
+        top: 15px;
+        left: 82px;
+        z-index: 1;
+      }
+    }
+  }
+
+  &__content {
+    @include page-grid;
+
+    @include on-desktop {
+      position: relative;
+    }
+  }
+
+  &__icon {
+    display: block;
+    position: absolute;
+    top: 27px;
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/icon/icon-menu.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.2));
+
+    @include on-tablet {
+      position: static;
+      grid-column: 1 / 2;
+      margin-top: 39px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin: 20px 0;
+    font-family: $monserrat-font;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #000;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+
+      margin: 64px 0 38px;
+      font-size: 54px;
+      line-height: 64.8px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+
+      margin: 143px 0 89px;
+      font-size: 72px;
+      line-height: 86.4px;
+    }
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 6;
+    }
+  }
+
+  &__event-link {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      position: absolute;
+      left: -60px;
+      bottom: -50px;
+      align-items: center;
+      gap: 20px;
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__line {
+    content: '';
+    width: 70px;
+    height: 1px;
+    background-color:#1A5A4C;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-family: $ibm-plex-font;
+    font-size: 14px;
+    line-height: 14px;
+    color:#687480;
+  }
+}
