@@ -1,6 +1,62 @@
+@mixin transition($_property) {
+  transition: #{$_property} $hover-duration;
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  @include transition($_property);
+
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin hover-after($_property, $_toValue) {
+  &::after {
+    @include transition($_property);
+  }
+
+  &:hover::after {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-phone {
+  @media (max-width: $phone-max-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (max-width: $tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin content-limitation {
+  max-width: $max-content-width;
+  margin-inline: auto;
+
+  @include on-tablet {
+    max-width: 1300px;
+    margin-inline: $content-padding--m;
+  }
+
+  @include on-phone {
+    margin-inline: $content-padding--s;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+
+  @include on-tablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+  }
+
+  @include on-phone {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

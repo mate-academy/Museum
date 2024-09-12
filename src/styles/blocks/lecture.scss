@@ -1,0 +1,72 @@
+.lecture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  @include on-tablet {
+    @include content-limitation;
+  }
+
+  @include on-phone {
+    margin: 0;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: contain;
+
+    @include on-tablet {
+      object-fit: cover;
+    }
+  }
+
+  &__card {
+    box-sizing: border-box;
+    width: 570px;
+    padding: 45px 100px 50px;
+    background-color: $bg-light-color;
+    box-shadow: $shadow;
+
+    position: absolute;
+    bottom: 0;
+    transform: translateY(50%);
+    cursor: pointer;
+
+    @include hover(transform, translateY(50%) scale(1.05));
+
+    @include on-tablet {
+      padding-inline: 55px;
+      transform: translateY(60%);
+
+      @include hover(transform, translateY(60%) scale(1.05));
+    }
+
+    @include on-phone {
+      @include content-limitation;
+
+      width: auto;
+      padding: 0 0 20px;
+    }
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+
+    @include on-phone {
+      margin: 20px;
+    }
+  }
+
+  &__title {
+    @include heading-3;
+
+    @include on-phone {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,164 @@
+.footer {
+  &__hero {
+    position: relative;
+    background-image: url('../assets/images/footer-bg.jpg');
+    background-position: center;
+    background-size: cover;
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: $bg-dark-color;
+      opacity: 0.75;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__content {
+    padding-block: 48px 35px;
+
+    @include page-grid;
+    @include content-limitation;
+
+    row-gap: 87px;
+
+    @include on-tablet {
+      row-gap: 64px;
+      padding-block: 50px 36px;
+    }
+
+    @include on-phone {
+      padding-bottom: 56px;
+      row-gap: 40px;
+    }
+  }
+
+  &__icons {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+    gap: 62px;
+
+    @include on-phone {
+      grid-column: span 2;
+      flex-direction: row;
+
+      justify-content: space-between;
+    }
+  }
+
+  &__social-media {
+    display: flex;
+    justify-content: space-between;
+
+    @include on-tablet {
+      justify-content: left;
+      gap: 32px;
+    }
+
+    @include on-phone {
+      gap: 20px;
+      align-items: center;
+    }
+  }
+
+  &__schedule {
+    grid-column: 3 / span 2;
+
+    @include on-tablet {
+      grid-column: span 2;
+    }
+
+    @include on-phone {
+      grid-column: span 1;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__contacts {
+    position: relative;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 2;
+    }
+
+    @include on-phone {
+      grid-column: span 1;
+    }
+  }
+
+  &__d-line {
+    grid-column: span 1;
+    justify-self: center;
+    background-color: $primary-decor-color;
+    opacity: 0.5;
+
+    @include on-tablet {
+      align-self: center;
+      grid-column: 2 / span 4;
+    }
+
+    @include on-phone {
+      grid-column: span 2;
+    }
+  }
+
+  &__nav {
+    grid-column: span 4;
+
+    @include on-tablet {
+      grid-column: 2 / span 4;
+      margin-bottom: 56px;
+    }
+
+    @include on-phone {
+      grid-column: span 2;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__legal {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+
+    @include on-phone {
+      grid-column: span 2;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__copyright {
+    @include copyright;
+
+    color: $heading-color;
+  }
+
+  &__contact {
+    position: relative;
+    border-bottom: 1px solid transparent;
+
+    @include hover(color, $primary-decor-color);
+    @include hover(border-bottom, 1px solid $primary-decor-color);
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 9px;
+      aspect-ratio: 1;
+      background-color: $primary-decor-color;
+      right: -15px;
+      bottom: 0;
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+
+    @include hover-after(opacity, 1);
+  }
+}
