@@ -1,0 +1,166 @@
+.page {
+  &__menu {
+    z-index: 2;
+    top: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    height: 100vh;
+  }
+}
+
+.menu {
+  color: $color-white;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
+  background-color: rgba(128, 128, 128, 0.63);
+  transition: all 0.3s;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
+  }
+
+  &__inner {
+    @include on-tablet {
+      display: flex;
+      column-gap: 38px;
+      justify-content: center;
+    }
+
+    @include on-desctop {
+      column-gap: 102px;
+    }
+  }
+
+  &__box {
+    background-color: $color-green;
+    padding: 27px 20px;
+
+    @include on-tablet {
+      padding: 39px 35px;
+    }
+    
+    @include on-desctop {
+      padding: 39px 55px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    gap: 28px;
+    border-bottom: 1px solid $color-white;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      border-right: 1px solid $color-white;
+      border-bottom: none;
+    }
+
+    @include on-desctop {
+      column-gap: 102px;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 28px;
+
+    @include on-tablet {
+      margin-right: 38px;
+    }
+
+    @include on-desctop {
+      gap: 50px;
+      margin-right: 102px;
+    }
+  }
+}
+
+.icon--close-menu {
+  background-image: url(/src/images/icons/menu-close.svg);
+
+  @include on-tablet {
+    position: absolute;
+    top: 39px;
+    left: 34px;
+  }
+
+  @include on-desctop {
+    left: 55px;
+  }
+}
+
+.navigation {
+  &__item {
+    margin-bottom: 24px;
+    line-height: 1;
+    font-weight: 500;
+  }
+
+  &__link {
+    @include on-desctop {
+      position: relative;
+      width: fit-content;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -4px;
+        transform: scaleX(0);
+        height: 1px;
+        width: 100%;
+        transform-origin: left;
+        background-color: $color-white;
+        transition: transform 0.3s;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+    }
+  }
+  }
+  &__link--footer::after{
+    background-color: black;
+  }
+}
+
+.schedule {
+  font-size: 14px;
+
+  &__info {
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__content {
+    @include on-tablet {
+      display: flex;
+      column-gap: 26px;
+      justify-content: space-between;
+    }
+  }
+
+  &__additional-info {
+    @include on-tablet {
+      max-width: 144px;
+      align-self: flex-start;
+      margin-top: 12%;
+    }
+
+    @include on-tablet {
+      margin-top: 11%;
+    }
+
+    @include on-desctop {
+      max-width: 220px;
+    }
+  }
+}
+
