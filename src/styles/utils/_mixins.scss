@@ -1,6 +1,17 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @media (min-width: $mobile) {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @media (min-width: $tablet) {
+    --columns: 12;
   }
 }

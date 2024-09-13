@@ -1,0 +1,45 @@
+.navigation {
+  position: relative;
+
+  @media (max-width: $mobile) {
+    padding-bottom: rem(24);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.5);
+    height: rem(1);
+    width: 100%;
+
+    @media (min-width: $mobile) {
+      width: rem(1);
+      height: 100%;
+      left: 100%;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(24) rem(30);
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: rem(16);
+    line-height: 100%;
+    color: #fff;
+
+    @media (any-hover: hover) {
+      transition: color $duration;
+
+      &:hover {
+        color: $orange-bg;
+        text-decoration: underline;
+      }
+    }
+  }
+}
