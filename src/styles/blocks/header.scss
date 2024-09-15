@@ -14,12 +14,17 @@
     margin-bottom: 200px;
   }
 
+  &__top{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
   &__image {
     flex-basis: 320px;
-    background-image: url(../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png);
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
+    position: relative;
 
     @include on-tablet {
       flex-basis: 50%;
@@ -29,6 +34,20 @@
     @include on-desktop {
       flex-basis: 50%;
       height: 655px;
+    }
+  }
+
+  &__img{
+    height: 100%;
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include on-tablet {
+    width: 50vw;
     }
   }
 
@@ -119,6 +138,7 @@
   line-height: 50px;
   font-weight: 500;
   color: $c-dark;
+  transition: all 0.3s ;
   &__text {
     flex: auto;
   }
@@ -130,17 +150,18 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-
-    @include hover(background-color, #113c33);
+    transition: background-color 0.3s ease 0s;
+  }
+  &:hover{
+    border-color: $c-green-hover;
+    box-shadow: 0 2px 5px $c-green-hover;
+    .button__icon{
+      background-color: $c-green-hover;
+    }
   }
 }
 
 .top-bar {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-
   &__content {
     @include inline-padding;
 
