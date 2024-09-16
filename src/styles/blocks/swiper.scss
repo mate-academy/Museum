@@ -1,0 +1,109 @@
+  /* stylelint-disable */
+  #swiper.swiper {
+    height: 100%;
+    overflow: hidden;
+
+    & .swiper-wrapper {
+      padding-bottom: 30px;
+
+      @include on-tablet {
+        padding-bottom: 42px;
+      }
+
+      @include on-desktop {
+        @include page-grid;
+
+        box-sizing: border-box;
+        padding: 20px;
+        row-gap: 30px;
+        grid-template-rows: repeat(2, auto);
+      }
+    }
+
+    & .swiper-slide {
+      width: 280px !important;
+      height: 410px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include hover(transform, scale(1.05)) {
+        z-index: 10;
+      }
+
+      &:first-child {
+        padding-left: $pad-inline-mobile;
+      }
+
+      @include on-tablet {
+        height: 543px !important;
+
+        &:first-child {
+          padding-left: $pad-inline-tablet;
+        }
+      }
+
+      @include on-desktop {
+        height: 600px !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin-right: 0 !important;
+
+        &:nth-child(1) {
+          grid-row: 1;
+          grid-column: span 4;
+        }
+
+        &:nth-child(2) {
+          grid-row: 1;
+          grid-column: 5/-1;
+        }
+
+        &:nth-child(3) {
+          grid-row: 2;
+          grid-column: span 8;
+          height: 360px !important;
+        }
+
+        &:nth-child(4) {
+          grid-row: 2;
+          grid-column: 9/-1;
+          height: 360px !important;
+        }
+      }
+    }
+
+    & .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    & .swiper-pagination {
+      bottom: 0;
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    & .swiper-button-next,
+    & .swiper-button-prev {
+      box-sizing: content-box;
+      --swiper-navigation-size: 25px;
+      --swiper-navigation-color: #{$color-white};
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 25%;
+      padding: 5px;
+      font-weight: 900;
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    & .swiper-button-disabled {
+      opacity: 0;
+    }
+  }
