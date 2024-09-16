@@ -1,0 +1,54 @@
+.header {
+  height: 100vh;
+  position: relative;
+
+  &__content {
+    --columns: 2;
+
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 20px;
+
+    @include on-tablet {
+      --columns: 6;
+
+      grid-template-columns: repeat(var(--columns), 1fr);
+    }
+
+    @include on-desktop {
+      --columns: 12;
+
+      grid-template-columns: repeat(var(--columns), 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__bg-img {
+  background-image: url(../images/Header/Header-bg.webp);
+  background-repeat: no-repeat;
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      height: 655px;
+      grid-column: 6 / -1;
+    }
+  }
+}
+
+.header__container {
+  padding-inline: 20px;
+}
+
+.header__title {
+  position: absolute;
+}
+
