@@ -1,0 +1,134 @@
+.nav {
+  &__top {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    position: relative;
+
+    @include on-tablet {
+      gap: 48px;
+    }
+
+    @include on-desktop {
+      gap: 102px;
+      padding-right: 150px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #ffffff80;
+
+      @include on-tablet {
+        content: none;
+        display: none;
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 28px;
+    text-align: left;
+    padding-bottom: 24px;
+
+    @include on-desktop {
+      gap: 30px 50px;
+    }
+
+    &--footer {
+      gap: 20px;
+      padding-block: 40px 80px;
+
+      margin: 0 auto;
+      width: 100%;
+      max-width: 460px;
+      padding-right: 15px;
+    }
+  }
+
+  &__link {
+    color: $c-white;
+    font-weight: 500;
+    line-height: 1;
+
+    &:hover {
+      @include hover(color, $c-hidden);
+    }
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+
+    &--footer {
+      color: $c-black;
+      font-size: 14px;
+      font-weight: 400;
+      text-wrap: nowrap;
+    }
+  }
+
+  &__schedule {
+    @include on-tablet {
+      display: flex;
+      gap: 26px;
+      align-items: end;
+    }
+  }
+
+  &__time-work {
+    text-align: left;
+    width: 100%;
+    position: relative;
+
+    &--before {
+      @include on-tablet {
+        &::before {
+          content: '';
+          position: absolute;
+          left: -38px;
+          height: 100%;
+          width: 1px;
+          background: #ffffff80;
+
+          @include on-desktop {
+            left: -108px;
+          }
+        }
+      }
+    }
+  }
+
+  &__item-margin {
+    margin-bottom: 20px;
+  }
+
+  &__free-day {
+    margin-block: 16px 27px;
+
+    @include on-tablet {
+      margin-block: 20px 27px;
+      flex-shrink: 1.1;
+    }
+  }
+
+  &__info-freeday {
+    text-align: left;
+  }
+
+  &__contacts-list {
+    text-align: left;
+    width: 100%;
+    max-width: 220px;
+  }
+
+  &__item-hover {
+    @include hover(color, $c-button-green);
+  }
+}
