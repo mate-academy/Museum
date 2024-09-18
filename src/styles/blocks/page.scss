@@ -3,3 +3,42 @@ body {
   background: $bg-color;
 }
 
+.page {
+  scroll-behavior: smooth;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+
+.container {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 56px;
+  }
+}
+
+.page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Змінюємо фон сторінки */
+  z-index: 1;
+  display: none; /* Спочатку приховуємо overlay */
+}
+
+/* Коли відкрито меню (селектор на основі псевдокласу :target) */
+.menu:target ~ .page-overlay {
+  display: block; /* Відображаємо overlay */
+  background-color: rgba(0, 0, 0, 0.5); /* Можна змінити колір сторінки */
+}
+
+.menu:target ~ .header {
+  background-color: rgba(0, 0, 0, 0.5); /* Якщо хочете, щоб хедер також змінився */
+}
