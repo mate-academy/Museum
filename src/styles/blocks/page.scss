@@ -1,0 +1,26 @@
+.page {
+  color: $black-color;
+  scroll-behavior: smooth;
+
+  &__menu {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: all $speed-animation;
+    transform: translateY(-100%);
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}
