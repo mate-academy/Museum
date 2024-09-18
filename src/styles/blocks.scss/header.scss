@@ -1,0 +1,145 @@
+.header {
+  position: relative;
+  padding-top: 9px;
+
+  @include on-tablet {
+    padding-top: 15px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__background {
+    background-image: url(/src/images/header-background.png);
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0;
+    position: absolute;
+    z-index: 1;
+    animation: animation-scale 1s linear 1;
+
+    @include on-tablet {
+      width: 50%;
+      right: 0;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      width: 56.6%;
+      height: 674px;
+    }
+  }
+
+  &__title {
+    font-family: $second-font-family;
+    font-size: 45px;
+    line-height: 45px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    grid-column: 1 / -1;
+
+
+    @include on-tablet {
+      line-height: 64.8px;
+      font-size: 54px;
+      text-align: left;
+      width: 50%;
+      margin: 40px 0 38px;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+      line-height: 86.4px;
+      margin: 119px 0 89px;
+      max-width: 470px;
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      position: relative;
+      color: $c-grey-text;
+      bottom: 14px;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      gap: 20px;
+      align-items: baseline;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+
+      &::before {
+        content: '';
+        display: block;
+        background-color: $c-green;
+        width: 1px;
+        height: 70px;
+    }
+  }
+}
+
+  &__button {
+    border: 1px solid $c-green;
+    background-color: $c-white;
+    margin-inline: auto;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      margin-inline: 0;
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 6;
+    }
+
+    &--text {
+      font-family: $main-font-family;
+      font-size: 16px;
+      font-weight: 500;
+      color: $c-black;
+      text-transform: uppercase;
+      line-height: 50px;
+      flex: 1;
+      text-align: center;
+
+      @include on-tablet {
+        line-height: 70px;
+      }
+    }
+  }
+
+
+  &__arrow {
+    background-image: url(/src/images/icons/icon-arrow-white.svg);
+    background-color: $c-green;
+    animation: animation-move 1s ease-in-out 2;
+
+    &:hover {
+      background-color: $c-red;
+    }
+  }
+
+  &__content {
+    position: relative;
+    margin-top: 250px;
+
+    @include page-grid;
+
+    @include on-tablet {
+      margin: 0;
+    }
+  }
+}

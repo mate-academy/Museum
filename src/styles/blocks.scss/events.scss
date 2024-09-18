@@ -1,0 +1,228 @@
+.events {
+  &__title {
+    text-align: center;
+    width: 300px;
+    margin: 70px auto 40px;
+
+    @include on-tablet {
+      text-align: left;
+      width: 100%;
+      margin: 88px 0 48px 34px;
+    }
+
+    @include on-desktop {
+      margin: 200px 0 56px 55px;
+    }
+  }
+
+  &__content {
+    @include page-grid;
+
+    row-gap: 60px;
+
+    @include on-desktop {
+      row-gap: 104px;
+    }
+  }
+}
+
+.event {
+  grid-column: 1 / -1;
+
+  @include page-grid;
+
+  &__image {
+    width: 100%;
+    min-height: 210px;
+    margin-bottom: 20px;
+    object-fit: cover;
+    cursor: pointer;
+    grid-column: 1 / -1;
+
+    @include hover(transform, scale(1.02));
+
+    @include on-tablet {
+     min-height: 520px;
+     margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+      margin-bottom: 0;
+    }
+
+    &--background {
+      background-image: url(/src/images/from-classicism-to-romanticism.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 0;
+
+      @include on-tablet {
+        margin-top: 52px;
+        min-height: 390px;
+      }
+
+      @include on-desktop {
+        min-height: 550px;
+        grid-column: 1 / -1;
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      width: 460px;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / 13;
+      width: 370px;
+      margin-block: auto;
+    }
+
+
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      width: 220px;
+    }
+  }
+
+  &__name {
+    font-weight: 500;
+    color: $c-grey-text;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &__dates {
+    line-height: 24px;
+    color: $c-green;
+    font-weight: 700;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__title {
+    margin-block: 10px;
+    font-family: $second-font-family;
+    font-size: 28px;
+    line-height: 28px;
+    color: $c-black;
+    font-weight: 400;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    @include on-tablet {
+      font-size: 36px;
+      line-height: 36px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__title:last-child {
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-align: center;
+
+    @include on-tablet {
+      margin-bottom: 50px;
+      padding-left: 55px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      padding-left: 100px;
+    }
+  }
+
+  &__description {
+     line-height: 24px;
+     font-weight: 300;
+     color: #4E4E4E;
+  }
+
+  &__nowrap {
+    white-space: nowrap;
+  }
+
+  &__rectangle {
+    background-image: url(/src/images/icons/icon-red-rectangle.svg);
+    width: 10px;
+    height: 10px;
+
+    @include on-tablet {
+     width: 15px;
+     height: 15px;
+    }
+  }
+
+  &:last-of-type .event__text {
+    box-shadow: 0 2px 0 0 #1A5A4C40;
+    background-color: $c-white;
+    transform: translateY(-60px);
+    width: 100%;
+    max-width: 280px;
+    margin-inline: auto;
+
+    @include on-tablet {
+      max-width: 570px;
+      transform: translateY(-90px);
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 10;
+    }
+  }
+
+  &:last-of-type .event__details {
+    padding: 20px;
+
+    @include on-tablet {
+      max-width: 460px;
+      width: 100%;
+      padding-top: 45px;
+      padding-left: 55px;
+    }
+
+    @include on-desktop {
+      padding-left: 100px;
+    }
+  }
+}
+
+.events .event:last-of-type {
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 0;
+  }
+}
+
+.events .event:not(:last-child) {
+  @include on-desktop {
+    max-width: 1280px;
+    width: 100%;
+  }
+}
+
+
