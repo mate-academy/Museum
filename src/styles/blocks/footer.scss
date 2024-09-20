@@ -1,0 +1,253 @@
+.footer {
+  background-color: $bg-color;
+  margin-block: 50px;
+
+  @include on-tablet {
+    margin-top: 51px;
+    margin-bottom: 36px;
+  }
+
+  @include on-desktop {
+    margin-top: 47px;
+  }
+
+  &__wrapper {
+    --columns: 2;
+
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 40px 20px;
+    display: grid;
+
+    @include on-tablet {
+      --columns: 6;
+
+      display: grid;
+      gap: 34px 20px;
+      grid-template-columns: repeat(var(--columns), 1fr);
+    }
+
+    @include on-desktop {
+      --columns: 12;
+
+      gap: 0 32px;
+      grid-template-columns: repeat(var(--columns), 1fr);
+      margin-bottom: 87px;
+    }
+  }
+
+  &__icon-logo {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      grid-column: 1 / 2;
+      display: grid;
+      gap: 62px;
+      padding-bottom: 98px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 113px;
+    }
+  }
+
+  &__logo {
+    width: 58px;
+    height: 62px;
+
+    @include hover (transform, scale(1.05));
+  }
+
+  &__icons {
+    display: flex;
+    gap: 26.51px;
+
+    @include on-tablet {
+      gap: 32px;
+    }
+
+    @include on-desktop {
+      gap: 22.12px;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+
+    @include hover (transform, scale(1.2));
+
+    &--facebook {
+      background-image: url(../images/Footer/Facebook.webp);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    &--instagram {
+      background-image: url(../images/Footer/Instagram.webp);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &__schedule {
+    color: $main-text-color;
+    display: grid;
+    gap: 20px;
+    padding-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+      padding-bottom: 0;
+    }
+
+    &-title {
+      margin: 0;
+      font-family: $IBM-Plex-Sans-font;
+      font-size: 14px;
+      line-height: 19.69px;
+    }
+
+    &-list {
+      list-style-type: none;
+      margin: 0;
+      padding-left: 0;
+    }
+
+    &-item {
+      font-family: $IBM-Plex-Sans-font;
+      font-size: 14px;
+      margin: 0;
+      line-height: 21px;
+
+      &--bold {
+        font-weight: 600;
+      }
+    }
+
+    &-descriprion {
+      font-family:  $IBM-Plex-Sans-font;
+      font-size: 14px;
+      margin: 0;
+      line-height: 21px;
+
+      &--bold {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__contact {
+    gap: 20px;
+    display: grid;
+    align-self: flex-start;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 7;
+    }
+
+    &-list {
+      list-style-type: none;
+      margin: 0;
+      padding-left: 0;
+    }
+
+    &-title {
+      margin: 0;
+      font-family: $IBM-Plex-Sans-font;
+      font-size: 14px;
+      line-height: 19.69px;
+    }
+
+    &-link {
+      text-decoration: none;
+      color: $main-text-color;
+    }
+
+    &-item {
+      font-family:  $IBM-Plex-Sans-font;
+      font-size: 14px;
+      margin: 0;
+      line-height: 21px;
+    }
+  }
+
+  &__nav {
+    border-top: 1px solid #1A5A4C80;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / -1;
+    }
+
+    @include on-desktop {
+      margin-left: 32px;
+      grid-column: 7 / 12;
+      border-top: none;
+      border-left: 1px solid #1A5A4C80;
+      ;
+    }
+
+    &-list {
+      --columns: 2;
+
+      grid-template-columns: repeat(var(--columns), 1fr);
+      list-style-type: none;
+      padding-left: 0;
+      display: grid;
+      gap: 20px;
+      margin-top: 40px;
+      margin-bottom: 80px;
+
+      @include on-desktop {
+        margin-top: 0;
+        padding-left: 65px;
+      }
+    }
+
+    &-item {
+      @include hover (transform, scale(1.01));
+    }
+
+    &-link {
+      text-decoration: none;
+      color: $main-text-color;
+      font-family: $IBM-Plex-Sans-font;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 14px;
+      margin: 0;
+    }
+  }
+
+  &__description-wrapper {
+    display: grid;
+    gap: 10px;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__description {
+    font-family: $IBM-Plex-Sans-font;
+    font-size: 12px;
+    line-height: 16.88px;
+    font-weight: 300;
+    text-align: center;
+    margin: 0;
+    color: $main-text-color;
+  }
+}
