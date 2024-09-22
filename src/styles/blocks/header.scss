@@ -1,110 +1,56 @@
 .header {
-  height: 65vh;
   position: relative;
 
-  @include on-tablet {
-    height: 54vh;
-  }
-
-  @include on-desktop {
-    height: 100vh;
-  }
-
-  &__content {
-    --columns: 2;
-
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(var(--columns), 1fr);
-    gap: 20px;
+  &__top {
+    padding-top: 27px;
 
     @include on-tablet {
-      --columns: 6;
+      padding-top: 45px;
+    }
+  }
 
-      grid-template-columns: repeat(var(--columns), 1fr);
+  &__menu {
+    background-image: url(../images/Header/Museun-menu.webp);
+    background-size: 18px 12px;
+    background-repeat: no-repeat;
+  }
+
+  &__bottom {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+
+    @include on-tablet {
+      margin-top: 38px;
     }
 
     @include on-desktop {
-      --columns: 12;
-
-      grid-template-columns: repeat(var(--columns), 1fr);
-      gap: 30px;
-    }
-  }
-
-  &__bg-img {
-  background-image: url(../images/Header/Header-bg.webp);
-  background-repeat: no-repeat;
-  min-height: 300px;
-  background-size: cover;
-  background-position: center;
-  grid-column: 1 / -1;
-
-    @include on-tablet {
-      grid-column: 4 / -1;
-      height: 384px;
-    }
-
-    @include on-desktop {
-      height: 655px;
-      grid-column: 6 / -1;
-    }
-  }
-
-  &__container {
-    --columns: 2;
-
-    box-sizing: border-box;
-    grid-template-columns: repeat(var(--columns), 1fr);
-    gap: 20px;
-    margin-top: 320px;
-    position: absolute;
-    padding-inline: 20px;
-    display: grid;
-    width: 100%;
-    place-items: center;
-
-    @include on-tablet {
-      --columns: 6;
-
-      grid-template-columns: repeat(var(--columns), 1fr);
-      padding-inline: 32px;
-      margin-top: 127px;
-      place-items: start;
-      gap: 38px 30px;
-    }
-
-    @include on-desktop {
-      --columns: 12;
-
-      gap: 89px 38px;
-      padding-inline: 45px;
-      margin-top: 206px;
+      margin-top: 89px;
     }
   }
 
   &__title {
-    margin: 0;
-    grid-column: 1 / -1;
-    font-family: $Montserrat-font;
-    text-transform: uppercase;
-    font-size: 45px;
-    font-weight: $font-weight-acc;
-    text-align: center;
-    line-height: 45px;
+  text-transform: uppercase;
+  font-family: $Montserrat-font;
+  font-size: 45px;
+  font-weight: $font-weight-acc;
+  line-height: 45px;
+  text-align: center;
+  color: $main-text-color;
+  margin: 0;
+  margin-top: 269px;
 
-      @include on-tablet {
-      grid-column: 1 / 4;
-      text-align: left;
+    @include on-tablet {
       font-size: 54px;
       line-height: 64.8px;
+      text-align: left;
+      margin-top: 64px;
     }
 
     @include on-desktop {
       font-size: 72px;
       line-height: 86.4px;
-      grid-column: 1 / 6;
-      text-align: left;
+      margin-top: 143px;
     }
   }
 
@@ -113,10 +59,10 @@
     background-color: #fff;
     border: 1px solid $green;
     height: 50px;
+    margin-bottom: 40px;
     display: flex;
     justify-content: space-between;
-    grid-column: 1 / -1;
-    width: 280px;
+    width: 100%;
     align-items: center;
     cursor: pointer;
 
@@ -127,14 +73,14 @@
     }
 
     @include on-tablet {
-      grid-column: 1 / 4;
       width: 270px;
       height: 70px;
+      margin-bottom: 68px;
     }
 
     @include on-desktop {
-      grid-column: 3 / 6;
-      justify-self: end;
+      margin-bottom: 279px;
+      margin-left: 154px;
     }
 
     &-text {
@@ -177,9 +123,8 @@
 
   @include on-desktop {
     display: inline-block;
-    position: absolute;
-    left: 53px;
-    top: 340px;
+    left: 61px;
+    top: 547px;
     text-decoration: none;
   }
 
@@ -207,7 +152,7 @@
     @include on-desktop {
       display: block;
       text-align: center;
-      transform: rotate(270deg) translateX(-10px);
+      transform: rotate(270deg) translateX(68px);
       transform-origin: center left;
       text-decoration: none;
       margin: 0 auto;
@@ -215,16 +160,99 @@
   }
 }
 
-@media (min-width: 749px) and (max-width: 1279px) {
-  .top-bar {
-    width: 60% !important;
+@media (min-width: 840px) and (max-width: 950px) {
+  .header__bg-img {
+    width: 410px !important;
   }
 }
 
-@media (min-width: 480px) and (max-width: 725px) {
+@media (min-width: 951px) and (max-width: 1279px) {
+  .header__bg-img {
+    width: 550px !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 735px) {
   .header__title {
-    font-size: 48px;
+    font-size: 38px;
     line-height: 56px;
+  }
+
+  .header__button {
+    height: 60px;
+    width: 200px;
+  }
+
+  .header__button-dec {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.header__bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.header__bg {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  @include on-tablet {
+    justify-content: flex-end;
+  }
+
+  &-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top;
+
+    @include on-tablet {
+      width: 374px;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      width: 725px;
+      height: 655px;
+    }
+  }
+}
+
+.header__logo {
+  width: 48px;
+  height: 50px;
+  position: absolute;
+  top: 8px;
+  text-align: center;
+
+  @include on-tablet {
+    right: 230px;
+    top: 13px;
+    width: 70px;
+    height: 70px;
+  }
+
+  @include on-desktop {
+    right: 608px;
+  }
+}
+
+.logo {
+  background-image: url(../images/Header/NAMU-favicon.webp);
+  background-size:  48px 50px;
+  background-repeat: no-repeat;
+  z-index: 999;
+  cursor: pointer;
+  display: block;
+
+  @include on-tablet {
+    background-size: 58px 61px;
   }
 }
 
