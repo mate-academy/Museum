@@ -1,0 +1,90 @@
+.header {
+  position: relative;
+
+  @include on-tablet {
+    @include page-grid;
+  }
+
+  &__top {
+    height: 300px;
+    background-image: url(../images/header-bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include on-tablet {
+      grid-column: -4 / -1;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+      height: 655px;
+    }
+  }
+
+  &__bottom {
+    padding-inline: 20px;
+
+    @include on-tablet {
+      grid-row: 1;
+      grid-column: 1 / 4;
+      padding-inline: 34px 0;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      padding-inline: 55px 0;
+    }
+  }
+
+  &__page-name-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 9px;
+
+    @include on-tablet {
+      justify-content: start;
+      padding-left: 70px;
+      padding-top: 15px;
+    }
+  }
+
+  &__page-name {
+    font-family: $title-ff;
+    font-size: 30px;
+    font-weight: 700;
+    color: $title-t-c;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 30px;
+
+    @include hover(transform, rotate(-360deg));
+
+    @include on-tablet {
+      font-size: 36px;
+      line-height: 36px;
+    }
+  }
+
+  &__menu-link {
+    position: absolute;
+    top: 27px;
+    left: 20px;
+    display: grid;
+
+    @include on-tablet {
+      top: 39px;
+      left: 34px;
+    }
+
+    @include on-desktop {
+      left: 55px;
+    }
+  }
+
+  &__menu-icon {
+    @include hover(transform, scale(1.1));
+  }
+}

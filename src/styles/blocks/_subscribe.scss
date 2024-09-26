@@ -1,0 +1,96 @@
+.subscribe {
+  background-image: url(../images/subscribe-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &__wrapper {
+    background-color: #000000BF;
+  }
+
+  &__content {
+    padding-block: 88px;
+
+    @include on-tablet {
+      @include page-grid;
+
+      padding-block: 82px;
+    }
+
+    @include on-desktop {
+      padding-block: 163px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: $subscribe-text-c;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+  }
+
+  &__desc {
+    margin-bottom: 50px;
+    font-size: 18px;
+    color: $subscribe-text-c;
+    text-align: center;
+    line-height: 27px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      margin-bottom: 64px;
+      line-height: 18px;
+    }
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    height: 50px;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      grid-template-columns: 1fr 70px;
+      column-gap: 20px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / -4;
+      column-gap: 30px;
+    }
+  }
+
+  &__email {
+    padding-left: 24px;
+    border: 1px solid transparent;
+    outline: none;
+    transition: all $effect-duration;
+
+    &:hover {
+      border-radius: 20px;
+      &::placeholder {
+        color: $subscribe-btn-c;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__button {
+    border: none;
+    background-color: $subscribe-btn-c;
+    background-image: url(../images/icons/subscribe-bt-arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: $effect-duration;
+
+    &:hover {
+      border-radius: 20px;
+    }
+  }
+}
