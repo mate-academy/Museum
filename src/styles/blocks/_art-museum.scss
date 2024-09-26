@@ -1,0 +1,92 @@
+.art-museum {
+  @include on-table {
+    width: 50%;
+  }
+
+  &__title {
+    margin: 10px 0 20px;
+    text-align: center;
+    font-family: $font-montserrat;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+    color: #000;
+
+    @include on-table {
+      margin: 128px 0 38px;
+      text-align: left;
+      font-size: 54px;
+    }
+
+    @include on-desktop {
+      margin: 206px 0 89px;
+      font-size: 72px;
+    }
+  }
+
+  &__link-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    color: $color-dark;
+    transition: all 0.3s ease;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid $color-green;
+    height: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover .art-museum__link-name {
+      background-color: $color-green;
+      color: #fff;
+    }
+
+    @include on-table {
+      max-width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      margin-left: auto;
+    }
+  }
+
+  &__link-icon {
+    display: block;
+    padding: 13px;
+    width: max-content;
+    background-color: $color-green;
+  }
+
+  &__label {
+    display: none;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 1px;
+      background-color: #1a5a4c;
+    }
+
+    @include on-desktop {
+      position: absolute;
+      left: -55px;
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      transform: rotate(-90deg);
+    }
+  }
+}
