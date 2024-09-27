@@ -1,0 +1,117 @@
+.header {
+  &__image {
+    background-image: url('../images/header-image-mobile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+
+    @include on-tablet {
+      position: absolute;
+      right: 0;
+      height: 384px;
+      aspect-ratio: 1 / 1;
+
+      z-index: -1;
+    }
+
+    @include on-desktop {
+      height: 725px;
+    }
+  }
+
+  &__container {
+    @include page-grid;
+
+    justify-content: center;
+    align-items: center;
+
+    @include on-tablet {
+      height: 384px;
+    }
+
+    @include on-desktop {
+      height: 725px;
+    }
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      gap: 89px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-top: 20px;
+    grid-column: 1 / -1;
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+
+    @include on-tablet {
+      margin-top: 64px;
+      font-size: 54px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+    }
+  }
+
+  &__tickets {
+    grid-column: 1 / -1;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #1a5a4c;
+
+    @include on-tablet {
+      width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      align-self: flex-end;
+    }
+  }
+
+  &__tickets-text {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  &__tickets-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: $green-color;
+  }
+
+  &__events-line {
+    display: none;
+    margin-top: -133px;
+    height: 133px;
+    width: 14px;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+}

@@ -1,6 +1,70 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-time;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin float-hover(
+  $height: 10px,
+  $shadow-blur: 10px,
+  $color: rgba(0, 0, 0, 0.4)
+) {
+  transition:
+    transform $transition-time,
+    filter $transition-time;
+
+  &:hover {
+    filter: drop-shadow(0 $height $shadow-blur $color);
+    transform: translateY(-$height);
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 39px;
+  }
+
+  @include on-desktop {
+    margin-inline: auto;
+
+    padding-inline: 55px;
+  }
+}
+
+@mixin page-grid {
+  @include content-padding-inline;
+
+  --columns: 2;
+
+  box-sizing: border-box;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+
+    column-gap: 30px;
   }
 }
