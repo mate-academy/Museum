@@ -26,6 +26,7 @@
       place-content: space-between;
       grid-column: 1 / 2;
       width: 100%;
+      max-width: 75px;
     }
 
     @include on-desktop {
@@ -166,7 +167,9 @@
       color: rgba(15, 14, 8, 1);
     }
 
-    &-text {
+    &-link {
+      display: block;
+      text-decoration: none;
       margin: 0;
       font-family: IBM-Plex-Sans, sans-serif;
       font-size: 14px;
@@ -174,6 +177,12 @@
       line-height: 21px;
       text-align: left;
       color: rgba(15, 14, 8, 1);
+
+      @include hover(transform, scale(1.2));
+
+      &:hover {
+        color: $hoverColor;
+      }
     }
   }
 
@@ -200,7 +209,7 @@
       display: none;
     }
 
-    &-link{
+    &-link {
       @include on-tablet {
         display: none;
       }
