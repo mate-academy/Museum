@@ -1,48 +1,43 @@
 .menu {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  margin: 0;
-  top: 0;
-  opacity: 0;
-  background-color: rgba(26, 90, 76, 1);
-  color: white;
-  width: calc(100% - 40px);
-  padding: 27px 20px;
-  pointer-events: none;
-  transition: all 0.3s;
-  transform: translateY(-100%);
+  background: rgba($color: #000, $alpha: 0.7);
 
-  @include on-tablet {
-    padding: 39px 34px;
-    width: calc(100% - 68px);
-    flex-direction: row;
-  }
+  &__content{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    margin: 0;
+    top: 0;
+    opacity: 0;
+    background-color: rgba(26, 90, 76, 1);
+    color: white;
+    width: calc(100% - 40px);
+    padding: 27px 20px;
+    pointer-events: none;
+    transition: all 0.3s;
+    transform: translateY(-100%);
 
-  @include on-desktop {
-    padding: 40px 56px;
-    width: calc(100% - 112px);
-  }
+    @include on-tablet {
+      padding: 39px 34px;
+      width: calc(100% - 68px);
+      flex-direction: row;
+    }
 
-  &-background{
-    background: $c-gray;
+    @include on-desktop {
+      padding: 40px 56px;
+      width: calc(100% - 112px);
+    }
   }
 
   &:target {
+    overflow: hidden;
     opacity: 1;
     pointer-events: all;
-    overflow: hidden;
     transform: translateY(0);
 
     .menu-background{
       background: rgba($color: #000, $alpha: 0.8);
     }
   }
-
-  &:target .menu-background {
-    background: rgba($color: #000, $alpha: 0.8);
-  }
-
 
   &__link-cros {
     display: flex;
