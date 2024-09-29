@@ -1,0 +1,68 @@
+.menu {
+  background-color: rgba(78, 78, 78, 0.5);
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity $effectDuration,
+    visibility 0s $effectDuration;
+  z-index: 10;
+
+  &--opened {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity $effectDuration ease;
+  }
+
+  &__wrapper {
+    background-color: $c-green;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-block: 27px;
+
+    @include tablet {
+      flex-direction: row;
+      gap: 70px;
+      padding-block: 40px;
+    }
+
+    @include desktop {
+      gap: 180px;
+    }
+  }
+
+  &__nav-wrapper {
+    gap: 28px;
+    display: grid;
+    grid-template-columns: auto auto;
+
+    @include tablet {
+      gap: 48px;
+    }
+
+    @include desktop {
+      gap: 102px;
+    }
+  }
+
+  &__schedule {
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+
+    @include tablet {
+      border-top: unset;
+      border-left: 1px solid rgba(255, 255, 255, 0.5);
+      padding: 0 0 0 38px;
+    }
+
+    @include desktop {
+      padding-inline: 102px;
+    }
+  }
+}
