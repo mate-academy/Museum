@@ -1,0 +1,96 @@
+.exhibition {
+  margin-bottom: 60px;
+
+  @include grid-markup;
+
+  @include tablet {
+    margin-bottom: 112px;
+  }
+
+  &__img-wrapper {
+    grid-column: 1/-1;
+    height: 210px;
+    overflow: hidden;
+
+    @include tablet {
+      height: 520px;
+    }
+
+    @include desktop {
+      grid-column: span 7;
+      grid-row: span 4;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__label-wrapper {
+    grid-column: 1/-1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+
+    @include tablet {
+      grid-column: span 2;
+      justify-content: start;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    @include desktop {
+      grid-column: 9/-1;
+      margin-top: 169px;
+    }
+  }
+
+  &__name-wrapper {
+    grid-column: 1/-1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+
+    @include tablet {
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    @include desktop {
+      grid-column: 9/-1;
+    }
+  }
+
+  &__name-square {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: $c-orange;
+    transform: translateY(25%);
+
+    @include tablet {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__description {
+    grid-column: 1/-1;
+    margin-top: 10px;
+
+    @include tablet {
+      grid-column: span 4;
+      margin-top: 15px;
+    }
+
+    @include desktop {
+      grid-column: 9/-1;
+    }
+  }
+}
