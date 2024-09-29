@@ -1,0 +1,99 @@
+.subscription {
+  &__wrapper {
+    height: 70vh;
+    max-height: 550px;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url('../images/subs/background.jfif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      width: 100%;
+      min-height: 100%;
+
+      background-color: rgba(0, 0, 0, 0.75);
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title {
+    @include mainTitles;
+    color: $colorWhite;
+
+    @include onTablet {
+      text-align: center;
+    }
+  }
+
+  &__main {
+    &:not(:last-child) {
+      margin-bottom: 50px;
+
+      @include onDesktop {
+        margin-bottom: 72px;
+      }
+    }
+  }
+
+  &__text {
+    color: $colorWhite;
+
+    text-align: center;
+    font-size: 18px;
+  }
+}
+
+.form-subscription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include onTablet {
+    gap: 16px;
+  }
+  &__label {
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 5px 24px;
+    background-color: $colorWhite;
+
+    @include onTablet {
+      max-width: 370px;
+      width: 100%;
+    }
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    color: $colorBlackMain;
+
+    &::placeholder {
+      color: #687480;
+    }
+  }
+}
