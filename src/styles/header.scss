@@ -1,0 +1,181 @@
+.header {
+  margin: 0;
+
+  @include pageGrid;
+
+  &-link {
+    display: flex;
+    width: 100%;
+    position: relative;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 13;
+    }
+
+    &-photo {
+      width: 100%;
+      height: auto;
+      object-fit: cover; /* Масштабує зображення, зберігаючи пропорції */
+    }
+  }
+
+  &-icons {
+    padding-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 88px;
+    position: absolute;
+
+    // z-index: 100;
+    top: 0;
+    left: 0;
+    padding-inline: 20px;
+
+    @include onTablet {
+      gap: 409px;
+      padding-inline: 34px;
+      padding-top: 15px;
+    }
+
+    @include onDesktop {
+      gap: 536px;
+      padding-inline: 55px;
+    }
+  }
+
+  &-burger-menu {
+    display: flex;
+    z-index: 1;
+
+    &-icon {
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  &-logo {
+    display: flex;
+
+    &-icon {
+      height: 61px;
+      width: 55px;
+    }
+  }
+}
+
+.art-museum {
+  grid-column: 1 / -1;
+  padding-inline-start: 20px;
+  padding-top: 20px;
+
+  position: relative;
+
+  @include onTablet {
+    grid-column: 1 / 4;
+    grid-row: 1;
+    padding-top: 127px;
+    padding-inline-start: 34px;
+  }
+
+  @include onDesktop {
+    grid-column: 1 / 6;
+    padding-top: 207px;
+    padding-inline-start: 55px;
+  }
+
+  &-title-and-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      align-items: start;
+      gap: 38px;
+    }
+
+    @include onDesktop {
+      gap: 89px;
+    }
+  }
+
+  &-title {
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+
+    text-align: center;
+    color: #000;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 54px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+    }
+  }
+
+  &-link {
+    // margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    @include onTablet {
+      justify-content: left;
+    }
+
+    @include onDesktop {
+      justify-content: right;
+    }
+
+    &-img {
+      width: 280px;
+    }
+  }
+
+  &-events {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      padding-inline-start: 55px;
+    }
+
+    &-text {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      color: #687480;
+      writing-mode: vertical-rl; /* Вертикальний текст, який розташований знизу вгору */
+      transform: rotate(180deg);
+    }
+
+    &-line {
+      width: 1px;
+      height: 70px;
+      background-color: #1A5A4C;
+      writing-mode: vertical-lr;
+    }
+  }
+}
+
+.picture {
+  display: block; width: 80%; min-width: 500px;
+  margin: 40px auto;
+
+}

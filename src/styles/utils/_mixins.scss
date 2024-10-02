@@ -4,3 +4,59 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline() {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 34px;
+  }
+
+  @include onDesktop {
+    padding-inline: 55px;
+
+    // max-width: 1020px;
+    // margin-inline: auto;
+  }
+}
+
+// .container {
+//   @include contentPaddingInline;
+// }
+
+// @mixin hover($property, $toValue) {
+//   transition: #{$property} 0.3s;
+//   &:hover {
+//     #{$property}: $toValue;
+//   }
+// }
+
+@mixin pageGrid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+
+    column-gap: 24px;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+  }
+}

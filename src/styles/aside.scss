@@ -1,0 +1,192 @@
+.aside {
+  background-color: #1A5A4C;
+  height: 70vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-100%);
+  pointer-events: none;
+
+  @include onTablet {
+    height: 47vh;
+  }
+
+  &:target {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(0);
+  }
+
+  &-container-for-grid {
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &-top-bar {
+    padding-top: 27px;
+    padding-bottom: 24px;
+    border-bottom: solid 1px #FFFFFF80;
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      border-bottom: none;
+
+      // border-right: solid 1px #FFFFFF80;
+      padding-top: 39px;
+      position: relative;
+      gap: 38px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 40px;
+        bottom: 40px;
+        right: 0;
+        width: 1px;
+        background-color: #FFFFFF80;
+      }
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+      gap: 102px;
+    }
+
+
+    &-link{
+      display: flex;
+
+      &-icon {
+        height: 24px;
+        width: 24px;
+      }
+    }
+
+    &-nav {
+      // margin-top: 40px;
+      // margin-bottom: 80px;
+      // @include pageGrid;
+      display: flex;
+      flex-direction: row;
+      gap: 28px;
+
+      @include onTablet {
+        gap: 20px;
+      }
+
+      @include onDesktop {
+        gap: 80px;
+      }
+
+      &-left {
+        // grid-column: 1 / 2;
+      }
+
+      &-right {
+        // grid-column: 2 / 3;
+      }
+
+      &-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      &-link {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: left;
+        color: #FFF;
+        text-decoration: none;
+
+        @include onDesktop {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+
+  &-schedule {
+    padding-bottom: 27px;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+      padding-left: 38px;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 13;
+      padding-left: 102px;
+    }
+
+    &-title, &-description, &-time {
+      margin: 0;
+      padding-top: 27px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      text-align: left;
+      color: #FFF;
+
+      @include onTablet {
+        padding-top: 39px;
+      }
+    }
+
+    &-time-and-description {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      @include onTablet {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+      }
+
+      @include onDesktop {
+        gap: 45px;
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(128, 128, 128, 0.5); /* Напівпрозорий сірий фон */
+  z-index: 1; /* Забезпечує відображення під блоком aside */
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.aside:target ~ .overlay {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(0);
+}
+
+.page:has(.aside:target) {
+  overflow: hidden; /* Блокуємо прокрутку, коли aside активний */
+}
+
+.aside-schedule-time span {
+  white-space: nowrap; /* Забороняє перенесення на новий рядок */
+}
+
+
