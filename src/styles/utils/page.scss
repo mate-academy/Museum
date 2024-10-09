@@ -1,7 +1,7 @@
 .page {
   &__menu {
     background-color: $color-green;
-    height: 400px;
+    height: auto;
     box-sizing: border-box;
     position: fixed;
     top: 0;
@@ -9,10 +9,30 @@
     right: 0;
     opacity: 0;
     pointer-events: none;
+    display: grid;
 
     &:target {
       opacity: 1;
       pointer-events: all;
+    }
+  }
+
+  &__grid {
+    @include page-grid;
+
+    padding: 27px 0;
+    font-family: $font-ibm-plex-sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    color: $color-white;
+
+    @include on-tablet {
+      padding: 40px 0;
+    }
+
+    @include on-desktop {
+      padding: 40px 0 48px;
     }
   }
 }
@@ -25,48 +45,79 @@
     display: block;
     background-size: cover;
     background-position: center;
+    left: 20px;
+    top: 27px;
+
+
+    @include on-tablet {
+      left: 34px;
+      top: 39px;
+    }
+
+    @include on-desktop {
+      left: 56px;
+      top: 40px;
+    }
   }
 
-  &__top {
+  &__activites {
+    grid-column: 1/-1;
     display: flex;
-    flex-direction: row;
     gap: 28px;
-    justify-content: start;
-    padding: 27px 0 24px;
-    border-bottom: 1px solid $color-white;
+    flex-direction: row;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $color-white-border;
+
+    @include on-tablet {
+      grid-column: 1/4;
+      border-bottom: none;
+      border-right: 1px solid $color-white-border;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
   }
 
-  &__information {
-    padding: 24px 0 27px;
-    color: $color-white;
+  &__graf {
+    grid-column: 1/-1;
+    padding-top: 24px;
+
+    @include on-tablet {
+      grid-column: 4/-1;
+      padding-top: 0;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+
+    }
 
   }
 
   &__work {
-    padding: 16px 0;
+    padding-top: 20px;
+
+    @include on-tablet {
+      display: flex;
+      gap: 38px;
+    }
   }
 
-  &__schedule {
-    display: flex;
-    gap: 3px;
-    font-family: $font-ibm-plex-sans;
-    font-size: 14px;
-    line-height: 21px;
-    font-weight: 400;
+  &__days {
+    @include on-tablet {
+      width: 170px;
+    }
   }
 
+  &__weekend {
+    padding-top: 16px;
 
-  &__about {
-  border-top: 1px solid $border-top;
-  display: flex;
-  flex-direction: row;
-  gap: 28px;
-  }
+    @include on-tablet {
+      padding-top: 0;
+      width: 144px;
 
-  &__navigation {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    }
   }
 
   &__nav {
@@ -76,4 +127,11 @@
     font-weight: 500;
     line-height: 16px;
   }
+
+}
+
+.navigation {
+  display: flex;
+  gap: 24px;
+  width: 100px;
 }
