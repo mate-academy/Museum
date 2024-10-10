@@ -1,9 +1,10 @@
 'use strict';
 
-const swiper = new swiper(".main__gallery", {
+const swiper = new Swiper('.gallery', {
+  direction: 'vertical',
+  loop: true,
+
   pagination: {
-    el: ".swiper-pagination",
+    el: '.gallery__pagination',
   },
-  mousewhell: true,
-  keyboard: true,
 });
