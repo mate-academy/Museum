@@ -1,64 +1,96 @@
 .gallery {
-  display: grid;
-  padding-bottom: 100px;
+  display: none;
 
-//   @include on-tablet {
-//     padding-bottom: 92px;
-//   }
+  @include on-desktop {
+    padding-bottom: 170px;
+    display: grid;
+  }
 
-//   @include on-desktop {
-//     padding-bottom: 170px;
-//   }
+  &__pictures {
+    @include page-grid;
+  }
 
-//   &__pictures {
-//     @include page-grid;
-//   }
+  &__title {
+    @include on-desktop {
+      grid-column: 1/-1;
+      display: flex;
+      justify-content: left;
+      padding-bottom: 48px;
+    }
+ }
 
-//   &__title {
-//     padding-bottom: 40px;
-//     grid-column: 1/-1;
+ &__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-//     @include on-tablet {
-//       display: flex;
-//       justify-content: left;
-//       padding-bottom: 48px;
-//     }
-//  }
+ &__picture {
+  @include on-desktop {
+    padding-bottom: 30px;
+  }
 
-//  &__picture {
-//   @include on-desktop {
-//     padding-bottom: 30px;
-//   }
+    &--1 {
+      @include on-desktop {
+        grid-column: 1/5;
+      }
+    }
 
-//     &--1 {
-//       @include on-desktop {
-//         grid-column: 1/5;
-//       }
-//     }
+    &--2 {
+      @include on-desktop {
+        grid-column: 5/-1;
+      }
+    }
 
-//     &--2 {
-//       @include on-desktop {
-//         grid-column: 5/-1;
-//       }
-//     }
+    &--3 {
+      @include on-desktop {
+        grid-column: 1/9;
+        }
+    }
 
-//     &--3 {
-//       @include on-desktop {
-//         grid-column: 1/9;
-//         }
-//     }
+    &--4 {
+      @include on-desktop {
+        grid-column: 9/-1;
+        }
+    }
 
-//     &--4 {
-//       @include on-desktop {
-//         grid-column: 9/-1;
-//         }
-//     }
-
-//   }
-
-  &__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
  }
+
+.swiper {
+  height: 543px;
+  width: 280px;
+
+  @include on-tablet {
+    width: 700px;
+  }
+
+  &__title {
+    font-family: $font-montserrat;
+    font-size: 36px;
+    line-height: 36px;
+    font-weight: bold;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  object-fit: cover;
+  height: 410px;
+}
+
+@media (min-width: 1280px) {
+  .main__swiper {
+    display: none;
+  }
+}
