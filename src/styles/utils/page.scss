@@ -10,11 +10,13 @@
     opacity: 0;
     pointer-events: none;
     display: grid;
+    transition: opacity 0.3s ease-in-out;
 
     &:target {
       opacity: 1;
       pointer-events: all;
     }
+
   }
 
   &__grid {
@@ -38,6 +40,8 @@
 }
 
 .menu {
+  overflow: hidden;
+
   &__close {
     background-image: url(../images/close.svg);
     height: 24px;
@@ -134,4 +138,11 @@
   display: flex;
   gap: 24px;
   width: 100px;
+}
+
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+  background-color: aqua;
+
 }
