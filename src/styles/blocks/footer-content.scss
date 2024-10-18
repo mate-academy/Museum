@@ -1,0 +1,153 @@
+.footer__content {
+  padding-block: 50px 35px;
+
+  @include page-grid;
+
+  @include on-tablet {
+    padding-block: 51px 36px;
+  }
+
+  @include on-desktop {
+    padding-block: 47px 35px;
+  }
+}
+
+.footer {
+  &__icons-block {
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      grid-column: 1 / 2;
+      justify-content: start;
+      flex-direction: column;
+      gap: 62px;
+    }
+  }
+
+  &__info {
+    grid-column: span 2;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: span 4;
+      gap: 30px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 7;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      background: #1a5a4c80;
+      opacity: 50%;
+      width: 100%;
+      height: 1px;
+      bottom: -20px;
+      left: 0;
+
+      @include on-tablet {
+        bottom: -64px;
+      }
+
+      @include on-desktop {
+        width: 1px;
+        height: 100%;
+        top: 0;
+        right: -65px;
+        left: auto;
+      }
+    }
+  }
+
+  &__menu {
+    margin-top: 61px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      margin-top: 129px;
+    }
+
+    @include on-desktop {
+      margin-top: 0;
+      grid-column: 8 / 12;
+    }
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+
+  @include on-tablet {
+    gap: 32px;
+  }
+
+  @include on-desktop {
+    gap: 22px;
+  }
+}
+
+.contacts {
+  &__email,
+  &__fax,
+  &__phone,
+  &__address {
+    font-family: IBMPlexSans, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    text-align: left;
+    color: $footer-text-color;
+    margin: 0;
+  }
+}
+
+.arrow-up {
+  height: 50px;
+  width: 50px;
+  grid-column: 2 / -1;
+  justify-self: end;
+  background-image: url(../images/icons/arrow-up.svg);
+
+  @include on-tablet {
+    display: none;
+  }
+}
+
+.copyright-info {
+  margin-top: 80px;
+  grid-column: 1 / -1;
+
+  font-family: IBMPlexSans, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16.88px;
+  text-align: center;
+  color: $footer-text-color;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @include on-tablet {
+    margin-top: 120px;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  @include on-desktop {
+    margin-top: 87px;
+  }
+}
