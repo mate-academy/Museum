@@ -1,0 +1,46 @@
+.side-menu {
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  overflow: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: all $effect-duration ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+
+  &__top {
+    padding: 27px 0;
+    background-color: $accent-color;
+    height: 300px;
+
+    @include on-tablet {
+      padding: 40px 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.side-menu:target {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nav__link {
+  color: $text-light-color;
+}
