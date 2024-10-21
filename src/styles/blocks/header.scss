@@ -4,32 +4,43 @@
   position: relative;
 
   &__content {
+    position: relative;
     padding-top: 20px;
-    padding-bottom: 118px;
+    grid-column: 1 / -1;
 
     @include page-grid;
 
-    grid-column: 1 / -1;
-
     @include on-tablet {
-      padding-top: 143px;
+      padding-top: 127px;
+      padding-bottom: 19px;
+    }
+
+    @include on-desktop {
+      padding-top: 206px;
       padding-bottom: 118px;
     }
   }
 
   &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     grid-column: 1/-1;
 
     @include on-tablet {
+      align-items: flex-start;
       grid-column: 1 / 4;
     }
 
     @include on-desktop {
+      align-items: flex-end;
       grid-column: 1 / 6;
     }
   }
+
   &__title {
-    margin-bottom: 89px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
     font-size: 45px;
     line-height: 45px;
     text-align: center;
@@ -37,15 +48,43 @@
     color: #000;
 
     @include on-tablet {
+      margin-bottom: 38px;
       font-size: 54px;
       line-height: 65px;
       text-align: left;
     }
 
     @include on-desktop {
+      margin-bottom: 89px;
       font-size: 4.5rem;
       line-height: 86px;
       text-align: left;
+    }
+  }
+
+  &__descr {
+    display: none;
+    position: absolute;
+    left: -10px;
+    bottom: 100px;
+    transform: rotate(-90deg);
+    font-size: 14px;
+    line-height: 14px;
+    color: $text-subheaders-color;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -90px;
+      width: 70px;
+      height: 1px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #000;
+    }
+
+    @include on-desktop {
+      display: block;
     }
   }
 }
