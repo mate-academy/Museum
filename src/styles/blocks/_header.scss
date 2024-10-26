@@ -1,17 +1,19 @@
 .header {
   --gridColumns: 12;
 
+
   &__inner {
+    @include grid-template;
 
-    background: url(../images/header-bg.jpg) 100% / contain no-repeat;
-
-    // @include mobile {
-    // }
-
+    position: relative;
+    padding-bottom: 100px;
   }
+
 
   &__menu {
     @include grid-template;
+
+    grid-column: 1/-1;
     align-items: center;
     margin-bottom: 110px;
     padding-top: 15px;
@@ -42,14 +44,12 @@
   }
 
   &__logo {
-    grid-column: 7/8;
+    grid-column: 6/-1;
 
     @include tablet {
       grid-column: 4/6;
     }
   }
-
-  &__logo-image {}
 
   &__content {
     @include grid-template;
@@ -71,6 +71,8 @@
 
   &__item {
     @include grid-template;
+
+    grid-column: 1/-1;
   }
 
   &__title {
@@ -92,12 +94,6 @@
 
   }
 
-  &__bottom {
-    grid-column: span 5;
-    display: flex;
-    justify-content: space-between;
-  }
-
   &__action {
     position: relative;
     transform: rotate(270deg);
@@ -105,6 +101,7 @@
     font-size: 14px;
     font-weight: 700;
     line-height: 1;
+    text-align: right;
 
     &:before {
       content: '';
@@ -123,12 +120,12 @@
 
   &__ticket {
 
-
+    grid-column: 3/6;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: var(--input-height);
-    min-width: 270px;
+    max-width: 270px;
     border: var(--border);
 
     @include tablet {
@@ -137,318 +134,30 @@
   }
 
   &__ticket-link {
-    padding-left: 68px;
+    margin-inline: auto;
     color: var(--color-dark-alt)
   }
 
-  &__ticket-button {}
 
-  &__rigth {
-    background: url(../images/header-bg.jpg) center / cover no-repeat;
+  &__bg {
+    width: 55%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
 
-    grid-column: 6/-1;
 
-    @include tablet {
-      grid-column: 4/-1;
-    }
+      object-fit: cover;
+      max-height: 100%;
+      max-width: 100%;
+
   }
+
 }
 
-
-
-.container {}
 
 .button {}
 
 .button--color-green {}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .header {
-//   --header-height: 87px;
-
-//   padding-bottom: 200px;
-
-
-//   &__inner {
-//     background: url(../images/header-bg.jpg);
-//     background-repeat: no-repeat;
-//     background-position: right;
-//     background-size: 725px;
-//     // position: relative;
-//     // max-width: 1280px;
-
-//     @include desktop {
-//       background-size: contain;
-//     }
-
-//     @include tablet {
-//       background-position: 100% 50%;
-//       background-size: contain;
-//     }
-
-//     @include grid-template;
-//     grid-template-rows: repeat(2, 1fr)
-//   }
-
-//   &__menu {
-//     @include grid-template;
-
-//     padding-top: 15px;
-//     width: 100%;
-//   }
-
-// &__burder {
-//   position: relative;
-//   grid-column: span 1;
-//   width: 24px;
-//   aspect-ratio: 1;
-//   background-color: transparent;
-//   border: none;
-//   cursor: pointer;
-
-//   &::after {
-//     @include abs-center;
-
-//     content: '';
-//     background-image: url(../images/icons/burger.svg);
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     background-size: contain;
-//     width: 18px;
-//     height: 12px;
-
-//   }
-// }
-
-// &__logo {
-//   grid-column: 7/8;
-
-//   @include tablet {
-//     grid-column: 4/6;
-//   }
-// }
-
-//   &__logo-image {}
-
-// &__left {
-//   grid-column: span 5;
-//   padding-top: 130px;
-//   padding-bottom: 112px;
-
-//   @include tablet {
-//     grid-column: span 3;
-
-//     padding-top: 80px;
-//     padding-bottom: 12px;
-//   }
-// }
-
-//   &__title {
-//     @include fluid-text(72, 45);
-//     font-weight: 700;
-//     max-width: 470px;
-//     line-height: 120%;
-//     color: #000;
-
-//     &:not(:last-child) {
-//       margin-bottom: 95px;
-//     }
-
-//     @include tablet {
-//       grid-column: 1/3;
-
-//       &:not(:last-child) {
-//         margin-bottom: 40px;
-//       }
-//     }
-//   }
-
-//   &__bottom-inner {
-//     display: flex;
-//     justify-content: space-between;
-//   }
-
-//   &__action {
-//     position: relative;
-//     transform: rotate(270deg);
-//     translate: -50% 0;
-//     font-size: 14px;
-//     font-weight: 700;
-//     line-height: 1;
-
-//     &:before {
-//       content: '';
-//       position: absolute;
-//       top: 8px;
-//       right: 4.5em;
-//       width: 70px;
-//       height: 1px;
-//       background-color: var(--color-green);
-//     }
-
-//     @include tablet {
-//       display: none;
-//     }
-//   }
-
-//   &__ticket {
-//     grid-column: 3/6;
-
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     height: var(--input-height);
-//     min-width: 270px;
-//     border: var(--border);
-
-//     @include tablet {
-//       grid-column: span 3;
-//     }
-//   }
-
-//   &__ticket-link {
-//     padding-left: 68px;
-//     color: var(--color-dark-alt)
-//   }
-
-//   &__ticket-button {}
-
-//   &__rigth {
-//     background: url(../images/header-bg.jpg) center / cover no-repeat;
-
-//     grid-column: 6/-1;
-
-//     @include tablet {
-//       grid-column: 4/-1;
-//     }
-//   }
-// }
-
-
-// .container {}
-
-// .button {}
-
-// .button--color-green {}
-
-
-
-
-
-
-
-
-
-
-
-
-// //   &__inner {
-// //     background-image: url(../images/header-bg.jpg);
-// //     background-repeat: no-repeat;
-// //     background-size: contain;
-// //     background-position: 100% calc(var(--header-height) * -1);
-// //     min-height: 655px;
-// //   }
-
-// //   &__top {
-// //     @include grid-template;
-// //     padding-top: 15px;
-// //     max-height: var(--header-height);
-// //     align-items: center;
-
-
-// //     &:not(:last-child) {
-// //       margin-bottom: 120px;
-// //     }
-// //   }
-
-// // &__burder {
-// //   position: relative;
-// //   grid-column: span 1;
-// //   width: 24px;
-// //   aspect-ratio: 1;
-// //   background-color: transparent;
-// //   border: none;
-// //   cursor: pointer;
-
-// //   &::after {
-// //     @include abs-center;
-
-// //     content: '';
-// //     background-image: url(../images/icons/burger.svg);
-// //     background-repeat: no-repeat;
-// //     background-position: center;
-// //     background-size: contain;
-// //     width: 18px;
-// //     height: 12px;
-
-// //   }
-// // }
-
-// //   &__logo {
-// //     grid-column: 7/8;
-// //   }
-
-// //   &__logo-image {}
-
-// //   &__bottom {
-
-
-// //     &-inner {
-// //       @include grid-template;
-// //       min-height: 170px;
-// //     }
-// //   }
-
-
-
-
-// //   &__action {
-// //     // grid-column: span 1;
-// //     color: var(--color-gray-alt);
-// //     font-weight: 700;
-// //     font-size: 14px;
-
-// //     writing-mode: tb;
-// //     transform: rotate(-180deg);
-// //     position: relative;
-// //     min-width: 130px;
-
-
-
-// //     &:before {
-// // content: '';
-// // position: absolute;
-// // top: 0;
-// // right: 7px;
-// // display: flex;
-// // width: 1px;
-// // height: 70px;
-// // background-color: var(--color-green);
-
-// //     }
-// //   }
-
-
-
-// //   &__ticket-button {}
-
-
-
-// // }
-
-// // .button {}
-
-// // .button--color-green {}
