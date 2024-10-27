@@ -25,7 +25,6 @@
       font-size: 48px;
       line-height: 48px;
       text-align: left;
-      grid-column: 1 / 5;
       margin-bottom: 48px;
     }
 
@@ -37,25 +36,30 @@
 
   &__exhibition {
     @include content-padding-inline;
+    @include page-grid;
 
     margin-bottom: 60px;
 
     @include on-tablet {
-      grid-column: 1 / -1;
       margin-bottom: 64px;
     }
 
     @include on-desktop {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 130px;
       margin-bottom: 104px;
     }
   }
 
   &__picture {
     overflow: hidden;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+    }
   }
 
   &__image {
@@ -71,7 +75,19 @@
     }
 
     @include on-desktop {
-      width: auto;
+      width: 100%;
+    }
+  }
+
+  &__textarea {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
     }
   }
 
