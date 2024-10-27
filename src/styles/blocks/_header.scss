@@ -1,22 +1,34 @@
 .header {
-  --gridColumns: 12;
-
 
   &__inner {
     @include grid-template;
 
     position: relative;
-    padding-bottom: 100px;
+
+    @include desktop-above {
+      padding-bottom: 100px;
+
+    }
   }
 
 
   &__menu {
-    @include grid-template;
-
     grid-column: 1/-1;
+
+    display: flex;
+    padding-top: 9px;
     align-items: center;
-    margin-bottom: 110px;
-    padding-top: 15px;
+
+    @include tablet-above {
+
+      @include grid-template;
+      padding-top: 15px;
+      margin-bottom: 110px;
+    }
+
+    @include desktop-above {
+      margin-bottom: 110px;
+    }
   }
 
   &__burder {
@@ -44,57 +56,73 @@
   }
 
   &__logo {
-    grid-column: 6/-1;
 
-    @include tablet {
-      grid-column: 4/6;
-    }
-  }
+    margin: 0 auto;
 
-  &__content {
-    @include grid-template;
-
-    padding-top: 130px;
-    padding-bottom: 112px;
-
-    @include tablet {
-
-      padding-top: 80px;
-      padding-bottom: 12px;
-
-      &:not(:last-child) {
-        margin-bottom: 40px;
-      }
+    @include tablet-above {
+      margin: 0;
+      grid-column: 4/-1;
     }
 
+    @include desktop-above {
+      grid-column: 6/-1;
+    }
   }
 
   &__item {
     @include grid-template;
 
+    position: relative;
+    top: 235px;
     grid-column: 1/-1;
+    margin-inline: auto;
+
+    @include tablet-above {
+      position: static;
+      margin-inline: initial;
+    }
   }
 
   &__title {
     @include fluid-text(72, 45);
 
-    grid-column: span 5;
+    position: relative;
+    top: 235px;
+
     font-weight: 700;
-    max-width: 470px;
+    max-width: 320px;
     line-height: 120%;
     color: #000;
 
+    text-align: center;
+    grid-column: 1 / -1;
+    margin: 0 auto;
+
     &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    @include tablet-above {
+      position: static;
+
+      max-width: 470px;
+      grid-column: span 2;
+      text-align: left;
+
+      &:not(:last-child) {
+        margin-bottom: 38px;
+      }
+    }
+
+    @include desktop-above {
       margin-bottom: 95px;
     }
 
-    @include tablet {
-      max-width: 320px;
-    }
 
   }
 
   &__action {
+    display: none;
     position: relative;
     transform: rotate(270deg);
     translate: -50% 0;
@@ -113,34 +141,43 @@
       background-color: var(--color-green);
     }
 
-    @include tablet {
-      display: none;
+    @include desktop-above {
+      display: initial;
     }
   }
 
   &__ticket {
 
-    grid-column: 3/6;
+    grid-column: 1/-1;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: var(--input-height);
-    max-width: 270px;
+    width: 280px;
     border: var(--border);
 
-    @include tablet {
-      grid-column: span 3;
-    }
-  }
 
-  &__ticket-link {
-    margin-inline: auto;
-    color: var(--color-dark-alt)
+
+    @include tablet-above {
+      grid-column: 1/3;
+      max-width: 270px;
+    }
+
+    @include desktop-above {
+      grid-column: 3/6;
+      max-width: 270px;
+    }
+
+
+    &-link {
+      margin-inline: auto;
+      color: var(--color-dark-alt)
+    }
   }
 
 
   &__bg {
-    width: 55%;
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
@@ -149,9 +186,17 @@
     z-index: -1;
 
 
-      object-fit: cover;
-      max-height: 100%;
-      max-width: 100%;
+    object-fit: cover;
+    max-height: 100%;
+    max-width: 100%;
+
+    @include tablet-above {
+      width: 50%;
+    }
+
+    @include desktop-above {
+      width: 55%;
+    }
 
   }
 

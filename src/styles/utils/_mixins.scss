@@ -26,21 +26,21 @@
 
 
 @mixin grid-template {
-  --gridColumns: 12;
+  --gridColumns: 2;
+  gap: 20px;
 
   display: grid;
   grid-template-columns: repeat(var(--gridColumns), 1fr);
-  gap: 30px;
 
-  @include tablet {
+
+  @include tablet-above {
     --gridColumns: 6;
+    gap: 30px;
   }
 
+  @include desktop-above {
 
-
-  @include mobile-s {
-    --gridColumns: 2;
-    gap: 20px;
+    --gridColumns: 12;
   }
 }
 
