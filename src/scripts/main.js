@@ -25,8 +25,6 @@ function updateActiveDot() {
   dots.forEach((dot, index) => {
     dot.classList.toggle("active", index === currentIndex);
   });
-
-
 }
 
 gallery.addEventListener("scroll", updateActiveDot);
