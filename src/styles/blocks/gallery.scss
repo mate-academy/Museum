@@ -13,7 +13,9 @@
     scroll-snap-type: x mandatory;
 
     @include on-desktop {
-      @include gallery-grid
+      @include gallery-grid;
+
+      overflow: visible;
     }
   }
 
@@ -21,6 +23,7 @@
     height: 410px;
     width: 100%;
     object-fit: cover;
+    transition: transform $effect-duration;
     scroll-snap-align: center;
 
     @include on-tablet {
@@ -51,6 +54,9 @@
       grid-column: 9/-1;
       grid-row: 8/-1;
     }
+    }
+    &:hover {
+      transform: scale(1.05);
     }
   }
 
