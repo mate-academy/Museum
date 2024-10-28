@@ -1,53 +1,54 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} $effect-duration;
-  &:hover {
-    #{$_property}: $_toValue;
-  }
-}
-
-@mixin tablet {
-  @media (min-width: $tablet-min-width) {
+@mixin on-tablet {
+  @media (min-width: $tablet-width) {
     @content;
   }
 }
 
-@mixin desktop {
-  @media (min-width: $desktop-min-width) {
+@mixin on-desktop {
+  @media (min-width: $desktop-width) {
     @content;
   }
 }
 
-@mixin content-padding-inline {
+@mixin content-padding-inline() {
   padding-inline: 20px;
 
-  @include tablet {
-    padding-inline: 39px;
+  @include on-tablet {
+    padding-inline: 34px;
   }
 
-  @include desktop {
-    max-width: 1170px;
+  @include on-desktop {
+    max-width: $container-width;
     margin-inline: auto;
     padding-inline: 55px;
   }
 }
 
-@mixin page-grid {
-  display: grid;
-  column-gap: 20px;
-  grid-template-columns: repeat($columns-on-mobile, 1fr);
+[class*='__container'] {
+  @include content-padding-inline;
+}
 
-  @include tablet {
-    grid-template-columns: repeat($columns-on-tablet, 1fr);
-    column-gap: 30px;
-  }
-
-  @include desktop {
-    grid-template-columns: repeat($columns-on-desktop, 1fr);
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
   }
 }
 
-@mixin flex-between-center {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+@mixin page-grid {
+  --column: 2;
+
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(var(--column), 1fr);
+
+  @include on-tablet {
+    --column: 6;
+
+    grid-gap: 30px;
+  }
+
+  @include on-desktop {
+    --column: 12;
+  }
 }

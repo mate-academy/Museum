@@ -1,0 +1,239 @@
+.footer {
+  &__container {
+    @include page-grid;
+
+    grid-row-gap: 0;
+
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-row-gap: 0;
+      align-items: start;
+      margin-bottom: 36px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 1;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 0;
+    }
+  }
+
+  &__logo {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: $color-base;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    @include hover(scale, 1.1);
+
+    @include on-tablet {
+      margin-bottom: 62px;
+    }
+  }
+
+  &__go-up-wrapper {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: end;
+    padding-bottom: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__go-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid $color-primary;
+    border-radius: 50%;
+  }
+
+  &__schedule {
+    grid-column: 1 / 1;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+      padding-bottom: 64px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 /5;
+      padding-bottom: 87px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    & .schedule__worktime {
+      line-height: calc(21 / 14);
+
+      @include on-tablet {
+        grid-column: 1 / -1;
+      }
+
+      @include on-desktop {
+        margin-bottom: 20px;
+      }
+    }
+
+    & .schedule__weekend {
+      line-height: calc(21 / 14);
+
+      @include on-tablet {
+        grid-column: 1 / -1;
+        max-width: 220px;
+      }
+    }
+  }
+
+  &__contacts {
+    font-size: 14px;
+    flex-basis: 50%;
+    max-width: 235px;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 8;
+      height: 271px;
+      padding-right: 65px;
+      border-right: 1px solid rgba($color: $color-primary, $alpha: 0.5);
+    }
+  }
+
+  &__contacts-title {
+    line-height: calc(19.69 / 14);
+    margin-bottom: 20px;
+  }
+
+  &__contacts-text {
+    line-height: calc(21 / 14);
+  }
+
+  &__contacts-link {
+    display: inline-block;
+    color: $color-base;
+
+    @include hover(color, $color-accent);
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+    padding: 40px 0 80px;
+    border-top: 1px solid rgba($color: $color-primary, $alpha: 0.5);
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      padding: 64px 0 120px;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / 12;
+      padding: 0;
+      border-top: none;
+    }
+
+    & .nav__list {
+      grid-template-columns: repeat(2, 130px);
+      gap: 20px;
+
+      @include on-tablet {
+        grid-template-columns: repeat(2, 220px);
+      }
+
+      @include on-desktop {
+        grid-template-columns: repeat(2, 169px);
+        grid-column-gap: 32px;
+      }
+    }
+
+    & .nav__link {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 100%;
+      color: $color-base;
+
+      @include hover(color, $color-accent);
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+
+    font-weight: 300;
+    font-size: 12px;
+    line-height: calc(16.88 / 12);
+    text-align: center;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__author {
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+      order: 1;
+    }
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+
+  @include on-tablet {
+    gap: 32px;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    width: 24px;
+
+    & .socials__icon {
+      height: 100%;
+    }
+
+    .socials__icon path {
+      transition: fill 0.3s ease;
+    }
+
+    &:hover .socials__icon path {
+      fill: $color-accent;
+    }
+  }
+}
