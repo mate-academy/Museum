@@ -1,13 +1,38 @@
 .gallery {
   margin-bottom: 200px;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  scroll-snap-type: x mandatory;
+
   &__images {
-    @include gallery-grid
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+
+    @include on-desktop {
+      @include gallery-grid
+    }
   }
 
   &__image {
+    height: 410px;
     width: 100%;
-    height: 100%;
     object-fit: cover;
+    scroll-snap-align: center;
+
+    @include on-tablet {
+      height: 543px;
+    }
+
+
+    @include on-desktop {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
 
     &--1 {
       grid-column: 1/5;
@@ -27,6 +52,29 @@
     &--4 {
       grid-column: 9/-1;
       grid-row: 8/-1;
+    }
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+  }
+
+  &__dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    background-color: $nav-color;
+    transition: background-color $effect-duration;
+
+    &.active {
+      background-color: $accent-color;
+      transition: background-color $effect-duration;
     }
   }
 }
