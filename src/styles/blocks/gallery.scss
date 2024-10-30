@@ -1,12 +1,72 @@
 .gallery {
   padding-bottom: 100px;
 
+  @include onDesktop {
+    padding-bottom: 200px;
+  }
+
   &__title {
     margin: 0;
-    margin-bottom: 40px;
+    margin-bottom: 48px;
     text-align: center;
     color: #0f0e08;
     font-size: 36px;
     line-height: 36px;
+    text-align: left;
+  }
+  &__wrapper {
+    display: none;
+  }
+
+  @include onDesktop {
+    &__title {
+      margin: 0;
+      margin-bottom: 56px;
+      text-align: center;
+      color: #0f0e08;
+      font-size: 48px;
+      line-height: 48px;
+      text-align: left;
+    }
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 260px;
+    }
+    .gallery__item {
+    }
+    &__photos {
+      height: auto;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
+
+    &__link {
+      position: relative;
+
+      &--wide {
+        grid-column: span 8;
+      }
+
+      &--square {
+        padding-bottom: 100%;
+
+        grid-column: span 4;
+      }
+    }
+
+    &__photo {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: all 0.3s ease-in;
+    }
+
+    &__photo:hover {
+      transform: scale(1.05);
+    }
   }
 }
