@@ -1,11 +1,30 @@
 .menu {
   padding: 27px 0;
-  position: absolute;
-  top: 0;
-  left: 0;
+
   background-color: #1a5a4c;
   width: 100%;
   height: auto;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  z-index: 99;
+
+  &:target {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  &:has(menu:target) {
+    overflow-y: hidden;
+  }
 
   @include onTablet {
     padding: 37px 0 40px 0;
@@ -34,6 +53,7 @@
     }
 
     @include onDesktop {
+      justify-content: space-between;
       grid-column: span 5;
     }
 
