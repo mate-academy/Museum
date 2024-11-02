@@ -1,4 +1,183 @@
 .header {
+  display: none;
+  margin-bottom: 70px;
+
+  &__top {
+
+    padding-top: 15px;
+    margin-bottom: 20px;
+
+    height: 300px;
+    background: url(../images/header-bg.jpg) center/cover no-repeat;
+
+    @include tablet-above {
+      height: initial;
+      background: none;
+      margin-bottom: 40px;
+    }
+
+    @include desktop-above {
+      margin-bottom: 95px;
+    }
+
+    &-container {
+      display: flex;
+      align-items: center;
+    }
+
+  }
+
+  &__burder {
+
+    width: 24px;
+    aspect-ratio: 1;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &::after {
+      // @include abs-center;
+      content: '';
+      background-image: url(../images/icons/burger.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      display: flex;
+      width: 18px;
+      height: 12px;
+
+    }
+  }
+
+  &__logo {
+    margin: 0 auto;
+  }
+
+  &__bottom {
+
+    &-container {
+      @include grid-template;
+      row-gap: 20px;
+
+      @include tablet-above {
+        row-gap: 38px;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 45px;
+    font-weight: 700;
+    grid-column: 1/-1;
+
+    @include tablet-above {
+      font-size: 54px;
+      grid-column: span 3;
+    }
+
+    @include desktop-above {
+      font-size: 72px;
+      grid-column: span 5;
+    }
+
+
+  }
+
+  &__item {
+    grid-column: 1/-1;
+    min-width: 270px;
+    max-width: 280px;
+
+
+    @include tablet-above {
+      grid-column: 3/6;
+    }
+
+    @include desktop-above {
+      grid-column: 1/-1;
+    }
+  }
+
+  &__action {
+    display: none;
+    position: relative;
+    transform: rotate(270deg);
+    translate: -50% 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: right;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      right: 4.5em;
+      width: 70px;
+      height: 1px;
+      background-color: var(--color-green);
+    }
+
+    @include desktop-above {
+      display: initial;
+    }
+  }
+
+  &__ticket {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--input-height);
+    min-width: 270px;
+    max-width: 280px;
+    border: var(--border);
+
+
+
+    @include tablet-above {
+
+      max-width: 270px;
+    }
+
+
+  }
+
+  &__link {
+    margin-inline: auto;
+    color: var(--color-dark-alt)
+  }
+
+  &__button {}
+
+
+  &__bg {
+    width: 0px;
+
+    // height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+
+
+    object-fit: cover;
+    max-width: 725px;
+
+    @include tablet-above {
+      width: 55%;
+    }
+
+
+
+  }
+}
+
+
+
+/*
+.header {
 
   &__inner {
     @include grid-template;
@@ -206,3 +385,5 @@
 .button {}
 
 .button--color-green {}
+
+*/

@@ -1,0 +1,210 @@
+.events {
+
+  padding-bottom: 100px;
+
+  &__title {
+    margin-bottom: 40px;
+
+    @include tablet-above {
+      margin-bottom: 48px;
+    }
+
+    @include desktop-above {
+      margin-bottom: 56px;
+    }
+  }
+
+
+  &__item {
+
+    &:not(:last-child) {
+
+      margin-bottom: 60px;
+    }
+
+    @include tablet-above {
+      &:not(:last-child) {
+        margin-bottom: 44px;
+      }
+    }
+
+    @include desktop-above {
+      &:not(:last-child) {
+        margin-bottom: 104px;
+      }
+    }
+  }
+}
+
+.title {
+  font-family: var(--font-family-second);
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+
+  @include tablet-above {
+    text-align: left;
+    font-size: 48px;
+  }
+}
+
+.event {
+  @include grid-template;
+  font-family: var(--font-family-first);
+
+  align-items: center;
+
+  &__image {
+    grid-column: 1/-1;
+    object-fit: cover;
+    height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include tablet-above {
+      height: 100%;
+    }
+
+    @include desktop-above {
+      grid-column: 1/8;
+    }
+  }
+
+  &__info {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    @include tablet-above {
+      grid-column: span 4;
+    }
+
+    @include desktop-above {
+      grid-column: 9/-1;
+    }
+  }
+
+  &__present {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+
+    @include tablet-above {
+      justify-content: start;
+    }
+
+  }
+
+  &__name {
+    color: var(--color-gray-alt);
+    font-weight: 500;
+  }
+
+  &__date {
+    color: var(--color-green);
+    font-weight: 700;
+  }
+
+  &__title {
+    font-family: var(--font-family-second);
+    font-size: 28px;
+    color: var(--color-dark-alt);
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  &__decor {
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-orange);
+  }
+
+  &__description {
+    font-weight: 300;
+    color: var(--color-gray);
+  }
+
+  &--lecture {
+    position: relative;
+    margin-inline: -20px;
+    overflow: hidden;
+  }
+
+  &__image--lecture {
+    grid-column: 1/-1;
+
+
+  }
+
+  &__info--lecture {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: 0 50%;
+    padding: 20px 2px;
+    background-color: #fff;
+  }
+}
+
+.lecture {
+  @include grid-template;
+  gap: 0;
+  max-width: 570px;
+
+  @include tablet-above {
+    gap: 0;
+  }
+
+  @include desktop-above {
+    gap: 0;
+  }
+
+
+  &__image {
+
+    grid-column: 1 / -1;
+    margin: 0 -20px;
+  }
+
+  &__photo {
+    justify-content: center;
+    align-items: center;
+    height: 210px;
+    display: flex;
+    object-fit: cover;
+
+    @include tablet-above {
+      height: 100%;
+    }
+
+  }
+
+  &__info {
+    grid-column: 1/-1;
+
+    row-gap: 20px;
+    translate: 0 -50%;
+    background-color: #fff;
+    padding: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 430px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__present {
+    padding-left: 20px;
+    justify-content: center;
+  }
+}
