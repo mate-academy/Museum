@@ -1,0 +1,193 @@
+.header {
+  padding-bottom: 70px;
+  position: relative;
+  scroll-behavior: smooth;
+
+  @include onTablet {
+    padding-bottom: 90px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 200px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+      align-items: center;
+    }
+  }
+
+  &__wrapper {
+    padding-top: 10px;
+    height: 300px;
+    background-image: url('./../images/bg-mobile.jpg');
+    background-size: cover;
+    background-position: center;
+
+    @include onTablet {
+      background-image: url('./../images/bg-tablet.jpg');
+      height: 400px;
+      grid-column: 4 / -1;
+      padding-top: 15px;
+    }
+
+    @include onDesktop {
+      background-image: url('./../images/bg-desktop.jpg');
+      box-sizing: border-box;
+      height: 100vh;
+    }
+  }
+
+  &__logo {
+    @include onTablet {
+      padding-left: 40px;
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    align-items: center;
+  }
+
+  &__bottom {
+    @include onTablet {
+      grid-column: 1 / 4;
+      align-self: self-end;
+      padding-bottom: 20px;
+    }
+
+    &-content {
+      @include onDesktop {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__info {
+    display: none;
+    @include onDesktop {
+      display: block;
+      position: relative;
+    }
+
+    &-desc {
+      @include onDesktop {
+        font-family: $second-font;
+        color: #687480;
+        font-size: 14px;
+        line-height: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        position: absolute;
+        top: -110px;
+        left: -20px;
+        display: inline-block;
+        transform: rotate(-90deg);
+        text-decoration: none;
+      }
+    }
+    &-line {
+      @include onDesktop {
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        content: '';
+        height: 70px;
+        width: 1px;
+        background-color: #1a5a4c;
+      }
+    }
+  }
+
+  &__title {
+    font-family: $main-font;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    color: #000000;
+
+    text-align: center;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 48px;
+      line-height: 64.8px;
+      margin-bottom: 38px;
+      max-width: 400px;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      line-height: 86.4px;
+      margin-bottom: 89px;
+      max-width: 700px;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    align-content: center;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    border: 1px solid #1a5a4c;
+    background-color: #fff;
+    padding-right: 30px;
+    font-family: $second-font serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #0f0e08;
+
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #1a5a4c;
+      color: #fff;
+    }
+
+    &::after {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+      content: url('./../images/icons/arrow-left.svg');
+      width: 50px;
+      height: 100%;
+      background-color: #1a5a4c;
+
+      @include onTablet {
+        width: 70px;
+      }
+    }
+
+    @include onTablet {
+      text-align: left;
+      padding-left: 70px;
+      height: 70px;
+    }
+
+    @include onDesktop {
+      align-self: flex-end;
+      margin-bottom: 118px;
+      padding-left: 120px;
+      width: 350px;
+    }
+  }
+}
