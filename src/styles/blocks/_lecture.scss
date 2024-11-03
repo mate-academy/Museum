@@ -1,0 +1,85 @@
+.lecture {
+  @include grid-template;
+
+  gap: 0;
+
+  @include tablet-above {
+    gap: 0;
+  }
+
+  @include desktop-above {
+    gap: 0;
+  }
+
+
+  &__image {
+    grid-column: 1 / -1;
+    margin: 0 calc(var(--container-padding-x) * -1);
+
+    @include tablet-above {
+      margin: unset;
+    }
+
+    @include desktop-above {
+      margin: 0 calc(var(--container-padding-x) * -1);
+    }
+  }
+
+  &__photo {
+    justify-content: center;
+    align-items: center;
+    min-height: 210px;
+    display: flex;
+    object-fit: cover;
+
+    @include tablet-above {
+      min-height: 390px;
+    }
+
+  }
+
+  &__info {
+    grid-column: 1/-1;
+    row-gap: 20px;
+    translate: 0 -56px;
+    background-color: #fff;
+    padding: 20px clamp(0px, 5vw, 55px);
+
+    max-width: 430px;
+    margin: 0 auto;
+
+    @include tablet-above {
+      padding: 45px 55px;
+      max-width: 500px;
+      translate: 0 -80px;
+
+    }
+
+    @include desktop-above {
+      max-width: 570px;
+      width: 100%;
+    }
+
+  }
+
+  &__title {
+    text-align: center;
+
+    @include tablet-above {
+      text-align: left;
+      font-size: 36px;
+    }
+  }
+
+  &__present {
+    padding-left: 20px;
+    justify-content: center;
+
+    @include tablet-above {
+      padding-left: 0;
+      justify-content: space-between;
+    }
+  }
+
+
+}

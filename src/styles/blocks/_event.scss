@@ -1,0 +1,82 @@
+.event {
+  @include grid-template;
+
+  font-family: var(--font-family-first);
+  align-items: center;
+
+  &__image {
+    grid-column: 1/-1;
+    object-fit: cover;
+    max-height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include tablet-above {
+      max-height: 520px;
+      width: 100%;
+    }
+
+    @include desktop-above {
+      grid-column: 1/8;
+    }
+  }
+
+  &__info {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    @include tablet-above {
+      grid-column: span 4;
+    }
+
+    @include desktop-above {
+      grid-column: 9/-1;
+    }
+  }
+
+  &__present {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+
+    @include tablet-above {
+      justify-content: start;
+    }
+
+  }
+
+  &__name {
+    color: var(--color-gray-alt);
+    font-weight: 500;
+  }
+
+  &__date {
+    color: var(--color-green);
+    font-weight: 700;
+  }
+
+  &__title {
+    font-family: var(--font-family-second);
+    font-size: 28px;
+    color: var(--color-dark-alt);
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    font-weight: 400;
+  }
+
+  &__decor {
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-orange);
+  }
+
+  &__description {
+    font-weight: 300;
+    color: var(--color-gray);
+  }
+
+}
