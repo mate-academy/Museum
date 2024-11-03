@@ -1,6 +1,13 @@
 .events {
+  padding-top: 70px;
 
-  padding-bottom: 100px;
+  @include tablet-above {
+    padding-top: 88px;
+  }
+
+  @include desktop-above {
+    margin-bottom: 192px;
+  }
 
   &__title {
     margin-bottom: 40px;
@@ -18,7 +25,6 @@
   &__item {
 
     &:not(:last-child) {
-
       margin-bottom: 60px;
     }
 
@@ -51,19 +57,19 @@
 .event {
   @include grid-template;
   font-family: var(--font-family-first);
-
   align-items: center;
 
   &__image {
     grid-column: 1/-1;
     object-fit: cover;
-    height: 210px;
+    max-height: 210px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     @include tablet-above {
-      height: 100%;
+      max-height: 520px;
+      width: 100%;
     }
 
     @include desktop-above {
@@ -114,6 +120,7 @@
     display: flex;
     align-items: center;
     column-gap: 10px;
+    font-weight: 400;
   }
 
   &__decor {
@@ -127,32 +134,11 @@
     color: var(--color-gray);
   }
 
-  &--lecture {
-    position: relative;
-    margin-inline: -20px;
-    overflow: hidden;
-  }
-
-  &__image--lecture {
-    grid-column: 1/-1;
-
-
-  }
-
-  &__info--lecture {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    translate: 0 50%;
-    padding: 20px 2px;
-    background-color: #fff;
-  }
 }
 
 .lecture {
   @include grid-template;
   gap: 0;
-  max-width: 570px;
 
   @include tablet-above {
     gap: 0;
@@ -166,45 +152,72 @@
   &__image {
 
     grid-column: 1 / -1;
-    margin: 0 -20px;
+    margin: 0 calc(var(--container-padding-x) * -1);
+
+    @include tablet-above {
+      margin: unset;
+    }
+
+    @include desktop-above {
+      margin: 0 calc(var(--container-padding-x) * -1);
+    }
   }
 
   &__photo {
     justify-content: center;
     align-items: center;
-    height: 210px;
+    min-height: 210px;
     display: flex;
     object-fit: cover;
 
     @include tablet-above {
-      height: 100%;
+      min-height: 390px;
     }
 
   }
 
   &__info {
     grid-column: 1/-1;
-
     row-gap: 20px;
-    translate: 0 -50%;
+    translate: 0 -56px;
     background-color: #fff;
-    padding: 20px 0;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 20px clamp(0px, 5vw, 55px);
 
     max-width: 430px;
     margin: 0 auto;
+
+    @include tablet-above {
+      padding: 45px 55px;
+      max-width: 500px;
+      translate: 0 -80px;
+
+    }
+
+    @include desktop-above {
+      max-width: 570px;
+      width: 100%;
+    }
+
   }
 
   &__title {
     text-align: center;
+
+    @include tablet-above {
+      text-align: left;
+      font-size: 36px;
+    }
   }
 
   &__present {
     padding-left: 20px;
     justify-content: center;
+
+    @include tablet-above {
+      padding-left: 0;
+      justify-content: space-between;
+    }
   }
+
+
 }
