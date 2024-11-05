@@ -1,24 +1,107 @@
 .footer {
+  padding-block: 50px;
+  color: var(--color-dark-alt);
 
-  &__inner {}
 
-  &__top {}
+  &__inner {
+    @include grid-template;
+
+    position: relative;
+
+  }
+
+  &__top {
+    grid-column: 1/-1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet-above {
+      grid-column: span 1;
+      flex-direction: column;
+      justify-content: start;
+      gap: 62px
+    }
+  }
 
   &__logo {}
 
-  &__socials {}
+  &__socials {
+    display: flex;
+    gap: 20px;
 
-  &__facebook {}
+  }
 
-  &__instagram {}
+  &__facebook,
+  &__instagram {
+    transition: all 0.3s;
 
-  &__schedule {}
+    @include hover {
+      color: var(--color-green);
+      transform: scale(1.2);
+    }
+  }
 
-  &__contacts {}
 
-  &__name {}
+  &__schedule {
+    grid-column: span 1;
+    max-width: 220px;
 
-  &__address {}
+    @include tablet-above {
+      grid-column: span 2;
+    }
+
+
+    @include desktop-above {
+      grid-column: 3/5;
+    }
+
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet-above {
+      grid-column: span 2;
+    }
+
+    @include desktop-above {
+      grid-column: 5/7;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        right: -65px;
+        background-color: var(--color-green);
+
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__name {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__address {
+    font-style: normal;
+  }
 
   &__tel {}
 
@@ -28,33 +111,136 @@
 
   &__decor {}
 
-  &__menu {}
+  &__menu {
+    grid-column: 1/-1;
+    margin-top: 64px;
+    padding-top: 64px;
+    border-top: var(--border);
 
-  &__bottom {}
 
-  &__copyright {}
+    @include tablet-above {
+      grid-column: 2/6;
+    }
 
-  &__designer-name {}
+    @include desktop-above {
+      grid-column: 8/12;
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+
+
+    &:not(:last-child) {
+      margin-bottom: 80px;
+    }
+
+  }
+
+  &__bottom {
+    grid-column: 1/-1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 300;
+
+    @include tablet-above {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__arrow-up {
+    display: flex;
+    position: sticky;
+    top: 50px;
+    bottom: 15px;
+    left: 100%;
+    transition: all 0.3s;
+
+    @include hover {
+      background-color: var(--color-gray-alt);
+
+      :after {
+        color: #fff;
+      }
+
+    }
+
+
+    @include tablet-above {
+      display: none;
+    }
+  }
 }
 
 .container {}
 
 .schedule {
 
-  &__name {}
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
 
-  &__list {}
+  &__name {
 
-  &__item {}
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__list {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__time {
+    font-weight: 600;
+  }
 
   &__text {}
 }
 
 .menu {
 
-  &__list {}
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 30px;
+  }
 
-  &__item {}
+  &__link {
+    transition: all .3s;
+    display: inline-block;
+    width: fit-content;
+    transition: all 0.3s;
+    position: relative;
 
-  &__link {}
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      left: 0;
+      bottom: -5px;
+      background-color: var(--color-green);
+      transition: all 0.3s;
+    }
+
+    @include hover {
+      &::after {
+        width: 100%;
+      }
+    }
+
+
+  }
+
+
 }
