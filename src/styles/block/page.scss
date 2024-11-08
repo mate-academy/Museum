@@ -1,0 +1,46 @@
+.page {
+  font-family: Montserrat, sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  &__body {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+    }
+  }
+}
+
+.header,
+.main,
+.footer {
+  transition: background-color 0.3s ease;
+}
+
+.menu-open .header,
+.menu-open .main,
+.menu-open .footer {
+  background-color: $bg-color;
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
