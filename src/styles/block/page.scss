@@ -3,6 +3,10 @@
   scroll-behavior: smooth;
   overflow-x: hidden;
 
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
   &__body {
     margin: 0;
     padding: 0;
@@ -13,18 +17,16 @@
     top: 0;
     left: 0;
     right: 0;
-    overflow: auto;
 
     transition: all 0.3s ease;
     opacity: 0;
     transform: translateX(-100%);
-    pointer-events: none;
 
 
     &:target {
       opacity: 1;
+      transform: translateY(0);
       pointer-events: all;
-      transform: translateX(0);
     }
   }
 }
@@ -35,12 +37,8 @@
   transition: background-color 0.3s ease;
 }
 
-.menu-open .header,
-.menu-open .main,
-.menu-open .footer {
+.page:has(.page__menu:target) .header,
+.page:has(.page__menu:target) .main,
+.page:has(.page__menu:target) .footer {
   background-color: $bg-color;
-}
-
-.page:has(.page__menu:target) {
-  overflow: hidden;
 }
