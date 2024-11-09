@@ -1,34 +1,32 @@
 .header {
-  display: none;
-  margin-bottom: 70px;
+  padding-bottom: 0;
+
+
+  @include tablet-above {
+    padding-bottom: 18px;
+  }
+
+  @include desktop-above {
+    padding-bottom: 128px;
+  }
 
   &__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 280px;
 
-    padding-top: 15px;
-    margin-bottom: 20px;
-
-    height: 300px;
-    background: url(../images/header-bg.jpg) center/cover no-repeat;
 
     @include tablet-above {
-      height: initial;
-      background: none;
-      margin-bottom: 40px;
-    }
-
-    @include desktop-above {
+      column-gap: 70px;
       margin-bottom: 95px;
     }
 
-    &-container {
-      display: flex;
-      align-items: center;
+    @include desktop-above {
+      column-gap: 0;
     }
-
   }
 
   &__burder {
-
     width: 24px;
     aspect-ratio: 1;
     background-color: transparent;
@@ -36,256 +34,53 @@
     cursor: pointer;
 
     &::after {
-      // @include abs-center;
       content: '';
       background-image: url(../images/icons/burger.svg);
       background-repeat: no-repeat;
       background-position: center;
-      background-size: contain;
+      background-size: cover;
       display: flex;
       width: 18px;
       height: 12px;
-
     }
   }
 
   &__logo {
-    margin: 0 auto;
+    margin-inline: auto;
   }
 
-  &__bottom {
+  &__main {
+    @include grid-template;
 
-    &-container {
-      @include grid-template;
-      row-gap: 20px;
+  }
 
-      @include tablet-above {
-        row-gap: 38px;
-      }
+  &__left {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet-above {
+      grid-column: span 3;
+      align-items: start;
+    }
+
+    @include desktop-above {
+      grid-column: span 5;
     }
   }
 
   &__title {
     font-size: 45px;
     font-weight: 700;
-    grid-column: 1/-1;
-
-    @include tablet-above {
-      font-size: 54px;
-      grid-column: span 3;
-    }
-
-    @include desktop-above {
-      font-size: 72px;
-      grid-column: span 5;
-    }
-
-
-  }
-
-  &__item {
-    grid-column: 1/-1;
-    min-width: 270px;
-    max-width: 280px;
-
-
-    @include tablet-above {
-      grid-column: 3/6;
-    }
-
-    @include desktop-above {
-      grid-column: 1/-1;
-    }
-  }
-
-  &__action {
-    display: none;
-    position: relative;
-    transform: rotate(270deg);
-    translate: -50% 0;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1;
-    text-align: right;
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 8px;
-      right: 4.5em;
-      width: 70px;
-      height: 1px;
-      background-color: var(--color-green);
-    }
-
-    @include desktop-above {
-      display: initial;
-    }
-  }
-
-  &__ticket {
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: var(--input-height);
-    min-width: 270px;
-    max-width: 280px;
-    border: var(--border);
-
-
-
-    @include tablet-above {
-
-      max-width: 270px;
-    }
-
-
-  }
-
-  &__link {
-    margin-inline: auto;
-    color: var(--color-dark-alt)
-  }
-
-  &__button {}
-
-
-  &__bg {
-    width: 0px;
-
-    // height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-
-
-    object-fit: cover;
-    max-width: 725px;
-
-    @include tablet-above {
-      width: 55%;
-    }
-
-
-
-  }
-}
-
-
-
-/*
-.header {
-
-  &__inner {
-    @include grid-template;
-
-    position: relative;
-
-    @include desktop-above {
-      padding-bottom: 100px;
-
-    }
-  }
-
-
-  &__menu {
-    grid-column: 1/-1;
-
-    display: flex;
-    padding-top: 9px;
-    align-items: center;
-
-    @include tablet-above {
-
-      @include grid-template;
-      padding-top: 15px;
-      margin-bottom: 110px;
-    }
-
-    @include desktop-above {
-      margin-bottom: 110px;
-    }
-  }
-
-  &__burder {
-
-    position: relative;
-    grid-column: span 1;
-    width: 24px;
-    aspect-ratio: 1;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-
-    &::after {
-      @include abs-center;
-
-      content: '';
-      background-image: url(../images/icons/burger.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      width: 18px;
-      height: 12px;
-
-    }
-  }
-
-  &__logo {
-
-    margin: 0 auto;
-
-    @include tablet-above {
-      margin: 0;
-      grid-column: 4/-1;
-    }
-
-    @include desktop-above {
-      grid-column: 6/-1;
-    }
-  }
-
-  &__item {
-    @include grid-template;
-
-    position: relative;
-    top: 235px;
-    grid-column: 1/-1;
-    margin-inline: auto;
-
-    @include tablet-above {
-      position: static;
-      margin-inline: initial;
-    }
-  }
-
-  &__title {
-    @include fluid-text(72, 45);
-
-    position: relative;
-    top: 235px;
-
-    font-weight: 700;
-    max-width: 320px;
-    line-height: 120%;
-    color: #000;
-
     text-align: center;
-    grid-column: 1 / -1;
-    margin: 0 auto;
 
     &:not(:last-child) {
       margin-bottom: 20px;
     }
 
     @include tablet-above {
-      position: static;
-
-      max-width: 470px;
-      grid-column: span 2;
+      font-size: 54px;
       text-align: left;
 
       &:not(:last-child) {
@@ -294,26 +89,33 @@
     }
 
     @include desktop-above {
-      margin-bottom: 95px;
+      font-size: 72px;
+
+      &:not(:last-child) {
+        margin-bottom: 95px;
+      }
     }
+  }
 
-
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
   }
 
   &__action {
-    display: none;
     position: relative;
-    transform: rotate(270deg);
-    translate: -50% 0;
+    transform: rotate(270deg) translateY(-15px);
     font-size: 14px;
     font-weight: 700;
     line-height: 1;
     text-align: right;
+    display: none;
 
     &:before {
       content: '';
       position: absolute;
-      top: 8px;
+      top: 7px;
       right: 4.5em;
       width: 70px;
       height: 1px;
@@ -321,69 +123,57 @@
     }
 
     @include desktop-above {
-      display: initial;
+      display: flex;
     }
   }
 
   &__ticket {
-
-    grid-column: 1/-1;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: var(--input-height);
-    width: 280px;
+    height: 50px;
+    min-width: 270px;
+    max-width: 280px;
     border: var(--border);
 
-
-
     @include tablet-above {
-      grid-column: 1/3;
-      max-width: 270px;
-    }
-
-    @include desktop-above {
-      grid-column: 3/6;
-      max-width: 270px;
-    }
-
-
-    &-link {
-      margin-inline: auto;
-      color: var(--color-dark-alt)
+      height: 70px;
     }
   }
 
+  &__link {
+    margin-inline: auto;
+  }
 
   &__bg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-
-
     object-fit: cover;
-    max-height: 100%;
-    max-width: 100%;
+
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    max-height: 300px;
 
     @include tablet-above {
       width: 50%;
+      left: 50%;
+      max-height: 432px;
     }
 
     @include desktop-above {
+      left: 45%;
       width: 55%;
+      max-height: 625px;
     }
-
   }
 
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-green);
+    color: #fff;
+  }
 }
-
-
-.button {}
-
-.button--color-green {}
-
-*/
