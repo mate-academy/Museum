@@ -1,18 +1,22 @@
 'use strict';
 
 const menu = document.querySelector('.header__menu');
+const menuLinks = menu.querySelectorAll('.menu__link');
 const menuBurger = document.querySelector('.header__burder');
 const menuClose = document.querySelector('.menu__close');
 const body = document.querySelector('.wrapper');
 
 function activeMenu() {
-  body.classList.add('active');
-  // body.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-  // body.style.opacity = 0.1;
+  menu.classList.add('active');
+  body.style.overflow = 'hidden';
+
+  menuLinks.forEach(item => {
+    item.addEventListener('click', closeMenu)
+  })
 }
 function closeMenu() {
-  body.classList.remove('active');
-  // body.style.backgroundColor = 'inherit'
+  menu.classList.remove('active');
+  body.style.overflow = 'auto';
 }
 
 menuBurger.addEventListener('click', activeMenu)
