@@ -3,22 +3,23 @@
 
 
   @include tablet-above {
-    padding-bottom: 18px;
+    padding-bottom: 3px;
   }
 
   @include desktop-above {
-    padding-bottom: 128px;
+    padding-bottom: 113px;
   }
 
   &__top {
     display: flex;
     align-items: center;
     margin-bottom: 280px;
-
+    padding-top: 7px;
 
     @include tablet-above {
       column-gap: 70px;
       margin-bottom: 95px;
+      padding-top: 15px;
     }
 
     @include desktop-above {
@@ -27,6 +28,9 @@
   }
 
   &__burder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 24px;
     aspect-ratio: 1;
     background-color: transparent;
@@ -42,6 +46,10 @@
       display: flex;
       width: 18px;
       height: 12px;
+    }
+
+    &:target {
+      display: flex;
     }
   }
 
@@ -175,5 +183,21 @@
     right: 0;
     background-color: var(--color-green);
     color: #fff;
+
+    opacity: 0;
+    pointer-events: none;
+
+  }
+}
+
+
+.wrapper.active {
+  overflow: hidden;
+  background-color: grey;
+  position: relative;
+
+  & .header__menu {
+    opacity: 1;
+    pointer-events: all;
   }
 }
