@@ -1,5 +1,5 @@
 .menu {
-  transition: all 0.3s;
+  transition: all var(--transition-duration);
 
   &__list {
     display: grid;
@@ -10,24 +10,25 @@
   }
 
   &__link {
-    transition: all .3s;
     display: inline-block;
     width: fit-content;
-    transition: all 0.3s;
     position: relative;
+    transition: all var(--transition-duration);
 
     &:after {
       content: '';
       position: absolute;
       width: 0;
-      height: 1px;
+      height: 2px;
       left: 0;
       bottom: -5px;
       background-color: var(--color-green);
-      transition: all 0.3s;
+      transition: all var(--transition-duration);
     }
 
     @include hover {
+      color: var(--color-dark);
+
       &::after {
         width: 100%;
       }
@@ -43,7 +44,11 @@
     align-items: center;
     justify-content: center;
     color: #fff;
+    transition: color var(--transition-duration);
 
+    @include hover {
+      color: var(--color-dark);
+    }
   }
 
   &__bg {
