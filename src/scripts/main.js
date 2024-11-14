@@ -12,9 +12,9 @@ function activeMenu() {
   menu.classList.add('active');
   body.style.overflowY = 'hidden';
 
-  menuLinks.forEach(item => {
-    item.addEventListener('click', closeMenu)
-  })
+  menuLinks.forEach((item) => {
+    item.addEventListener('click', closeMenu);
+  });
 }
 function closeMenu() {
   menu.classList.remove('active');
@@ -26,35 +26,7 @@ function submitForm() {
   input.value = '';
 }
 
-menuBurger.addEventListener('click', activeMenu)
-menuClose.addEventListener('click', closeMenu)
-form.addEventListener('submit', submitForm)
+menuBurger.addEventListener('click', activeMenu);
+menuClose.addEventListener('click', closeMenu);
+form.addEventListener('submit', submitForm);
 
-
-/* swiper-slider */
-
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  loop: true,
-  slidesPerView: 1,
-  spaceBetween: 10,
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'bullets',
-  },
-
-  // Responsive breakpoints
-  breakpoints: {
-    480: {
-      slidesPerView: 2,
-      spaceBetween: 20
-    },
-    720: {
-      slidesPerView: 3,
-      spaceBetween: 30
-    },
-
-
-  }
-})
