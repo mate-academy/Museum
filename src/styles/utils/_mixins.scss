@@ -1,29 +1,25 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+// @mixin hover($_property, $_toValue) {
+//   transition: #{$_property} 0.3s;
 
-  &:hover {
-    #{$_property}: $_toValue;
-  }
-}
-
-
+//   &:hover {
+//     #{$_property}: $_toValue;
+//   }
+// }
 
 // Штука которая убирает єффект залипания (кнопки) на touch-экранах
 @mixin hover {
-  @media (hover:hover) {
+  @media (hover: hover) {
     &:hover {
       @content;
     }
   }
 
-  @media(hover:none) {
+  @media (hover: none) {
     &:active {
       @content;
     }
   }
 }
-
-
 
 @mixin grid-template {
   --gridColumns: 2;
@@ -32,18 +28,15 @@
   display: grid;
   grid-template-columns: repeat(var(--gridColumns), 1fr);
 
-
   @include tablet-above {
     --gridColumns: 6;
     gap: 30px;
   }
 
   @include desktop-above {
-
     --gridColumns: 12;
   }
 }
-
 
 /* ********** */
 
@@ -62,21 +55,16 @@
   }
 }
 
-
 @mixin reset-button {
   padding: 0;
   background-color: transparent;
   border: none;
-
 }
-
 
 @mixin flex-center($isInLine: false) {
   @if $isInLine {
     display: inline-flex;
-  }
-
-  @else {
+  } @else {
     display: flex;
   }
 
