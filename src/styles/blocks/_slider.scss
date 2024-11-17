@@ -13,18 +13,14 @@
   overflow-x: hidden;
 }
 
-/* Стрічка слайдів */
-.slick-track {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
 
 /* Слайд */
 .slick-slide {
 
   /* Слайд активний (показується) */
-  &.slick-active {}
+  &.slick-active {
+    display: flex;
+  }
 
   /* Слайд основний */
   &.slick-current {}
@@ -62,8 +58,9 @@
     & button {
       width: 10px;
       height: 10px;
-      background-color: grey;
+      background-color: var(--color-gray-light);
       border-radius: 50%;
+      border: none;
     }
   }
 
@@ -80,4 +77,19 @@
     align-items: center;
     justify-content: center;
   }
+
+  @include desktop-above {
+    display: none;
+  }
+
+
+  /* Стрічка слайдів */
+  & .slick-track {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+
+  }
+
 }
