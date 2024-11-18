@@ -22,27 +22,26 @@
 }
 
 @mixin grid-template {
-  --gridColumns: 2;
-  gap: 20px;
+  --grid-columns: 2;
 
+  gap: 20px;
   display: grid;
-  grid-template-columns: repeat(var(--gridColumns), 1fr);
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
 
   @include tablet-above {
-    --gridColumns: 6;
+    --grid-columns: 6;
+
     gap: 30px;
   }
 
   @include desktop-above {
-    --gridColumns: 12;
+    --grid-columns: 12;
   }
 }
 
 /* ********** */
 
 @mixin fluid-text($max: 48, $min: 16) {
-  //$maxwidthContent = 1280px
-
   font-size: clamp(#{$min}px, #{$max / 1280 * 100}vw, #{$max}px);
 }
 
