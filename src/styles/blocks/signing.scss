@@ -1,0 +1,178 @@
+.signing {
+  margin-top: 100px;
+  background-image: url(../images/main/signing-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include GridPage;
+  @include paddingInlineMaxWidth;
+
+  @include onTablet {
+    background-image: url(../images/main/signing-bg-tb.png);
+    background-position: center;
+  }
+
+  &__container {
+    @extend %flexColumn;
+
+    gap: 50px;
+    grid-column: 1/-1;
+    padding-block: 88px;
+
+    @include onTablet {
+      grid-column: 2/6;
+      padding-block: 82px;
+      gap: 64px;
+    }
+
+    @include onDesktop {
+      grid-column: 4/10;
+      padding-block: 163px;
+      gap: 72px;
+    }
+  }
+
+  &__text {
+    @extend %flexColumn;
+
+    gap: 20px;
+    color: #fff;
+    text-align: center;
+
+    @include onTablet {
+      gap: 16px;
+    }
+
+    &-title {
+      margin: 0;
+      font-family: $first-font;
+
+      @include fontStyles(36px, 700, 36px);
+
+      @include onTablet {
+        @include fontStyles(48px, 700, 48px);
+      }
+    }
+
+    &-description {
+      margin: 0;
+      font-family: $second-font;
+
+      @include fontStyles(18px, 300, 27px);
+
+      @include onTablet {
+        @include fontStyles(18px, 400, 18px);
+      }
+    }
+  }
+
+  &__input {
+    @extend %flexRow;
+
+    gap: 0;
+
+    @include onTablet {
+      gap: 16px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+    }
+
+    &-email {
+      padding: 0 0 0 24px;
+      font-family: $first-font;
+      width: 100%;
+
+      transform: translateX(calc(100vw - 100%));
+      opacity: 0;
+      @include effects;
+
+      border: none;
+      margin: 0;
+
+      @include fontStyles(14px, 300, 14px);
+
+      &::placeholder {
+        color: $text-grey;
+        opacity: 1;
+        @include effects;
+      }
+      &:focus-visible {
+        border: none;
+        outline: none;
+      }
+      &:focus-visible::placeholder {
+        transform: translateY(-500%);
+        // opacity: 0;
+      }
+
+      @include onDesktop {
+        padding-left: 32px;
+      }
+    }
+  }
+
+  &__btn {
+    background-color: $main-red;
+    cursor: pointer;
+    position: relative;
+
+    @include effects;
+
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+
+    &:hover .signing__btn-image {
+      transform: translateX(100%);
+    }
+    &:hover::before {
+      transform: translateX(100%);
+      opacity: 1;
+    }
+
+    &::before {
+      @include pseudoElement;
+      left: -100%;
+      content: url(../icons/icon-arrow-black.svg);
+      display: flex;
+      width: 24px;
+      height: 24px;
+      padding: 13px;
+
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(0);
+      @include effectsFast;
+
+      @include onTablet {
+        padding: 23px;
+      }
+    }
+
+    &-image {
+      display: flex;
+      width: 24px;
+      height: 24px;
+      padding: 13px;
+
+      @include effectsFast;
+
+      @include onTablet {
+        padding: 23px;
+      }
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: $main-red;
+  transition: background-color 1s ease-out 0s;
+  -webkit-box-shadow:
+    inset 0 0 10px 0 $main-red,
+    inset 0 0 0 50px #fff;
+}

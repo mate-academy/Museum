@@ -1,0 +1,126 @@
+.arrow {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  width: 35px;
+  height: 35px;
+  justify-content: center;
+
+  width: 55px;
+  height: 55px;
+
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  margin: 0;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.5);
+  // box-shadow:
+  //   rgba(26, 90, 76, 0.4) 0px 5px,
+  //   rgba(26, 90, 76, 0.3) 0px 10px,
+  //   rgba(26, 90, 76, 0.2) 0px 15px,
+  //   rgba(26, 90, 76, 0.1) 0px 20px,
+  //   rgba(26, 90, 76, 0.05) 0px 25px;
+  backdrop-filter: blur(1px);
+  border: 1px solid $main-green;
+  border-radius: 50%;
+  z-index: 100;
+
+  @include effectsFast;
+
+  &:has(.arrow__btn--back:hover) {
+    box-shadow:
+      rgba(26, 90, 76, 0.4) 0px 5px,
+      rgba(26, 90, 76, 0.3) 0px 10px,
+      rgba(26, 90, 76, 0.2) 0px 15px,
+      rgba(26, 90, 76, 0.1) 0px 20px,
+      rgba(26, 90, 76, 0.05) 0px 25px;
+
+    & .arrow__btn--forward {
+      opacity: 0;
+    }
+  }
+
+  &:has(.arrow__btn--forward:hover) {
+    box-shadow:
+      rgba(26, 90, 76, 0.4) 0px -5px,
+      rgba(26, 90, 76, 0.3) 0px -10px,
+      rgba(26, 90, 76, 0.2) 0px -15px,
+      rgba(26, 90, 76, 0.1) 0px -20px,
+      rgba(26, 90, 76, 0.05) 0px -25px;
+
+    & .arrow__btn--back {
+      opacity: 0;
+    }
+  }
+
+  &__btn {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    @include effectsFast;
+
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    position: relative;
+
+    &--back {
+      opacity: 1;
+
+      &::after {
+        @include pseudoElement;
+        background-image: url(../icons/arrow-page-header.png);
+        width: 12px;
+        height: 12px;
+        transform: translateX(0.4px);
+        background-position: center;
+        top: 80%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: 0;
+
+        @include effectsFast;
+      }
+
+      &:hover::after {
+        opacity: 1;
+        transform: translateX(0.4px) translateY(-5px);
+      }
+    }
+
+    &--forward {
+      opacity: 1;
+
+      &::after {
+        @include pseudoElement;
+        background-image: url(../icons/arrow-page-footer.png);
+        width: 12px;
+        height: 12px;
+        transform: translateX(0.4px);
+        background-position: center;
+        bottom: 80%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: 0;
+
+        @include effectsFast;
+      }
+
+      &:hover::after {
+        opacity: 1;
+        transform: translateX(0.4px) translateY(5px);
+      }
+    }
+  }
+
+  &__image {
+    width: 16px;
+    height: 16px;
+    // padding: 10px;
+    display: flex;
+  }
+}

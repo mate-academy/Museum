@@ -1,0 +1,62 @@
+.nav {
+  grid-column: 1/-1;
+
+  &--menu {
+  }
+
+  @include onTablet {
+    grid-column: 2 / 6;
+  }
+
+  @include onDesktop {
+    grid-column: 8 / 12;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include onTablet {
+      column-gap: 30px;
+    }
+  }
+
+  &__item {
+    &:nth-of-type(1) {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    &:nth-of-type(2) {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    &:nth-of-type(3) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    &:nth-of-type(4) {
+      grid-column: 2;
+      grid-row: 2;
+    }
+    @include onTablet {
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $text-color;
+    font-family: $second-font;
+
+    @include fontStyles(14px, 400, 14px);
+
+    &--menu {
+      color: #fff;
+    }
+  }
+}

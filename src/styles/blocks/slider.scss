@@ -1,0 +1,132 @@
+.slider {
+  position: relative;
+
+  &__pics {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+
+    transition: transform 1s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    width: fit-content;
+
+    @include onDesktop {
+      @include GridPage;
+      @include paddingInline;
+    }
+  }
+
+  &__item {
+    display: flex;
+    height: -webkit-fill-available;
+    padding-left: 20px;
+    width: 280px;
+    height: 410px;
+
+    &:nth-last-of-type(-n + 3) {
+      height: -webkit-fill-available;
+    }
+
+    @include onTablet {
+      width: 340px;
+      height: 543px;
+
+      padding-left: 34px;
+    }
+
+    @include onDesktop {
+      width: auto;
+      height: auto;
+      padding-left: 0;
+
+      &:nth-of-type(1) {
+        grid-column: 1/5;
+      }
+      &:nth-of-type(2) {
+        display: none;
+      }
+      &:nth-of-type(3) {
+        grid-column: 5/-1;
+      }
+      &:nth-of-type(4) {
+        grid-column: 1/8;
+      }
+      &:nth-of-type(5) {
+        grid-column: 8/-1;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    &:nth-last-of-type(-n + 2) {
+      object-fit: cover;
+    }
+  }
+
+  &__arrows {
+    position: absolute;
+    width: -webkit-fill-available;
+    justify-content: space-between;
+    display: flex;
+    margin-inline: 20px;
+    height: 100%;
+    top: 0;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__arrow {
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+
+    &-link {
+      cursor: pointer;
+      background: transparent;
+      border: none;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    margin-top: 20px;
+    justify-content: center;
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &-dot {
+      width: 9px;
+      height: 9px;
+      background-color: $slider-dots-color;
+      border-radius: 50%;
+
+      &--active {
+        background-color: $main-green;
+      }
+    }
+  }
+}
+
+// @keyframes scale {
+//   0% {
+//     transform: scale(0);
+//   }
+//   50% {
+//     transform: scale(.01);
+//   }
+//   100% {
+//     transform: scale(0);
+//   }
+// }

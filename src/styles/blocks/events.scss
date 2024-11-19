@@ -1,0 +1,225 @@
+.events {
+  @include GridPage;
+  gap: 20px;
+  // position: relative;
+
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100%;
+  // }
+
+  @include onTablet {
+    gap: 40px;
+  }
+  @include onDesktop {
+    align-items: center;
+  }
+
+  &--lecture {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 183px;
+
+    @include onTablet {
+      padding-inline: $padding-inline-tablet;
+      margin-bottom: 208px;
+    }
+
+    @include onDesktop {
+      padding-inline: 0;
+      margin-bottom: 302px;
+    }
+  }
+
+  &__pic {
+    position: relative;
+    display: flex;
+    width: 100%;
+    grid-column: 1 / -1;
+
+    &:nth-of-type(-n + 3) {
+      transform: translateX(-90%);
+      opacity: 0;
+    }
+
+    transition: all 1s;
+    transition-timing-function: cubic-bezier(0.39, 0.57, 0.56, 1);
+
+    &__image {
+      position: relative;
+      display: flex;
+      width: 100%;
+      grid-column: 1 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 8;
+    }
+
+    &-wrapper {
+      width: 100%;
+
+      transition: all 1s;
+      transition-timing-function: cubic-bezier(0.39, 0.57, 0.56, 1);
+    }
+  }
+
+  &__content {
+    transform: translateX(100%);
+    opacity: 0;
+
+    transition: all 1s;
+    transition-timing-function: cubic-bezier(0.39, 0.57, 0.56, 1);
+
+    @extend %flexColumn;
+    gap: 10px;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      gap: 15px;
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+    }
+
+    &:hover .events__title::after {
+      border-radius: 50%;
+      border: solid 1px $main-red;
+      padding: 5px;
+      background-clip: content-box;
+      transform: translate(0%, -20%) rotate(180deg);
+    }
+
+    &--lecture {
+      position: absolute;
+      z-index: 100;
+      background-color: #fff;
+      bottom: -87px;
+      margin-inline: 20px;
+      padding-block: 20px;
+      box-shadow: 0px 2px 0px 0px #1a5a4c40;
+      gap: 20px;
+
+      transform: translateX(0);
+
+      @include onTablet {
+        margin-inline: 99px;
+        bottom: -120px;
+        padding-block: 50px;
+        padding-inline: 55px;
+      }
+    }
+  }
+
+  &__date {
+    @extend %flexRow;
+    align-items: center;
+    justify-content: space-between;
+    font-family: $second-font;
+
+    @include onTablet {
+      gap: 27px;
+      justify-content: flex-start;
+    }
+
+    &--lecture {
+      padding-inline: 24px;
+
+      @include onTablet {
+        padding-inline: 0;
+      }
+    }
+
+    &-text {
+      @include fontStyles(16px, 500, 16px);
+      color: $text-grey;
+
+      @include onTablet {
+        @include fontStyles(14px, 500, 14px);
+      }
+    }
+
+    &-time {
+      @include fontStyles(16px, 700, 24px);
+      color: $main-green;
+
+      @include onTablet {
+        @include fontStyles(14px, 700, 21px);
+      }
+    }
+  }
+
+  &__title {
+    @include fontStyles(28px, 400, 28px);
+    text-align: left;
+    font-family: $first-font;
+
+    position: relative;
+    margin: 0;
+    margin-top: 5px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: 12px;
+      background-color: $main-red;
+      margin-left: 20px;
+      pointer-events: all;
+
+      @include effectsFast;
+      transition-duration: 0.3s;
+
+      @include onTablet {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    @include onTablet {
+      @include fontStyles(36px, 400, 36px);
+
+      margin-top: 3px;
+    }
+
+    &--lecture {
+      text-align: center;
+      &::after {
+        display: none;
+      }
+
+      @include onTablet {
+        text-align: left;
+      }
+    }
+  }
+
+  &__descriptions {
+    @include fontStyles(16px, 300, 24px);
+    color: $second-grey;
+    font-family: $second-font;
+
+    margin: 0;
+  }
+}
+
+@keyframes appear {
+  0% {
+    transform: translateX(0) translateY(-50%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0) translateY(-80%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
