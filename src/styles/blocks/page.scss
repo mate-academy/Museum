@@ -1,0 +1,53 @@
+.page {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity $transition-duration ease,
+      visibility 0s 0s;
+  }
+
+  &:has(.page__menu:target) {
+    &::after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  min-width: $mobile-min-width;
+  background-color: #fff;
+
+  color: $main-text-color;
+  transition: all $transition-duration;
+
+  &__menu {
+    position: fixed;
+    background-color: $main-accent-color;
+    width: 100%;
+    top: -100%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 20;
+    padding-block: 27px;
+    transition:
+      top $transition-duration,
+      opacity $transition-duration;
+
+    &:target {
+      top: 0;
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
