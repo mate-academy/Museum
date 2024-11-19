@@ -1,6 +1,133 @@
+/* Hover */
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+/* Breakpoints */
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+/* Grid Page */
+
+@mixin GridPage {
+  --column-count: 2;
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    --column-count: 6;
+    gap: 30;
+  }
+
+  @include onDesktop() {
+    --column-count: 12;
+  }
+}
+
+/* Fonts styles */
+
+@mixin fontStyles($font-size, $font-weight, $line-hight) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-hight;
+}
+
+@mixin paddingInline {
+  padding-inline: $padding-inline-mobile;
+  @include onTablet {
+    padding-inline: $padding-inline-tablet;
+  }
+  @include onDesktop {
+    padding-inline: $padding-inline-desktop;
+    max-width: 1280px;
+    margin-inline: auto;
+  }
+}
+
+@mixin paddingInlineMaxWidth {
+  padding-inline: $padding-inline-mobile;
+  @include onTablet {
+    padding-inline: $padding-inline-tablet;
+  }
+  @include onDesktop {
+    padding-inline: $padding-inline-desktop;
+  }
+}
+
+.container {
+  @include paddingInline;
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+@keyframes appear {
+  0% {
+    transform: translateX(0) translateY(-50%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0) translateY(-80%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0) scale(1.5);
+    transform-origin: left;
+  }
+  100% {
+    transform: translateX(0) scale(1.5);
+    transform-origin: right;
+  }
+}
+
+@keyframes moveBtn {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Effects */
+
+@mixin effects {
+  transition: all 1s;
+  transition-timing-function: cubic-bezier(0.39, 0.57, 0.56, 1);
+}
+
+@mixin effectsFast {
+  transition: all 0.5s;
+  transition-timing-function: cubic-bezier(0.39, 0.57, 0.56, 1);
+}
+
+@mixin pseudoElement {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }

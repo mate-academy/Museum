@@ -1,0 +1,68 @@
+.footer {
+  @include GridPage;
+  @include paddingInline;
+  row-gap: 40px;
+  margin-bottom: 56px;
+
+  &__top {
+    @extend %flexRow;
+
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 1/-1;
+
+    @include onTablet {
+      flex-direction: column;
+      gap: 62px;
+      grid-column: 1;
+      height: fit-content;
+    }
+
+    @include onDesktop {
+      grid-column-start: 1;
+    }
+  }
+
+  &__socials {
+    @extend %flexRow;
+    gap: 20px;
+
+    &-link {
+      display: flex;
+      padding: 5px;
+      @include effects;
+      transition-duration: 0.3s;
+
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+
+    &-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__bottom {
+    @extend %flexColumn;
+    gap: 10px;
+    grid-column: 1/-1;
+    margin-top: 40px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__text {
+      font-family: $second-font;
+      color: $text-color;
+      margin: 0;
+      justify-content: center;
+
+      @extend %flexRow;
+      @include fontStyles(12px, 300, 17px);
+    }
+  }
+}

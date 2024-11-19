@@ -1,0 +1,103 @@
+.tickets {
+  @extend %flexRow;
+  width: 100%;
+  border: 1px solid;
+  border-image: linear-gradient(to right, $main-green, $main-green) 1;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  &--content {
+    overflow: hidden;
+  }
+
+  @include onTablet {
+    width: fit-content;
+  }
+
+  @include onDesktop {
+    margin-left: 201px;
+  }
+
+  &:hover {
+    border-image: linear-gradient(to right, $main-green, $main-red, $main-red) 1;
+  }
+
+  &:hover .tickets__label::before {
+    transform: translateX(50px) rotate(360deg);
+    opacity: 1;
+  }
+
+  &:hover .tickets__btn--red {
+    transform: translateX(100%);
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  &:hover .tickets__btn--green {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__label {
+    margin: auto;
+    text-transform: uppercase;
+    font-family: $second-font;
+    position: relative;
+
+    @include fontStyles(16px, 500, 16px);
+
+    @include onTablet {
+      margin-inline: 68px;
+    }
+
+    &::before {
+      content: url(../icons/icon-ticket.svg);
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      left: -150%;
+      top: -5px;
+      opacity: 0;
+      transform: translateX(0);
+      transition: all 0.5s;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    border: none;
+
+    &-wrapp {
+      position: relative;
+    }
+
+    &--green {
+      background-color: $main-green;
+      transition: all 0.5s;
+    }
+
+    &--red {
+      background-color: $main-red;
+      pointer-events: none;
+      opacity: 0;
+      position: absolute;
+      right: 100%;
+      transition: all 0.5s;
+    }
+
+    &-image {
+      padding: 13px;
+      display: flex;
+
+      @include onTablet {
+        padding: 23px;
+      }
+
+      @include onDesktop {
+      }
+    }
+  }
+}

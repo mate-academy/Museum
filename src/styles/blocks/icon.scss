@@ -1,0 +1,60 @@
+.icon {
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &--header {
+    position: absolute;
+    left: $padding-inline-mobile;
+    top: 27px;
+
+    @include onTablet {
+      left: $padding-inline-tablet;
+      top: 39px;
+    }
+
+    @include onDesktop {
+      left: $padding-inline-desktop;
+    }
+
+    &::after {
+      content: '';
+      background-color: $text-color;
+      border-radius: 50%;
+      width: 50%;
+      height: 50%;
+      position: absolute;
+      bottom: 0;
+      transform: scale(0.5);
+      border: solid 1px $text-color;
+      padding: 5px;
+      background-clip: content-box;
+
+      opacity: 0;
+      pointer-events: none;
+      @include effectsFast;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: scale(0.9) rotate(360deg);
+      pointer-events: none;
+    }
+
+    &:hover .icon--burger-menu {
+      transform: rotate(360deg) scale(0);
+      opacity: 0;
+    }
+  }
+
+  &--burger-menu {
+    background-image: url(../icons/icon-burger-menu.svg);
+
+    @include effectsFast;
+  }
+
+  &--close {
+    background-image: url(../icons/icon-close.svg);
+  }
+}

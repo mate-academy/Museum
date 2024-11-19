@@ -1,0 +1,83 @@
+.info {
+  position: relative;
+  font-family: $second-font;
+  margin: 0;
+
+  @include fontStyles(14px, 400, 21px);
+
+  &--footer {
+    @extend %flexColumn;
+    color: $text-color;
+    gap: 20px;
+    grid-column: span 1;
+  }
+
+  &--menu {
+    display: grid;
+    row-gap: 16px;
+    color: #fff;
+    grid-template-columns: 1fr;
+
+    @include onTablet {
+      grid-template-columns: repeat(2, 170px);
+      grid-template-rows: repeat(2, auto);
+      column-gap: 38px;
+      row-gap: 20;
+    }
+  }
+
+  &--timetable {
+    @include onTablet {
+      grid-column: 2/4;
+    }
+
+    @include onDesktop {
+      grid-column: 3/5;
+    }
+  }
+
+  &--contacts {
+    @include onTablet {
+      grid-column: 4/6;
+    }
+    @include onDesktop {
+      grid-column: 5/7;
+    }
+  }
+
+  &--text-title {
+    @include fontStyles(14px, 400, 19px);
+
+    &-menu {
+      margin-bottom: 4px;
+
+      @include onTablet {
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &--text-description {
+    &-footer {
+      gap: 0;
+    }
+
+    &-menu {
+      @include onTablet {
+        grid-column: 1;
+        grid-row: 2;
+      }
+    }
+  }
+
+  &--text-notice {
+    &-menu {
+      @include onTablet {
+        grid-column: 2;
+        grid-row: 2;
+      }
+    }
+  }
+}
