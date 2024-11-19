@@ -1,7 +1,7 @@
 # Museum landing page
 
 - [DESIGN](https://www.figma.com/file/cRBCqE06cDrY3s4jX7h3iY/%D0%9D%D0%90%D0%9C%D0%A3-(Edit)?node-id=0%3A1)
-- [DEMO LINK] (https://pdabizha.github.io/Museum/)
+- [DEMO LINK](https://pdabizha.github.io/Museum/)
 
 This website serves as an online platform for an art museum, providing information about ongoing and upcoming exhibitions, educational lectures, and more. It also features a gallery section showcasing artwork and allows visitors to subscribe to a newsletter for the latest updates.
 

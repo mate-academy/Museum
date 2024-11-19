@@ -13,7 +13,9 @@
   &__content {
     @include grid-page;
 
-    position: relative;
+    @include on-desktop {
+      min-height: 655px;
+    }
   }
 
   &__icon-menu {
@@ -34,24 +36,24 @@
     min-height: 300px;
 
     @include on-tablet {
+      position: absolute;
       margin: 0;
-      grid-column: 4/-1;
-      margin-right: -34px;
+      top: 0;
+      right: 0;
+      left: 50%;
       min-height: 384px;
     }
 
     @include on-desktop {
-      grid-column: 6/-1;
-      margin-right: -55px;
       min-height: 655px;
     }
   }
 
   &__logo {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 132px;
     top: 9px;
+    z-index: 2;
 
     @include on-tablet {
       font-size: 36px;
@@ -65,8 +67,11 @@
   }
 
   &__img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 
   &__bottom {
@@ -162,6 +167,7 @@
     color: $main-text-color;
     text-transform: uppercase;
     transition: all $transition-duration;
+    cursor: pointer;
 
     &::after {
       content: '';
