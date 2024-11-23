@@ -1,0 +1,29 @@
+.page {
+  &__body {
+    margin: 0;
+    padding: 0;
+    font-family: $font-family-base;
+    font-weight: $font-weight-base;
+    font-size: $font-size-base;
+    color: $color-base;
+    @include content-padding-inline;
+  }
+
+  &__menu {
+    @include content-padding-inline;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
