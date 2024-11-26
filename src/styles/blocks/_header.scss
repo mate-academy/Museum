@@ -1,0 +1,157 @@
+.header {
+  @include on-tablet {
+    position: relative;
+    margin-bottom: 88px;
+    
+    @include page-grid;
+  }
+
+  @include on-desktop {
+    margin-bottom: 200px;
+  }
+
+  &.container {
+    @include on-desktop {
+      padding-inline: 0;
+    }
+  }
+
+  &__img {
+    background-image: url('../images/natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png');
+    max-width: 100%;
+    height: 300px;
+    position: relative;
+    background-position: top;
+    background-size: cover;
+
+    @include on-tablet {
+      height: 384px;
+      background-position: left;
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+      min-height: 655px;
+    }
+  }
+
+  &__menu {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 27px;
+
+    @include on-tablet {
+      top: 39px;
+    }
+  }
+
+  &__info {
+    margin-bottom: 70px;
+
+    @include on-tablet {
+      position: absolute;
+      max-width: 340px;
+      bottom: 10%;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      display: grid;
+      max-width: 600px;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+      grid-template-rows: repeat(2, 1fr);
+      left: 55px;
+      bottom: 0;
+      height: 449px;
+    }
+  }
+
+  &__action{
+    display: none;
+
+    @include on-desktop {
+      writing-mode: vertical-lr;
+      text-transform: uppercase;
+      cursor: pointer;
+      grid-row: end;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      text-decoration: none;
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      transform: rotate(180deg);
+      color: rgba(104, 116, 128, 1);
+
+      &::before {
+        content: '';
+        width: 1px;
+        height: 70px;
+        background-color: $accent-color;
+      }
+    }
+  }
+
+  &__title {
+    margin: 20px 0 20px;
+
+    @include on-tablet {
+      text-align: left;
+      font-size: 54px;
+      line-height: 64.8px;
+      margin: 0 0 38px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      margin: 0 0 89px;
+      font-size: 72px;
+      line-height: 86.4px;
+    }
+  }
+
+  &__button {
+    text-align: left;
+    cursor: pointer;
+    border: 1px solid #1a5a4c;
+    width: 100%;
+    height: 50px;
+    padding: 0 80px 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    position: relative;
+
+    &::after {
+      content: '';
+      background-color: $accent-color;
+      height: 50px;
+      width: 50px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-image: url('../images/arrow_right-24px.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include on-tablet {
+        height: 70px;
+        width: 70px;
+      }
+    }
+
+    @include on-tablet {
+      max-width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / -1;
+      grid-row: 2 / -1;
+    }
+  }
+}

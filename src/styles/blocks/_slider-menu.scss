@@ -1,0 +1,189 @@
+.slider-menu {
+  color: rgba(255, 255, 255, 1);
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  inset: 0;
+  max-width: 100%;
+  position: fixed;
+  transform: translateX(-100%);
+  z-index: 10;
+  transition: all 0.3s;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+    }
+
+  &__content {
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      gap: 77px;
+    }
+
+    @include on-desktop {
+      gap: 205px;
+    }
+  }
+
+  &__top {
+    gap: 24px;
+    padding-top: 27px;
+    display: flex;
+    flex-direction: column;
+
+    &::after {
+      content: "";
+      background-color: rgba(255, 255, 255, 0.5);
+      width: 100%;
+      height: 1px;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    @include on-tablet {
+      padding-top: 40px;;
+    }
+  }
+
+  &__top-content {
+    display: flex;
+    gap: 28px;
+
+    @include on-tablet {
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      gap: 102px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+
+    @include on-tablet {
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 31px;
+    }
+  }
+
+  &__list {
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      min-width: 100px;
+    }
+
+    @include on-desktop {
+      min-width: 168px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+  }
+
+  &__bottom {
+    position: relative;
+
+    @include on-tablet{
+      &::before {
+        content: "";
+        background-color: #ffffff80;
+        width: 1px;
+        height: 145px;
+        position: absolute;
+        top: 50%;
+        left: -38px;
+        transform: translate(-50%, -50%);
+
+        @include on-desktop {
+          left: -102px;
+        }
+      }
+    }
+
+    &--title {
+      margin: 24px 0 20px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19.69px;
+      text-align: left;
+      color: rgba(255, 255, 255, 1);
+
+      @include on-tablet {
+        margin: 40px 0 20px;
+      }
+    }
+
+    &--schedule {
+      @include on-tablet {
+        display: flex;
+        flex-direction: row;
+        gap: 38px;
+        margin-bottom: 40px;
+      }
+
+      @include on-desktop{
+        gap: 30px;
+        margin-bottom: 48px;
+      }
+    }
+
+    &--list {
+      margin: 0;
+      padding: 0;
+      color: rgba(255, 255, 255, 1);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      text-align: left;
+      list-style: none;
+
+      @include on-tablet {
+        min-width: 159px;
+      }
+
+      @include on-desktop {
+        min-width: 170px;
+      }
+    }
+
+    &--note {
+      margin-top: 16px;
+      font-size: 14px;
+      text-align: left;
+      color: rgba(255, 255, 255, 1);;
+      line-height: 21px;
+      padding-bottom: 27px;
+
+      @include on-tablet {
+        margin-top: 0;
+      }
+
+      @include on-desktop {
+        max-width: 170px;
+      }
+    }
+  }
+}
