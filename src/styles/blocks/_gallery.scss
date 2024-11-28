@@ -22,5 +22,29 @@
 
   &__wide {
     display: none;
+
+    @include on-desktop {
+      @include page-grid;
+
+      row-gap: 30px;
+      margin-bottom: 200px;
+    }
+  }
+
+  &__picture {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+
+    @include hover(transform, scale(1.05));
+
+    &--square {
+      grid-column: span 4;
+    }
+
+    &--wide {
+      grid-column: span 8;
+    }
   }
 }
