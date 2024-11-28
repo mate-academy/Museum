@@ -1,0 +1,50 @@
+.gallery {
+  &__title {
+    font-family: Montserrat, serif;
+    line-height: 36px;
+    text-align: center;
+    color: rgba(15, 14, 8, 1);
+    margin-bottom: 40px;
+    font-size: 36px;
+    font-weight: 700;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 48px;
+      text-align: left;
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__wide {
+    display: none;
+
+    @include on-desktop {
+      @include page-grid;
+
+      row-gap: 30px;
+      margin-bottom: 200px;
+    }
+  }
+
+  &__picture {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+
+    @include hover(transform, scale(1.05));
+
+    &--square {
+      grid-column: span 4;
+    }
+
+    &--wide {
+      grid-column: span 8;
+    }
+  }
+}

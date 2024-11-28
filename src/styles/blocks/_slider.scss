@@ -1,0 +1,91 @@
+.slider {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__track {
+    display: flex;
+    gap: 16px;
+    transition: transform 0.3s ease-in-out;
+    width: calc(100% * 4);
+    margin-bottom: 129px;
+
+    @include on-tablet {
+      margin-bottom: 133px;
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+
+  &__img {
+    height: 410px;
+    object-fit: cover;
+    max-width: 280px;
+
+    @include on-tablet {
+      height: 543px;
+      max-width: 340px;
+    }
+  }
+
+  input {
+    display: none;
+  }
+}
+
+input.slick-1:checked ~ .slider__track {
+  transform: translateX(0);
+}
+
+input.slick-2:checked ~ .slider__track {
+  transform: translateX(calc(-1 * 280px));
+}
+
+input.slick-3:checked ~ .slider__track {
+  transform: translateX(calc(-2 * 280px));
+}
+
+input.slick-4:checked ~ .slider__track {
+  transform: translateX(calc(-3 * 280px));
+}
+
+.slick-navigation {
+  position: absolute;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 22px;
+  left: 50%;
+  bottom: 100px;
+
+  @include on-tablet {
+    bottom: 92px;
+  }
+
+  label {
+    width: 9px;
+    height: 9px;
+    background: rgba(224, 224, 224, 1);
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: $accent-color;
+    }
+  }
+
+  input.slick-1:checked ~ .slick-navigation label:nth-child(1),
+  input.slick-2:checked ~ .slick-navigation label:nth-child(2),
+  input.slick-3:checked ~ .slick-navigation label:nth-child(3),
+  input.slick-4:checked ~ .slick-navigation label:nth-child(4) {
+    background: $accent-color;
+  }
+}
