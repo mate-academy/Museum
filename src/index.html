@@ -38,6 +38,12 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </head>
   <body class="page__body">
     <header class="nav">
@@ -139,11 +145,78 @@
             <p>ЛЕКЦІЯ</p>
             <p>26/08/2019 - 11:00</p>
           </div>
-          <div class="main__lection-info-title">Від класицизму до романтизму</div>
+          <div class="main__lection-info-title">
+            Від класицизму до романтизму
+          </div>
+        </div>
+      </div>
+
+      <div class="main__galery">
+        <div class="main__galery-title">Галерея</div>
+        <div class="slider-wrapper">
+          <div class="slider">
+            <div class="slides">
+              <div class="slide">
+                <img
+                  src="./images/slide1.png"
+                  alt="Slide 1"
+                />
+              </div>
+              <div class="slide">
+                <img
+                  src="./images/slide2.png"
+                  alt="Slide 2"
+                />
+              </div>
+              <div class="slide">
+                <img
+                  src="./images/slide3.png"
+                  alt="Slide 3"
+                />
+              </div>
+              <div class="slide">
+                <img
+                  src="./images/slide4.png"
+                  alt="Slide 4"
+                />
+              </div>
+            </div>
+            <div class="dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
         </div>
       </div>
     </main>
     <footer></footer>
     <script src="scripts/main.js"></script>
+    <script>
+      const slides = document.querySelector('.slides');
+      const dots = document.querySelectorAll('.dot');
+
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        slides.style.transform = `translateX(-${index * 100}%)`;
+
+        dots.forEach((dot) => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+      }
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          showSlide(currentIndex);
+        });
+      });
+
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % dots.length;
+        showSlide(currentIndex);
+      }, 3000);
+    </script>
   </body>
 </html>
