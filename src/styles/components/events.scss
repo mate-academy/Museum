@@ -1,0 +1,119 @@
+.events {
+  &_title {
+    font-family: Montserrat;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 70px;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 48px;
+      text-align: left;
+    }
+  }
+
+  &_container {
+    @include grid-net;
+
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  &_event {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+
+    @include on-desktop {
+      flex-direction: row;
+      gap: 130px;
+    }
+
+    &_img {
+      width: 100%;
+      margin-bottom: 20px;
+      transition: $t-400;
+
+      @include on-tablet {
+        margin-bottom: 40px;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    &_bottom {
+      @include on-tablet {
+        width: 68%;
+      }
+
+      &_wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        @include on-tablet {
+          justify-content: left;
+          gap: 30px;
+          margin-bottom: 32px;
+        }
+
+        &_title {
+          font-family: IBM Plex Sans;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 16px;
+          color: $c-small-title-grey;
+      }
+
+        &_date {
+          font-family: IBM Plex Sans;
+          font-size: 16px;
+          line-height: 24px;
+          color: $c-green;
+          font-weight: 700;
+        }
+      }
+
+      &_title {
+        display: inline-block;
+        margin-bottom: 10px;
+        font-family: Montserrat;
+        font-size: 28px;
+        line-height: 28px;
+        text-align: left;
+        color: $c-black;
+        position: relative;
+
+        @include on-tablet {
+          font-size: 36px;
+          line-height: 36px;
+          margin-bottom: 15px;
+        }
+
+        &::after {
+          position: absolute;
+          content: '';
+          width: 10px;
+          height: 10px;
+          background: $c-orange;
+          top: 50%;
+          right: -25px;
+          transform: translateY(-50%);
+        }
+      }
+
+      &_text {
+        font-family: IBM Plex Sans;
+        font-size: 16px;
+        line-height: 24px;
+        color: $c-paragraph-grey;
+      }
+    }
+  }
+}

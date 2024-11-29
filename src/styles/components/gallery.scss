@@ -1,0 +1,82 @@
+.gallery {
+  &_title {
+    font-family: Montserrat;
+    font-size: 36px;
+    line-height: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 48px;
+      text-align: left;
+    }
+  }
+
+  &_photos {
+    @include grid-net;
+
+    gap: 16px;
+    margin-bottom: 100px;
+
+    @include on-desktop {
+      gap: 30px;
+    }
+
+    &_photo {
+      grid-column: 1 / -1;
+      width: 100%;
+      transition: $t-400;
+
+      &--big {
+        display: none;
+
+        @include on-desktop {
+          display: block;
+        }
+      }
+
+      &--small {
+        @include on-desktop {
+          display: none;
+        }
+      }
+
+      @include on-tablet {
+        grid-column: span 3;
+      }
+
+      &--1 {
+        @include on-desktop {
+          grid-column: span 4;
+          grid-row: span 3;
+        }
+      }
+
+      &--2 {
+        @include on-desktop {
+          grid-column: span 8;
+          grid-row: span 3;
+        }
+      }
+
+      &--3 {
+        @include on-desktop {
+          grid-column: span 8;
+          grid-row: span 2;
+        }
+      }
+
+      &--4 {
+        @include on-desktop {
+          grid-column: span 4;
+          grid-row: span 2;
+        }
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
