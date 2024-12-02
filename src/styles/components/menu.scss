@@ -1,0 +1,169 @@
+.menu {
+  width: 100vw;
+  padding: 30px 0;
+  background-color: $c-green;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  transform: translateY(0);
+  transition: transform $t-400 ease-in-out, opacity $t-400 ease-in-out;
+  opacity: 1;
+
+  &_paddings {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  &--closed {
+    opacity: 0.5;
+    transform: translateY(-100%);
+  }
+
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+
+  &_top {
+    display: flex;
+    gap: 28px;
+
+    @include on-tablet {
+      gap: 48px;
+    }
+
+    &_icon {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      transition: $t-400;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &_wrapper {
+      margin-bottom: 20px;
+
+      &_ul {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+      }
+
+      &_container {
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+      }
+
+      &_link {
+        font-family: IBM Plex Sans;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 16px;
+        color: #fff;
+        position: relative;
+        transition: $t-400;
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -10px;
+          width: 0;
+          height: 1px;
+          background-color: #fff;
+          transition: $t-400;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+
+        @include on-desktop {
+          font-size: 22px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+
+  &_line {
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      border-left: 1px solid #fff;
+      height: auto;
+      width: 1px;
+      margin-inline: 50px;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      margin-left: 100px;
+    }
+  }
+
+  &_bottom {
+    color: #fff;
+
+    &_schedule {
+
+      &_dates_container {
+        @include on-tablet {
+          display: flex;
+          gap: 26px;
+          justify-content: space-around;
+        }
+      }
+
+      &_dates_wrapper {
+        margin-bottom: 16px;
+
+        @include on-tablet {
+          margin-bottom: 0;
+          flex-basis: 170px;
+        }
+      }
+
+      &_heading {
+        font-family: IBM Plex Sans;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.69px;
+        margin-bottom: 20px;
+      }
+
+      &_dates_date {
+        font-family: IBM Plex Sans;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+
+        &--info {
+          @include on-tablet {
+            flex-basis: 140px;
+            align-self: flex-end;
+          }
+        }
+      }
+
+      &_dates_date span{
+        font-family: IBM Plex Sans;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 21px;
+      }
+    }
+  }
+}

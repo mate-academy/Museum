@@ -1,0 +1,247 @@
+.header {
+  &_elems {
+    @include grid-net;
+
+    gap: 20px;
+  }
+
+  &_elem {
+    @include on-desktop {
+      display: flex;
+    }
+
+    grid-column: 1 / -1;
+
+    &--first {
+      background-image: url('../images/backgrounds/lion.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      height: auto;
+
+      @include on-tablet {
+        grid-column: span 3;
+        order: 1;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+      }
+    }
+
+    &_wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      height: 100%;
+      width: 100%;
+
+      &_container {
+        align-self: center;
+        margin-bottom: 20px;
+
+        @include on-tablet {
+          align-self: flex-start;
+        }
+
+        @include on-desktop {
+          margin-bottom: 118;
+          width: 100%;
+          position: relative;
+        }
+      }
+    }
+
+    &--second {
+      text-align: center;
+      position: relative;
+
+      @include on-tablet {
+        order: 0;
+        grid-column: span 3;
+        display: flex;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      &_paddings {
+        width: 100%;
+        padding-inline: 20px;
+        max-width: $w-mobile;
+        margin-inline: auto;
+
+        @include on-tablet {
+          padding: 0 0 0 34px;
+          margin-inline: 0;
+          max-width: 100%
+        }
+
+        @include on-desktop {
+          padding-left: 55px;
+        }
+      }
+
+      &_events {
+        display: none;
+        left: 0;
+        bottom: 0;
+        transform: rotate(-90deg);
+        transform-origin: top left;
+
+        @include on-desktop {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+        }
+
+        &_line {
+          width: 70px;
+          height: 1px;
+          background-color: $c-green;
+        }
+
+        &_text {
+          font-family: IBM Plex Sans;
+          font-size: 14px;
+          line-height: 14px;
+          color: $c-small-title-grey;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  &_logo {
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include on-tablet {
+      left: 30%;
+    }
+
+    @include on-desktop {
+      left: 100px;
+    }
+  }
+
+  &_burger-menu {
+    margin-top: 30px;
+    margin-left: 20px;
+    width: 20px;
+    height: 14px;
+    transition: $t-400;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &--phone {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &_title {
+    font-family: Montserrat;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 45px;
+    margin-bottom: 20px;
+    color: $c-black;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    @media (min-width: 720px) {
+      font-size: 54px;
+      line-height: 64.8px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 90px;
+      font-size: 72px;
+      line-height: 86.4px;
+    }
+
+    & span {
+      display: block;
+    }
+  }
+
+  &_btn {
+    display: flex;
+    cursor: pointer;
+
+    @include on-desktop {
+      position: absolute;
+      right: 10;
+    }
+
+    &_wrapper {
+      display: flex;
+      width: 100%;
+      height: 50px;
+      transition: $t-400;
+
+      &:hover {
+        -webkit-box-shadow: 0px 8px 40px -13px rgba(26, 90, 76, 1);
+        -moz-box-shadow: 0px 8px 40px -13px rgba(26, 90, 76, 1);
+        box-shadow: 0px 8px 40px -13px rgba(26, 90, 76, 1);
+      }
+
+      @include on-tablet {
+        height: 70px;
+        width: 270px;
+      }
+
+      &--left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $c-green;
+        flex-grow: 1;
+        font-family: IBM Plex Sans;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 16px;
+        text-align: left;
+        color: $c-black;
+      }
+
+      &--right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 50px;
+        flex-basis: 50%;
+        background-color: $c-green;
+
+        @include on-tablet {
+          max-width: 70px;
+        }
+      }
+    }
+  }
+}

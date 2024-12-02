@@ -1,0 +1,133 @@
+.gallery {
+  overflow: hidden;
+
+  &_title {
+    font-family: Montserrat;
+    font-size: 36px;
+    line-height: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 48px;
+      text-align: left;
+    }
+  }
+
+  &_photos {
+    @include grid-net;
+
+    gap: 16px;
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      display: flex;
+      transition: transform $t-400 ease;
+    }
+
+    @include on-desktop {
+      @include grid-net;
+
+      transform: translateX(0);
+      gap: 30px;
+      margin-bottom: 200px;
+    }
+
+    &_photo {
+      grid-column: 1 / -1;
+      width: 100%;
+      transition: $t-400;
+
+      @include on-tablet {
+        width: 50%;
+      }
+
+      @include on-desktop {
+        width: 100%;
+      }
+
+      &--big {
+        display: none;
+
+        @include on-desktop {
+          display: block;
+        }
+      }
+
+      &--small {
+        @include on-desktop {
+          display: none;
+        }
+      }
+
+      @include on-tablet {
+        grid-column: span 3;
+      }
+
+      &--1 {
+        @include on-desktop {
+          grid-column: span 4;
+          grid-row: span 3;
+        }
+      }
+
+      &--2 {
+        @include on-desktop {
+          grid-column: span 8;
+          grid-row: span 3;
+        }
+      }
+
+      &--3 {
+        @include on-desktop {
+          grid-column: span 8;
+          grid-row: span 2;
+        }
+      }
+
+      &--4 {
+        @include on-desktop {
+          grid-column: span 4;
+          grid-row: span 2;
+        }
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &_btns {
+    display: none;
+    justify-content: center;
+    gap: 22px;
+    margin-bottom: 100px;
+
+    @include on-tablet {
+      display: flex;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &_btn {
+      width: 9px;
+      height: 9px;
+      background-color: $c-grey-btn;
+      border-radius: 50%;
+      transition: transform $t-400 ease;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(2);
+      }
+
+      &--active {
+        background-color: $c-green;
+      }
+    }
+  }
+}

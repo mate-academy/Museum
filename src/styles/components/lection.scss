@@ -1,0 +1,104 @@
+.lection {
+  &--paddings {
+    @include on-tablet {
+      padding-inline: 34px;
+      max-width: $w-tablet;
+      margin-inline: auto;
+    }
+
+    @include on-desktop {
+      padding-inline: 0;
+      max-width: 100%;
+      margin-inline: 0;
+    }
+  }
+
+  &_wrapper {
+    background-image: url('../images/backgrounds/skysvgSMALL.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    position: relative;
+    margin-bottom: 200px;
+    aspect-ratio: 4 / 3;
+
+    @include on-desktop {
+      background-image: url('../images/backgrounds/skyForDesktop.svg');
+      aspect-ratio: 16 / 6;
+    }
+  }
+
+  &_info {
+    background-color: #fff;
+    position: absolute;
+    width: calc(100% - 40px);
+    bottom: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 2px 0px 0px #1A5A4C40;
+
+    @media (min-width: 380px) {
+      bottom: -25%;
+    }
+
+    @media (min-width: 500px) {
+      bottom: -20%;
+    }
+
+    @media (min-width: 600px) {
+      bottom: -15%;
+    }
+
+    @include on-tablet {
+      width: 570px;
+      padding: 45px 55px;
+      box-sizing: border-box;
+    }
+
+    &_container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      margin-inline: 20px;
+      margin-top: 20px;
+
+      @include on-tablet {
+        margin-inline: 0;
+        width: 70%;
+      }
+    }
+
+    &_title {
+      font-family: IBM Plex Sans;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 16px;
+      color: $c-small-title-grey;
+    }
+
+    &_date {
+      font-family: IBM Plex Sans;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+      color: $c-green;
+    }
+
+    &_text {
+      font-family: Montserrat;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 28px;
+      text-align: center;
+      color: $c-black;
+      margin-bottom: 20px;
+
+      @include on-tablet {
+        font-size: 36px;
+        line-height: 36px;
+        text-align: left;
+      }
+    }
+  }
+}
