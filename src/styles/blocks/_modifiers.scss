@@ -1,8 +1,8 @@
 .icon.icon--burger {
   position: relative;
-  width: 18px;
+  width: $width-burger;
   height: $height-burger;
-  padding: $burger-padding-block 3px;
+  padding: $burger-padding-block $burger-padding-inline;
   box-sizing: content-box;
 
   &::before,
@@ -10,7 +10,7 @@
     content: '';
     display: block;
     position: absolute;
-    width: 18px;
+    width: $width-burger;
     height: $height-burger-line;
     background-color: $black-color;
     transition: $transition-value;
@@ -43,4 +43,24 @@
 
 .arrow-link--green {
   background-color: $green-color;
+}
+
+.logo-link.logo-link--on-desktop {
+  width: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo-link--on-phone {
+  display: none;
+
+  @include phone {
+    display: block;
+    width: 55px;
+    position: absolute;
+    top: $header-top-padding;
+    left: 50%;
+
+    transform: translate(-50%);
+  }
 }

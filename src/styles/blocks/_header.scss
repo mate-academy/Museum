@@ -14,14 +14,6 @@
     @include height-header-background;
   }
 
-  &__top {
-    max-width: 694px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   &__left-wrap {
     position: relative;
     z-index: 1;
@@ -30,34 +22,96 @@
     align-self: flex-start;
     flex-grow: 1;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-
-  &__info {
     max-width: 500px;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: $white-color;
-
-    position: relative;
-    z-index: 1;
     padding-right: 30px;
+
+    @include tablet {
+      max-width: 340px;
+      padding-right: 20px;
+    }
+
+    @include phone {
+      max-width: 100%;
+      width: 100%;
+      padding-right: 0;
+      z-index: none;
+      background-color: inherit;
+
+      align-items: center;
+      align-items: stretch;
+    }
+  }
+
+  &__top-wrap {
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+
+    padding-top: 15px;
+
+    @include phone {
+      padding-top: $header-top-padding;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 89px;
+
+    @include phone {
+      position: relative;
+      z-index: 1;
+      background-color: $white-color;
+      gap: 20px;
+
+      &::after,
+      &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 20px;
+        background-color: $white-color;
+      }
+
+      &::after {
+        left: -20px;
+      }
+      &::before {
+        right: -20px;
+      }
+    }
   }
 
   &__title {
     font-family: Montserrat, Arial, Helvetica, sans-serif;
     font-size: 72px;
     font-weight: 700;
+
+    @include tablet {
+      font-size: 54px;
+    }
+
+    @include phone {
+      font-size: 45px;
+      text-align: center;
+    }
   }
 
   &__info-footer {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+  }
+
+  &__next-section {
+    @include tablet {
+      display: none;
+    }
   }
 
   &__link {
@@ -74,6 +128,16 @@
 
     margin-bottom: 118px;
 
+    @media (max-width: 1000px) {
+      margin-bottom: 19px;
+    }
+
+    @include phone {
+      max-width: 100%;
+      align-self: stretch;
+    }
+
+
     &-text {
       margin-inline: auto;
       font-size: 16px;
@@ -88,10 +152,58 @@
     right: 0;
     width: 56.64%;
     height: 734px;
-    object-fit: cover;
-    object-position: bottom;
-    z-index: -1;
+    z-index: 0;
+
+    box-sizing: border-box;
+    padding-left: 55px;
 
     @include height-header-background;
+
+    @include tablet {
+      width: 48.64vw;
+
+      padding-left: 12vw;
+
+      background-image: url(../images/header-background-image-small.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: bottom;
+    }
+
+    @include phone {
+      display: none;
+    }
+
+    &-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: bottom;
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__background-on-phone {
+    display: none;
+
+    @include phone {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 59.76vh;
+
+      background-image: url(../images/header-background-image-small.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top;
+    }
   }
 }
