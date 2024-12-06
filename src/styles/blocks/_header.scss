@@ -6,12 +6,14 @@
 
   &__content {
     max-width: 1440px;
-    min-height: 734px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     position: relative;
 
-    @include height-header-background;
+    @include small-tablet {
+      min-height: 384px;
+    }
   }
 
   &__left-wrap {
@@ -29,8 +31,11 @@
     padding-right: 30px;
 
     @include tablet {
+      max-width: 420px;
+    }
+
+    @include small-tablet {
       max-width: 340px;
-      padding-right: 20px;
     }
 
     @include phone {
@@ -61,7 +66,11 @@
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 89px;
+    gap: 13.58vh;
+
+    @include small-tablet {
+      gap: 38px;
+    }
 
     @include phone {
       position: relative;
@@ -93,7 +102,7 @@
     font-size: 72px;
     font-weight: 700;
 
-    @include tablet {
+    @include small-tablet {
       font-size: 54px;
     }
 
@@ -110,7 +119,7 @@
   }
 
   &__next-section {
-    @include tablet {
+    @include small-tablet {
       display: none;
     }
   }
@@ -127,9 +136,9 @@
     justify-content: space-between;
     align-items: center;
 
-    margin-bottom: 118px;
+    margin-bottom: 18vh;
 
-    @media (max-width: 1000px) {
+    @include small-tablet {
       margin-bottom: 19px;
     }
 
@@ -152,18 +161,16 @@
     top: 0;
     right: 0;
     width: 56.64%;
-    height: 734px;
+    min-height: 100vh;
     z-index: 0;
 
     box-sizing: border-box;
     padding-left: 55px;
 
-    @include height-header-background;
-
-    @include tablet {
-      width: 48.64vw;
-
-      padding-left: 12vw;
+    @include small-tablet {
+      min-height: 384px;
+      width: 48.69vw;
+      padding-left: 82px;
 
       background-image: url(../images/header-background-image-small.png);
       background-repeat: no-repeat;
@@ -184,7 +191,7 @@
       object-fit: cover;
       object-position: bottom;
 
-      @include tablet {
+      @include small-tablet {
         display: none;
       }
     }
