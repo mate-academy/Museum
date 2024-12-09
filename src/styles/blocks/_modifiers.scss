@@ -1,6 +1,5 @@
 .icon.icon--burger {
   position: absolute;
-  top: 39px;
   width: $width-burger;
   height: $height-burger;
   padding: $burger-padding-block $burger-padding-inline;
@@ -8,9 +7,7 @@
 
   z-index: 4;
 
-  @include big-phone {
-    top: 27px;
-  }
+  @include header-top-indent(top);
 
   &::before,
   &::after {
@@ -33,7 +30,6 @@
 }
 
 .icon--burger.icon--active {
-
   &::before {
     transform: rotate(45deg);
     top: $position-burger-line;
@@ -93,15 +89,31 @@
 }
 
 .page__body--lock.page__body::before {
-  opacity: .40;
+  opacity: 0.4;
   pointer-events: all;
 }
 
 .nav__link--menu-setting {
   color: $white-color;
   font-size: 22px;
+
+  @include small-tablet {
+    font-size: 16px;
+  }
 }
 
 .nav--margin-left {
-  margin-left: 96px;
+  margin-left: 102px;
+
+  @include small-tablet {
+    margin-left: 57px;
+  }
+}
+
+.nav__item--height {
+  height: 44px;
+
+  @include small-tablet {
+    height: 32px;
+  }
 }
