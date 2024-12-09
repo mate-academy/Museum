@@ -1,7 +1,5 @@
 .header {
   width: 100%;
-  position: relative;
-  z-index: 1;
   overflow: hidden;
 
   &__content {
@@ -27,7 +25,7 @@
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding-right: 30px;
 
     @include tablet {
@@ -36,11 +34,13 @@
 
     @include small-tablet {
       max-width: 340px;
+      padding-right: 20px;
     }
 
-    @include phone {
+    @include big-phone {
       max-width: 100%;
       width: 100%;
+      min-height: 483px;
       padding-right: 0;
       z-index: none;
       background-color: inherit;
@@ -58,7 +58,7 @@
 
     padding-top: 15px;
 
-    @include phone {
+    @include big-phone {
       padding-top: $header-top-padding;
     }
   }
@@ -72,28 +72,11 @@
       gap: 38px;
     }
 
-    @include phone {
+    @include big-phone {
       position: relative;
       z-index: 1;
       background-color: $white-color;
       gap: 20px;
-
-      &::after,
-      &::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        height: 100%;
-        width: 50px;
-        background-color: $white-color;
-      }
-
-      &::after {
-        left: -20px;
-      }
-      &::before {
-        right: -20px;
-      }
     }
   }
 
@@ -106,9 +89,10 @@
       font-size: 54px;
     }
 
-    @include phone {
+    @include big-phone {
       font-size: 45px;
       text-align: center;
+      line-height: 100%;
     }
   }
 
@@ -138,13 +122,17 @@
 
     margin-bottom: 18vh;
 
+    transition: all $transition-value;
+    overflow: hidden;
+
     @include small-tablet {
       margin-bottom: 19px;
     }
 
-    @include phone {
+    @include big-phone {
       max-width: 100%;
       align-self: stretch;
+      margin-bottom: 0;
     }
 
 
@@ -178,7 +166,7 @@
       background-position: bottom;
     }
 
-    @include phone {
+    @include big-phone {
       display: none;
     }
 
@@ -200,18 +188,22 @@
   &__background-on-phone {
     display: none;
 
-    @include phone {
+    @include big-phone {
       display: block;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 75vh;
+      min-height: 354.4px;
 
       background-image: url(../images/header-background-image-small.png);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: top;
+    }
+
+    @include phone {
+      min-height: 300px;
     }
   }
 }

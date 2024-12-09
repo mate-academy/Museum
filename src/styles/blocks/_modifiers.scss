@@ -1,9 +1,16 @@
 .icon.icon--burger {
-  position: relative;
+  position: absolute;
+  top: 39px;
   width: $width-burger;
   height: $height-burger;
   padding: $burger-padding-block $burger-padding-inline;
   box-sizing: content-box;
+
+  z-index: 4;
+
+  @include big-phone {
+    top: 27px;
+  }
 
   &::before,
   &::after {
@@ -30,10 +37,12 @@
   &::before {
     transform: rotate(45deg);
     top: $position-burger-line;
+    background-color: $white-color;
   }
   &::after {
     transform: rotate(-45deg);
     bottom: $position-burger-line;
+    background-color: $white-color;
   }
 }
 
@@ -54,7 +63,7 @@
 .logo-link--on-phone {
   display: none;
 
-  @include phone {
+  @include big-phone {
     display: block;
     width: 55px;
     position: absolute;
@@ -63,4 +72,36 @@
 
     transform: translate(-50%);
   }
+}
+
+.header__link:hover {
+  background-color: rgb(241, 241, 241);
+}
+
+.header__link:active {
+  background-color: rgb(223, 223, 223);
+}
+
+@each $element in $arrow-link-in-elements {
+  .#{$element}:hover .arrow-link .arrow-link__cursor {
+    transform: translate(3px);
+  }
+}
+
+.page__menu.page__menu--active {
+  transform: translateY(0);
+}
+
+.page__body--lock.page__body::before {
+  opacity: .40;
+  pointer-events: all;
+}
+
+.nav__link--menu-setting {
+  color: $white-color;
+  font-size: 22px;
+}
+
+.nav--margin-left {
+  margin-left: 96px;
 }
