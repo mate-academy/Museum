@@ -1,0 +1,59 @@
+.header {
+  &__img {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    position: relative;
+    order: 1;
+
+    @include tablet {
+      order: 2;
+      grid-column: 4 / -1;
+    }
+
+    @include desktop {
+      grid-column: 7 / -1;
+    }
+
+    &-decor {
+      @include fullscreen;
+
+      @include tablet {
+        width: calc(100% + 34px);
+        margin-left: 0;
+      }
+
+      @include desktop {
+        width: calc(100% + 55px);
+        margin-left: 0;
+      }
+    }
+
+    &-title {
+      position: absolute;
+      top: 0;
+      width: 55px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 1;
+      color: $color-base;
+      text-transform: uppercase;
+      padding-top: 9px;
+
+      @include hover(scale, 1.1);
+
+      @include tablet {
+        left: 0;
+        width: 220px;
+        font-size: 36px;
+        padding-top: 15px;
+      }
+
+      @include desktop {
+        width: 170px;
+      }
+    }
+  }
+}

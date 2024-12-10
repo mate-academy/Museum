@@ -1,0 +1,61 @@
+.nav {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    gap: 20px;
+
+    font-weight: 400;
+    line-height: 100%;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 220px);
+    }
+
+    &-new {
+      grid-template-columns: repeat(2, 100px);
+      gap: 24px 28px;
+      display: grid;
+
+      @include desktop {
+        gap: 30px;
+        grid-template-columns: repeat(2, 169px);
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    width: fit-content;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: white;
+
+    @include desktop {
+      font-size: 22px;
+    }
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  &__link::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    opacity: 0;
+    background-color: $color-accent;
+    transition: opacity 0.3s ease;
+  }
+
+  &__link:hover::after {
+    opacity: 1;
+  }
+}

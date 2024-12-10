@@ -1,0 +1,56 @@
+.page {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: translateY(-100%);
+    pointer-events: none;
+    z-index: 5;
+
+    @include tablet {
+      transform: translateY(-100%);
+    }
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  .header,
+  .main,
+  .footer {
+    transition: background-color 0.3s ease;
+  }
+}
+
+.page__menu:target ~ .header,
+.page__menu:target ~ .main,
+.page__menu:target ~ .footer {
+  position: relative;
+}
+
+.page__menu:target ~ .header::after,
+.page__menu:target ~ .main::after,
+.page__menu:target ~ .footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}

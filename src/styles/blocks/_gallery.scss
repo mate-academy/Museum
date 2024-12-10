@@ -1,0 +1,55 @@
+.gallery {
+  &__content {
+    @include desktop {
+      max-width: 1170px;
+      margin-inline: auto;
+    }
+  }
+
+  &__container {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+  &__list {
+    @include page-grid;
+
+    row-gap: 30px;
+  }
+
+  &__item {
+    list-style: none;
+    transition: transform 0.3s;
+
+    @include hover(transform, scale(1.05));
+
+    cursor: pointer;
+
+    &--1 {
+      grid-column: 1 / 5;
+      grid-row: 1 / 3;
+    }
+
+    &--2 {
+      grid-column: 5 / -1;
+      grid-row: 1 / 3;
+    }
+
+    &--3 {
+      grid-column: 1 / 9;
+    }
+
+    &--4 {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__dots {
+    @include desktop {
+      display: none;
+    }
+  }
+}
