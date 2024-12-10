@@ -1,7 +1,19 @@
 .header {
+  margin-bottom: 70px;
+
+  @include on-tablet {
+    margin-bottom: 88px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 200px;
+  }
+
   &__container {
     position: relative;
+
     @include page-grid;
+
     row-gap: 20px;
     padding-inline: 0;
 
@@ -14,6 +26,7 @@
   &__icon-menu {
     position: absolute;
     z-index: 1;
+
     @include content-margin-top;
     @include content-margin-left;
   }
@@ -58,6 +71,7 @@
 
   &__bottom {
     @include padding-header-bottom;
+
     grid-column: 1 / -1;
 
     @include on-tablet {
@@ -74,7 +88,7 @@
   }
 
   &__bottom-title {
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     font-size: 45px;
     font-weight: 700;
     line-height: 45px;
@@ -105,6 +119,7 @@
     line-height: 16px;
     color: #0f0e08;
     border: 1px solid #1a5a4c;
+
     @include hover(border, 1px solid #f14a27);
     @include active(border, 1px solid #f14a27);
 
@@ -147,7 +162,9 @@
 
   &__events-btn {
     @include content-margin-left;
+
     display: none;
+
     @include hover(color, #000);
     @include hover(gap, 10px);
     @include active(color, #000);
