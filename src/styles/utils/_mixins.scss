@@ -28,10 +28,30 @@
   }
 }
 
-@mixin header-top-indent($property) {
-  #{$property}: 39px;
+@mixin header-top-indent($property, $value) {
+  #{$property}: #{$value};
+}
 
-  @include big-phone {
-    #{$property}: 27px;
+@mixin nav-heigth {
+  min-height: $nav-heigth;
+
+  @include phone {
+    min-height: $nav-heigth-small;
+  }
+}
+
+@mixin separator-top {
+  top: $header-padding-phone + $nav-heigth;
+
+  @include phone {
+    top: $header-padding-phone + $nav-heigth-small;
+  }
+}
+
+@mixin hover($property, $value) {
+  transition: $transition-value;
+
+  &:hover {
+    #{$property}: #{$value};
   }
 }

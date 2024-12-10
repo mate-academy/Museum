@@ -1,19 +1,28 @@
 .menu {
 
-  &__content {
-    max-width: 1366px;
+  &__wrapper {
+    background-color: $green-color;
     width: 100%;
-    padding-top: $header-padding-top;
-    padding-bottom: 40px;
-    min-height: 145px;
+    min-height: 233px;
+
+    @include small-tablet {
+      min-height: 225px;
+    }
+  }
+
+  &__content {
+    min-height: 185px;
     display: flex;
     justify-content: space-between;
     gap: 38px;
 
-    @include header-top-indent(padding-top);
 
     @include small-tablet {
       gap: 30px;
+    }
+
+    @include big-phone {
+      padding-bottom: 27px;
     }
 
     @include big-phone {
@@ -26,5 +35,16 @@
     min-height: 100%;
     background-color: $white-color;
     opacity: 0.5;
+
+    @include header-top-indent(margin-top, 39px);
+
+    @include big-phone {
+      width: 100%;
+      min-height: 1px;
+      position: sticky;
+
+      @include separator-top;
+      @include header-top-indent(margin-top, 0);
+    }
   }
 }
