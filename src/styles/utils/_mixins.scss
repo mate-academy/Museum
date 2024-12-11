@@ -5,31 +5,37 @@
   }
 }
 
-$breakpoints: (
-  design: 1440px,
-  desktop: 1280px,
-  tablet: 640px,
-  mobile: 320px,
-);
 
-@mixin responsive($size) {
-  $width: map.get($breakpoints, $size);
 
-  @media (min-width: $width) {
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $desktop-min-width) {
     @content;
   }
 }
 
 
 
+
 @mixin content-padding-inline {
   padding-inline: 20px;
 
-  @include responsive(tablet) {
+  @include on-tablet {
     padding-inline: 34px;
   }
 
-  @include responsive(desktop) {
+  @include on-desktop {
     padding-inline: 55px;
   }
 }
@@ -42,14 +48,14 @@ $breakpoints: (
   column-gap: 20px;
   grid-template-columns: repeat($columns, 1fr);
 
-  @include responsive(tablet) {
+  @include on-tablet {
     $columns: 6;
 
     grid-template-columns: repeat($columns, 1fr);
     column-gap: 30px;
   }
 
-  @include responsive(desktop) {
+  @include on-desktop {
     $columns: 12;
 
     grid-template-columns: repeat($columns, 1fr);
