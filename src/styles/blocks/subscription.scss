@@ -1,9 +1,10 @@
 .subscription {
-  @include page-grid;
-  background-image: url('../images/subscription_bg.png');
+  display: flex;
+  flex-direction: column;
+  background-image: url('../images/subscription.png');
   background-size: cover;
-  background-repeat: no-repeat;
   grid-column: 1/-1;
+  background-repeat: no-repeat;
   height: 386px;
   z-index: -1;
   position: relative;
@@ -11,11 +12,13 @@
 
   @include on-tablet {
     height: 380px;
+  }
 
+  @include on-desktop {
+    height: 550px;
   }
 
   &__title {
-    grid-column: 1/-1;
     font-weight: 700;
     font-size: 36px;
     line-height: 36px;
@@ -30,7 +33,6 @@
   }
 
   &__subtitle {
-    grid-column: 1/-1;
     font-size: 18px;
     line-height: 27px;
     margin-top: 20px;
@@ -40,15 +42,15 @@
   }
 
   &__tickets {
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
     margin-inline: 20px;
     height: 50px;
-    position: relative;
-    grid-column: 1/-1;
 
     @include on-tablet {
       height: 70px;
-      grid-column: 2/6;
+      gap: 16px;
     }
 
     &-title {
@@ -64,9 +66,6 @@
     }
 
     &-arrow {
-      position: absolute;
-      right: 0;
-      top: 0;
       background-color: #f14a27;
       width: 50px;
       height: 50px;
@@ -78,7 +77,6 @@
       @include on-tablet {
         height: 70px;
         width: 70px;
-        right: -20px;
       }
     }
   }

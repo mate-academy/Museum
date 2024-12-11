@@ -1,4 +1,5 @@
 .slider-wrapper {
+
   grid-column: 1 / -1;
 }
 
@@ -13,10 +14,20 @@
 .slides {
   display: flex;
   transition: transform 0.5s ease-in-out;
+
+  @include on-tablet {
+    gap: 10px;
+  }
 }
 
 .slide {
-  min-width: 100%;
+  min-width: 100%; /* Для десктопов и мобильных устройств — 1 фото на слайд */
+  display: flex; /* Добавим для размещения двух фото на одном слайде */
+  gap: 10px; /* Пробел между фото */
+
+  @include on-tablet {
+    min-width: 50%; /* Два фото на одном слайде */
+  }
 }
 
 .slide img {
