@@ -1,0 +1,109 @@
+.header {
+  @include page-grid;
+
+  row-gap: 20px;
+  position: relative;
+
+  &__menu-button {
+    position: absolute;
+
+    top: 27px;
+    left: $phone-padding-inline;
+
+    @include on-tablet {
+      top: 39px;
+      left: $tablet-padding-inline;
+    }
+
+    @include on-desktop {
+      left: $desktop-padding-inline;
+    }
+  }
+
+  &__events-button {
+    bottom: 0;
+    left: $desktop-padding-inline;
+    position: absolute;
+  }
+
+  &__logo {
+    padding-top: 9px;
+    position: absolute;
+    grid-column: 1 / -1;
+
+    left: 50%;
+    transform: translate(-50%);
+
+    @include on-tablet {
+      width: 100%;
+      grid-column: 4 / 6;
+
+      padding-top: 15px;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__bg {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center bottom;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      order: 2;
+      height: 384px;
+      grid-column: 4 / 7;
+    }
+
+    @include on-desktop {
+      height: 655px;
+      grid-column: 6 / 13;
+    }
+  }
+
+  &__content {
+    padding-inline: 20px;
+
+    display: grid;
+    row-gap: 20px;
+    height: fit-content;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      padding: 0;
+      row-gap: 38px;
+      padding-top: 127px;
+      padding-left: 34px;
+
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      gap: 89px 30px;
+      padding-top: 206px;
+      padding-left: 89px;
+      grid-template-columns: repeat(5, 1fr);
+
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+
+    @include on-desktop {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__buy-tickets {
+    @include on-desktop {
+      grid-column: 3 / -1;
+    }
+  }
+}
