@@ -1,6 +1,73 @@
+@mixin on-phone {
+  @media (min-width: $phone-min-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $design-min-width) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $animation-speed;
+
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: $phone-column-gap;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: $tablet-column-gap;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+
+    column-gap: $desktop-column-gap;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: $phone-padding-inline;
+
+  @include on-tablet {
+    padding-inline: $tablet-padding-inline;
+  }
+
+  @include on-desktop {
+    padding-inline: $desktop-padding-inline;
+  }
+}
+
+@mixin fullscreen-image($margin-inline) {
+  width: calc(100% + $margin-inline * 2);
+  transform: translate(-$margin-inline);
+}
+
+@mixin disable-fullscreen-image {
+  width: 100%;
+  transform: translate(0);
 }

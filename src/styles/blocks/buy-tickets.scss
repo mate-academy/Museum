@@ -1,0 +1,44 @@
+.buy-tickets {
+  display: flex;
+  align-items: center;
+
+  height: 50px;
+  box-sizing: border-box;
+  border: 1px solid $secondary-color;
+
+  @include on-tablet {
+    height: 70px;
+    max-width: 270px;
+  }
+
+  @include on-desktop {
+    @include hover(transform, scale(1.2));
+  }
+
+  &__text {
+    flex-grow: 1;
+    text-align: center;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: $main-color;
+    line-height: 16px;
+  }
+
+  &::after {
+    content: '';
+
+    height: 100%;
+    aspect-ratio: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: $secondary-color;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../images/icons/icon-next.svg');
+  }
+}

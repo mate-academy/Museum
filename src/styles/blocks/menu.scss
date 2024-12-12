@@ -1,0 +1,57 @@
+.menu {
+  &__grid {
+    @include page-grid;
+    @include content-padding-inline;
+
+    overflow-y: auto;
+    max-height: 100vh;
+    height: fit-content;
+    box-sizing: border-box;
+    background-color: $secondary-color;
+  }
+
+  &__content {
+    display: grid;
+    row-gap: 24px;
+    margin-block: 27px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      column-gap: 38px;
+      margin-block: 40px;
+      grid-auto-flow: column;
+    }
+
+    @include on-desktop {
+      column-gap: 102px;
+      grid-column: 1 / -2;
+      margin-bottom: 48px;
+    }
+  }
+
+  &__top {
+    display: grid;
+    column-gap: 28px;
+
+    @include on-tablet {
+      column-gap: 38px;
+    }
+
+    @include on-desktop {
+      column-gap: 102px;
+    }
+
+    grid-template-columns: min-content 1fr;
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff80;
+
+    @include on-tablet {
+      width: 1px;
+      height: 100%;
+    }
+  }
+}

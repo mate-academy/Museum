@@ -1,0 +1,59 @@
+.page {
+  scroll-behavior: smooth;
+  min-width: $phone-min-width;
+
+  font-family: 'IBM Plex Sans', sans-serif;
+
+  &__body {
+    margin: 0;
+    position: relative;
+
+    &:has(.page__menu:target) {
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    margin-bottom: 70px;
+
+    @include on-tablet {
+      margin-bottom: 88px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__menu {
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: 100vh;
+    position: fixed;
+    background-color: #18181a80;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-100%);
+
+    transition:
+      opacity $animation-speed,
+      transform $animation-speed;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translate(0%);
+    }
+  }
+
+  &__main {
+    margin-bottom: 50px;
+
+    @include on-desktop {
+      margin-bottom: 48px;
+    }
+  }
+}
