@@ -6,7 +6,7 @@
   }
 
   @include on-desktop {
-    margin-bottom: 200px;
+    display: none;
   }
 
   &__container {
@@ -32,9 +32,9 @@
   }
 
   &__top {
+    background-image: url('../img/header/header-bg.jpg');
     grid-column: 1 / -1;
     position: relative;
-    background-image: url('../img/header/header-bg.jpg');
     background-size: cover;
     background-position: left;
     width: 100%;
@@ -49,8 +49,9 @@
     }
 
     @include on-desktop {
-      aspect-ratio: 725 / 655;
       grid-column: 6 / -1;
+
+      // aspect-ratio: 725 / 655;
     }
   }
 
@@ -189,6 +190,139 @@
         width: 70px;
         height: 1px;
       }
+    }
+  }
+}
+
+/* stylelint-disable-next-line block-no-empty */
+.header-desk {
+  display: none;
+  position: relative;
+
+  @include on-desktop {
+    display: inherit;
+    margin-bottom: 200px;
+  }
+
+  &__container {
+    position: relative;
+    max-width: 1280px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &__top {
+    position: absolute;
+    right: 0;
+    width: 54%;
+    height: 655px;
+    background-image: url('../img/header/header-bg-desk.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__top-bar {
+    display: flex;
+    gap: 540px;
+    align-items: center;
+    padding-top: 15px;
+    margin-bottom: 119px;
+
+    .header-desk__top-logo {
+      display: flex;
+      justify-content: center;
+      width: 170px;
+      height: 72px;
+      font-size: 36px;
+      line-height: 36px;
+    }
+  }
+
+  &__bottom {
+    @include page-grid;
+
+    position: relative;
+  }
+
+  &__bottom-title {
+    font-family: Montserrat, sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 86.4px;
+    text-align: left;
+    margin-bottom: 90px;
+    grid-column: span 5;
+  }
+
+  &__bottom-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 270px;
+    height: 70px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #0f0e08;
+    border: 1px solid #1a5a4c;
+    grid-column: 3 / 6;
+    margin-bottom: 118px;
+
+    @include hover(border, 1px solid #f14a27);
+    @include active(border, 1px solid #f14a27);
+
+    p {
+      margin: 0 auto;
+    }
+
+    &::after {
+      content: url('../img/icons/arrow-right.svg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70px;
+      height: 100%;
+      background-color: #1a5a4c;
+      transition: all 0.15s;
+    }
+
+    &:hover {
+      &::after {
+        background-color: #f14a27;
+      }
+    }
+  }
+
+  &__events-btn {
+    @include content-margin-left;
+
+    display: none;
+
+    @include hover(color, #000);
+    @include hover(gap, 10px);
+    @include active(color, #000);
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    bottom: 0;
+    transform: rotate(-90deg);
+    transform-origin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #687480;
+
+    &::before {
+      content: '';
+      background-color: #1a5a4c;
+      width: 70px;
+      height: 1px;
     }
   }
 }
