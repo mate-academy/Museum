@@ -20,10 +20,24 @@ function getBurgerActive() {
 
 getBurgerActive();
 
-// if (window.innerWidth <= 1050) {
-//   const swiper = new Swiper('.gallery__swiper', {
-//     slidesPerView: 1,
+  const swiper = new Swiper('.swiper', {
+    pagination: {
+      el: '.swiper-pagination',
 
-//     direction: 'horizontal',
-//   });
-// };
+      clickable: true,
+    },
+
+    grabCursor: true,
+
+    breakpoints: {
+      498: {
+        slidesPerView: 2.1,
+        spaceBetween: 20,
+      },
+
+      0: {
+        slidesPerView: 1.07,
+        spaceBetween: 16,
+      }
+    }
+  });
