@@ -1,5 +1,6 @@
 'use strict';
 
+
 const getBurger = document.querySelector('.icon--burger');
 const getMenu = document.querySelector('.page__menu');
 const body = document.querySelector('.page__body');
@@ -18,3 +19,11 @@ function getBurgerActive() {
 }
 
 getBurgerActive();
+
+// if (window.innerWidth <= 1050) {
+//   const swiper = new Swiper('.gallery__swiper', {
+//     slidesPerView: 1,
+
+//     direction: 'horizontal',
+//   });
+// };
