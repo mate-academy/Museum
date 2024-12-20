@@ -1,0 +1,98 @@
+.hero {
+  @extend %flex-column;
+
+  &__bg {
+    background-image: url('../images/banner/banner-bg-mobile.webp'),
+      url('../images/banner/banner-bg-mobile.avif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 60vh;
+    z-index: 1;
+
+    @include on-tablet {
+      height: 500px;
+      background-image: url('../images/banner/banner-bg.webp'),
+        url('../images/banner/banner-bg.avif'),
+        url('../images/banner/banner-bg.jpeg');
+    }
+
+    @include on-desktop {
+      height: 60vh;
+    }
+  }
+
+  &__logo {
+    @extend %flex-center;
+
+    padding-top: 9px;
+
+    @include on-tablet {
+      justify-content: flex-start;
+      padding-left: 90px;
+    }
+
+    @include on-desktop {
+      padding-left: 60px;
+    }
+  }
+
+  &__content {
+    background-color: $white;
+    text-align: center;
+
+    .container {
+      @extend %flex-column;
+
+      align-items: center;
+
+      @include on-tablet {
+        align-items: flex-end;
+      }
+    }
+
+    @include on-tablet {
+      transform: translate(100%);
+      transition: transform ($transition-duration * 2) ease-out;
+    }
+  }
+
+  &__title {
+    font-family: $primary-font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(45px, 5.4vw, 72px);
+    line-height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    color: $black;
+
+    @include on-tablet {
+      padding-top: 0;
+      padding-bottom: 38px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 89px;
+    }
+  }
+
+  @include on-tablet {
+    & {
+      align-items: center;
+      flex-direction: row-reverse;
+    }
+
+    &__bg {
+      width: 50%;
+    }
+
+    &__content {
+      padding-bottom: 20px;
+      text-align: end;
+      width: 50%;
+    }
+  }
+}

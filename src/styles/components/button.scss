@@ -1,0 +1,48 @@
+.button {
+  font-family: $secondary-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: $font-size-md;
+  line-height: 100%;
+  padding: 18px 80px;
+  width: 100%;
+  background: $white;
+  color: #0f0e08;
+  border: 1px solid $primary-color;
+  align-items: center;
+  text-transform: uppercase;
+  position: relative;
+  text-decoration: none;
+
+  @extend %flex-center;
+
+  @media screen and (min-width: 479px) {
+    width: inherit;
+  }
+
+  @include on-tablet {
+    padding: 27px 125px 27px 75px;
+  }
+
+  .icon {
+    @extend %flex-center;
+
+    align-items: center;
+    position: absolute;
+    background: $primary-color;
+    height: 100%;
+    width: 50px;
+    right: 0;
+    transition: all $transition-duration;
+
+    @include on-tablet {
+      width: 70px;
+    }
+  }
+
+  &:hover {
+    .icon {
+      width: 100%;
+    }
+  }
+}
