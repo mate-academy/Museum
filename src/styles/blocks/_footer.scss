@@ -27,6 +27,12 @@
       max-width: 550px;
       gap: 15px;
     }
+
+    @include big-phone {
+      max-width: none;
+      flex-direction: column;
+      gap: 40px;
+    }
   }
 
   &__logo-social {
@@ -34,15 +40,36 @@
     flex-direction: column;
     align-self: flex-start;
     gap: 62px;
+
+    @include big-phone {
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      gap: 0;
+    }
   }
 
   &__social {
     display: flex;
     justify-content: space-between;
+    gap: 22px;
 
     @include small-tablet {
       gap: 32px;
     }
+
+    @include big-phone {
+      gap: 20px;
+    }
+  }
+
+  &__social--hover {
+    transition: $transition-value-default;
+  }
+
+  &__social-link:hover .footer__social--hover{
+    fill: $orange-color;
   }
 
   &__info {
@@ -64,7 +91,13 @@
       }
 
       max-width: 437px;
+      gap: 53px;
+    }
 
+    @include big-phone {
+      max-width: none;
+      justify-content: space-between;
+      gap: 20px;
     }
   }
 
@@ -88,6 +121,24 @@
 
   &__information-link {
     color: $black-color;
+
+    @include hover(color, $orange-color);
+  }
+
+  &__link-to-top {
+    display: none;
+
+    @include big-phone {
+      display: block;
+      position: absolute;
+      bottom: $footer-link-up-position;
+      right: 0;
+      width: $footer-link-up-height;
+      height: $footer-link-up-height;
+      background-image: url(../images/icons/arrow-up.svg);
+      background-repeat: no-repeat;
+      background-size: auto;
+    }
   }
 
   &__separator {
@@ -112,8 +163,14 @@
       margin-top: 120px;
     }
 
-    @include phone {
+    @include big-phone {
       margin-top: 80px;
+    }
+
+    @include phone {
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 10px;
     }
   }
 
