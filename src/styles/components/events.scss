@@ -1,0 +1,123 @@
+.events {
+  padding: 35px 0 50px;
+
+  &__content {
+    @extend %flex-column;
+
+    padding-bottom: 60px;
+    align-items: center;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 5%;
+    }
+
+    @include on-desktop {
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    font-family: $primary-font;
+    font-weight: 700;
+    font-size: clamp(36px, 5vw, 48px);
+    line-height: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+    color: $main-text-color;
+  }
+
+  &__img-wrapper {
+    margin-bottom: 16px;
+    overflow: hidden;
+
+    @include on-tablet {
+      margin-bottom: 0;
+      width: 50%;
+    }
+
+    @include on-desktop {
+      width: 60%;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform $transition-duration ease;
+    cursor: zoom-in;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__info {
+    @extend %flex-column;
+
+    @include on-tablet {
+      width: 50%;
+    }
+
+    @include on-desktop {
+      max-width: 370px;
+    }
+  }
+
+  &__info-text {
+    font-family: $secondary-font;
+    font-weight: 500;
+    font-size: $font-size-md;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #687480;
+  }
+
+  &__info-subtitle {
+    font-family: $secondary-font;
+    font-weight: 600;
+    font-size: $font-size-md;
+    line-height: 150%;
+    color: $primary-color;
+  }
+
+  &__info-date {
+    @extend%flex-center;
+
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
+  &__info-title {
+    font-family: $primary-font;
+    font-weight: 400;
+    font-size: clamp(28px, 3vw, 36px);
+    line-height: 100%;
+    color: $main-text-color;
+    margin-bottom: 10px;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      margin-left: 10px;
+      top: 50%;
+      transform: translateY(-35%);
+      width: 10px;
+      height: 10px;
+      background-color: $active-color;
+      border-radius: 0;
+      animation: shape-change 0.5s infinite alternate;
+    }
+  }
+
+  &__info-description {
+    font-family: $secondary-font;
+    font-weight: 400;
+    font-size: $font-size-md;
+    line-height: 150%;
+    color: $secondary-text-color;
+  }
+}
