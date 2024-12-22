@@ -1,0 +1,51 @@
+.menu {
+  &__wrapper {
+    background-color: $green-color;
+    width: 100%;
+    min-height: 233px;
+
+    transform: translateY(-100%);
+    transition: $transition-value-default;
+
+    @include tablet {
+      min-height: 225px;
+    }
+  }
+
+  &__content {
+    min-height: 185px;
+    display: flex;
+    justify-content: space-between;
+    gap: 38px;
+
+    @include tablet {
+      gap: 30px;
+    }
+
+    @include big-phone {
+      padding-bottom: 27px;
+    }
+
+    @include big-phone {
+      flex-direction: column;
+    }
+  }
+
+  &__separator {
+    width: 1px;
+    min-height: 100%;
+    background-color: $white-color;
+    opacity: 0.5;
+
+    @include header-top-indent(margin-top, 39px);
+
+    @include big-phone {
+      width: 100%;
+      min-height: 1px;
+      position: sticky;
+
+      @include separator-top;
+      @include header-top-indent(margin-top, 0);
+    }
+  }
+}
