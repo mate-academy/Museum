@@ -1,0 +1,121 @@
+.contacts {
+  background-image: url('../images/contacts/contacts-bg.avif'),
+    url('../images/contacts/contacts-bg.webp'),
+    url('../images/contacts/contacts-bg.jpg');
+
+  @extend %background-cover;
+
+  &__content {
+    @extend %flex-column;
+
+    align-items: center;
+    padding: 82px 0;
+    max-width: 470px;
+    margin: 0 auto;
+
+    @include on-desktop {
+      padding: 164px 0;
+      max-width: 570px;
+    }
+  }
+
+  &__title {
+    font-family: $primary-font;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    color: $white;
+  }
+
+  &__subtitle {
+    font-family: $secondary-font;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+    margin-bottom: 50px;
+    color: $white;
+  }
+
+  &__form {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    label {
+      width: calc(100% - 50px);
+    }
+
+    @include on-tablet {
+      height: 70px;
+      gap: 16px;
+
+      label {
+        width: calc(100% - 70px);
+      }
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__form-input {
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    height: 50px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 18px 23px;
+    border-radius: 0;
+
+    @include on-tablet {
+      height: 70px;
+      padding: 28px 24px;
+    }
+
+    &::placeholder {
+      font-family: $primary-font;
+      font-size: 16px;
+      line-height: 100%;
+      color: #687480;
+    }
+  }
+
+  &__form-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: $active-color;
+    position: relative;
+    cursor: pointer;
+    transition: border-radius $transition-duration;
+
+    &:hover {
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-image: url('../images/icons/arrow-right.svg');
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

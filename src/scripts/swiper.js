@@ -1,6 +1,6 @@
 import Swiper from 'swiper';
 import { Pagination } from 'swiper/modules';
-import 'swiper/swiper-bundle.css';
+import 'swiper/swiper-bundle.min.css';
 
 new Swiper('#swiper-gallery', {
   modules: [Pagination],
@@ -19,7 +19,6 @@ new Swiper('#swiper-gallery', {
       slidesPerView: 2,
       spaceBetween: 10,
     },
-
     1024: {
       enabled: false,
       spaceBetween: 0,
