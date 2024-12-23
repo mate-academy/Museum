@@ -1,0 +1,178 @@
+.menu {
+  $line-height: 140.62%;
+
+  font-style: normal;
+  font-size: $font-size-md;
+  color: $white;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+  overflow-y: auto;
+  transform: translateY(-100%);
+  transition: all $transition-duration;
+
+  &__wrapper {
+    padding-top: 27px;
+    padding-bottom: 27px;
+    background-color: $primary-color;
+  }
+
+  &__wrapper-content {
+    @extend %flex-column;
+
+    position: relative;
+    justify-content: space-between;
+
+    @media screen and (min-width: 880px) {
+      flex-direction: row;
+      gap: 5%;
+    }
+
+    @include on-desktop {
+      gap: 10%;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    border-radius: 50%;
+
+    @include hover(background, $active-color);
+  }
+
+  &__close-img {
+    width: 35px;
+    height: 35px;
+    display: block;
+  }
+
+  &:target {
+    pointer-events: all;
+    transform: translateY(0);
+    transition: all $transition-duration;
+  }
+
+  &__content {
+    @extend %flex-end;
+
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 24px;
+
+    @media screen and (min-width: 400px) {
+      justify-content: center;
+    }
+
+    @media screen and (min-width: 880px) {
+      width: 100%;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 32px;
+
+    @media screen and (min-width: 400px) {
+      column-gap: 70px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+  }
+
+  &__link {
+    padding: 10px;
+    font-family: $secondary-font;
+    font-weight: 500;
+    line-height: 100%;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 20px;
+
+    @include hover(background, $active-color);
+  }
+
+  &__schedule {
+    @extend %flex-column;
+
+    padding-top: 24px;
+    span {
+      font-family: inherit;
+      font-weight: 700;
+    }
+
+    @media screen and (min-width: 400px) {
+      text-align: center;
+    }
+
+    @media screen and (min-width: 880px) {
+      padding-top: 0;
+      text-align: left;
+      width: 100%;
+    }
+  }
+
+  hr {
+    background-color: $white;
+    height: 1px;
+    border: none;
+  }
+
+  &__schedule-title {
+    font-family: $secondary-font;
+    font-weight: 400;
+    font-size: $font-size-sm;
+    line-height: $line-height;
+    margin-bottom: 20px;
+  }
+
+  &__schedule-content {
+    @extend %flex-column;
+
+    justify-content: space-between;
+
+    @include on-tablet {
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
+
+  &__schedule-days {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__schedule-item {
+    font-family: $secondary-font;
+    font-weight: 400;
+    font-size: $font-size-sm;
+    line-height: $line-height;
+    padding-bottom: 1px;
+  }
+
+  &__schedule-text {
+    font-family: $secondary-font;
+    font-weight: 400;
+    font-size: $font-size-sm;
+    line-height: $line-height;
+
+    @media screen and (min-width: 880px) {
+      margin-top: 0;
+      max-width: 175px;
+    }
+  }
+}
