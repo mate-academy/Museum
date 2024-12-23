@@ -34,3 +34,16 @@
 .container {
   @include content-padding-lnline;
 }
+
+@mixin svg-mask($path) {
+  width: 24px;
+  height: 24px;
+  background-color: $black;
+  mask: url($path) no-repeat center;
+  mask-size: cover;
+  transition: background-color $transition-duration ease-in-out;
+
+  &:hover {
+    background-color: $active-color;
+  }
+}

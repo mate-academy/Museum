@@ -1,8 +1,8 @@
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 
-function initEventsGallery() {
-  Fancybox.bind('[data-fancybox="events-gallery"]', {
+function initEventsGallery(galleryDataAttr) {
+  Fancybox.bind(galleryDataAttr, {
     contentClick: 'iterateZoom',
     Images: {
       Panzoom: {

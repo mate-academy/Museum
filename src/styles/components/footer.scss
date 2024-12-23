@@ -1,0 +1,168 @@
+.footer {
+  padding: 50px 0;
+
+  &__wrapper {
+    @extend %flex-column;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: row;
+      gap: 45px;
+    }
+  }
+
+  &__content {
+    @extend %flex-column;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 40px;
+      justify-content: space-between;
+    }
+
+    @include on-desktop {
+      gap: 100px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      flex-direction: column;
+      justify-content: initial;
+      gap: 50px;
+    }
+  }
+
+  &__logo-link {
+    display: inline-block;
+  }
+
+  .facebook {
+    @include svg-mask('../images/icons/facebook.svg');
+  }
+
+  .instagram {
+    @include svg-mask('../images/icons/instagram.svg');
+  }
+
+  &__logo-img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__social-link {
+    display: inline-block;
+  }
+
+  &__social-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
+
+  &__body {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 50px;
+  }
+
+  &__schedule {
+    width: 50%;
+  }
+
+  &__schedule-content {
+    @extend %flex-column;
+
+    gap: 30px;
+  }
+
+  &__contacts {
+    width: 50%;
+  }
+
+  &__text,
+  &__link {
+    font-family: $secondary-font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: $font-size-sm;
+    line-height: 140.62%;
+    color: $main-text-color;
+    text-decoration: none;
+    span {
+      font-family: inherit;
+      font-weight: 700;
+    }
+  }
+
+  &__link {
+    @include hover(color, $active-color);
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  hr {
+    background-color: rgba(26, 90, 76, 0.5);
+    height: 1px;
+    border: none;
+
+    @include on-desktop {
+      height: auto;
+      width: 1px;
+    }
+  }
+
+  &__nav {
+    margin-top: 40px;
+
+    @include on-desktop {
+      margin-top: 0;
+    }
+
+    .menu__list {
+      gap: 8px 13px;
+    }
+  }
+
+  &__bottom {
+    text-align: center;
+    margin-top: 60px;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__copyright {
+    font-family: $secondary-font;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 140.62%;
+    color: $main-text-color;
+
+    &:first-child {
+      margin-bottom: 10px;
+
+      @include on-tablet {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
