@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    font-family: 'IBM Plex Sans', serif;
+    color: $main-text-color;
+    font-size: $page-font-size;
+    line-height: $page-line-height;
+
+    &:has(.page__menu:target)::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1001;
+
+    transform: translateY(-100%);
+    transition: all 0.3s;
+    pointer-events: none;
+
+    &:target {
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &__main {
+    margin-block-start: 70px;
+
+    @include on-tablet {
+      margin-block-start: 88px;
+    }
+
+    @include on-desktop {
+      margin-block-start: 200px;
+    }
+  }
+
+  &__subscription {
+    position: relative;
+    margin-block-start: 100px;
+
+    @include on-desktop {
+      margin-block-start: 200px;
+    }
+  }
+
+  &__footer {
+    margin-block-start: 50px;
+  }
+}

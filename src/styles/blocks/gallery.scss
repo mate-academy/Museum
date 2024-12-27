@@ -1,0 +1,131 @@
+.gallery {
+  &__title {
+    text-align: center;
+    color: $heading-color;
+    font-family: 'Montserrat', serif;
+    font-size: 36px;
+    line-height: 1;
+
+    @include on-tablet {
+      font-size: 48px;
+      text-align: left;
+      padding-inline-start: $padding-inline-tablet;
+    }
+
+    @include on-desktop {
+      padding-inline-start: $padding-inline-desktop;
+    }
+  }
+
+  &__images-wrapper {
+    margin-block-start: 40px;
+  }
+
+  &__images {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include on-desktop {
+      @include page-grid;
+      row-gap: 30px;
+      padding-inline: $padding-inline-desktop;
+    }
+  }
+
+  &__image {
+    display: block;
+    height: 410px;
+    flex: 0 0;
+    width: 87.5%;
+    scroll-snap-align: center;
+    object-fit: cover;
+
+    @include on-tablet {
+      height: 540px;
+    }
+
+    @include on-desktop {
+      width: 100%;
+    }
+
+    &:first-child {
+      margin-inline-start: $padding-inline-mobile;
+
+      @include on-tablet {
+        margin-inline-start: $padding-inline-tablet;
+      }
+
+      @include on-desktop {
+        margin-inline-start: 0;
+      }
+    }
+
+    &:last-child {
+      margin-inline-end: $padding-inline-mobile;
+
+      @include on-tablet {
+        margin-inline-end: $padding-inline-tablet;
+      }
+
+      @include on-desktop {
+        margin-inline-end: 0;
+      }
+    }
+
+    &--span-4 {
+      @include on-desktop {
+        grid-column: span 4;
+      }
+    }
+
+    &--span-8 {
+      @include on-desktop {
+        grid-column: span 8;
+      }
+    }
+
+    &--height-600 {
+      @include on-desktop {
+        height: 600px;
+      }
+    }
+
+    &--height-360 {
+      @include on-desktop {
+        height: 360px;
+      }
+    }
+  }
+
+  &__images-nav {
+    display: flex;
+    justify-content: center;
+    margin-block-start: 20px;
+    gap: 22px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__images-link {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: $gallery-nav;
+
+    &:hover {
+      background-color: $accent-color;
+    }
+  }
+}

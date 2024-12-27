@@ -1,0 +1,201 @@
+.header {
+  height: 100vh;
+
+  @include on-tablet {
+    @include page-grid;
+    grid-template-rows: min-content;
+
+    padding-inline-start: $padding-inline-tablet;
+  }
+
+  @include on-desktop {
+    padding-inline-start: $padding-inline-desktop;
+  }
+
+  &__image {
+    display: block;
+    height: 300px;
+
+    object-fit: cover;
+    object-position: bottom;
+
+    @include on-tablet {
+      position: absolute;
+      right: 0;
+      height: 100%;
+      object-position: center;
+
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__menu-icon {
+    position: absolute;
+    top: 25px;
+    left: $padding-inline-mobile;
+
+    @include on-tablet {
+      position: static;
+      margin-block-start: 40px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 10;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-family: 'Montserrat', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: $heading-color;
+    line-height: 1;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 36px;
+      grid-column: 4 / 6;
+      padding-block-start: 15px;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__content {
+    margin-block-start: 20px;
+
+    @include on-tablet {
+      margin-block-start: 65px;
+
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      position: relative;
+      margin-block-start: 145px;
+
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__title {
+    font-size: 45px;
+    font-family: 'Montserrat', serif;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      font-size: 54px;
+      line-height: 1.2;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    margin-block-start: 20px;
+    margin-inline: auto;
+    width: 270px;
+    height: 70px;
+    border: 1px solid $accent-color;
+    cursor: pointer;
+    text-decoration: none;
+
+    @include on-tablet {
+      margin-block-start: 40px;
+      margin-inline: 0;
+    }
+
+    @include on-desktop {
+      margin-block-start: 90px;
+      margin-inline-start: auto;
+    }
+  }
+
+  &__tickets-text {
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'IBM Plex Sans';
+    color: $heading-color;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__tickets-icon {
+    background-image: url(../images/tickets-icon.svg);
+    width: 70px;
+    height: 70px;
+    background-color: $accent-color;
+  }
+
+  &__events {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      cursor: pointer;
+
+      transform: rotate(-90deg);
+      transform-origin: left center;
+
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+      color: $secondary-text-color;
+
+      &::before {
+        content: '';
+        background-color: $accent-color;
+        display: inline-block;
+        width: 70px;
+        height: 1px;
+        margin-inline-end: 20px;
+      }
+    }
+  }
+
+  &__image-wrapper {
+    margin-inline: auto;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      margin-inline-end: 0;
+      margin-inline-start: auto;
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    display: block;
+  }
+}

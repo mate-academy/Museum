@@ -1,0 +1,105 @@
+.subscription {
+  display: flex;
+  align-items: center;
+  height: 380px;
+
+  background-image: url(../images/subscription.jpeg);
+  background-size: cover;
+  background-position: center;
+
+  @include on-desktop {
+    height: 550px;
+  }
+
+  &__container {
+    flex-grow: 1;
+
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / -4;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-family: 'Montserrat', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+
+    @include on-tablet {
+      font-size: 48px;
+    }
+  }
+
+  &__info {
+    margin-block-start: 20px;
+
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+  }
+
+  &__form {
+    display: flex;
+    margin-block-start: 50px;
+    text-align: center;
+
+    @include on-tablet {
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__input {
+    display: block;
+    padding-inline-start: 25px;
+    border: none;
+    flex-grow: 1;
+
+    &::placeholder {
+      font-family: 'Montserrat', serif;
+      color: $secondary-text-color;
+      font-size: 14px;
+      line-height: 1;
+    }
+  }
+
+  &__button {
+    display: block;
+    border: none;
+    background-color: $subscription-button-color;
+    background-image: url(../images/subscription-icon.svg);
+    width: 50px;
+    height: 50px;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &::before {
+    inset: 0 0 0 0;
+    content: '';
+    position: absolute;
+    opacity: 0.75;
+    background-color: #000000;
+  }
+}
