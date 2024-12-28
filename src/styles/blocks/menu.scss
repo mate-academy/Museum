@@ -1,0 +1,116 @@
+.menu {
+  font-size: 14px;
+  color: #fff;
+
+  &__container {
+    @include page-grid;
+
+    background-color: $accent-color;
+
+    padding-block: 27px;
+
+    @include on-tablet {
+      padding-block: 40px;
+    }
+
+    @include on-desktop {
+      padding-block-end: 48px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 24px;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / -2;
+    }
+  }
+
+  &__icon {
+    background-image: url(../images/icon-close.svg);
+  }
+
+  &__navigation {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: auto auto;
+    grid-template-rows: min-content min-content;
+    list-style-type: none;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+
+    @include on-tablet {
+      row-gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+      font-size: 22px;
+    }
+  }
+
+  &__navigation-item {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__separator {
+    grid-column: span 2;
+    height: 1px;
+    background-color: #fff;
+    opacity: 0.5;
+
+    @include on-tablet {
+      height: auto;
+      width: 1px;
+    }
+  }
+
+  &__schedule {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      width: 340px;
+    }
+
+    @include on-desktop {
+      width: 370px;
+    }
+  }
+
+  &__schedule-title {
+    margin-block-end: 20px;
+  }
+
+  &__schedule-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 30px;
+    }
+  }
+
+  &__schedule-list {
+    list-style-type: none;
+  }
+
+  &__schedule-item {
+    width: max-content;
+  }
+}
