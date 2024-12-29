@@ -1,0 +1,95 @@
+.about-us {
+  @include page-grid;
+  @include central;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url(../images/about-us-background.jpg);
+  min-height: 380px;
+  background-size: cover;
+  background-position: center;
+
+  @include on-desktop {
+    height: 550px;
+  }
+
+  &__title {
+    text-align: center;
+    font-family: Montserrat, serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+
+    @include on-tablet {
+      font-size: 48px;
+    }
+  }
+
+  &__text {
+    margin-block-start: 20px;
+
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+  }
+
+  &__form {
+    display: flex;
+    margin-block-start: 50px;
+    text-align: center;
+
+    @include on-tablet {
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__input {
+    display: block;
+    padding-inline-start: 25px;
+    border: none;
+    flex-grow: 1;
+
+    &::placeholder {
+      font-family: Montserrat, serif;
+      color: $secondary-text-color;
+      font-size: 14px;
+      line-height: 1;
+    }
+  }
+
+  &__button {
+    display: block;
+    border: none;
+    background-color: $before-orange;
+    background-image: url(../images/icons/arrow-white.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 8px;
+
+    height: 50px !important;
+    width: 50px !important;
+
+    @include on-tablet {
+      height: 70px !important;
+      width: 70px !important;
+    }
+  }
+
+  & .container {
+    @include content-padding-inline;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / -4;
+    }
+  }
+}

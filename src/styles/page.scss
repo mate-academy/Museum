@@ -1,0 +1,45 @@
+.page {
+  min-width: 320px;
+  scroll-behavior: smooth;
+
+  &__body {
+    font-family: 'IBM Plex Sans', serif;
+    color: $main-text-color;
+
+    &:has(.page__menu:target)::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__menu {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 101;
+
+    transform: translateY(-100%);
+    transition: all 0.3s;
+    pointer-events: none;
+
+    &:target {
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  &__footer {
+    margin-block-start: 50px;
+  }
+}

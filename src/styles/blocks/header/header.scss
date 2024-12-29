@@ -1,0 +1,137 @@
+.header {
+  z-index: 1;
+  position: relative;
+  box-sizing: border-box;
+
+  &::before {
+    min-height: 300px;
+    background-image: url(../images/header-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scaleX(-1);
+    position: absolute;
+    content: '';
+    width: 100%;
+    z-index: -1;
+
+    @include on-tablet {
+      left: 50%;
+      max-width: 50%;
+      height: 100%;
+    }
+  }
+
+  & .grid {
+    @include page-grid;
+    @include content-padding-inline;
+  }
+
+  &__top-bar {
+    padding-top: 30px;
+    grid-column: 1/-1;
+  }
+
+  &__content {
+    margin-top: 280px;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      margin-top: 64px;
+      grid-column: 1/4;
+    }
+
+    @include on-desktop {
+      margin-top: 143px;
+      grid-column: 1/6;
+    }
+  }
+
+  &__tickets {
+    grid-column: 1/-1;
+
+    display: flex;
+    margin-top: 20px;
+    height: 50px;
+    border: 1px solid $main-green;
+    cursor: pointer;
+    text-decoration: none;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      margin-block-start: 38px;
+      grid-column: 1/4;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      margin-block-start: 89px;
+      grid-column: 3/6;
+    }
+
+    &-text {
+      display: flex;
+      justify-content: center;
+      width: 90%;
+      align-items: center;
+      font-family: 'IBM Plex Sans', serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 16px;
+      color: $main-gray;
+      text-transform: uppercase;
+    }
+
+    &-icon {
+      background-image: url(../images/icons/arrow-white.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 8px;
+      background-color: $main-green;
+
+      height: 50px !important;
+      width: 50px !important;
+
+      @include on-tablet {
+        height: 70px !important;
+        width: 70px !important;
+      }
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 1/2;
+      align-items: center;
+      cursor: pointer;
+      margin-top: 84px;
+
+      transform: rotate(-90deg);
+      transform-origin: left center;
+
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+      color: $secondary-text-color;
+      margin-inline-end: -40px;
+
+      @include hover(color, rgb(53, 152, 19));
+
+      &::before {
+        content: '';
+        background-color: $secondary-text-color;
+        display: inline-block;
+        width: 70px;
+        height: 1px;
+        margin-inline-end: 10px;
+        z-index: 3;
+      }
+    }
+  }
+}
