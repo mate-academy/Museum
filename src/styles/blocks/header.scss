@@ -1,0 +1,151 @@
+.header {
+  background-image: url(/src/images/header-img.png);
+  background-size: 100% 300px;
+  background-repeat: no-repeat;
+
+  @include on-tablet {
+    background-size: 48% 100%;
+    background-position-x: right;
+  }
+
+  @include on-desktop {
+    background-size: 56% 100%;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    padding-top: 9px;
+
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__logo {
+    margin: 0 auto;
+
+    @include on-tablet {
+      grid-column: 4 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__content {
+    padding-top: 250px;
+
+    @include on-tablet {
+      padding: 64px 0 20px;
+
+      @include page-grid;
+    }
+
+    @include on-small-desktop {
+      padding: 143px 0 0;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    font-family: Montserrat, serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+    color: #0f0e08;
+
+    @include on-tablet {
+      text-align: left;
+      grid-column: 1 / 4;
+      margin-bottom: 38px;
+    }
+
+    @include on-large-tablet {
+      font-size: 54px;
+    }
+
+    @include on-small-desktop {
+      font-size: 72px;
+      margin-bottom: 89px;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    height: 50px;
+    width: 100%;
+    font-family: 'IBM Plex Sans', serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    text-transform: uppercase;
+    border: 1px solid #1a5a4c;
+    border-right: 50px solid #1a5a4c;
+    color: #0f0e08;
+
+    @include hover(background-color, #1a5a4c);
+
+    @include on-tablet {
+      grid-column: 1 /4;
+      width: 79%;
+      height: 70px;
+      border-right: 70px solid #1a5a4c;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 6;
+      width: 100%;
+    }
+
+    &-arrow {
+      position: absolute;
+      right: -38px;
+
+      @include on-tablet {
+        right: -48px;
+      }
+    }
+  }
+
+  &__events {
+    display: none;
+
+    font-family: 'IBM Plex Sans', serif;
+    font-size: 14px;
+    cursor: pointer;
+    transform-origin: 0;
+    text-transform: uppercase;
+    color: #687480;
+    margin-top: 84px;
+    margin-inline-end: -40px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    transform: rotate(-90deg);
+
+    @include hover(transform, rotate(-80deg));
+
+    &::before {
+      content: '';
+      background-color: #1a5a4c;
+      display: inline-block;
+      width: 70px;
+      height: 1px;
+      margin-inline-end: 10px;
+      z-index: 3;
+    }
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 1 / 2;
+      align-items: center;
+    }
+  }
+}
