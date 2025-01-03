@@ -27,8 +27,8 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 8. Add favicon
 9. Add a smooth scroll for the whole page
 10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
-11. The form shouldn’t submit empty
-12. The buttons "exhibitions" and "tickets" should lead to the block with current events
+11. The form shouldn’t submit empty +
+12. The buttons "exhibitions" and "tickets" should lead to the block with current events +
 13. The button "about us" should lead to the email digest
 14. Facebook and Instagram icons in the footer should be clickable and open the museum's social networks in a new tab
 15. Pictures in the gallery and exhibitions sections should increase on hover
@@ -49,7 +49,7 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Museum/).
+  [DEMO LINK](https://NataliiaNudyk.github.io/Museum/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.
