@@ -1,0 +1,53 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    background-color: $white-color;
+    min-width: $phone-min-width;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transition: all $time-transform;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
+
+.scrollTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $green-color;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+
+  @include on-tablet {
+    display: none;
+  }
+
+  &__link {
+    text-decoration: none;
+    height: 12px;
+    width: 10px;
+  }
+}
+
+.container {
+  @include content-padding-inline;
+}

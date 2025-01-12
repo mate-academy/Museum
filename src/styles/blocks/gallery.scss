@@ -1,0 +1,137 @@
+.gallery {
+  padding-top: 183px;
+  padding-bottom: 100px;
+
+  @include on-tablet {
+    padding-top: 302px;
+    padding-bottom: 200px;
+  }
+
+  @include on-desktop {
+    padding-top: 208px;
+    padding-bottom: 92px;
+  }
+
+  &__title {
+    @include font-montserrat-bold;
+
+    padding: 0;
+    font-size: 36px;
+    line-height: 36px;
+    text-align: left;
+    color: $dark-font-color;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 48px;
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__dotted {
+    margin-top: 20px;
+    margin-inline: auto;
+    height: 9px;
+    width: 102px;
+    display: flex;
+    justify-content: space-between;
+
+    @include on-tablet {
+      margin-top: 32px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    background-color: rgba(224, 224, 224, 1);
+
+    &--active {
+      background-color: $green-color;
+    }
+  }
+
+  &__images {
+    justify-content: center;
+    margin-inline: auto;
+    display: flex;
+    gap: 20px;
+
+    @include on-desktop {
+      @include page-grid;
+
+      width: 1170px;
+      row-gap: 30px;
+    }
+  }
+
+  &__image {
+    height: 410px;
+
+    @include on-tablet {
+      height: 543px;
+    }
+
+    @include hover(transform, scale(1.1));
+
+    &-additional {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    &-1 {
+      @include on-desktop {
+        display: block;
+        height: 600px;
+        grid-column: 1/5;
+      }
+    }
+
+    &-2 {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+        height: 600px;
+        grid-column: 5/13;
+      }
+    }
+
+    &-3 {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+        height: 360px;
+        grid-column: 1/9;
+      }
+    }
+
+    &-4 {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+        height: 360px;
+        grid-column: 9/13;
+      }
+    }
+  }
+}
