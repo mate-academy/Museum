@@ -40,3 +40,15 @@ function changeSlide(number) {
     images[4].classList.remove('gallery__image--notActive');
   }
 }
+
+const body = document.querySelector('.page__body');
+const open = document.querySelector('.header__menu');
+const close = document.querySelector('.menu__close');
+
+open.addEventListener('click', () => {
+  body.classList.add('no-scroll');
+})
+
+close.addEventListener('click', () => {
+  body.classList.remove('no-scroll');
+})
