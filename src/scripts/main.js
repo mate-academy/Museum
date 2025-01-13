@@ -7,6 +7,14 @@ const right = document.querySelector('.gallery__switch--right');
 const additionalImage = document.querySelector('.gallery__image-additional');
 let index = 0;
 
+left.addEventListener('click', () => {
+  changeSlide(-1);
+});
+
+right.addEventListener('click', () => {
+  changeSlide(1);
+})
+
 function changeSlide(number) {
   dotted[index].classList.remove('gallery__dot--active');
   images[index].classList.remove('gallery__image--active');
