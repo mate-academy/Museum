@@ -1,0 +1,123 @@
+.lections {
+  display: grid;
+  row-gap: 60px;
+
+  &__lection-img {
+    width: 100%;
+    z-index: -1;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        position: relative;
+        display: block;
+      }
+
+      @include on-desctop {
+        display: none;
+      }
+    }
+
+    &--desctop {
+      display: none;
+
+      @include on-desctop {
+        display: block;
+      }
+    }
+  }
+
+  &__wrapper {
+    // padding-top: 55%;
+
+    @include on-tablet {
+      padding-top: 0;
+    }
+
+    @include on-desctop {
+      @include page-grid;
+    }
+  }
+
+  &__description {
+    padding-block: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 0 0 $color-green-shadow;
+
+    @include on-tablet {
+      padding: 45px 55px;
+      margin-inline: 65px;
+      transform: translateY($shift-lection-tablet);
+    }
+
+    @include on-desctop {
+      margin-inline: 0;
+      padding: 45px 100px 50px;
+      grid-column: 4 / 10;
+      transform: translateY($shift-lection-desctop);
+    }
+  }
+
+  &__info {
+    margin: 0;
+    margin-bottom: 20px;
+    padding-inline: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include on-tablet {
+      justify-content: start;
+      padding-inline: 0;
+    }
+  }
+
+  &__type {
+    margin: 0;
+    margin-right: 15px;
+    font-weight: 500;
+    color: $color-grey;
+
+    @include on-tablet {
+      margin-right: 140px;
+      font-size: 14px;
+      line-height: 14px;
+    }
+
+    @include on-desctop {
+      margin-right: 130px;
+    }
+  }
+
+  &__date {
+    margin: 0;
+    font-weight: 700;
+    line-height: 24px;
+    color: $color-green;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    line-height: 100%;
+    font-weight: 400;
+    text-align: center;
+    color: $color-black;
+
+    @include on-tablet {
+      text-align: start;
+      font-size: 36px;
+    }
+  }
+}
