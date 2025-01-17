@@ -1,0 +1,132 @@
+.header {
+  position: relative;
+
+
+  &__top-bar {
+    margin-inline: $padding-content;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      height: 384px;
+      flex-direction: row;
+    }
+
+    @include on-desktop {
+      height: 655px;
+    }
+  }
+
+  &__image-block {
+    width: 100%;
+
+    @include on-tablet {
+      order: 1;
+    }
+  }
+
+  &__image {
+    height: 300px;
+    background-image: url(../images/museum-front.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-inline: -$padding-content;
+
+    @include on-tablet {
+      height: 100%;
+      margin: 0;
+      background-size: cover;
+      background-position: 50%;
+      margin-top: 0;
+      margin-inline: 0;
+      position: absolute;
+      right: 0;
+
+      left: 50%;
+
+    }
+
+    @include on-desktop {
+      // left: 45%;
+
+      left: 45%;
+
+    }
+  }
+
+  &__info-block {
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      margin-bottom: 19px;
+    }
+
+    @include on-desktop {
+      justify-content: center;
+      margin-bottom: 0;
+      margin-top: 87px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 38px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 89px;
+    }
+  }
+
+  &__button {
+    @include on-desktop {
+    align-self: end;
+    }
+  }
+
+  &__events--mark {
+    display: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    width: max-content;
+    color: #687480;
+
+    rotate: 270deg;
+
+    &::before {
+      content: '';
+      width: 70px;
+      height: 1px;
+      display: block;
+      text-align: center;
+
+      background-color: #1A5A4C;
+
+    }
+
+    @include on-desktop {
+      display: flex;
+      align-items: center;
+      column-gap: 7px;
+      left: 0;
+      bottom: 50px;
+      position: absolute;
+    }
+
+    &-container {
+      position: relative;
+    }
+  }
+}

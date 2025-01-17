@@ -1,0 +1,59 @@
+.button {
+  --height-button: 50px;
+
+  height: var(--height-button);
+  border: 1px solid #1A5A4C;
+  background: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: var(--height-button);
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+
+  @include hover(background-color, #1A5A4C);
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: var(--height-button);
+    height: 100%;
+    background-image: url("../images/icons/arrow.svg");
+    background-size: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $main-green;
+  }
+
+  @include on-tablet {
+    width: 270px;
+
+    --height-button: 70px;
+  }
+
+  &--small {
+    padding: 0;
+    margin: 0;
+    display: block;
+    border: none;
+    background-color: $main-orange;
+    min-width: 50px;
+    height: 50px;
+
+    background-image: url("../images/icons/arrow.svg");
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include hover(background-color, #1A5A4C);
+
+    @include on-tablet {
+      min-width: 70px;
+      height: 70px;
+    }
+  }
+}
