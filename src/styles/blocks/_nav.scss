@@ -1,0 +1,44 @@
+.nav {
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 28px;
+
+    &--row {
+      flex-direction: row;
+    }
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+
+    color: white;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: -4px;
+      background-color: white;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
