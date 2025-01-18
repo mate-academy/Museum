@@ -99,7 +99,7 @@
         </div>
       </div>
 
-      <hr>
+      <hr />
       <div class="menu__info">
         <div class="menu__info-title">Графік роботи</div>
 
@@ -128,8 +128,11 @@
 
         <div class="menu__info-footer">
           <strong>Вихідні:</strong>
-          понеділок, вівторок <br> Каса припиняє роботу за 1 годину <br>
-           до закриття музею
+          понеділок, вівторок
+          <br />
+          Каса припиняє роботу за 1 годину
+          <br />
+          до закриття музею
         </div>
       </div>
     </aside>
@@ -201,69 +204,87 @@
         </div>
       </div>
 
-      <div class="galery">
-        <div class="galery-title">Галерея</div>
-        <div class="slider-wrapper">
-          <div class="slider">
-            <div class="slides">
-              <div class="slide">
-                <img
-                  src="./images/slide1.png"
-                  alt="Slide 1"
-                />
-              </div>
-              <div class="slide">
-                <img
-                  src="./images/slide2.png"
-                  alt="Slide 2"
-                />
-              </div>
-              <div class="slide">
-                <img
-                  src="./images/slide3.png"
-                  alt="Slide 3"
-                />
-              </div>
-              <div class="slide">
-                <img
-                  src="./images/slide4.png"
-                  alt="Slide 4"
-                />
-              </div>
-              <div class="slide">
-                <img
-                  src="./images/slide1.png"
-                  alt="Slide 1"
-                />
-              </div>
-              <div class="slide">
-                <img
-                  src="./images/slide2.png"
-                  alt="Slide 2"
-                />
-              </div>
-              <div class="slide">
-                <img
-                  src="./images/slide3.png"
-                  alt="Slide 3"
-                />
-              </div>
-              <div class="slide">
-                <img
-                  src="./images/slide4.png"
-                  alt="Slide 4"
-                />
+      <section
+        class="gallery page__gallery"
+        id="gallery"
+      >
+        <div class="container">
+          <h2 class="gallery__title section-title">Галерея</h2>
+
+          <div class="gallery__slider slider">
+            <div class="slider__wrapper">
+              <div class="slider__photos slider__photos--1">
+                <div class="slider__item">
+                  <img
+                    src="./images/slide1.png"
+                    alt="1"
+                    class="slider__img"
+                  />
+                </div>
+                <div class="slider__item">
+                  <img
+                    src="./images/slide2.png"
+                    alt="1"
+                    class="slider__img"
+                  />
+                </div>
+                <div class="slider__item">
+                  <img
+                    src="./images/slide3.png"
+                    alt="1"
+                    class="slider__img"
+                  />
+                </div>
+                <div class="slider__item">
+                  <img
+                    src="./images/slide4.png"
+                    alt="1"
+                    class="slider__img"
+                  />
+                </div>
+                <div class="slider__item slider__item--5">
+                  <img
+                    src="./images/slide1.png"
+                    alt="1"
+                    class="slider__img"
+                  />
+                </div>
               </div>
             </div>
-            <div class="dots">
-              <span class="dot active"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
+            <div class="slider__buttons">
+              <button
+                class="slider__button slider__button--1 slider__button--active"
+              ></button>
+              <button class="slider__button slider__button--2"></button>
+              <button class="slider__button slider__button--3"></button>
+              <button class="slider__button slider__button--4"></button>
             </div>
           </div>
+
+          <div class="gallery__wrapper">
+            <img
+              src="./images/slide1.png"
+              alt="gallery1"
+              class="gallery__img gallery__img--column-4"
+            />
+            <img
+              src="./images/slide2.png"
+              alt="gallery1"
+              class="gallery__img gallery__img--column-8"
+            />
+            <img
+              src="./images/slide3.png"
+              alt="gallery1"
+              class="gallery__img gallery__img--column-8"
+            />
+            <img
+              src="./images/slide4.png"
+              alt="gallery1"
+              class="gallery__img gallery__img--column-4"
+            />
+          </div>
         </div>
-      </div>
+      </section>
 
       <div class="subscription">
         <h4 class="subscription__title">Підписка</h4>
@@ -279,29 +300,76 @@
     <footer></footer>
     <script src="scripts/main.js"></script>
     <script>
-      const slides = document.querySelector('.slides');
-      const dots = document.querySelectorAll('.dot');
+      const slider = document.querySelector('.slider');
+      const photos = document.querySelector('.slider__photos');
+      const btn1 = document.querySelector('.slider__button--1');
+      const btn2 = document.querySelector('.slider__button--2');
+      const btn3 = document.querySelector('.slider__button--3');
+      const btn4 = document.querySelector('.slider__button--4');
 
-      let currentIndex = 0;
+      const classes = [
+        'slider__photos--1',
+        'slider__photos--2',
+        'slider__photos--3',
+        'slider__photos--4',
+      ];
 
-      function showSlide(index) {
-        slides.style.transform = `translateX(-${index * 100}%)`;
+      btn1.addEventListener('click', slide1);
+      btn2.addEventListener('click', slide2);
+      btn3.addEventListener('click', slide3);
+      btn4.addEventListener('click', slide4);
 
-        dots.forEach((dot) => dot.classList.remove('active'));
-        dots[index].classList.add('active');
+      function slide1() {
+        const prevBtn = document.querySelector('.slider__button--active');
+
+        prevBtn.classList.remove('slider__button--active');
+        btn1.classList.add('slider__button--active');
+
+        for (let cl of classes) {
+          photos.classList.remove(cl);
+        }
+
+        photos.classList.add('slider__photos--1');
       }
 
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-          currentIndex = index;
-          showSlide(currentIndex);
-        });
-      });
+      function slide2() {
+        const prevBtn = document.querySelector('.slider__button--active');
 
-      setInterval(() => {
-        currentIndex = (currentIndex + 1) % dots.length;
-        showSlide(currentIndex);
-      }, 3000);
+        prevBtn.classList.remove('slider__button--active');
+        btn2.classList.add('slider__button--active');
+
+        for (let cl of classes) {
+          photos.classList.remove(cl);
+        }
+
+        photos.classList.add('slider__photos--2');
+      }
+
+      function slide3() {
+        const prevBtn = document.querySelector('.slider__button--active');
+
+        prevBtn.classList.remove('slider__button--active');
+        btn3.classList.add('slider__button--active');
+
+        for (let cl of classes) {
+          photos.classList.remove(cl);
+        }
+
+        photos.classList.add('slider__photos--3');
+      }
+
+      function slide4() {
+        const prevBtn = document.querySelector('.slider__button--active');
+
+        prevBtn.classList.remove('slider__button--active');
+        btn4.classList.add('slider__button--active');
+
+        for (let cl of classes) {
+          photos.classList.remove(cl);
+        }
+
+        photos.classList.add('slider__photos--4');
+      }
     </script>
   </body>
 </html>

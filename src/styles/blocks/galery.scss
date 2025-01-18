@@ -1,15 +1,148 @@
-.galery {
-  @include page-grid;
-  @include content-padding-inline;
+.gallery {
+  // display: none;
+ padding-inline: 20px;
 
-  grid-column: 1 / -1;
-  margin-bottom: 50px;
-  &-title {
-    grid-column: 1 / -1;
-    font-size: 36px;
-    font-weight: 700;
-    color: #0f0e08;
-    margin-top: 100px;
-    text-align: center;
+  @include on-tablet {
+    padding-inline: 34px;
+    max-width: 768px;
+    margin-inline: auto;
+  }
+
+  @include on-desktop {
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 55px;
+  }
+  &__slider {
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+
+      @include page-grid;
+
+      grid-template-rows: 600px 370px;
+      row-gap: 30px;
+    }
+  }
+  &__title {
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include hover(transform, scale(1.05));
+
+    &--column-4 {
+      grid-column: span 4;
+    }
+    &--column-8 {
+      grid-column: span 8;
+    }
+  }
+}
+
+.slider {
+  @include on-desktop {
+    display: none;
+  }
+
+  &__wrapper {
+    overflow: hidden;
+    height: 146%;
+  }
+  &__photos {
+    margin-bottom: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 100%);
+    height: 410px;
+
+    transform: translateX(-0%);
+    transition: transform, 0.3s;
+
+    @include on-tablet {
+      margin-bottom: 32px;
+      gap: 20px;
+      height: 543px;
+      grid-template-columns: repeat(5, 48.5%);
+    }
+
+    @for $i from 1 through 4 {
+      &--#{$i} {
+        $percent: -($i - 1) * 100%;
+
+        transform: translateX($percent);
+
+        @include on-tablet {
+          $percent-tablet: -($i - 1) * 51.3%;
+
+          transform: translateX($percent-tablet);
+        }
+      }
+    }
+  }
+
+  &__item {
+    overflow: hidden;
+    place-self: stretch stretch;
+
+    &--5 {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+      }
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    width: 100%;
+    height: 410px;
+
+    @include on-tablet {
+      height: 543px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 22px;
+    margin: 0 auto;
+    width: fit-content;
+  }
+
+  &__button {
+    padding: 0;
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    border: none;
+    background-color: #e0e0e0;
+
+    @include hover(transform, scale(2));
+
+    &--active {
+      background-color:green;
+    }
   }
 }
