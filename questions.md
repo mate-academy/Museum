@@ -1,0 +1,3 @@
+- what is considered to be `About Us` and `Contacts`?
+- is it okay to use reset CSS?
+- where does `tickets` button lead us?
