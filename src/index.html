@@ -328,14 +328,33 @@
         </div>
       </section>
 
-      <div class="subscription" id="subscription">
+      <div
+        class="subscription"
+        id="subscription"
+      >
         <h4 class="subscription__title">Підписка</h4>
         <p class="subscription__subtitle">
           Бути в курсі всіх актуальних подій та останніх новин.
         </p>
         <div class="subscription__tickets">
-          <div class="subscription__tickets-title">E-mail</div>
-          <div class="subscription__tickets-arrow"></div>
+          <form
+            action=" "
+            class="subscription__form"
+            name="email"
+            onsubmit="this.reset(); return false;"
+          >
+            <input
+              type="email"
+              class="subscription__input"
+              placeholder="E-mail"
+              required
+            />
+
+            <button
+              type="submit"
+              class="subscription__btn"
+            ></button>
+          </form>
         </div>
       </div>
     </main>
@@ -510,6 +529,13 @@
         }
 
         photos.classList.add('slider__photos--4');
+      }
+
+      function clearInput(event) {
+        event.preventDefault(); // Предотвращает отправку формы
+        const input = document.querySelector('.subscription__tickets-input');
+        input.value = ''; // Очищаем поле ввода
+        console.log('E-mail отправлен!');
       }
     </script>
   </body>
