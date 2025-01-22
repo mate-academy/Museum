@@ -1,0 +1,58 @@
+.slider-wrapper {
+
+  grid-column: 1 / -1;
+}
+
+.slider {
+  position: relative;
+  margin-inline: 20px;
+  width: 100%;
+  overflow: hidden;
+  margin-inline: auto;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+
+  @include on-tablet {
+    gap: 10px;
+  }
+}
+
+.slide {
+  min-width: 100%; /* Для десктопов и мобильных устройств — 1 фото на слайд */
+  display: flex; /* Добавим для размещения двух фото на одном слайде */
+  gap: 10px; /* Пробел между фото */
+
+  @include on-tablet {
+    min-width: 50%; /* Два фото на одном слайде */
+  }
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+  height: 410px;
+  object-fit: cover;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #1a5a4c;
+}
