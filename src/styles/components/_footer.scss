@@ -1,0 +1,140 @@
+.footer {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+  color: $text-main-color;
+  row-gap: 40px;
+  padding-bottom: 64px;
+
+  @include on-tablet {
+    row-gap: 64px;
+    padding-bottom: 38px;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      flex-direction: column;
+      gap: 62px;
+      grid-column: 1 / 2;
+    }
+
+    &__socials {
+      display: flex;
+      gap: 20px;
+    }
+  }
+
+  &__timetable {
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+    }
+  }
+
+  &__contacts {
+    grid-column: 2 / 3;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 7;
+    }
+
+    & > a {
+      color: $text-main-color;
+      text-decoration: none;
+
+      @include hover(color, $main-color-orange);
+    }
+  }
+
+  &__devider {
+    width: 100%;
+    height: 1px;
+    background-color: $text-main-color-light;
+    grid-column: 1 / -1;
+    position: relative;
+    margin-top: 30px;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      margin-top: 0;
+    }
+
+    @include on-desktop {
+      width: 1px;
+      height: 100%;
+      grid-column: 7 / 8;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+  &__up {
+    position: absolute;
+    right: 0;
+    top: -70px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__links {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / 12;
+    }
+
+    &__group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 28px;
+
+      & > a {
+        color: $text-main-color;
+        text-decoration: none;
+
+        @include hover(color, $main-color-orange);
+      }
+    }
+  }
+
+  &__bottom_bar {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    align-items: center;
+    grid-column: 1 / -1;
+    margin-top: 40px;
+    color: $text-main-color;
+    font-size: 12px;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 80px;
+    }
+
+    @include on-desktop {
+      margin-top: 47px;
+    }
+  }
+}
