@@ -1,0 +1,219 @@
+.header {
+  row-gap: 20px;
+
+  &__container {
+    display: grid;
+    row-gap: 20px;
+    @include on-tablet {
+      @include page-grid;
+      height: 100vh;
+      grid-template-rows: repeat(3, 1fr);
+      row-gap: 38px;
+    }
+
+    @include on-desktop {
+      row-gap: 89px;
+    }
+    @include content-padding-inline;
+  }
+
+  &__background-container {
+    position: relative;
+    padding-top: 14px;
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    min-height: 286px; //temp for mobile
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      justify-content: start;
+      padding-top: 21px;
+      grid-row: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    background-image: url(../images/header-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    top: 0;
+    bottom: 0;
+    left: -20px;
+    right: -20px;
+
+    @include on-tablet {
+      right: -39px;
+    }
+
+    @include on-desktop {
+      right: -55px;
+    }
+    z-index: -1; // Щоб він був позаду контенту
+  }
+
+  &__logo-link {
+    display: flex;
+    height: 63px;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    @include on-tablet {
+      width: 58.8%;
+      height: 72px;
+    }
+    @include on-desktop {
+      width: 23.4%;
+      height: 72px;
+    }
+  }
+
+  &___logo-image {
+    display: block;
+    width: 58px;
+    height: 63px;
+  }
+
+  &__content {
+    display: grid;
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1 / 2;
+      margin-top: 127px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      margin-top: 206px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    @include on-tablet {
+      text-align: left;
+      // margin: 0 0 38px 0;
+      font-size: 54px;
+      line-height: 120%;
+      max-width: 500px;
+      // margin-top: 127px;
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
+    }
+
+    @include on-desktop {
+      // align-self: end;
+      // margin: 0 0 89px 0;
+      font-size: 72px;
+      // margin-top: 206px;
+      grid-column: 1 / 6;
+    }
+
+    // margin: 0 0 20px 0;
+
+    text-transform: uppercase;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    font-weight: 700;
+    // @include content-padding-inline;
+
+    font-family: inherit;
+  }
+
+  &__tickets-button-wrapper {
+    // @include content-padding-inline;
+    @include on-tablet {
+      max-width: 270px;
+      grid-column: 1 / 4;
+      grid-row: 3 / -1;
+    }
+
+    @include on-desktop {
+      padding-inline: 0;
+      grid-column: 3 / 6;
+    }
+  }
+
+  &__tickets-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: 1px solid #1a5a4c;
+    font-weight: 500;
+    font-size: 16px;
+    justify-content: center;
+    text-transform: uppercase;
+    color: #0f0e08;
+    padding-block: 18px;
+    padding-right: 50px;
+
+    @include on-tablet {
+      padding-block: 27px;
+      padding-right: 70px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url(../icons/tickets-button-icon.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      top: 0;
+      right: 0;
+      width: 70px;
+      height: 100%;
+      background-color: #1a5a4c;
+    }
+  }
+
+  &__tickets-button-text {
+    text-align: center;
+    flex: 1;
+  }
+
+  &__events-link {
+    position: absolute;
+    display: none;
+    align-items: center;
+    // bottom: 10%;
+    bottom: 65px;
+    left: 0.01%;
+    transform: rotate(-90deg);
+    cursor: pointer;
+
+    @include on-desktop {
+      display: flex;
+    }
+
+    @media (max-height: 450px) {
+      display: none;
+    }
+
+    &--line {
+      width: 70px;
+      height: 1px;
+      background-color: #1a5a4c;
+    }
+
+    &--text {
+      margin: 0 0 0 20px;
+      text-transform: uppercase;
+      color: #687480;
+      font-size: 14px;
+      line-height: 100%;
+    }
+  }
+}
