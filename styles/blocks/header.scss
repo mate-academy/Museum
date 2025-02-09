@@ -1,5 +1,12 @@
 .header {
-  row-gap: 20px; // ??? Why?
+  // row-gap: 20px; // ??? Why?
+  // @include on-tablet {
+  //   height: 100vh;
+  // }
+
+  &__wrapper {
+    position: relative;
+  }
 
   &__dropdown {
     position: absolute;
@@ -18,8 +25,12 @@
     @include on-tablet {
       flex-direction: row;
       justify-content: space-evenly;
-      gap: 38px;
+      gap: 18px;
       height: 225px;
+    }
+
+    @media (min-width: 700px) {
+      gap: 38px;
     }
 
     @include on-desktop {
@@ -28,8 +39,13 @@
     }
 
     &--active {
+      visibility: visible;
       top: 0;
       z-index: 10;
+    }
+
+    &--non-visible {
+      visibility: hidden;
     }
   }
 
@@ -52,6 +68,7 @@
     @include on-tablet {
       // padding-left: 0;
       // padding-left: 96px;
+      padding-right: 0;
       margin-top: 40px;
       gap: 20px;
     }
@@ -285,15 +302,20 @@
 
   &__title {
     margin: 0;
+
     @include on-tablet {
       text-align: left;
       // margin: 0 0 38px 0;
-      font-size: 54px;
+      font-size: 42px;
       line-height: 120%;
       max-width: 500px;
       // margin-top: 127px;
       grid-column: 1 / 4;
       grid-row: 2 / 3;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 54px;
     }
 
     @include on-desktop {
@@ -319,9 +341,13 @@
   &__tickets-button-wrapper {
     // @include content-padding-inline;
     @include on-tablet {
-      max-width: 270px;
+      max-width: 250px;
       grid-column: 1 / 4;
       grid-row: 3 / -1;
+    }
+
+    @media (min-width: 700px) {
+      max-width: 270px;
     }
 
     @include on-desktop {
@@ -377,6 +403,7 @@
     position: absolute;
     display: none;
     align-items: center;
+    text-decoration: none;
     // bottom: 10%;
     bottom: 65px;
     left: 0.01%;

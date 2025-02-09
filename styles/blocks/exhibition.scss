@@ -1,0 +1,131 @@
+.exhibition {
+  margin-bottom: 60px;
+
+  @include on-tablet {
+    margin-bottom: 64px;
+    @include page-grid;
+  }
+
+  @include on-desktop {
+    margin-bottom: 104px;
+  }
+
+  &__photo {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 30%;
+    height: 210px;
+
+    @include on-tablet {
+      grid-column: span 6;
+      height: 520px;
+    }
+
+    @include on-desktop {
+      grid-column: span 7;
+    }
+
+    &--1 {
+      background-image: url(../images/lake.png);
+    }
+
+    &--2 {
+      background-image: url(../images/peacock.png);
+    }
+  }
+
+  &__label {
+    display: flex;
+    justify-content: space-between;
+    font-family:
+      IBM Plex Sans,
+      sans-serif;
+    font-size: 16px;
+    line-height: 16px;
+
+    @include on-tablet {
+      justify-content: start;
+      font-size: 14px;
+      gap: 28px;
+    }
+  }
+
+  &__content {
+    margin-top: 20px;
+
+    @include on-tablet {
+      margin-top: 40px;
+      grid-column: span 4;
+    }
+    @include on-desktop {
+      margin-top: 0;
+      grid-column: -5 / -1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    color: #687480;
+    font-weight: 500;
+
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__date {
+    display: inline-block;
+    font-weight: 700;
+    color: #1a5a4c;
+    margin: 0;
+  }
+
+  &__name {
+    // position: relative;
+    font-family: Montserrat, serif;
+    font-size: 28px;
+    line-height: 28px;
+    color: #0f0e08;
+    margin: 0;
+    font-weight: 400;
+    margin-top: 10px;
+
+    @include on-tablet {
+      margin-top: 30px;
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    &:after {
+      position: relative;
+      transform: translateY(-30%);
+      left: 12px;
+      display: inline-block;
+      content: '';
+      height: 10px;
+      width: 10px;
+      background-color: #f14a27;
+
+      @include on-tablet {
+        height: 15px;
+        width: 15px;
+        transform: translateY(-7%);
+      }
+    }
+  }
+
+  &__description {
+    color: #4e4e4e;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    margin-top: 10px;
+
+    @include on-tablet {
+      margin-top: 15px;
+    }
+  }
+}
