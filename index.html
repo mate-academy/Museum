@@ -231,11 +231,145 @@
         </article>
       </section>
 
-      <section
-        id="gallery"
-        class="gallery"
-      >
+      <section id="gallery" class="gallery">
         <h2 class="section-title">Галерея</h2>
+
+        <div class="simple-slider">
+          <div class="slider-container">
+            <div class="slider-track">
+              <div class="slide">
+                <img src="./images/gallery-1-mobile.png" alt="Image 1">
+              </div>
+              <div class="slide">
+                <img src="./images/gallery-2-mobile.png" alt="Image 2">
+              </div>
+              <div class="slide">
+                <img src="./images/gallery-3-mobile.png" alt="Image 3">
+              </div>
+              <div class="slide">
+                <img src="./images/gallery-4-mobile.png" alt="Image 4">
+              </div>
+            </div>
+          </div>
+          <div class="slider-dots"></div>
+        </div>
+      </section>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.3.2/swiper-bundle.min.js"></script>
+      <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const sliderTrack = document.querySelector('.slider-track');
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.querySelector('.slider-dots');
+  let currentIndex = 0;
+  let startX = 0;
+  let isDragging = false;
+
+  function initSlider() {
+    if (window.innerWidth >= 1280) {
+      destroySlider();
+      return;
+    }
+
+    // Recreate dots after every initialization
+    createDots();
+    updateSliderPosition();
+    addEventListeners();
+  }
+
+  function destroySlider() {
+    dotsContainer.innerHTML = '';
+    sliderTrack.style.transform = '';
+    removeEventListeners();
+  }
+
+  function createDots() {
+    dotsContainer.innerHTML = '';
+    const slidesToShow = getSlidesToShow();
+    const dotsCount = Math.ceil(slides.length / slidesToShow);
+
+    for (let i = 0; i < dotsCount; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      dot.addEventListener('click', () => goToSlide(i * slidesToShow));
+      dotsContainer.appendChild(dot);
+    }
+    updateDots();
+  }
+
+  function getSlidesToShow() {
+    return window.innerWidth >= 640 ? 2 : 1;
+  }
+
+  function updateDots() {
+    const slidesToShow = getSlidesToShow();
+    const activeDotIndex = Math.floor(currentIndex / slidesToShow);
+    document.querySelectorAll('.dot').forEach((dot, index) => {
+      dot.classList.toggle('active', index === activeDotIndex);
+    });
+  }
+
+  function updateSliderPosition() {
+    const slidesToShow = getSlidesToShow();
+    const maxIndex = slides.length - slidesToShow;
+    currentIndex = Math.min(currentIndex, maxIndex);
+    goToSlide(currentIndex);
+  }
+
+  function goToSlide(index) {
+    const slideWidth = slides[0].clientWidth;
+    currentIndex = index;
+    sliderTrack.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+    updateDots();
+  }
+
+  function handleSwipe(direction) {
+    const slidesToShow = getSlidesToShow();
+    const maxIndex = slides.length - slidesToShow;
+
+    if (direction === 'left' && currentIndex < maxIndex) {
+      currentIndex += slidesToShow;
+    } else if (direction === 'right' && currentIndex > 0) {
+      currentIndex -= slidesToShow;
+    }
+
+    currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
+    goToSlide(currentIndex);
+  }
+
+  function addEventListeners() {
+    sliderTrack.addEventListener('touchstart', handleTouchStart);
+    sliderTrack.addEventListener('touchmove', handleTouchMove);
+  }
+
+  function removeEventListeners() {
+    sliderTrack.removeEventListener('touchstart', handleTouchStart);
+    sliderTrack.removeEventListener('touchmove', handleTouchMove);
+  }
+
+  function handleTouchStart(e) {
+    if (window.innerWidth >= 1280) return;
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  }
+
+  function handleTouchMove(e) {
+    if (window.innerWidth >= 1280 || !isDragging) return;
+    const currentX = e.touches[0].clientX;
+    const diff = startX - currentX;
+
+    if (Math.abs(diff) > 50) {
+      handleSwipe(diff > 0 ? 'left' : 'right');
+      isDragging = false;
+    }
+  }
+
+  window.addEventListener('resize', () => {
+    initSlider();
+  });
+
+  initSlider();
+});
+      </script>
       </section>
     </main>
   </body>
