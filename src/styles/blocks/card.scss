@@ -1,0 +1,97 @@
+.card {
+  @include on-tablet {
+    @include page-grid;
+
+    row-gap: 40px;
+  }
+
+  &__img {
+    width: 100%;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: span 7;
+    }
+  }
+
+  &__bottom {
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__label {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Sans', serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    margin-top: 16px;
+
+    @include on-tablet {
+      justify-content: flex-start;
+      column-gap: 30px;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    &-title {
+      color: #687480;
+      text-transform: uppercase;
+    }
+
+    &-date {
+      color: #1a5a4c;
+      font-weight: 700;
+    }
+  }
+
+  &__title-block {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    margin-block: 10px;
+
+    @include on-tablet {
+      margin: 30px 0 15px;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, serif;
+    font-size: 28px;
+    line-height: 100%;
+    font-weight: normal;
+    margin: 0;
+
+    @include on-tablet {
+      font-size: 36px;
+    }
+  }
+
+  &__rectangle {
+    display: block;
+    height: 10px;
+    width: 10px;
+    background-image: url(/src/images/icons/red-rectangle.svg);
+    background-repeat: no-repeat;
+  }
+
+  &__description {
+    font-family: 'IBM Plex Sans', serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4e4e4e;
+  }
+}
