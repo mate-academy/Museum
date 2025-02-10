@@ -124,11 +124,13 @@ const dropdownNavLinks = document.querySelectorAll(
 const openBtn = document.querySelector('.icon--dropdown-open');
 const closeBtn = document.querySelector('.icon--dropdown-close');
 const backdrop = document.getElementById('backdrop');
+const page = document.querySelector('.page');
 
 // Open dropdown
 openBtn.addEventListener('click', () => {
   dropdown.classList.remove('header__dropdown--non-visible');
   dropdown.classList.add('header__dropdown--active');
+  page.classList.add('page--no-scroll');
 
   // Hide/display buttons after animation
   setTimeout(() => {
@@ -143,6 +145,7 @@ openBtn.addEventListener('click', () => {
 // Close dropdown
 closeBtn.addEventListener('click', () => {
   dropdown.classList.remove('header__dropdown--active');
+  page.classList.remove('page--no-scroll');
 
   setTimeout(() => {
     closeBtn.style.display = 'none';
@@ -163,6 +166,7 @@ dropdownNavLinks.forEach((link) => {
     closeBtn.style.display = 'none';
     openBtn.style.display = 'block';
     openBtn.style.opacity = '1';
+    page.classList.remove('page--no-scroll');
 
     setTimeout(() => {
       dropdown.classList.add('header__dropdown--non-visible');
