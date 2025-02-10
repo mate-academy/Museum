@@ -1,25 +1,123 @@
-// const dropdown = document.querySelector('.header__dropdown');
-// const openBtn = document.querySelector('.icon--dropdown-open');
-// const closeBtn = document.querySelector('.icon--dropdown-close');
+// Slider logic
 
-// // Відкриття дропдауну
-// openBtn.addEventListener('click', () => {
-//   dropdown.classList.add('header__dropdown--active'); // Активуємо дропдаун
-//   openBtn.style.display = 'none'; // Ховаємо кнопку відкриття
-//   closeBtn.style.display = 'block'; // Показуємо кнопку закриття
-// });
+document.addEventListener('DOMContentLoaded', () => {
+  const sliderTrack = document.querySelector('.slider-track');
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.querySelector('.slider-dots');
+  let currentIndex = 0;
+  let startX = 0;
+  let isDragging = false;
 
-// // Закриття дропдауну
-// closeBtn.addEventListener('click', () => {
-//   dropdown.classList.remove('header__dropdown--active'); // Деактивуємо дропдаун
-//   closeBtn.style.display = 'none'; // Ховаємо кнопку закриття
-//   openBtn.style.display = 'block'; // Показуємо кнопку відкриття
-// });
+  function initSlider() {
+    if (window.innerWidth >= 1280) {
+      destroySlider();
+      return;
+    }
+
+    // Recreate dots after every initialization
+    createDots();
+    updateSliderPosition();
+    addEventListeners();
+  }
+
+  function destroySlider() {
+    dotsContainer.innerHTML = '';
+    sliderTrack.style.transform = '';
+    removeEventListeners();
+  }
+
+  function createDots() {
+    dotsContainer.innerHTML = '';
+    const slidesToShow = getSlidesToShow();
+    const dotsCount = Math.ceil(slides.length / slidesToShow);
+
+    for (let i = 0; i < dotsCount; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      dot.addEventListener('click', () => goToSlide(i * slidesToShow));
+      dotsContainer.appendChild(dot);
+    }
+    updateDots();
+  }
+
+  function getSlidesToShow() {
+    return window.innerWidth >= 640 ? 2 : 1;
+  }
+
+  function updateDots() {
+    const slidesToShow = getSlidesToShow();
+    const activeDotIndex = Math.floor(currentIndex / slidesToShow);
+    document.querySelectorAll('.dot').forEach((dot, index) => {
+      dot.classList.toggle('active', index === activeDotIndex);
+    });
+  }
+
+  function updateSliderPosition() {
+    const slidesToShow = getSlidesToShow();
+    const maxIndex = slides.length - slidesToShow;
+    currentIndex = Math.min(currentIndex, maxIndex);
+    goToSlide(currentIndex);
+  }
+
+  function goToSlide(index) {
+    const slideWidth = slides[0].clientWidth;
+    currentIndex = index;
+    sliderTrack.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+    updateDots();
+  }
+
+  function handleSwipe(direction) {
+    const slidesToShow = getSlidesToShow();
+    const maxIndex = slides.length - slidesToShow;
+
+    if (direction === 'left' && currentIndex < maxIndex) {
+      currentIndex += slidesToShow;
+    } else if (direction === 'right' && currentIndex > 0) {
+      currentIndex -= slidesToShow;
+    }
+
+    currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
+    goToSlide(currentIndex);
+  }
+
+  function addEventListeners() {
+    sliderTrack.addEventListener('touchstart', handleTouchStart);
+    sliderTrack.addEventListener('touchmove', handleTouchMove);
+  }
+
+  function removeEventListeners() {
+    sliderTrack.removeEventListener('touchstart', handleTouchStart);
+    sliderTrack.removeEventListener('touchmove', handleTouchMove);
+  }
+
+  function handleTouchStart(e) {
+    if (window.innerWidth >= 1280) return;
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  }
+
+  function handleTouchMove(e) {
+    if (window.innerWidth >= 1280 || !isDragging) return;
+    const currentX = e.touches[0].clientX;
+    const diff = startX - currentX;
+
+    if (Math.abs(diff) > 50) {
+      handleSwipe(diff > 0 ? 'left' : 'right');
+      isDragging = false;
+    }
+  }
+
+  window.addEventListener('resize', () => {
+    initSlider();
+  });
+
+  initSlider();
+});
+
+// Dropdown logic
 
 const dropdown = document.querySelector('.header__dropdown');
-// const dropdownVisibility = document.querySelector(
-//   '.header__dropdown--non-visible',
-// );
+
 const dropdownNavLinks = document.querySelectorAll(
   '.header__dropdown-nav-link',
 );
@@ -27,39 +125,38 @@ const openBtn = document.querySelector('.icon--dropdown-open');
 const closeBtn = document.querySelector('.icon--dropdown-close');
 const backdrop = document.getElementById('backdrop');
 
-// Відкриття дропдауну
+// Open dropdown
 openBtn.addEventListener('click', () => {
   dropdown.classList.remove('header__dropdown--non-visible');
   dropdown.classList.add('header__dropdown--active');
 
-  // Чекаємо завершення анімації і тільки потім ховаємо/показуємо кнопки
+  // Hide/display buttons after animation
   setTimeout(() => {
     openBtn.style.display = 'none';
     closeBtn.style.display = 'block';
-    closeBtn.style.opacity = '1'; // Відновлюємо прозорість для кнопки закриття
-    backdrop.classList.add('backdrop--active'); // Показуємо бекдроп
-    openBtn.classList.remove('fade-out'); // Прибираємо клас анімації
+    closeBtn.style.opacity = '1';
+    backdrop.classList.add('backdrop--active');
+    openBtn.classList.remove('fade-out');
   }, 200);
 });
 
-// Закриття дропдауну
+// Close dropdown
 closeBtn.addEventListener('click', () => {
   dropdown.classList.remove('header__dropdown--active');
 
-  // Чекаємо завершення анімації і тільки потім ховаємо/показуємо кнопки
   setTimeout(() => {
     closeBtn.style.display = 'none';
     openBtn.style.display = 'block';
-    openBtn.style.opacity = '1'; // Відновлюємо прозорість для кнопки відкриття
-    backdrop.classList.remove('backdrop--active'); // Ховаємо бекдроп
-    closeBtn.classList.remove('fade-out'); // Прибираємо клас анімації
+    openBtn.style.opacity = '1'; //
+    backdrop.classList.remove('backdrop--active');
+    closeBtn.classList.remove('fade-out');
     dropdown.classList.add('header__dropdown--non-visible');
   }, 200);
 });
 
 dropdownNavLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
-    event.preventDefault(); // Запобігаємо миттєвому переходу
+    event.preventDefault(); // For click delay
 
     dropdown.classList.remove('header__dropdown--active');
     backdrop.classList.remove('backdrop--active');
@@ -71,9 +168,9 @@ dropdownNavLinks.forEach((link) => {
       dropdown.classList.add('header__dropdown--non-visible');
     }, 200);
 
-    // Затримуємо перехід на 150 мс
+    // 150ms delay
     setTimeout(() => {
-      window.location.href = link.href; // Переходимо за посиланням
+      window.location.href = link.href; // Go to link
     }, 220);
   });
 });
