@@ -100,36 +100,6 @@ h3 {
   }
 }
 
-p,
-span,
-a {
-  @include ibm;
-}
-
-span {
-  font-size: $fzS;
-  font-weight: 400;
-}
-
-a {
-  color: black;
-  text-decoration: none;
-}
-
-ul {
-  list-style-type: none;
-}
-
-.logo {
-  @include bold-monsterrat;
-
-  display: inline-flex;
-  text-align: center;
-  font-weight: 700;
-  height: fit-content;
-  line-height: 100%;
-}
-
 .btn,
 input {
   display: inline-flex;
@@ -169,6 +139,64 @@ input {
       right: -70px;
     }
   }
+}
+
+p,
+span,
+a {
+  @include ibm;
+}
+
+span {
+  font-size: $fzS;
+  font-weight: 400;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+a,
+button,
+input {
+  @include hover(transform, scale(1.05));
+}
+
+a:focus,
+button:focus,
+input:focus {
+  transform: scale(1.05);
+}
+
+input {
+  @include monsterrat;
+}
+
+input:autofill,
+input:-webkit-autofill {
+  background: $bgColor !important;
+  box-shadow: 0 0 0 1000px $bgColor inset !important;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.logo {
+  @include bold-monsterrat;
+
+  display: inline-flex;
+  text-align: center;
+  font-weight: 700;
+  height: fit-content;
+  line-height: 100%;
 }
 
 .overlay {
@@ -225,6 +253,9 @@ input {
   }
 
   &__close {
+    @include hover(transform, scale(1.1));
+
+    cursor: pointer;
     position: relative;
     width: 24px;
     height: 24px;
@@ -449,6 +480,8 @@ input {
   }
 
   &__menu {
+    @include hover(transform, scale(1.05));
+
     position: absolute;
     cursor: pointer;
     display: flex;
@@ -515,7 +548,7 @@ input {
         grid-row: 2;
         grid-column: auto / span 5;
         justify-self: end;
-        transform: translateX(-60px);
+        margin-right: 60px;
       }
     }
   }
@@ -564,7 +597,6 @@ input {
   }
 
   &__img {
-    display: flex;
     grid-column: auto / span 2;
 
     @media screen and (min-width: 768px) {
@@ -777,7 +809,7 @@ input {
     @media screen and (min-width: 1280px) {
       display: block;
       padding: unset;
-      overflow: auto;
+      overflow: visible;
     }
   }
 
@@ -808,16 +840,32 @@ input {
       justify-self: center;
     }
 
-    img {
-      max-width: 100%;
-      height: 100%;
-      object-fit: cover;
+    a {
+      @include hover(transform, translateY(-10px));
+
+      @media screen and (min-width: 1280px) {
+        @include hover(transform, scale(1.07));
+
+      }
+
+      display: flex;
+      width: -webkit-fill-available;
+
+      img {
+        object-fit: cover;
+        width: inherit;
+        height: 100%;
+      }
 
       &:last-child {
         padding-right: 20px;
 
         @media screen and (min-width: 768px) {
           padding-right: 35px;
+        }
+
+        @media screen and (min-width: 1280px) {
+          padding-right: unset;
         }
       }
 
@@ -836,7 +884,7 @@ input {
         }
 
         &:nth-child(1) {
-          grid-column: 1 / span 5;
+          grid-column: 1 / span 4;
         }
 
         &:nth-child(2) {
@@ -845,6 +893,10 @@ input {
 
         &:nth-child(3) {
           grid-column: 1 / span 8;
+        }
+
+        &:nth-child(4) {
+          grid-column: 9 / span 4;
         }
       }
     }
