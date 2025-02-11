@@ -36,3 +36,11 @@ function closeMenu() {
   overlay.style.zIndex = '-1';
   body.style.overflow = 'auto';
 }
+
+const form = document.querySelector('#form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  window.alert('Form submitted!');
+  form.reset();
+});
