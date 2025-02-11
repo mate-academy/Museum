@@ -1,0 +1,201 @@
+.menu {
+  box-sizing: border-box;
+  height: 400px;
+  background-color: #1A5A4C;
+  font-weight: 700;
+  z-index: 10;
+  box-shadow: rgba(0,0,0,.5) 0 0 0 1000px;
+
+  &__top {
+    @include page-grid;
+    align-items: start;
+    margin: 0 0 24px;
+    column-gap: 0;
+    padding-top: 27px;
+    min-width: 280px;
+  }
+
+  &__schedule {
+    position: absolute;
+    top: 148px;
+  }
+}
+
+.schedule__menu {
+  grid-column: 1 / -1;
+}
+
+.icon--close {
+  background-image: url("./icons/close-icon.svg");
+  background-size: cover;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  grid-column: 1 / 2;
+}
+
+.nav {
+  &__list {
+    column-count: 2;
+    grid-column: 2 / -1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.schedule {
+  &__title,
+  &__time,
+  &__announcement {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+    color: #fff;
+    margin: 0;
+  }
+
+  &__title {
+    line-height: 19.69px;
+    margin-bottom: 8px;
+  }
+
+  &__announcement {
+    margin: 0;
+    position: relative;
+    bottom: 27px;
+  }
+}
+
+.white-hr {
+  display: block;
+  width: 230%;
+  height: 1px;
+  background-color: #fff;
+  border: none;
+  margin: 24px 0;
+}
+
+@include on-tablet {
+  .menu {
+    height: 225px;
+    overflow: visible;
+    padding-bottom: 24px;
+    align-items: baseline;
+
+    &__top {
+      align-items: stretch;
+      justify-content: space-between;
+      border-bottom: none;
+      margin-bottom: 24px;
+      padding: 39 0 24px 0;
+    }
+
+    .icon--close {margin-right: 38px;}
+  }
+
+  .nav {
+    &__list {
+      grid-column: 2 / 4;
+      border-right: 1px solid #fff;
+      padding: 0 38px 74px 0;
+    }
+  }
+
+  .schedule {
+    &__title,
+    &__time,
+    &__announcement {
+      margin: 0;
+    }
+
+    &__menu{
+    display: flex;
+    grid-column: 4 / -1;
+    justify-content: space-between;
+  }
+
+    &__title{
+      grid-column: 3 / 5;
+    }
+
+    &__time{
+      grid-column: 3 / 5;
+    }
+
+    &__announcement{
+      grid-column: 5 / -1;
+      max-width: 144px;
+      position: relative;
+      bottom: 0px;
+    }
+  }
+
+  .white-hr {
+    display: none;
+  }
+}
+
+
+@include on-desktop {
+  .menu {
+    height: 233px;
+    overflow: visible;
+    padding-bottom: 48px;
+    align-items: baseline;
+
+    &__top {
+      align-items: stretch;
+      justify-content: space-between;
+      border-bottom: none;
+      margin-bottom: 24px;
+      padding: 39 0 24px 0;
+    }
+
+    .icon--close {margin-right: 38px;}
+  }
+
+  .nav {
+    &__list {
+      grid-column: 2 / 7;
+      border-right: 1px solid #fff;
+      padding: 0 38px 90px 0;
+    }
+  }
+
+  .schedule {
+    &__title,
+    &__time,
+    &__announcement {
+      margin: 0;
+    }
+
+    &__menu{
+    display: flex;
+    grid-column: 7 / -1;
+    justify-content: space-evenly;
+  }
+
+    &__title{
+      grid-column: 3 / 5;
+    }
+
+    &__time{
+      grid-column: 3 / 5;
+    }
+
+    &__announcement{
+      grid-column: 5 / -1;
+      max-width: 144px;
+      position: relative;
+      bottom: 0px;
+    }
+  }
+
+  .white-hr {
+    display: none;
+  }
+}
