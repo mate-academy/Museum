@@ -1,0 +1,131 @@
+.exhibition {
+  margin-bottom: 60px;
+
+  @include on-tablet {
+    margin-bottom: 64px;
+
+    @include page-grid;
+  }
+
+  @include on-desktop {
+    margin-bottom: 104px;
+  }
+
+  &__photo {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 30%;
+    height: 210px;
+
+    @include on-tablet {
+      grid-column: span 6;
+      height: 520px;
+    }
+
+    @include on-desktop {
+      grid-column: span 7;
+    }
+
+    &--1 {
+      background-image: url(../images/lake.png);
+    }
+
+    &--2 {
+      background-image: url(../images/peacock.png);
+    }
+  }
+
+  &__label {
+    display: flex;
+    justify-content: space-between;
+    font-family: $font-secondary;
+    font-size: $fs-base;
+    line-height: $lh-tight;
+
+    @include on-tablet {
+      justify-content: start;
+      font-size: $fs-small;
+      gap: 28px;
+    }
+  }
+
+  &__content {
+    margin-top: 20px;
+
+    @include on-tablet {
+      margin-top: 40px;
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      margin-top: 0;
+      grid-column: -5 / -1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    color: $text-color-light;
+    font-weight: $fw-medium;
+
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__date {
+    display: inline-block;
+    font-weight: $fw-bold;
+    color: $accent-color;
+    margin: 0;
+  }
+
+  &__name {
+    // position: relative;
+    font-family: $font-primary;
+    font-size: $fs-large;
+    line-height: $lh-tight;
+    color: $text-color-dark;
+    margin: 0;
+    font-weight: $fw-normal;
+    margin-top: 10px;
+
+    @include on-tablet {
+      margin-top: 30px;
+      font-size: $fs-larger;
+      line-height: $lh-heading;
+    }
+
+    &::after {
+      position: relative;
+      transform: translateY(-30%);
+      left: 12px;
+      display: inline-block;
+      content: '';
+      height: 10px;
+      width: 10px;
+      background-color: $rectangle-color;
+
+      @include on-tablet {
+        height: 15px;
+        width: 15px;
+        transform: translateY(-7%);
+      }
+    }
+  }
+
+  &__description {
+    color: #4e4e4e;
+    font-size: $fs-base;
+    line-height: $lh-base;
+    margin: 0;
+    margin-top: 10px;
+
+    @include on-tablet {
+      margin-top: 15px;
+    }
+  }
+}
