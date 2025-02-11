@@ -1,5 +1,3 @@
-'use strict';
-
 // Slider logic
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -177,28 +175,4 @@ dropdownNavLinks.forEach((link) => {
       window.location.href = link.href; // Go to link
     }, 220);
   });
-});
-
-// Sections scroll animation
-const sections = document.querySelectorAll('.scroll-object');
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('scroll-object--visible');
-      }
-    });
-  },
-  { threshold: 0.2 },
-);
-
-if (window.innerWidth <= 640) {
-  sections[0].classList.add('scroll-object--visible');
-}
-
-sections.forEach((section, index) => {
-  if (window.innerWidth > 640 || index !== 0) {
-    observer.observe(section);
-  }
 });
