@@ -1,53 +1,166 @@
 .header {
-  position: relative;
+
+  &__container {
+    @include page-grid;
+
+    position: relative;
+    margin-bottom: 70px;
+
+    @include on-tablet {
+      margin-bottom: 88px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 200px;
+    }
+  }
 
   &__top {
-    height: 300px;
+    height: 100%;
+    min-height: 300px;
     padding-top: 12px;
     background-image: url(../images/header-bg-mobile.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 
+
+    grid-column: 1 / -1;
+
+    position: relative;
     display: flex;
     justify-content: center;
 
     margin-inline: -20px;
 
     @include on-tablet {
-      margin-left: -39px;
+      min-height: 384px;
+
+      margin-left: 0;
       margin-right: -39px;
+
+      grid-column: 4 / -1;
     }
 
     @include on-desktop {
-      margin-left: -55px;
+      min-height: 655px;
+
+      margin-left: 0;
       margin-right: -55px;
+
+      grid-column: 6 / -1;
     }
   }
 
   &__icon {
     position: absolute;
     top: 27px;
-    left: 20px;
+    left: 0;
     cursor: pointer;
+    z-index: 5;
+
+    @include on-tablet {
+      top: 39px;
+      left: -5px;
+    }
+
+    @include on-desktop {
+      top: 39px;
+    }
   }
 
   &__logo {
     @include font-montserrat-bold;
 
+    position: absolute;
+    left: 50%;
+    top: 9px;
+    transform: translateX(-50%);
+
     font-size: 30px;
     line-height: 28px;
     text-decoration: none;
     color: #000;
+
+    @include on-tablet {
+      left: 80px;
+      top: 15px;
+      transform: translateX(0%);
+      font-size: 36px;
+      line-height: 36px;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      align-self: end;
+      margin-bottom: 19px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      margin-bottom: 118px;
+    }
   }
 
   &__title {
     @include font-montserrat-bold;
 
     margin: 20px 0;
-    text-align: center;
     font-size: 45px;
     line-height: 45px;
+    text-align: center;
     text-transform: uppercase;
+
+    @include on-tablet {
+      margin: 0 0 38px;
+      text-align: left;
+    }
+
+    @include on-tablet {
+      font-size: 54px;
+      line-height: 65px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+
+      margin-bottom: 89px;
+      text-align: left;
+      font-size: 72px;
+      line-height: 86px;
+    }
+  }
+
+  &__event-link {
+    display: none;
+
+    @include on-desktop {
+      @include font-ibm-plex-sans-bold;
+
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      transform: rotate(-90deg);
+      transform-origin: 0;
+      gap: 20px;
+      align-items: center;
+
+      text-transform: uppercase;
+      font-size: 14px;
+      line-height: 14px;
+      color: $text-light-grey;
+
+      &::before {
+        content: '';
+        background-color: #1a5a4c;
+        width: 70px;
+        height: 1px;
+      }
+    }
   }
 }
