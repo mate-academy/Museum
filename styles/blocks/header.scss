@@ -1,206 +1,6 @@
 .header {
-  // row-gap: 20px; // ??? Why?
-  // @include on-tablet {
-  //   height: 100vh;
-  // }
-
   &__wrapper {
     position: relative;
-  }
-
-  &__dropdown {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: -100%;
-    left: 0;
-    right: 0;
-    height: 400px;
-    background-color: #1a5a4c;
-    z-index: 10;
-    transition: top 0.3s ease-in-out;
-
-    gap: 24px;
-
-    @include on-tablet {
-      flex-direction: row;
-      justify-content: space-evenly;
-      gap: 18px;
-      height: 225px;
-    }
-
-    @media (min-width: 700px) {
-      gap: 38px;
-    }
-
-    @include on-desktop {
-      gap: 102px;
-      height: 233px;
-    }
-
-    &--active {
-      visibility: visible;
-      top: 0;
-      z-index: 10;
-    }
-
-    &--non-visible {
-      visibility: hidden;
-    }
-  }
-
-  &__dropdown-nav {
-    font-family:
-      IBM Plex Sans,
-      serif;
-    font-weight: 500;
-    color: #fff;
-    font-size: 16px;
-    line-height: 16px;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    padding-left: 72px;
-    padding-right: 20px;
-    margin-top: 27px;
-    gap: 28px;
-
-    @include on-tablet {
-      // padding-left: 0;
-      // padding-left: 96px;
-      padding-right: 0;
-      margin-top: 40px;
-      gap: 20px;
-    }
-
-    @include on-desktop {
-      // padding-left: 182px;
-      gap: 31px;
-    }
-  }
-
-  &__dropdown-nav-group {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 0;
-
-    @include on-desktop {
-      gap: 30px;
-    }
-  }
-
-  &__dropdown-nav-item {
-    list-style: none;
-    white-space: nowrap;
-
-    @include on-desktop {
-      font-size: 22px;
-      line-height: 22px;
-    }
-  }
-
-  &__dropdown-nav-link {
-    text-decoration: none;
-    color: inherit;
-    font-family:
-      IBM Plex Sans,
-      serif;
-  }
-
-  &__dropdown-nav-link-group {
-    display: block;
-    list-style: none;
-  }
-
-  &__dropdown-divider {
-    all: unset;
-    margin-inline: 20px;
-    height: 1px;
-    background-color: #fff;
-    opacity: 0.5;
-
-    @include on-tablet {
-      height: auto;
-      width: 1px;
-      background-color: #fff;
-      opacity: 0.5;
-      margin-inline: 0;
-      margin-block: 40px;
-    }
-  }
-
-  &__dropdown-schedule {
-    @include content-padding-inline;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    @include on-tablet {
-      padding-left: 0;
-      padding-right: 35px;
-      margin-top: 40px;
-    }
-  }
-
-  &__dropdown-schedule-title {
-    margin: 0;
-    font-family:
-      IBM Plex Sans,
-      serif;
-    font-weight: 500;
-    color: #fff;
-  }
-
-  &__dropdown-schedule-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    color: #fff;
-
-    font-family:
-      IBM Plex Sans,
-      serif;
-
-    @include on-tablet {
-      flex-direction: row;
-      gap: 26px;
-    }
-  }
-
-  &__dropdown-schedule-list {
-    margin: 0;
-    padding: 0;
-
-    @include on-tablet {
-      // white-space: no-wrap;
-      // min-width: 144px;
-    }
-  }
-
-  &__dropdown-schedule-item {
-    list-style: none;
-    font-size: 14px;
-
-    @include on-tablet {
-      white-space: nowrap;
-      // min-width: 144px;
-    }
-  }
-
-  &__dropdown-schedule-details {
-    font-size: 14px;
-    @include on-tablet {
-      max-width: 155px;
-    }
-  }
-
-  &__dropdown-schedule-weekends {
-    color: #fff;
-    font-family:
-      IBM Plex Sans,
-      serif;
-    margin: 0;
   }
 
   &__container {
@@ -306,11 +106,9 @@
 
     @include on-tablet {
       text-align: left;
-      // margin: 0 0 38px 0;
-      font-size: 42px;
-      line-height: 120%;
+      font-size: $fs-xlarge;
+      line-height: $lh-normal;
       max-width: 500px;
-      // margin-top: 127px;
       grid-column: 1 / 4;
       grid-row: 2 / 3;
     }
@@ -322,7 +120,7 @@
     @include on-desktop {
       // align-self: end;
       // margin: 0 0 89px 0;
-      font-size: 72px;
+      font-size: $fs-hero;
       // margin-top: 206px;
       grid-column: 1 / 6;
     }
@@ -331,9 +129,9 @@
 
     text-transform: uppercase;
     font-size: 45px;
-    line-height: 100%;
+    line-height: $lh-tight;
     text-align: center;
-    font-weight: 700;
+    font-weight: $fw-bold;
     // @include content-padding-inline;
 
     font-family: inherit;
@@ -358,20 +156,18 @@
   }
 
   &__tickets-button {
-    font-family:
-      IBM Plex Sans,
-      serif;
+    font-family: $font-secondary;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    border: 1px solid #1a5a4c;
-    font-weight: 500;
-    font-size: 16px;
+    border: 1px solid $accent-color;
+    font-weight: $fw-medium;
+    font-size: $fs-base;
     justify-content: center;
     text-transform: uppercase;
-    color: #0f0e08;
+    color: $text-color-dark;
     padding-block: 14.2px;
     padding-right: 50px;
 
@@ -393,7 +189,7 @@
       width: 50px;
       // height: 50px;
       height: 100%;
-      background-color: #1a5a4c;
+      background-color: $accent-color;
 
       @include on-tablet {
         width: 70px;
@@ -429,17 +225,17 @@
     &--line {
       width: 70px;
       height: 1px;
-      background-color: #1a5a4c;
+      background-color: $accent-color;
     }
 
     &--text {
-      font-family: 'IBM Plex Sans', serif;
+      font-family: $font-secondary;
       margin: 0 0 0 20px;
       text-transform: uppercase;
-      color: #687480;
-      font-size: 14px;
-      line-height: 100%;
-      font-weight: 600;
+      color: $text-color-light;
+      font-size: $fs-small;
+      line-height: $lh-tight;
+      font-weight: $fw-semibold;
     }
   }
 }

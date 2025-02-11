@@ -116,11 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Dropdown logic
 
-const dropdown = document.querySelector('.header__dropdown');
+const dropdown = document.querySelector('.dropdown');
 
-const dropdownNavLinks = document.querySelectorAll(
-  '.header__dropdown-nav-link',
-);
+const dropdownNavLinks = document.querySelectorAll('.dropdown__nav-link');
 const openBtn = document.querySelector('.icon--dropdown-open');
 const closeBtn = document.querySelector('.icon--dropdown-close');
 const backdrop = document.getElementById('backdrop');
@@ -128,8 +126,8 @@ const page = document.querySelector('.page');
 
 // Open dropdown
 openBtn.addEventListener('click', () => {
-  dropdown.classList.remove('header__dropdown--non-visible');
-  dropdown.classList.add('header__dropdown--active');
+  dropdown.classList.remove('dropdown--non-visible');
+  dropdown.classList.add('dropdown--active');
   page.classList.add('page--no-scroll');
 
   // Hide/display buttons after animation
@@ -144,7 +142,7 @@ openBtn.addEventListener('click', () => {
 
 // Close dropdown
 closeBtn.addEventListener('click', () => {
-  dropdown.classList.remove('header__dropdown--active');
+  dropdown.classList.remove('dropdown--active');
   page.classList.remove('page--no-scroll');
 
   setTimeout(() => {
@@ -153,7 +151,7 @@ closeBtn.addEventListener('click', () => {
     openBtn.style.opacity = '1'; //
     backdrop.classList.remove('backdrop--active');
     closeBtn.classList.remove('fade-out');
-    dropdown.classList.add('header__dropdown--non-visible');
+    dropdown.classList.add('dropdown--non-visible');
   }, 200);
 });
 
@@ -161,7 +159,7 @@ dropdownNavLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
     event.preventDefault(); // For click delay
 
-    dropdown.classList.remove('header__dropdown--active');
+    dropdown.classList.remove('dropdown--active');
     backdrop.classList.remove('backdrop--active');
     closeBtn.style.display = 'none';
     openBtn.style.display = 'block';
@@ -169,7 +167,7 @@ dropdownNavLinks.forEach((link) => {
     page.classList.remove('page--no-scroll');
 
     setTimeout(() => {
-      dropdown.classList.add('header__dropdown--non-visible');
+      dropdown.classList.add('dropdown--non-visible');
     }, 200);
 
     // 150ms delay
