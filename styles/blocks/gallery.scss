@@ -1,0 +1,54 @@
+.gallery {
+  // overflow: hidden;
+
+  @include content-padding-inline;
+  margin-top: 120px;
+
+  @include on-tablet {
+    margin-top: 88px;
+  }
+
+  @include on-desktop {
+    margin-top: 200px;
+    max-width: 1780px;
+    margin-inline: auto;
+  }
+
+  &__desktop {
+    display: none;
+    row-gap: 30px;
+
+    @include on-desktop {
+      display: block;
+      @include page-grid;
+    }
+  }
+
+  &__desktop-photo {
+    background-image: url(../images/gallery-1-desktop.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+
+    &--1 {
+      grid-column: span 4;
+    }
+
+    &--2 {
+      background-image: url(../images/gallery-2-desktop.jpg);
+      grid-column: span 8;
+    }
+
+    &--3 {
+      background-image: url(../images/gallery-3-desktop.jpg);
+      height: 360px;
+      grid-column: span 8;
+    }
+
+    &--4 {
+      background-image: url(../images/gallery-4-desktop.jpg);
+      height: 360px;
+      grid-column: span 4;
+    }
+  }
+}
