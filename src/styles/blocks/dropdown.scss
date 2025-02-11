@@ -53,15 +53,12 @@
     gap: 28px;
 
     @include on-tablet {
-      // padding-left: 0;
-      // padding-left: 96px;
       padding-right: 0;
       margin-top: 40px;
       gap: 20px;
     }
 
     @include on-desktop {
-      // padding-left: 182px;
       gap: 31px;
     }
   }
@@ -88,9 +85,27 @@
   }
 
   &__nav-link {
+    position: relative;
+    display: inline-block;
     text-decoration: none;
     color: inherit;
     font-family: $font-secondary;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 0.8px;
+      background-color: white;
+      opacity: 0.8;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
   }
 
   &__nav-link-group {
@@ -153,11 +168,6 @@
   &__schedule-list {
     margin: 0;
     padding: 0;
-
-    @include on-tablet {
-      // white-space: no-wrap;
-      // min-width: 144px;
-    }
   }
 
   &__schedule-item {

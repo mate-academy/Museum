@@ -1,4 +1,6 @@
 .header {
+  @include header-effect;
+
   &__wrapper {
     position: relative;
   }
@@ -30,7 +32,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
-    min-height: 286px; // temp for mobile
+    min-height: 286px;
 
     @include on-tablet {
       grid-column: 4 / -1;
@@ -80,10 +82,11 @@
       width: 24%;
       height: 72px;
     }
+
+    @include photo-hover-scaling;
   }
 
   &__logo-image {
-    // display: block;
     width: 58px;
     height: 63px;
   }
@@ -121,15 +124,9 @@
     }
 
     @include on-desktop {
-      // align-self: end;
-      // margin: 0 0 89px 0;
       font-size: $fs-hero;
-
-      // margin-top: 206px;
       grid-column: 1 / 6;
     }
-
-    // margin: 0 0 20px 0;
 
     text-transform: uppercase;
     font-size: 45px;
@@ -137,13 +134,12 @@
     text-align: center;
     font-weight: $fw-bold;
 
-    // @include content-padding-inline;
-
     font-family: inherit;
+
+    @include text-hover-scaling;
   }
 
   &__tickets-button-wrapper {
-    // @include content-padding-inline;
     @include on-tablet {
       max-width: 250px;
       grid-column: 1 / 4;
@@ -174,11 +170,10 @@
     color: $text-color-dark;
     padding-block: 14.2px;
     padding-right: 50px;
-
-    @include on-tablet {
-      padding-block: 24.2px;
-      padding-right: 70px;
-    }
+    background-color: transparent;
+    transition:
+      background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out;
 
     &::after {
       content: '';
@@ -191,14 +186,37 @@
       top: 0;
       right: 0;
       width: 50px;
+      transition: background-color 0.4s ease-in-out;
 
-      // height: 50px;
       height: 100%;
       background-color: $accent-color;
 
       @include on-tablet {
         width: 70px;
       }
+    }
+
+    &:hover {
+      background-color: $accent-color;
+      color: #fff;
+
+      &::after {
+        background-color: #15433a;
+      }
+    }
+
+    &:active {
+      background-color: #15433a;
+      color: #fff;
+
+      &::after {
+        background-color: $accent-color;
+      }
+    }
+
+    @include on-tablet {
+      padding-block: 24.2px;
+      padding-right: 70px;
     }
   }
 
@@ -216,8 +234,11 @@
     left: 0.01%;
     transform: rotate(-90deg);
     cursor: pointer;
-    animation: bounce 1s ease-out 4;
-    animation-delay: 2s;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-10px) rotate(-90deg);
+    }
 
     @include on-desktop {
       display: flex;
