@@ -1,0 +1,200 @@
+.menu {
+  background-color: $green;
+  padding-block: 27px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  left: 0;
+  right: 0;
+  max-height: 0;
+  transform: translateY(-100%);
+  transition:
+    max-height 0.5s ease,
+    transform 0.5s ease;
+  z-index: 10;
+
+  @include on-tablet {
+    padding-top: 40px;
+    padding-bottom: 17px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 29px;
+  }
+
+  &__wrapper {
+    --columns: 2;
+
+    grid-template-columns: repeat(var(--columns), 1fr);
+    display: grid;
+
+    @include on-tablet {
+      --columns: 12;
+
+      column-gap: 30px;
+      grid-template-columns: repeat(var(--columns), 1fr);
+    }
+  }
+
+  &__nav {
+    --columns: 3;
+
+    grid-template-columns: 0.2fr 3.75fr 3.75fr;
+    display: grid;
+    border-bottom: 1px solid $acc-text-color;
+    padding-bottom: 18px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 6;
+      border-bottom: none;
+      display: grid;
+      padding-right: 60px;
+    }
+
+    &-icon {
+      grid-column: 1;
+      width: 24px;
+      height: 24px;
+
+      @include hover(transform, scale(1.1));
+    }
+
+    &-list {
+      --columns: 2;
+
+      padding-left: 28px;
+      grid-template-columns: repeat(var(--columns), 1fr);
+      display: grid;
+      gap: 24px 28px;
+      grid-column: 2 / -1;
+      list-style-type: none;
+      margin: 0;
+
+      @include on-tablet {
+        padding-left: 40px;
+        padding-bottom: 47px;
+        gap: 4px 20px;
+      }
+
+      @include on-desktop {
+        padding-left: 102px;
+      }
+    }
+
+    &-item {
+      margin: 0;
+      text-align: left;
+
+      &:hover {
+        transition: transform 0.1s;
+        transform: scale(0.98);
+      }
+    }
+
+    &-link {
+      text-decoration: none;
+      color: $acc-text-color;
+      font-family: $IBM-Plex-Sans-font;
+      font-weight: $font-weight-main;
+      font-size: 16px;
+      line-height: 16px;
+
+      @include on-desktop {
+        font-size: 22px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  &__schedule {
+    gap: 16px;
+    display: grid;
+    padding-top: 24px;
+    grid-column: 1 / -1;
+    color: $acc-text-color;
+
+    @include on-tablet {
+      --columns: 2;
+
+      grid-template-columns: 0.7fr 0.6fr;
+      gap: 20px 50px;
+      grid-column: 6 / -1;
+      border-left: 1px solid $acc-text-color;
+      padding-left: 43px;
+      padding-top: 0;
+      display: grid;
+    }
+
+    @include on-desktop {
+      --columns: 2;
+
+      grid-template-columns: 1fr 1fr;
+      padding-right: 59px;
+      grid-column: 7 / -1;
+      padding-left: 102px;
+      gap: 20px 0;
+    }
+
+    &-title {
+      margin: 0;
+      font-family: $IBM-Plex-Sans-font;
+      font-size: 14px;
+      line-height: 19.69px;
+      margin-bottom: 4px;
+
+      @include on-tablet {
+        grid-column: 1 / 2;
+        margin-bottom: 2px;
+      }
+    }
+
+    &-list {
+      list-style-type: none;
+      margin: 0;
+      padding-left: 0;
+
+      @include on-tablet {
+        grid-column: 1 / 2;
+        padding-bottom: 18px;
+      }
+    }
+
+    &-item {
+      font-family: $IBM-Plex-Sans-font;
+      font-size: 14px;
+      margin: 0;
+      line-height: 21px;
+
+      &--bold {
+        font-weight: 600;
+      }
+    }
+
+    &-descriprion {
+      font-family: $IBM-Plex-Sans-font;
+      font-size: 14px;
+      margin: 0;
+      line-height: 21px;
+
+      @include on-tablet {
+        grid-column: 2 / -1;
+      }
+
+      @include on-desktop {
+        padding-right: 59px;
+      }
+
+      &--bold {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.menu:target {
+  max-height: 500px;
+  transform: translateY(0);
+  opacity: 1;
+}
