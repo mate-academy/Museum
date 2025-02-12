@@ -33,27 +33,34 @@
   }
 
   &__title{
-  font-family: IBM Plex Sans;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   text-align: left;
   color: #0F0E08;
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
   }
 
   &__text{
-    font-family: IBM Plex Sans;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
     text-align: left;
-    color: #0F0E08;
     margin: 0;
+    color: #0F0E08;
+  }
+
+  &__link {
+    &:hover {
+      cursor: pointer;
+      color: #15463D !important;
+    }
   }
 
   &__announcement{
-    font-family: IBM Plex Sans;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
@@ -67,8 +74,7 @@
     position: absolute;
     right: 0;
     bottom: 20px;
-    justify-self: center;
-    align-self: start;
+    place-self: center;
     width: 50px;
     height: 50px;
     display: flex;
@@ -93,7 +99,7 @@
 
 
   &__bottom {
-    font-family: IBM Plex Sans;
+    font-family: 'IBM Plex Sans', sans-serif;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 20px;
@@ -123,12 +129,17 @@
 
     &-item{
       padding-top: 20px;
-      font-family: IBM Plex Sans;
+      font-family: 'IBM Plex Sans', sans-serif;
       font-size: 14px;
       font-weight: 400;
       line-height: 14px;
       text-align: left;
       color: #0F0E08;
+
+      &:hover {
+        cursor: pointer;
+        color: #15463D;
+      }
     }
     &-link{
       text-decoration: none;
@@ -139,6 +150,7 @@
   @include on-tablet {
     .footer {
       @include page-grid;
+
       padding: 35px 36px 64px;
       color: #333;
 
@@ -196,6 +208,7 @@
   @include on-desktop {
     .footer {
       @include page-grid;
+
       padding: 35px 55px 64px;
       color: #333;
       height: 457px;
@@ -212,12 +225,13 @@
       &__content {
         grid-column: 3 / 8;
         margin: 0;
-        border-bottom: 0px;
+        border-bottom: 0;
         border-right: 1px solid #1A5A4C80;
       }
 
       &__container {
         @include page-grid;
+
         position: relative;
         top: -285px;
       }
@@ -232,26 +246,9 @@
       }
 
       &__bottom {
-        margin: 0 0 0 ;
+        margin: 0;
         padding: 0;
         grid-column: 8 / -1;
-      }
-
-      &__credits {
-        display: flex;
-        align-items: center;
-        font-size: 12px;
-        color: #0F0E08;
-        line-height: 1.6;
-        font-weight: 300;
-        text-align: center;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin: 0;
-      }
-
-      &__back-to-top {
-        display: none;
       }
 
       &__info {
@@ -263,6 +260,10 @@
       &__credits {
         grid-column: 1 / -1;
         margin-top: 150px;
+      }
+
+      &__contacts{
+        z-index: 1;
       }
     }
   }
