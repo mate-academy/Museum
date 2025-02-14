@@ -1,24 +1,28 @@
 .subscribe {
-  height: 386px;
-  width: 100%;
-  padding-block: 88px;
+  &__container {
+    height: 386px;
+    padding-block: 88px;
 
-  background-image: url(../images/paintig_on_the_wall.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+    background-image: url(../images/paintig_on_the_wall.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 
-  @include on-tablet {
-    height: 380px;
-    background-position: 50%;
-  }
+    @include on-tablet {
+      @include page-grid;
 
-  @include on-desktop {
-    height: 550px;
+      height: 380px;
+    }
+
+    @include on-desktop {
+      height: 550px;
+      padding-block: 163px;
+    }
   }
 
   &__title {
     margin-bottom: 20px;
+    grid-column: 1 / -1;
     color: #fff;
 
     @include on-desktop {
@@ -26,9 +30,12 @@
     }
   }
 
+
+
   &__description {
     @include font-ibm-plex-sans-light;
 
+    grid-column: 1 / -1;
     margin-bottom: 50px;
 
     color: #fff;
