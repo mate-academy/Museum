@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.gallery {
+  margin-bottom: 100px;
+
+  &__title {
+    color: #0F0E08;
+
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36px;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 48px;
+    }
+  }
+}
+
+.slideshow-container {
+  min-height: 447px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 20px;
+
+  @include on-tablet {
+    max-width: 768px;
+    min-height: 438px;
+    justify-content: center;
+  }
+
+  @include on-small-desktop {
+    min-width: 1280px;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 30px;
+  }
+}
+
+.mySlides {
+  min-height: 447px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+  @include on-tablet {
+    width: 48%;
+    min-height: 538px;
+  }
+
+  @include on-small-desktop {
+    width: fit-content;
+    min-height: 360px;
+
+    .img-1 {
+      width: 370px;
+      height: 600px;
+    }
+
+    .img-3 {
+      width: 770px;
+      height: 600px;
+      margin-left: -18px;
+    }
+
+    .img-4 {
+      width: 770px;
+      height: 360px;
+    }
+
+    .img-5 {
+      width: 370px;
+      height: 360px;
+    }
+  }
+}
+
+//@include on-small-desktop {
+//  .img-1 {
+//    width: 370px;
+//    height: 600px;
+//  }
+//
+//  .img-2 {
+//    width: 770px;
+//    height: 600px;
+//  }
+//
+//  .img-3 {
+//    width: 770px;
+//    height: 360px;
+//  }
+//
+//  .img-4 {
+//    width: 370px;
+//    height: 360px;
+//  }
+//}
+
+.slide-active {
+  display: flex;
+  align-items: center;
+  background-color: #2C3E50;
+  opacity: 1;
+  transform: translateX(0);
+
+  @include on-small-desktop {
+    background-color: transparent;
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  @include on-small-desktop {
+    display: none;
+  }
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}

@@ -1,0 +1,160 @@
+.page {
+  .menu {
+    width: 320px;
+    //height: 399px;
+    color: #fff;
+    background-color: #1A5A4C;
+    padding: 27px 20px;
+
+    @include on-tablet {
+      width: 100%;
+      max-height: 310px;
+      padding: 42px 37px 15px;
+    }
+
+    @include on-small-desktop {
+      max-height: 260px;
+      padding-inline: 56px;
+      padding-bottom: 42px;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateX(-100%);
+    pointer-events: none;
+  }
+
+  .page__menu:target {
+    display: block;
+    opacity: 1;
+    transition: all 0.3s;
+    transform: translateX(0);
+    pointer-events: all;
+
+    @include on-tablet {
+      //max-height: 310px;
+      display: flex;
+      height: fit-content;
+    }
+  }
+
+  &__menu-box {
+    display: flex;
+    gap: 20px;
+    margin-left: 72px;
+    margin-top: -20px;
+
+    @include on-tablet {
+      margin-right: 26px;
+      margin-top: 0;
+    }
+
+    @include on-small-desktop {
+      gap: 32px;
+      margin-inline: 102px;
+    }
+
+    .page__menu-list {
+      width: 100px;
+
+      @include on-small-desktop {
+        width: 170px;
+      }
+
+      .page__menu-item {
+        margin-bottom: 24px;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 16px;
+
+        .page__menu-link {
+          color: #fff;
+          text-decoration: none;
+        }
+
+        @include on-small-desktop {
+          font-size: 22px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+
+  .page__menu-line {
+    width: 280px;
+    height: 1px;
+    background-color: #fff;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      width: 1px;
+      height: 145px;
+      margin-right: 38px;
+    }
+
+    @include on-small-desktop {
+      margin-right: 102px;
+    }
+  }
+
+  .page__hours {
+
+    @include on-tablet {
+      display: flex;
+    }
+
+    @include on-small-desktop {
+      gap: 30px;
+    }
+
+    .page__hours-box {
+
+      @include on-tablet {
+        margin-right: 26px;
+      }
+    }
+
+    .page__hours-title {
+      margin-bottom: 20px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+    }
+
+    .page__hours-list {
+      margin-bottom: 16px;
+
+      .page__hours-item {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+      }
+    }
+
+    .page__hours-note {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+
+      @include on-tablet {
+        width: 144px;
+        margin-top: 40px;
+      }
+    }
+  }
+
+  li {
+    list-style: none;
+  }
+}
