@@ -8,6 +8,27 @@
   max-width: 1440px;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.overlay--active {
+  opacity: 1;
+  visibility: visible;
+}
+
 .page {
   @include font;
 
@@ -294,6 +315,7 @@
   overflow: auto;
   color: $white-color;
   background-color: $green-pea-color;
+  z-index: 20;
 
   &__container {
     @include flex($direction: row, $content: space-between);
