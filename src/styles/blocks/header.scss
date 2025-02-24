@@ -1,0 +1,129 @@
+.header {
+  background-image: url(../images/header-bg.png);
+  background-size: 100% 300px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-color: #fff;
+
+  @include on-tablet {
+    background-size: 48% 100%;
+    background-position: right top;
+  }
+
+  @include on-desktop {
+    background-size: 56% 100%;
+  }
+
+  &__container {
+    @include content-padding-inline;
+  }
+
+  &__bottom {
+    padding-top: 250px;
+
+    @include page-grid;
+
+    @include on-tablet {
+      padding: 64px 0 20px;
+    }
+
+    @include on-desktop {
+      padding: 143px 0 0;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      text-align: left;
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    font-family: 'IBM Plex Sans', serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid #1a5a4c;
+    grid-column: 1 / -1;
+    padding: 0;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    text-decoration: none;
+    margin-top: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 3;
+      margin-top: 38px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 6;
+      margin-top: 89px;
+    }
+  }
+
+  &__button:hover {
+    transition-duration: $efferctDuration;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__ticket {
+    display: flex;
+    padding: 0;
+    margin: auto;
+    background-color: #fff;
+    text-transform: uppercase;
+    border: 0;
+    color: #0f0e08;
+    height: 100%;
+    line-height: 24px;
+  }
+
+  &__submit {
+    cursor: pointer;
+    border: 0;
+    width: 50px;
+    height: 100%;
+    color: #d7dde3;
+    background-color: #1a5a4c;
+  }
+
+  &__events-arrow-link {
+    display: none;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 1 / 2;
+    }
+  }
+
+  &__events-arrow-img {
+    display: none;
+    width: 14px;
+    height: 133px;
+    transition-duration: $efferctDuration;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+}
