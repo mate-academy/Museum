@@ -1,0 +1,104 @@
+.menu {
+  background-color: $menu-color;
+
+  &__content {
+    @include padding-inline;
+
+    padding-block: 27px;
+
+    @include on-tablet {
+      padding-block: 40px;
+      display: flex;
+      gap: 77px;
+    }
+
+    @include on-desktop {
+      gap: 205px;
+      padding-bottom: 48px;
+    }
+  }
+
+  &__top {
+    position: relative;
+    display: flex;
+    gap: 28px;
+
+    &::after {
+      display: block;
+      content: '';
+      position: absolute;
+      height: 1px;
+      background-color: $page-color;
+      bottom: -24px;
+      width: 100%;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    @include on-tablet {
+      gap: 38px;
+
+      &::after {
+        display: block;
+        content: '';
+        position: absolute;
+        width: 1px;
+        background-color: $page-color;
+        right: -38px;
+        height: 100%;
+        top: 0;
+
+        @include on-desktop {
+          right: -102px;
+        }
+      }
+    }
+
+    @include on-desktop {
+      gap: 102px;
+    }
+  }
+
+  &__list-description {
+    margin-top: 49px;
+    color: $page-color;
+    font-weight: 400;
+
+    @include on-tablet {
+      margin-top: 0;
+    }
+  }
+
+  &__list {
+    margin-top: 20px;
+  }
+
+  &__text {
+    font-weight: 400;
+    color: $page-color;
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 21px;
+
+    &-span {
+      @include bold-text;
+    }
+
+    @include on-tablet {
+      width: 40%;
+    }
+  }
+
+  &__center-lists {
+    @include on-tablet {
+      display: flex;
+      gap: 26px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+}

@@ -1,0 +1,181 @@
+.header {
+  &__content {
+    @include padding-inline;
+    @include page-grid;
+
+    padding-bottom: 70px;
+    position: relative;
+
+    @include on-tablet {
+      padding-bottom: 107px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 318px;
+
+      &::after {
+        display: block;
+        position: absolute;
+        content: 'Події';
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        left: 55px;
+        top: 522px;
+        color: $article-type;
+        font-size: 14px;
+        line-height: 14px;
+      }
+    }
+  }
+
+  &__top {
+    grid-column: 1/-1;
+  }
+
+  &__top-bar {
+    margin-bottom: 241px;
+
+    @include on-tablet {
+      margin-bottom: 25px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 104px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    text-transform: uppercase;
+    text-align: center;
+    color: $main-dark;
+    font-family: Montserrat, serif;
+
+    @include on-tablet {
+      text-align: left;
+      font-size: 54px;
+      line-height: 65px;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+      line-height: 86px;
+    }
+  }
+
+  &__center {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: 1/4;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      grid-column: 1/5;
+      gap: 89px;
+      margin-right: 30px;
+      position: relative;
+
+      &::after {
+        display: block;
+        position: absolute;
+        content: '';
+        width: 1px;
+        height: 70px;
+        background-color: $menu-color;
+        bottom: -100px;
+        left: 7px;
+      }
+    }
+  }
+
+  &__box {
+    border: 1px solid $menu-color;
+    display: flex;
+    width: 280px;
+    height: 50px;
+    justify-content: space-between;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      align-self: end;
+    }
+  }
+
+  &__tickets {
+    width: 230px;
+    line-height: 16px;
+    color: rgba(15, 14, 8, 1);
+    text-transform: uppercase;
+    font-family: 'IBM Plex Sans', serif;
+    font-variation-settings: 'wdth' 100;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.2));
+
+    @include on-tablet {
+      width: 220px;
+      height: 70px;
+    }
+  }
+
+  &__tickets-link {
+    text-decoration: none;
+    color: $main-dark;
+    width: 100%;
+    height: 100%;
+
+    @include centered-flex;
+
+    &:hover {
+      color: $menu-color;
+    }
+  }
+
+  &__arrow {
+    width: 50px;
+    background-color: $menu-color;
+  }
+
+  &__arrow-link {
+    width: 100%;
+    height: 100%;
+
+    @include centered-flex;
+  }
+
+  &__background {
+    position: absolute;
+    background-image: url(/src/images/top-bar-bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    z-index: -1;
+
+    @include on-tablet {
+      height: 390px;
+      width: 48%;
+      right: 0;
+      top: 0;
+    }
+
+    @include on-desktop {
+      height: 655px;
+      width: 58%;
+    }
+  }
+}

@@ -4,3 +4,87 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin padding-inline {
+  padding-inline: 20px;
+  max-width: 280px;
+  margin-inline: auto;
+
+  @include on-tablet {
+    padding-inline: 39px;
+    max-width: 690px;
+  }
+
+  @include on-desktop {
+    padding-inline: 55px;
+    max-width: 1170px;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 130px);
+  column-gap: 20px;
+
+  @include on-tablet {
+    grid-template-columns: repeat(6, 90px);
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 70px);
+    column-gap: 30px;
+  }
+}
+
+@mixin centered-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin bold-text {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: $page-color;
+}
+
+@mixin on-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin footer-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+@mixin link-line {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: $page-color;
+    bottom: -10px;
+    transition: transform 0.3s;
+    transform: scale(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
