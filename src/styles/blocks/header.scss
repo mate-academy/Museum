@@ -1,0 +1,223 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  height: auto;
+
+  @include on-tablet {
+    flex-direction: row-reverse;
+    gap: 20px;
+  }
+
+  @include on-desktop {
+    gap: 30px;
+    max-width: 1280px;
+    margin: auto;
+  }
+
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 300px;
+    background-image: url(../images/header/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png);
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+
+    @include on-mobile {
+      height: 300px;
+      padding-top: 10px;
+    }
+
+    @include on-tablet {
+      height: 384px;
+      padding-top: 16px;
+      flex: 1;
+      flex-basis: 50%;
+      max-width: 50%;
+      justify-content: flex-start;
+      padding-left: 80px;
+    }
+
+    @include on-desktop {
+      height: 655px;
+    }
+  }
+
+  &__bottom {
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      padding-right: 0;
+      padding-left: 32px;
+      padding-top: 126px;
+      flex: 1;
+      flex-basis: 50%;
+      max-width: 50%;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      padding-left: 56px;
+      padding-top: 206px;
+
+      gap: 90px;
+    }
+  }
+
+  &__menu-button {
+    position: absolute;
+    top: $indent-menu-mobile;
+    left: $padding-inline-mobile;
+    cursor: pointer;
+
+    @include on-tablet {
+      top: $indent-menu-tablet;
+      left: $padding-inline-tablet;
+    }
+
+    @include on-desktop {
+      left: $padding-inline-desktop;
+    }
+  }
+
+  &__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: rgba(0, 0, 0, 1);
+    margin: 0;
+
+    @include on-tablet {
+      text-align: left;
+      font-weight: 700;
+      font-size: 54px;
+      line-height: 64.8px;
+      letter-spacing: 0%;
+    }
+
+    @include on-desktop {
+      font-weight: 700;
+      font-size: 72px;
+      line-height: 86.4px;
+      letter-spacing: 0%;
+    }
+  }
+
+  &__button {
+    position: relative;
+    box-sizing: border-box;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgba(26, 90, 76, 1);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    @include on-tablet {
+      width: 270px;
+      height: 70px;
+    }
+
+    &-wrapper {
+      text-decoration: none;
+
+      @include on-desktop {
+        align-self: flex-end;
+      }
+    }
+
+    &-square {
+      width: 50px;
+      height: 100%;
+      background-color: rgba(26, 90, 76, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease-in-out;
+
+      @include on-tablet {
+        width: 70px;
+      }
+    }
+
+    &-text {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      letter-spacing: 0%;
+    }
+
+    &-icon {
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover .header__button-icon {
+      transform: translateX(3px);
+    }
+
+    &:hover .header__button-square {
+      transform: translateX(3px);
+      background-color: rgba(26, 90, 76, 0.9);
+    }
+
+    &:active .header__button-square {
+      transform: translateX(3px);
+      background-color: rgba(18, 71, 59, 0.95);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  &__event {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 56px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: left center;
+
+    @include on-desktop {
+      display: flex;
+    }
+
+    &-line {
+      width: 70px;
+      height: 1px;
+      background-color: rgba(26, 90, 76, 1);
+    }
+
+    &-text {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      line-height: 14px;
+      letter-spacing: 0%;
+      color: rgba(104, 116, 128, 1);
+    }
+  }
+}
