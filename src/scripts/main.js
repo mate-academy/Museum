@@ -80,7 +80,7 @@ function scrollToCurrentSlide() {
   slides[currentSlide].scrollIntoView({
     behavior: 'smooth',
     block: 'center',
-    inline: 'center',
+    inline: 'start',
   });
   updateDots();
 }
