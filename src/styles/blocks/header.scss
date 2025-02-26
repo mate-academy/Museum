@@ -1,0 +1,149 @@
+.header {
+  box-sizing: border-box;
+  padding-top: 9px;
+  background-image: url('../images/header-museum.png');
+  background-size: 100% 300px;
+  background-repeat: no-repeat;
+
+  @include on-tablet {
+    background-position-x: right;
+    background-size: 50% 100%;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 250px;
+
+    @include on-tablet {
+      @include my-grid;
+
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 120px;
+    }
+  }
+
+  &__menu {
+    display: inline-block;
+    width: fit-content;
+
+    @include on-tablet {
+      grid-column: 1;
+    }
+
+    @include hover(scale, 1.2);
+  }
+
+  &__logo {
+    margin: 0 auto;
+
+    @include on-tablet {
+      grid-column: 4;
+    }
+
+    @include on-desktop {
+      grid-column: 7;
+    }
+  }
+
+  &__content {
+    box-sizing: border-box;
+
+    @include my-grid;
+
+    text-align: center;
+    row-gap: 20px;
+
+    @include on-tablet {
+      text-align: left;
+      row-gap: 40px;
+    }
+
+    @include on-desktop {
+      row-gap: 90px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    text-transform: uppercase;
+    font-size: 45px;
+    line-height: 45px;
+
+    @include on-tablet {
+      grid-column: span 3;
+      font-size: 54px;
+      line-height: 65px;
+    }
+
+    @include on-desktop {
+      grid-column: span 5;
+      font-size: 72px;
+      line-height: 87px;
+    }
+  }
+
+  &__tickets {
+    margin: 0 auto;
+    line-height: 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #000;
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 3;
+      grid-row: 2;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 6;
+    }
+
+    &:hover {
+      background-color: $green-bg;
+      .header__tickets {
+        color: #fff;
+      }
+    }
+  }
+
+  &__arrow {
+    background-color: $green-bg;
+  }
+
+  &__left-side {
+    font-size: 14px;
+    text-transform: uppercase;
+    display: none;
+    min-height: 70px;
+
+    @include on-desktop {
+      box-sizing: border-box;
+      display: flex;
+      transform: rotate(-90deg);
+      gap: 15px;
+
+      grid-row: 3;
+      grid-column: 1 / 1;
+    }
+  }
+
+  &__line {
+    border-top: 1px solid black;
+    width: 70px;
+  }
+
+  &__events {
+    color: $gray-text;
+    line-height: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+  }
+}

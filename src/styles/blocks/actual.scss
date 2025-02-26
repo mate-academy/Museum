@@ -1,0 +1,177 @@
+.actual {
+  padding-block: 70px;
+
+  @include on-tablet {
+    padding-block: 90px;
+  }
+
+  @include on-desktop {
+    padding-block: 200px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    @include on-tablet {
+      gap: 70px;
+    }
+
+    @include on-desktop {
+      gap: 105px;
+    }
+  }
+
+  &__card {
+    @include my-grid;
+  }
+
+  &__title {
+    text-align: center;
+    grid-column: 1 / -1;
+    color: #000;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      text-align: left;
+    }
+  }
+
+  &__photo {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 210px;
+    place-self: center;
+    margin-bottom: 16px;
+
+    @include on-tablet {
+      place-self: normal;
+      width: 100%;
+      height: 520px;
+    }
+
+    @include on-desktop {
+      grid-column: span 7;
+      margin: 0;
+    }
+  }
+
+  &__info {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include on-tablet {
+      grid-column: span 4;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+      place-self: center;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+
+    &--three {
+      padding-inline: 20px;
+    }
+
+    @include on-tablet {
+      padding: 0;
+      justify-content: left;
+      gap: 40px;
+    }
+
+    @include on-desktop {
+      &--three {
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__show {
+    text-transform: uppercase;
+    color: $gray-text;
+    font-weight: bold;
+  }
+
+  &__date {
+    color: $green-bg;
+    font-weight: bold;
+  }
+
+  &__center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      justify-content: left;
+      gap: 15px;
+    }
+  }
+
+  &__name {
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    line-height: 28px;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 36px;
+      line-height: 36px;
+      text-align: left;
+    }
+  }
+
+  &__description {
+    color: $gray-deep-text;
+  }
+
+  &__bottom {
+    position: relative;
+    width: 100%;
+    height: 210px;
+    background-image: url('../images/actual/actual--three.png');
+    background-size: cover;
+    background-position: center;
+
+    @include on-tablet {
+      height: 400px;
+    }
+
+    @include on-desktop {
+      height: 550px;
+    }
+  }
+
+  &__lection {
+    box-sizing: border-box;
+    position: absolute;
+    top: 70%;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding-block: 25px;
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 2px 0 0 #1a5a4c40;
+
+    @include on-tablet {
+      padding: 50px 55px;
+      max-width: 570px;
+      top: 80%;
+    }
+  }
+}
