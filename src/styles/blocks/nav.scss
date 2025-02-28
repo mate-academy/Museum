@@ -16,12 +16,33 @@
     line-height: 16px;
     display: inline-block;
     width: fit-content;
+    transition: all 0.3s;
+    position: relative;
 
     @include on-desktop {
       font-size: 22px;
       line-height: 22px;
     }
 
-    @include hover(transform, scale(1.2));
+    &::after{
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      content: '';
+      width: 0;
+      height: 2px;
+      background-color: $green-bg;
+
+      transition: all .3s;
+    }
+
+    &--white-bg::after{
+      background-color: #fff;
+    }
+
+
+    &:hover::after {
+      width: 100%;
+    }
   }
 }
