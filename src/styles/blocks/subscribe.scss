@@ -1,0 +1,157 @@
+.subscribe {
+  @include page-grid;
+
+  &__background {
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+    height: 550px;
+
+    @include on-tablet {
+      height: 380px;
+    }
+
+    @include on-phone {
+      height: 386px;
+    }
+  }
+
+  &__title {
+    @include text-styler(Montserrat, 700, 48px, 48px, $c-white);
+
+    text-align: center;
+    grid-column: 5 / 9;
+    margin: 163px 0 0;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      margin: 82px 0 0;
+    }
+
+    @include on-phone {
+      grid-column: span 2;
+      font-size: 36px;
+      margin: 88px 0 0;
+    }
+  }
+
+  &__description {
+    @include text-styler(IBM Plex Sans, 400, 18px, 18px, $c-white);
+
+    text-align: center;
+    grid-column: 4 / 10;
+    margin: 16px 0 0;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-phone {
+      margin: 20px 0 0;
+      grid-column: span 2;
+      line-height: 150%;
+    }
+  }
+
+  &__form {
+    @include element-grid;
+
+    grid-column: span 12;
+    margin: 72px 0 163px;
+
+    @include on-tablet {
+      display: flex;
+      gap: 16px;
+      grid-column: 2 / 6;
+      margin: 64px 0 82px;
+    }
+
+    @include on-phone {
+      gap: 0;
+      grid-column: span 2;
+      margin: 50px 0 88px;
+    }
+  }
+
+  &__input {
+    grid-column: 4 / 9;
+    outline: none;
+    border: none;
+    height: 70px;
+    padding: 28px 32px;
+    transition: all 0.3s ease-in-out;
+
+    @include text-styler(Montserrat, 400, 14px, 14px, $c-black);
+
+    &::placeholder {
+      @include text-styler(Montserrat, 400, 14px, 14px, $c-gray);
+    }
+
+    @include on-tablet {
+      padding: 28px 24px;
+      width: 374px;
+    }
+
+    @include on-phone {
+      padding: 18px 24px;
+      height: 50px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background-color: $c-orange;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    border: none;
+    grid-column: 9 / 10;
+    transition: all 0.3s ease-in-out;
+
+    @include on-phone {
+      width: 50px;
+      height: 50px;
+    }
+
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $c-orange;
+      width: 70px;
+      height: 100%;
+
+      @include on-phone {
+        width: 50px;
+      }
+    }
+
+    &-svg {
+      width: 7.41px;
+      height: 70px;
+
+      @include on-phone {
+        height: 50px;
+      }
+    }
+  }
+}
+
+@media (hover: hover) {
+  .subscribe__form:hover,
+  .subscribe__form:focus-within {
+    .subscribe__input {
+      transform: scaleY(1.1);
+    }
+  }
+
+  .subscribe__button:hover {
+    transform: scale(1.1);
+  }
+}

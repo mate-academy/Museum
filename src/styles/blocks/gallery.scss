@@ -1,0 +1,49 @@
+.gallery {
+  @include page-grid;
+
+  &__title {
+    @include text-styler(Montserrat, 700, 48px, 48px, $c-coal);
+
+    grid-column: 1 / 4;
+    margin: 0;
+
+    @include on-phone {
+      font-size: 36px;
+    }
+  }
+
+  &__pictures {
+    @include element-grid;
+
+    grid-column: span 12;
+    gap: 30px;
+    margin: 56px 0 0;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__picture {
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.01);
+      border-radius: 16px;
+    }
+
+    &--1,
+    &--4 {
+      grid-column: span 4;
+    }
+
+    &--2,
+    &--3 {
+      grid-column: span 8;
+    }
+  }
+}

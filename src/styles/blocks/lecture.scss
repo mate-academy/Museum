@@ -1,0 +1,118 @@
+.lecture {
+  @include element-grid;
+
+  grid-column: span 12;
+  height: 652px;
+
+  @include on-tablet {
+    @include element-grid;
+
+    height: 510px;
+    grid-column: span 6;
+  }
+
+  @include on-phone {
+    grid-column: span 2;
+    height: 293px;
+  }
+
+  &__background {
+    position: absolute;
+    object-fit: cover;
+    width: 100vw;
+    height: 550px;
+    left: 0;
+    z-index: -1;
+
+    @include on-tablet {
+      width: calc(100vw - 68px);
+      left: 34px;
+      justify-self: center;
+      height: 390px;
+    }
+
+    @include on-phone {
+      width: 100vw;
+      left: 0;
+      height: 210px;
+    }
+  }
+
+  &__announcement {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    align-self: end;
+    grid-column: 4 / 10;
+    background-color: $c-white;
+    box-shadow: 0 2px 0 0 #1a5a4c40;
+
+    @include on-tablet {
+      grid-column: span 6;
+      justify-self: center;
+    }
+
+    @include on-phone {
+      grid-column: span 2;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__label {
+    display: flex;
+    gap: 130px;
+    margin: 45px 100px 0;
+
+    @include on-tablet {
+      margin: 45px 55px 0;
+    }
+
+    @include on-phone {
+      gap: 0;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin: 20px 0;
+      padding: 0 20px;
+    }
+  }
+
+  &__type {
+    @include text-styler(IBM Plex Sans, 500, 14px, 14px, $c-gray);
+
+    margin: 0;
+
+    @include on-phone {
+      font-size: 16px;
+    }
+  }
+
+  &__date {
+    @include text-styler(IBM Plex Sans, 700, 14px, 21px, $c-green);
+
+    margin: 0;
+
+    @include on-phone {
+      font-size: 16px;
+    }
+  }
+
+  &__title {
+    @include text-styler(Montserrat, 400, 36px, 36px, $c-coal);
+
+    margin: 16px 100px 50px;
+
+    @include on-tablet {
+      margin: 16px 55px 50px;
+    }
+
+    @include on-phone {
+      font-size: 28px;
+      line-height: 100%;
+      margin: 0 0 20px;
+      text-align: center;
+    }
+  }
+}

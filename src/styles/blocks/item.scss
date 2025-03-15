@@ -1,0 +1,138 @@
+.item {
+  @include element-grid;
+
+  grid-column: span 12;
+
+  @include on-tablet {
+    grid-column: span 6;
+  }
+
+  @include on-phone {
+    grid-column: 1 / 3;
+  }
+
+  &--1 {
+    @include on-tablet {
+      margin: 0 0 64px;
+    }
+
+    @include on-phone {
+      margin: 0 0 60px;
+    }
+  }
+
+  &--2 {
+    @include on-tablet {
+      margin: 0 0 112px;
+    }
+
+    @include on-phone {
+      margin: 0 0 60px;
+    }
+  }
+
+  &__picture {
+    grid-column: 1 / 8;
+    width: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    @include on-tablet {
+      grid-column: 1 / 7;
+    }
+
+    @include on-phone {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &:hover {
+    .item__picture {
+      border-radius: 16px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    grid-column: 9 / 13;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin: 40px 0 0;
+    }
+
+    @include on-phone {
+      grid-column: 1 / 3;
+      margin: 20px 0 0;
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  &__type {
+    @include text-styler(IBM Plex Sans, 500, 14px, 14px, $c-gray);
+
+    margin: 0;
+
+    @include on-phone {
+      font-size: 16px;
+      line-height: 100%;
+    }
+  }
+
+  &__date {
+    @include text-styler(IBM Plex Sans, 700, 14px, 21px, $c-green);
+
+    margin: 0;
+
+    @include on-phone {
+      font-size: 16px;
+      line-height: 100%;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin: 30px 0 0;
+
+    @include on-phone {
+      margin: 15px 0 0;
+    }
+
+    &-text {
+      @include text-styler(Montserrat, 400, 36px, 39px, $c-coal);
+
+      margin: 0;
+
+      @include on-phone {
+        font-size: 28px;
+      }
+    }
+
+    &-decorate {
+      background-image: url(../images/icons/decorate.png);
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__description {
+    @include text-styler(IBM Plex Sans, 300, 16px, 24px, $c-dark-gray);
+
+    margin: 15px 0 0;
+
+    @include on-phone {
+      margin: 10px 0 0;
+    }
+  }
+}

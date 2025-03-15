@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  scroll-behavior: smooth;
+  min-width: 320px;
+  transition: all 0.4s ease-in-out;
+  overflow-x: hidden;
+
+  &__body {
+    transition: all 0.4s ease-in-out;
+    margin: 0;
+  }
+
+  &__menu {
+    transition: all 0.4s ease-in-out;
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    z-index: 10;
+    transform: translateY(-100%);
+
+    &-overlay {
+      position: fixed;
+      left: 0;
+      top: 0;
+      background-color: $c-black;
+      visibility: hidden;
+      opacity: 0;
+      width: 100vw;
+      z-index: 9;
+      transition: all 0.4s ease-in-out;
+      height: 100vh;
+    }
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow-y: hidden;
+
+    .top-bar__menu-link {
+      opacity: 0;
+      transform: scale(-1);
+    }
+
+    .page__menu-overlay {
+      opacity: 0.5;
+      visibility: visible;
+    }
+  }
+}
