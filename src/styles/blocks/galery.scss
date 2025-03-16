@@ -1,0 +1,80 @@
+.galery {
+  @for $i from 1 through 4 {
+    &:has(#slide-#{$i}:target) &__link--slide-#{$i} {
+      background-color: #1a5a4c;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    height: 0;
+    padding-bottom: 146.4%;
+    width: calc(100% + $padding-mobile);
+  }
+
+  &__slides {
+    position: absolute;
+    background-origin: border-box;
+    display: flex;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+  }
+
+  &__slide {
+    position: relative;
+    height: 100%;
+    width: calc(100% - $padding-mobile);
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    margin-right: 16px;
+    transform: scale(0.98);
+
+    &:target {
+      scale: (1);
+    }
+
+    &:last-child {
+      margin-right: $padding-mobile;
+    }
+  }
+
+  &__picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__picture:target {
+    transform: scale(1);
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+    margin-inline: auto;
+    height: 9px;
+    width: 102px;
+  }
+
+  &__link {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+
+    // galery__link--slide-1
+
+    &--slide-1 {
+      // background-color: red;
+    }
+  }
+}
