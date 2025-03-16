@@ -1,0 +1,83 @@
+.menu {
+  @include page-grid;
+
+  left: -55px;
+  width: 100vw;
+  height: 233px;
+  background-color: $c-green;
+
+  @include on-tablet {
+    left: -34px;
+  }
+
+  @include on-phone {
+    left: -20px;
+    height: unset;
+  }
+
+  &__wrapper {
+    grid-column: span 12;
+    display: flex;
+    column-gap: 102px;
+    margin: 40px 0 0;
+
+    @include on-tablet {
+      grid-column: span 6;
+      column-gap: 38px;
+      margin-inline: 34px;
+    }
+
+    @include on-phone {
+      grid-column: span 2;
+      flex-direction: column;
+      gap: 24px;
+      margin: 27px 34px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    gap: 72px;
+
+    @include on-tablet {
+      gap: 38px;
+    }
+
+    @include on-phone {
+      width: 100%;
+      gap: 28px;
+      justify-content: space-between;
+    }
+  }
+
+  &__cross {
+    &-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-self: start;
+      width: 24px;
+      height: 24px;
+
+      @include hover(transform, scale(1.2));
+    }
+
+    &-icon {
+      width: 12.73px;
+      height: 12.73px;
+    }
+  }
+
+  &__separator {
+    width: 1px;
+    height: 145px;
+    background-color: $c-white;
+    opacity: 0.5;
+
+    @include on-phone {
+      width: 100%;
+      height: 1px;
+    }
+  }
+}
