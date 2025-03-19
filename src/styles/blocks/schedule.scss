@@ -3,16 +3,19 @@
   display: grid;
   grid-template-columns: 1fr;
   color: inherit;
+  font-weight: 400;
 
-  @include on-tablet {
-    grid-template-columns: repeat(2, 1fr);
+  &--two-rows {
+    @include on-tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include on-desktop {
+      grid-template-columns: 1fr 170px;
+    }
   }
 
-  @include on-desktop {
-    grid-template-columns: 1fr 170px;
-  }
-
-  &__color--white {
+  &--color--white {
     color: #fff;
   }
 
@@ -33,12 +36,20 @@
   }
 
   &__note {
+    line-height: 150%;
+
     &-title {
       font-weight: 600;
     }
 
-    @include on-tablet {
-      margin-top: 40px;
+    &--margin--20px {
+      margin-top: 20px;
+    }
+
+    &--margin--40px {
+      @include on-tablet {
+        margin-top: 40px;
+      }
     }
   }
 }

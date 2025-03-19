@@ -42,7 +42,10 @@
     overflow: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    overflow-x: scroll;
+
+    @media (pointer: coarse) {
+      overflow-x: scroll;
+    }
 
     @include on-tablet {
       column-gap: $gap-tablet;
@@ -53,7 +56,7 @@
 
       @include on-desktop {
         position: relative;
-        column-gap: $gap-desktop;
+        gap: $gap-desktop;
         grid-template-columns: repeat(12, 1fr);
         height: auto;
       }
@@ -65,14 +68,13 @@
     height: 100%;
     flex: 0 0 auto;
     scroll-snap-align: start;
-    transform: scale(0.98);
-
-    &:target {
-      scale: (1);
-    }
 
     &:last-child {
       margin-right: $padding-mobile;
+
+      @include on-desktop {
+        margin: 0;
+      }
     }
 
     &--slide-1 {
