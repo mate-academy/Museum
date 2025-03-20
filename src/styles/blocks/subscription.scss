@@ -1,0 +1,137 @@
+.subscription {
+  padding-inline: 20px;
+  height: 386px;
+  background-image: url(../images/subscription-background.png);
+  background-size: cover;
+  background-position: center;
+  color: $c-gray;
+
+  @include on-tablet {
+    padding-inline: 0;
+    height: 380px;
+  }
+
+  @include on-desktop {
+    padding-inline: 0;
+    height: 550px;
+  }
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__text {
+    grid-column: span 2;
+    text-align: center;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 10;
+    }
+
+    &--title {
+      margin: 0;
+      padding-block: 88px 20px;
+      font-size: 36px;
+      line-height: 36px;
+
+      @include on-tablet {
+        padding-block: 82px 16px;
+        font-size: 48px;
+      }
+
+      @include on-desktop {
+        padding-block: 163px 16px;
+      }
+    }
+
+    &--description {
+      margin: 0;
+      font-family: $font-description-ibm;
+      font-size: 18px;
+      line-height: 150%;
+    }
+  }
+
+  &__link {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 10;
+    }
+  }
+
+  &__form {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+
+    &--input {
+      border: none;
+      width: 80%;
+      padding-left: 24px;
+      font-family: $font-title-montserrat;
+      font-size: 14px;
+      background-color: $c-gray;
+
+      &:hover::placeholder {
+        color: $black-color;
+      }
+
+      &:focus::placeholder {
+        opacity: 0;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:-webkit-autofill {
+        box-shadow: 0 0 0 1000px $c-gray inset;
+      }
+
+      @include on-tablet {
+        width: 70%;
+      }
+
+      @include on-desktop {
+        width: 80%;
+      }
+    }
+
+    &--button {
+      border: none;
+      width: 50px;
+      background-color: $button-forms-color;
+      background-image: url(../images/subscription-button.png);
+      background-size: 8px 12px;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+
+      @include on-tablet {
+        width: 70px;
+        margin-left: 16px;
+      }
+
+      @include on-desktop {
+        margin-left: 30px;
+      }
+    }
+
+    @include on-tablet {
+      height: 70px;
+    }
+  }
+}

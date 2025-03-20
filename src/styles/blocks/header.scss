@@ -1,0 +1,169 @@
+.header {
+  &__background {
+    position: absolute;
+    background-image: url(../images/header.png);
+    background-size: cover;
+    background-position: center;
+    height: 320px;
+    width: 100%;
+    z-index: -1;
+
+    @include on-tablet {
+      height: 384px;
+      width: 50%;
+      right: 0;
+    }
+
+    @include on-desktop {
+      height: 655px;
+      width: 56%;
+    }
+  }
+
+  &__content {
+    @include content-padding-inline;
+
+    padding-top: 9px;
+    padding-bottom: 70px;
+
+    @include on-tablet {
+      padding-top: 15px;
+      padding-bottom: 107px;
+    }
+
+    @include on-tablet {
+      padding-bottom: 200px;
+    }
+  }
+
+  &__bottom {
+    @include page-grid;
+  }
+
+  &__waves {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $font-title-montserrat;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 45px;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 54px;
+      text-align: start;
+      line-height: 64.8px;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+      line-height: 86.4px;
+    }
+  }
+
+  &__events {
+    cursor: pointer;
+    transform-origin: 0;
+    text-transform: uppercase;
+    color: $events-color;
+    margin-top: 265px;
+    margin-inline-end: -40px;
+    font-family: $font-description-ibm;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform 0.3s;
+    display: none;
+    transform: rotate(-90deg);
+
+    &::before {
+      content: '';
+      z-index: 3;
+      background-color: $corporate-color;
+      width: 70px;
+      height: 1px;
+      margin-inline-end: 10px;
+      display: inline-block;
+    }
+
+    &:hover {
+      color: $black-color;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 2;
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  &__button {
+    grid-column: span 2;
+    padding-top: 20px;
+
+    @include on-tablet {
+      max-width: 270px;
+      padding-top: 38px;
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      padding-top: 89px;
+      grid-column: 3 / 6;
+    }
+  }
+
+  &__link {
+    @include page-grid;
+
+    grid-template-columns: auto 50px;
+    gap: 0;
+
+    height: 50px;
+    text-decoration: none;
+    color: #0f0e08;
+    border: 1px solid $corporate-color;
+    transition: background-color 0.4s ease-in-out;
+
+    @include on-tablet {
+      height: 70px;
+      max-width: 270px;
+      grid-template-columns: auto 70px;
+    }
+
+    &:hover {
+      background-color: $corporate-color;
+      color: #fff;
+    }
+
+    &--text {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: $font-description-ibm;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $corporate-color;
+
+    &--arrow {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
