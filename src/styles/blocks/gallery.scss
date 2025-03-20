@@ -69,6 +69,18 @@
     flex: 0 0 auto;
     scroll-snap-align: start;
 
+    &:target {
+      transform: scale(1.05);
+    }
+
+    @include on-desktop {
+      &:target {
+        transform: scale(1);
+      }
+    }
+
+    @include hover(transform, scale(1.05));
+
     &:last-child {
       margin-right: $padding-mobile;
 
@@ -113,10 +125,6 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-  }
-
-  &__picture:target {
-    transform: scale(1);
   }
 
   &__links {
