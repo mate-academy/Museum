@@ -1,0 +1,165 @@
+.gallery {
+  --gallery-scroll-top-margin: 76px;
+
+  padding-left: $padding-mobile;
+
+  @include on-tablet {
+    --gallery-scroll-top-margin: 100px;
+
+    padding-left: $padding-tablet;
+  }
+
+  @include on-desktop {
+    margin-inline: auto;
+    max-width: 1170px;
+    padding-inline: $padding-desktop;
+  }
+
+  @for $i from 1 through 4 {
+    &:has(&__slide--slide-#{$i}:target) &__link--slide-#{$i} {
+      background-color: #1a5a4c;
+    }
+
+    &:has(&__slides:hover) &__link--slide-#{$i} {
+      background-color: #e0e0e0;
+    }
+
+    &:has(&__slide--slide-#{$i}:hover) &__link--slide-#{$i} {
+      background-color: #1a5a4c;
+    }
+  }
+
+  &__slides {
+    display: grid;
+    margin-top: calc(-1 * var(--gallery-scroll-top-margin));
+    column-gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    @media (pointer: coarse) {
+      overflow-x: scroll;
+    }
+
+    @include on-tablet {
+      column-gap: 20px;
+    }
+
+    @include on-desktop {
+      padding: 0;
+      width: 100%;
+      height: auto;
+    }
+
+    @include on-tablet {
+      column-gap: $gap-tablet;
+
+      @include on-desktop {
+        position: relative;
+        gap: $gap-desktop;
+        grid-template-columns: repeat(12, 1fr);
+        height: auto;
+      }
+    }
+  }
+
+  &__slide {
+    padding-top: var(--gallery-scroll-top-margin);
+    height: 410px;
+    width: 280px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+
+    &:target {
+      transform: scale(1.05);
+    }
+
+    @include on-tablet {
+      height: 543px;
+      width: 340px;
+    }
+
+    @include on-desktop {
+      height: 100%;
+      width: 100%;
+
+      &:target {
+        transform: scale(1);
+      }
+    }
+
+    @include hover(transform, scale(1.05));
+
+    &:last-child {
+      padding-right: $padding-mobile;
+
+      @include on-tablet {
+        padding-right: $padding-tablet;
+      }
+
+      @include on-desktop {
+        padding: 0;
+      }
+    }
+
+    // #region  DESKTOP GALLERY
+
+    &--slide-1 {
+      @include on-desktop {
+        height: 600px;
+        grid-column: span 4;
+      }
+    }
+
+    &--slide-2 {
+      @include on-desktop {
+        height: 600px;
+        grid-column: span 8;
+      }
+    }
+
+    &--slide-3 {
+      @include on-desktop {
+        height: 360px;
+        grid-column: span 8;
+        padding: 0;
+      }
+    }
+
+    &--slide-4 {
+      @include on-desktop {
+        height: 360px;
+        grid-column: span 4;
+      }
+    }
+
+    // #endregion
+  }
+
+  &__picture {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+    margin-inline: auto;
+    height: 9px;
+    width: 102px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__link {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+  }
+}

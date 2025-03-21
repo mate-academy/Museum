@@ -1,0 +1,195 @@
+.header {
+  position: relative;
+
+  &__title-menu {
+    position: absolute;
+    top: 0;
+  }
+
+  &__icon {
+    margin-top: 27px;
+
+    @include on-tablet {
+      margin-top: 39px;
+    }
+  }
+
+  &__content {
+    @include page-grid;
+
+    row-gap: 20px;
+  }
+
+  &__top {
+    position: relative;
+    grid-row: 1 / 2;
+    grid-column: span 2;
+    height: 300px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+      height: 655px;
+    }
+  }
+
+  &__bottom {
+    grid-column: span 2;
+    justify-items: center;
+
+    @include on-tablet {
+      grid-row: 1 / 2;
+      grid-column: 1 / 4;
+      justify-items: start;
+    }
+
+    @include on-desktop {
+      grid-row: 1 / 2;
+      grid-column: 1 / 6;
+      justify-items: start;
+    }
+  }
+
+  &__image {
+    display: block;
+    position: absolute;
+    left: -$padding-mobile;
+    width: calc(100% + 2 * $padding-mobile);
+    height: 100%;
+    object-fit: cover;
+    z-index: -10;
+
+    @include on-tablet {
+      left: 0;
+      width: calc(100% + $padding-tablet);
+    }
+
+    @include on-desktop {
+      left: 0;
+      width: calc(calc(100vw / 2 + $grid-witdh-desktop + $gap-desktop / 2));
+    }
+  }
+
+  &__title-image {
+    @extend %h1;
+
+    @include on-tablet {
+      margin-top: 127px;
+      max-width: 330px;
+    }
+
+    @include on-desktop {
+      margin-top: 206px;
+    }
+  }
+
+  &__logo {
+    margin-inline: auto;
+    margin-top: 9px;
+
+    @include on-tablet {
+      margin: 0;
+      margin-top: 15px;
+      width: 220px;
+      height: 72px;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      margin-top: 15px;
+      width: 170px;
+      height: 72px;
+    }
+  }
+
+  &__button {
+    display: block;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-inline: auto;
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    height: 50px;
+    border: 1px solid #1a5a4c;
+    border-right: 50px solid #1a5a4c;
+    color: #0f0e08;
+
+    &:active {
+      color: inherit;
+    }
+
+    &:visited {
+      color: inherit;
+    }
+
+    @include on-tablet {
+      width: 320px;
+      margin-top: 38px;
+    }
+
+    @include on-desktop {
+      justify-self: end;
+      margin-top: 89px;
+    }
+
+    &::after {
+      box-sizing: border-box;
+      content: '';
+      top: 0;
+      right: -50px;
+      height: 50px;
+      width: 50px;
+      position: absolute;
+      background: url('../images/icons/arrow.svg') no-repeat center;
+      background-size: 7.14px 12px;
+    }
+  }
+
+  &__botton-text {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    box-sizing: border-box;
+    padding-right: 50px;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    width: calc(100% + 50px);
+    height: 100%;
+
+    @include hover(transform, scale(1.03));
+  }
+
+  .header__actions {
+    display: none;
+    margin-top: 104px;
+    align-items: center;
+    font-style: 14px;
+    line-height: 100%;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #687480;
+    transform: rotate(-90deg);
+    transform-origin: 0 100%;
+
+    &-line {
+      display: inline-block;
+      width: 70;
+      border-bottom: 1px solid #1a5a4c;
+      margin-right: 20px;
+    }
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+}
