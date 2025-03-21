@@ -1,4 +1,20 @@
 .gallery {
+  --gallery-scroll-top-margin: 76px;
+
+  padding-left: $padding-mobile;
+
+  @include on-tablet {
+    --gallery-scroll-top-margin: 100px;
+
+    padding-left: $padding-tablet;
+  }
+
+  @include on-desktop {
+    margin-inline: auto;
+    max-width: 1170px;
+    padding-inline: $padding-desktop;
+  }
+
   @for $i from 1 through 4 {
     &:has(&__slide--slide-#{$i}:target) &__link--slide-#{$i} {
       background-color: #1a5a4c;
@@ -13,32 +29,11 @@
     }
   }
 
-  &__wrapper {
-    position: relative;
-    width: calc(100% + $padding-mobile);
-    height: 410px;
-
-    @include on-tablet {
-      height: 0;
-      padding-bottom: 77.6%;
-      width: calc(100% + $padding-tablet);
-    }
-
-    @include on-desktop {
-      padding: 0;
-      width: 100%;
-      height: auto;
-    }
-  }
-
   &__slides {
-    position: absolute;
-    background-origin: border-box;
     display: grid;
+    margin-top: calc(-1 * var(--gallery-scroll-top-margin));
     column-gap: 16px;
-    grid-template-columns: repeat(4, 280px);
-    height: 100%;
-    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
     overflow: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -48,11 +43,17 @@
     }
 
     @include on-tablet {
+      column-gap: 20px;
+    }
+
+    @include on-desktop {
+      padding: 0;
+      width: 100%;
+      height: auto;
+    }
+
+    @include on-tablet {
       column-gap: $gap-tablet;
-      grid-template-columns: repeat(
-        4,
-        calc((100% - $gap-tablet - $padding-tablet) / 2)
-      );
 
       @include on-desktop {
         position: relative;
@@ -64,8 +65,9 @@
   }
 
   &__slide {
-    position: relative;
-    height: 100%;
+    padding-top: var(--gallery-scroll-top-margin);
+    height: 410px;
+    width: 280px;
     flex: 0 0 auto;
     scroll-snap-align: start;
 
@@ -73,7 +75,15 @@
       transform: scale(1.05);
     }
 
+    @include on-tablet {
+      height: 543px;
+      width: 340px;
+    }
+
     @include on-desktop {
+      height: 100%;
+      width: 100%;
+
       &:target {
         transform: scale(1);
       }
@@ -82,12 +92,18 @@
     @include hover(transform, scale(1.05));
 
     &:last-child {
-      margin-right: $padding-mobile;
+      padding-right: $padding-mobile;
+
+      @include on-tablet {
+        padding-right: $padding-tablet;
+      }
 
       @include on-desktop {
-        margin: 0;
+        padding: 0;
       }
     }
+
+    // #region  DESKTOP GALLERY
 
     &--slide-1 {
       @include on-desktop {
@@ -107,6 +123,7 @@
       @include on-desktop {
         height: 360px;
         grid-column: span 8;
+        padding: 0;
       }
     }
 
@@ -116,12 +133,11 @@
         grid-column: span 4;
       }
     }
+
+    // #endregion
   }
 
   &__picture {
-    position: absolute;
-    top: 0;
-    left: 0;
     height: 100%;
     width: 100%;
     object-fit: cover;
