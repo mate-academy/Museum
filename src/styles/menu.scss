@@ -1,0 +1,187 @@
+.menu {
+  box-sizing: border-box;
+  height: 399px;
+  padding: 27px 20px;
+  background-color: rgba(26, 90, 76, 1);
+
+  @include on-tablet {
+    display: flex;
+    gap: 77px;
+    height: 225px;
+    padding: 40px 35px;
+  }
+
+  @include on-desktop {
+    padding: 40px 56px;
+    height: 233px;
+    gap: 205px;
+  }
+
+  &__block-one {
+    display: flex;
+    position: relative;
+    gap: 28px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 24px;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    @include on-tablet {
+      gap: 38px;
+
+      &::after {
+        width: 1px;
+        height: 100%;
+        bottom: 0;
+        right: -38px;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    @include on-desktop {
+      gap: 102px;
+
+      &::after {
+        width: 1px;
+        height: 100%;
+        bottom: 0;
+        right: -102px;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+
+  &__close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    transition: all $timeAnimation;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 28px;
+    padding-bottom: 50px;
+
+    @include on-tablet {
+      padding: 0;
+      column-gap: 20px;
+      height: 72px;
+      width: 220px;
+    }
+
+    @include on-desktop {
+      column-gap: 31px;
+      height: 96px;
+      width: 368px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    transition: all $timeAnimation;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    @include on-desktop {
+      font-weight: 500;
+      font-size: 22px;
+    }
+  }
+
+  &__title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 141%;
+    letter-spacing: 0%;
+    color: rgba(255, 255, 255, 1);
+    padding-bottom: 20px;
+  }
+
+  &__texts {
+    @include on-tablet {
+      display: flex;
+      gap: 26px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: rgba(255, 255, 255, 1);
+    padding-bottom: 16px;
+
+    @include on-tablet {
+      width: 159px;
+    }
+
+    @include on-desktop {
+      width: 170px;
+    }
+  }
+}
+
+.page__menu {
+  opacity: 0;
+  pointer-events: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all $timeAnimation;
+  transform: translateY(-100%);
+  z-index: 200;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.page__menu:target ~ .overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
