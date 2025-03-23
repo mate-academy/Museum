@@ -161,6 +161,7 @@
   right: 0;
   transition: all $timeAnimation;
   transform: translateY(-100%);
+  z-index: 200;
 
   &:target {
     opacity: 1;
@@ -168,3 +169,19 @@
     transform: translateY(0);
   }
 }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.page__menu:target ~ .overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
