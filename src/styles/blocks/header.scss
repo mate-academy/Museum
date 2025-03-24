@@ -1,0 +1,181 @@
+.header {
+  @include on-desktop {
+    height: 655px;
+  }
+
+  &__background {
+    position: absolute;
+    background-image: url(../images/museum-header.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    z-index: -1;
+
+    @include on-tablet {
+      height: 390px;
+      width: 48%;
+      right: 0;
+      top: 0;
+    }
+
+    @include on-desktop {
+      height: 655px;
+      width: 56.7%;
+      transform: translateX(0);
+    }
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__top {
+    padding-top: $menu-top-padding-mobile;
+
+    @include on-tablet {
+      padding-top: $menu-top-padding-tablet;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    left: 50%;
+    top: 9px;
+    transform: translateX(-50%);
+
+    @include on-tablet {
+      left: 65.6%;
+      top: 15px;
+    }
+
+    @include on-desktop {
+      left: 50%;
+      top: 15px;
+    }
+  }
+
+  &__bottom {
+    padding-top: 269px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    @include on-tablet {
+      padding-top: 64px;
+
+      justify-content: start;
+      align-items: start;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      padding: 143px 0 0;
+      gap: 89px;
+    }
+  }
+
+  &__title {
+    width: 280px;
+
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    position: relative;
+    width: 280px;
+    height: 50px;
+
+    text-transform: uppercase;
+    text-decoration: none;
+    color: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+
+    border: 1px solid #1a5a4c;
+    border-right: 50px solid #1a5a4c;
+    cursor: pointer;
+
+    @include on-tablet {
+      width: 270px;
+      height: 70px;
+      border-right: 70px solid #1a5a4c;
+    }
+
+    @include on-desktop {
+      margin-left: 170px;
+    }
+
+    &::after {
+      box-sizing: border-box;
+      content: '';
+      top: 0;
+      right: -50px;
+      height: 50px;
+      width: 50px;
+      position: absolute;
+      background: url('../images/icons/arrow-right.svg') no-repeat center;
+
+      @include on-tablet {
+        right: -70px;
+        height: 70px;
+        width: 70px;
+      }
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      position: absolute;
+      align-items: center;
+      left: 16px;
+      top: 638px;
+
+      font-style: 14px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #687480;
+      font-weight: 700;
+      line-height: 100%;
+
+      transform-origin: 0 100%;
+      transform: rotate(-90deg);
+    }
+
+    &-line {
+      border-bottom: 1px solid #1a5a4c;
+      width: 70px;
+      margin-right: 20px;
+      display: inline-block;
+    }
+  }
+}
