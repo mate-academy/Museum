@@ -12,6 +12,7 @@
     height: 300px;
     width: 100%;
     z-index: -1;
+    top: 0;
 
     @include on-tablet {
       height: 390px;
@@ -22,8 +23,7 @@
 
     @include on-desktop {
       height: 655px;
-      width: 56.7%;
-      transform: translateX(0);
+      width: calc(100vw - 555px - 0.5 * (100vw - $desktop-min-width));
     }
   }
 
@@ -41,18 +41,16 @@
 
   &__logo {
     position: absolute;
-    left: 50%;
+    left: calc(50% - 30.5px);
     top: 9px;
-    transform: translateX(-50%);
 
     @include on-tablet {
-      left: 65.6%;
-      top: 15px;
+      left: calc(65.6% - 30.5px);
+      top: 20px;
     }
 
     @include on-desktop {
-      left: 50%;
-      top: 15px;
+      left: calc(50% - 30.5px);
     }
   }
 
@@ -118,18 +116,25 @@
     font-weight: 500;
     line-height: 100%;
 
-    border: 1px solid #1a5a4c;
-    border-right: 50px solid #1a5a4c;
+    border: 1px solid $color-brand-main;
+    border-right: 50px solid $color-brand-main;
+
     cursor: pointer;
+    transition: all $effect-duration;
 
     @include on-tablet {
       width: 270px;
       height: 70px;
-      border-right: 70px solid #1a5a4c;
+      border-right: 70px solid $color-brand-main;
     }
 
     @include on-desktop {
-      margin-left: 170px;
+      margin-left: 191px;
+    }
+
+    &:hover{
+      background-color: $color-brand-main;
+      color: $color-white;
     }
 
     &::after {
@@ -163,16 +168,18 @@
       font-style: 14px;
       text-transform: uppercase;
       text-decoration: none;
-      color: #687480;
+      color: $color-text-secondary;
       font-weight: 700;
       line-height: 100%;
 
       transform-origin: 0 100%;
       transform: rotate(-90deg);
+
+      @include on-hover(color, $color-brand-main);
     }
 
     &-line {
-      border-bottom: 1px solid #1a5a4c;
+      border-bottom: 1px solid $color-brand-main;
       width: 70px;
       margin-right: 20px;
       display: inline-block;

@@ -1,8 +1,12 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin on-hover($property, $to-value) {
+  transition: #{$property} $effect-duration;
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $to-value;
   }
+}
+
+@mixin on-image-hover {
+  @include on-hover(transform, scale(1.05));
 }
 
 @mixin on-tablet {

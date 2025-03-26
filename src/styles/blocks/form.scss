@@ -23,6 +23,31 @@
     @include on-desktop {
       min-width: 470px;
     }
+
+    &:hover::placeholder {
+      color: $color-brand-main;
+    }
+
+    &:focus::placeholder {
+      opacity: 0;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: $color-text-main;
+      -webkit-box-shadow: 0 0 0 1000px $color-white inset;
+      box-shadow: 0 0 0 1000px $color-white inset;
+    }
+
+    &:-moz-autofill {
+      box-shadow: 0 0 0 1000px $color-white inset;
+      -moz-text-fill-color: $color-text-main;
+    }
   }
 
   &__button {
@@ -30,11 +55,13 @@
     width: 50px;
     min-width: 50px;
 
-    background-color: #f14a27;
+    background-color: $color-background-main;
     background-image: url(../images/icons/arrow-right-black.svg);
     background-size: 24px;
     background-repeat: no-repeat;
     background-position: center;
+
+    transition: all $effect-duration;
 
     @include on-tablet {
       width: 70px;
@@ -44,6 +71,11 @@
 
     @include on-desktop {
       margin-left: 30px;
+    }
+
+    &:hover {
+      background-color: $color-brand-main;
+      background-image: url(../images/icons/arrow-right.svg);
     }
   }
 }
