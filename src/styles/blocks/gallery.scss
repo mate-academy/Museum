@@ -1,6 +1,8 @@
 .gallery {
-  padding: 60px 20px;
   position: relative;
+  padding: 100px 0;
+
+  @include content-padding-inline;
 
   &__section-title {
     font-family: $font-secondary;
@@ -8,8 +10,6 @@
     font-weight: 700;
     line-height: 36px;
     text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
     margin-bottom: 40px;
 
     @include on-tablet {
@@ -19,94 +19,137 @@
     }
   }
 
-
   &__slider {
     display: flex;
-    overflow-x: auto;
+
+    flex-wrap: nowrap;
     gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-bottom: 32px;
 
-    position: relative;
-     margin-bottom: 32px;
-
-    @include page-grid;
+    @include on-desktop {
+      flex: none;
+      display: grid;
+      gap: 30px;
+      overflow-x: visible;
+    }
 
     &::-webkit-scrollbar {
       display: none;
     }
+  }
 
-    @include on-tablet {
-      display: flex;
-      justify-content: space-between;
+  &__image {
+    width: 100%;
+    height: auto;
+    max-height: 410px;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0.1);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
+    @include on-desktop {
+      height: 100%;
+      grid-column: span 4;
+      max-height: 600px;
+      gap: 30px;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 10px rgba(0, 0, 0.15);
+    }
+
+    &--normal {
+      width: 100%;
+      height: auto;
+      max-height: 410px;
+      object-fit: cover;
+      object-position: 50% 10%;
+
+      @include on-desktop {
+        grid-column: 9 / span 4;
+        height: 360px;
+      }
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 10px rgba(0, 0, 0.15);
+      }
+    }
+
+    &--tablet {
+      width: 100%;
+      height: auto;
+      max-height: 410px;
+      object-fit: cover;
+
+      @include on-desktop {
+        display: none;
+      }
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 10px rgba(0, 0, 0.15);
+      }
+    }
+
+    &--wide {
+      width: 100%;
+      height: auto;
+      max-height: 410px;
+      object-fit: cover;
+      object-position: 50% 10%;
+
+      @include on-desktop {
+        grid-column: 1 / span 8;
+        height: 360px;
+      }
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 10px rgba(0, 0, 0.15);
+      }
+    }
+
+    &--wide--big {
+      width: 100%;
+      height: auto;
+      max-height: 410px;
+      object-fit: cover;
+      object-position: 50% 10%;
 
       @include on-desktop {
         display: grid;
-        gap: 30px;
+        grid-column: 5 / span 8;
+        max-height: 600px;
+      }
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 10px rgba(0, 0, 0.15);
       }
     }
   }
 
-  &__image {
-    display: flex;
-    height: auto;
-    width: 100%;
-    scroll-snap-align: center;
-
-
-    @include on-desktop {
-      display: grid;
-      grid-column: span 4;
-    }
-  }
-
-  &--normal{
-    display: none;
-
-    @include on-desktop{
-      display: grid;
-      grid-column: span 4;
-    }
-  }
-
-  &--tablet{
-    display: none;
-
-    @include on-tablet{
-    display: flex;
-    height: auto;
-    width: 100%;
-  }
-
-    @include on-desktop {
-      display: none;
-  }
-
-  &--wide {
-    display: none;
-
-    @include on-desktop {
-      display: grid;
-      grid-column: span 8;
-    }
-  }
-  }
-
-
-  .gallery__dots {
+  &__dots {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-top: 16px;
 
-    @include on-desktop{
+    @include on-desktop {
       display: none;
     }
 
-    &__dot {
+    .gallery__dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background-color: #E0E0E0;
-      border: 1px solid  #E0E0E0;
+      background-color: #e0e0e0;
+      border: 1px solid #e0e0e0;
       transition: background-color 0.3s ease;
 
       &--active {
@@ -115,4 +158,3 @@
     }
   }
 }
-
