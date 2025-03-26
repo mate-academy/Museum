@@ -1,0 +1,108 @@
+.events {
+  @include sectionMaxWidth;
+  @include contentPaddingInLine;
+
+  &__block {
+    display: grid;
+    row-gap: 104px;
+  }
+}
+
+.event {
+  @include onDesktop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+
+    @include onDesktop {
+      justify-content: flex-start;
+    }
+  }
+
+  &__block {
+    @include onDesktop {
+      width: 370px;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+
+    @include onDesktop {
+      width: 670px;
+
+      @include hover(transform, scale(1.05));
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: $main-subtitle;
+
+    @include onTablet {
+      margin-top: 44px;
+      font-size: 14px;
+      line-height: 100%;
+    }
+
+  }
+
+  &__date {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: $main-green-color;
+
+    @include onTablet {
+      margin-top: 44px;
+      font-size: 14px;
+      line-height: 100%;
+    }
+
+    @include onDesktop {
+      margin-left: 18px;
+    }
+  }
+
+  &__name {
+    margin: 0;
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: $main-titles-color;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    @include onTablet {
+      font-size: 36px;
+    }
+
+    &::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: $main-element-color;
+      display: inline-block;
+    }
+  }
+
+  &__text {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: $main-text-color;
+  }
+}
