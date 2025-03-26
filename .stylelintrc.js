@@ -3,5 +3,10 @@ module.exports = {
   plugins: [
     "stylelint-scss"
   ],
-  rules: {}
+  rules: {
+    "selector-max-id": null,
+    "number-max-precision": 3,
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": null
+  }
 };
