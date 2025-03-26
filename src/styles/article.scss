@@ -5,77 +5,44 @@
     align-items: center;
   }
 
-  &--third {
-    @include on-tablet {
-      margin-top: 48px;
+  &--full-width{
+    background-image: url(/src/images/article-bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 210px;
+    margin-bottom: 84px;
+
+    @include on-tablet{
+      height: 390px;
+      margin-inline: 34px;
+      margin-bottom: 123px;
     }
 
-    @include on-desktop {
-      display: block;
-      margin-top: 0;
+    @include on-desktop{
+      height:  550px;
+      margin-bottom: 115px;
+      margin-inline: 0;
     }
   }
 
-  &--images {
-    @media (max-width: 1280px) {
-      display: none;
-    }
-
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-  }
 
   &__photo {
-    width: 100%;
+    width: 280px;
+    height: 210px;
     display: flex;
     cursor: pointer;
+    margin-inline: auto;
 
     @include hover(transform, scale(1.05));
+    
+    @include on-tablet {
+      width: 700px;
+      height: 520px;
+    }
 
     @include on-desktop {
       width: 670px;
-    }
-
-    &--full-width {
-      position: absolute;
-      z-index: -1;
-      left: 0;
-      height: 210px;
-      object-position: center;
-      object-fit: cover;
-
-      @include on-tablet {
-        height: 390px;
-        width: 690px;
-        left: auto;
-      }
-
-      @include on-desktop {
-        width: 100%;
-        height: 550px;
-        left: 0;
-      }
-    }
-
-    &--first {
-      width: 370px;
-      height: 600px;
-    }
-
-    &--second {
-      width: 770px;
-      height: 600px;
-    }
-
-    &--third {
-      width: 770px;
-      height: 360px;
-    }
-
-    &--forth {
-      width: 370px;
-      height: 360px;
     }
   }
 
@@ -88,7 +55,7 @@
 
     @include on-tablet {
       margin-top: 40px;
-      margin-bottom: 32px;
+      margin-bottom: 30px;
       gap: 30px;
     }
 
@@ -96,15 +63,18 @@
       margin-top: 0;
     }
 
-    &--box {
-      margin-top: 0;
-      margin-bottom: 0;
-      gap: 30px;
-      padding-inline: 20px;
+    &--box{
+      padding-inline: 21px;
+      margin-block: 0;
+      gap: 20px;
 
-      @include on-tablet {
-        gap: 140px;
+      @include on-tablet{
         padding-inline: 0;
+        gap: 180px;
+      }
+
+      @include on-desktop {
+        gap: 150px;
       }
     }
   }
@@ -185,24 +155,26 @@
   }
 
   &__box {
-    margin-top: 153px;
-    background-color: $page-color;
-    padding-block: 20px;
-    filter: drop-shadow(0 2 rgba(26, 90, 76, 0.25));
+    position: relative;
     margin-inline: auto;
+    box-sizing: border-box;
+    background-color: $page-color;
+    filter: drop-shadow(0 2 rgba(26, 90, 76, 0.25));
+    padding-block: 20px;
+    width: 280px;
+    top: 153px;
 
     @include on-tablet {
       padding-top: 45px;
       padding-bottom: 50px;
-      width: 570px;
-      box-sizing: border-box;
-      margin-top: 306px;
       padding-inline: 55px;
+      width: 570px;
+      top: 306px;
     }
 
     @include on-desktop {
-      margin-top: 448px;
       padding-inline: 100px;
+      top: 286px;
     }
   }
 }

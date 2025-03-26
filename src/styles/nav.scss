@@ -1,8 +1,9 @@
 .nav {
+
   &__list {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(2, 100px);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px 28px;
     padding: 0;
 
@@ -13,23 +14,58 @@
     @include on-desktop {
       gap: 30px 31px;
     }
+
+    &--footer{
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+
+      @include on-tablet {
+        gap: 20px 30px;
+      }
+    }
   }
 
   &__link {
+    display:block;
     text-decoration: none;
     color: $page-color;
     line-height: 16px;
-    display: flex;
 
-    @include hover(transform, scale(1.1));
 
     @include on-desktop {
       font-size: 22px;
       line-height: 22px;
     }
+
+    &--footer{
+      color: rgba(15, 14, 8, 1);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 100%;
+    }
   }
 
   &__item {
-    @include link-line;
+    @include hover-line;
+    @include hover(transform, scale(1.05));
+
+     &--contacts-aside{
+      height: 22px
+    }
+
+    &--footer{
+      color: rgba(15, 14, 8, 1);
+
+      &::after {
+        width: 60px;
+        background-color: $main-dark;
+      }
+    }
+
+    &--exhibitions {
+      &::after {
+        width: 120px;
+      }
+    }
   }
 }
