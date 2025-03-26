@@ -1,28 +1,62 @@
 .gallery {
-  @include pageGrid;
-
+  // display: none !important;
   &__title {
     margin-bottom: 40px;
 
-    grid-column: span 2;
-
     @include onTablet {
-      grid-column: span 6;
       margin-bottom: 48px;
+      padding-inline: 34px;
     }
 
     @include onDesktop {
-      grid-column: span 12;
       margin-bottom: 56px;
+      padding-inline: 55px;
+      margin-inline: auto;
+      max-width: 1170px;
     }
   }
 
-  &__swiper {
-    min-width: 0;
-    grid-column: span 2;
+  &__desktop-wrapper {
+    display: none;
 
-    @include onTablet {
-      grid-column: span 6;
+    @include onDesktop {
+      display: block;
     }
+  }
+
+  &__content {
+    @include pageGrid;
+    row-gap: 30px;
+  }
+
+  &__row {
+    grid-column: span 12;
+    @include pageGrid;
+
+    &--high {
+      height: 600px;
+    }
+
+    &--low {
+      height: 360px;
+    }
+  }
+
+  &__link {
+    height: 100%;
+
+    &--wide {
+      grid-column: span 8;
+    }
+
+    &--thin {
+      grid-column: span 4;
+    }
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 }
