@@ -1,0 +1,59 @@
+.page {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: $main-text-color-dark;
+  size: 14px;
+  line-height: 140%;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+    background: #fff;
+    box-sizing: border-box;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  &:has(.menu:target) {
+    overflow: hidden;
+  }
+
+  &__grid-measurer {
+    @include page-grid;
+
+    &__column {
+      grid-column: 1 / 2;
+    }
+  }
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+
+  @include on-tablet {
+    gap: 88px;
+  }
+
+  @include on-desktop {
+    gap: 200px;
+  }
+}
