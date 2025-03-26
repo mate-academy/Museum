@@ -1,0 +1,81 @@
+.form {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+
+  @include on-tablet {
+    height: 70px;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    min-width: 230px;
+    width: 100%;
+    border: none;
+    padding-left: 24px;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+
+    @include on-tablet {
+      min-width: 374px;
+    }
+
+    @include on-desktop {
+      min-width: 470px;
+    }
+
+    &:hover::placeholder {
+      color: $color-brand-main;
+    }
+
+    &:focus::placeholder {
+      opacity: 0;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: $color-text-main;
+      -webkit-box-shadow: 0 0 0 1000px $color-white inset;
+      box-shadow: 0 0 0 1000px $color-white inset;
+    }
+
+    &:-moz-autofill {
+      box-shadow: 0 0 0 1000px $color-white inset;
+      -moz-text-fill-color: $color-text-main;
+    }
+  }
+
+  &__button {
+    border: none;
+    width: 50px;
+    min-width: 50px;
+
+    background-color: $color-background-main;
+    background-image: url(../images/icons/arrow-right-black.svg);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: all $effect-duration;
+
+    @include on-tablet {
+      width: 70px;
+      min-width: 70px;
+      margin-left: 16px;
+    }
+
+    @include on-desktop {
+      margin-left: 30px;
+    }
+
+    &:hover {
+      background-color: $color-brand-main;
+      background-image: url(../images/icons/arrow-right.svg);
+    }
+  }
+}
