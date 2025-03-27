@@ -1,0 +1,59 @@
+.page {
+  font-family: IBM, sans-serif;
+  font-size: 14px;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0 auto;
+    position: relative;
+
+    &:has(.page__menu:target) {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    opacity: 0;
+    transition: all $effectDureation;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+  }
+
+  &__menu:target {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    opacity: 1;
+    pointer-events: none;
+    visibility: hidden;
+    transition: all $effectDureation;
+  }
+
+  &:has(.page__menu:target) {
+    .page__overlay {
+      opacity: 1;
+      pointer-events: all;
+      visibility: visible;
+    }
+  }
+}
+
+
