@@ -1,5 +1,4 @@
 .nav {
-
   &__list {
     list-style: none;
     display: grid;
@@ -15,8 +14,7 @@
       gap: 30px 31px;
     }
 
-    &--footer{
-      grid-template-columns: repeat(2, 1fr);
+    &--footer {
       gap: 20px;
 
       @include on-tablet {
@@ -26,45 +24,55 @@
   }
 
   &__link {
-    display:block;
+    display: inline-block;
     text-decoration: none;
-    color: $page-color;
+    color: $main-white;
     line-height: 16px;
+    padding: 15px 0;
+    position: relative;
 
+    &::after {
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      background: $main-white;
+      transition:
+        width 0.3s ease 0s,
+        left 0.3s ease 0s;
+      width: 0;
+    }
+
+    &:hover::after {
+      width: 100%;
+      left: 0;
+    }
 
     @include on-desktop {
       font-size: 22px;
       line-height: 22px;
     }
 
-    &--footer{
-      color: rgba(15, 14, 8, 1);
+    &--footer {
+      color: $main-dark;
       font-weight: 400;
       font-size: 14px;
       line-height: 100%;
+
+      &::after {
+        background: $main-dark;
+      }
     }
   }
 
   &__item {
-    @include hover-line;
-    @include hover(transform, scale(1.05));
-
-     &--contacts-aside{
-      height: 22px
-    }
-
-    &--footer{
-      color: rgba(15, 14, 8, 1);
+    &--footer {
+      color: $main-dark;
 
       &::after {
-        width: 60px;
         background-color: $main-dark;
-      }
-    }
-
-    &--exhibitions {
-      &::after {
-        width: 120px;
       }
     }
   }

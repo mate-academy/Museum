@@ -26,7 +26,7 @@
 
   @include on-tablet {
     --columns: 6;
-    
+
     column-gap: 30px;
   }
 
@@ -41,42 +41,14 @@
   align-items: center;
 }
 
-@mixin bold-text {
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-  color: $page-color;
-}
-
 @mixin on-tablet {
-  @media (min-width: 768px) {
+  @media (min-width: $tablet-width) {
     @content;
   }
 }
 
 @mixin on-desktop {
-  @media (min-width: 1280px) {
+  @media (min-width: $desktop-width) {
     @content;
-  }
-}
-
-@mixin hover-line {
-  position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    display: block;
-    height: 1px;
-    width: 100%;
-    background-color: $page-color;
-    bottom: -10px;
-    transition: transform 0.3s;
-    transform: scale(0);
-    transform-origin: left;
-  }
-
-  &:hover::after {
-    transform: scale(1);
   }
 }
