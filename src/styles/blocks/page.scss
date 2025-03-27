@@ -10,7 +10,6 @@
 
     &:has(.page__menu:target) {
       overflow: hidden;
-      background-color: rgba(0, 0, 0, 0.5);
     }
   }
 
@@ -32,6 +31,23 @@
     opacity: 1;
     transform: translateY(0);
     pointer-events: all;
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+
+    &:has(.page__menu:target) {
+      opacity: 1;
+      pointer-events: all;
+    }
   }
 
 }
