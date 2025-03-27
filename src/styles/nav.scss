@@ -1,0 +1,79 @@
+.nav {
+  &__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 28px;
+    padding: 0;
+
+    @include on-tablet {
+      column-gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 30px 31px;
+    }
+
+    &--footer {
+      gap: 20px;
+
+      @include on-tablet {
+        gap: 20px 30px;
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    color: $main-white;
+    line-height: 16px;
+    padding: 15px 0;
+    position: relative;
+
+    &::after {
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      background: $main-white;
+      transition:
+        width 0.3s ease 0s,
+        left 0.3s ease 0s;
+      width: 0;
+    }
+
+    &:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    @include on-desktop {
+      font-size: 22px;
+      line-height: 22px;
+    }
+
+    &--footer {
+      color: $main-dark;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 100%;
+
+      &::after {
+        background: $main-dark;
+      }
+    }
+  }
+
+  &__item {
+    &--footer {
+      color: $main-dark;
+
+      &::after {
+        background-color: $main-dark;
+      }
+    }
+  }
+}

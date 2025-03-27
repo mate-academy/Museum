@@ -1,0 +1,148 @@
+.footer {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+
+  &__content {
+    @include page-grid;
+
+    padding-block: 32px;
+
+    @include on-tablet {
+      padding-top: 51px;
+      padding-bottom: 36px;
+    }
+
+    @include on-desktop {
+      row-gap: 87px;
+      padding-top: 47px;
+      padding-bottom: 35px;
+    }
+  }
+
+  &__top-bar {
+    grid-column: 1/-1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include on-tablet {
+      justify-content: left;
+      grid-column: span 1;
+      flex-direction: column;
+      gap: 62px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 20px;
+
+    @include on-tablet {
+      gap: 32px;
+    }
+
+    @include on-desktop {
+      gap: 20px;
+    }
+  }
+
+  &__schedule {
+    grid-column: 1/2;
+    margin-top: 40px;
+
+    @include on-tablet {
+      grid-column: 2/4;
+      margin-top: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 3/5;
+    }
+  }
+
+  &__contacts {
+    position: relative;
+    grid-column: 2/-1;
+    color: $main-dark;
+    margin-top: 40px;
+
+    @include on-tablet {
+      grid-column: 4/6;
+      margin-top: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 5/7;
+    }
+  }
+
+  &__contacts-title {
+    margin-bottom: 20px;
+  }
+
+  &__contacts-link {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      color: $main-red;
+    }
+  }
+
+  &__menu {
+    position: relative;
+    grid-column: 1/-1;
+    margin-top: 111px;
+    margin-bottom: 80px;
+
+    @include on-tablet {
+      grid-column: 2/6;
+      margin-top: 129px;
+      margin-bottom: 120px;
+    }
+
+    @include on-desktop {
+      grid-column: 8/11;
+      margin: 0;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      display: block;
+      left: 0;
+      width: 100%;
+      background-color: $menu-bg;
+      height: 1px;
+      top: -40px;
+
+      @include on-tablet {
+        top: -64px;
+      }
+
+      @include on-desktop {
+        height: 100%;
+        width: 1px;
+        left: -65px;
+        top: 0;
+      }
+    }
+  }
+
+  &__bottom {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 17px;
+    text-align: center;
+
+    @include on-tablet {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+}

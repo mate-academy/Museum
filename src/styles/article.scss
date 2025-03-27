@@ -1,0 +1,179 @@
+.article {
+  @include on-desktop {
+    display: flex;
+    align-items: center;
+    gap: 130px;
+  }
+
+  &--full-width {
+    background-image: url(/src/images/sky-background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 210px;
+    margin-bottom: 84px;
+
+    @include on-tablet {
+      height: 390px;
+      margin-inline: 34px;
+      margin-bottom: 123px;
+    }
+
+    @include on-desktop {
+      height: 550px;
+      margin-bottom: 115px;
+      margin-inline: 0;
+    }
+  }
+
+  &__photo {
+    width: 280px;
+    height: 210px;
+    display: flex;
+    cursor: pointer;
+    margin-inline: auto;
+
+    @include hover(transform, scale(1.05));
+
+    @include on-tablet {
+      width: 700px;
+      height: 520px;
+    }
+
+    @include on-desktop {
+      width: 670px;
+    }
+  }
+
+  &__details {
+    display: flex;
+    gap: 60px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    align-items: center;
+
+    @include on-tablet {
+      margin-top: 40px;
+      margin-bottom: 30px;
+      gap: 30px;
+    }
+
+    @include on-desktop {
+      margin-top: 0;
+    }
+
+    &--box {
+      padding-inline: 21px;
+      margin-block: 0;
+      gap: 20px;
+
+      @include on-tablet {
+        padding-inline: 0;
+        gap: 180px;
+      }
+
+      @include on-desktop {
+        gap: 150px;
+      }
+    }
+  }
+
+  &__type {
+    line-height: 16px;
+    color: $article-type;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &__time {
+    color: $menu-bg;
+    font-weight: 700;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, serif;
+    font-size: 28px;
+    line-height: 28px;
+    margin-top: 10px;
+    font-weight: 400;
+    position: relative;
+    display: inline;
+
+    @include on-tablet {
+      margin-top: 30px;
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    &--box {
+      margin-top: 20px;
+      text-align: center;
+      display: block;
+
+      @include on-tablet {
+        margin-top: 16px;
+        text-align: left;
+      }
+    }
+
+    &--red-icon::after {
+      content: '';
+      position: absolute;
+      display: block;
+      background-image: url(/src/images/red-icon.svg);
+      width: 10px;
+      height: 10px;
+      right: -18px;
+      top: 14px;
+
+      @include on-tablet {
+        width: 15px;
+        height: 15px;
+        right: -31px;
+        top: 16px;
+      }
+    }
+  }
+
+  &__description {
+    color: $article-description;
+    margin-top: 10px;
+    font-weight: 300;
+
+    @include on-tablet {
+      margin-top: 15px;
+    }
+  }
+
+  &__box {
+    position: relative;
+    margin-inline: auto;
+    box-sizing: border-box;
+    background-color: $main-white;
+    filter: drop-shadow(0 2 $article-box-shadow);
+    padding-block: 20px;
+    width: 280px;
+    top: 153px;
+
+    @include on-tablet {
+      padding-top: 45px;
+      padding-bottom: 50px;
+      padding-inline: 55px;
+      width: 570px;
+      top: 306px;
+    }
+
+    @include on-desktop {
+      padding-inline: 100px;
+      top: 286px;
+    }
+  }
+}

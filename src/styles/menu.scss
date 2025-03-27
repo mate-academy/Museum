@@ -1,0 +1,64 @@
+.menu {
+  background-color: $menu-bg;
+
+  &__content {
+    padding-block: 27px;
+    display: flex;
+    flex-direction: column;
+    gap: 49px;
+
+    @include on-tablet {
+      padding-block: 40px;
+      flex-direction: row;
+      gap: 77px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 48px;
+      gap: 205px;
+    }
+  }
+
+  &__top {
+    position: relative;
+    display: flex;
+    gap: 28px;
+
+    &::after {
+      display: block;
+      content: '';
+      position: absolute;
+      height: 1px;
+      background-color: $main-white;
+      bottom: -24px;
+      width: 100%;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    @include on-tablet {
+      gap: 38px;
+
+      &::after {
+        display: block;
+        content: '';
+        position: absolute;
+        width: 1px;
+        background-color: $main-white;
+        right: -38px;
+        height: 100%;
+        top: 0;
+
+        @include on-desktop {
+          right: -102px;
+        }
+      }
+    }
+
+    @include on-desktop {
+      gap: 102px;
+    }
+  }
+}

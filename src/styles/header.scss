@@ -1,0 +1,149 @@
+.header {
+  &__background {
+    background-image: url(/src/images/header-background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+
+    @include on-tablet {
+      right: 0;
+      height: 384px;
+      width: 48%;
+    }
+
+    @include on-desktop {
+      width: 55%;
+      max-width: 1000px;
+      height: 655px;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    @include page-grid;
+
+    @include on-tablet {
+      padding-bottom: 51px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 155px;
+    }
+  }
+
+  &__top-bar {
+    grid-column: 1/-1;
+    margin-bottom: 250px;
+
+    @include on-tablet {
+      margin-bottom: 25px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 104px;
+    }
+  }
+
+  &__title {
+    grid-column: 1/-1;
+    font-size: 45px;
+
+    @include on-tablet {
+      grid-column: 1/4;
+      font-size: 54px;
+      line-height: 65px;
+    }
+
+    @include on-desktop {
+      grid-column: 1/6;
+      font-size: 72px;
+      line-height: 86px;
+    }
+  }
+
+  &__button {
+    grid-column: 1/-1;
+    border: 1px solid $menu-bg;
+    display: flex;
+    width: 280px;
+    height: 50px;
+    margin-top: 20px;
+    justify-self: center;
+    text-decoration: none;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      grid-column: 1/4;
+      width: 270px;
+      height: 70px;
+      justify-self: start;
+      margin-top: 38px;
+    }
+
+    @include on-desktop {
+      grid-column: 1/6;
+      justify-self: end;
+      margin-top: 89px;
+    }
+  }
+
+  &__tickets {
+    text-align: center;
+    padding-block: 14px;
+    width: 230px;
+    text-transform: uppercase;
+    color: $main-dark;
+
+    @include on-tablet {
+      width: 200px;
+      padding-block: 24px;
+    }
+
+    &:hover {
+      color: $menu-bg;
+    }
+  }
+
+  &__arrow {
+    width: 50px;
+    height: 50px;
+    background-color: $menu-bg;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__events {
+    display: none;
+    color: $article-type;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    top: 522px;
+    left: 0;
+    writing-mode: sideways-lr;
+    text-decoration: none;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &__events-line {
+    width: 1px;
+    height: 70px;
+    background-color: $menu-bg;
+  }
+}
