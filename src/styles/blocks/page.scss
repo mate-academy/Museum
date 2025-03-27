@@ -41,15 +41,19 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
-
-    &:has(.page__menu:target) {
-      opacity: 1;
-      pointer-events: all;
-    }
+    visibility: hidden;
+    transition: all $effectDureation;
   }
 
+  &:has(.page__menu:target) {
+    .page__overlay {
+      opacity: 1;
+      pointer-events: all;
+      visibility: visible;
+    }
+  }
 }
 
 
