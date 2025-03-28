@@ -1,5 +1,4 @@
 .header {
-  // display: none !important;
   height: 100vh;
   position: relative;
   box-sizing: border-box;
@@ -20,6 +19,7 @@
 
   &__content {
     @include pageGrid;
+
     justify-items: center;
   }
 
@@ -49,7 +49,6 @@
     margin-top: 10px;
     display: inline-block;
     text-decoration: none;
-    color: inherit;
 
     @include onTablet {
       display: flex;
@@ -59,25 +58,10 @@
     }
   }
 
-  &__logo-text {
-    font-family: Montserrat, sans-serif;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 100%;
-    text-align: left;
-
-    cursor: pointer;
-
-    @include onTablet {
-      font-size: 36px;
-    }
-
-    @include hover(transform, scale(1.2));
-  }
-
   &__bottom {
     grid-column: span 2;
     justify-items: center;
+    position: relative;
 
     @include onTablet {
       grid-column: span 3;
@@ -123,5 +107,35 @@
     @include onTablet {
       justify-content: right;
     }
+  }
+
+  &__events-block {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: rotate(-90deg) translateY(100%);
+      transform-origin: bottom left;
+    }
+  }
+
+  &__events-restangle {
+    height: 1px;
+    width: 70px;
+    background-color: rgba(104, 116, 128, 1);
+  }
+
+  &__events-link {
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    color: rgba(104, 116, 128, 1);
   }
 }
