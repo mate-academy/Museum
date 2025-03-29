@@ -1,11 +1,48 @@
 .top-bar {
-  display: flex;
   position: absolute;
+  right: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  padding: 10px 20px;
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+    padding: 15px 39px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    padding-inline: 55px;
+  }
+
+  &__icon {
+    @include on-desktop {
+      z-index: 1;
+    }
+  }
 
   &__logo {
+    margin: 0;
     font-size: 30px;
     font-weight: 700;
     line-height: 30px;
-    margin: 9px 132px;
+
+    @include on-tablet {
+      grid-column: 4/6;
+      height: 72px;
+      font-size: 36px;
+      text-align: center;
+    }
+
+    @include on-desktop {
+      grid-column: 6/8;
+    }
   }
 }

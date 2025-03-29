@@ -1,0 +1,190 @@
+.contacts {
+  @include content-padding-inline;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  margin-top: 50px;
+
+  @include on-tablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__top {
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    margin: 0;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 1 / 2;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 2;
+    }
+  }
+
+  &__logo {
+    margin: 0;
+
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+
+    @include on-tablet {
+      gap: 32px;
+      margin-top: 62px;
+    }
+
+    @include on-desktop {
+      gap: 22px;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__block {
+    min-width: 130px;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #0f0e08;
+    letter-spacing: 0%;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+    }
+  }
+
+  .block-right {
+    @include on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 7;
+    }
+  }
+
+  &__heading {
+    margin: 40px 0 20px;
+
+    @include on-tablet {
+      margin-top: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 7;
+    }
+  }
+
+  &__information {
+    margin: 0;
+  }
+
+  &__information a {
+    cursor: pointer;
+    margin: 0;
+    color: #0f0e08;
+    text-decoration: none;
+  }
+
+  &__description {
+    margin: 0;
+    padding-top: 21px;
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-column: 7 / 12;
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 30px;
+    }
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    margin: 70px 0 40px;
+    background: #1a5a4c80;
+
+    @include on-tablet {
+      margin: 64px 0;
+    }
+
+    @include on-desktop {
+      grid-column: 1;
+      justify-self: center;
+
+      width: 1px;
+      height: 100%;
+      margin: 0;
+    }
+  }
+
+  &__menu {
+    @include on-desktop {
+      grid-column: 2/-1;
+    }
+
+    &__links {
+      display: grid;
+      grid-template-columns: auto auto;
+      row-gap: 20px;
+
+      margin: 0;
+      padding: 0;
+
+      list-style-type: none;
+
+      @include on-tablet {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 34px;
+      }
+
+      @include on-desktop {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 32px;
+      }
+
+      .link {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 100%;
+        color: #0f0e08;
+        text-decoration: none;
+        letter-spacing: 0%;
+      }
+    }
+  }
+}
