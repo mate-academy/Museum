@@ -1,0 +1,141 @@
+.header {
+  height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+
+  background-image: url('../images/Natsionalnij-hudozhnij-muzej.png');
+  background-repeat: no-repeat;
+  background-size: 100% 55%;
+
+  @include onTablet {
+    background-size: calc(50% - 10px) 100%;
+    background-position: right;
+  }
+
+  @include onDesktop {
+    background-size: calc(56% + 5px) 100%;
+    background-position: right;
+  }
+
+  &__content {
+    @include pageGrid;
+
+    justify-items: center;
+  }
+
+  &__icon {
+    @include iconAbsolutPosition;
+  }
+
+  &__top {
+    grid-column: span 2;
+    height: 55vh;
+
+    @include onTablet {
+      height: 100vh;
+      width: 100%;
+      grid-column: span 3;
+      grid-row: 1/1;
+      order: 1;
+      justify-items: left;
+    }
+
+    @include onDesktop {
+      grid-column: span 7;
+    }
+  }
+
+  &__logo {
+    margin-top: 10px;
+    display: inline-block;
+    text-decoration: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      width: 220px;
+      margin-top: 15px;
+    }
+  }
+
+  &__bottom {
+    grid-column: span 2;
+    justify-items: center;
+    position: relative;
+
+    @include onTablet {
+      grid-column: span 3;
+      grid-row: 1/1;
+    }
+
+    @include onDesktop {
+      grid-column: span 5;
+    }
+  }
+
+  &__second-title {
+    margin: 20px 0;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+
+    @include onTablet {
+      font-size: 54px;
+      line-height: 120%;
+      margin: 128px 0 38px;
+      text-align: start;
+    }
+
+    @include onDesktop {
+      font-size: 72px;
+      margin: 206px 0 90px;
+      text-align: start;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      justify-content: left;
+    }
+
+    @include onTablet {
+      justify-content: right;
+    }
+  }
+
+  &__events-block {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: rotate(-90deg) translateY(100%);
+      transform-origin: bottom left;
+    }
+  }
+
+  &__events-restangle {
+    height: 1px;
+    width: 70px;
+    background-color: rgba(104, 116, 128, 1);
+  }
+
+  &__events-link {
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    color: rgba(104, 116, 128, 1);
+  }
+}

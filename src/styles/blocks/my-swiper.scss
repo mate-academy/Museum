@@ -1,0 +1,62 @@
+@import 'swiper/swiper';
+@import 'swiper/modules/navigation';
+@import 'swiper/modules/pagination';
+
+.my-swiper {
+  padding-left: 20px;
+
+  @include onTablet {
+    padding-left: 34px;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__slide {
+    width: 100%;
+    height: 410px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 42px;
+      height: 543px;
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.swiper {
+  &-pagination {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+  }
+
+  &-pagination-bullet {
+    margin: 0 !important;
+    height: 9px;
+    width: 9px;
+  }
+
+  &-pagination-bullet-active {
+    background-color: rgba(26, 90, 76, 1);
+  }
+}
