@@ -4,3 +4,26 @@
     #{$_property}: $_toValue;
   }
 }
+@mixin onTablet() {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop() {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline() {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 34px;
+  }
+
+  @include onDesktop {
+    padding-inline: 55px;
+  }
+}

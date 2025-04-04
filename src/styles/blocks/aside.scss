@@ -1,0 +1,141 @@
+.aside {
+  position: absolute;
+
+  z-index: 3;
+  background-color: #1a5a4c;
+  width: 100%;
+  height: 400px;
+  margin-top: -75px;
+  padding-bottom: 10px;
+
+  font-family: IBM Plex Sans;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #fff;
+
+  display: none;
+  @include onTablet {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    align-items: start;
+    height: 265px;
+    display: none;
+    padding-bottom: 0;
+    margin: auto;
+  }
+  @include onDesktop {
+    font-size: 22px;
+  }
+  &__close-button-link {
+    display: flex;
+    align-items: start;
+  }
+  &__close-button {
+    width: 12px;
+    height: 12px;
+
+    @include onDesktop {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &__gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin: 40px 0;
+
+    @include contentPaddingInline;
+    @include onTablet {
+      display: flex;
+      justify-content: start;
+      align-items: start;
+      gap: 40px;
+      margin-top: 38px;
+    }
+    @include onDesktop {
+      gap: 102px;
+    }
+  }
+  &__stick {
+    border: 1px solid #fff;
+    opacity: 0.5;
+    width: 90%;
+    margin: auto;
+    @include onTablet {
+      width: 0%;
+      height: 80%;
+      border-left: 1px solid #fff;
+      align-self: center;
+      margin: auto 0;
+    }
+  }
+  &__bottom {
+    @include contentPaddingInline;
+    display: grid;
+    margin-top: 10px;
+    @include onTablet {
+      margin-top: 20px;
+      grid-template-columns: 1fr 1fr;
+      justify-items: end;
+    }
+  }
+}
+.aside--visible {
+  display: grid;
+}
+
+.schedule {
+  &__content {
+    margin: 20px 0;
+    font-weight: 400;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  &__time {
+    display: flex;
+    gap: 5px;
+    margin: 0;
+    padding-bottom: 5px;
+    &--footer {
+      flex-direction: column;
+      @include onTablet {
+        flex-direction: row;
+      }
+    }
+  }
+  &__weekends {
+    font-family: IBM Plex Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    @include onTablet {
+      margin-top: 47px;
+      width: 140px;
+    }
+  }
+}
+.work-time {
+  font-weight: 400;
+  font-size: 14px;
+}
+.gallery,
+.events,
+.about-us,
+.contact {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
