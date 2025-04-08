@@ -1,0 +1,102 @@
+.slider {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.slides {
+  display: flex;
+  width: 400%;
+  transition: transform 0.3s ease-in-out;
+  gap: 16px;
+  @include onTablet {
+    width: 200%;
+  }
+  @include onDesktop {
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 30px;
+  }
+  &__first-row {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 8px;
+
+    @include onDesktop {
+      grid-template-columns: 30% 70%;
+      gap: 30px;
+    }
+  }
+  &__second-row {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 10px;
+
+    @include onDesktop {
+      grid-template-columns: 70% 30%;
+      gap: 30px;
+    }
+  }
+}
+
+.slide {
+  width: 100%;
+  overflow: hidden;
+
+  &__img {
+    width: 100%;
+    height: clamp(410px, calc(410px + (100vw - 320px) * 0.297), 543px);
+    object-fit: cover;
+    object-position: top;
+    transform-origin: center center;
+    @include hover(transform, scale(1.1));
+
+    &--one {
+      @include onDesktop {
+        height: 600px;
+      }
+    }
+    &--two {
+      @include onDesktop {
+        height: 600px;
+      }
+    }
+    &--three {
+      @include onDesktop {
+        height: 360px;
+      }
+    }
+    &--four {
+      @include onDesktop {
+        height: 360px;
+      }
+    }
+  }
+}
+
+.navigation {
+  display: flex;
+  gap: 10px;
+  @include onDesktop {
+    display: none;
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+    background: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &.active {
+      background: #333;
+    }
+
+    &:hover {
+      background: #666;
+    }
+  }
+}
