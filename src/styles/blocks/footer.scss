@@ -1,0 +1,101 @@
+.footer {
+  &__main {
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: span 4;
+      grid-template-columns: repeat(4, 1fr);
+      row-gap: 64px;
+    }
+
+    @include on-desktop {
+      grid-column: span 10;
+      grid-template-columns: repeat(10, 1fr);
+      margin-bottom: 87px;
+    }
+  }
+
+  &__description {
+    grid-column: span 1;
+
+    @include on-tablet {
+      grid-column: span 2;
+    }
+  }
+
+  &__button {
+    display: flex;
+    grid-column: 1 / -1;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    border: 1px solid $green-color;
+    border-radius: 50px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__divider {
+    display: block;
+    grid-column: 1 / -1;
+
+    width: 100%;
+    height: 1px;
+    margin-bottom: 40px;
+
+    background-color: rgba(26, 90, 76, 0.5);
+
+    @include on-tablet {
+      margin: 0;
+    }
+
+    @include on-desktop {
+      grid-column: span 1;
+      width: 1px;
+      height: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+    gap: 20px;
+    justify-content: flex-start;
+
+    margin-bottom: 80px;
+
+    font-weight: 400;
+    line-height: 100%;
+    color: $black-text-color;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+      margin: 0;
+    }
+  }
+}
