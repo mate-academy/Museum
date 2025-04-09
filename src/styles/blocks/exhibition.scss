@@ -1,0 +1,108 @@
+.exhibition {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+  font-size: 16px;
+
+  @include on-tablet {
+    margin-bottom: 112px;
+  }
+
+  @include on-desktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+    align-items: center;
+  }
+
+  &__photo {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 16px;
+
+    @include hover(transform, scale($photo-scale));
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: span 7;
+    }
+  }
+  &__content {
+    @include on-tablet {
+      width: 460px;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+      width: 100%;
+    }
+  }
+  &__description {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      gap: 30px;
+      justify-content: start;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__type {
+    margin: 0;
+    font-weight: 500;
+    line-height: 100%;
+    color: $grey-text-color;
+  }
+
+  &__date {
+    margin: 0;
+    font-weight: 700;
+    line-height: 150%;
+    color: $green-color;
+  }
+
+  &__article {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+    color: $dark-grey-text-color;
+  }
+
+  &__name {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 100%;
+    color: $black-text-color;
+  }
+
+  &__point {
+    width: 10px;
+    height: 10px;
+    background-color: $red-color;
+  }
+}

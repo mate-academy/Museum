@@ -1,0 +1,66 @@
+.scroll {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 22px;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__point {
+    cursor: pointer;
+
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+
+    background: #e0e0e0;
+
+    transition: background-color 0.3s ease;
+  }
+}
+
+#photo1:checked ~ .gallery__photos {
+  transform: translateX(0);
+}
+
+#photo2:checked ~ .gallery__photos {
+  transform: translateX(calc(-1 * ($gallery-photo-width-mb + $gallery-gap-mb)));
+
+  @include on-tablet {
+    transform: translateX(
+      calc(-1 * ($gallery-gap-tb + $gallery-photo-width-tb))
+    );
+  }
+}
+
+#photo3:checked ~ .gallery__photos {
+  transform: translateX(calc(-2 * ($gallery-photo-width-mb + $gallery-gap-mb)));
+
+  @include on-tablet {
+    transform: translateX(
+      calc(-2 * ($gallery-photo-width-tb + $gallery-gap-tb))
+    );
+  }
+}
+
+#photo4:checked ~ .gallery__photos {
+  transform: translateX(calc(-3 * ($gallery-photo-width-mb + $gallery-gap-mb)));
+
+  @include on-tablet {
+    transform: translateX(
+      calc(-3 * ($gallery-photo-width-tb + $gallery-gap-tb))
+    );
+  }
+}
+
+#photo1:checked ~ .gallery__scroll label[for='photo1'],
+#photo2:checked ~ .gallery__scroll label[for='photo2'],
+#photo3:checked ~ .gallery__scroll label[for='photo3'],
+#photo4:checked ~ .gallery__scroll label[for='photo4'] {
+  background: $green-color;
+}
