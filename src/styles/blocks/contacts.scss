@@ -1,12 +1,31 @@
 .contacts {
   @include padding-inline;
 
+  &__container {
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 70px;
+    }
+  }
+
   &__top {
     padding-top: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    @include on-tablet {
+      flex-direction: column;
+      row-gap: 64px;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
   }
 
   &__logo {
@@ -31,6 +50,16 @@
 
   &__content {
     margin-top: 40px;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    @include on-desktop {
+      margin-left: 60px;
+    }
   }
 
   &__wrapper {
@@ -38,13 +67,20 @@
     flex-direction: row;
 
     @include on-tablet {
-      margin-bottom: 70px;
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 0;
     }
   }
 
   &__schedule {
+    @include on-tablet {
+      margin-left: auto;
+    }
     &--color {
-      color: rgba(15, 14, 8, 1);
+      color: $main-title-color;
     }
   }
 
@@ -53,7 +89,12 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 150%;
-    color: rgba(15, 14, 8, 1);
+    color: $main-title-color;
+    margin-left: 20px;
+
+    @include on-tablet {
+      margin-left: 40px;
+    }
   }
 
   &__title {
@@ -62,7 +103,7 @@
 
   &__link {
     text-decoration: none;
-    color: rgba(15, 14, 8, 1);
+    color: $main-title-color;
   }
 
   &__arrows {
@@ -81,27 +122,49 @@
     align-items: center;
     height: 50px;
     width: 50px;
-    border: 1px solid rgba(26, 90, 76, 1);
+    border: 1px solid $menu-bg-color;
     border-radius: 50%;
     cursor: pointer;
     font-size: large;
-    color: rgba(26, 90, 76, 1);
+    color: $menu-bg-color;
     font-weight: bold;
 
     &:hover {
-      box-shadow: 0 1px 10px rgba(26, 90, 76, 1);
+      box-shadow: 0 1px 10px $menu-bg-color;
     }
   }
 
   &__divider {
-    color: rgba(26, 90, 76, 0.5);
+    color: $menu-bg-color;
     margin-bottom: 40px;
+
+    @include on-desktop {
+      margin-bottom: 0;
+    }
   }
 
   &__nav {
     margin-bottom: 80px;
+
+    @include on-desktop {
+      margin-bottom: 0;
+    }
+
     &--color {
-      color: rgba(15, 14, 8, 1);
+      color: $main-title-color;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        bottom: -8px;
+        display: block;
+        height: 1px;
+        background-color: $menu-bg-color;
+
+        transition: transform 0.3s;
+        transform: scale(0);
+      }
     }
   }
 }
