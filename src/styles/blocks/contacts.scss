@@ -1,0 +1,170 @@
+.contacts {
+  @include padding-inline;
+
+  &__container {
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__top {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      flex-direction: column;
+      row-gap: 64px;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  }
+
+  &__logo {
+    &--img {
+      width: 55px;
+      height: 61px;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 20px;
+
+    @include on-tablet {
+      gap: 32px;
+    }
+
+    @include on-desktop {
+      gap: 22px;
+    }
+  }
+
+  &__content {
+    margin-top: 40px;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    @include on-desktop {
+      margin-left: 60px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__schedule {
+    @include on-tablet {
+      margin-left: auto;
+    }
+    &--color {
+      color: $main-title-color;
+    }
+  }
+
+  &__contact {
+    font-family: 'IBM Plex Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    color: $main-title-color;
+    margin-left: 20px;
+
+    @include on-tablet {
+      margin-left: 40px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $main-title-color;
+  }
+
+  &__arrows {
+    display: flex;
+    justify-content: flex-end;
+    margin-block: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border: 1px solid $menu-bg-color;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: large;
+    color: $menu-bg-color;
+    font-weight: bold;
+
+    &:hover {
+      box-shadow: 0 1px 10px $menu-bg-color;
+    }
+  }
+
+  &__divider {
+    color: $menu-bg-color;
+    margin-bottom: 40px;
+
+    @include on-desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 80px;
+
+    @include on-desktop {
+      margin-bottom: 0;
+    }
+
+    &--color {
+      color: $main-title-color;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        bottom: -8px;
+        display: block;
+        height: 1px;
+        background-color: $menu-bg-color;
+
+        transition: transform 0.3s;
+        transform: scale(0);
+      }
+    }
+  }
+}
