@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 1000%;
   height: 100%;
   background-color: $green-color;
   flex-direction: column;
@@ -20,28 +20,37 @@
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    justify-content: space-between;
-    flex-direction: row;
+    flex-direction: column;
+
+    @include content-padding-inline;
 
     @include on-tablet {
-      height: 255px;
+      height: auto;
       padding: 20px;
       justify-content: center;
+      flex-direction: row;
     }
 
     @include on-desktop {
-      height: 233px;
+      height: auto;
     }
   }
 
   &-wrapper {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    align-items: start;
     gap: 40px;
     align-self: flex-start;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+    }
   }
 
   &-icon-close {
@@ -61,6 +70,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+    align-items: start;
 
     @include on-tablet {
       flex-direction: row;
@@ -72,6 +82,7 @@
       flex-direction: column;
       gap: 10px;
       text-align: left;
+      padding: 10px;
 
       &-title {
         margin-bottom: 20px;
@@ -94,6 +105,7 @@
 
     &-closing-note {
       max-width: 170px;
+      padding: 10px;
 
       p {
         margin: 10px 0;
@@ -114,6 +126,7 @@
       flex-direction: column;
       gap: 5px;
       list-style: none;
+      padding: 10px;
 
       a {
         text-decoration: none;
@@ -146,7 +159,9 @@
     width: 70%;
     height: 1px;
     background-color: #fff;
-    margin: 24px 0;
+    margin: 24px;
+ align-items: center;
+
 
     @include on-tablet {
       width: 1px;
