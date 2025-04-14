@@ -1,3 +1,131 @@
+@import './utils/vars';
+
 h1 {
-  @extend %h1;
+  @extend %heading-base;
+
+  color: $black;
+  font-size: 45px;
+
+  text-align: center;
+  line-height: 100%;
+}
+
+h2 {
+  @extend %heading-base;
+
+  display: inline-block;
+  font-weight: 400;
+  font-size: 28px;
+  font-style: normal;
+  line-height: 100%;
+}
+
+.h2--white {
+  color: $white;
+}
+
+.h2--icon::after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+
+  margin-left: 10px;
+  vertical-align: middle;
+  background-color: $h2--icon-color;
+}
+
+.h2--mobile-centered {
+  text-align: center;
+}
+
+h3 {
+  @extend %heading-base;
+
+  font-size: 28px;
+  line-height: 100%;
+}
+
+@include tablet {
+  h1 {
+    font-size: 54px;
+
+    text-align: left;
+    line-height: 120%;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  .h2--icon::after {
+    content: '';
+    margin-left: 15px;
+    width: 15px;
+    height: 15px;
+  }
+
+  .h2--mobile-centered {
+    text-align: left;
+  }
+
+  h3 {
+    font-size: 36px;
+  }
+}
+
+@include desktop {
+  h1 {
+    font-size: 72px;
+  }
+}
+
+.subtitle {
+  @extend %main-text-base;
+
+  color: $subtitle-color;
+  font-weight: 500;
+  font-size: 16px;
+
+  line-height: 100%;
+  text-transform: uppercase;
+
+  &--bold {
+    font-weight: 700;
+    font-style: bold;
+  }
+
+  &--green {
+    color: $green;
+  }
+
+  &--dark {
+    color: $dark;
+  }
+}
+
+@include tablet {
+  .subtitle {
+    font-size: 14px;
+  }
+}
+
+.main-text {
+  @extend %main-text-base;
+
+  &--uppercase {
+    text-decoration: uppercase;
+  }
+
+  &--bold {
+    font-weight: 600;
+  }
+}
+
+.main-text.main-text--white {
+  color: $white;
+}
+
+.main-text.main-text--dark {
+  color: $dark;
 }

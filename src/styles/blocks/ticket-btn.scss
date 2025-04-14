@@ -1,0 +1,60 @@
+@import '../utils/vars';
+
+.ticket-btn-text {
+  display: block;
+  width: calc(100% - $main-btn-size);
+  color: #000;
+
+  text-align: center;
+  transition: $animation-duration;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.ticket-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  box-sizing: border-box;
+  border: 1px solid $ticket-btn-border-color;
+  z-index: 0;
+
+  &::before {
+    background-color: $ticket-btn-border-color;
+    content: '';
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+
+    width: 0%;
+    height: 100%;
+    transition: $animation-duration;
+  }
+
+  &:hover {
+    & .ticket-btn-text {
+      color: #fff;
+    }
+
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+@include tablet {
+  .ticket-btn {
+    max-width: 270px;
+  }
+
+  .ticket-btn-text {
+    width: calc(100% - $main-btn-size-lg);
+  }
+}

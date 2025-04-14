@@ -1,0 +1,148 @@
+@import '../utils/vars';
+
+.footer {
+  padding: 50px 0;
+}
+
+.footer__content {
+  flex-direction: column;
+  display: flex;
+  gap: 40px;
+}
+
+@include tablet {
+  .footer {
+    padding: 50px 0 120px;
+  }
+
+  .footer__content {
+    gap: unset;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+  }
+}
+
+@include desktop {
+  .footer {
+    padding: 50px 0 80px;
+  }
+
+  .footer__content {
+    grid-template-columns: 2fr 8fr 1fr;
+  }
+}
+
+.footer__text {
+  color: $footer-text-color;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+
+  &--nowrap {
+    white-space: unset;
+  }
+}
+
+@include desktop {
+  .footer__text--nowrap {
+    white-space: nowrap;
+  }
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__links-socials {
+  display: flex;
+  gap: 20px;
+}
+
+@include tablet {
+  .footer__links {
+    align-items: start;
+    justify-content: left;
+    flex-direction: column;
+    gap: 62px;
+  }
+
+  .footer__links-socials {
+    gap: 32px;
+  }
+}
+
+.footer__info-wrapper {
+  display: block;
+}
+
+@include desktop {
+  .footer__info-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.footer__info {
+  position: relative;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: $nav-divider-padding--mobile;
+}
+
+.footer__info-cart-title-wrapper {
+  margin: 0 0 20px;
+
+  &--weekend {
+    margin: 20px 0 0;
+  }
+}
+
+.footer__info-nav-wrapper {
+  border-top: 1px solid rgba(26, 90, 76, 0.5);
+  border-left: unset;
+  padding-top: $nav-divider-padding--mobile;
+}
+
+.footer__nav-list {
+  gap: 20px;
+}
+
+@include tablet {
+  .footer__info {
+    padding-bottom: $nav-divider-padding--tablet;
+  }
+  .footer__info-nav-wrapper {
+    padding-top: $nav-divider-padding--tablet;
+  }
+}
+
+@include desktop {
+  .footer__info {
+    padding-bottom: unset;
+    padding-right: $nav-divider-padding--desktop;
+  }
+  .footer__info-nav-wrapper {
+    padding-top: unset;
+    padding-left: $nav-divider-padding--desktop;
+
+    border-top: unset;
+    border-left: 1px solid rgba(26, 90, 76, 0.5);
+  }
+
+  .footer__nav-list {
+    gap: 32px;
+  }
+}
+
+.footer__sroll-top {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+
+  width: 50px;
+  height: 50px;
+}

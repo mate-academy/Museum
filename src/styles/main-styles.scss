@@ -1,0 +1,212 @@
+@import './utils/vars';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+
+  &:hover {
+    cursor: default;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  line-height: 0;
+  text-decoration: none;
+  color: unset;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+main {
+  background-color: $main-bg-color;
+}
+
+section {
+  margin: 70px 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.section-title-wrapper {
+  margin-bottom: 40px;
+}
+
+@include tablet {
+  section {
+    margin: 88px 0;
+  }
+
+  .section-title-wrapper {
+    margin-bottom: 48px;
+  }
+}
+
+@include desktop {
+  section {
+    margin: 200px 0;
+  }
+
+  .section-title-wrapper {
+    margin-bottom: 56px;
+  }
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+@include tablet {
+  .container {
+    padding: 0 $container-padding-tablet;
+  }
+}
+
+@include desktop {
+  .container {
+    padding: 0 $container-padding-desktop;
+  }
+}
+
+.icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+
+  transition: $animation-duration;
+
+  &--close-white {
+    background-image: url('../images/icons/icon-close.svg');
+  }
+
+  &--close-white:hover {
+    transform: rotate(90deg);
+  }
+}
+
+.link {
+  transition: $animation-duration;
+
+  &--scale-hover {
+    display: inline-block;
+
+    &:hover {
+      cursor: pointer !important;
+      transform: scale(1.2);
+    }
+  }
+
+  &--scale-hover-sm {
+    display: inline-block;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+
+  &--bold-hover:hover {
+    font-weight: 600;
+  }
+}
+
+.show-on-mobile {
+  display: block;
+}
+
+.show-on-tablet {
+  display: none;
+}
+
+.show-on-desktop {
+  display: none;
+}
+
+.dont-show-on-tablet {
+  display: block;
+}
+
+.dont-show-on-desktop {
+  display: block;
+}
+
+@include tablet {
+  .show-on-mobile {
+    display: none;
+  }
+
+  .show-on-tablet {
+    display: block;
+  }
+
+  .show-on-desktop {
+    display: none;
+  }
+
+  .dont-show-on-tablet {
+    display: none;
+  }
+
+  .dont-show-on-desktop {
+    display: block;
+  }
+}
+
+@include desktop {
+  .show-on-mobile {
+    display: none;
+  }
+
+  .show-on-tablet {
+    display: none;
+  }
+
+  .show-on-desktop {
+    display: block;
+  }
+
+  .dont-show-on-tablet {
+    display: block;
+  }
+
+  .dont-show-on-desktop {
+    display: none;
+  }
+}

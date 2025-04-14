@@ -1,0 +1,57 @@
+@import '../utils/vars';
+
+.nav-wrapper {
+  display: flex;
+}
+
+.nav {
+  margin: auto;
+}
+
+.nav__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.nav__link {
+  position: relative;
+  display: inline-block;
+
+  color: $menu-text-color;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+    background-color: $menu-text-color;
+    text-align: left;
+    transition: $animation-duration;
+  }
+
+  &--dark {
+    color: $menu-text-color-dark;
+
+    &::before {
+      background-color: $menu-text-color-dark;
+    }
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+@include desktop {
+  .nav__link {
+    font-size: 22px;
+  }
+}
