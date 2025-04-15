@@ -1,0 +1,100 @@
+@import '../utils/vars';
+
+.museum {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+}
+
+.museum-container {
+  height: 100%;
+}
+
+.museum__content {
+  grid-column: span 5;
+  display: flex;
+  flex-direction: column;
+}
+
+.museum__content-link-wrapper {
+  display: flex;
+  justify-content: end;
+}
+
+.museum__content-image {
+  position: static;
+
+  & img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
+@include tablet {
+  .museum {
+    display: block;
+  }
+
+  .museum-container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+
+    padding-top: 40px;
+    position: relative;
+  }
+
+  .museum__content {
+    flex-direction: column;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .museum__content-image {
+    height: fit-content;
+    position: absolute;
+    inset: 0 0 0 calc(100% / 12 * 6);
+  }
+
+  .museum,
+  .museum__content-image img {
+    height: 384px;
+  }
+}
+
+@include desktop {
+  .museum__content-image {
+    left: calc(100% / 12 * 5 + $container-padding-desktop + $grid-gap);
+  }
+
+  .museum,
+  .museum__content-image img {
+    height: 655px;
+  }
+
+  .museum__content {
+    grid-template-columns: 5fr 7fr;
+  }
+
+  .museum__link-to-events {
+    position: absolute;
+    left: calc($container-padding-desktop - 15px);
+    bottom: 21%;
+
+    transform: rotate(-90deg);
+
+    &::before {
+      position: absolute;
+      left: -200%;
+      bottom: 6px;
+
+      content: '';
+      width: 70px;
+      height: 1px;
+      background-color: $green;
+    }
+  }
+}
