@@ -1,0 +1,140 @@
+.menu {
+  padding: 27px 20px;
+  background-color: $green-accent;
+
+  @media (min-width: 768px) {
+    padding: 39px 34px;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 39px 55px 48px;
+  }
+
+  &__wrapper {
+    @include grid-wrapper;
+  }
+
+  &__container {
+    grid-column: 1 / -1;
+
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: $icon-width;
+    height: $icon-heigth;
+    background-image: url(../images/icons/menu-icon-close.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $white-accent;
+
+    @media (min-width: 768px) {
+      border-bottom: none;
+      padding-bottom: 0;
+      gap: 38px;
+      padding-right: 38px;
+      border-right: 1px solid $white-accent;
+    }
+
+    @media (min-width: 1280px) {
+      gap: 102px;
+      padding-right: 102px;
+    }
+  }
+
+  &__nav {
+    font-size: 16px;
+    font-weight: 500;
+    color: $white-accent;
+
+    * {
+      color: inherit;
+      gap: 28px;
+
+      @include underline-hover($white-accent);
+    }
+
+    @media (min-width: 768px) {
+      * {
+        column-gap: 20px;
+        row-gap: 24px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      * {
+        column-gap: 31px;
+        row-gap: 30px;
+      }
+    }
+  }
+
+  &__schedule {
+    padding-top: 24px;
+    color: $white-accent;
+
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      gap: 26px;
+      padding-top: 0;
+      padding-left: 38px;
+
+      & > * {
+        flex: 1 1 0;
+        max-width: 100%;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      padding-left: 102px;
+      gap: 30px;
+    }
+
+    & p:nth-of-type(1) {
+      margin-top: 16px;
+
+      @media (min-width: 768px) {
+        margin-top: 0;
+        align-self: flex-end;
+        line-height: 150%;
+      }
+    }
+
+    &-annotation-remark {
+      font-weight: 600;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .menu__schedule > * {
+    width: 170px;
+  }
+}
+
+@media (min-width: 768px) {
+  .menu__nav-group {
+    max-width: 100px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .menu__nav-group {
+    max-width: 168px;
+  }
+}
+
