@@ -1,6 +1,57 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+
+@mixin logo-hover-effect {
+  transition: all 0.5s linear;
+
   &:hover {
-    #{$_property}: $_toValue;
+    transform: rotateY(360deg) scale(1.2);
+  }
+}
+
+@mixin hover-rotate($axis: "Z", $deg: 360deg, $scale: 1.4, $duration: 0.5s) {
+  transition: all $duration linear;
+
+  &:hover {
+    @if $axis == "X" {
+      transform: rotateX($deg) scale($scale);
+    } @else if $axis == "Y" {
+      transform: rotateY($deg) scale($scale);
+    } @else {
+      transform: rotate($deg) scale($scale);
+    }
+  }
+}
+
+@mixin underline-hover($color: #000) {
+  // position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+
+    height: 1px;
+    background-color: $color;
+    transition: width 0.3s linear;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+@mixin grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(12, 1fr);
   }
 }
