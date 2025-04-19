@@ -1,0 +1,170 @@
+.header {
+  position: relative;
+
+  @include set-padding-bottom-all-screens(70px, 88px, 200px);
+
+  @include on-tablet {
+    @include page-grid;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 300px;
+    padding-top: 9px;
+
+    background-image: url('./../images/header/header-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      justify-content: start;
+
+      min-width: 374px;
+      height: 384px;
+      padding-top: 15px;
+      padding-left: 82px;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+      min-width: 725px;
+      height: 655px;
+      padding-left: 57px;
+
+      &::after {
+        content: 'події';
+
+        position: absolute;
+        bottom: 290px;
+        left: 40px;
+        transform: rotate(-90deg);
+
+        font-family: IBMPlexSans, sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: $subitle-color;
+        text-transform: uppercase;
+      }
+
+      &::before {
+        content: '';
+
+        position: absolute;
+        bottom: 200px;
+        left: 61px;
+
+        display: block;
+
+        width: 1px;
+        height: 70px;
+
+        background-color: $color-green;
+      }
+    }
+
+    &-logo__link {
+      width: 55px;
+      height: 61px;
+
+      @include hover(transform, scale(1.1));
+
+      @include on-tablet {
+        width: 56px;
+        height: 72px;
+      }
+    }
+
+    &-logo {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 20px;
+    padding-inline: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      align-items: start;
+
+      padding-top: 127px;
+      padding-inline: 39px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      align-items: end;
+      padding: 206px 0 0 55px;
+    }
+
+    &-button__link {
+      display: flex;
+      width: 280px;
+      text-decoration: none;
+
+      @include hover(transform, scale(1.1));
+
+      @include on-tablet {
+        width: 270px;
+      }
+    }
+
+    &-button {
+      cursor: pointer;
+
+      width: 100%;
+      border: 1px solid $color-green;
+
+      font-family: IBMPlexSans, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+
+      background-color: #fff;
+
+      &__photo {
+        width: 50px;
+        height: 50px;
+
+        @include on-tablet {
+          width: 70px;
+          height: 70px;
+        }
+      }
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 20px;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      margin-bottom: 38px;
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      margin-bottom: 89px;
+      font-size: 72px;
+    }
+  }
+}
