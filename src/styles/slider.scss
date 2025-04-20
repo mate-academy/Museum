@@ -1,0 +1,127 @@
+.slider {
+  @include page-grid;
+
+  width: 100%;
+  transition: transform $animation-speed;
+
+  &__slides {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 6;
+
+      @include page-grid;
+
+      column-gap: 20px;
+    }
+
+    @include on-desktop {
+      grid-column: span 12;
+      row-gap: 30px;
+    }
+  }
+
+  &__photo {
+    pointer-events: none;
+
+    display: none;
+    order: 0;
+
+    width: 100%;
+    height: 410px;
+
+    opacity: 0;
+    object-fit: cover;
+
+    @include hover(transform, scale(1.02));
+
+    transition:
+      opacity $animation-speed,
+      transform $animation-speed;
+
+    @include on-tablet {
+      grid-column: span 3;
+      height: 543px;
+    }
+
+    @include on-desktop {
+      pointer-events: auto;
+      display: block;
+      opacity: 1;
+    }
+
+    &--order-1 {
+      order: 1;
+    }
+
+    &--order-2 {
+      order: 2;
+    }
+
+    &--active {
+      pointer-events: auto;
+      display: block;
+      opacity: 1;
+    }
+
+    &--vertical-rectangle {
+      @include on-desktop {
+        grid-column: span 4;
+        height: 600px;
+      }
+    }
+
+    &--big-square {
+      @include on-desktop {
+        grid-column: span 8;
+        height: 600px;
+      }
+    }
+
+    &--horizontal-rectangle {
+      @include on-desktop {
+        grid-column: span 8;
+        height: 360px;
+      }
+    }
+
+    &--small-square {
+      @include on-desktop {
+        grid-column: span 4;
+        height: 360px;
+      }
+    }
+  }
+
+  &__dots {
+    display: flex;
+    grid-column: span 2;
+    gap: 22px;
+    justify-content: center;
+
+    margin-top: 20px;
+
+    @include on-tablet {
+      grid-column: span 6;
+      margin-top: 32px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    display: block;
+
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+
+    background-color: #e0e0e0;
+
+    &--active {
+      background-color: $color-green;
+    }
+  }
+}
