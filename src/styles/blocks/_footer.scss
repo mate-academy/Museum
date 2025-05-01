@@ -1,0 +1,125 @@
+.footer {
+  &__content {
+    @include page-grid;
+
+    @include on-tablet {
+      margin-top: 51px;
+      column-gap: 20px;
+    }
+  }
+
+  &__top {
+    padding-block: 40px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: span 2;
+
+    @include on-tablet {
+      flex-direction: column;
+      justify-content: start;
+      padding: 0;
+      grid-column: span 1;
+      gap: 62px;
+    }
+  }
+
+  &__logo {
+    font-size: 36px;
+    line-height: 36px;
+
+    @include hover(scale, 1.1);
+  }
+
+  &__socials {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__schedule {
+    margin-bottom: 70px;
+    grid-column: span 1;
+
+    @include on-tablet {
+      flex-direction: column;
+      grid-column: span 2;
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+    }
+  }
+
+  &__contacts {
+    @include on-tablet {
+      grid-column: span 2;
+    }
+  }
+
+  &__nav {
+    position: relative;
+
+    grid-column: span 2;
+    padding: 40px 0 70px;
+    border-top: 1px solid #1a5a4c80;
+    color: $text-primary;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      padding: 64px 0 120px;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / 12;
+      padding: 0;
+      border-top: none;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 74px;
+        left: -65px;
+        width: 1px;
+        background-color: #1a5a4c80;
+      }
+    }
+  }
+
+  &__bottom {
+    @include font-ibm-plex-sans-light;
+
+    grid-column: span 2;
+    text-align: center;
+    font-size: 12px;
+    line-height: 17px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__designed {
+    margin-bottom: 10px;
+  }
+
+  &__copyright {
+    margin-bottom: 56px;
+  }
+
+  &__to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    height: 50px;
+    width: 50px;
+    z-index: 100;
+  }
+}
