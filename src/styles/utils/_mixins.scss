@@ -1,6 +1,20 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover($props) {
+  transition: #{join(map-keys($props), ',')} 0.3s; // stylelint-disable-line scss/no-global-function-names
   &:hover {
-    #{$_property}: $_toValue;
+    @each $prop, $val in $props {
+      #{$prop}: $val;
+    }
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
   }
 }

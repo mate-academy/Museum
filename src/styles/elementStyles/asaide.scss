@@ -1,0 +1,154 @@
+.aside {
+  background-color: $aside-bg-color;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    left 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  z-index: -1;
+
+  &__open {
+    left: 0;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 10;
+  }
+}
+
+.plan {
+  color: $aside-text-color;
+  font-family: 'IBM Plex Sans', serif;
+  font-weight: 600;
+  font-size: 14px;
+
+  &--text {
+    color: $footer-text-color;
+    text-decoration: none;
+  }
+}
+
+.plan__title {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: 900;
+  color: $aside-text-color;
+  font-size: 19px;
+
+  &--text {
+    color: $footer-text-color;
+  }
+}
+
+.menu {
+  background-color: $asaideBottom-bg-color;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding-block: 24px;
+  column-gap: 67px;
+
+  width: 100%;
+  height: auto;
+
+  &--footer {
+    background-color: $footer-bg-color;
+    padding-block: 40px;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    column-gap: 45px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background: $footer-text-color;
+    }
+  }
+
+  &__button {
+    background-image: url('/src/images/asideClose.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 24px;
+    width: 24px;
+    margin-top: 2px;
+    margin-left: 20px;
+  }
+
+  &__galereyFoto {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    width: 120px;
+
+    &--footer {
+      width: 160px;
+    }
+
+    &__links {
+      text-decoration: none;
+      color: $aside-text-color;
+      font-family: 'IBM Plex Sans', serif;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 100%;
+      width: 100%;
+
+      &--text {
+        color: $footer-text-color;
+        font-size: 19px;
+      }
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    height: 1px;
+    width: calc(100% - 40px);
+    background: $aside-text-color;
+  }
+}
+
+.botom {
+  background-color: $asaideBottom-bg-color;
+  padding-inline: 20px;
+  padding-block: 24px;
+  width: 100%;
+  height: 300px;
+  box-sizing: border-box;
+
+  &--footer {
+    background-color: $footer-bg-color;
+    padding-block: 0;
+  }
+
+  &__planList {
+    margin: 0;
+    padding: 0;
+    &__workTime {
+      color: $aside-text-color;
+      font-family: 'IBM Plex Sans', serif;
+      font-weight: 600;
+      font-size: 14px;
+      list-style: none;
+
+      &--text {
+        color: $footer-text-color;
+      }
+    }
+  }
+}
