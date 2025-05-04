@@ -1,0 +1,51 @@
+/* #region nav */
+.nav {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 24px 28px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include on-tablet {
+      gap: 20px 24px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+
+    font-size: 1rem;
+    color: inherit;
+    text-decoration: none;
+
+    @include on-tablet {
+      font-size: 1.38rem;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      width: 100%;
+      height: 1px;
+
+      background-color: $menu-text-color;
+      transform: scale(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+      transform-origin: left;
+    }
+  }
+}
+
+/* #endregion */

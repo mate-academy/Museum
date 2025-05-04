@@ -1,0 +1,32 @@
+.schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__content {
+    --columns: 1;
+
+    display: grid;
+    grid-template-columns: repeat(var(--columns), minmax(144px, 280px));
+    gap: 16px;
+
+    @include on-tablet {
+      --columns: 2;
+
+      gap: 38px;
+    }
+  }
+
+  &__title {
+    @extend %h4;
+
+    width: fit-content;
+  }
+
+  &__text {
+    width: fit-content;
+    margin: 0;
+    font-size: 0.87rem;
+    line-height: 150%;
+  }
+}
