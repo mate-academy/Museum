@@ -17,12 +17,10 @@
     background-image: url(../images/header-image-lap-top.png);
     background-repeat: no-repeat;
     background-size: cover;
-
     width: 100%;
     max-width: 320px;
     height: 300px;
     margin: 0 auto;
-
     display: flex;
     justify-content: center;
     padding-top: 10px;
@@ -31,10 +29,6 @@
       max-width: 374px;
       height: 384px;
       margin: 0;
-
-      padding-top: 15px;
-      padding-left: 15px;
-
       padding: 19px 0 0 15px;
       justify-content: flex-start;
     }
@@ -42,7 +36,6 @@
     @include on-lap-top {
       max-width: 725px;
       height: 656px;
-
       padding: 19px 0 0 95px;
     }
   }
@@ -71,7 +64,6 @@
       gap: 90px;
       padding: 0 0 0 55px;
     }
-
   }
 
   &__title {
@@ -90,14 +82,11 @@
   }
 
   &__header-tickets-button-cont {
-    justify-content: center;
+    @include transition;
+
     display: flex;
     height: 50px;
-    align-content: center;
-    @include transition;
-    &:hover {
-      transform: $main-transform-animation;
-    }
+    place-content: center;
 
     @include on-tablet {
       height: 70px;
@@ -106,6 +95,10 @@
 
     @include on-lap-top {
       justify-content: flex-end;
+    }
+
+    &:hover {
+      transform: $main-transform-animation;
     }
   }
 
@@ -120,16 +113,16 @@
     @include on-tablet {
       padding-block: 23px;
     }
-
-
   }
 
   &__tickets-button-arrow {
+    @include transition;
+
     height: 50px;
     width: 50px;
     padding: 15px 21px;
     background-color: $second-color;
-    @include transition;
+
     &:hover {
       background-color: gray;
     }
@@ -137,14 +130,13 @@
     @include on-tablet {
       height: 70px;
       width: 70px;
-      padding:24px 31px ;
+      padding: 24px 31px;
     }
   }
 
-
-
   &__events-space-text {
     display: none;
+
     @include on-lap-top {
       display: inline-block;
     }
@@ -152,32 +144,26 @@
     color: #687480;
     text-decoration: none;
     font-weight: 700;
-
     transform: rotate(-90deg);
-
     position: absolute;
     top: 522px;
     left: 55px;
-
   }
 
   &__events-space-line {
     display: none;
+
     @include on-lap-top {
       display: inline-block;
     }
-    position: absolute;
 
+    position: absolute;
     background-color: #687480;
     height: 1px;
     width: 70px;
     content: '';
     transform: rotate(90deg);
-
-
     top: 600px;
     left: 41px;
   }
-
 }
-
