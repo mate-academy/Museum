@@ -3,6 +3,11 @@
   width: 100%;
   height: auto;
 
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+  }
+
   &__content {
     display: flex;
     flex-direction: row;
@@ -15,7 +20,7 @@
     @include tablet {
       width: 50%;
       height: 385px;
-      justify-self: end;
+      order: 2;
     }
   }
 
@@ -66,9 +71,10 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    top: 127px;
-    justify-self: start;
-    position: absolute;
+    order: 1;
+    padding-block: 0;
+    margin-block: 0;
+    margin-top: 94px;
   }
 
   &__title {
@@ -82,6 +88,15 @@
     line-height: 100%;
     text-align: center;
     margin-inline: auto;
+
+    @include tablet {
+      width: 340px;
+      height: 130px;
+      font-size: 54px;
+      line-height: 120%;
+      margin-left: 15px;
+      text-align: start;
+    }
   }
 
   &__link {
@@ -93,17 +108,27 @@
     margin-inline: auto;
     text-decoration: none;
 
+    @include tablet {
+      margin-left: 15px;
+      width: 270px;
+      height: 70px;
+    }
+
     &__ticket {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 80%;
-      height: 50px;
+      height: 100%;
       color: $museum-title-color;
       font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 500;
       font-size: 18px;
       line-height: 100%;
+
+      @include tablet {
+        width: 75%;
+      }
     }
 
     &__arrow {
@@ -111,8 +136,12 @@
       align-items: center;
       justify-content: center;
       width: 20%;
-      height: 50px;
+      height: 100%;
       background-color: $asaideBottom-bg-color;
+
+      @include tablet {
+        width: 25%;
+      }
 
       &__img {
         width: 18px;
