@@ -1,0 +1,46 @@
+@import 'utils';
+@import 'fonts';
+@import 'typography';
+@import 'slider';
+@import 'header';
+@import 'aside';
+@import 'icon';
+@import 'main';
+@import 'footer';
+
+.page-body {
+  justify-content: center;
+  margin: 0;
+  font-family: $main-font;
+  font-size: $mob-main-text-fs;
+  font-weight: 400;
+
+  scroll-behavior: smooth;
+  padding-bottom: 173px;
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    overflow: auto;
+
+    @include transition;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page-body__menu:target) {
+    overflow: hidden;
+  }
+}
+
+
+
+
+

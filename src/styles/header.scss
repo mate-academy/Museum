@@ -1,0 +1,183 @@
+.header {
+  display: flex;
+  flex-direction: column;
+
+  @include on-tablet {
+    flex-direction: row-reverse;
+    gap: 20px;
+    align-items: flex-end;
+  }
+
+  @include on-lap-top {
+    gap: 30px;
+    align-items: center;
+  }
+
+  &__header-left {
+    background-image: url(../images/header-image-lap-top.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100%;
+    max-width: 320px;
+    height: 300px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+
+    @include on-tablet {
+      max-width: 374px;
+      height: 384px;
+      margin: 0;
+
+      padding-top: 15px;
+      padding-left: 15px;
+
+      padding: 19px 0 0 15px;
+      justify-content: flex-start;
+    }
+
+    @include on-lap-top {
+      max-width: 725px;
+      height: 656px;
+
+      padding: 19px 0 0 95px;
+    }
+  }
+
+  &__logo-link {
+    @include transition;
+
+    &:hover {
+      transform: $main-transform-animation;
+    }
+  }
+
+  &__header-right {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 20px;
+    flex-direction: column;
+
+    @include on-tablet {
+      gap: 38px;
+      padding: 0 0 20px 39px;
+    }
+
+    @include on-lap-top {
+      gap: 90px;
+      padding: 0 0 0 55px;
+    }
+
+  }
+
+  &__title {
+    font-size: $mob-title-fs;
+    text-align: center;
+    font-family: $second-font;
+
+    @include on-tablet {
+      font-size: $tab-title-fs;
+      text-align: left;
+    }
+
+    @include on-lap-top {
+      font-size: $lap-title-fs;
+    }
+  }
+
+  &__header-tickets-button-cont {
+    justify-content: center;
+    display: flex;
+    height: 50px;
+    align-content: center;
+    @include transition;
+    &:hover {
+      transform: $main-transform-animation;
+    }
+
+    @include on-tablet {
+      height: 70px;
+      justify-content: flex-start;
+    }
+
+    @include on-lap-top {
+      justify-content: flex-end;
+    }
+  }
+
+  &__tickets-button {
+    padding: 14px 80px;
+    border: 1px solid $second-color;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: $main-color;
+    font-weight: 500;
+
+    @include on-tablet {
+      padding-block: 23px;
+    }
+
+
+  }
+
+  &__tickets-button-arrow {
+    height: 50px;
+    width: 50px;
+    padding: 15px 21px;
+    background-color: $second-color;
+    @include transition;
+    &:hover {
+      background-color: gray;
+    }
+
+    @include on-tablet {
+      height: 70px;
+      width: 70px;
+      padding:24px 31px ;
+    }
+  }
+
+
+
+  &__events-space-text {
+    display: none;
+    @include on-lap-top {
+      display: inline-block;
+    }
+
+    color: #687480;
+    text-decoration: none;
+    font-weight: 700;
+
+    transform: rotate(-90deg);
+
+    position: absolute;
+    top: 522px;
+    left: 55px;
+
+  }
+
+  &__events-space-line {
+    display: none;
+    @include on-lap-top {
+      display: inline-block;
+    }
+    position: absolute;
+
+    background-color: #687480;
+    height: 1px;
+    width: 70px;
+    content: '';
+    transform: rotate(90deg);
+
+
+    top: 600px;
+    left: 41px;
+  }
+
+}
+

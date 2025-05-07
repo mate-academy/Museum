@@ -4,3 +4,54 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on-lap-top() {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+
+@mixin max-width-cont() {
+  max-width: 320px;
+
+  @include on-tablet {
+    max-width: 768px;
+  }
+
+  @include on-lap-top {
+    max-width: 1280px;
+  }
+}
+
+@mixin transition() {
+  transition: 0.35s ease;
+}
+
+
+@mixin grid() {
+  display: grid;
+
+  grid-template-columns: repeat($mobile-grid-collums, 130px);
+  column-gap: 20px;
+  padding-inline: 20px;
+
+  @include on-tablet() {
+    grid-template-columns: repeat($tablet-grid-collums, 90px);
+    column-gap: 30px;
+    padding-inline: 39px;
+  }
+
+  @include on-lap-top() {
+    grid-template-columns: repeat($pc-grid-collums, 70px);
+    padding-inline: 55px;
+  }
+}
+
+
