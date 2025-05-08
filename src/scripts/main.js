@@ -21,23 +21,19 @@ asideClose.forEach(link => {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  const swiper = new Swiper('.gallery__slider', {
+  const swiper = new Swiper('.gallery__slider.swiper', {
     observer: true,
     observeParents: true,
     slidesPerView: 1,
     spaceBetween: 16,
     pagination: {
-      el: '.swiper-pagination.gallery__dots',
+      el: ".swiper-pagination",
       clickable: true,
     },
-    breakpoints: {
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 16,
-      },
-    },
-  });
-});
+  },
+  )
+})
+
 
 
 
