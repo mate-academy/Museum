@@ -1,17 +1,19 @@
 'use strict';
 
-const mySlider = new Splide("#mySlider", {
-  classes: {
-		pagination: 'splide__pagination gallery-section__pagination',
-		page      : 'splide__pagination__page gallery-section__pagination-page',
-  },
+document.addEventListener( 'DOMContentLoaded', function() {
+  let splide = new Splide("#mySlider", {
+    classes: {
+      pagination: 'splide__pagination gallery-section__pagination',
+      page      : 'splide__pagination__page gallery-section__pagination-page',
+    },
 
 
-  arrows: false,
-  pagination: true,
-});
+    arrows: false,
+    pagination: true,
+  });
 
-mySlider.mount();
+  splide.mount();
+} );
 
 
 const submitButton = document.querySelector('#submitButton');
