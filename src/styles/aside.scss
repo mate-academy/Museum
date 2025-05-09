@@ -1,0 +1,128 @@
+/* #region menu */
+.menu {
+  box-sizing: border-box;
+  height: 63vh;
+  background-color: $second-color;
+  overflow: hidden;
+  padding: 27px 0;
+
+  @include on-tablet {
+    height: 30vh;
+  }
+
+  @include on-lap-top {
+    height: 22vh;
+  }
+}
+
+.nav {
+  @include grid;
+
+  justify-content: center;
+
+  &__first-collum,
+  &__second-collum {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    padding-bottom: 24px;
+
+    &--pad-left {
+      padding-left: 27px;
+
+      @include on-lap-top {
+        padding-left: 0;
+      }
+    }
+
+    @include on-tablet {
+      padding-bottom: 0;
+    }
+
+    @include on-lap-top {
+      font-size: 22px;
+    }
+  }
+
+  &__first-collum {
+    @include on-tablet {
+      grid-column: 1 / 2;
+    }
+
+    @include on-lap-top {
+      grid-column: 2 / 4;
+    }
+  }
+
+  &__second-collum {
+    @include on-tablet {
+      grid-column: 2 / 3;
+    }
+
+    @include on-lap-top {
+      grid-column: 4 / 6;
+    }
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: $mob-main-text-fs;
+    color: $third-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__grafic-weekend-cont {
+    grid-column: 1 / -1;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 21px;
+    color: $third-color;
+
+    padding-top: 24px;
+    border-top: 1px solid $third-color;
+
+    @include on-tablet {
+      grid-column: 3 / -1;
+
+      border-left: 1px solid $third-color;
+
+      border-top: none;
+      padding-top: 0;
+      padding-left: 38px;
+
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: end;
+    }
+
+    @include on-lap-top {
+      grid-column: 7 / -1;
+      padding-left: 102px;
+
+      justify-content: flex-start;
+      column-gap: 30px;
+    }
+  }
+
+  &__grafic-cell,
+  &__weekend-cont {
+    font-size: 14px;
+  }
+
+  &__weekend-cont {
+    max-width: 144px;
+  }
+
+  &__title {
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 20px;
+  }
+}
+
+/* #endregion */
