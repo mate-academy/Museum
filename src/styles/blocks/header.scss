@@ -10,7 +10,11 @@
     height: 100vh;
 
     @include on-tablet {
-      @include page-grid;
+      flex-direction: row;
+    }
+
+    @include on-desktop {
+      gap: 30px;
     }
   }
 
@@ -29,7 +33,7 @@
 
   &__right {
     height: 100%;
-    min-height: 300px;
+    width: 100%;
 
     background-image: url(../images/Header-right-mb-img.png);
     background-repeat: no-repeat;
@@ -37,13 +41,11 @@
     background-size: cover;
 
     @include on-tablet {
-      grid-column: span 3;
       order: 2;
       background-image: url(../images/Header-right-tb-img.png);
     }
 
     @include on-desktop {
-      grid-column: span 7;
       background-image: url(../images/Header-right-dt-img.png);
     }
   }
@@ -54,16 +56,19 @@
     gap: 20px;
 
     @include on-tablet {
-      grid-column: span 3;
       gap: 38px;
       align-self: center;
       order: 1;
 
       margin-right: 0;
     }
+  }
+
+  &__buttom {
+    align-self: baseline;
 
     @include on-desktop {
-      grid-column: span 5;
+      align-self: anchor-center;
     }
   }
 }
