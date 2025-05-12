@@ -21,18 +21,39 @@ asideClose.forEach(link => {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  const swiper = new Swiper('.gallery__slider.swiper', {
-    observer: true,
-    observeParents: true,
-    slidesPerView: 1,
-    spaceBetween: 16,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  },
-  )
-})
+  let swiper = null;
+
+  function initOrDestroySwiper() {
+    const screenWidth = window.innerWidth;
+    const swiperContainer = document.querySelector('.gallery__slider.swiper');
+
+    if (screenWidth < 1024) {
+      if (!swiper) {
+        swiper = new Swiper('.gallery__slider.swiper', {
+          observer: true,
+          observeParents: true,
+          slidesPerView: 1,
+          spaceBetween: 16,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
+      }
+    } else {
+      if (swiper) {
+        swiper.destroy(true, true);
+        swiper = null;
+      }
+    }
+  }
+
+  // Инициализация при загрузке
+  initOrDestroySwiper();
+
+  // Повторная проверка при изменении размера окна
+  window.addEventListener('resize', initOrDestroySwiper);
+});
 
 
 

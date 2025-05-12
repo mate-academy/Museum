@@ -4,6 +4,11 @@
   height: auto;
   overflow: hidden;
   box-sizing: border-box;
+
+  @include desktop {
+    margin-top: 200px;
+    margin-bottom: 100px;
+  }
 }
 
 .events {
@@ -18,6 +23,18 @@
   @include tablet {
     align-items: start;
     padding-inline: 37px;
+  }
+
+  @include desktop {
+    padding-inline: 55px;
+  }
+
+  &__conteiner {
+    @include desktop {
+      display: flex;
+      flex-direction: column;
+      margin-top: 110px;
+    }
   }
 
   &__title {
@@ -37,7 +54,7 @@
       height: 70px;
       text-align: start;
       font-size: 47px;
-      margin-top: 80px;
+      margin-top: 90px;
       margin-bottom: 0;
     }
   }
@@ -57,6 +74,11 @@
       justify-content: start;
       align-items: start;
       margin-bottom: 0;
+    }
+
+    @include desktop {
+      flex-direction: row;
+      column-gap: 130px;
     }
 
     &__img {
@@ -174,6 +196,11 @@
         top: 380px;
         left: 60px;
       }
+
+      @include desktop {
+        inset: auto 50% -64px;
+        transform: translateX(-50%);
+      }
     }
 
     &__text {
@@ -229,6 +256,13 @@
 
   @include tablet {
     align-items: start;
+    padding-inline: 37px;
+    margin-top: 80px;
+  }
+
+  @include desktop {
+    padding-inline: 55px;
+    margin-block: 200px;
   }
 
   &__title {
@@ -254,16 +288,16 @@
   &__content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
     width: 100%;
     height: auto;
     margin-top: 40px;
     margin-bottom: 100px;
 
     @include tablet {
-      align-items: start;
-      justify-content: start;
+      margin-top: 50px;
+      margin-bottom: 133px;
     }
   }
 
@@ -275,8 +309,14 @@
     height: auto;
     box-sizing: border-box;
     overflow: hidden;
-    position: relative;
+    position: relative !important;
     margin-inline: 0;
+
+    @include desktop {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
   }
 
   &__slider-img {
@@ -287,11 +327,46 @@
     height: 100%;
     width: 100%;
 
+    @include desktop {
+      width: 100% !important;
+      height: auto;
+      object-fit: cover;
+    }
+
+    &--tablet {
+      display: none;
+
+      @include tablet {
+        display: block;
+        margin-left: 16px;
+      }
+
+      @include desktop {
+        display: none !important;
+      }
+    }
+
     @include tablet {
       display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    bottom: -20px !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+
+    @include tablet {
+      bottom: -32px !important;
+      left: 100% !important;
+    }
+
+    @include desktop {
+      display: none !important;
     }
   }
 }
@@ -309,6 +384,14 @@
   padding-inline: 40px;
   box-sizing: border-box;
 
+  @include tablet {
+    height: 380px;
+  }
+
+  @include desktop {
+    height: 550px;
+  }
+
   &__title {
     width: 280px;
     height: 36px;
@@ -320,6 +403,15 @@
     text-align: center;
     color: $subscribe-text-color;
     margin-top: 90px;
+
+    @include tablet {
+      width: 460px;
+      font-size: 48px;
+    }
+
+    @include desktop {
+      width: 370px;
+    }
   }
 
   &__text {
@@ -333,6 +425,14 @@
     text-align: center;
     color: $subscribe-text-color;
     margin-bottom: 50px;
+
+    @include tablet {
+      width: 460px;
+    }
+
+    @include desktop {
+      width: 570px;
+    }
   }
 
   &__form {
@@ -344,6 +444,16 @@
     margin-inline: auto;
     text-decoration: none;
     margin-bottom: 90px;
+
+    @include tablet {
+      width: 460px;
+      height: 70px;
+      background-color: #000000bf;
+    }
+
+    @include desktop {
+      width: 570px;
+    }
 
     &__input {
       display: flex;
@@ -358,6 +468,15 @@
       padding-left: 24px;
       padding-block: 18px;
       box-sizing: border-box;
+
+      @include tablet {
+        width: 460px;
+        height: 100%;
+      }
+
+      @include desktop {
+        width: 470px;
+      }
     }
 
     &__button {
@@ -366,7 +485,19 @@
       justify-content: center;
       width: 20%;
       height: 50px;
+      box-sizing: border-box;
       background-color: $subscribe-button-color;
+
+      @include tablet {
+        height: 100%;
+        margin-left: 20px;
+      }
+
+      @include desktop {
+        width: 70px;
+        height: 70px;
+        margin-left: 30px;
+      }
     }
 
     &__button-img {
@@ -377,16 +508,31 @@
 }
 
 .swiper {
-  width: 340px;
+  width: 345px;
   height: 100%;
   overflow: visible;
+  margin: 0;
+
+  @include desktop {
+    width: 100%;
+  }
+}
+
+.swiper-wrapper {
+  @include desktop {
+    display: contents;
+  }
 }
 
 .swiper-slide {
   width: 345px !important;
-  height: 545px; // или 100%, зависит от желаемого эффекта
+  height: 545px;
   flex-shrink: 0;
   display: flex;
+
+  @include desktop {
+    display: contents;
+  }
 }
 
 .swiper-pagination {
@@ -396,8 +542,8 @@
   margin-top: 20px;
 
   &-bullet {
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     background-color: $dots-color !important;
     border-radius: 50%;
     margin: 0 5px;
@@ -409,4 +555,38 @@
     background-color: $dots-color-activ !important;
     opacity: 1;
   }
+}
+
+.doppel--foto {
+  display: none !important;
+
+  @include tablet {
+    display: none !important;
+  }
+
+  @include desktop {
+    display: block !important;
+  }
+}
+
+.hidden {
+  @include desktop {
+    display: none !important;
+  }
+}
+
+.img-a {
+  grid-column: span 1;
+}
+
+.img-b {
+  grid-column: span 2;
+}
+
+.img-c {
+  grid-column: span 2;
+}
+
+.img-d {
+  grid-column: span 1;
 }
