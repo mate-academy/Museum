@@ -1,0 +1,43 @@
+.section-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+  width: 230px;
+  height: 50px;
+  border: 1px solid $button-border-color;
+  text-align: center;
+
+  &::after {
+    content: '';
+    width: 51px;
+    height: 51px;
+    position: absolute;
+    box-sizing: border-box;
+    background-image: url(../images/icons/arrow-white.svg);
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: center;
+    top: -1px;
+    right: 0;
+    transform: translateX(100%);
+    background-color: $button-border-color;
+  }
+
+  @include on-tablet {
+    width: 200px;
+    height: 71px;
+
+    &::after {
+      width: 71px;
+      height: 71px;
+    }
+  }
+
+  &__title {
+    @extend %h3;
+  }
+}

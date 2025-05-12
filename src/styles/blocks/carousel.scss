@@ -1,0 +1,64 @@
+.carousel {
+  width: 100%;
+  padding: 20px 0;
+
+  &__content.swiper-wrapper {
+    height: fit-content;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__slide.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+
+    @include on-desktop {
+      width: fit-content !important;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    max-width: 320px;
+
+    @include on-tablet {
+      max-width: 640px;
+    }
+
+    @include on-desktop {
+      width: fit-content;
+      max-width: 100%;
+
+      @include hover(transform, scale(1.05));
+    }
+  }
+
+  &__pagination.swiper-pagination {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    gap: 22px;
+
+    .swiper-pagination-bullet {
+      width: 9px;
+      height: 9px;
+      margin: 0 !important;
+
+      &-active {
+        background-color: $carousel-pagination-active-color;
+      }
+    }
+  }
+}

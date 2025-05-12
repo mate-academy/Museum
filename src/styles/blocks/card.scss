@@ -1,0 +1,160 @@
+.card {
+  @include page-grid;
+
+  row-gap: 20px;
+
+  @include on-tablet {
+    row-gap: 40px;
+  }
+
+  &--lecture {
+    row-gap: 0;
+
+    @include on-tablet {
+      @include content-padding-inline;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      max-width: 100vw;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    grid-column: 1/ -1;
+
+    @include on-desktop {
+      grid-column: span 7;
+    }
+
+    &--lecture {
+      grid-column: 1/ -1;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    font-family: 'IBM Plex Sans ', Roboto, sans-serif;
+    grid-column: 1/ -1;
+
+    @include on-tablet {
+      row-gap: 30px;
+    }
+
+    @include on-desktop {
+      grid-column: 9/ -1;
+    }
+
+    &--lecture {
+      position: relative;
+      align-items: center;
+      grid-column: 1/ -1;
+      box-shadow: 0 2px 0 0 #1a5a4c40;
+      background-color: $main-bg-color;
+      padding: 20px 5px;
+      row-gap: 25px;
+      transform: translateY(-41%);
+
+      @include content-padding-inline;
+
+      @include on-tablet {
+        align-items: start;
+        justify-self: center;
+        row-gap: 23px;
+        padding: 45px 55px 50px;
+      }
+
+      @include on-desktop {
+        justify-self: center;
+        margin: 0;
+        max-width: 100vw;
+        padding: 45px 100px 50px;
+      }
+    }
+  }
+
+  &__text-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: fit-content;
+
+    @include on-tablet {
+      row-gap: 15px;
+    }
+  }
+
+  &__title {
+    @extend %h2;
+
+    font-size: 1.75rem;
+    font-weight: 400;
+    width: fit-content;
+    text-align: center;
+
+    &::after {
+      content: '';
+      display: block;
+      position: relative;
+      background-color: $card-additional-element-color;
+      width: 10px;
+      height: 10px;
+      left: 100%;
+      top: -50%;
+      transform: translateY(50%) translateX(100%);
+    }
+
+    @include on-tablet {
+      font-size: 2.25rem;
+    }
+
+    &--lecture {
+      &::after {
+        display: none;
+        position: absolute;
+      }
+
+      @include on-tablet {
+        text-align: left;
+      }
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 0.88rem;
+    width: fit-content;
+
+    &--lecture {
+      @include on-tablet {
+        gap: 0;
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__type {
+    color: $card-text-color;
+    font-weight: 500;
+    line-height: 100%;
+  }
+
+  &__dates {
+    color: $card-dates-color;
+    font-weight: 700;
+    line-height: 150%;
+  }
+
+  &__description {
+    color: $card-text-color;
+    font-weight: 300;
+    line-height: 150%;
+    margin: 0;
+  }
+}

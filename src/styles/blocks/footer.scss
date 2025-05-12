@@ -1,0 +1,70 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 80px;
+
+  font-family: 'IBM Plex Sans ', Roboto, sans-serif;
+  font-weight: 400;
+  color: $footer-text-color;
+
+  padding-bottom: 50px;
+
+  @include on-tablet {
+    @include page-grid;
+
+    padding-bottom: 35px;
+    row-gap: 120px;
+  }
+
+  @include on-desktop {
+    row-gap: 87px;
+  }
+
+  &__top-bar {
+    grid-column: span 1;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+
+    @include on-tablet {
+      grid-column: 2/-2;
+    }
+
+    @include on-desktop {
+      flex-direction: row;
+      grid-column: 3/-3;
+    }
+  }
+
+  &__text-content {
+    display: flex;
+    gap: 20px;
+
+    @include on-tablet {
+      // flex-direction: column;
+    }
+  }
+
+  &__site-info {
+    display: flex;
+    flex-direction: column;
+
+    font-weight: 300;
+    font-size: 0.81rem;
+    line-height: 141%;
+    text-align: center;
+
+    @include on-tablet {
+      flex-direction: row;
+      grid-column: 1/-1;
+      justify-content: space-between;
+
+      // &:nth-child(n) {
+      //   width: fit-content;
+      // }
+    }
+  }
+}

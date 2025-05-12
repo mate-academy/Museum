@@ -1,0 +1,131 @@
+.subscription {
+  display: flex;
+  justify-content: center;
+
+  background-image: url(.././images/subscription/bg-mb-sub.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  padding: 88px 0;
+
+  @include on-tablet {
+    display: block;
+    padding: 82px 0;
+  }
+
+  @include on-desktop {
+    padding: 163px 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 0;
+  }
+
+  &__content {
+    @include page-grid;
+
+    position: relative;
+    max-width: 280px;
+    z-index: 2;
+    row-gap: 50px;
+
+    @include on-tablet {
+      max-width: none;
+      row-gap: 64px;
+    }
+
+    @include on-desktop {
+      row-gap: 72px;
+    }
+  }
+
+  &__text-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    color: $subscription-text-color;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 2/-2;
+    }
+
+    @include on-desktop {
+      grid-column: 4/-4;
+    }
+  }
+
+  &__title {
+    @extend %h2;
+  }
+
+  &__text {
+    font-family: 'IBM Plex Sans', Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 1.13rem;
+    line-height: 150%;
+    margin: 0;
+
+    @include on-tablet {
+      line-height: 100%;
+    }
+  }
+
+  &__input-filde {
+    display: flex;
+    width: 100%;
+    grid-column: 1/-1;
+    border: 0;
+    overflow: hidden;
+
+    @include on-tablet {
+      grid-column: 2/-2;
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      grid-column: 4/-4;
+      gap: 30px;
+    }
+
+    &::after {
+      position: relative;
+      background-image: url(../images/icons/arrow-black.svg);
+      background-color: $subscription-additional-element-color;
+      height: 100%;
+      top: 0;
+      transform: none;
+    }
+  }
+
+  &__input {
+    flex-shrink: 100;
+    width: 100%;
+    height: 100%;
+    padding: 18px 24px;
+    box-sizing: border-box;
+
+    @extend %h4;
+
+    color: $subscription-input-text-color;
+    font-family: Montserrat, Roboto, sans-serif;
+    line-height: 100%;
+
+    @include on-tablet {
+      padding: 28px 24px;
+    }
+
+    @include on-desktop {
+      padding: 28px 32px;
+    }
+  }
+}
