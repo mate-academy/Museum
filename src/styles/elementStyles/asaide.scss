@@ -1,0 +1,336 @@
+.aside {
+  background-color: $aside-bg-color;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    left 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  z-index: -1;
+
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__open {
+    left: 0;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 10;
+  }
+}
+
+.plan {
+  color: $aside-text-color;
+  font-family: 'IBM Plex Sans', serif;
+  font-weight: 600;
+  font-size: 14px;
+
+  @include tablet {
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+
+  &--text {
+    color: $footer-text-color;
+    text-decoration: none;
+
+    @include handy-small {
+      font-size: 10px;
+    }
+
+    @include handy {
+      font-size: 14px;
+    }
+  }
+}
+
+.plan--tablet {
+  @include tablet {
+    margin-bottom: 0;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+
+  @include desktop {
+    line-height: 1.5;
+  }
+}
+
+.plan__title {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: 900;
+  color: $aside-text-color;
+  font-size: 19px;
+
+  @include tablet {
+    margin-top: 28px;
+    font-size: 14px;
+  }
+
+  &--text {
+    color: $footer-text-color;
+
+    @include handy-small {
+      font-size: 14px;
+    }
+
+    @include handy {
+      font-size: 15px;
+    }
+  }
+}
+
+.menu {
+  background-color: $asaideBottom-bg-color;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding-block: 24px;
+  width: 100%;
+  height: auto;
+  border: 1px solid $asaideBottom-bg-color;
+
+  @include handy-small {
+    column-gap: 0;
+  }
+
+  @include handy {
+    column-gap: 20px;
+  }
+
+  @include tablet {
+    padding: 40px 18px 114px 34px;
+    width: 50%;
+    column-gap: 0;
+    height: 300px;
+  }
+
+  @include desktop {
+    padding: 40px 100px 114px 55px;
+  }
+
+  &--footer {
+    background-color: $footer-bg-color;
+    padding-block: 40px;
+    position: relative;
+
+    margin-bottom: 40px;
+    column-gap: 45px;
+    border: none;
+
+    @include handy-small {
+      margin-top: 70px;
+    }
+
+    @include tablet {
+      width: 460px;
+      column-gap: 20px;
+      height: 135px;
+      padding-inline: 20px;
+    }
+
+    @include desktop {
+      width: 100%;
+      height: 260px;
+      padding-inline: 65px;
+      padding-block: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background: $footer-text-color;
+
+      @include tablet {
+        left: 20px;
+      }
+
+      @include desktop {
+        left: 0;
+        right: auto;
+        width: 1px;
+        height: 100%;
+      }
+    }
+  }
+
+  &__button {
+    background-image: url('/src/images/asideClose.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 24px;
+    width: 24px;
+    margin-top: 2px;
+    margin-left: 20px;
+
+    @include handy-small {
+      margin-right: 48px;
+    }
+
+    @include tablet {
+      margin-left: 0;
+      margin-right: 64px;
+    }
+
+    @include desktop {
+      margin-right: 102px;
+    }
+  }
+
+  &__galereyFoto {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    width: 120px;
+
+    @include tablet {
+      margin-right: 20px;
+    }
+
+    @include desktop {
+      margin-right: 30px;
+      width: 170px;
+    }
+
+    &--footer {
+      width: 160px;
+
+      @include tablet {
+        width: 220px;
+        margin-right: 0;
+        row-gap: 20px;
+      }
+    }
+
+    &__links {
+      text-decoration: none;
+      color: $aside-text-color;
+      font-family: 'IBM Plex Sans', serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      width: 100%;
+
+      @include desktop {
+        font-size: 22px;
+      }
+
+      &--text {
+        color: $footer-text-color;
+        font-size: 14px;
+
+        @include tablet {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    height: 1px;
+    width: calc(100% - 40px);
+    background: $aside-text-color;
+
+    @include tablet {
+      inset: 40px 0 40px auto;
+      width: 2px;
+      height: auto;
+    }
+  }
+}
+
+.botom {
+  background-color: $asaideBottom-bg-color;
+  padding-inline: 20px;
+  padding-block: 24px;
+  width: 100%;
+  height: 300px;
+  box-sizing: border-box;
+  border: 1px solid $asaideBottom-bg-color;
+
+  &__schedule {
+    @include tablet {
+      width: 160px;
+    }
+  }
+
+  &__information {
+    width: 280px;
+
+    @include tablet {
+      width: 144px;
+    }
+  }
+
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    padding-inline: 35px;
+    padding-block: 40px;
+    column-gap: 25px;
+  }
+
+  @include desktop {
+    padding-inline: 102px;
+    padding-top: 40px;
+    padding-bottom: 48px;
+    column-gap: 30px;
+  }
+
+  &--footer {
+    background-color: $footer-bg-color;
+    padding-block: 0;
+    border: none;
+
+    @include tablet {
+      flex-direction: column;
+      width: 220px;
+      padding-inline: 0;
+    }
+  }
+
+  &__planList {
+    margin: 0;
+    padding: 0;
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      row-gap: 5px;
+    }
+
+    @include desktop {
+      row-gap: 7px;
+    }
+
+    &__workTime {
+      color: $aside-text-color;
+      font-family: 'IBM Plex Sans', serif;
+      font-weight: 600;
+      font-size: 14px;
+      list-style: none;
+
+      &--text {
+        color: $footer-text-color;
+      }
+    }
+  }
+}
