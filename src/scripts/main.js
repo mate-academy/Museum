@@ -5,17 +5,27 @@ const menuON = document.querySelector('.header__menu');
 const menuOff = document.querySelector('.menu__button');
 const asideClose = document.querySelectorAll('.menu__galereyFoto__links');
 
+document.querySelector('.subscribe__form__button').addEventListener(
+  'click',
+  function (e) {
+    e.preventDefault();
+  }
+);
+
 menuON.addEventListener('click', () => {
   aside.classList.add('aside__open');
+  document.body.style.overflow = 'hidden';
 });
 
 menuOff.addEventListener('click', () => {
   aside.classList.remove('aside__open');
+  document.body.style.overflow = '';
 });
 
 asideClose.forEach(link => {
   link.addEventListener('click', () => {
     aside.classList.remove('aside__open');
+    document.body.style.overflow = '';
   });
 });
 
@@ -27,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const screenWidth = window.innerWidth;
     const swiperContainer = document.querySelector('.gallery__slider.swiper');
 
-    if (screenWidth < 1024) {
+    if (screenWidth < 1280) {
       if (!swiper) {
         swiper = new Swiper('.gallery__slider.swiper', {
           observer: true,
@@ -48,10 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Инициализация при загрузке
   initOrDestroySwiper();
 
-  // Повторная проверка при изменении размера окна
   window.addEventListener('resize', initOrDestroySwiper);
 });
 
