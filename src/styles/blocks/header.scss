@@ -23,35 +23,36 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
-    padding-left: 20px;
+
 
     @include on-tablet {
       flex-direction: row-reverse;
-      padding-left: 34px;
+     padding-inline-start: 34px;
     }
 
     @include on-desktop {
-      padding-left: 55px;
+      padding-inline-start: 55px;
     }
   }
 
   &__menu-icon {
-    display: block;
     position: absolute;
     top: 20px;
     left: 20px;
+    display: block;
     width: 24px;
     height: 24px;
     transition: transform 0.3s;
+    margin: 20px 0;
+    cursor: pointer;
 
     @include hover(transform, scale(1.2));
 
     @include on-tablet {
-      top: 40px;
-      left: 80px;
-      height: 32px;
       width: 32px;
+      height: 32px;
+      top: 34px;
+      left: 34px;
     }
 
     img {
@@ -62,26 +63,33 @@
     }
   }
 
+
   &__logo {
+    display: inline-block;
     font-family: $font-secondary;
-    font-size: 30px;
     font-weight: 700;
-    line-height: 30px;
+    font-size: 30px;
+    text-decoration: none;
+    color: inherit;
+    max-width: 160px;
+    margin: 20px auto;
     text-align: center;
-    color: #0f0e08;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    margin-top: 9px;
+    margin-left: 40%;
+    padding: 0 20px;
 
     @include on-tablet {
       font-size: 36px;
       line-height: 36px;
-      margin-top: 14px;
-      display: flex;
-      justify-content: start;
+      margin-left: 0;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
     }
   }
+
+
 
   &__img {
     flex: 1;
@@ -93,10 +101,12 @@
     @include on-tablet {
       width: 50%;
       min-height: 384px;
+      margin-bottom: 0;
     }
 
     @include on-desktop {
       height: 655px;
+      width: 50%;
     }
   }
 }
@@ -161,6 +171,7 @@
       background-color: $green-color;
       color: white;
       transform: scale(1.05);
+      cursor: pointer;
     }
 
     &__text {
@@ -179,6 +190,7 @@
     &__icon {
       width: 50px;
       height: 50px;
+      cursor: pointer;
 
       @include on-tablet {
         width: 70px;
