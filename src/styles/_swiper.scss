@@ -1,0 +1,53 @@
+.swiper {
+  margin-bottom: 100px;
+  padding: 0 16px;
+
+  @include onTablet {
+    padding: 0;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &-slide {
+    flex-shrink: 0;
+    width: 280px;
+    margin-bottom: 20px;
+
+    @include hover(transform, scale(1.05));
+
+    &__image {
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+
+        @include onTablet {
+          height: auto;
+        }
+      }
+    }
+  }
+
+  &-pagination {
+    position: static;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+
+    &-bullet {
+      margin-right: 16px;
+      background-color: $color-gray;
+
+      &-active {
+        background-color: $color-primary;
+      }
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}
