@@ -1,0 +1,112 @@
+.events {
+  article {
+    margin-bottom: 60px;
+  }
+  &__content {
+    margin: 0 auto;
+
+    @include onDesktop {
+      display: flex;
+      gap: 130px;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__item-wrapper {
+    @include onDesktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      max-width: 410px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+
+    @include font-ibm;
+
+    @include onTablet {
+      gap: 20px;
+      justify-content: flex-start;
+      margin-bottom: 32px;
+    }
+
+    &-title {
+      position: relative;
+      margin-bottom: 10px;
+
+      @include onTablet {
+        font-size: 36px;
+      }
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        transform: translateY(100%);
+
+        display: inline-block;
+
+        width: 10px;
+        height: 10px;
+        margin-left: 15px;
+
+        background-color: $color-accent;
+
+        @include onTablet {
+          width: 15px;
+          height: 15px;
+          margin-left: 20px;
+        }
+      }
+    }
+    &-description {
+      @include font-ibm;
+
+      font-size: 16px;
+      font-weight: $font-weight-light;
+      line-height: 150%;
+      color: $color-text-light;
+
+      @include onTablet {
+        width: 70%;
+      }
+
+      @include onDesktop {
+        width: 100%;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 210px;
+    margin-bottom: 16px;
+    object-fit: cover;
+
+    @include hover(transform, scale(1.05));
+
+    @include onTablet {
+      height: 520px;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      display: inline-block;
+      width: 670px;
+    }
+  }
+
+  &__info {
+    padding: 20px;
+  }
+}

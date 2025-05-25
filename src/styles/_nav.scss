@@ -1,0 +1,46 @@
+.nav {
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
+
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  line-height: 100%;
+
+  @include font-ibm;
+
+  &-items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 50%;
+
+    a {
+      position: relative;
+      display: inline-block;
+      width: fit-content;
+      text-decoration: none;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        transform-origin: left;
+        transform: scaleX(0);
+
+        width: 100%;
+        height: 2px;
+
+        background-color: $color-background;
+
+        transition: transform 0.3s ease;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}

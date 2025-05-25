@@ -1,0 +1,145 @@
+.hero {
+  padding-bottom: 70px;
+
+  &__content {
+    @include onTablet {
+      position: absolute;
+      top: 127px;
+    }
+
+    @include onDesktop {
+      top: 207px;
+    }
+  }
+
+  &__title {
+    @include font-montserrat;
+
+    margin-bottom: 20px;
+
+    font-size: 45px;
+    font-weight: $font-weight-bold;
+    color: #000;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include onTablet {
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+      font-size: 72px;
+    }
+  }
+
+  &__button {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 56px;
+    border: 1px solid #1a5a4c;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: 50px;
+      height: 100%;
+      border-left: 1px solid #1a5a4c;
+
+      background-color: #1a5a4c;
+      background-image: url('../images/icons/arrow-right.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 24px;
+
+      @include onDesktop {
+        width: 70px;
+      }
+    }
+
+    &-text {
+      position: absolute;
+      left: 50%;
+      transform: translateX(calc(-50% - 25px));
+
+      padding-block: 18px;
+
+      font-size: 16px;
+      font-weight: $font-weight-medium;
+      color: #0f0e08;
+      text-transform: uppercase;
+
+      transition: color 0.3s ease;
+
+      @include font-ibm;
+    }
+
+    &:hover {
+      background-color: #1a5a4c;
+
+      .hero__button-text {
+        color: #fff;
+      }
+    }
+
+    @include onTablet {
+      width: 270px;
+      font-size: 18px;
+    }
+
+    @include onDesktop {
+      position: relative;
+      left: 30%;
+      width: 300px;
+      height: 70px;
+    }
+  }
+
+  &__event {
+    position: absolute;
+    top: 522px;
+    transform: rotate(180deg);
+
+    display: none;
+
+    writing-mode: vertical-rl;
+    font-size: 14px;
+    font-weight: $font-weight-bold;
+    color: #687480;
+
+    @include font-ibm;
+
+    @include onDesktop {
+      display: inline-block;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      right: 50%;
+      bottom: calc(100% + 20px);
+
+      display: inline-block;
+
+      width: 1px;
+      height: 70px;
+
+      background-color: #1a5a4c;
+    }
+  }
+}
