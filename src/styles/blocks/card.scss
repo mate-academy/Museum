@@ -1,0 +1,122 @@
+.card {
+  @include grid;
+
+  row-gap: 20px;
+
+  @include on-tablet {
+    row-gap: 40px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 104px;
+  }
+
+  &__img {
+    display: flex;
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include on-tablet {
+      height: 520px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+    }
+
+    @include hover(transform, scale(1.01));
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+      align-content: center;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      justify-content: flex-start;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__date-title {
+    @extend%ibm-500;
+
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+    color: $secondary-color;
+    margin: 0;
+
+    @include on-tablet {
+      font-size: 14px;
+    }
+  }
+
+  &__date {
+    @extend%ibm-700;
+
+    font-size: 16px;
+    line-height: 1.5;
+    color: $accent-color;
+
+    @include on-tablet {
+      font-size: 14px;
+    }
+  }
+
+  &__title {
+    @extend%h3;
+
+    position: relative;
+    margin: 0 0 10px;
+    padding-right: 20px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+
+    @include on-tablet {
+      margin-bottom: 15px;
+      padding-right: 35px;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 10px;
+      height: 10px;
+      background-color: $secondary-accent-color;
+      right: 0;
+      bottom: 30%;
+
+      @include on-tablet {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  &__description {
+    @extend%ibm-300;
+
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
