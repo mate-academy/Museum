@@ -1,0 +1,284 @@
+.footer {
+  padding: 50px 0;
+
+  @include on-tablet {
+    padding: 50px 0 36px;
+  }
+
+  &__top {
+    @include grid;
+
+    @include on-tablet {
+      @include grid;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 2;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  }
+
+  &__logo-link {
+    height: 72px;
+    width: 63px;
+
+    @include hover(opacity, 0.3);
+
+    @include on-tablet {
+      margin-bottom: 62px;
+    }
+  }
+
+  &__logo {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__social {
+    display: flex;
+    gap: 20px;
+
+    @include on-tablet {
+      gap: 32px;
+    }
+
+    @include on-desktop {
+      gap: 22px;
+    }
+  }
+
+  &__social-link {
+    height: 24px;
+    width: 24px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include hover(opacity, 0.3);
+
+    &--facebook {
+      background-image: url(../images/icons/facebook.svg);
+    }
+
+    &--instagram {
+      background-image: url(../images/icons/instagram.svg);
+    }
+  }
+
+  &-schedule {
+    grid-column: 1 / 2;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+      margin-bottom: 85px;
+    }
+  }
+
+  &-schedule__top {
+    margin-bottom: 20px;
+  }
+
+  &-schedule__item--bold {
+    display: block;
+
+    @include on-tablet {
+      display: inline;
+    }
+  }
+
+  &-schedule__title {
+    color: $main-color;
+  }
+
+  &__contacts {
+    grid-column: 2 / -1;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 7;
+    }
+  }
+
+  &__up {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border: 1px solid $accent-color;
+    border-radius: 50%;
+    bottom: 20px;
+    grid-column: 1 / -1;
+    justify-self: flex-end;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: 12px;
+      width: 10px;
+      background-image: url(../images/icons/arrow-up.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  &__nav {
+    padding: 40px 0;
+    grid-column: 1 / -1;
+    margin-bottom: 30px;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: '';
+      background-color: #1a5a4c80;
+      height: 1px;
+      width: 100%;
+      top: 0;
+      right: 0;
+
+      @include on-tablet {
+        width: 67%;
+        right: 16%;
+      }
+
+      @include on-desktop {
+        height: 260px;
+        width: 1px;
+        left: -65px;
+      }
+    }
+
+    @include on-tablet {
+      margin-bottom: 50px;
+      padding: 64px 0;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / -2;
+      padding: 0;
+      height: 260px;
+    }
+  }
+
+  &__nav-list {
+    @include grid;
+
+    row-gap: 20px;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__nav-item {
+    &:nth-child(1),
+    &:nth-child(3) {
+      grid-column: 1 / 2;
+
+      @include on-tablet {
+        grid-column: 2 / 4;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 7;
+      }
+    }
+
+    &:nth-child(2),
+    &:nth-child(4) {
+      grid-column: 2 / -1;
+
+      @include on-tablet {
+        grid-column: 4 / 6;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / 12;
+      }
+    }
+  }
+
+  &__nav-link {
+    @extend%ibm-400;
+
+    position: relative;
+    font-size: 14px;
+    line-height: 1;
+    color: $main-color;
+    padding-bottom: 5px;
+
+    &::after {
+      position: absolute;
+      content: '';
+      height: 1px;
+      width: 100%;
+      background-color: $main-color;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &__bottom {
+    text-align: center;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__author,
+  &__copyright {
+    @extend%ibm-300;
+
+    font-size: 12px;
+    line-height: 1.4;
+    color: $main-color;
+  }
+
+  &__author {
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      order: 1;
+    }
+  }
+}
