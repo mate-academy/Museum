@@ -1,0 +1,129 @@
+.header {
+  display: block;
+  position: relative;
+
+  @include on-tablet {
+    @include page-grid;
+  }
+
+  &__img {
+    display: none;
+
+    @include on-desktop {
+      @include page-grid;
+
+      grid-row: 1;
+      grid-column: 1;
+      margin-left: 55px;
+      background-repeat: no-repeat;
+      background-image: url(../images/podii.svg);
+      width: 14px;
+      height: 133px;
+      align-self: flex-end;
+    }
+  }
+
+  &__background {
+    background-image: url(../images/header-background.svg);
+    width: 100%;
+    height: 300px;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    @include on-tablet {
+      height: 384px;
+      grid-column: 4 / -1;
+      background-size: cover;
+    }
+
+    @include on-desktop {
+      height: 655px;
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__main {
+    padding-inline: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      padding-left: 34px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 5;
+      padding-left: 55px;
+    }
+  }
+
+  &__button-block {
+    display: flex;
+    align-items: center;
+    border: 1px solid #1a5a4c;
+    justify-content: space-between;
+    width: 100%;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include on-tablet {
+      width: 270px;
+    }
+
+    @include on-desktop {
+      margin-left: 201px;
+    }
+  }
+
+  &__button-tickets {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin: 0 auto;
+    color: #0f0e08;
+  }
+
+  &__button {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    background-color: #1a5a4c;
+    align-items: center;
+    justify-content: center;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    padding-block: 20px;
+    color: #000;
+
+    @include on-tablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+      padding-block: 127px 38px;
+    }
+
+    @include on-desktop {
+      padding-block: 206px 89px;
+      font-size: 72px;
+    }
+  }
+}

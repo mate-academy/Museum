@@ -1,0 +1,43 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.page {
+  font-family: Montserrat, 'IBM Plex Sans', sans-serif;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__menu {
+    height: 399px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+
+    @include on-tablet {
+      height: 225px;
+    }
+
+    @include on-desktop {
+      height: 233px;
+    }
+  }
+}
