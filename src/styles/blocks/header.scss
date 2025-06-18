@@ -1,0 +1,214 @@
+@import '../utils/mixins';
+
+.header {
+  display: grid;
+  position: relative;
+
+  @include onTablet {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+  }
+
+  &_top {
+    position: relative;
+    grid-column: 7 / -1;
+    height: 300px;
+
+    @include onTablet {
+      height: 384px;
+    }
+
+    @include onDesktop {
+      height: 655px;
+      grid-column: 6 / -1;
+    }
+
+     &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+  }
+
+  &_div {
+      padding: 0;
+      position: absolute;
+      width: 55px;
+      padding: 16px 8px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @include onTablet {
+        width: 220px;
+        padding: 0;
+        margin: 15px 0 0 0;
+        transform: translateX(0);
+        display: flex;
+        justify-content: center;
+        height: 72px;
+      }
+
+      @include onDesktop {
+        width: 170px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+  &-button {
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    left: 20px;
+    top: 27px;
+
+    @include onTablet {
+      left: 34px;
+      top: 39px;
+    }
+
+    @include onDesktop {
+      left: 55px;
+    }
+  }
+
+  &_bottom {
+    margin: auto;
+    margin-top: 20px;
+    max-width: 100%;
+
+    @include onTablet {
+      grid-column: 1 / 6;
+      position: absolute;
+      margin: 0;
+      top: 127px;
+      left: 34px;
+    }
+
+    @include onDesktop {
+      left: 55px;
+      top: 206px;
+      grid-column: 1 / 5;
+      width: 470px;
+    }
+
+    &-text {
+      font-family: Montserrat;
+      font-weight: 700;
+      font-size: 45px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      max-width: 100%;
+      text-align: center;
+      margin: 0;
+
+      @include onTablet {
+        font-size: 54px;
+        line-height: 120%;
+        text-align: left;
+      }
+
+      @include onDesktop {
+        font-size: 72px;
+      }
+    }
+
+    &-button {
+      margin: auto;
+      height: 50px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      @include onTablet {
+        height: 70px;
+        margin-top: 38px;
+      }
+
+      @include onDesktop {
+        margin: 0;
+        width: 269px;
+        margin-top: 89px;
+        display: flex;
+        padding-left: 201px;
+
+      }
+
+      &-text {
+        border: 1px solid #1A5A4C;
+        width: 230px;
+        height: 100%;
+        font-family: IBM Plex Sans;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+
+        @include onDesktop {
+          width: 199px;
+        }
+      }
+
+      &-arrow {
+        background-color: #1A5A4C;
+        height: 100%;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include onTablet {
+          width: 70px;
+        }
+
+        &--icon {
+          width: 24px;
+          height: 24px;
+        }
+
+      }
+    }
+  }
+
+  &_vertical {
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-left: 55px;
+    margin-top: 522px;
+    gap: 20px;
+
+    @include onDesktop {
+      opacity: 1;
+    }
+
+    &-line {
+      width: 1px;
+      height: 70px;
+      background: #1A5A4C;
+      margin: 0 auto;
+    }
+
+    &-text {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 14px;
+      color: #687480;
+      font-family: IBM Plex Sans;
+      display: inline-block;
+      overflow: visible;
+      padding: 2px;
+}
+
+  }
+
+
+}
