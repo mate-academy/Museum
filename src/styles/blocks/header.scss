@@ -40,17 +40,22 @@
     display: block;
     width: 24px;
     height: 24px;
-    transition: transform 0.3s;
     margin: 20px 0;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out;
 
     @include hover(transform, scale(1.2));
 
     @include on-tablet {
       width: 32px;
       height: 32px;
-      top: 34px;
+      top: 14px;
       left: 34px;
+      margin-left: 20px;
+    }
+
+    @include on-desktop {
+      margin-left: 40px;
     }
 
     img {
@@ -69,8 +74,8 @@
     text-decoration: none;
     color: inherit;
     max-width: 160px;
-    margin: 20px auto;
     text-align: center;
+    margin: 20px auto 0;
     margin-left: 40%;
     padding: 0 20px;
 
@@ -100,10 +105,11 @@
 
     @include on-desktop {
       height: 655px;
-      width: 50%;
+      width: 70%;
     }
   }
 }
+
 
 .intro {
   display: flex;
@@ -124,8 +130,11 @@
     margin-top: 60px;
   }
 
+  @include on-desktop {
+    width: 30%;
+  }
+
   &__title {
-    margin-bottom: 30px;
     width: 100%;
     font-family: $font-secondary;
     font-size: 45px;
@@ -159,7 +168,7 @@
     color: $green-color;
     cursor: pointer;
     transition: all 0.3s ease;
-    width: fit-content;
+    width: auto;
 
     &:hover {
       background-color: $green-color;
@@ -168,16 +177,27 @@
       cursor: pointer;
     }
 
+    @include on-tablet {
+      margin-left: 0;
+      justify-content: flex-start;
+    }
+
+    @include on-desktop {
+      margin-left: 0;
+      justify-content: center;
+    }
+
     &__text {
-      margin: 18px 80px;
+      margin: 16px 80px;
       font-family: $font-primary;
       font-size: 16px;
       font-weight: 500;
       line-height: 16px;
       color: #0f0e08;
+      object-fit: contain;
 
       @include on-tablet {
-        margin: 27px 60px;
+        margin: 24px 60px;
       }
     }
 
@@ -185,6 +205,7 @@
       width: 50px;
       height: 50px;
       cursor: pointer;
+      object-fit: contain;
 
       @include on-tablet {
         width: 70px;
@@ -227,3 +248,5 @@
     }
   }
 }
+
+

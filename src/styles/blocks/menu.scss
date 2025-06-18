@@ -16,8 +16,9 @@
   transform: translateY(-5px);
   transition:
     opacity 0.3s ease-in-out,
-    visibility 0.3s ease-in-out;
-  box-shadow: 0 4px 6px rgba(0, 0, 0.1);
+    visibility 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   &:target {
     opacity: 1;
@@ -45,7 +46,6 @@
   &-wrapper {
     display: flex;
     flex-direction: row;
-
     width: 100%;
 
     @include on-tablet {
@@ -89,8 +89,8 @@
         text-decoration: none;
         color: #fff;
         font-family: $font-primary;
-        font-weight: 400;
-        font-size: 14px;
+        font-weight: 500;
+        font-size: 22px;
         line-height: 100%;
         transition:
           color 0.3s ease,
@@ -156,7 +156,13 @@
     }
 
     &-closing-note {
-      max-width: 170px;
+      margin-top: 16px;
+
+      @include on-tablet {
+        margin-top: 40px;
+        padding: 10px;
+        max-width: 170px;
+      }
 
       p {
         margin: 10px 0;
@@ -169,3 +175,24 @@
     }
   }
 }
+
+.header__overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  cursor: pointer;
+  background: rgba(117, 115, 115, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  &.is-visible {
+    display: block;
+    opacity: 0.5;
+  }
+}
+
+
