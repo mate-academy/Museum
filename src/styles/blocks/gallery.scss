@@ -1,0 +1,136 @@
+@import '../utils/mixins';
+
+.gallery {
+  margin: 183px 20px 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden;
+
+  @include onTablet {
+    margin: 208px 34px 0;
+  }
+
+  @include onDesktop {
+    margin: 302px 55px 0;
+  }
+
+  &_title {
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    @include onTablet {
+      text-align: start;
+      font-size: 48px;
+    }
+
+    &-text {
+      margin: 0;
+    }
+  }
+
+  &_picture {
+    margin-top: 40px;
+
+    @include onTablet {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    @include onDesktop {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
+
+    &_img {
+      width: 100%;
+      box-sizing: border-box;
+
+      transition: transform 0.3s ease;
+
+      @include onTablet {
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      &-phone {
+        display: block;
+
+        @include onDesktop {
+          display: none;
+        }
+      }
+
+      &-tablet {
+        display: none;
+
+        @include onTablet {
+          display: block;
+        }
+
+        @include onDesktop {
+          display: none;
+        }
+      }
+
+      &-desktop {
+        display: none;
+
+        @include onDesktop {
+          display: block;
+        }
+
+        &-first {
+          grid-column: 1 / 5;
+        }
+
+        &-second {
+          grid-column: 5 / -1;
+        }
+
+        &-third {
+          grid-column: 1 / 9;
+        }
+
+        &-fourth {
+          grid-column: 9 / -1;
+        }
+      }
+    }
+  }
+
+  &_change {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 22px;
+
+    @include onTablet {
+      margin-top: 32px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &-ball {
+      height: 9px;
+      width: 9px;
+      background: #e0e0e0;
+      border-radius: 50%;
+
+      &-on {
+        background: #1a5a4c;
+      }
+    }
+  }
+}
