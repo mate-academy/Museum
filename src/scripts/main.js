@@ -16,25 +16,23 @@ closeMenuButton.addEventListener('click', () => {
   closeMenu();
 })
 
+  // Check if the clicked element is an anchor tag with a hash in the href
 document.addEventListener('click', function(e) {
   const target = e.target;
 
-  // Check if the clicked element is an anchor tag with a hash in the href
-  if (target.tagName === 'A' && target.href.includes('#')) {
-    e.preventDefault(); // Prevent the default anchor click behavior
-      closeMenu()
+  if (target.tagName === 'A' && target.getAttribute('href').startsWith('#')) {
+    const targetId = target.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
 
+    if (targetElement) {
+      e.preventDefault();
 
-      // Get the target element by the href attribute
-      const targetId = target.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
+      closeMenu();
 
-      if (targetElement) {
-          // Scroll to the target element smoothly
-          targetElement.scrollIntoView({
-              behavior: 'smooth'
-          });
-      }
+      targetElement.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   }
 });
 
