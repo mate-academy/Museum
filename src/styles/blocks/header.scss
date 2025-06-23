@@ -5,8 +5,8 @@
   position: relative;
 
   @include onTablet {
-      grid-template-columns: repeat(12, 1fr);
-      column-gap: 30px;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
   }
 
   &_top {
@@ -23,38 +23,41 @@
       grid-column: 6 / -1;
     }
 
-     &-img {
+    &-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
   }
 
   &_div {
-      padding: 0;
-      position: absolute;
-      width: 55px;
-      padding: 16px 8px;
-      left: 50%;
-      transform: translateX(-50%);
+    position: absolute;
+    width: 55px;
+    padding: 16px 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease;
 
-      @include onTablet {
-        width: 220px;
-        padding: 0;
-        margin: 15px 0 0 0;
-        transform: translateX(0);
-        display: flex;
-        justify-content: center;
-        height: 72px;
-      }
-
-      @include onDesktop {
-        width: 170px;
-        display: flex;
-        justify-content: center;
-      }
+    &:hover {
+      transform: scale(1.1);
     }
+
+    @include onTablet {
+      width: 220px;
+      padding: 0;
+      margin: 15px 0 0;
+      transform: translateX(0);
+      display: flex;
+      justify-content: center;
+      height: 72px;
+    }
+
+    @include onDesktop {
+      width: 170px;
+      display: flex;
+      justify-content: center;
+    }
+  }
 
   &-button {
     height: 24px;
@@ -62,6 +65,12 @@
     position: absolute;
     left: 20px;
     top: 27px;
+
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
 
     @include onTablet {
       left: 34px;
@@ -94,7 +103,7 @@
     }
 
     &-text {
-      font-family: Montserrat;
+      font-family: Montserrat, sans-serif;
       font-weight: 700;
       font-size: 45px;
       line-height: 100%;
@@ -133,14 +142,13 @@
         margin-top: 89px;
         display: flex;
         padding-left: 201px;
-
       }
 
       &-text {
-        border: 1px solid #1A5A4C;
+        border: 1px solid #1a5a4c;
         width: 230px;
         height: 100%;
-        font-family: IBM Plex Sans;
+        font-family: 'IBM Plex Sans', sans-serif;
         font-weight: 500;
         font-size: 16px;
         line-height: 100%;
@@ -156,7 +164,7 @@
       }
 
       &-arrow {
-        background-color: #1A5A4C;
+        background-color: #1a5a4c;
         height: 100%;
         width: 50px;
         display: flex;
@@ -171,7 +179,6 @@
           width: 24px;
           height: 24px;
         }
-
       }
     }
   }
@@ -193,7 +200,7 @@
     &-line {
       width: 1px;
       height: 70px;
-      background: #1A5A4C;
+      background: #1a5a4c;
       margin: 0 auto;
     }
 
@@ -202,13 +209,10 @@
       transform: rotate(180deg);
       font-size: 14px;
       color: #687480;
-      font-family: IBM Plex Sans;
+      font-family: 'IBM Plex Sans', sans-serif;
       display: inline-block;
       overflow: visible;
       padding: 2px;
-}
-
+    }
   }
-
-
 }

@@ -6,11 +6,15 @@
   left: 0;
   right: 0;
   max-width: 100%;
-  background-color: #1A5A4C;
+  background-color: #1a5a4c;
   height: 399px;
   box-sizing: border-box;
   opacity: 0;
   pointer-events: none;
+  transform: translateY(-100%);
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
 
   @include onTablet {
     height: 225px;
@@ -25,6 +29,7 @@
   &:target {
     opacity: 1;
     pointer-events: all;
+    transform: translateY(0);
   }
 
   &_contain {
@@ -47,10 +52,17 @@
   &_close {
     height: 24px;
     width: 24px;
+
+    transition: transform 0.3s ease;
+
+    @include onTablet {
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
   }
 
   &_nav {
-
     @include onTablet {
       width: 220px;
       margin-left: 38px;
@@ -61,7 +73,7 @@
       margin-left: 102px;
     }
 
-    &-button{
+    &-button {
       margin: 0;
 
       @include onTablet {
@@ -78,17 +90,25 @@
         }
       }
 
-      &-text{
+      &-text {
         text-decoration: none;
         list-style: none;
         width: 100px;
-        font-family: IBM Plex Sans;
+        font-family: 'IBM Plex Sans', sans-serif;
         font-weight: 500;
         font-size: 16px;
         line-height: 100%;
         letter-spacing: 0%;
-        color: #FFFFFF;
+        color: #fff;
         margin-right: 20px;
+
+        transition: transform 0.3s ease;
+
+        @include onTablet {
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
 
         @include onDesktop {
           font-size: 22px;
@@ -100,35 +120,34 @@
   }
 
   &_line {
-      background: #FFFFFF80;
-      height: 1px;
-      width: 280px;
-      margin: auto;
+    background: #ffffff80;
+    height: 1px;
+    width: 280px;
+    margin: auto;
 
-      @include onTablet {
-        height: 145px;
-        width: 1px;
-        margin-left: 38px;
-        margin-right: 38px;
-      }
-
-      @include onDesktop {
-        margin-left: 102px;
-        margin-right: 102px;
-      }
+    @include onTablet {
+      height: 145px;
+      width: 1px;
+      margin-left: 38px;
+      margin-right: 38px;
     }
+
+    @include onDesktop {
+      margin-left: 102px;
+      margin-right: 102px;
+    }
+  }
 
   &_text {
     margin: auto;
     width: 280px;
 
-    font-family: IBM Plex Sans;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 141%;
     letter-spacing: 0%;
-    color: #FFFFFF;
-
+    color: #fff;
 
     @include onTablet {
       margin: 0;
@@ -169,7 +188,6 @@
 
     &_description {
       grid-column: 2;
-
 
       @include onTablet {
         margin-top: 80px;
