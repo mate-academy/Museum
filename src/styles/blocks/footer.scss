@@ -1,0 +1,200 @@
+.footer {
+  padding-block: 50px;
+
+  @include on-tablet {
+    padding-block: 0;
+    padding-top: 51px;
+    padding-bottom: 36px;
+  }
+
+  @include on-desktop {
+    padding-top: 47px;
+    padding-bottom: 35px;
+  }
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 1;
+      flex-direction: column;
+      justify-content: normal;
+    }
+  }
+
+  &__logo {
+    width: 63px;
+    height: 72px;
+
+    @include hover(transform, scale(1.2));
+
+    &-image {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    @include on-tablet {
+      padding-top: 62px;
+      gap: 32px;
+    }
+
+    @include on-desktop {
+      gap: 22px;
+    }
+  }
+
+  &__shedule {
+    grid-column: 1;
+
+    padding-top: 40px;
+    padding-bottom: 70px;
+    color: $main-color;
+
+    @include on-tablet {
+      grid-column: 2/4;
+      padding-top: 0;
+      padding-bottom: 64px;
+    }
+
+    @include on-desktop {
+      grid-column: 3/5;
+      padding-bottom: 0;
+    }
+  }
+
+  &__contacts {
+    grid-column: 2;
+
+    padding-top: 40px;
+
+    @include on-tablet {
+      grid-column: 4/6;
+      padding-top: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 5/7;
+    }
+  }
+
+  &__nav {
+    padding-top: 40px;
+    border-top: 1px solid #1a5a4c80;
+
+    @include on-tablet {
+      padding-top: 64px;
+    }
+
+    @include on-desktop {
+      padding-top: 0;
+      border-top: none;
+      border-left: 1px solid #1a5a4c80;
+      margin-left: 35px;
+      padding-left: 65px;
+      padding-bottom: 200px;
+    }
+
+    &-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 20px;
+
+      @include on-desktop {
+        column-gap: 75px;
+      }
+    }
+
+    &-link {
+      color: $main-color;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 100%;
+
+      &:hover {
+        color: lightseagreen;
+      }
+    }
+  }
+
+  &__bottom {
+    grid-column: 1/-1;
+    position: relative;
+
+    @include on-tablet {
+      grid-column: 2/6;
+    }
+
+    @include on-desktop {
+      grid-column: 7/11;
+    }
+  }
+
+  &__description {
+    padding-top: 80px;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      padding-top: 120px;
+      display: inline-flex;
+      justify-content: space-between;
+    }
+
+    @include on-desktop {
+      padding-top: 87px;
+    }
+
+    &-text {
+      margin: 0;
+      text-align: center;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 141%;
+      color: $main-color;
+
+      &:last-child {
+        padding-top: 10px;
+
+        @include on-tablet {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+
+  &-home {
+    position: absolute;
+    right: 0;
+    top: -70px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid $secondary-color;
+    border-radius: 50%;
+    background-image: url(../icons/home.svg);
+    background-size: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}
