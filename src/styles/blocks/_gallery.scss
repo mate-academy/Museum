@@ -1,0 +1,124 @@
+.gallery {
+  @include content-padding-inline;
+
+  margin-top: 183px;
+
+  @include on-tablet {
+    margin-top: 208px;
+  }
+
+  @include on-desktop {
+    margin-top: 302;
+  }
+
+  &__title {
+    margin: 0 0 40px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+
+    text-align: center;
+
+    @include on-tablet {
+      text-align: left;
+      font-size: 48px;
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__swiper {
+    position: relative;
+  }
+
+  &__wrapper {
+    display: flex;
+    transition-property: transform;
+
+    @include on-desktop {
+      @include page-grid;
+
+      row-gap: 30px;
+    }
+  }
+
+  &__slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 410px;
+
+    @include smooth-scale;
+
+    @include on-tablet {
+      height: 543px;
+      width: 340px;
+    }
+
+    @include on-desktop {
+      width: auto;
+      height: auto;
+    }
+
+    &--first {
+      @include on-desktop {
+        grid-column: 1 / 5;
+      }
+    }
+
+    &--second {
+      @include on-desktop {
+        grid-column: 5 / -1;
+      }
+    }
+
+    &--third {
+      @include on-desktop {
+        grid-column: 1 / 9;
+      }
+    }
+
+    &--forth {
+      @include on-desktop {
+        grid-column: 9 / -1;
+      }
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  &__pagination {
+    position: absolute;
+    display: flex;
+    transform: translateY(350%);
+    gap: 22px;
+    justify-content: center;
+
+    .swiper-pagination-bullet {
+      width: 9px;
+      height: 9px;
+      background-color: #e0e0e0;
+      border-radius: 50%;
+      opacity: 0.5;
+      transition: all 0.3s ease;
+
+      &-active {
+        background-color: #1a5a4c;
+        opacity: 1;
+      }
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
