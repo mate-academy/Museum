@@ -24,3 +24,17 @@ function remover() {
   body.classList.remove('main--no-scroll');
   menu.classList.remove('menu__content--open');
 }
+
+window.addEventListener('load', () => {
+  const overflowing = [...document.body.querySelectorAll('*')].filter(el =>
+    el.scrollWidth > document.documentElement.clientWidth
+  );
+
+  if (overflowing.length) {
+    console.warn('⚠️ Елементи, що вилазять по ширині:');
+    console.log(overflowing);
+  } else {
+    console.log('✅ Нічого не вилазить по ширині');
+  }
+});
+
