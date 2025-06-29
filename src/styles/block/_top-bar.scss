@@ -1,0 +1,456 @@
+.top-bar {
+  grid-column: span 2;
+
+  @include on-tablet {
+    grid-column: span 6;
+  }
+
+  @include on-desktop {
+    grid-column: span 12;
+  }
+
+  &--footer {
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / -2;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 88px;
+    padding-block-start: 9px;
+
+    @include on-tablet {
+      @include page-grid;
+
+      padding-block-start: 15px;
+      gap: 0;
+    }
+  }
+
+  &__menu {
+    color: $font-color;
+    grid-column: span 1;
+
+    @include hover(transform, scale(1.2));
+    @include hover-multi-auto(
+      (
+        transform: scale(1.4),
+        color: $green,
+      )
+    );
+  }
+
+  &__logo {
+    display: inline-block;
+
+    @extend %h2;
+
+    font-size: 30px;
+    text-align: center;
+    height: 61px;
+
+    @include on-tablet {
+      font-size: 36px;
+      height: 72px;
+      grid-column: 4 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / 8;
+    }
+
+    @include hover-multi-auto(
+      (
+        color: $green,
+        transform: scale(1.2),
+      )
+    );
+  }
+
+  &--aside {
+    display: flex;
+    background-color: $green;
+    height: 98px;
+    box-sizing: border-box;
+    border-bottom: 1px solid $menu-line;
+
+    @include on-tablet {
+      grid-column: span 3;
+      border-bottom: none;
+      border-right: 1px solid $menu-line;
+      width: 95%;
+      height: 100%;
+    }
+
+    @include on-desktop {
+      grid-column: span 7;
+    }
+  }
+
+  &__close {
+    align-self: start;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__links {
+    display: flex;
+
+    &--footer {
+      @include body-text-grid;
+    }
+  }
+
+  &__nav {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &--aside {
+      padding-inline: 28px;
+
+      @include on-tablet {
+        padding-inline: 38px 20px;
+      }
+
+      @include on-desktop {
+        padding-inline: 102px 31px;
+      }
+    }
+
+    &--footer {
+      @include on-tablet {
+        width: 100%;
+        grid-column: span 2;
+      }
+    }
+  }
+
+  &__link {
+    @extend %header-link;
+
+    color: $white;
+
+    @include hover-multi-auto(
+      (
+        transform: scale(1.2),
+        color: $orange,
+      )
+    );
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+
+    &--footer {
+      color: $font-color;
+    }
+  }
+}
+
+.menu {
+  height: 100%;
+
+  &--aside {
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    transform: translate(-100%);
+    z-index: 10;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translate(0);
+    }
+  }
+
+  &--footer {
+    padding-top: 40px;
+    padding-block: 40px 0;
+
+    @include page-grid;
+    @include content-padding-inline;
+  }
+
+  &__background {
+    background-color: $green;
+  }
+
+  &__content {
+    height: max-content;
+    padding-block: 27px;
+
+    @include content-padding-inline;
+    @include page-grid;
+
+    @include on-tablet {
+      padding-block: 40px;
+    }
+
+    @include on-desktop {
+      padding-block: 40px 48px;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    cursor: pointer;
+
+    @include hover-multi(
+      (
+        color: $white,
+        background-color: $green,
+        border-color: $white,
+      )
+    );
+  }
+
+  &__links {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__nav {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &--first {
+      padding-inline: 28px;
+    }
+  }
+
+  &__link {
+    @extend %header-link;
+
+    color: $white;
+  }
+
+  &__schedule {
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 40px;
+
+    @include on-tablet {
+      margin-block-start: 0;
+      grid-column: span 2;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+    }
+
+    &--aside {
+      padding-block: 24px 0;
+      grid-column: span 2;
+
+      @include on-tablet {
+        padding-block: 0;
+        flex-direction: row;
+        grid-column: span 3;
+      }
+
+      @include on-desktop {
+        grid-column: span 5;
+      }
+    }
+  }
+
+  &__contacts {
+    margin-block-start: 40px;
+
+    @include on-tablet {
+      margin-block-start: 0;
+      grid-column: span 2;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 7;
+    }
+  }
+
+  &__info {
+    @extend %info-text;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &--aside {
+      @include menu-text-grid;
+    }
+
+    &--black {
+      color: $font-color;
+    }
+  }
+
+  &__group {
+    &-1 {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      @include on-desktop {
+        grid-column: span 2;
+      }
+    }
+
+    &-2 {
+      @include on-tablet {
+        padding-block: 40px 0;
+      }
+
+      @include on-desktop {
+        grid-column: span 3;
+      }
+    }
+  }
+
+  &__descriptions {
+    &-link {
+      color: $font-color;
+
+      @include hover-multi-auto(
+        (
+          font-size: 1.01em,
+          color: $orange,
+        )
+      );
+    }
+  }
+
+  &__text-bold {
+    @extend %info-text-bold;
+    &--black {
+      color: $font-color;
+    }
+  }
+
+  &__overlay {
+    height: 100%;
+    background-color: #18181a50;
+  }
+
+  &__top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: span 2;
+
+    @include on-tablet {
+      flex-direction: column;
+      justify-content: flex-start;
+      grid-column: span 1;
+    }
+
+    &-logo {
+      &-link {
+        display: inline-block;
+
+        @extend %h2;
+
+        font-size: 36px;
+        text-align: left;
+        height: 72px;
+        color: $black;
+
+        @include hover-multi-auto(
+          (
+            color: $green,
+            transform: scale(1.2),
+          )
+        );
+      }
+    }
+
+    &-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+
+      @include on-tablet {
+        margin-top: 62px;
+      }
+    }
+
+    &-link {
+      color: $black;
+
+      @include hover-multi-auto(
+        (
+          transform: scale(1.2),
+          color: $orange,
+        )
+      );
+    }
+  }
+
+  &__home {
+    display: flex;
+    justify-self: end;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: $form-button-size;
+    height: $form-button-size;
+    grid-column: 2 / -1;
+    border: 1px solid $green;
+    border-radius: 50%;
+
+    svg {
+      width: 10px;
+      height: 12px;
+      fill: $green;
+    }
+
+    @include hover-multi(
+      (
+        // color: $white,
+        // background-color: $green,
+        // border-color: $white
+      )
+    );
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: $green-light;
+    margin-block: 20px 40px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      margin-block: 64px;
+    }
+
+    @include on-desktop {
+      justify-self: center;
+      width: 1px;
+      height: 100%;
+      grid-column: 7 / -7;
+      margin-block: 0;
+    }
+  }
+}

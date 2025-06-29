@@ -1,0 +1,196 @@
+.slider {
+  position: relative;
+  width: 100%;
+  grid-column: span 3;
+  height: 410px;
+
+  @include on-tablet {
+    height: 543px;
+  }
+
+  @include on-desktop {
+    @include page-grid;
+
+    height: 990px;
+    row-gap: 30px;
+  }
+
+  &__slide {
+    display: flex;
+    height: 100%;
+
+    &--1 {
+      grid-column: span 4;
+    }
+    &--2 {
+      grid-column: span 8;
+    }
+  }
+
+  &__img {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    grid-column: span 2;
+
+    @include on-desktop {
+      @include hover(transform, scale(1.05));
+    }
+
+    &--first {
+      display: block;
+
+      @include on-tablet {
+        display: none;
+      }
+
+      @include on-desktop {
+        display: block;
+      }
+    }
+
+    &--second {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+  }
+
+  .slick-arrow {
+    display: flex !important;
+    position: absolute;
+    top: 0;
+    width: 10%;
+    height: 100%;
+    font-size: 0;
+    background: transparent;
+    border: none;
+
+    &:active {
+      background-color: $black-focus;
+    }
+
+    &.slick-prev {
+      left: 0;
+      z-index: 1;
+    }
+
+    &.slick-next {
+      right: 0;
+    }
+  }
+}
+
+.slick {
+  &-list {
+    overflow: hidden;
+    height: 100%;
+    margin-right: -16px;
+  }
+
+  &-track {
+    display: flex;
+    height: 100%;
+  }
+
+  &-slide {
+    margin-right: 16px;
+  }
+
+  &-dots {
+    all: unset;
+    display: flex;
+    justify-self: center;
+    gap: 22px;
+    padding-block: 20px 0;
+    position: absolute;
+    bottom: -32px;
+    left: 50%;
+    margin-left: -51px;
+
+    li {
+      list-style: none;
+      height: 9px;
+
+      button {
+        all: unset;
+        display: block;
+        font-size: 0;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background-color: $grey;
+      }
+
+      &.slick-active {
+        button {
+          background-color: $green;
+        }
+      }
+    }
+  }
+}
+
+// /* Слайдер */
+// .slick-slider{}
+
+// /* Слайдер запущений */
+// .slick-slider.slick-initialized{}
+
+// /* Слайдер з крапками */
+// .slick-slider.slick-dotted{}
+
+// /* Обмежувальна оболонка */
+// .slick-list {
+//   overflow: hidden;
+// }
+
+/* Стрічка слайдів */
+// .slick-track
+// }
+
+// /* Слайд */
+// .slick-slide{}
+
+// /* Слайд активний (показується) */
+// .slick-slide.slick-active{}
+
+// /* Слайд основний */
+// .slick-slide.slick-current{}
+
+// /* Слайд по центру */
+// .slick-slide.slick-center{}
+
+// /* Клонований слайд */
+// .slick-slide.slick-cloned{}
+
+// /* Стрілка */
+// .slick-arrow{
+//   display: none;
+// }
+
+// /* Стрілка вліво */
+// .slick-arrow.slick-prev{}
+
+// /* Стрілка вправо */
+// .slick-arrow.slick-next{}
+
+// /* Стрілка не активна */
+// .slick-arrow.slick-disabled{}
+
+// /* Точки (буліти) */
+// .slick-dots{}
+
+// .slick-dots li{}
+
+// /* Активна точка */
+// .slick-dots li.slick-active{}
+
+// /* Елемент точки */
+// .slick-dots li button{}

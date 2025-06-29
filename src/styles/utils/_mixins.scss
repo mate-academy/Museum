@@ -1,6 +1,139 @@
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:string';
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  & {
+    transition: #{$_property} 0.3s;
+  }
+
   &:hover {
     #{$_property}: $_toValue;
+    cursor: pointer;
   }
 }
+
+@mixin hover-multi($map) {
+  transition: map.keys($map) 0.3s;
+
+  @each $prop, $value in $map {
+    #{$prop}: $value;
+  }
+}
+
+@mixin hover-multi-auto($map, $duration: 0.3s, $easing: ease, $delay: 0s) {
+  $transitions: ();
+
+  @each $prop, $value in $map {
+    @if $prop != null and $value != null {
+      $transitions: list.append(
+        $transitions,
+        #{$prop} $duration $easing $delay,
+        comma
+      );
+    }
+  }
+
+  @if length($transitions) > 0 {
+    transition: $transitions;
+  }
+
+  &:hover {
+    @each $prop, $value in $map {
+      @if $prop != null and $value != null {
+        #{$prop}: $value;
+      }
+    }
+  }
+}
+
+// #region screen width
+@mixin on-tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+// #endregion
+
+@mixin content-padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 55px;
+    margin-inline: auto;
+    max-width: $max-width-content;
+  }
+}
+
+@mixin lecture-padding-inline {
+  padding-inline: 21px;
+
+  @include on-tablet {
+    padding-inline: 55px;
+  }
+
+  @include on-desktop {
+    padding-inline: 100px;
+  }
+}
+
+// #region grid
+@mixin menu-text-grid {
+  @include on-tablet {
+    --columns: 2;
+
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    --columns: 5;
+  }
+}
+
+@mixin body-text-grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 4;
+
+    column-gap: 30px;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+  }
+}
+
+// #endregion

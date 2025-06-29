@@ -1,0 +1,118 @@
+.subscribe {
+  margin-top: 129px;
+
+  @include on-tablet {
+    margin-top: 133px;
+  }
+
+  @include on-desktop {
+    margin-top: 200px;
+  }
+
+  &__form {
+    box-sizing: border-box;
+    background-image: url(../images/media/footer__form-bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &-padding {
+      @include page-grid;
+      @include content-padding-inline;
+    }
+
+    &-content {
+      padding-top: 88px;
+      grid-column: span 2;
+
+      @include on-tablet {
+        padding-top: 82px;
+        grid-column: 2 / -2;
+      }
+
+      @include on-desktop {
+        padding-top: 163px;
+        grid-column: 4 / -4;
+      }
+    }
+  }
+
+  &__title {
+    @extend %h2;
+
+    color: $white;
+    text-align: center;
+  }
+
+  &__description {
+    @extend %info-text;
+
+    text-align: center;
+    margin-top: 20px;
+    color: $white;
+    font-size: 18px;
+
+    @include on-tablet {
+      margin-top: 16px;
+    }
+  }
+
+  &__inputs {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: 50px 88px;
+
+    @include on-tablet {
+      padding-top: 64px;
+      padding-bottom: 82px;
+      margin-block: 64px 82px;
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      margin-block: 72px 163px;
+      gap: 30px;
+    }
+  }
+
+  &__input {
+    padding: 0;
+    padding-left: 24px;
+    border: none;
+    flex-grow: 1;
+    height: $form-button-size;
+
+    @extend %info-text;
+
+    color: $black;
+
+    @include on-tablet {
+      height: $form-button-size-big;
+    }
+
+    &:focus-visible {
+      outline: 0.5px solid $orange;
+    }
+  }
+
+  &__button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    width: $form-button-size;
+    height: $form-button-size;
+    flex-shrink: 0;
+    background-color: $orange;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.05));
+
+    @include on-tablet {
+      width: $form-button-size-big;
+      height: $form-button-size-big;
+    }
+  }
+}
