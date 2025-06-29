@@ -1,0 +1,123 @@
+.subscribe {
+  &__wrapper {
+    background-image: url(images/subscribe-3x.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 386px;
+    margin-inline: -20px;
+
+    @include on-tablet {
+      margin-inline: -34px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    text-align: center;
+    padding: 88px 20px;
+    box-sizing: border-box;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(12, 1fr);
+      margin-inline: 0;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 10;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: $color-white;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+  }
+
+  &__description {
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: $color-white;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    border: $color-white;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 10;
+      gap: 30px;
+    }
+
+    &-input {
+      flex-grow: 1;
+      border: none;
+      padding: 18px 24px;
+      transition: box-shadow 0.3s;
+
+      &::placeholder {
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+      }
+
+      &:hover {
+        box-shadow: (1px 4px 16px 0 rgba(232, 232, 240, 0.4));
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: (1px 4px 16px 0 rgba(232, 232, 240, 0.4));
+      }
+    }
+
+    &-button {
+      cursor: pointer;
+      padding: 0;
+      border: none;
+      width: 50px;
+      height: 50px;
+      background-color: #f14a27;
+      background-image: url(images/arrows/arrow-right-black-3x.png);
+      background-size: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: box-shadow 0.3s;
+
+      &:hover {
+        box-shadow: (1px 4px 16px 0 rgba(241, 74, 39, 1));
+      }
+    }
+  }
+}
