@@ -1,0 +1,169 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1170px;
+  margin: 0 auto;
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  &__top {
+    @include on-tablet {
+      grid-column: 4 / -1;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 27px;
+    left: 0;
+
+    @include on-tablet {
+      top: 39px;
+    }
+
+    width: 24px;
+    height: 24px;
+    background-image: url(images/icones/burger-menu-museum-3x.png);
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.3s;
+    
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__image {
+    padding-block: 9px;
+    margin-inline: -20px;
+
+    @include on-tablet {
+      margin-inline: -34px;
+    }
+
+    height: 300px;
+
+    @include on-tablet {
+      height: 384px;
+    }
+
+    background-image: url(images/header-image-museum-3x.png);
+    background-position: center;
+    background-size: cover;
+
+    text-align: center;
+  }
+
+  &__logo {
+    margin: 0;
+
+    @include on-tablet {
+      width: 220px;
+    }
+
+    padding: 0;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 100%;
+    text-transform: uppercase;
+  }
+
+  &__bottom {
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      margin-top: 127px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      gap: 38px;
+    }
+
+    &-title {
+      margin: 0;
+      font-weight: 700;
+      font-size: 45px;
+      line-height: 100%;
+      text-align: center;
+
+      @include on-tablet {
+        text-align: left;
+      }
+    }
+
+    &-button {
+      width: 100%;
+
+      @include on-tablet {
+        width: 270px;
+      }
+
+      display: flex;
+      flex-direction: row;
+      border: 1px solid #1a5a4c;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+
+      &-text {
+        flex-grow: 1;
+        text-align: center;
+        line-height: 50px;
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      &-btn {
+        padding: 0;
+        box-sizing: border-box;
+        width: 50px;
+        height: 50px;
+        background-color: #1a5a4c;
+        background-image: url(images/arrows/arrow-right-3x.png);
+        background-size: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &-events {
+      visibility: hidden;
+      position: absolute;
+      transform-origin: 0 0;
+      bottom: -50px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transform: rotate(-90deg);
+
+      @include on-desktop {
+        visibility: visible;
+      }
+
+      &-line {
+        width: 70px;
+        height: 1px;
+        background-color: #1a5a4c;
+      }
+
+      &-text {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 100%;
+        color: #687480;
+      }
+    }
+  }
+}
