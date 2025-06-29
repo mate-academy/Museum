@@ -1,0 +1,65 @@
+.about-us {
+  &__img {
+    box-sizing: border-box;
+    width: 100%;
+    height: 210px;
+
+    @include on-tablet {
+      height: 390px;
+      padding-inline: 39px;
+    }
+
+    @include on-desktop {
+      height: 550px;
+      padding-inline: 0;
+    }
+  }
+}
+
+.lecture {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  width: 280px;
+  transform: translateY(-50px);
+  margin-inline: auto;
+
+  @include on-tablet {
+    width: 570px;
+  }
+
+  &__caption {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 20px;
+
+    @include lecture-padding-inline;
+  }
+
+  &__label {
+    @extend %label-text;
+
+    align-self: center;
+  }
+
+  &__date {
+    @extend %cards-date;
+
+    @include on-tablet {
+      width: 220px;
+    }
+
+    @include on-desktop {
+      width: 170px;
+    }
+  }
+
+  &__name {
+    @extend %h3;
+    @include lecture-padding-inline;
+
+    text-align: center;
+    padding-block-end: 20px;
+    box-shadow: 0 2px 0 0 $green-shadow;
+  }
+}
