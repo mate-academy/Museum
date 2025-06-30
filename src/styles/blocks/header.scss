@@ -1,0 +1,252 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 70px;
+
+  @include on-tablet {
+    margin-bottom: 80px;
+    height: 384px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 200px;
+    height: 655px;
+  }
+
+  &__content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    @include on-tablet {
+      flex-direction: row-reverse;
+      padding-inline-start: 34px;
+    }
+
+    @include on-desktop {
+      padding-inline-start: 55px;
+    }
+  }
+
+  &__menu-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+
+    @include hover(transform, scale(1.2));
+
+    @include on-tablet {
+      width: 32px;
+      height: 32px;
+      top: 14px;
+      left: 34px;
+      margin-left: 20px;
+    }
+
+    @include on-desktop {
+      margin-left: 40px;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    font-family: $font-secondary;
+    font-weight: 700;
+    font-size: 30px;
+    text-decoration: none;
+    color: inherit;
+    max-width: 160px;
+    text-align: center;
+    margin: 20px auto 0;
+    margin-left: 40%;
+    padding: 0 20px;
+
+    @include on-tablet {
+      font-size: 36px;
+      line-height: 36px;
+      margin-left: 0;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  &__img {
+    flex: 1;
+    width: 100%;
+    min-height: 300px;
+    background: url('../images/bg-header.svg') center/cover no-repeat;
+
+    @include on-tablet {
+      width: 50%;
+      min-height: 384px;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      height: 655px;
+      width: 70%;
+    }
+  }
+}
+
+
+.intro {
+  display: flex;
+  position: relative;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+
+  @include on-tablet {
+    text-align: left;
+    gap: 30px;
+    width: 50%;
+    margin-top: 60px;
+  }
+
+  @include on-desktop {
+    width: 30%;
+  }
+
+  &__title {
+    width: 100%;
+    font-family: $font-secondary;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 45px;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 54px;
+      line-height: 64.8px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+      line-height: 86.4px;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    border: 2px solid $green-color;
+    background-color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $green-color;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;
+
+    &:hover {
+      background-color: $green-color;
+      color: white;
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    @include on-tablet {
+      margin-left: 0;
+      justify-content: flex-start;
+    }
+
+    @include on-desktop {
+      margin-left: 0;
+      justify-content: center;
+    }
+
+    &__text {
+      margin: 16px 80px;
+      font-family: $font-primary;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 16px;
+      color: #0f0e08;
+      object-fit: contain;
+
+      @include on-tablet {
+        margin: 24px 60px;
+      }
+    }
+
+    &__icon {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      object-fit: contain;
+
+      @include on-tablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  &__footnote {
+    display: none;
+    transform: translate(0);
+    flex-wrap: wrap;
+    margin-top: -15%;
+    gap: 20px;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: start;
+
+      &-line {
+        width: 70px;
+        height: 1px;
+        background-color: $green-color;
+        transform: rotate(90deg);
+        transform-origin: left top;
+        margin-top: 20px;
+      }
+
+      &-name {
+        font-family: $font-primary;
+        font-size: 14px;
+        line-height: 14px;
+        transform: rotate(90deg);
+        transform-origin: left top;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+
