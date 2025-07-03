@@ -10,7 +10,117 @@
     padding: 47px 0 35px;
   }
 
+  &__wrapper {
+    @include page-grid;
+  }
+
+  // region top-bar
+
+  &__bar {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include on-tablet {
+      grid-column: span 1;
+
+      flex-direction: column;
+      align-items: start;
+
+      height: 158px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 20px;
+  }
+
+  // region informations
+
+  &__schedule {
+    grid-column: span 1;
+
+    font-family:"IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #0F0E08;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+    }
+  }
+
+  &__contacts {
+    grid-column: span 1;
+
+    font-family:"IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #0F0E08;
+
+    @include on-tablet {
+      grid-column: 4 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 7;
+    }
+  }
+
+  &__title {
+    margin: 40px 0 20px;
+
+    font-family:"IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 141%;
+    color: #0F0E08;
+
+    @include on-tablet {
+      margin: 0 0 20px;
+    }
+  }
+
+  &__list {
+    padding: 0;
+    list-style: none;
+  }
+
+  &__time {
+    font-weight: 600;
+  }
+
+  &__day {
+    font-weight: 400;
+
+    @include on-desktop {
+      font-weight: 600;
+    }
+  }
+
+  &__text {
+    margin-top: 25px;
+    margin-bottom: 0;
+  }
+
+  // region arrow
+
   &__arrow {
+    grid-column: 1 / -1;
+
     cursor: pointer;
     display: flex;
     justify-content: flex-end;
@@ -20,7 +130,11 @@
     }
   }
 
+  // region line
+
   &__line {
+    grid-column: 1 / -1;
+
     height: 1px;
     margin: 20px 0 40px;
     opacity: 50%;
@@ -28,21 +142,38 @@
 
 
     @include on-tablet {
+      grid-column: 2 / -2;
       margin: 64px 0;
     }
 
     @include on-desktop {
-      margin: 0 65px;
+      grid-column: span 1;
+      grid-column: 7 / 7;
+
+      width: 1px;
+      height: 260px;
+      margin: 0 auto;
     }
   }
 
-  &-nav {
+  // region nav
+
+  &__nav {
+    grid-column: 1 / -1;
+
     display: flex;
     align-items: start;
     justify-content: space-between;
 
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / -2;
+    }
+
     &__list {
-      width: 100px;
       margin: 0;
       padding: 0;
 
@@ -75,7 +206,11 @@
     }
   }
 
+  // region corporation
+
   &__cor {
+    grid-column: 1 / -1;
+
     margin-top: 80px;
 
     font-family: "IBM Plex Sans", sans-serif;
