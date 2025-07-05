@@ -1,47 +1,128 @@
 .header {
   position: relative;
-  margin-bottom: 70px;
+  padding-bottom: 70px;
+
+  @include on-tablet {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-bottom: 88px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 200px;
+  }
+
+  // region menu
 
   &__menu {
     position: absolute;
     left: 20px;
     top: 27px;
+
+    @include on-tablet {
+      top: 39px;
+      left: 34px;
+    }
+
+    @include on-desktop {
+      left: 55px;
+    }
   }
 
-  &__menu-img {
-    width: 24px;
-    height: 24px;
-  }
+  // region logo
 
   &__logo {
     position: absolute;
-    left: 42%;
+    left: 43%;
 
-    margin-top: 8px;
+    margin-top: 9px;
+
+    @include on-tablet {
+      margin-top: 15px;
+      left: 60%;
+    }
+
+    @include on-desktop {
+      left: 48%;
+    }
   }
 
+  // region image
+
   &__image {
+    display: block;
     width: 100%;
-    height: 300px;
+    min-height: 300px;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row-reverse;
+      width: 49%;
+      min-height: 384px;
+      height: 100%;
+    }
+
+    @include on-desktop {
+      width: 57%;
+    }
+  }
+
+  &__art {
+    padding-inline: 20px;
+
+    @include on-tablet {
+      width: 49%;
+      padding-inline: 34px 20px;
+    }
+
+    @include on-desktop {
+      max-width: 1440px;
+      margin-inline: auto;
+      padding-inline: 55px 30px;
+    }
   }
 
   &__title {
     margin: 20px 0;
 
     font-family: Montserrat, sans-serif;
+    font-size: 45px;
     font-weight: 700;
     line-height: 100%;
     color: #000;
     text-align: center;
+
+    @include on-tablet {
+      margin: 127px 0 38px;
+
+      font-size: 54px;
+      line-height: 120%;
+      text-align: start;
+    }
+
+    @include on-desktop {
+      margin: 206px 0 89px;
+      font-size: 72px;
+    }
   }
 
   &__tickets {
+    box-sizing: border-box;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     background-color: #fff;
     border: 1px solid #1A5A4C;
+
+    @include on-tablet {
+      width: 270px;
+    }
+
+    @include on-desktop {
+      margin-left: 42%;
+    }
   }
 
   &__tickets-text {
@@ -50,7 +131,7 @@
     align-items: center;
 
     width: 100%;
-    height: 50px;
+    height: 48px;
     text-decoration: none;
     background-color: #fff;
 
@@ -59,13 +140,25 @@
     font-size: 16px;
     line-height: 100%;
     color: #0F0E08;
+
+    @include on-tablet {
+      width: 70%;
+    }
   }
 
   &__button {
+    box-sizing: border-box;
     width: 50px;
-    height: 50px;
+    height: 48px;
     background-color: #1A5A4C;
     border: none;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+      // top: 39px;
+      // left: 34px;
+    }
   }
 
   &__arrow {

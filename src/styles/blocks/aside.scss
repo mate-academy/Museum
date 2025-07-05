@@ -1,43 +1,108 @@
 .aside {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  // width: 100%;
-  // height: 399px;
-
-  height: 55vh;
-  padding: 27px 0;
-  color: #fff;
-  background-color: #1A5A4C;
-
-  opacity: 0;
   pointer-events: none;
 
-  // z-index: 99;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  box-sizing: border-box;
+  height: 399px;
+  padding: 27px 0;
+
+  opacity: 0;
+  background-color: #1A5A4C;
+
+  @include on-tablet {
+    height: 225px;
+    padding-top: 39px;
+  }
+
+  @include on-desktop {
+    height: 233px;
+    padding: 40px 0 48px;
+  }
+
+  &__wrapper {
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__close {
+    display: none;
+
+    @include on-tablet {
+      display: inline;
+      height: 24px;
+    }
+  }
 
   &__line {
     margin: 24px 0;
+    color: #fff;
+    opacity: 50%;
+
+    @include on-tablet {
+      margin: 0;
+    }
+  }
+
+  &__text {
+    @include on-tablet {
+      display: flex;
+      gap: 26px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
   }
 
   &__list {
     padding: 0;
     list-style: none;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
   }
 
   &__text {
     font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 400;
     font-size: 14px;
+    font-weight: 400;
     line-height: 150%;
+
+    @include on-desktop {
+      margin-right: 100px;
+    }
   }
 
   &__schedule {
+    @include on-tablet {
+      width: 170px;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 20px;
+
     font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 400;
     font-size: 14px;
+    font-weight: 400;
     line-height: 141%;
+
+    @include on-tablet {
+      margin-top: 0;
+    }
+
+    @include on-desktop {
+      // padding-top: 40px;
+      // padding: 40px 0;
+    }
   }
 
   &__time {
@@ -49,16 +114,27 @@
 
   &__bold {
     font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 600;
     font-size: 14px;
+    font-weight: 600;
     line-height: 150%;
   }
 
   &__information {
+    margin: 0;
+
     font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 400;
     font-size: 14px;
+    font-weight: 400;
     line-height: 150%;
+
+    @include on-tablet {
+      align-self: flex-end;
+      width: 144px;
+    }
+
+    @include on-desktop {
+      width: 170px;
+    }
 
     @media(min-width: 1440px) {
       display: none;
@@ -67,8 +143,8 @@
 }
 
 aside:target {
-  opacity: 1;
   pointer-events: all;
+  opacity: 1;
 
   // visibility: visible;
 
