@@ -1,0 +1,158 @@
+.footer {
+  padding-block: 50px;
+
+  @include tablet {
+    padding-bottom: 35px;
+  }
+
+  &__content {
+    @include grid-markup;
+
+    row-gap: 70px;
+
+    @include tablet {
+      row-gap: 120px;
+    }
+
+    @include desktop {
+      row-gap: 90px;
+    }
+  }
+
+  &__logo-sosials-wrapper {
+    grid-column: 1/-1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include tablet {
+      justify-content: start;
+      align-items: start;
+      grid-column: span 1;
+      flex-direction: column;
+      gap: 62px;
+    }
+
+    @include desktop {
+      grid-column: span 2;
+    }
+  }
+
+  &__logo {
+    height: 72px;
+  }
+
+  &__socials-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+
+    @include tablet {
+      justify-content: space-between;
+    }
+  }
+
+  &__schedule {
+    grid-column: span 1;
+
+    @include tablet {
+      grid-column: span 2;
+    }
+  }
+
+  &__contacts {
+    grid-column: span 1;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    position: relative;
+
+    @include tablet {
+      grid-column: span 2;
+    }
+  }
+
+  &__nav {
+    grid-column: 1/-1;
+    padding-top: 40px;
+    border-top: 1px solid rgba(26, 90, 76, 0.5);
+
+    @include tablet {
+      padding-top: 64px;
+      grid-column: 2/-2;
+    }
+
+    @include desktop {
+      border-top: unset;
+      border-left: 1px solid rgba(26, 90, 76, 0.5);
+      padding: 0 0 0 65px;
+      grid-column: span 6;
+      margin-left: 35px;
+    }
+  }
+
+  &__scroll-up-link {
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+  }
+
+  &__scroll-up-wrapper {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border: 1px solid $c-green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-sizing: border-box;
+
+    @include hover(opacity, 0, '.footer__scroll-up-icon--static');
+    @include hover(opacity, 1, '.footer__scroll-up-icon--hover');
+    @include hover(border, 1px solid $c-orange);
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__scroll-up-icon {
+    background-image: url(../images/icon/scroll-up.svg);
+    display: block;
+    height: 16px;
+    width: 16px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+  }
+
+  &__scroll-up-icon-hover {
+    background-image: url(../images/icon/scroll-up-hover.svg);
+    opacity: 0;
+  }
+
+  &__copyright {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__copyright-item:last-child {
+    @include tablet {
+      order: -1;
+    }
+  }
+}
