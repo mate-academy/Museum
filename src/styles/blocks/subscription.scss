@@ -1,0 +1,102 @@
+.subscription {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 100px 0 275px;
+
+  &__bg {
+    object-fit: contain;
+    position: absolute;
+    left: 0;
+
+    width: 100%;
+
+    @include on-mobile {
+      height: 386px;
+      object-fit: cover;
+    }
+
+    @include on-tablet {
+      height: 380px;
+    }
+
+    @include on-desktop {
+      height: 550px;
+    }
+  }
+
+  &__description {
+    position: absolute;
+    z-index: 1;
+
+    &-text {
+      padding: 20px;
+
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 18px;
+      text-align: center;
+
+      color: $c-white;
+    }
+
+    &-button {
+      &-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include on-tablet {
+          gap: 16px;
+        }
+
+        &-label {
+          margin: 0;
+
+          &-text {
+            width: 230px;
+            height: 50px;
+            padding: 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+
+            @include on-tablet {
+              width: 374px;
+              height: 70px;
+            }
+          }
+
+          &-text::placeholder {
+            font-family: Montserrat, sans-serif;
+            font-size: 14px;
+            line-height: 14px;
+            text-align: left;
+          }
+        }
+      }
+
+      &-swipe {
+        width: 50px;
+        height: 52px;
+        background-color: $c-orange;
+        border: none;
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include on-tablet {
+          width: 70px;
+          height: 70px;
+        }
+      }
+    }
+  }
+}
