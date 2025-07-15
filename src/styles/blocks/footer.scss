@@ -1,0 +1,271 @@
+.footer {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #0F0E08;
+
+  &__content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+
+    @include on-tablet {
+      padding-top: 51px;
+      padding-bottom: 36px;
+      grid-template-columns: repeat(6, 1fr);
+      row-gap: 64px;
+    }
+
+    @include on-desktop {
+      padding-top: 48px;
+      padding-bottom: 35px;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 87px 30px;
+    }
+  }
+
+  &__header {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      justify-content: left;
+      gap: 62px;
+      flex-direction: column;
+      align-items: left;
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+
+  &__logos {
+    text-decoration: none;
+    color: #0F0E08;
+  }
+
+  &__logo {
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-family: Montserrat, sans-serif;
+
+    @include hover-transform;
+  }
+
+  &__icons {
+    display: flex;
+    background-size: cover;
+    gap: 20px;
+
+    @include on-tablet {
+      gap: 32px;
+    }
+
+    @include on-desktop {
+      gap: 22px;
+    }
+
+    &--fb {
+      background-image: url(../images/fb.svg);
+    }
+
+    &--inst {
+      background-image: url(../images/inst.svg);
+    }
+  }
+
+  &__info {
+    grid-column: 1;
+    grid-row: 2;
+
+    @include on-tablet {
+      grid-column: 2 / span 2;
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / span 2;
+      grid-row: 1;
+    }
+  }
+
+  &__info-text {
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__divider {
+    border-top: 1px solid #1A5A4C80;
+    width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 3;
+    position: relative;
+
+    @include on-tablet {
+      grid-column: 2 / span 4;
+      grid-row: 2;
+    }
+
+    @include on-desktop {
+      border-top: 0;
+      border-left: 1px solid #1A5A4C80;
+      margin: 0 auto;
+      height: 100%;
+      width: 0;
+      grid-column: 7 / span 1;
+      grid-row: 1;
+    }
+  }
+
+  &__button {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #1A5A4C;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &--icon {
+      width: 16px;
+      height: 16px;
+      background-image: url(../images/home-button.svg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover .footer__button--icon {
+      transform: scale(1.2);
+    }
+  }
+
+  &__contacts {
+    grid-column: 2;
+    grid-row: 2;
+
+    @include on-tablet {
+      grid-column: 4 / span 2;
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / span 2;
+      grid-row: 1;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #0F0E08;
+    font-weight: 400;
+    font-size: 14px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__nav-left {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row: 4;
+    gap: 20px;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      grid-column: 2 / span 2;
+      grid-row: 3;
+      margin-bottom: 56px;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      grid-column: 8 / span 2;
+      grid-row: 1;
+    }
+  }
+
+  &__nav-right {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+    grid-row: 4;
+    gap: 20px;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      grid-column: 4 / span 2;
+      grid-row: 3;
+      margin-bottom: 56px;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      grid-column: 10 / span 2;
+      grid-row: 1;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 300;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+      grid-column: 1 / -1;
+      grid-row: 4;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+
+    &--left {
+      margin-bottom: 10px;
+
+      @include on-tablet {
+        margin: 0;
+      }
+    }
+
+    &--right {
+      @include on-desktop {
+        margin-right: 14px;
+      }
+    }
+  }
+}

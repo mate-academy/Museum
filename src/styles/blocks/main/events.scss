@@ -1,0 +1,278 @@
+.events {
+  font-family: "IBM Plex Sans", sans-serif;
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+  }
+
+  &__content {
+    display: grid;
+    row-gap: 60px;
+
+    @include on-tablet {
+      row-gap: 64px;
+    }
+
+    @include on-desktop {
+      row-gap: 104px;
+    }
+  }
+
+  &__product {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+    }
+
+    &--first {
+      grid-row: 1;
+    }
+
+    &--second {
+      grid-row: 2;
+    }
+  }
+
+
+  &__background {
+    grid-row: 3;
+    min-width: 280px;
+    position: relative;
+    z-index: 0;
+    margin-bottom: 83px;
+
+    @include on-tablet {
+      margin-bottom: 120px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 102px;
+    }
+  }
+
+  &__background-wrapper {
+    position: relative;
+    overflow: visible;
+    min-height: 210px;
+    width: 100%;
+
+    @include on-tablet {
+      min-height: 390px;
+    }
+
+    @include on-desktop {
+      min-height: 550px;
+    }
+
+    &--img {
+      position: absolute;
+      top: 0;
+      left: -20px;
+      right: -20px;
+      height: 210px;
+
+      background-image: url(../images/product-background.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @include on-tablet {
+        height: 390px;
+        left: 0;
+        right: 0;
+      }
+
+      @include on-desktop {
+        height: 550px;
+        left: -55px;
+        right: -55px;
+      }
+    }
+  }
+
+  &__product-image {
+    display: block;
+    height: auto;
+    width: 100%;
+    margin-bottom: 20px;
+    grid-column: 1 / -1;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / span 7;
+      grid-row: 1;
+    }
+  }
+
+  &__product-text {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / span 4;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / span 4;
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__product-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      margin-bottom: 32px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 30px;
+    }
+
+    &--text {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 100%;
+      color: #687480;
+      margin-right: 58px;
+
+      @include on-tablet {
+        font-size: 14px;
+        margin-right: 49px;
+      }
+    }
+
+    &--data {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 150%;
+      color: #1A5A4C;
+
+      @include on-tablet {
+        font-size: 14px;
+      }
+
+      @include on-desktop {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__product-title {
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 100%;
+    color: #0F0E08;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+
+    &--marker {
+      display: inline-block;
+      height: 15px;
+      width: 15px;
+      background-size: cover;
+      background-image: url(../images/marker.svg);
+    }
+
+    @include on-tablet {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__product-desc {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+    color: #4E4E4E;
+  }
+
+  &__background-text {
+    background-color: #fff;
+    box-shadow: 0 2px 0 #1A5A4C40;
+    padding-block: 20px;
+    position: absolute;
+    top: 153px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    max-width: 570px;
+
+    @include on-tablet {
+      top: 306px;
+      left: 65px;
+      right: 65px;
+      padding: 0;
+      padding-inline: 55px;
+      padding-top: 45px;
+      padding-bottom: 50px;
+    }
+
+    @include on-desktop {
+      top: 448px;
+      left: 300px;
+      right: 300px;
+      padding-inline: 100px;
+    }
+  }
+
+  &__background-info {
+    justify-content: center;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      justify-content: left;
+      margin-bottom: 30px;
+    }
+
+    @include on-tablet {
+      justify-content: left;
+      margin-bottom: 16px;
+    }
+
+    &--text {
+      margin-right: 20px;
+
+      @include on-tablet {
+        margin-right: 195px;
+      }
+
+      @include on-desktop {
+        margin-right: 147px;
+      }
+    }
+  }
+
+  &__background-title {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+    @include on-tablet {
+      text-align: left;
+    }
+  }
+}
