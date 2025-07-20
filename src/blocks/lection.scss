@@ -1,0 +1,119 @@
+.lection {
+  @include page-grid;
+
+  &__image-container {
+    position: relative;
+
+    grid-column: 1/-1;
+
+    width: 100%;
+    max-width: $max-content-width;
+
+    // width: 320px;
+    height: 210px;
+
+    // background-size: cover;
+    object-fit: cover;
+    background-image: url(../images/lection/17906d1109017e62cd8b96fa78cfd0b9cad36c20.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    @include page-grid;
+
+    @include on-tablet {
+      height: 390px;
+
+      // width: 700px;
+    }
+
+    @include on-desktop {
+      height: 550px;
+
+      // width: 1280px;
+      // object-fit: scale-down;
+    }
+  }
+
+  &__container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    grid-column: 1/-1;
+
+    @include content-padding-inline;
+    @include page-grid;
+  }
+
+  &__content {
+    position: absolute;
+    top: 153px;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    grid-column: 1/-1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding-block: 20px;
+
+    background-color: $base-white;
+    box-shadow: 0 2px 0 0 #1a5a4c40;
+
+    @include hover(transform, scale(1.05));
+
+    &.active {
+      @include appear-on-scroll-top;
+    }
+
+    @include on-tablet {
+      top: 306px;
+      right: 85px;
+      left: 85px;
+
+      grid-column: 1/-1;
+
+      padding: 50px 55px;
+    }
+
+    @include on-desktop {
+      top: 448px;
+      right: 0;
+      left: 0;
+
+      grid-column: 4/10;
+
+      padding-inline: 100px;
+
+      @include hover(transform, scale(1.2));
+    }
+  }
+
+  &__subtitle-dates {
+    margin-inline: 20px;
+
+    @include on-tablet {
+      gap: 190px;
+      margin: 0;
+    }
+
+    @media (min-width: 640px) and (max-width: 700px) {
+      gap: 110px;
+    }
+
+    @include on-desktop {
+      gap: 140px;
+    }
+  }
+
+  &__title {
+    margin-top: 20px;
+
+    @include on-tablet {
+      text-align: center;
+    }
+  }
+}

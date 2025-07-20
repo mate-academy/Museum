@@ -1,3 +1,115 @@
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 55px;
+  }
+}
+
+@mixin content-centered-with-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+  }
+}
+
+@mixin appear-on-scroll-left {
+  animation: on-scroll-move-left 1s ease-in;
+
+  @keyframes on-scroll-move-left {
+    0% {
+      transform: translateX(-75%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin appear-on-scroll-right {
+  animation: on-scroll-move-right 1s ease-in;
+
+  @keyframes on-scroll-move-right {
+    0% {
+      transform: translateX(75%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin appear-on-scroll-top {
+  animation: on-scroll-move-top 1s ease-in;
+
+  @keyframes on-scroll-move-top {
+    0% {
+      transform: translateY(-75%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin appear-on-scroll-bottom {
+  animation: on-bcroll-move-bottom 1s ease-in;
+
+  @keyframes on-scroll-move-bottom {
+    0% {
+      transform: translateY(75%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {

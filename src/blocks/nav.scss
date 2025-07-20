@@ -1,0 +1,100 @@
+.nav {
+  &__list {
+    display: flex;
+    gap: 28px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    @include on-tablet {
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 70px;
+    }
+
+    &--footer {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+
+      @include on-tablet {
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 30px;
+      }
+    }
+  }
+
+  &__list-block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 100px;
+
+    @include on-tablet {
+      gap: 30px;
+    }
+
+    @include on-desktop {
+      gap: 24px;
+      max-width: 168px;
+    }
+
+    &--footer {
+      max-width: none;
+
+      @include on-tablet {
+        grid-column: span 2;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: $base-white;
+    text-decoration: none;
+
+    &::after,
+    &--footer::after {
+      content: '';
+
+      position: absolute;
+      bottom: -6px;
+      transform: scale(0);
+
+      display: block;
+
+      width: 100%;
+      height: 2px;
+
+      background-color: $base-white;
+
+      transition: transform 0.3s;
+    }
+
+    &--footer::after {
+      height: 1px;
+      background-color: $black-text;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+
+    &--footer {
+      font-size: 14px;
+      font-weight: 400;
+      color: $black-text;
+    }
+  }
+}

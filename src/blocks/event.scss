@@ -1,0 +1,88 @@
+.event {
+  margin-bottom: 60px;
+
+  @include page-grid;
+
+  &.active {
+    @include appear-on-scroll-right;
+  }
+
+  @include on-tablet {
+    margin-bottom: 64px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 104px;
+  }
+
+  &__image {
+    grid-column: 1/-1;
+    width: 100%;
+    height: auto;
+
+    @include hover(transform, scale(1.05));
+
+    @include on-desktop {
+      grid-column: 1/8;
+
+      @include hover(transform, scale(1.1));
+    }
+  }
+
+  &__content {
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 1/5;
+    }
+
+    @include on-desktop {
+      grid-column: -5/-1;
+      align-self: center;
+    }
+  }
+
+  &__subtitle-dates {
+    margin-top: 20px;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+
+    @include on-desktop {
+      margin-top: 0;
+    }
+  }
+
+  &__title-block {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-block: 10px;
+
+    @include on-tablet {
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__square-after-title {
+    width: 10px;
+    height: 10px;
+    background: $orange-square;
+
+    @include on-tablet {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__description {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    color: $grey-text;
+  }
+}

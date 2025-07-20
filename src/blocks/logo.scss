@@ -1,0 +1,43 @@
+.logo {
+  width: 63px;
+  height: 72px;
+
+  // -webkit-transform: scaleX(-1);
+  // transform: scaleX(-1);
+  @include hover(transform, scale(1.2));
+
+  animation: twist 10s infinite;
+
+  @keyframes twist {
+    0% {
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+      opacity: 50%;
+    }
+
+    50% {
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      opacity: 1;
+    }
+
+    100% {
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+      opacity: 50%;
+    }
+  }
+
+  &--header-mobile {
+    align-self: center;
+    width: 53px;
+    height: 61px;
+
+    @include on-tablet {
+      // margin-left: 600px; //add
+
+      width: 63px;
+      height: 72px;
+    }
+  }
+}

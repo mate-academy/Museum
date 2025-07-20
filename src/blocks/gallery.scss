@@ -1,0 +1,103 @@
+.gallery {
+  margin-top: 185px;
+  margin-bottom: 100px;
+
+  @include on-tablet {
+    margin-top: 208px;
+    margin-bottom: 92px;
+  }
+
+  @include on-desktop {
+    margin-top: 302px;
+    margin-bottom: 200px;
+  }
+
+  &__container {
+    @include on-desktop {
+      row-gap: 30px;
+    }
+  }
+
+  &__title {
+    grid-column: 1/-1;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__slider {
+    grid-column: 1/-1;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__painting {
+    display: none;
+
+    @include on-desktop {
+      display: initial;
+      width: 100%;
+      height: auto;
+
+      // -webkit-transform: scaleX(-1);
+      // transform: scaleX(-1);
+      @include hover(transform, scale(1.05));
+    }
+  }
+
+  &__painting--1 {
+    &.active {
+      @include appear-on-scroll-left;
+    }
+
+    @include on-desktop {
+      grid-column: 1/5;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__painting--2 {
+    &.active {
+      @include appear-on-scroll-right;
+    }
+
+    @include on-desktop {
+      grid-column: 5/-1;
+    }
+  }
+
+  &__painting--3 {
+    height: 300px;
+    object-fit: cover;
+    &.active {
+      @include appear-on-scroll-left;
+    }
+
+    @include on-desktop {
+      grid-column: 1/9;
+    }
+  }
+
+  &__painting--4 {
+    height: 300px;
+    &.active {
+      @include appear-on-scroll-right;
+    }
+
+    @include on-desktop {
+      grid-column: 9/-1;
+
+      // height: 100%;
+      object-fit: cover;
+    }
+  }
+}
