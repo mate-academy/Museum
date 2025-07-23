@@ -1,0 +1,267 @@
+.header {
+  @include header-effect;
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__container {
+    display: grid;
+    row-gap: 20px;
+
+    @include on-tablet {
+      @include page-grid;
+
+      height: 100vh;
+      grid-template-rows: repeat(3, 1fr);
+      row-gap: 38px;
+    }
+
+    @include on-desktop {
+      row-gap: 89px;
+    }
+
+    @include content-padding-inline;
+  }
+
+  &__background-container {
+    position: relative;
+    padding-top: 14px;
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    min-height: 286px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      justify-content: start;
+      padding-top: 21px;
+      grid-row: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    background-image: url(../images/header-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    inset: 0 -20px;
+
+    @include on-tablet {
+      inset: 0 -39px 0 -20px;
+    }
+
+    @include on-desktop {
+      inset: 0 -55px 0 -20px;
+    }
+
+    z-index: -1;
+  }
+
+  &__logo-link {
+    display: flex;
+    height: 63px;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+
+    @include on-tablet {
+      width: 45%;
+      max-width: 200px;
+      height: 72px;
+    }
+
+    @include on-desktop {
+      width: 24%;
+      height: 72px;
+    }
+
+    @include photo-hover-scaling;
+  }
+
+  &__logo-image {
+    width: 58px;
+    height: 63px;
+  }
+
+  &__content {
+    display: grid;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1 / 2;
+      margin-top: 127px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      margin-top: 206px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+
+    @include on-tablet {
+      text-align: left;
+      font-size: $fs-xlarge;
+      line-height: $lh-normal;
+      max-width: 500px;
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 54px;
+    }
+
+    @include on-desktop {
+      font-size: $fs-hero;
+      grid-column: 1 / 6;
+    }
+
+    text-transform: uppercase;
+    font-size: 45px;
+    line-height: $lh-tight;
+    text-align: center;
+    font-weight: $fw-bold;
+
+    font-family: inherit;
+
+    @include text-hover-scaling;
+  }
+
+  &__tickets-button-wrapper {
+    @include on-tablet {
+      max-width: 250px;
+      grid-column: 1 / 4;
+      grid-row: 3 / -1;
+    }
+
+    @media (min-width: 700px) {
+      max-width: 270px;
+    }
+
+    @include on-desktop {
+      padding-inline: 0;
+      grid-column: 3 / 6;
+    }
+  }
+
+  &__tickets-button {
+    font-family: $font-secondary;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid $accent-color;
+    font-weight: $fw-medium;
+    font-size: $fs-base;
+    justify-content: center;
+    text-transform: uppercase;
+    color: $text-color-dark;
+    padding-block: 14.2px;
+    padding-right: 50px;
+    background-color: transparent;
+    transition:
+      background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out;
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url(../icons/tickets-button-icon-2x.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 7.41px 12px;
+      display: block;
+      top: 0;
+      right: 0;
+      width: 50px;
+      transition: background-color 0.4s ease-in-out;
+
+      height: 100%;
+      background-color: $accent-color;
+
+      @include on-tablet {
+        width: 70px;
+      }
+    }
+
+    &:hover {
+      background-color: $accent-color;
+      color: #fff;
+
+      &::after {
+        background-color: #15433a;
+      }
+    }
+
+    &:active {
+      background-color: #15433a;
+      color: #fff;
+
+      &::after {
+        background-color: $accent-color;
+      }
+    }
+
+    @include on-tablet {
+      padding-block: 24.2px;
+      padding-right: 70px;
+    }
+  }
+
+  &__tickets-button-text {
+    text-align: center;
+    flex: 1;
+  }
+
+  &__events-link {
+    position: absolute;
+    display: none;
+    align-items: center;
+    text-decoration: none;
+    bottom: 65px;
+    left: 0.01%;
+    transform: rotate(-90deg);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-10px) rotate(-90deg);
+    }
+
+    @include on-desktop {
+      display: flex;
+    }
+
+    @media (max-height: 450px) {
+      display: none;
+    }
+
+    &--line {
+      width: 70px;
+      height: 1px;
+      background-color: $accent-color;
+    }
+
+    &--text {
+      font-family: $font-secondary;
+      margin: 0 0 0 20px;
+      text-transform: uppercase;
+      color: $text-color-light;
+      font-size: $fs-small;
+      line-height: $lh-tight;
+      font-weight: $fw-semibold;
+    }
+  }
+}

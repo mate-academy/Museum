@@ -1,0 +1,195 @@
+.dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: -100%;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background-color: $accent-color;
+  z-index: 10;
+  transition: top 0.3s ease-in-out;
+
+  gap: 24px;
+
+  @include on-tablet {
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 18px;
+    height: 225px;
+  }
+
+  @media (min-width: 700px) {
+    gap: 38px;
+  }
+
+  @include on-desktop {
+    gap: 102px;
+    height: 233px;
+  }
+
+  &--active {
+    visibility: visible;
+    top: 0;
+    z-index: 10;
+  }
+
+  &--non-visible {
+    visibility: hidden;
+  }
+
+  &__nav {
+    font-family: $font-secondary;
+    font-weight: $fw-medium;
+    color: #fff;
+    font-size: $fs-base;
+    line-height: $lh-tight;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    padding-left: 72px;
+    padding-right: 20px;
+    margin-top: 27px;
+    gap: 28px;
+
+    @include on-tablet {
+      padding-right: 0;
+      margin-top: 40px;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 31px;
+    }
+  }
+
+  &__nav-group {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0;
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__nav-item {
+    list-style: none;
+    white-space: nowrap;
+
+    @include on-desktop {
+      font-size: 22px;
+      line-height: $lh-tight;
+    }
+  }
+
+  &__nav-link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    font-family: $font-secondary;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 0.8px;
+      background-color: white;
+      opacity: 0.8;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &__nav-link-group {
+    display: block;
+    list-style: none;
+  }
+
+  &__divider {
+    all: unset;
+    margin-inline: 20px;
+    height: 1px;
+    background-color: #fff;
+    opacity: 0.5;
+
+    @include on-tablet {
+      height: auto;
+      width: 1px;
+      background-color: #fff;
+      opacity: 0.5;
+      margin-inline: 0;
+      margin-block: 40px;
+    }
+  }
+
+  &__schedule {
+    @include content-padding-inline;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      padding-left: 0;
+      padding-right: 35px;
+      margin-top: 40px;
+    }
+  }
+
+  &__schedule-title {
+    margin: 0;
+    font-family: $font-secondary;
+    font-weight: $fw-medium;
+    color: #fff;
+  }
+
+  &__schedule-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: #fff;
+
+    font-family: $font-secondary;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 26px;
+    }
+  }
+
+  &__schedule-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__schedule-item {
+    list-style: none;
+    font-size: $fs-small;
+
+    @include on-tablet {
+      white-space: nowrap;
+    }
+  }
+
+  &__schedule-details {
+    font-size: $fs-small;
+
+    @include on-tablet {
+      max-width: 155px;
+    }
+  }
+
+  &__schedule-weekends {
+    color: #fff;
+    font-family: $font-secondary;
+    margin: 0;
+  }
+}
