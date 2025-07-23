@@ -4,3 +4,42 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-mobile {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin on-large-screen {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin inline-content-wrapper {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    box-sizing: border-box;
+    padding-inline: 56px;
+    max-width: 1280px;
+    margin: auto;
+  }
+}
