@@ -1,0 +1,174 @@
+@use '../utils/mixins' as *;
+
+.menu {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+
+  &__active {
+    z-index: 1000;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  &__cover_link_home {
+    cursor: default;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__content {
+    position: relative;
+    background-color: #1a5a4c;
+    width: 100%;
+    height: 399px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 27px 20px;
+
+    @include on-tablet {
+      height: 225px;
+      padding: 40px 34px;
+      gap: 0;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    @include on-desktop {
+      padding: 40px 56px;
+      height: 233px;
+    }
+
+    &__nav {
+      display: flex;
+      flex-direction: row;
+      gap: 28px;
+      border-bottom: #ffffff80 1px solid;
+
+      @include on-tablet {
+        width: 50%;
+        border: 0;
+        gap: 38px;
+        border-right: 1px solid #ffffff80;
+      }
+
+      @include on-desktop {
+        gap: 102px;
+      }
+
+      &__close {
+        @include hover(transform, scale(1.2));
+
+        width: 24px;
+        height: 24px;
+        background-image: url('../images/close.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      &__options {
+        display: flex;
+        justify-content: space-around;
+        gap: 28px;
+        width: 100%;
+
+        margin-bottom: 24px;
+
+        &__link {
+          @include hover(transform, scale(1.1));
+
+          display: block;
+          text-decoration: none;
+          color: inherit;
+          cursor: pointer;
+        }
+
+        &__block1 {
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          width: 100px;
+          height: 72px;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 100%;
+        }
+
+        &__block2 {
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          width: 100px;
+          height: 56px;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 100%;
+        }
+      }
+    }
+
+    &__schedule {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+      color: white;
+
+      @include on-tablet {
+        width: 50%;
+        margin-left: 38px;
+        justify-content: center;
+      }
+
+      @include on-desktop {
+        margin-left: 102px;
+      }
+
+      &__title {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 141%;
+        margin-bottom: 20px;
+      }
+
+      &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        @include on-tablet {
+          flex-direction: row;
+          gap: 38px;
+        }
+
+        &__text {
+          width: 280;
+          height: 105;
+
+          @include on-tablet {
+            width: 158;
+            height: 105;
+          }
+        }
+      }
+    }
+  }
+}
