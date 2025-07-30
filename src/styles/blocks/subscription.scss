@@ -1,0 +1,134 @@
+.subscription {
+  margin-top: 100px;
+  height: 380px;
+  position: relative;
+
+  @include on-tablet {
+    margin-top: 92px;
+  }
+
+  @include on-desktop {
+    height: 550px;
+    margin-top: 200px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url(../images/subscription-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__title {
+    padding-top: 88px;
+    text-align: center;
+
+    @include on-tablet {
+      padding-top: 82px;
+    }
+
+    @include on-desktop {
+      padding-top: 163px;
+    }
+  }
+
+  &__text {
+    padding-top: 20px;
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+    color: $c-white;
+
+    @include on-tablet {
+      padding-top: 16px;
+      line-height: 100%;
+    }
+  }
+
+  &__sender {
+    margin-top: 50px;
+    text-align: center;
+
+    @include on-tablet {
+      margin-top: 64px;
+    }
+
+    @include on-desktop {
+      margin-top: 72px;
+    }
+
+    &-content {
+      display: inline-flex;
+      box-sizing: border-box;
+      height: 50px;
+      width: 280px;
+
+      @include on-tablet {
+        height: 70px;
+        width: 460px;
+      }
+
+      @include on-desktop {
+        width: 570px;
+      }
+    }
+
+    &-input {
+      width: 230px;
+      box-sizing: border-box;
+      padding: 0;
+      padding-left: 24px;
+      border: none;
+      outline: none;
+
+      @include on-tablet {
+        width: 374px;
+      }
+
+      @include on-desktop {
+        width: 470px;
+      }
+    }
+
+    &-button {
+      width: 50px;
+      padding: 0;
+      background-color: #f14a27;
+      background-image: url(../icons/button-icon-black.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      @include on-tablet {
+        width: 70px;
+        margin-left: calc(460px - (70px + 374px));
+      }
+
+      @include on-desktop {
+        margin-left: calc(570px - (70px + 470px));
+      }
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: black;
+  -webkit-box-shadow: 0 0 0 1000px #f8f8f8 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

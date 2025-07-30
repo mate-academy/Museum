@@ -1,0 +1,47 @@
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.page {
+  font-family: 'IBM Plex Sans', Arial, Helvetica, sans-serif;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    background: $c-white;
+    margin: 0;
+    min-width: 320px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+
+    &:not(:target) {
+      display: none;
+    }
+
+    &:has(.page__menu:target) {
+      overflow: hidden;
+    }
+  }
+}
+
+.container {
+  @include content-padding-inline;
+}
