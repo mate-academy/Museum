@@ -1,0 +1,46 @@
+.nav {
+  display: flex;
+  gap: 28px;
+  width: fit-content;
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  &__link {
+    font-family: $font-family;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    display: inline-block;
+    width: fit-content;
+    transition: all 0.3s;
+    position: relative;
+
+    @include media(desc) {
+      font-size: 22px;
+      line-height: 22px;
+    }
+
+    &::after {
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      content: '';
+      width: 0;
+      height: 2px;
+      background-color: #1a5a4c;
+      transition: all 0.3s;
+    }
+
+    &--white-bg::after {
+      background-color: #fff;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

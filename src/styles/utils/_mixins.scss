@@ -1,6 +1,63 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+.no-scroll {
+  overflow: hidden;
+  padding-right: 15px;
+}
+
+@mixin media($breakpoint) {
+  @if $breakpoint == mob {
+    @media (min-width: 320px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tabl {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desc {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  }
+}
+
+.container {
+  margin-inline: auto;
+  padding-inline: 20px;
+
+  @include media(tabl) {
+    max-width: 768px;
+    padding-inline: 34px;
+  }
+
+  @include media(desc) {
+    max-width: 1280px;
+    padding-inline: 55px;
+  }
+
+  &--fluid {
+    max-width: 100%;
+  }
+}
+
+@mixin page-grid {
+  --column: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--column), 1fr);
+  column-gap: 20px;
+
+  @include media(tabl) {
+    --column: 6;
+
+    column-gap: 30px;
+  }
+
+  @include media(desc) {
+    --column: 12;
+
+    column-gap: 30px;
   }
 }

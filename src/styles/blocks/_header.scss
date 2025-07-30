@@ -1,0 +1,194 @@
+.header {
+  position: relative;
+
+  &__menu {
+    position: absolute;
+    background-image: url(../images/header-menu-svg.svg);
+    left: 20px;
+    top: 27px;
+    height: 24px;
+    width: 24px;
+    transition: background-image 0.3s ease;
+
+    &:hover {
+      background-image: url(../images/menu-icon/menu-icon-hover.svg);
+    }
+
+    @include media(tabl) {
+      left: 34px;
+      top: 39px;
+    }
+
+    @include media(desc) {
+      left: 55px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+
+    @include media(tabl) {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-left: 34px;
+      column-gap: 10px;
+    }
+
+    @include media(desc) {
+      padding-left: 55px;
+      column-gap: 30px;
+    }
+  }
+
+  &__info {
+    @include media(tabl) {
+      margin-top: auto;
+      margin-bottom: 20px;
+    }
+
+    @include media(desc) {
+      margin-bottom: 118px;
+    }
+  }
+
+  &__title {
+    font-family: $second-family;
+    font-weight: 700;
+    font-size: 45px;
+    text-transform: uppercase;
+    line-height: 45px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+
+    @include media(tabl) {
+      margin-bottom: 39px;
+      text-align: start;
+      font-size: 54px;
+      line-height: 65px;
+      max-width: 340px;
+    }
+
+    @include media(desc) {
+      margin-bottom: 89px;
+      font-size: 72px;
+      line-height: 86px;
+      max-width: 470px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    margin: 0 auto;
+    border: 1px solid #1a5a4c;
+    max-width: 280px;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 2px #1a5a4c40;
+    }
+
+    @include media(tabl) {
+      max-width: 270px;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    @include media(desc) {
+      max-width: 270px;
+      margin: 0 0 0 auto;
+    }
+
+    &-text {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      text-transform: uppercase;
+      color: #0f0e08;
+      padding: 13px 83px;
+
+      @include media(tabl) {
+        padding: 27px 68px;
+      }
+    }
+
+    &-harrow {
+      width: 50px;
+      height: 50px;
+      background-image: url(../images/link/harrow.svg);
+      background-color: #1a5a4c;
+      background-repeat: no-repeat;
+      background-position: center;
+      flex-shrink: 0;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #f14a27;
+      }
+
+      @include media(tabl) {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  &__event {
+    display: none;
+
+    @include media(desc) {
+      writing-mode: vertical-rl;
+      align-items: center;
+      gap: 20px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 14px;
+      color: #687480;
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      transform: rotate(180deg);
+
+      &::before {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 70px;
+        background-color: #16524d;
+        transition: background-color 0.3s ease;
+      }
+    }
+
+    &:hover::before {
+      background-color: #c14b2e;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    padding-top: 9px;
+    background-image: url(../images/BG/Bg-mob.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    min-height: 300px;
+
+    @include media(tabl) {
+      background-image: url(../images/BG/Bg-tabl.jpg);
+      width: 51%;
+      min-height: 384px;
+      padding: 15px 0 0 87px;
+      justify-content: start;
+    }
+
+    @include media(desc) {
+      background-image: url(../images/BG/Bg-desc.jpg);
+      width: 57%;
+      min-height: 655px;
+    }
+  }
+}

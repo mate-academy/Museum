@@ -1,0 +1,99 @@
+.menu {
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 999;
+  padding-block: 25px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1a5a4c;
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+
+  &--open {
+    transform: translateX(0%);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @include media(tabl) {
+    height: 220px;
+    padding-block: 39px;
+  }
+
+  @include media(desc) {
+    height: 225px;
+  }
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+    margin-bottom: 24px;
+
+    @include media(tabl) {
+      grid-column: span 2;
+      margin-bottom: 0;
+    }
+
+    @include media(desc) {
+      grid-column: span 5;
+    }
+  }
+
+  &__close {
+    align-self: flex-start;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+  }
+
+  &__link {
+    color: #fff;
+  }
+
+  &__line {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid rgba($color: #fff, $alpha: 0.5);
+
+    @include media(tabl) {
+      border: 0;
+      grid-column: 3;
+      width: 1px;
+      height: 100%;
+      place-self: center;
+      background-color: rgba($color: #fff, $alpha: 0.5);
+    }
+
+    @include media(desc) {
+      grid-column: 6;
+    }
+  }
+
+  &__diagram {
+    grid-column: 1 / -1;
+
+    @include media(tabl) {
+      grid-column: 4 / -1;
+    }
+
+    @include media(desc) {
+      grid-column: 8 / -2;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 100%;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.4;
+  }
+}
