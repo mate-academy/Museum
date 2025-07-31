@@ -1,0 +1,155 @@
+.menu {
+  padding: 27px 0;
+  background-color: $accent-color;
+  color: white;
+  z-index: 10;
+
+  @include on-tablet {
+    padding: 40px 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include on-tablet {
+      flex-wrap: nowrap;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      gap: 102px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid white;
+
+    @include on-tablet {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  &__close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 24px;
+    width: 24px;
+    margin-right: 28px;
+
+    @include hover(transform, rotateZ(180deg));
+
+    @include on-tablet {
+      margin-right: 48px;
+    }
+
+    @include on-desktop {
+      margin-right: 102px;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      height: 2px;
+      width: 16px;
+      background-color: white;
+      transform: rotateZ(45deg);
+      transform-origin: center;
+    }
+
+    &::before {
+      transform: rotateZ(45deg);
+    }
+
+    &::after {
+      transform: rotateZ(-45deg);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 28px;
+
+    @include on-desktop {
+      gap: 30px 31px;
+    }
+  }
+
+  &__nav-link {
+    @extend%ibm-500;
+
+    position: relative;
+    color: white;
+    font-size: 16px;
+    line-height: 1;
+    padding-bottom: 5px;
+
+    &::after {
+      position: absolute;
+      content: '';
+      height: 1px;
+      width: 100%;
+      background-color: white;
+      transform: scaleX(0);
+      transform-origin: left;
+      left: 0;
+      bottom: 2px;
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.menu-schedule {
+  @include on-tablet {
+    display: flex;
+    align-items: flex-end;
+    gap: 26px;
+  }
+
+  &__title {
+    color: white;
+  }
+
+  &__top {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      flex: none;
+      padding-left: 38px;
+      border-left: 1px solid white;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      padding-left: 102px;
+    }
+  }
+
+  &__bottom {
+    @include on-tablet {
+      flex-basis: 145px;
+    }
+  }
+
+  &__item--bold {
+    display: inline;
+  }
+}
