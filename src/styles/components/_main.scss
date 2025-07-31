@@ -1,0 +1,390 @@
+@import '../utils';
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+}
+
+.overlay--active {
+  background-color: rgba(0, 0, 0, 0.46);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+.navigation {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background-color: #1a5a4c;
+  color: white;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 220px;
+  width: 100vw;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  transition: height 0.3s ease;
+
+  &__left,
+  &__right {
+    margin: 40px 0 48px;
+  }
+
+  &__paragraph {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    margin-bottom: 20px;
+  }
+
+  &__lists {
+    display: flex;
+    align-items: start;
+    gap: 30px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    position: relative;
+  }
+
+  &__grid::after {
+    content: '';
+    height: 145px;
+    width: 1px;
+    background-color: white;
+    position: absolute;
+    right: -102px;
+    top: 0;
+  }
+
+  &__link {
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  &__element,
+  &__paragraphs {
+    font-size: 14px;
+  }
+
+  &__paragraphs {
+    max-width: 170px;
+  }
+}
+
+.navigation--active {
+  height: 233px;
+}
+
+.art-museum {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 200px;
+  position: relative;
+
+  &__left {
+    padding: 39px 0 0 55px;
+  }
+
+  .burger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 18px;
+    height: 12px;
+    margin-bottom: 143px;
+    z-index: 15;
+    position: relative;
+    cursor: pointer;
+
+    &__line {
+      background-color: $black;
+      height: 2px;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+  }
+
+  .burger-menu--active {
+    span {
+      background-color: white;
+    }
+
+    span:nth-of-type(2) {
+      display: none;
+    }
+
+    span:first-of-type {
+      transform-origin: center center;
+      transform: rotate(-45deg) translateY(3.5px);
+    }
+
+    span:last-of-type {
+      transform-origin: center center;
+      transform: rotate(45deg) translateY(-3.5px);
+    }
+  }
+
+  &__right {
+    width: 100%;
+  }
+
+  &__text {
+    position: relative;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 120%;
+    margin-bottom: 90px;
+  }
+
+  &__events {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 322px;
+    transform: rotate(-90deg) translateY(-100%);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: $gray;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(-100% - 10px);
+      top: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 1px;
+      background-color: $green;
+    }
+  }
+
+  &__order-tickets {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 270px;
+    height: 70px;
+    border: 1px solid $green;
+    margin-left: auto;
+    position: relative;
+  }
+
+  &__tickets {
+    font-family: 'IBM Plex Sans', sans-serif;
+    width: 200px;
+    height: 70px;
+    line-height: 70px;
+    color: $black;
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    text-align: center;
+  }
+
+  &__arrow-right {
+    background-color: $green;
+    width: 70px;
+    height: 70px;
+    position: relative;
+
+    &::after {
+      content: '';
+      background: url('../images/arrow-right.svg') center/cover no-repeat;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 7.41px;
+      height: 12px;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.museum {
+  &__visual {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 374 / 384;
+    height: auto;
+    background: url('../images/museum.jpg') center/cover no-repeat;
+  }
+
+  &__text-logo {
+    font-weight: 700;
+    font-size: 36px;
+    position: absolute;
+    top: 15px;
+    left: 50px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .navigation {
+    gap: 50px;
+    flex-direction: column;
+    padding: 0 20px;
+    width: 100vw;
+    box-sizing: border-box;
+
+    &__left {
+      margin: 27px 0 0 52px;
+    }
+
+    &__right {
+      margin: 0 0 27px;
+    }
+
+    &__lists {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    &__paragraphs {
+      max-width: 144px;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, 100px);
+    }
+
+    &__grid::after {
+      top: auto;
+      bottom: -24px;
+      left: -52px;
+      height: 1px;
+      width: calc(100vw - 40px);
+    }
+
+    &__link {
+      font-size: 16px;
+    }
+  }
+
+  .navigation--active {
+    height: auto;
+  }
+
+  .art-museum {
+    margin-bottom: 70px;
+    flex-direction: column-reverse;
+    padding: 0;
+    position: relative;
+
+    &__left {
+      padding: 0 20px;
+      width: calc(100% - 40px);
+    }
+
+    &__title {
+      font-size: 45px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    &__order-tickets {
+      margin-left: 0;
+      width: 100%;
+      height: 50px;
+      justify-content: center;
+    }
+
+    &__tickets {
+      padding: 0;
+      text-align: center;
+      line-height: 50px;
+      height: 50px;
+      width: calc(100% - 50px);
+    }
+
+    &__arrow-right {
+      height: 50px;
+      width: 50px;
+    }
+
+    &__events {
+      display: none;
+    }
+  }
+
+  .museum {
+    &__text-logo {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .burger-menu {
+    position: absolute;
+    top: 27px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .navigation {
+    gap: 77px;
+
+    &__left {
+      margin-left: 96px;
+    }
+
+    &__right {
+      margin-right: 34px;
+    }
+
+    &__paragraphs {
+      max-width: 144px;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, 100px);
+    }
+
+    &__grid::after {
+      right: -38px;
+    }
+
+    &__link {
+      font-size: 16px;
+    }
+  }
+
+  .art-museum {
+    margin-bottom: 88px;
+    &__left {
+      padding: 45px 0 0 37px;
+    }
+
+    &__title {
+      font-size: 54px;
+    }
+
+    &__order-tickets {
+      margin-left: 0;
+    }
+
+    &__events {
+      display: none;
+    }
+  }
+
+  .burger-menu {
+    margin-bottom: 70px;
+  }
+}

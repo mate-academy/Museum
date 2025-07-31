@@ -1,0 +1,69 @@
+@import '../utils';
+
+.landscape {
+  background: url('../images/landscape.jpg') center/cover no-repeat;
+  width: 100vw;
+  height: 550px;
+  position: relative;
+  margin-bottom: 302px;
+}
+
+.special-event {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: white;
+  box-shadow: 0 2px 0 $landscape-shadow;
+  padding: 45px 100px 50px;
+
+  @include subtitle;
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-size: 36px;
+    color: $black;
+    font-weight: 300;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .landscape {
+    width: 100%;
+    height: 210px;
+    margin: 0 0 183px;
+  }
+
+  .special-event {
+    box-sizing: border-box;
+    width: 78%;
+    padding: 20px 0;
+
+    &__title {
+      font-size: 28px;
+      text-align: center;
+    }
+
+    &__subtitle {
+      gap: 20px;
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .landscape {
+    width: calc(100% - 68px);
+    margin: 0 34px 208px;
+  }
+
+  .special-event {
+    box-sizing: border-box;
+    width: 78%;
+    padding: 45px 55px 50px;
+
+    &__subtitle {
+      gap: 140px;
+    }
+  }
+}

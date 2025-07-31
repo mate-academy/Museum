@@ -1,0 +1,238 @@
+@import '../utils';
+
+.footer {
+  padding: 47px 55px 35px;
+
+  &__inner {
+    margin-bottom: 87px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 130px;
+  }
+
+  &__info {
+    display: flex;
+    align-items: start;
+    gap: 130px;
+  }
+
+  &__left {
+    width: 55%;
+    display: flex;
+    align-items: start;
+  }
+
+  &__right {
+    width: 45%;
+  }
+
+  &__text-logo {
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 62px;
+    display: inline-block;
+  }
+
+  &__networks {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  &__schedule-contacts {
+    position: relative;
+
+    &::after {
+      content: '';
+      background-color: $landscape-shadow;
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -65px;
+    }
+  }
+
+  &__schedule-contacts-lists {
+    display: flex;
+    align-items: start;
+    gap: 31px;
+  }
+
+  &__additional-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 220px;
+    gap: 20px 70px;
+  }
+
+  &__additional-link {
+    @include footer-span;
+  }
+
+  &__extra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__copyright,
+  &__author {
+    font-weight: 300;
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 141%;
+    font-size: 12px;
+  }
+}
+
+.schedule,
+.contacts {
+  width: 170px;
+
+  &__item:first-of-type {
+    margin-bottom: 20px;
+  }
+}
+
+.schedule {
+  &__item:nth-of-type(6) {
+    margin-bottom: 20px;
+  }
+
+  &__element {
+    @include footer-span;
+  }
+}
+
+.contacts {
+  &__element {
+    @include footer-span;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .footer {
+    padding: 50px 34px 36px;
+
+    &__inner {
+      margin-bottom: 80px;
+      gap: 40px;
+      flex-direction: column;
+    }
+
+    &__socials {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 0 40px;
+      width: 100%;
+    }
+
+    &__text-logo {
+      margin: 0;
+    }
+
+    &__info {
+      flex-direction: column;
+      gap: 111px;
+    }
+
+    &__left,
+    &__right {
+      width: 100%;
+    }
+
+    &__schedule-contacts::after {
+      height: 1px;
+      width: 100%;
+      bottom: -64px;
+      top: auto;
+      right: auto;
+    }
+
+    &__schedule-contacts-lists {
+      gap: 20px;
+    }
+
+    &__additional-info {
+      width: auto;
+    }
+
+    &__extra {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  .schedule,
+  .contacts {
+    width: 50%;
+  }
+
+  .contacts {
+    &__item:nth-of-type(5) {
+      margin-bottom: 145px;
+    }
+  }
+
+  .anchor-top {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #1a5a4c;
+    position: relative;
+    display: block;
+    margin: 0 0 0 auto;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 10px;
+      height: 12px;
+      transform: translate(-50%, -50%);
+      background: url('../images/anchor-top.svg') center/cover no-repeat;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .footer {
+    padding: 50px 34px 36px;
+
+    &__inner {
+      gap: 40px;
+    }
+
+    &__info {
+      flex-direction: column;
+    }
+
+    &__left,
+    &__right {
+      width: 100%;
+    }
+
+    &__socials {
+      margin-right: 40px;
+    }
+
+    &__schedule-contacts::after {
+      height: 1px;
+      width: 460px;
+      bottom: -64px;
+      top: auto;
+      right: auto;
+    }
+
+    &__schedule-contacts-lists {
+      gap: 60px;
+    }
+
+    &__additional-info {
+      width: auto;
+    }
+  }
+}

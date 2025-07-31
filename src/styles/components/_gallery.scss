@@ -1,0 +1,134 @@
+@import '../utils';
+
+.gallery {
+  padding: 0 55px;
+  margin-bottom: 200px;
+
+  &__title {
+    font-weight: 700;
+    font-size: 48px;
+    color: $black;
+    margin-bottom: 56px;
+  }
+
+  &__inner {
+    overflow-x: auto;
+  }
+
+  &__line--1,
+  &__line--2 {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__line--1 {
+    margin-bottom: 30px;
+  }
+
+  &__element {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  &__element:hover {
+    transform: scale(1.1);
+  }
+
+  &__element--1 {
+    height: 600px;
+    width: 370px;
+    background: url('../images/gallery--1.jpg') center/cover no-repeat;
+  }
+
+  &__element--2 {
+    height: 600px;
+    width: 770px;
+    background: url('../images/gallery--2.jpg') center/cover no-repeat;
+  }
+
+  &__element--3 {
+    height: 360px;
+    width: 770px;
+    background: url('../images/gallery--3.jpg') center/cover no-repeat;
+  }
+
+  &__element--4 {
+    height: 360px;
+    width: 370px;
+    background: url('../images/gallery--4.jpg') center/cover no-repeat;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .gallery {
+    padding: 0 20px;
+    margin-bottom: 92px;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    &__title {
+      font-size: 36px;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    &__inner {
+      display: flex;
+      gap: 20px;
+    }
+
+    &__line {
+      gap: 20px;
+    }
+
+    &__line--1 {
+      margin: 0;
+    }
+
+    &__element {
+      height: auto;
+      width: 280px;
+      aspect-ratio: 280 / 410;
+    }
+  }
+
+  .pagination {
+    @include pagination;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .gallery {
+    padding: 0 34px;
+    margin-bottom: 92px;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    &__title {
+      margin-bottom: 48px;
+    }
+
+    &__inner {
+      display: flex;
+      gap: 20px;
+    }
+
+    &__line {
+      gap: 20px;
+    }
+
+    &__line--1 {
+      margin: 0;
+    }
+
+    &__element {
+      height: 543px;
+      width: 340px;
+    }
+  }
+
+  .pagination {
+    @include pagination;
+  }
+}

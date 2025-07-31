@@ -1,0 +1,149 @@
+@import '../utils';
+
+.actual-events {
+  padding: 0 55px;
+  margin-bottom: 104px;
+
+  &__title {
+    font-weight: 700;
+    font-size: 48px;
+    color: $black;
+    margin-bottom: 56px;
+  }
+}
+
+.event {
+  display: flex;
+  align-items: center;
+  gap: 130px;
+
+  &__visual {
+    width: 670px;
+    height: 520px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  @include subtitle;
+
+  &__title {
+    font-size: 36px;
+    font-weight: 300;
+    color: $black;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: -30px;
+      transform: translateY(-50%);
+      content: '';
+      width: 15px;
+      height: 15px;
+      background-color: $red;
+    }
+  }
+
+  &__paragraph {
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: $gray;
+    font-weight: 300;
+    font-size: 16px;
+    max-width: 370px;
+  }
+}
+
+.event--1 {
+  margin-bottom: 104px;
+}
+
+.event--1 .event__visual {
+  background: url('../images/event--1.jpg') center/cover no-repeat;
+}
+
+.event--2 .event__visual {
+  background: url('../images/event--2.jpg') center/cover no-repeat;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .actual-events {
+    margin-bottom: 60px;
+    padding: 0 20px;
+
+    &__title {
+      margin-bottom: 36px;
+      text-align: center;
+    }
+  }
+
+  .event {
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+
+    &__visual {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 700 / 520;
+    }
+
+    &__subtitle {
+      justify-content: space-between;
+    }
+
+    &__title {
+      font-size: 28px;
+
+      &::after {
+        width: 10px;
+        height: 10px;
+        right: -20px;
+      }
+    }
+
+    &__paragraph {
+      max-width: 480px;
+    }
+  }
+
+  .event--1 {
+    margin-bottom: 64px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .actual-events {
+    margin-bottom: 112px;
+    padding: 0 34px;
+
+    &__title {
+      margin-bottom: 48px;
+    }
+  }
+
+  .event {
+    flex-direction: column;
+    align-items: start;
+    gap: 40px;
+
+    &__visual {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 700 / 520;
+    }
+
+    &__paragraph {
+      max-width: 480px;
+    }
+  }
+
+  .event--1 {
+    margin-bottom: 64px;
+  }
+}
