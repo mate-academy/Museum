@@ -1,0 +1,136 @@
+.lecture {
+  --container-height: 140px;
+  --container-top: 57px;
+
+  @include page-grid;
+
+  row-gap: 0;
+
+  @include on-tablet {
+    --container-height: 204px;
+    --container-top: 84px;
+  }
+
+  @include on-tablet {
+    --container-height: 204px;
+    --container-top: 84px;
+  }
+
+  @include on-desktop {
+    --container-height: 204px;
+    --container-top: 102px;
+  }
+
+  &__content {
+    position: relative;
+    grid-column: span 2;
+    height: calc(var(--container-height) - var(--container-top));
+
+    @include on-tablet {
+      grid-column: span 6;
+      width: 570px;
+      margin-inline: auto;
+    }
+
+    @include on-desktop {
+      align-self: center;
+      grid-column: span 12;
+    }
+
+    &-container {
+      position: absolute;
+      width: 100%;
+      top: calc(0px - var(--container-top));
+      height: var(--container-height);
+      background-color: $c-gray;
+      box-shadow: 0 2px 0 0 #1a5a4c40;
+    }
+  }
+
+  &__picture {
+    grid-column: span 2;
+    position: relative;
+    box-sizing: border-box;
+    height: 0;
+    width: 100%;
+    padding-bottom: 75%;
+
+    @include on-tablet {
+      grid-column: span 6;
+      padding-bottom: 55.7%;
+    }
+
+    @include on-desktop {
+      grid-column: span 12;
+      height: 550px;
+      padding-bottom: 0%;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    left: -$padding-mobile;
+    object-fit: cover;
+    height: 100%;
+    width: calc(100% + 2 * $padding-mobile);
+
+    @include on-tablet {
+      left: 0;
+      width: 100%;
+    }
+
+    @include on-desktop {
+      left: calc(($desktop-min-width - 100vw) / 2 - $padding-desktop);
+      width: 100vw;
+    }
+  }
+
+  &__top {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    padding: 20px 21px;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      padding: 45px 55px 16px;
+    }
+  }
+
+  &__type {
+    font-size: 16px;
+    line-height: 100%;
+    font-weight: 500;
+    color: #687480;
+  }
+
+  &__date {
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 700;
+    color: #1a5a4c;
+  }
+
+  &__title {
+    @extend %h3;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @include on-tablet {
+      padding-inline: 55px;
+      text-align: left;
+    }
+  }
+
+  &__text {
+    margin-top: 11px;
+
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 300;
+  }
+}
