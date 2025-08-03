@@ -1,0 +1,96 @@
+.menu {
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 999;
+  padding-block: 25px;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
+  transition: all 0.3s;
+  width: 100%;
+  background-color: black;
+  background-color: $green-bg;
+
+  @include on-tablet {
+    height: 200px;
+  }
+
+  @include on-desktop {
+    height: 225px;
+  }
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
+  }
+
+  &__content {
+    @include my-grid;
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      grid-column: span 2;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: span 5;
+    }
+  }
+
+  &__close {
+    @include hover(transform, scale(1.2));
+
+    height: fit-content;
+    align-self: flex-start;
+  }
+
+  &__link {
+    color: #fff;
+  }
+
+  &__line {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid rgba($color: #fff, $alpha: 0.5);
+
+    @include on-tablet {
+      border: 0;
+      grid-column: 3;
+      width: 1px;
+      height: 100%;
+      place-self: center;
+      background-color: rgba($color: #fff, $alpha: 0.5);
+    }
+
+    @include on-desktop {
+      grid-column: 6;
+    }
+  }
+
+  &__diagram {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / -2;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 100%;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.4;
+  }
+}

@@ -1,0 +1,93 @@
+.subscribe {
+  position: relative;
+  z-index: 1;
+  padding-block: 88px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: url('../images/subscribe/subscribe.png') center/cover no-repeat;
+    z-index: -1;
+  }
+
+  &__content {
+    @include my-grid;
+
+    row-gap: 50px;
+
+    @include on-tablet {
+      row-gap: 65px;
+    }
+
+    @include on-desktop {
+      row-gap: 72px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 10;
+    }
+  }
+
+  &__title {
+    color: #fff;
+  }
+
+  &__text {
+    color: #fff;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+  }
+
+  &__form {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      gap: 16px;
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+      grid-column: 5 / 9;
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    outline: none;
+    border: 0 !important;
+    height: 100%;
+    width: 100%;
+    padding-left: 25px;
+  }
+
+  &__arrow {
+    height: 100%;
+    background-color: $orange-bg;
+    box-sizing: border-box;
+    flex-shrink: 0;
+
+    @include hover(background-color, rgb(255, 157, 45));
+  }
+}
