@@ -1,0 +1,132 @@
+.gallery {
+  @include page-grid;
+
+  background-color: #fff;
+  margin-top: 200px;
+
+  @include sm {
+    margin-top: 88px;
+  }
+
+  @include xs {
+    margin-top: 100px;
+  }
+
+  h2 {
+    grid-column: 1/ -1;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #0f0e08;
+    margin-bottom: 56px;
+
+    @include sm {
+      margin-bottom: 48px;
+    }
+
+    @include xs {
+      margin-bottom: 40px;
+      text-align: center;
+      font-size: 36px;
+    }
+  }
+
+  &__scroll {
+    display: grid;
+    grid-column: 1/ -1;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+
+    @include sm {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 12px;
+      padding-bottom: 20px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    @include xs {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 12px;
+      padding-bottom: 20px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+
+      @include sm {
+        width: 100vw;
+        height: 543px;
+        scroll-snap-align: start;
+      }
+
+      @include xs {
+        width: 100vw;
+        height: 100vw;
+        scroll-snap-align: start;
+      }
+    }
+    .img-1 {
+      grid-column: 1 / 5;
+    }
+
+    .img-2 {
+      grid-column: 5 / 13;
+    }
+
+    .img-3 {
+      grid-column: 1 / 8;
+    }
+
+    .img-4 {
+      grid-column: 8 / 13;
+    }
+  }
+  &__dots {
+    grid-column: 1 / -1;
+    display: none;
+
+    @include sm {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    @include xs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background-color: #ccc;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+
+      &.active {
+        background-color: #0f0e08;
+      }
+    }
+  }
+}

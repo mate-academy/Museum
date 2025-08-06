@@ -1,0 +1,297 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.header {
+  background-color: #fff;
+}
+
+.header__content {
+  @include page-grid;
+
+  @include lg {
+    align-items: stretch;
+  }
+
+  @include sm {
+    align-items: stretch;
+  }
+
+  @include xs {
+    grid-column: 1/ -1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.header__left {
+  grid-column: 1 / 6;
+  display: grid;
+  justify-content: space-between;
+
+  @include sm {
+    grid-column: 1/ 3;
+  }
+
+  @include xs {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header__top {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .vertical-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    grid-column: 1 / -1;
+    transform: rotate(180deg);
+
+    @include sm {
+      display: none;
+    }
+
+    @include xs {
+      display: none;
+    }
+  }
+
+  .vertical-line {
+    width: 1px;
+    height: 65px;
+    background-color: #1a5a4c;
+  }
+
+  .burger {
+    border: none;
+    margin-top: 39px;
+    align-self: flex-start;
+    background-color: transparent;
+    cursor: pointer;
+
+    @include hover-scale(1.2);
+
+    @include xs {
+      position: absolute;
+      top: 0;
+      left: 20px;
+      z-index: 5;
+      margin-top: 27px;
+      background-color: transparent;
+    }
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #1a5a4c;
+  }
+
+  .main-title {
+    grid-column: 1 / 6;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    margin-bottom: 89px;
+    margin-top: 143px;
+
+    @include sm {
+      grid-column: 1/ 4;
+      font-size: 49px;
+      line-height: 120%;
+      width: 100%;
+      margin-top: 64px;
+      margin-bottom: 38px;
+    }
+
+    @include xs {
+      grid-column: 1/ -1;
+      font-size: 45px;
+      line-height: 100%;
+      text-align: center;
+      margin: 20px 0;
+    }
+  }
+
+  .ticket-btn {
+    grid-column: 3 / 6;
+    min-width: 250px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #1a5a4c;
+    background-color: white;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 118px;
+
+    @include hover-scale(1.1);
+
+    @include sm {
+      margin-bottom: 19px;
+      min-width: 95px;
+    }
+
+    @include xs {
+      margin-bottom: 70px;
+    }
+
+    .text {
+      flex: 1;
+      text-align: center;
+    }
+
+    .arrow {
+      background-color: #1a5a4c;
+      color: white;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    &:hover {
+      background-color: #f2f2f2;
+    }
+
+    @include sm {
+      grid-column: 1 / 4;
+      width: 100%;
+    }
+
+    @include xs {
+      grid-column: 1 / -1;
+      width: 100%;
+    }
+  }
+}
+
+.header__right {
+  position: relative;
+  grid-column: 6 / -1;
+  align-self: start;
+  margin-right: -55px;
+
+  @include sm {
+    grid-column: 4/ 7;
+    margin-right: -39px;
+  }
+
+  @include xs {
+    grid-column: 1/ -1;
+    margin-right: -20px;
+    margin-left: -20px;
+    order: 1;
+  }
+
+  .museum-image {
+    width: 100%;
+    height: 100%;
+    max-height: 655px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+
+    @include sm {
+      width: 100%;
+      height: 100%;
+      min-height: 384px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+  }
+
+  .logo {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 170px;
+    height: 72px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    color: #0f0e08;
+    z-index: 2;
+    cursor: pointer;
+
+    @include hover-scale(1.1);
+
+    .logo-part {
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background-color: blue;
+        transition: width 0.3s ease;
+      }
+    }
+
+    &:hover .logo-part::after {
+      width: 100%;
+    }
+
+    @include sm {
+      left: 0;
+      width: 220px;
+      height: 72px;
+      font-size: 36px;
+    }
+
+    @include xs {
+      top: 9px;
+      left: 45%;
+      width: 55px;
+      height: 61px;
+      font-size: 30px;
+    }
+  }
+}
+
+.menu {
+  display: none;
+  &.active {
+    display: flex;
+  }
+}

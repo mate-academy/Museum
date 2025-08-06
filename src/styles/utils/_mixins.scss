@@ -1,6 +1,90 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover-scale($_scale: 1.1) {
+  transition: transform 0.3s ease;
+
   &:hover {
-    #{$_property}: $_toValue;
+    transform: scale($_scale);
+  }
+}
+
+@mixin hover-underline-scale($_color: #0044ff, $_scale: 1.3) {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.3s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: $_color;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    transform: scale($_scale);
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == 'xs' {
+    @media (min-width: 321px) and (max-width: 639.98px) {
+      @content;
+    }
+  } @else if $breakpoint == 'sm' {
+    @media (min-width: 640px) and (max-width: 1279px) {
+      @content;
+    }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  }
+}
+
+@mixin xs {
+  @include respond('xs') {
+    @content;
+  }
+}
+
+@mixin sm {
+  @include respond('sm') {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include respond('lg') {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 55px;
+  padding-right: 55px;
+
+  @include sm {
+    grid-template-columns: repeat(6, 1fr);
+    padding-left: 39px;
+    padding-right: 39px;
+    column-gap: 30px;
+  }
+
+  @include xs {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 20px;
+    padding-right: 20px;
+    column-gap: 20px;
   }
 }
