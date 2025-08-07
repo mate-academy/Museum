@@ -1,0 +1,148 @@
+.events {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  margin-top: 20px;
+
+  @include on-tablet {
+    gap: 48px;
+    margin-top: 38px;
+
+    & > h2 {
+      align-self: flex-start;
+    }
+  }
+
+  @include on-desktop {
+    gap: 64px;
+    margin-top: 150px;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    @include on-tablet {
+      gap: 64px;
+    }
+
+    @include on-desktop {
+      gap: 104px;
+    }
+
+    &__event {
+      display: grid;
+      row-gap: 20px;
+
+      @include on-tablet {
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 40px;
+      }
+
+      @include on-desktop {
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: 30px;
+      }
+
+      &__image {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        object-position: center;
+        grid-column: 1 / -1;
+
+        @include on-desktop {
+          grid-column: 1 / 8;
+        }
+
+        @include hover(transform, scale(1.05));
+      }
+
+      &__text {
+        display: flex;
+        flex-direction: column;
+
+        @include on-tablet {
+          grid-column: 1 / 5;
+        }
+
+        @include on-desktop {
+          grid-column: 9 / -1;
+          margin-top: auto;
+          margin-bottom: auto;
+        }
+
+        &__subtitle {
+          font-family: 'IBM Plex Sans', sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 14px;
+          text-align: left;
+          color: $text-color-light;
+          display: flex;
+          flex-wrap: wrap;
+          place-content: center;
+          justify-content: space-between;
+          width: 100%;
+
+          @include on-tablet {
+            max-width: 220px;
+          }
+
+          & > .b {
+            color: $accent-color;
+          }
+        }
+
+        &__title {
+          display: flex;
+          font-family: Montserrat, sans-serif;
+          font-size: 28px;
+          line-height: 28px;
+          text-align: left;
+          margin-top: 15px;
+
+          @include on-tablet {
+            margin-top: 32px;
+          }
+
+          @include on-desktop {
+            margin-top: 30px;
+          }
+
+          &::after {
+            display: flex;
+            place-self: center;
+
+            content: '';
+            background-color: $accent-color-orange;
+            aspect-ratio: 1 / 1;
+            width: 10px;
+            margin-left: 10px;
+
+            @include on-tablet {
+              width: 15px;
+              margin-left: 15px;
+            }
+          }
+        }
+
+        &__description {
+          font-family: 'IBM Plex Sans', sans-serif;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 24px;
+          text-align: left;
+          color: $text-color-medium;
+          margin-top: 10px;
+
+          @include on-tablet {
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+  }
+}

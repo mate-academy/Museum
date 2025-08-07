@@ -1,0 +1,53 @@
+.gallery {
+  display: none !important;
+  flex-direction: column;
+  gap: 56px;
+  margin-top: 252px;
+
+  & > h2 {
+    text-align: left;
+  }
+
+  &__content {
+    display: none;
+    grid-template-columns: repeat(12, 1fr);
+    gap: inherit;
+    row-gap: 30px;
+
+    &__image {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+
+      @include hover(transform, scale(1.03));
+
+      &--1 {
+        height: 600px;
+        grid-column: 1 / 5;
+      }
+
+      &--2 {
+        height: 600px;
+        grid-column: 5 / -1;
+      }
+
+      &--3 {
+        height: 360px;
+        grid-column: 1 / 9;
+      }
+
+      &--4 {
+        height: 360px;
+        grid-column: 9 / -1;
+      }
+    }
+
+    @include on-desktop {
+      display: grid;
+    }
+  }
+
+  @include on-desktop {
+    display: flex !important;
+  }
+}
