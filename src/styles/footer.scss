@@ -1,0 +1,278 @@
+.footer {
+  margin-top: 48px;
+
+  @include sm {
+    margin-top: 51px;
+  }
+
+  @include xs {
+    margin-top: 50px;
+  }
+}
+
+.footer-container {
+  @include page-grid;
+
+  .logo-block {
+    grid-column: 1/ 2;
+
+    @include sm {
+      grid-column: 1/ 2;
+    }
+
+    @include xs {
+      grid-column: 1/ -1;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      color: #0f0e08;
+      margin-bottom: 62px;
+      cursor: pointer;
+
+      @include hover-scale(1.1);
+
+      .logo-part {
+        position: relative;
+        display: inline-block;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 0%;
+          height: 2px;
+          background-color: blue;
+          transition: width 0.3s ease;
+        }
+      }
+
+      &:hover .logo-part::after {
+        width: 100%;
+      }
+
+      @include xs {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .footer-block {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #0f0e08;
+
+    .title-1 {
+      @include hover-underline-scale;
+
+      display: flex;
+      width: fit-content;
+      cursor: pointer;
+      color: inherit;
+      text-decoration: none;
+    }
+    strong {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 600;
+    }
+  }
+
+  .footer-title {
+    line-height: 141%;
+    margin-bottom: 20px;
+  }
+
+  .weekend {
+    margin-top: 20px;
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    .face {
+      @include hover-underline-scale;
+    }
+
+    .inst {
+      @include hover-underline-scale;
+    }
+  }
+
+  .schedule {
+    grid-column: 3/ 5;
+
+    @include sm {
+      grid-column: 2/ 4;
+    }
+
+    @include xs {
+      grid-column: 1/ 2;
+    }
+  }
+
+  .contacts {
+    grid-column: 5/ 7;
+
+    @include sm {
+      grid-column: 4/ 6;
+    }
+
+    @include xs {
+      grid-column: 2/ -1;
+    }
+  }
+
+  .scroll-to-top {
+    display: none;
+
+    @include xs {
+      display: grid;
+      grid-column: 2/ -1;
+      justify-self: end;
+    }
+  }
+
+  .footer-divider {
+    grid-column: 7 / 8;
+    position: relative;
+
+    @include sm {
+      grid-column: 2 / 6;
+      height: 1px;
+      position: relative;
+      background-color: black;
+      margin: 64px 0;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    @include xs {
+      grid-column: 1/ -1;
+      height: 1px;
+      position: relative;
+      background-color: black;
+      margin: 20px 0 40px;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 260px;
+      left: 50%;
+      width: 1px;
+      background-color: black;
+      transform: translateX(-50%);
+    }
+  }
+
+  .gallery-1 {
+    grid-column: 8/ 10;
+
+    @include sm {
+      grid-column: 2/ 4;
+    }
+
+    @include xs {
+      grid-column: 1/ 2;
+    }
+  }
+
+  .about {
+    grid-column: 10/ 12;
+
+    @include sm {
+      grid-column: 4/ 6;
+    }
+
+    @include xs {
+      grid-column: 2/ -1;
+    }
+  }
+
+  .footer-bottom {
+    display: grid;
+    grid-column: 1/ -1;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 141%;
+    letter-spacing: 0%;
+    color: #0f0e08;
+    margin-top: 87px;
+    margin-bottom: 35px;
+
+    @include sm {
+      display: grid;
+      grid-column: 1/ -1;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
+      margin-top: 120px;
+    }
+
+    @include xs {
+      grid-column: 1/ -1;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .copy {
+      grid-column: 1/ 4;
+
+      @include sm {
+        grid-column: 1/ 3;
+      }
+
+      @include xs {
+        grid-column: 1/ -1;
+      }
+    }
+
+    .design {
+      grid-column: 11/ 13;
+
+      @include sm {
+        grid-column: 5/ 7;
+        justify-self: end;
+      }
+
+      @include xs {
+        grid-column: 1/ -1;
+      }
+    }
+  }
+}
+
+.contacts a {
+  color: inherit;
+
+  @include hover-underline-scale;
+}
+
+.title-2 {
+  @include hover-underline-scale;
+}
