@@ -1,0 +1,139 @@
+.event {
+  @include on-desktop {
+    @include page-grid;
+  }
+
+  &__picture {
+    width: clamp(280px, 87vw, 700px);
+    height: clamp(210px, 65vw, 520px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+      width: 53vw;
+      max-width: 670px;
+    }
+
+    &--first {
+      background-image: url(../images/events-first.png);
+    }
+
+    &--second {
+      background-image: url(../images/events-second.png);
+    }
+  }
+
+  &__event-attributes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+
+    @include on-tablet {
+      gap: 15px;
+      margin-top: 40px;
+      width: 460px;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+      justify-content: center;
+      margin-top: 0;
+      width: 370px;
+    }
+  }
+
+  &__date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      width: 220px;
+    }
+
+    @include on-desktop {
+      width: 270px;
+    }
+  }
+
+  &__exhibition {
+    margin: 0;
+    font-family: $ibm-plex-font;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: #687480;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &__period {
+    margin: 0;
+    font-family: $ibm-plex-font;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1A5A4C;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    margin: 0;
+    width: max-content;
+    font-family: $monserrat-font;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 28px;
+    color: $section-title-color;
+
+    &::after{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 12px;
+      right: -20px;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+    }
+
+    @include on-tablet {
+      margin-top: 15px;
+      font-size: 36px;
+      line-height: 36px;
+
+      &::after {
+        right: -40px;
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    @include on-desktop {
+      &::after {
+        right: -30px;
+      }
+    }
+  }
+
+  &__description {
+    margin: 0;
+    font-family: $ibm-plex-font;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4E4E4E;
+  }
+}
