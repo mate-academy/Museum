@@ -211,8 +211,8 @@ html {
 }
 
 .header__left .ticket-btn:hover {
-  background-color: #f2f2f2;
   transform: scale(1.1);
+  background-color: #f2f2f2;
 }
 
 @media (min-width: 640px) and (max-width: 1279px) {
@@ -318,6 +318,15 @@ html {
   transition: transform 0.3s ease;
 }
 
+.header__right .logo:hover {
+  transform: scale(1.1);
+}
+
+.header__right .logo .logo-part {
+  position: relative;
+  display: inline-block;
+}
+
 .header__right .logo .logo-part::after {
   content: '';
   position: absolute;
@@ -338,15 +347,6 @@ html {
   height: 2px;
   background-color: blue;
   transition: width 0.3s ease;
-}
-
-.header__right .logo:hover {
-  transform: scale(1.1);
-}
-
-.header__right .logo .logo-part {
-  position: relative;
-  display: inline-block;
 }
 
 .header__right .logo:hover .logo-part::after {
@@ -485,6 +485,10 @@ html {
   text-decoration: none;
 }
 
+.contacts a:hover {
+  transform: scale(1.3);
+}
+
 .menu .menu__list a:hover {
   text-decoration: none;
 }
@@ -495,6 +499,9 @@ html {
 
 .menu .menu__list--right {
   grid-column: 4/6;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
 }
 
 .menu .menu-divider {
@@ -516,6 +523,11 @@ html {
 .menu .menu__info .schedule {
   grid-column: 8/10;
   align-self: start;
+}
+
+.footer-container .footer-block strong {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
 }
 
 .menu .menu__info .schedule strong {
@@ -593,11 +605,6 @@ html {
     color: white;
     text-decoration: none;
   }
-
-  .contacts a:hover {
-    transform: scale(1.3);
-  }
-
   .menu .menu__list a:hover {
     text-decoration: underline;
   }
@@ -695,6 +702,9 @@ html {
   }
   .menu .menu__list--right {
     margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
   .menu .menu-divider {
     display: block;
@@ -715,12 +725,6 @@ html {
   .menu .menu__info .schedule {
     width: 100%;
   }
-
-  .footer-container .footer-block strong {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 600;
-  }
-
   .menu .menu__info .schedule strong {
     display: block;
     margin-bottom: 10px;
@@ -795,6 +799,94 @@ html {
   }
 }
 
+.event .event-info {
+  grid-column: 9/13;
+}
+
+@media (min-width: 640px) and (max-width: 1279px) {
+  .event .event-info {
+    grid-column: 1/5;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 639.98px) {
+  .event .event-info {
+    grid-column: 1/-1;
+  }
+}
+
+.event .event-info .event-type {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #687480;
+  margin-right: 30px;
+}
+
+.event .event-info .event-dates {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #1a5a4c;
+}
+
+.event .event-info .event-title {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #0f0e08;
+  margin: 30px 0 15px;
+}
+
+@media (min-width: 321px) and (max-width: 639.98px) {
+  .event .event-info .event-title {
+    font-size: 28px;
+    margin: 10px 0;
+  }
+}
+
+.event .event-info .event-description {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #4e4e4e;
+}
+
+@media (min-width: 321px) and (max-width: 639.98px) {
+  .event .event-info .event-description {
+    margin-bottom: 60px;
+  }
+}
+
+.event .event-info .event-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  line-height: 1;
+}
+
+.event .event-info .event-marker {
+  margin-top: 23px;
+  width: 15px;
+  height: 15px;
+  background-color: #f14a27;
+  flex-shrink: 0;
+}
+
+@media (min-width: 321px) and (max-width: 639.98px) {
+  .event .event-info .event-marker {
+    margin-top: 5px;
+  }
+}
+
 .event .event-image-1 {
   grid-column: 1/-1;
   width: 99vw;
@@ -806,15 +898,6 @@ html {
     height: 210px;
     grid-column: 1/-1;
   }
-}
-
-.event-info .event-dates {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 150%;
-  letter-spacing: 0%;
-  color: #1a5a4c;
 }
 
 .event .event--overlay {
@@ -873,16 +956,6 @@ html {
   }
 }
 
-.event-info .event-title {
-  font-family: Montserrat, sans-serif;
-  font-weight: 400;
-  font-size: 36px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  color: #0f0e08;
-  margin: 30px 0 15px;
-}
-
 .event .event--overlay .event-title {
   grid-column: 2/6;
   margin: 16px 0 50px;
@@ -913,75 +986,6 @@ html {
   .event-image {
     grid-column: 1/-1;
     padding-bottom: 20px;
-  }
-}
-
-.event-info {
-  grid-column: 9/13;
-}
-
-@media (min-width: 640px) and (max-width: 1279px) {
-  .event-info {
-    grid-column: 1/5;
-  }
-}
-
-@media (min-width: 321px) and (max-width: 639.98px) {
-  .event-info {
-    grid-column: 1/-1;
-  }
-}
-
-.event-info .event-type {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  color: #687480;
-  margin-right: 30px;
-}
-
-@media (min-width: 321px) and (max-width: 639.98px) {
-  .event-info .event-title {
-    font-size: 28px;
-    margin: 10px 0;
-  }
-}
-
-.event-info .event-description {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 150%;
-  letter-spacing: 0%;
-  color: #4e4e4e;
-}
-
-@media (min-width: 321px) and (max-width: 639.98px) {
-  .event-info .event-description {
-    margin-bottom: 60px;
-  }
-}
-
-.event-info .event-title-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  line-height: 1;
-}
-
-.event-info .event-marker {
-  margin-top: 23px;
-  width: 15px;
-  height: 15px;
-  background-color: #f14a27;
-  flex-shrink: 0;
-}
-
-@media (min-width: 321px) and (max-width: 639.98px) {
-  .event-info .event-marker {
-    margin-top: 5px;
   }
 }
 
@@ -1306,6 +1310,7 @@ html {
   grid-column: 1/6;
   padding: 12px;
   height: 70px;
+  outline: none;
 }
 
 @media (min-width: 640px) and (max-width: 1279px) {
