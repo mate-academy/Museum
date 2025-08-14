@@ -1,4 +1,87 @@
+html {
+  scroll-behavior: smooth;
+}
+
 %h1 {
   font-family: Roboto, sans-serif;
   font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+p,
+a {
+  font-family: 'IBM Plex Sans', serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: $main-text-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Montserrat, serif;
+  font-weight: 400;
+  color: $main-text-color;
+  line-height: 100%;
+  font-size: 14px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 36px;
+  color: $main-text-color;
+  text-align: center;
+
+  @include on-tablet {
+    font-size: 48px;
+    text-align: left;
+  }
+}
+
+.logo {
+  position: relative;
+  font-family: Montserrat, serif;
+  font-weight: 700;
+  font-size: 30px;
+
+  text-transform: uppercase;
+
+  color: $main-text-color;
+  text-align: center;
+  line-height: 100%;
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: $main-text-color;
+    display: block;
+    position: absolute;
+    bottom: -8px;
+    border-radius: 4px;
+
+    transition: transform 0.3s;
+    transform: scale(0);
+    transform-origin: center;
+  }
+  &:hover::after {
+    transform: scale(1);
+  }
+
+  // &:hover{
+  //   color: $helper-text-color;
+
+  // }
 }
