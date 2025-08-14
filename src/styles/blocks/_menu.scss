@@ -1,0 +1,141 @@
+.aside-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.3s;
+  transform: translateY(-100%);
+  pointer-events: none;
+  z-index: 1;
+
+  &:target {
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  &--position {
+    background-color: rgba(44, 44, 44, 0.6);
+    box-sizing: border-box;
+    height: 100vh;
+  }
+
+  &__content {
+    width: 100%;
+    background-color: $main-color;
+  }
+
+  &__content-container {
+    padding-top: 27px;
+    padding-bottom: 27px;
+
+    @include on-tablet {
+      display: flex;
+      padding-top: 39px;
+      padding-bottom: 40px;
+    }
+
+    @include on-desktop {
+      padding-top: 40px;
+      padding-bottom: 48px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    gap: 28px;
+    padding-bottom: 24px;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100%;
+
+      position: absolute;
+      bottom: 0;
+      background-color: #ffffff80;
+    }
+
+    @include on-tablet {
+      padding-right: 38px;
+      padding-bottom: 0;
+      gap: 38px;
+
+      &::after {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 1px;
+
+        position: absolute;
+        right: 0;
+        background-color: #ffffff80;
+      }
+    }
+
+    @include on-desktop {
+      gap: 102px;
+      padding-right: 102px;
+    }
+  }
+
+  &__bottom {
+    padding-top: 24px;
+
+    @include on-tablet {
+      padding-left: 38px;
+      padding-top: 0;
+    }
+
+    @include on-desktop {
+      padding-left: 102px;
+    }
+    &--conteiner {
+      @include on-tablet {
+        display: flex;
+        align-items: flex-end;
+        gap: 26px;
+      }
+
+      @include on-desktop {
+        gap: 30px;
+      }
+    }
+
+    &--title {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19.69px;
+      color: $color-white;
+      margin-bottom: 20px;
+    }
+
+    &--list {
+      margin-bottom: 16px;
+
+      @include on-tablet {
+        margin-bottom: 0;
+      }
+    }
+
+    &--item {
+      color: $color-white;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+    }
+
+    &--ite {
+      width: 144px;
+
+      @include on-desktop {
+        width: 170px;
+      }
+    }
+
+    &--item-strong {
+      font-weight: 600;
+    }
+  }
+}
