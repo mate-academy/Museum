@@ -1,0 +1,85 @@
+.menu {
+  box-sizing: border-box;
+
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: $green-pea;
+  }
+
+  &__content {
+    @include page-grid;
+
+    gap: 49px;
+    padding-block: 27px;
+
+    @include on-tablet {
+      padding-block: 39px 40px;
+      gap: 30px;
+    }
+
+    @include on-desktop {
+      padding-block: 40px 48px;
+    }
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+    display: flex;
+    position: relative;
+    width: 100%;
+    gap: 28px;
+
+    @include on-tablet {
+      grid-column: span 3;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      gap: 102px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      opacity: 50%;
+      width: 100%;
+      height: 1px;
+      bottom: -24px;
+      left: 0;
+
+      @include on-tablet {
+        position: relative;
+        width: 1px;
+        height: 100%;
+        top: 0;
+        bottom: auto;
+        left: auto;
+      }
+
+      @include on-desktop {
+        right: -38px;
+      }
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+
+    @include on-tablet {
+      grid-column: span 3;
+      gap: 26px;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / 12;
+      gap: 30px;
+    }
+  }
+}

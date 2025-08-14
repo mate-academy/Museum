@@ -1,0 +1,33 @@
+.page {
+  scroll-behavior: smooth;
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
+
+.page__body {
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 1280px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.page__menu {
+  position: fixed;
+  inset: 0;
+  background-color: #000000bf;
+  pointer-events: none;
+  opacity: 0;
+  width: 100vw;
+  z-index: 1000;
+  transition: all $animation-duration;
+  transform: translateY(-100%);
+
+  &:target {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+}
