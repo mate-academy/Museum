@@ -1,0 +1,177 @@
+.menu {
+  color: #fff;
+  font-family: 'IBM Plex Sans', sans-serif;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    z-index: 50;
+
+    height: 100vh;
+    width: 100vw;
+    background-color: #18181a;
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity $effectDuration ease;
+
+    &--visible {
+      opacity: 0.5;
+      visibility: visible;
+    }
+  }
+
+  &__content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    background-color: #1a5a4c;
+    opacity: 0;
+    transition: all $effectDuration;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    @include page-grid;
+
+    gap: 24px;
+    padding: 27px 20px;
+    box-sizing: border-box;
+
+    @include on-tablet {
+      height: 225px;
+      padding: 27px 40px;
+      column-gap: 15px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    @include on-desktop {
+      height: 233px;
+      padding: 27px 55px;
+    }
+
+    &--open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  &__close {
+    all: unset;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 27px;
+    left: 20px;
+
+    @include smooth-scale(1.1);
+    @include background-image(
+      '../images/icons/icon-close.png',
+      contain,
+      center,
+      no-repeat
+    );
+  }
+
+  &__nav {
+    display: flex;
+    gap: 28px;
+    border-bottom: 1px solid #fff;
+    grid-column: 1 / -1;
+    padding: 0 10px 24px 52px;
+
+    @include on-tablet {
+      padding-left: 62px;
+      border-bottom: none;
+      border-right: 1px solid #fff;
+      grid-column: 1 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__nav-item {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
+    position: relative;
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: #fff;
+
+      transform-origin: left;
+      transition: transform $effectDuration;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &__schedule {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 7 / 10;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 9;
+    }
+  }
+
+  &__weekends {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 10 / -1;
+      padding-top: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -2;
+    }
+  }
+
+  &__weekends-txt {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    margin: 0;
+  }
+
+  &__weekends-bold {
+    font-weight: 600;
+  }
+}
