@@ -1,0 +1,148 @@
+.page {
+  &__menu {
+    background-color: $color-green;
+    height: auto;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    display: grid;
+    transition: opacity 0.3s ease-in-out;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+  }
+
+  &__grid {
+    @include page-grid;
+
+    padding: 27px 0;
+    font-family: $font-ibm-plex-sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    color: $color-white;
+
+    @include on-tablet {
+      padding: 40px 0;
+    }
+
+    @include on-desktop {
+      padding: 40px 0 48px;
+    }
+  }
+}
+
+.menu {
+  overflow: hidden;
+
+  &__close {
+    background-image: url(../images/close.svg);
+    height: 24px;
+    width: 24px;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    left: 20px;
+    top: 27px;
+
+
+    @include on-tablet {
+      left: 34px;
+      top: 39px;
+    }
+
+    @include on-desktop {
+      left: 56px;
+      top: 40px;
+    }
+  }
+
+  &__activites {
+    grid-column: 1/-1;
+    display: flex;
+    gap: 28px;
+    flex-direction: row;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $color-white-border;
+
+    @include on-tablet {
+      grid-column: 1/4;
+      border-bottom: none;
+      border-right: 1px solid $color-white-border;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__graf {
+    grid-column: 1/-1;
+    padding-top: 24px;
+
+    @include on-tablet {
+      grid-column: 4/-1;
+      padding-top: 0;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+
+    }
+
+  }
+
+  &__work {
+    padding-top: 20px;
+
+    @include on-tablet {
+      display: flex;
+      gap: 38px;
+    }
+  }
+
+  &__days {
+    @include on-tablet {
+      width: 170px;
+    }
+  }
+
+  &__weekend {
+    padding-top: 16px;
+
+    @include on-tablet {
+      padding-top: 0;
+      width: 144px;
+
+    }
+  }
+
+  &__nav {
+    color: $color-white;
+    font-family: $font-ibm-plex-sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+  }
+
+}
+
+.navigation {
+  display: flex;
+  gap: 24px;
+  width: 100px;
+}
+
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+  background-color: aqua;
+
+}
