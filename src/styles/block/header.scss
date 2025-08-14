@@ -1,0 +1,223 @@
+.header {
+  @include page-grid;
+
+  &__img {
+    grid-area: 1/1 / auto/-1;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    background-image: url(../images/header/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 320px;
+
+    @include on-tablet {
+      grid-area: 1/4 / auto/-1;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      grid-area: 1/6 / auto/-1;
+      height: 725px;
+    }
+
+    &--logo {
+      grid-column: 3/4;
+      padding-top: 10px;
+
+      @include on-tablet {
+        grid-column: 2/3;
+      }
+
+      &-svg {
+        @include hover(transform, scale(1.2));
+      }
+    }
+
+    &--menu {
+      display: block;
+      grid-area: 1/1 / auto/2;
+      width: 24px;
+      height: 24px;
+      margin-left: 20px;
+      padding-top: 25px;
+
+      @include hover(transform, scale(1.3));
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    grid-area: 2/1 / auto/-1;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    @include on-tablet {
+      grid-area: 1/1 / auto/6;
+    }
+
+    &--menu {
+      display: none;
+      width: 24px;
+      height: 24px;
+
+      @include on-tablet {
+        display: block;
+        grid-area: 1/1 / auto/2;
+        margin-left: 34px;
+        padding-top: 40px;
+      }
+
+      @include on-desktop {
+        margin-left: 55px;
+      }
+
+      &-svg {
+        @include hover(transform, scale(1.2));
+      }
+    }
+
+    &--title {
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      font-size: 45px;
+      line-height: 100%;
+      text-align: center;
+      color: rgba(0, 0, 0, 1);
+
+      width: 280px;
+      height: 93px;
+
+      padding: 20px 0;
+      grid-area: 1/1 / auto/-1;
+      margin: auto;
+
+      @include on-tablet {
+        font-size: 54px;
+        line-height: 120%;
+        text-align: left;
+
+        width: 340px;
+        height: 130px;
+        margin: 120px 0 38px 34px;
+        padding: 0;
+      }
+
+      @include on-desktop {
+        width: 500px;
+        margin: 206px 30px 89px 55px;
+      }
+    }
+
+    &--button {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 280px;
+      height: 50px;
+      border: 1px solid $c-carbon;
+      grid-area: 2/1 / auto/-1;
+      margin: auto;
+      transition: background-color 0.4s ease-in-out;
+
+      @include on-tablet {
+        width: 270px;
+        height: 70px;
+        margin-left: 38px;
+        padding: 0;
+      }
+
+      @include on-desktop {
+        position: absolute;
+        top: 447px;
+        left: 200px;
+      }
+
+      &-text {
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+        color: rgba(15, 14, 8, 1);
+        margin: auto;
+      }
+
+      &-arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $c-carbon;
+        width: 50px;
+        height: 50px;
+        transition: transform 0.4s ease;
+
+        @include on-tablet {
+          width: 70px;
+          height: 70px;
+        }
+
+        &-right {
+          background-image: url(../images/logo/keyboard_arrow_right.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+
+  &__container {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: absolute;
+      top: 522px;
+      left: 5px;
+      transform: rotate(-90deg);
+    }
+
+    &::before {
+      content: '';
+      background-color: #1a5a4c;
+      width: 70px;
+      margin-bottom: 5px;
+      margin-right: 20px;
+      display: inline-block;
+      height: 2px;
+      transition: transform 0.3s;
+    }
+
+    &--link {
+      text-decoration: none;
+      color: rgba(104, 116, 128, 1);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+
+      &:hover {
+        color: $c-carbon;
+        transition: transform 0.3s ease-in-out;
+      }
+    }
+  }
+}
+
+.header__content--button:hover {
+  background-color: $c-carbon;
+}
+
+.header__content--button:hover .header__content--button-text {
+  color: #fff;
+}
+
+.header__content--button:hover .header__content--button-arrow {
+  transform: rotate(180deg);
+}
