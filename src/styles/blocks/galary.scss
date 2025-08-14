@@ -1,0 +1,150 @@
+.galary {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 39px;
+  }
+
+  @include on-desktop {
+    padding-inline: 55px;
+  }
+
+  &__collection {
+    display: flex;
+    gap: 30px;
+    overflow: hidden;
+
+    @include on-desktop {
+      @include page-grid;
+
+      row-gap: 30px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    text-align: center;
+    grid-column: 1 / 3;
+
+    @include on-tablet {
+      margin-bottom: 48px;
+      text-align: left;
+      grid-column: 1 / 7;
+    }
+
+    @include on-desktop {
+      margin-bottom: 30px;
+      text-align: left;
+      grid-column: 1 / 13;
+    }
+  }
+
+  &__image {
+    object-fit: cover;
+    transition-duration: $effect-duration;
+
+    &--1 {
+      height: 410px;
+      width: 100%;
+
+      grid-column: 1 / 3;
+
+      @include on-tablet {
+        grid-column: 1 / 4;
+        height: 543px;
+        content: url(../images/Ukrainian-woman-in-national-clothe_tablet.svg);
+      }
+
+      @include on-desktop {
+        height: 600px;
+        grid-column: 1 / 5;
+        content: url(../images/Ukrainian-woman-in-national-clothe_desktop.svg);
+      }
+    }
+
+    &--2 {
+      height: 410px;
+      width: 100%;
+
+      @include on-tablet {
+        height: 543px;
+        grid-column: 4 / 7;
+        display: block;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    &--3 {
+      height: 410px;
+      width: 100%;
+
+      @include on-tablet {
+        height: 543px;
+      }
+
+      @include on-desktop {
+        height: 600px;
+        display: block;
+        grid-column: 5 / 13;
+      }
+    }
+
+    &--4 {
+      height: 360px;
+      width: 100%;
+      display: none;
+
+      @include on-tablet {
+        display: none;
+      }
+
+      @include on-desktop {
+        height: 360px;
+        grid-column: 1 / 9;
+        display: block;
+      }
+    }
+
+    &--5 {
+      height: 410px;
+      width: 100%;
+
+      @include on-tablet {
+        height: 543px;
+      }
+
+      @include on-desktop {
+        height: 360px;
+        grid-column: 9 / 13;
+        display: block;
+      }
+    }
+
+    @include hover-scale;
+  }
+
+  &__scroll {
+    display: flex;
+    justify-content: center;
+
+    &--icon {
+      width: 102px;
+      height: 9px;
+
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      @include on-tablet {
+        margin-top: 32px;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+  }
+}
