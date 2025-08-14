@@ -1,0 +1,134 @@
+.footer {
+  @include content-padding-inline;
+
+  display: grid;
+  row-gap: 80px;
+  padding-block: 50px 56px;
+
+  @include on-tablet {
+    row-gap: 120px;
+    padding-bottom: 51px 36px;
+  }
+
+  @include on-desktop {
+    row-gap: 87px;
+    padding-bottom: 47px 35px;
+  }
+
+  &__top {
+    @include page-grid;
+
+    row-gap: 40px;
+
+    @include on-tablet {
+      row-gap: 64px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      gap: 62px;
+      grid-column: span 1;
+      flex-direction: column;
+    }
+  }
+
+  &__logo {
+    width: fit-content;
+  }
+
+  &__social-icons {
+    gap: 21px;
+    display: flex;
+
+    @include on-tablet {
+      justify-content: space-between;
+    }
+  }
+
+  &__info {
+    position: relative;
+    grid-column: 1 / -1;
+
+    display: grid;
+    column-gap: $phone-column-gap;
+    grid-template-columns: repeat(2, 1fr);
+
+    padding-bottom: 30px;
+
+    @include on-tablet {
+      padding-bottom: 0;
+      grid-column: 2 / -2;
+      column-gap: $tablet-column-gap;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 7;
+      column-gap: $desktop-column-gap;
+    }
+  }
+
+  &__up-button {
+    right: 0;
+    bottom: -20px;
+    position: absolute;
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: rgbs($secondary-color, 0.5);
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      width: 1px;
+      height: 100%;
+      margin: auto;
+      grid-column: 7 / 8;
+    }
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / 12;
+    }
+  }
+
+  &__bottom {
+    display: grid;
+    row-gap: 10px;
+
+    font-size: 12px;
+    color: $main-color;
+    font-weight: 300;
+    line-height: 17px;
+    text-align: center;
+
+    @include on-tablet {
+      grid-auto-flow: column;
+      justify-content: space-between;
+
+      & :first-child {
+        order: 2;
+      }
+    }
+  }
+}

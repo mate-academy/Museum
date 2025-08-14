@@ -1,0 +1,85 @@
+.lecture {
+  position: relative;
+
+  &__image {
+    width: 100%;
+    box-sizing: border-box;
+
+    @include on-tablet {
+      @include content-padding-inline;
+    }
+
+    @include on-desktop {
+      padding-inline: 0;
+    }
+  }
+
+  &__grid {
+    @include page-grid;
+    @include content-padding-inline;
+  }
+
+  &__content {
+    display: grid;
+    row-gap: 20px;
+    grid-column: 1 / -1;
+
+    padding-block: 20px;
+
+    width: 100%;
+    height: fit-content;
+
+    transform: translateY(-50%);
+
+    background-color: #fff;
+    box-shadow: 0 2px 0 0 rgba($secondary-color, 0.25);
+
+    @include on-tablet {
+      row-gap: 16px;
+
+      padding-inline: 55px;
+      transform: translate(-55px, -50%);
+
+      grid-column: 2 / -2;
+      padding-block: 45px 50px;
+    }
+
+    @include on-desktop {
+      padding-inline: 0;
+      transform: translate(0, -50%);
+
+      column-gap: 30px;
+      grid-column: 4 / 10;
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  &__title {
+    margin: 0;
+
+    text-align: center;
+
+    @include on-tablet {
+      gap: 12px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / -2;
+    }
+  }
+
+  &__date {
+    grid-column: 1 / -1;
+    padding-inline: 21px;
+
+    @include on-tablet {
+      padding-inline: 0;
+      margin-bottom: 15px;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / -2;
+    }
+  }
+}

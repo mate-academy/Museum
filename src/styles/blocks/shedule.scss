@@ -1,0 +1,43 @@
+.shedule {
+  display: grid;
+  row-gap: 16px;
+  grid-template-areas: 'tittle' 'work-days' 'weekends';
+
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+
+  @include on-tablet {
+    gap: 20px 30px;
+    grid-template-areas: 'tittle nothing' 'work-days weekends';
+  }
+
+  &--footer {
+    color: $main-color;
+
+    @include on-tablet {
+      grid-template-areas: 'tittle' 'work-days' 'weekends';
+    }
+  }
+
+  &__work-days {
+    text-wrap: nowrap;
+    grid-area: work-days;
+  }
+
+  &__weekends {
+    grid-area: weekends;
+  }
+
+  &__shedule {
+    display: grid;
+    row-gap: 20px;
+
+    &-weekends {
+      @include on-desktop {
+        align-self: flex-end;
+      }
+    }
+  }
+}
