@@ -1,0 +1,127 @@
+[class*='__container'] {
+  max-width: rem($max-width-container);
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding: 0 rem($padding-container-mobile-small);
+
+  @media (min-width: $mobile) {
+    padding: 0 rem($padding-container-mobile);
+  }
+
+  @media (min-width: $tablet) {
+    padding: 0 rem($padding-container);
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: rem(50);
+  width: rem(50);
+  flex: 0 0 rem(50);
+  background-color: $main-bg;
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: background-color $duration;
+
+    &::before {
+      transition: color $duration;
+    }
+
+    &:hover {
+      background-color: $orange-bg;
+
+      &::before {
+        color: #000;
+      }
+    }
+  }
+
+  @media (min-width: $mobile) {
+    height: rem(70);
+    width: rem(70);
+    flex: 0 0 rem(70);
+  }
+
+  &::before {
+    font-size: rem(12);
+    color: $text-light;
+  }
+
+  &--orange {
+    background-color: $orange-bg;
+
+    &::before {
+      color: #000;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $main-bg;
+
+        &::before {
+          color: $text-light;
+        }
+      }
+    }
+  }
+}
+
+.title {
+  font-family: $second-family;
+  font-weight: 700;
+  font-size: rem(36);
+  line-height: 100%;
+  text-align: center;
+  color: $text-dark;
+
+  @media (min-width: $mobile) {
+    font-size: rem(58);
+  }
+}
+
+.sub-title {
+  font-family: $second-family;
+  font-size: rem(28);
+  line-height: 100%;
+  color: $text-dark;
+
+  &--icon {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: rem(16);
+
+    &::before {
+      font-size: rem(15);
+      color: $orange-bg;
+    }
+  }
+}
+
+input:-internal-autofill-selected,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: inset 0 0 0 50px #fff;
+  -webkit-text-fill-color: #687480;
+}
+
+.input {
+  font-family: $second-family;
+  font-size: rem(14);
+  line-height: 100%;
+  color: #687480;
+  padding: rem(18) rem(24);
+  width: 100%;
+
+  @media (min-width: $mobile) {
+    padding: rem(28) rem(24);
+  }
+}
