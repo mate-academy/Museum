@@ -1,6 +1,46 @@
+body {
+  --column-count: 2;
+  --column-width: 130px;
+  --column-gap: 20px;
+
+  @media (min-width: 768px) {
+    --column-count: 6;
+    --column-width: 90px;
+    --column-gap: 30px;
+  }
+
+  @media (min-width: 1280px) {
+    --column-count: 12;
+    --column-width: 70px;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin secondary-font {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+}
+
+@mixin on-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin grid-container {
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), var(--column-width));
+  column-gap: var(--column-gap);
 }
