@@ -1,0 +1,78 @@
+.page {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  scroll-behavior: smooth;
+  min-width: 320px;
+  position: relative;
+  overflow-x: hidden;
+
+  &:has(&__menu.is-active) {
+    overflow-y: hidden;
+  }
+
+  &:has(.is-active)::after {
+    top: 0;
+    z-index: 0;
+    position: absolute;
+    content: '';
+    height: 110vh;
+    width: 100%;
+    background-color: $bg-dark-color;
+    opacity: 0.5;
+  }
+
+  &__body {
+    background: $bg-light-color;
+    color: $text-dark-color;
+    min-width: 320px;
+  }
+
+  &__menu {
+    min-width: 320px;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+
+    opacity: 0;
+    transform: translateY(-100%);
+
+    @include transition(all);
+
+    &.is-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__to-top {
+    display: none;
+    border: 1px solid $primary-decor-color;
+    background-image: url('../assets/icons/carbon_arrow-up.svg');
+    background-color: $bg-light-color;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-sizing: border-box;
+    z-index: 20;
+
+    position: fixed;
+    right: $content-padding--s;
+    bottom: 100px;
+
+    &:hover {
+      background-image: url('../assets/icons/carbon_arrow-up-light.svg');
+    }
+
+    @include hover(background-color, $primary-decor-color);
+
+    @include on-phone {
+      display: block;
+    }
+  }
+}
