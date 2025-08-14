@@ -1,0 +1,58 @@
+.gallery {
+  &__title {
+    margin-bottom: 56px;
+
+    @include tablet {
+      margin-bottom: 48px;
+    }
+
+    @include big-phone {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__wrap-images {
+    display: grid;
+
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__item {
+    @include hover(transform, scale(1.03));
+
+    @include tablet {
+      @include hover(transform, none);
+    }
+  }
+
+  &__item:nth-child(-n + 2) {
+    height: 600px;
+  }
+
+  &__item:nth-child(n + 3) {
+    height: 360px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__swiper {
+    margin-left: $container-padding-tablet;
+
+    @include big-phone {
+      margin-left: $container-padding-big-phone;
+    }
+
+    @media (min-width: 1051px) {
+      display: none;
+    }
+  }
+}

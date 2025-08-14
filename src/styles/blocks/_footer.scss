@@ -1,0 +1,182 @@
+.footer {
+  &__block-top {
+    max-width: 964px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    @include small-tablet {
+      flex-direction: column;
+      gap: 129px;
+    }
+
+    @include big-phone {
+      gap: 111px;
+    }
+  }
+
+  &__wrapper-information {
+    max-width: 577px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @include small-tablet {
+      max-width: 550px;
+      gap: 15px;
+    }
+
+    @include big-phone {
+      max-width: none;
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  &__logo-social {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    gap: 62px;
+
+    @include big-phone {
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      gap: 0;
+    }
+  }
+
+  &__social {
+    display: flex;
+    justify-content: space-between;
+    gap: 22px;
+
+    @include small-tablet {
+      gap: 32px;
+    }
+
+    @include big-phone {
+      gap: 20px;
+    }
+  }
+
+  &__social--hover {
+    transition: $transition-value-default;
+  }
+
+  &__social-link:hover .footer__social--hover {
+    fill: $orange-color;
+  }
+
+  &__info {
+    max-width: 373px;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    position: relative;
+
+    @include small-tablet {
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: $green-color;
+        opacity: 0.5;
+        bottom: -64px;
+      }
+
+      max-width: 437px;
+      gap: 53px;
+    }
+
+    @include big-phone {
+      max-width: none;
+      justify-content: space-between;
+      gap: 20px;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: $footer-titles-gap;
+  }
+
+  &__contacts-title {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  &__information {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    color: $black-color;
+  }
+
+  &__information-link {
+    color: $black-color;
+
+    @include hover(color, $orange-color);
+  }
+
+  &__link-to-top {
+    display: none;
+
+    @include big-phone {
+      display: block;
+      position: absolute;
+      bottom: $footer-link-up-position;
+      right: 0;
+      width: $footer-link-up-height;
+      height: $footer-link-up-height;
+      background-image: url(../images/icons/arrow-up.svg);
+      background-repeat: no-repeat;
+      background-size: auto;
+    }
+  }
+
+  &__separator {
+    width: 1px;
+    height: 260px;
+    background-color: $green-color;
+    opacity: 0.5;
+
+    @include small-tablet {
+      display: none;
+    }
+  }
+
+  &__copyright {
+    margin-top: 87px;
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @include tablet {
+      margin-top: 120px;
+    }
+
+    @include big-phone {
+      margin-top: 80px;
+    }
+
+    @include phone {
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  &__copyright-text {
+    font-size: 12px;
+    font-weight: 300;
+    color: $black-color;
+  }
+}
