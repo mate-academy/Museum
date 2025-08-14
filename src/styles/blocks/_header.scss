@@ -1,0 +1,158 @@
+.header {
+  // display: none;
+  position: relative;
+  &__bg {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    z-index: -1;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+
+  &__bg-img {
+    width: 100%;
+    height: $heder-bg-img-height;
+    background-image: url(./../images/header-bg-desctop.png);
+    background-size: cover;
+    background-position: left top;
+
+    @include on-tablet {
+      height: 100%;
+      width: 48.7%;
+      background-position: left bottom;
+    }
+
+    @include on-desctop {
+      height: 100%;
+      width: 56.6%;
+    }
+  }
+
+  &__bg-space {
+    @include on-tablet {
+      height: 100%;
+      width: 51.3%;
+      order: -1;
+    }
+
+    @include on-tablet {
+      width: 43.4%;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    row-gap: 20px;
+    padding-top: $top-mobile-padding;
+
+    @include on-tablet {
+      padding-top: 15px;
+      row-gap: 40px;
+
+      @include page-grid;
+    }
+
+    @include on-desctop {
+      padding-top: 15px;
+      row-gap: 119px;
+    }
+  }
+
+  &__top {
+    height: $top-mobile-height;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: $logo-height 1fr;
+    align-items: center;
+
+    @include on-tablet {
+      height: auto;
+      grid-column: 1 / -1;
+      grid-template-rows: 1fr;
+
+      @include page-grid;
+    }
+  }
+
+  &__menu {
+    display: flex;
+  }
+
+  &__logo {
+    display: flex;
+    height: $logo-height;
+    justify-self: center;
+
+    @include hover(transform, scale(1.2));
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+      height: $logo-height-tablet;
+    }
+
+    @include on-desctop {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__logo-img {
+    width: 100%;
+  }
+
+  &__bottom {
+    // padding-top: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      margin-bottom: 19px;
+    }
+
+    @include on-desctop {
+      grid-column: 1 / 6;
+      margin-bottom: 118px;
+
+      display: grid;
+      column-gap: 30px;
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 20px;
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 45px;
+    text-align: center;
+
+    @include on-tablet {
+      margin-bottom: 38px;
+
+      font-size: 54px;
+      line-height: 64.8px;
+      text-align: left;
+    }
+
+    @include on-desctop {
+      margin-bottom: 89px;
+
+      font-size: 72px;
+      line-height: 86.4px;
+
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__tikets {
+    @include on-tablet {
+      grid-column: 3 / -1;
+    }
+  }
+}
