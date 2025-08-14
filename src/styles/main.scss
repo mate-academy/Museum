@@ -1,7 +1,96 @@
-@import 'utils';
+@import './utils/mixins';
+@import './utils/vars';
 @import 'fonts';
-@import 'typography';
+@import './typography';
+@import 'blocks/header';
+@import 'blocks/icon';
+@import 'blocks/topbar';
+@import 'blocks/menu';
+@import 'blocks/events';
+@import 'blocks/banner';
+@import 'blocks/carousel';
+@import 'blocks/gallery';
+@import 'blocks/subscription';
+@import 'blocks/footer';
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+
+  &:has(.menu:target) {
+    overflow: hidden;
+  }
+}
 
 body {
-  background: $c-gray;
+  margin: 0;
+
+  width: 100%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color: $white;
+  box-sizing: border-box;
+
+  .body__section {
+    width: 100%;
+    display: flex;
+
+    &--grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+
+      @include on-tablet {
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 30px;
+      }
+
+      @include on-desktop {
+        grid-template-columns: repeat(12, 1fr);
+      }
+    }
+
+    &__content {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      box-sizing: border-box;
+
+      @include on-tablet {
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 30px;
+        padding-left: 39px;
+        padding-right: 39px;
+      }
+
+      @include on-desktop {
+        grid-template-columns: repeat(12, 1fr);
+        padding-left: 55px;
+        padding-right: 55px;
+      }
+    }
+  }
+}
+
+.b {
+  font-weight: 600;
+}
+
+.a--m {
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.a--d {
+  display: none;
+
+  @include on-desktop {
+    display: flex;
+  }
 }
