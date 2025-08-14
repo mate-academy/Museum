@@ -1,0 +1,136 @@
+.footer {
+  padding-block: 50px;
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__icon {
+    justify-content: space-between;
+    margin-bottom: 40px;
+    display: flex;
+    grid-column: 1 / -1;
+    align-items: center;
+
+    @include on-tablet {
+      grid-column: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: normal;
+      gap: 62px;
+    }
+  }
+
+  &__schedule {
+    color: rgba(15, 14, 8, 1);
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+    }
+  }
+
+  &__title {
+    font-size: 14px;
+    line-height: 19.69px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: rgba(15, 14, 8, 1);
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+  }
+
+  &__contact {
+    color: rgba(15, 14, 8, 1);
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 7;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: rgba(15, 14, 8, 1);
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  &__button-up {
+    cursor: pointer;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
+    display: flex;
+    border: 1px solid $accent-color;
+    grid-column: 2 / -1;
+    place-self: end;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &::after {
+      content: '';
+      background-image: url('../images/arrow-up.svg');
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__decoration {
+    width: 100%;
+    grid-column: 1 / -1;
+    margin: 20px 0 40px;
+    height: 1px;
+    background-color: rgba(26, 90, 76, 0.5);
+
+    @include on-desktop {
+      grid-column: 7;
+      align-self: center;
+      margin: 0;
+      width: 1px;
+      height: 100%;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__bottom-text {
+    font-size: 12px;
+    line-height: 16.88px;
+    text-align: center;
+    font-weight: 300;
+  }
+}
