@@ -1,0 +1,210 @@
+.footer {
+  @include set-padding-bottom-all-screens(56px, 36px, 35px);
+  @include set-padding-top-all-screens(50px, 51px, 47px);
+
+  &__content {
+    @include on-desktop {
+      @include page-grid;
+
+      padding-bottom: 87px;
+    }
+  }
+
+  &__top {
+    position: relative;
+
+    @include set-padding-bottom-all-screens(111px, 129px, 0);
+    @include page-grid;
+
+    @include on-desktop {
+      grid-column: span 6;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+
+      display: block;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: #1a5a4c80;
+
+      @include on-tablet {
+        bottom: 64px;
+        left: 115px;
+        width: 460px;
+      }
+
+      @include on-desktop {
+        right: -65px;
+        bottom: 11px;
+        left: unset;
+
+        width: 1px;
+        height: 260px;
+      }
+    }
+
+    &-bar {
+      display: flex;
+      grid-column: span 2;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 40px;
+
+      @include on-tablet {
+        grid-column: 1;
+        flex-direction: column;
+        gap: 62px;
+        justify-content: normal;
+      }
+    }
+  }
+
+  &-logo__link {
+    display: flex;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &-logo__image {
+    width: 63px;
+    height: 72px;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 20px;
+
+    &-link {
+      width: 24px;
+      height: 24px;
+      color: #000;
+
+      @include hover(transform, scale(1.1));
+      @include hover(color, #0000ff);
+    }
+  }
+
+  &__bottom {
+    padding-bottom: 80px;
+
+    @include on-desktop {
+      grid-column: 8 / 11;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &-nav {
+    gap: 20px;
+
+    @include on-tablet {
+      @include page-grid;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+      grid-template-columns: repeat(6, 1fr);
+    }
+    &__list {
+      gap: 20px;
+
+      &--left {
+        grid-column: 2 / 4;
+      }
+
+      &--right {
+        grid-column: 4 / 5;
+      }
+    }
+
+    &__item {
+      width: 130px;
+    }
+
+    &__link {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+
+  &__design {
+    display: flex;
+    flex-direction: column;
+
+    font-family: IBMPlexSans, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 141%;
+    text-align: center;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__schedule {
+    width: 130px;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 2 / 4;
+      gap: 0;
+      width: 100%;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+    }
+  }
+
+  &__weekend {
+    margin-top: 30px;
+  }
+
+  &__contacts {
+    @include on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / -1;
+    }
+  }
+
+  &__button-link {
+    position: absolute;
+    right: 0;
+    bottom: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    border: 1px solid $color-green;
+    border-radius: 50%;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__button-img {
+    width: 16px;
+    height: 16px;
+  }
+}

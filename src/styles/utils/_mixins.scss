@@ -1,6 +1,120 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $animation-speed;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+  --gap: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: var(--gap);
+
+  @include on-tablet {
+    --columns: 6;
+    --gap: 30px;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+  }
+}
+
+@mixin content-padding-inline {
+  --padding-inline: 20px;
+
+  padding-inline: var(--padding-inline);
+
+  @include on-tablet {
+    --padding-inline: 39px;
+  }
+
+  @include on-desktop {
+    --padding-inline: 55px;
+  }
+}
+
+@mixin set-gap-for-all-screens($mobile-gap, $tablet-gap, $desktop-gap) {
+  gap: $mobile-gap;
+
+  @include on-tablet {
+    gap: $tablet-gap;
+  }
+
+  @include on-desktop {
+    gap: $desktop-gap;
+  }
+}
+
+@mixin set-padding-inline-for-all-screens(
+  $mobile-padding,
+  $tablet-padding,
+  $desktop-padding
+) {
+  padding-inline: $mobile-padding;
+
+  @include on-tablet {
+    padding-inline: $tablet-padding;
+  }
+
+  @include on-desktop {
+    padding-inline: $desktop-padding;
+  }
+}
+
+@mixin set-padding-inline-from-tablet($tablet-padding, $desktop-padding) {
+  @include on-tablet {
+    padding-inline: $tablet-padding;
+  }
+
+  @include on-desktop {
+    padding-inline: $desktop-padding;
+  }
+}
+
+@mixin set-padding-bottom-all-screens(
+  $mobile-padding,
+  $tablet-padding,
+  $desktop-padding
+) {
+  padding-bottom: $mobile-padding;
+
+  @include on-tablet {
+    padding-bottom: $tablet-padding;
+  }
+
+  @include on-desktop {
+    padding-bottom: $desktop-padding;
+  }
+}
+
+@mixin set-padding-top-all-screens(
+  $mobile-padding,
+  $tablet-padding,
+  $desktop-padding
+) {
+  padding-top: $mobile-padding;
+
+  @include on-tablet {
+    padding-top: $tablet-padding;
+  }
+
+  @include on-desktop {
+    padding-top: $desktop-padding;
   }
 }
