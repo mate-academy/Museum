@@ -1,0 +1,149 @@
+.footer {
+  padding-block: 50px;
+
+  @include page-grid;
+  @include inline-padding;
+
+  &__top {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      grid-column: 1 / 2;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      gap: 62px;
+    }
+  }
+
+  &__logo {
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 36px;
+
+    @include on-tablet{
+      @include hover(transform, scale(1.15));
+    }
+  }
+
+  &__social-media {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__schedule {
+    grid-column: span 1;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+    }
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  &__contacts {
+    grid-column: span 1;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 7;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+
+    span {
+      white-space: nowrap;
+    }
+    @include on-tablet{
+      transition: all 0.3s ease 0s;
+      &:hover{
+        text-decoration: underline;
+        color: $c-green;
+      }
+    }
+  }
+
+  &__link-back {
+    grid-column: 2 / 3;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid $c-green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__menu {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding-top: 40px;
+    margin: 20px 0 80px;
+    border-top: 1px solid $c-green;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      padding-top: 64px;
+      margin-top: 64px;
+      margin-bottom: 120px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+      border-left: 1px solid $c-green;
+      border-top: none;
+      padding: 0;
+      margin: 0;
+      padding-left: 65px;
+      align-content: start;
+    }
+  }
+
+  &__item {
+    flex: 0 1 40%;
+  }
+
+  &__copyright {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16.88px;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include on-desktop {
+      margin-top: 86px;
+    }
+  }
+}
