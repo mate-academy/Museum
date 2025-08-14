@@ -1,0 +1,170 @@
+.menu {
+  padding: 27px 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  z-index: 99;
+
+  &:target {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  &:has(menu:target) {
+    overflow-y: hidden;
+  }
+
+  @include onTablet {
+    padding: 37px 0 40px 0;
+  }
+
+  &__wrapper {
+    padding: 27px 0;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #1a5a4c;
+  }
+
+  &__content {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
+    }
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 28px;
+    padding-bottom: 24px;
+
+    position: relative;
+
+    @include onTablet {
+      grid-column: span 3;
+    }
+
+    @include onDesktop {
+      justify-content: space-between;
+      grid-column: span 5;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #fff;
+
+      @include onTablet {
+        left: 100%;
+        width: 1px;
+        height: 100%;
+      }
+      @include onDesktop {
+        left: 120%;
+      }
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    gap: 28px;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__item {
+    &--link {
+      font-family: $second-font;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
+
+  &__schedule {
+    color: #ffffff;
+    margin-top: 24px;
+
+    font-family: $second-font;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.69px;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      margin: 0;
+    }
+    @include onDesktop {
+      grid-column: 8 / -1;
+    }
+    &-wrapper {
+      @include onTablet {
+        display: flex;
+        gap: 26px;
+        align-items: center;
+      }
+    }
+
+    &-day-off {
+      @include onTablet {
+        max-width: 140px;
+      }
+    }
+    &-title {
+      margin: 0;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    &-day {
+      display: flex;
+      gap: 5px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    &-time {
+      margin: 0;
+      font-weight: 500;
+      line-height: 21px;
+    }
+
+    &-name {
+      margin: 0;
+      line-height: 21px;
+    }
+  }
+}
