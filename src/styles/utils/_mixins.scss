@@ -4,3 +4,34 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  column-gap: 20px;
+  padding-inline: 20px;
+
+  @include tablet {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    column-gap: 30px;
+    padding-inline: 34px;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(12, 70px);
+    column-gap: 30px;
+    padding-inline: 55px;
+  }
+}

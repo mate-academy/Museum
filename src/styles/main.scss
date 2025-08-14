@@ -1,7 +1,41 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import 'header';
+@import 'section';
+@import 'footer';
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background: $c-gray;
+  margin: 0;
+  background: #fff;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  display: none;
+  background-color: #fff;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+
+  @include desktop {
+    display: none !important;
+  }
+}
+
+.scroll-to-top.show {
+  display: flex;
+  opacity: 1;
 }
