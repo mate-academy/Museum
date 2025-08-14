@@ -1,0 +1,115 @@
+.museum {
+  @include on-tablet {
+    // position: absolute;
+    grid-column: 1 / 4;
+  }
+
+  @include on-desktop {
+    grid-column: 1 / 6;
+  }
+
+  &__icon {
+    background-image: url(../icons/burger-menu.png);
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+    margin-top: 27px;
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      margin-top: 39px;
+      margin-bottom: 44px;
+      margin-left: 34px;
+
+      @include hover(transform, scale(1.1));
+    }
+
+    @include on-desktop {
+      margin-bottom: 143px;
+      margin-left: 55px;
+    }
+  }
+  &__title {
+    margin: 0;
+    padding: 20px;
+    font-family: Montserrat, sans-serif;
+    color: #000;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 45px;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include on-tablet {
+      padding: 20px 34px 38px;
+      font-size: 54px;
+      line-height: 64.8px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      padding: 0 55px 89px;
+      font-size: 72px;
+      line-height: 86.4px;
+    }
+  }
+
+  &__desktop-position {
+    @include on-desktop {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 35%;
+    height: 50px;
+    max-width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: $main-color;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: solid 1px $decorative-color;
+
+    @include on-tablet {
+      height: 70px;
+      width: 270px;
+      margin-left: 34px;
+      gap: 25%;
+    }
+  }
+
+  &__arrow {
+    width: 50px;
+    height: 50px;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      background-image: url(../images/events.png);
+      width: 14px;
+      height: 133px;
+      margin-left: 55px;
+    }
+  }
+}
