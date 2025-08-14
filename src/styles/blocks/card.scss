@@ -1,0 +1,119 @@
+.card {
+  max-width: 1170px;
+  margin: 0 auto;
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+  }
+
+  &__photo {
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+    }
+
+    &-full {
+      margin-inline: -20px;
+
+      height: 210px;
+
+      @include on-tablet {
+        height: 390px;
+      }
+
+      @include on-desktop {
+        height: 550px;
+        margin-inline: -34px;
+      }
+
+      background-image: url(images/pictures/picture-3-3x.png);
+      background-position: center;
+      background-size: cover;
+
+      @include on-tablet {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      justify-content: start;
+      column-gap: 30px;
+    }
+  }
+
+  &__exhibition {
+    margin: 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: #687480;
+  }
+
+  &__date {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: #1a5a4c;
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+
+    &-text {
+      margin: 0;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 100%;
+      color: #0f0e08;
+    }
+
+    &-square {
+      width: 10px;
+      height: 10px;
+      background-color: #f14a27;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: #4e4e4e;
+  }
+
+  &__wrap {
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+    }
+  }
+}
