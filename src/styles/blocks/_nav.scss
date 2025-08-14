@@ -1,0 +1,73 @@
+.nav {
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+
+
+    &--header{
+      padding: 0 0 24px 52px;
+      gap: 24px 28px;
+      font-size: 16px;
+      line-height: 16px;
+      font-weight: 500;
+      color: $white-color;
+      border-bottom: 1px solid #FFFFFF80;
+
+      @include on-tablet{
+        padding: 0 62px 74px 38px;
+        border-bottom: none;
+        border-right: 1px solid #FFFFFF80;;
+      }
+
+      @include on-desktop{
+        padding: 0 102px 49px 126px;
+      }
+    }
+
+    &--footer{
+      @include page-grid;
+
+      row-gap: 20px;
+
+      & :nth-child(odd){
+        grid-column: 1/1;
+      }
+
+      & :nth-child(even){
+        grid-column: 2/3;
+      }
+
+      @include on-tablet{
+        & :nth-child(odd){
+          grid-column: 1/4;
+        }
+
+        & :nth-child(even){
+          grid-column: 4/7;
+        }
+
+
+
+      }
+    }
+  }
+
+  &__link{
+    text-decoration: none;
+
+    &--footer{
+      color: $dark-color;
+
+      @include hover(font-weight, 600);
+    }
+
+    &--header{
+      color: $white-color;
+
+      @include hover(color, $dark-color);
+    }
+
+  }
+}
