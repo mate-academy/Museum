@@ -1,0 +1,178 @@
+.current-events {
+  &__title {
+    margin-top: 70px;
+    margin-bottom: 40px;
+
+    font-family: $second-font-family;
+    font-size: 36px;
+    line-height: 36px;
+
+    @include on-tablet {
+      margin-top: 88px;
+      margin-bottom: 48px;
+      font-size: 48px;
+      line-height: 48px;
+    }
+
+    @include on-desktop {
+      margin-top: 200px;
+      margin-bottom: 56px;
+    }
+  }
+}
+
+.event {
+  @include on-desktop {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 104px;
+  }
+
+  &__wrapper {
+    @include on-desktop {
+      margin-left: 130px;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 210px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include on-tablet {
+      height: 520px;
+    }
+
+    @include on-desktop {
+      min-width: 670px;
+      max-height: 520px;
+    }
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+    @include on-tablet {
+      margin-top: 44px;
+      max-width: 220px;
+    }
+
+    @include on-desktop {
+      height: fit-content;
+      margin-top: 159px;
+    }
+
+    &--name {
+      font-weight: 500;
+      line-height: 16px;
+
+      color: #687480;
+
+      @include on-tablet {
+        font-size: 14px;
+        line-height: 14px;
+      }
+    }
+
+    &--time {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+
+      color: #1a5a4c;
+
+      @include on-tablet {
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+  }
+
+  &__box {
+    height: fit-content;
+  }
+
+  &__title {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    color: $font-color-main-black;
+    font-family: $second-font-family;
+    font-size: 28px;
+    line-height: 28px;
+    text-align: left;
+    font-weight: 400;
+
+    @include hover(color, $accent-color);
+
+    @include on-tablet {
+      margin-top: 30px;
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    @include on-desktop {
+      margin-top: 30px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 10px;
+      width: 10px;
+      top: 12px;
+      z-index: -1;
+      right: -20px;
+      background-image: url('/src/images/icon/orange-block-icon.png');
+      background-size: cover;
+      background-position: center;
+
+      @include on-tablet {
+        height: 15px;
+        width: 15px;
+        right: -40px;
+        top: 13px;
+      }
+
+      @include on-desktop {
+        right: -35px;
+      }
+    }
+  }
+
+  &__detail {
+    margin-top: 10px;
+    margin-bottom: 60px;
+    color: $font-color-grey;
+
+    @include on-tablet {
+      margin-top: 15px;
+      margin-bottom: 64px;
+      max-width: 460px;
+    }
+
+    @include on-desktop {
+      max-width: 370px;
+    }
+  }
+
+  &:last-child .event__detail {
+    @include on-tablet {
+      margin-bottom: 112px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 0;
+    }
+  }
+}
