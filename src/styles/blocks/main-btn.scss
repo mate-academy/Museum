@@ -1,0 +1,49 @@
+.main-btn {
+  display: block;
+  background-color: $main-btn-color;
+  border: none;
+
+  width: $main-btn-size;
+  height: $main-btn-size;
+  position: relative;
+
+  &::before {
+    content: ' ';
+    display: block;
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    border-top: 3px solid $main-btn-arrow-color;
+    border-right: 3px solid $main-btn-arrow-color;
+    transform: translate(-65%, -50%) rotate(45deg);
+    transition: $animation-duration;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--red {
+    background-color: $red;
+
+    &::before {
+      border-top: 3px solid $black;
+      border-right: 3px solid $black;
+    }
+
+    &:hover::before {
+      border-top: 3px solid $white;
+      border-right: 3px solid $white;
+    }
+  }
+}
+
+@include tablet {
+  .main-btn {
+    width: $main-btn-size-lg;
+    height: $main-btn-size-lg;
+  }
+}

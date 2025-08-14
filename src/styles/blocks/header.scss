@@ -1,0 +1,53 @@
+@import '../utils/vars';
+
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: unset;
+  transition: $animation-duration;
+  z-index: 2;
+}
+
+.header-scrolled {
+  background-color: $header-bg-color;
+}
+
+.header__content {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+.header__logo {
+  width: fit-content;
+  transition: $animation-duration;
+  transform: translateX(-50%);
+
+  & img {
+    width: 60px;
+  }
+}
+
+@include tablet {
+  .header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .header__logo {
+    transform: translateX(50%);
+
+    & img {
+      width: 72px;
+    }
+  }
+
+  .header__logo--scrolled {
+    transform: translateX(-50%);
+  }
+}

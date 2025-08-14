@@ -1,0 +1,172 @@
+@import '../utils/vars';
+
+.menu__icon-item {
+  width: 100%;
+  height: 3px;
+  margin: auto 0;
+  background-color: $menu-color;
+  transition: $animation-duration;
+}
+
+.menu__icon {
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    .menu__icon-item:first-child {
+      width: 45%;
+    }
+
+    .menu__icon-item:last-child {
+      width: 75%;
+    }
+  }
+}
+
+.menu__content {
+  background-color: $menu-bg-color;
+  transform: translateY(-100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding: 27px 0;
+  transition: $animation-duration;
+  z-index: 2;
+}
+
+.menu {
+  opacity: 0;
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  transition: $animation-duration;
+  z-index: 2;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+
+    .menu__content {
+      transform: translateY(0%);
+    }
+  }
+}
+
+// disable scroll page when menu open
+body:has(.menu:target) {
+  overflow: hidden;
+}
+
+.menu__background {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  inset: 0;
+
+  transition: $animation-duration;
+  z-index: 1;
+}
+
+.menu__nav-list {
+  gap: 24px;
+}
+
+.menu__content-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+@include tablet {
+  .menu__content-inner {
+    flex-direction: row;
+  }
+}
+
+.menu__nav-wrapper {
+  display: flex;
+  gap: 28px;
+
+  padding-bottom: 24px;
+}
+
+.menu__details-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  padding-top: 24px;
+  border-top: 1px solid $white;
+  border-left: none;
+}
+
+.menu__details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.menu__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 141%;
+
+  &--weekends {
+    max-width: 280px;
+  }
+}
+
+@include tablet {
+  .menu__nav {
+    margin: unset;
+  }
+
+  .menu__content {
+    padding: 40px 0;
+  }
+
+  .menu__text {
+    line-height: 150%;
+
+    &--weekends {
+      max-width: 144px;
+    }
+  }
+
+  .menu__details-wrapper {
+    padding-top: unset;
+    padding-left: 38px;
+    border-top: none;
+    border-left: 1px solid $white;
+  }
+
+  .menu__nav-wrapper {
+    padding-bottom: unset;
+    padding-right: 38px;
+  }
+
+  .menu__details {
+    flex-direction: row;
+  }
+}
+
+@include desktop {
+  .menu__content {
+    padding: 40px 0 48px;
+  }
+
+  .menu__text {
+    &--weekends {
+      max-width: 170px;
+    }
+  }
+
+  .menu__nav-wrapper {
+    padding-right: 102px;
+  }
+
+  .menu__details-wrapper {
+    padding-left: 102px;
+  }
+}
