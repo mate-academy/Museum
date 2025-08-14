@@ -1,0 +1,96 @@
+.gallery {
+  &__title {
+    margin-bottom: 40px;
+    color: $color-dark;
+    font-family: $font-montserrat;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+
+    @include on-table {
+      font-size: 48px;
+      text-align: left;
+    }
+  }
+
+  &__slider {
+    margin-bottom: 100px;
+  }
+}
+
+.slider-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  overflow: hidden;
+
+  @include on-table {
+    gap: 32px;
+  }
+
+  &__items {
+    display: flex;
+    gap: 16px;
+    width: 1000%;
+
+    @include on-desktop {
+      width: 100%;
+      margin-right: 15px;
+
+      @include page-grid;
+
+      row-gap: 30px;
+    }
+  }
+
+  &__item {
+    overflow: hidden;
+
+    @include on-table {
+      grid-column: span 3;
+    }
+
+    &--square {
+      @include on-desktop {
+        grid-column: span 4;
+      }
+    }
+
+    &--wide {
+      @include on-desktop {
+        grid-column: span 8;
+      }
+    }
+  }
+
+  &__img {
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__dots {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin: 0 auto;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: rgb(224, 224, 224);
+
+    &--active {
+      background-color: $color-green;
+    }
+  }
+}

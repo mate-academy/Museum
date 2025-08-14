@@ -1,0 +1,123 @@
+.events {
+  &__title {
+    margin-bottom: 40px;
+    color: $color-dark;
+    font-family: $font-montserrat;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+
+    @include on-table {
+      margin-bottom: 48px;
+      font-size: 48px;
+      text-align: left;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-bottom: 60px;
+
+    @include on-desktop {
+      gap: 104px;
+      margin-bottom: 104px;
+    }
+  }
+}
+
+.event {
+  @include page-grid;
+
+  align-items: center;
+
+  &__image {
+    grid-column: 1 / -1;
+    overflow: hidden;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include on-table {
+      grid-column: 1 / -1;
+      margin-bottom: 44px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__detail {
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @include on-table {
+      justify-content: start;
+      gap: 50px;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+  }
+
+  &__tag {
+    font-weight: 500;
+    color: $color-grey;
+  }
+
+  &__time {
+    font-weight: 700;
+    line-height: 150%;
+    color: $color-green;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+
+    @include on-table {
+      grid-column: span 4;
+      margin-bottom: 15px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-color: $color-red;
+
+      @include on-table {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+    color: #4e4e4e;
+    line-height: 150%;
+
+    @include on-table {
+      grid-column: span 4;
+    }
+  }
+}
