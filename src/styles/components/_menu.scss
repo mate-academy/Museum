@@ -1,0 +1,136 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 27px 20px;
+  background-color: $accent-color;
+  color: $primary-white-color;
+
+  width: 100%;
+
+  pointer-events: none;
+  z-index: 999;
+  transform: translateY(-100%);
+  transition: all 800ms ease;
+
+  @include on-tablet {
+    padding: 39px 34px;
+    height: 225px;
+  }
+
+  @include on-desktop {
+    padding: 40px 122px;
+    height: 233px;
+  }
+
+  &:target {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  &__close-icon {
+    position: absolute;
+    top: 27px;
+    left: 20px;
+    width: 24px;
+    height: 24px;
+    background-image: url('../images/icons/close-icon.png');
+    background-position: center;
+
+    @include on-tablet {
+      top: 39px;
+      left: 34px;
+    }
+  }
+
+  &__info-fields {
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__sections-list {
+    padding-left: 72px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 24px;
+
+    @include on-tablet {
+      padding-left: 62px;
+      padding-right: 38px;
+      padding-bottom: 0;
+      border-bottom: none;
+      gap: 20px 24px;
+      height: 95px;
+    }
+
+    @include on-desktop {
+      padding-right: 102px;
+      gap: 30px;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 22px;
+    }
+
+    &--item {
+      transition: color $transition;
+    }
+
+    &--item:hover,
+    &--item:focus {
+      color: $subscription-color;
+    }
+  }
+}
+
+.work-schedule {
+  padding-top: 24px;
+  font-size: 14px;
+  line-height: 21px;
+
+  @include on-tablet {
+    padding-top: 0;
+    padding-left: 38px;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  @include on-desktop {
+    padding-left: 102px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-family: $text-font;
+    font-weight: 400;
+
+    @include on-desktop {
+      font-size: 14px;
+    }
+  }
+
+  &__list {
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 26px;
+    }
+
+    @include on-desktop {
+      column-gap: 30px;
+      width: 370px;
+    }
+  }
+
+  &__list--item:nth-child(5) {
+    margin-bottom: 16px;
+  }
+
+  .bold-text {
+    font-weight: 600;
+  }
+}
