@@ -1,0 +1,68 @@
+.article {
+  grid-column: 1/-1;
+
+  @include desktop {
+    @include page-grid;
+  }
+
+  &__img {
+    height: 210px;
+    width: 100%;
+    object-fit: cover;
+    display: flex;
+    margin-bottom: 20px;
+
+    @include tablet {
+      height: 510px;
+      margin-bottom: 40px;
+    }
+
+    @include desktop {
+      grid-column: span 7;
+      margin-bottom: 104px;
+    }
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__info {
+    margin-bottom: 60px;
+
+    @include tablet {
+      margin-bottom: 64px;
+      width: 460px;
+    }
+
+    @include desktop {
+      width: fit-content;
+      grid-column: 9/13;
+      align-self: center;
+    }
+
+    &--bottom {
+      @include tablet {
+        margin-bottom: 112px;
+      }
+    }
+  }
+
+  &__relative {
+    position: relative;
+    margin-bottom: 10px;
+
+    @include tablet {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__description {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: $gray-second-color;
+
+    @include desktop {
+      height: 97px;
+    }
+  }
+}

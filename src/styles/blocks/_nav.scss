@@ -1,0 +1,90 @@
+.nav {
+  @include desktop {
+    &--top {
+      margin-right: 42px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+
+    &--flex {
+      display: none;
+
+      @include desktop {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: space-between;
+      }
+    }
+
+    &--aside {
+      display: grid;
+      grid-template-columns: repeat(2, 100px);
+      gap: 24px 28px;
+
+      @include tablet {
+        column-gap: 20px;
+      }
+
+      @include desktop {
+        gap: 30px 96px;
+      }
+    }
+  }
+
+  &__footer {
+    margin-bottom: 80px;
+
+    @include tablet {
+      margin-bottom: 120px;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__item {
+    &--left {
+      @include tablet {
+        grid-column: 2/4;
+      }
+    }
+
+    &--right {
+      @include desktop {
+        grid-column: 4/6;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: $background-color;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 500;
+
+    @include hover(font-weight, 700);
+
+    @include desktop {
+      width: 169px;
+    }
+
+    @include desktop {
+      font-size: 22px;
+      line-height: 22px;
+    }
+
+    &--footer {
+      color: $black-color;
+      font-size: 14px;
+      line-height: 14px;
+      font-weight: 400;
+      width: fit-content;
+    }
+  }
+}
