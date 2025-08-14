@@ -1,0 +1,54 @@
+.schedule {
+  display: grid;
+
+  @include on-tablet {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 28px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(2, 170px);
+    column-gap: 30px;
+    line-height: 21px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: calc(19.69 / 14);
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__worktime {
+    margin-bottom: 16px;
+
+    @include on-desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item {
+    font-size: 14px;
+  }
+
+  &__weekend {
+    font-size: 14px;
+
+    @include on-tablet {
+      max-width: 144px;
+      line-height: 21px;
+    }
+
+    @include on-desktop {
+      max-width: 170px;
+    }
+  }
+
+  &__hours,
+  &__dayoff {
+    font-weight: 600;
+  }
+}

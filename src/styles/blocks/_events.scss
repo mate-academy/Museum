@@ -1,0 +1,235 @@
+.events {
+  &__content {
+    display: grid;
+    row-gap: 60px;
+
+    @include on-tablet {
+      row-gap: 64px;
+    }
+
+    @include on-desktop {
+      row-gap: 104px;
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      @include on-desktop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+    }
+  }
+
+  &__item:last-child {
+    margin-bottom: -75px;
+
+    @include on-tablet {
+      margin-bottom: -105px;
+    }
+
+    @include on-desktop {
+      margin-bottom: -65px;
+    }
+  }
+
+  &__image-wrapper {
+    height: calc(100vw * 0.66);
+    margin-bottom: 16px;
+    cursor: pointer;
+
+    overflow: hidden;
+
+    @include on-tablet {
+      height: calc(100vw * 0.68);
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      height: calc(100vw * 0.41);
+      height: 520px;
+      margin-bottom: 0;
+    }
+
+    &--changable {
+      margin-bottom: 0;
+
+      @include on-tablet {
+        padding-inline: 34px;
+        height: calc(100vw * 0.51);
+      }
+
+      @include on-desktop {
+        margin: 0 auto;
+        padding-inline: 0;
+        height: 550px;
+      }
+    }
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    @include on-tablet {
+      width: 220px;
+      margin-bottom: 32px;
+    }
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__type {
+    font-weight: 500;
+    line-height: 16px;
+    color: $color-primary-ligth;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 100%;
+    }
+  }
+
+  &__date {
+    font-weight: 700;
+    line-height: 24px;
+    color: $color-primary;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__item-title {
+    position: relative;
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    line-height: 100%;
+    color: $color-base;
+
+    @include on-tablet {
+      font-size: 36px;
+    }
+
+    &::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background-color: $color-accent;
+      position: absolute;
+      top: 60%;
+      right: -20px;
+      transform: translateY(-50%);
+
+      @include on-tablet {
+        width: 15px;
+        height: 15px;
+        right: -30px;
+      }
+    }
+  }
+
+  &__item-text {
+    font-weight: 300;
+    line-height: 24px;
+    color: $color-secondary;
+  }
+
+  &__description {
+    @include on-tablet {
+      width: 460px;
+    }
+
+    @include on-desktop {
+      width: 370px;
+    }
+
+    &--shifted {
+      max-width: 280px;
+      width: 100%;
+      padding-bottom: 20px;
+      margin-inline: auto;
+      background-color: #fff;
+      box-shadow: 0 2px 0 0 #1a5a4c40;
+      transform: translateY(-60px);
+
+      @include on-tablet {
+        max-width: 570px;
+        margin-inline: auto;
+        padding-bottom: 55px;
+        transform: translateY(-90px);
+      }
+    }
+    &--shifted .events__data {
+      padding: 20px;
+      margin-bottom: 0;
+
+      @include on-tablet {
+        display: flex;
+        justify-content: space-between;
+        max-width: 460px;
+        width: 100%;
+        padding-top: 45px;
+        padding-left: 55px;
+      }
+
+      @include on-desktop {
+        padding-left: 100px;
+      }
+    }
+
+    &--shifted .events__heading {
+      justify-content: center;
+      margin-bottom: 0;
+
+      @include on-tablet {
+        padding-left: 55px;
+      }
+
+      @include on-desktop {
+        padding-left: 100px;
+      }
+    }
+
+    &--shifted .events__item-title {
+      text-align: center;
+
+      @include on-tablet {
+        text-align: left;
+      }
+    }
+
+    &--shifted .events__item-title::after {
+      display: none;
+    }
+  }
+}

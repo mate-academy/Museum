@@ -1,0 +1,44 @@
+.nav {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 24px 28px;
+
+    @include on-desktop {
+      grid-template-columns: repeat(2, 169px);
+      gap: 30px 31px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    width: fit-content;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: white;
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+  }
+
+  &__link::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    opacity: 0;
+    background-color: $color-accent;
+    transition: opacity 0.3s ease;
+  }
+
+  &__link:hover::after {
+    opacity: 1;
+  }
+}
