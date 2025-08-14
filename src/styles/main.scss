@@ -1,7 +1,1297 @@
 @import 'utils';
-@import 'fonts';
-@import 'typography';
+
+// utils
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
 
 body {
-  background: $c-gray;
+  background: $bgColor;
+  color: $mainFont;
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+ul,
+li,
+a {
+  padding: unset;
+  margin: unset;
+}
+
+p,
+a,
+span,
+li {
+  font-size: $fzS;
+  caret-color: transparent;
+}
+
+h1,
+h2 {
+  @include bold-monsterrat;
+
+  caret-color: transparent;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
+}
+
+h1 {
+  font-size: 45px;
+  margin: 20px 0;
+
+  @media screen and (min-width: 768px) {
+    font-size: 54px;
+    margin: unset;
+    line-height: 120%;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 72px;
+    line-height: 112%;
+  }
+}
+
+h2 {
+  font-size: $fzExtra;
+  padding: 0 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 0 0 35px;
+    font-size: 48px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: unset;
+  }
+}
+
+h3 {
+  @include monsterrat;
+
+  caret-color: transparent;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  line-height: 100%;
+
+  &::after {
+    content: '';
+    background-color: $warningColor;
+    height: 10px;
+    width: 10px;
+    margin: 5px 0 0 15px;
+
+    @media screen and (min-width: 768px) {
+      height: 15px;
+      width: 15px;
+      margin: 5px 0 0 20px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: $fzExtra;
+  }
+}
+
+.btn,
+input {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $fzS;
+}
+
+.btn {
+  width: calc(100% - 50px);
+  padding: 18px 0;
+  border: 1px solid $utilityColor;
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    width: 220px;
+    font-size: $fzM;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 200px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: $utilityColor;
+    height: calc(100% + 2px);
+    width: 50px;
+    right: -50px;
+    background-image: url(/src/images/vector.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    @media screen and (min-width: 1280px) {
+      width: 70px;
+      right: -70px;
+    }
+  }
+}
+
+p,
+span,
+a {
+  @include ibm;
+}
+
+span {
+  font-size: $fzS;
+  font-weight: 400;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+a,
+button,
+input {
+  @include hover(transform, scale(1.05));
+}
+
+a:focus,
+button:focus,
+input:focus {
+  transform: scale(1.05);
+}
+
+input {
+  @include monsterrat;
+}
+
+input:autofill,
+input:-webkit-autofill {
+  background: $bgColor !important;
+  box-shadow: 0 0 0 1000px $bgColor inset !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.logo {
+  @include bold-monsterrat;
+
+  display: inline-flex;
+  text-align: center;
+  font-weight: 700;
+  height: fit-content;
+  line-height: 100%;
+}
+
+.overlay {
+  @include transition;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+// utils
+
+// common until 768px
+
+.nav ul {
+  @include mobile-grid;
+
+  gap: 20px;
+  font-size: $fzS;
+  margin-bottom: 80px;
+}
+
+// common until 768px
+
+.menu {
+  @include mobile-grid;
+  @include transition;
+
+  box-sizing: border-box;
+  padding: 27px 20px;
+  background-color: $utilityColor;
+  color: $secondFont;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  z-index: 2;
+  width: 100%;
+  column-gap: 20px;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    @include tablet-grid;
+
+    padding: 40px 34px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    @include desktop-grid;
+
+    column-gap: 30px;
+    padding: 40px 55px;
+  }
+
+  &__close {
+    @include hover(transform, scale(1.1));
+
+    cursor: pointer;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    grid-template-columns: 1fr;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 28px;
+
+    @media screen and (min-width: 768px) {
+      margin-right: 38px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      margin-right: 100px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      width: 16px;
+      height: 2px;
+      background-color: $secondFont;
+    }
+
+    &::before {
+      transform: translate(50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  .nav {
+    display: flex;
+    grid-column: auto / span 2;
+    margin-bottom: 24px;
+    border-bottom: 1px solid $transparentBorderColor;
+
+    @media screen and (min-width: 768px) {
+      grid-row: auto / span 2;
+      grid-column: auto / span 3;
+      border-bottom: unset;
+      position: relative;
+      margin-bottom: unset;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: $transparentBorderColor;
+        right: 20px;
+        top: 0;
+
+        @media screen and (min-width: 1280px) {
+          right: -30px;
+        }
+      }
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 1 / span 6;
+    }
+
+    ul {
+      margin-bottom: 24px;
+
+      @media screen and (min-width: 768px) {
+        grid-template-rows: max-content;
+        gap: 24px 20px;
+        margin-bottom: unset;
+      }
+    }
+  }
+
+  &__schedule {
+    grid-column: auto / span 2;
+    line-height: 150%;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 4 / span 3;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 'heading heading' 'schedule info';
+      column-gap: 24px;
+
+      ul {
+        grid-area: schedule;
+      }
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 8 / span 4;
+    }
+
+    > span {
+      margin-bottom: 20px;
+      display: inline-block;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 22px;
+        grid-area: heading;
+      }
+    }
+
+    &_info {
+      margin-top: 16px;
+      grid-column: auto / span 2;
+
+      @media screen and (min-width: 768px) {
+        grid-area: info;
+        margin-top: unset;
+      }
+    }
+  }
+
+  ul span,
+  .menu__schedule_info span {
+    font-weight: 600;
+  }
+
+  li,
+  p {
+    font-size: $fzS;
+  }
+
+  a {
+    color: $secondFont;
+    font-size: $fzM;
+  }
+}
+
+.pagination {
+  display: flex;
+  gap: 22px;
+  justify-self: center;
+  grid-column: auto / span 2;
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+
+  &__dot {
+    background-color: $paginationColor;
+    border-radius: 50%;
+    height: 9px;
+    width: 9px;
+    cursor: pointer;
+  }
+
+  &__active {
+    background-color: $utilityColor;
+  }
+}
+
+.header {
+  @media screen and (min-width: 768px) {
+    @include tablet-grid;
+
+    display: grid;
+    column-gap: 20px;
+    justify-content: space-between;
+    grid-template-areas: 'interact interact interact intro intro intro';
+  }
+
+  @media screen and (min-width: 1280px) {
+    @include desktop-grid;
+
+    column-gap: 30px;
+    padding-left: 55px;
+    position: relative;
+
+    &::before {
+      content: 'ПОДІЇ';
+      position: absolute;
+      font-family: IBM, sans-serif;
+      font-size: $fzM;
+      font-weight: 700;
+      width: 43px;
+      height: 14px;
+      color: $utilityText;
+      left: 33px;
+      bottom: 100;
+      transform: rotate(-90deg);
+    }
+
+    &::after {
+      content: '';
+      left: 55px;
+      bottom: 0;
+      position: absolute;
+      background-color: $utilityColor;
+      width: 1px;
+      height: 70px;
+    }
+  }
+
+  &__intro {
+    background-image: url(/src/images/header-img.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 4 / span 6;
+      grid-area: intro;
+      height: unset;
+      position: relative;
+      justify-content: unset;
+      min-height: 384px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 7 / span 7;
+      min-height: 655px;
+      background-image: url(/src/images/header-img\(1280px\).png);
+    }
+  }
+
+  &__menu {
+    @include hover(transform, scale(1.05));
+
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 27px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+
+    @media screen and (min-width: 1280px) {
+      top: 39px;
+      left: 55px;
+    }
+  }
+
+  &__logo {
+    font-size: 30px;
+    max-width: 55px;
+    margin-top: 9px;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 24px;
+      margin-left: 79px;
+    }
+  }
+
+  &__interact {
+    @include mobile-grid;
+
+    column-gap: 30px;
+    justify-content: center;
+    padding: 0 20px;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 1 / span 6;
+      grid-area: interact;
+      padding: 127px 0 0 34px;
+      gap: 38px 20px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (min-width: 1280px) {
+      @include desktop-extra-grid;
+
+      padding: 206px 0 118px 55px;
+      grid-column: 1 / span 6;
+      gap: 89px 30px;
+    }
+
+    h1 {
+      grid-column: auto / span 2;
+    }
+
+    .btn {
+      grid-column: auto / span 2;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 19px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 0;
+        grid-row: 2;
+        grid-column: auto / span 5;
+        justify-self: end;
+        margin-right: 60px;
+      }
+    }
+  }
+}
+
+.events {
+  margin-top: 70px;
+
+  > h2 {
+    margin-bottom: 38px;
+  }
+
+  @media screen and (min-width: 768px) {
+    > h2 {
+      padding-left: 34px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    > h2 {
+      padding-left: 55px;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__block {
+    @include mobile-grid;
+
+    column-gap: 20px;
+    justify-content: center;
+
+    @media screen and (min-width: 768px) {
+      @include tablet-grid;
+    }
+
+    @media screen and (min-width: 1280px) {
+      @include desktop-grid;
+
+      column-gap: 30px;
+      align-items: center;
+
+      &:not(:last-child) {
+        margin-bottom: 104px;
+      }
+    }
+  }
+
+  & > :not(:last-child) {
+    padding: 0 20px;
+
+    @media screen and (min-width: 768px) {
+      padding: 0 34px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      padding: 0 55px;
+    }
+  }
+
+  &__img {
+    grid-column: auto / span 2;
+
+    @media screen and (min-width: 768px) {
+      grid-column: auto / span 6;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: auto / span 6;
+    }
+
+    img {
+      width: -moz-available; /* For Firefox */
+      width: -webkit-fill-available; /* For WebKit browsers */
+      height: 100%;
+      object-fit: cover;
+      min-height: 210px;
+
+      @media screen and (min-width: 768px) {
+        min-height: 520px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        max-height: 550px;
+      }
+    }
+  }
+
+  &__content {
+    grid-column: auto / span 2;
+    margin: 16px 0 60px;
+
+    @media screen and (min-width: 768px) {
+      margin: 40px 0 64px;
+      max-width: 570px;
+      grid-column: auto / span 4;
+      justify-self: center;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 8 / span 4;
+      margin: unset;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+
+    @media screen and (min-width: 768px) {
+      gap: 25px;
+      justify-content: start;
+    }
+  }
+
+  &__type {
+    color: $utilityText;
+  }
+
+  &__date {
+    color: $utilityColor;
+    line-height: 150%;
+    font-weight: 700;
+  }
+
+  &__description {
+    color: $descriptionText;
+    font-weight: 300;
+    margin-top: 10px;
+    font-size: $fzM;
+    line-height: 150%;
+  }
+
+  &__lecture {
+    grid-template-columns: 1fr 1fr;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+      justify-content: center;
+    }
+
+    .events {
+      &__img {
+        min-height: 390px;
+      }
+
+      &__content {
+        background-color: $bgColor;
+        transform: translateY(-57px);
+        margin: 0 20px;
+
+        @media screen and (min-width: 768px) {
+          padding: 45px 55px 50px;
+          margin: unset;
+          position: relative;
+        }
+
+        @media screen and (min-width: 1280px) {
+          @include desktop-extra-grid;
+
+          display: grid;
+          column-gap: 30px;
+          padding: 45px 0 50px;
+          transform: translateY(-50%);
+        }
+      }
+
+      &__info {
+        padding: 24px 20px;
+        margin: unset;
+
+        @media screen and (min-width: 768px) {
+          @include tablet-extra-grid;
+
+          display: grid;
+          padding: 0 0 18px;
+          gap: 20px;
+
+          & :nth-child(1) {
+            grid-column: 1 / span 2;
+          }
+
+          & :nth-child(2) {
+            grid-column: 3 / span 2;
+          }
+        }
+
+        @media screen and (min-width: 1280px) {
+          grid-column: 2 / span 3;
+          grid-row: 1;
+          grid-template-columns: repeat(4, 70px);
+
+          & :nth-child(1) {
+            grid-column: 1 / span 2;
+
+            @media screen and (min-width: 1280px) {
+              grid-column: 1;
+            }
+          }
+
+          & :nth-child(2) {
+            grid-column: 3 / span 2;
+          }
+        }
+      }
+
+      &__heading {
+        position: relative;
+        text-align: center;
+
+        @media screen and (min-width: 768px) {
+          position: unset;
+          text-align: start;
+        }
+
+        @media screen and (min-width: 1280px) {
+          grid-column: 2 / span 4;
+          grid-row: 2;
+        }
+
+        &::after {
+          width: 100%;
+          height: 2px;
+          background-color: $utilityColorSecondary;
+          position: absolute;
+          bottom: -20px;
+          margin: unset;
+
+          @media screen and (min-width: 768px) {
+            bottom: 0;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.gallery {
+  margin-bottom: 100px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 90px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 200px;
+    padding: 0 55px;
+  }
+
+  &__content {
+    @include mobile-grid;
+
+    overflow: scroll;
+    gap: 20px;
+    padding-left: 20px;
+    scrollbar-width: none; /* For Firefox */
+
+    &::-webkit-scrollbar {
+      display: none; /* For Chrome, Safari, and Edge */
+    }
+
+    @media screen and (min-width: 768px) {
+      @include tablet-grid;
+
+      padding-left: 35px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      display: block;
+      padding: unset;
+      overflow: visible;
+    }
+  }
+
+  &__inner {
+    overflow: visible;
+    grid-column: auto / span 2;
+    max-height: 410px;
+    max-width: 280px;
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+
+    @media screen and (min-width: 768px) {
+      grid-column: auto / span 6;
+      width: 340px;
+      max-width: unset;
+      margin-top: 48px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      @include desktop-grid;
+
+      display: grid;
+      gap: 30px;
+      width: unset;
+      max-height: unset;
+      margin-top: 56px;
+      justify-self: center;
+    }
+
+    a {
+      @include hover(transform, translateY(-10px));
+
+      @media screen and (min-width: 1280px) {
+        @include hover(transform, scale(1.07));
+      }
+
+      display: flex;
+      width: -webkit-fill-available;
+
+      img {
+        object-fit: cover;
+        width: inherit;
+        height: 100%;
+      }
+
+      &:last-child {
+        padding-right: 20px;
+
+        @media screen and (min-width: 768px) {
+          padding-right: 35px;
+        }
+
+        @media screen and (min-width: 1280px) {
+          padding-right: unset;
+        }
+      }
+
+      @media screen and (min-width: 1280px) {
+        max-width: unset;
+        padding: unset;
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          grid-row: 1;
+        }
+
+        &:nth-child(3),
+        &:nth-child(4) {
+          grid-row: 2;
+        }
+
+        &:nth-child(1) {
+          grid-column: 1 / span 4;
+        }
+
+        &:nth-child(2) {
+          grid-column: 5 / span 8;
+        }
+
+        &:nth-child(3) {
+          grid-column: 1 / span 8;
+        }
+
+        &:nth-child(4) {
+          grid-column: 9 / span 4;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    margin-top: 20px;
+  }
+}
+
+.subscription {
+  background-image: url(/src/images/form__background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $secondFont;
+  text-align: center;
+
+  &__content {
+    @include mobile-grid;
+
+    padding-top: 88px;
+    padding-bottom: 88px;
+    column-gap: 20px;
+    justify-content: center;
+
+    @media screen and (min-width: 768px) {
+      @include tablet-grid;
+    }
+
+    @media screen and (min-width: 1280px) {
+      @include desktop-extra-grid;
+
+      column-gap: 30px;
+    }
+  }
+
+  &__heading,
+  &__info,
+  &__submit {
+    grid-column: auto / span 2;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 2 / span 4;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+      text-align: center;
+      padding: unset;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__info {
+    font-weight: 400;
+    line-height: 150%;
+    font-size: $fzL;
+    margin-bottom: 50px;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 64px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: auto / span 6;
+      margin-bottom: 72px;
+    }
+  }
+
+  &__submit {
+    display: flex;
+    padding: 0 20px;
+
+    @media screen and (min-width: 768px) {
+      padding: unset;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: auto / span 6;
+    }
+
+    input {
+      padding: 18px 24px;
+      border: unset;
+      width: 100%;
+
+      @media screen and (min-width: 768px) {
+        padding: 26px 24px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        @include monsterrat;
+
+        color: $utilityText;
+        font-size: $fzS;
+      }
+    }
+
+    button {
+      background-color: $warningColor;
+      width: 50px;
+      height: 100%;
+      border: none;
+      flex: none;
+      position: relative;
+
+      @media screen and (min-width: 768px) {
+        width: 70px;
+        margin-left: 16px;
+        height: 100%;
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin-left: 30px;
+      }
+
+      &::after,
+      &::before {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 10px;
+        background-color: #000;
+        left: 50%;
+      }
+
+      &::before {
+        transform: rotate(135deg);
+        top: 40%;
+
+        @media screen and (min-width: 768px) {
+          top: 41%;
+        }
+      }
+
+      &::after {
+        transform: rotate(45deg);
+        top: 50%;
+
+        @media screen and (min-width: 768px) {
+          top: 49%;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  @include mobile-grid;
+
+  margin: 50px 0 55px;
+  column-gap: 20px;
+  justify-content: center;
+  padding: 0 20px;
+
+  @media screen and (min-width: 768px) {
+    @include tablet-grid;
+
+    margin: 51px 0 36px;
+    padding: 0 34px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    @include desktop-grid;
+
+    margin: 48px 0 35px;
+    column-gap: 30px;
+    padding: 0 55px;
+  }
+
+  &__logo {
+    font-size: $fzExtra;
+    max-width: 63px;
+  }
+
+  &__heading {
+    margin-bottom: 40px;
+    grid-column: auto / span 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 1 / span 1;
+      flex-direction: column;
+      justify-content: unset;
+      gap: 62px;
+      align-items: start;
+    }
+
+    .socials {
+      display: flex;
+      gap: 20px;
+      justify-content: flex-end;
+
+      .facebook,
+      .instagram {
+        width: 24px;
+        height: 24px;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .facebook {
+        background-image: url(/src/images/facebook-logo.svg);
+      }
+
+      .instagram {
+        background-image: url(/src/images/instagram-logo.svg);
+      }
+    }
+  }
+
+  &__contacts,
+  &__schedule {
+    font-size: $fzS;
+    line-height: 150%;
+
+    & > :first-child {
+      display: inline-block;
+      margin-bottom: 20px;
+      line-height: 140%;
+    }
+  }
+
+  &__contacts {
+    @media screen and (min-width: 768px) {
+      grid-column: 3 / span 2;
+    }
+  }
+
+  &__schedule {
+    @media screen and (min-width: 768px) {
+      grid-column: 1 / span 2;
+    }
+
+    li {
+      display: flex;
+      flex-direction: column;
+      font-weight: 600;
+
+      @media screen and (min-width: 768px) {
+        flex-direction: row;
+        gap: 5px;
+      }
+    }
+
+    &_info {
+      margin-top: 25px;
+
+      :first-child {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__contents {
+    @include mobile-grid;
+
+    gap: 20px;
+    grid-column: auto / span 2;
+    margin-bottom: 40px;
+    padding-bottom: 70px;
+    border-bottom: 1px solid $transparentUtilityColor;
+    position: relative;
+
+    @media screen and (min-width: 768px) {
+      @include tablet-extra-grid;
+
+      grid-column: 3 / span 4;
+      padding-bottom: 64px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 3 / span 5;
+      grid-template-columns: repeat(5, 70px);
+      column-gap: 30px;
+      padding-bottom: unset;
+      border-bottom: unset;
+      margin-bottom: 87px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: $transparentUtilityColor;
+        right: 35px;
+        top: 0;
+      }
+    }
+  }
+
+  &__anchor {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    background-image: url(/src/images/arrow-up.svg);
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    border: 1px solid $utilityColor;
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .nav {
+    grid-column: auto / span 2;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 1 / span 6;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 8 / span 3;
+    }
+
+    ul {
+      @media screen and (min-width: 768px) {
+        @include tablet-grid;
+
+        grid-column: 2 / span 5;
+        margin-bottom: 120px;
+
+        :nth-child(1),
+        :nth-child(3) {
+          grid-column: 3 / span 2;
+
+          @media screen and (min-width: 1280px) {
+            grid-column: 1 / span 2;
+          }
+        }
+
+        :nth-child(2),
+        :nth-child(4) {
+          grid-column: 5 / span 2;
+
+          @media screen and (min-width: 1280px) {
+            grid-column: 3 / span 1;
+          }
+        }
+      }
+
+      @media screen and (min-width: 1280px) {
+        grid-template-columns: repeat(3, 70px);
+        grid-column: 1 / span 4;
+        margin-bottom: unset;
+      }
+    }
+  }
+
+  &__copyright {
+    grid-column: auto / span 2;
+    font-size: $fzS;
+    text-align: center;
+    display: flex;
+    gap: 10px;
+    flex-direction: column-reverse;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 1 / span 6;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 1 / span 12;
+    }
+  }
 }
