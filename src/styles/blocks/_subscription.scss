@@ -1,0 +1,95 @@
+.subscription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  min-height: 386px;
+  height: 100%;
+
+  background-image: url(../images/subscription/subscription-bg-sm.png);
+  background-size: cover;
+  background-repeat: no-repeat; /* Зображення не буде повторюватися */
+  background-position: center;
+
+  @include on-tablet {
+    background-image: url(../images/subscription/subscription-bg-md.png);
+  }
+
+  @include on-desktop {
+    min-height: 550px;
+    background-image: url(../images/subscription/subscription-bg-xl.png);
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    color: #fff;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 16px;
+    }
+
+    @include on-desktop {
+      font-size: 48px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    justify-content: space-between;
+    border: none;
+
+    @include on-tablet {
+      min-width: 470px;
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      min-width: 570px;
+      gap: 30px;
+    }
+  }
+
+  &__input {
+    flex-grow: 1;
+    min-height: 50px;
+    height: 100%;
+    padding-left: 24px;
+  }
+
+  &__input::placeholder {
+    font-size: 14px;
+    line-height: 100%;
+    color: $color-primary-ligth;
+  }
+
+  &__button-action .button__icon {
+    background-color: $color-accent;
+    fill: $color-base;
+
+    @include hover(background-color, $color-primary);
+  }
+}
