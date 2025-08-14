@@ -1,7 +1,69 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import '../styles/blocks/header';
+@import '../styles/blocks/top-bar';
+@import '../styles/blocks/menu';
+@import '../styles/blocks/actual';
+@import '../styles/blocks/gallery';
+@import '../styles/blocks/subscription';
+@import '../styles/blocks/footer';
 
-body {
-  background: $c-gray;
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    scroll-behavior: smooth;
+
+    @include content-padding-inline;
+
+    &--header {
+      padding: 0;
+    }
+  }
+
+  &__menu {
+    @include content-padding-inline;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &__main {
+    @include content-padding-inline;
+    @include page-grid;
+  }
+}
+
+.section__title {
+  display: block;
+  font-family: Montserrat, serif;
+  font-size: 36px;
+  line-height: 36px;
+  color: $title-font-color;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+
+  @include on-tablet {
+    font-size: 48px;
+    line-height: 48px;
+    text-align: left;
+    margin-bottom: 48px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 56px;
+  }
 }

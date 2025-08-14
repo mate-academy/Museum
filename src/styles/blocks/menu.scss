@@ -1,0 +1,156 @@
+.menu {
+  @include page-grid;
+
+  background-color: $menu-background-font-button-color;
+  height: auto;
+  justify-content: space-between;
+  flex-direction: column;
+
+  &__part1 {
+    grid-column: 1/-1;
+    border-bottom: solid $menu-and-subscribe-font-color 1px;
+
+    @include on-tablet {
+      grid-column: span 3;
+      border-bottom: none;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__top-bar {
+    padding: 0;
+  }
+
+  &__schedule {
+    grid-column: 1 / -1;
+    list-style-type: none;
+    margin: 24px 0 27px;
+    padding: 0;
+
+    @include on-tablet {
+      grid-column: span 3;
+      margin-block: 39px;
+    }
+
+    @include on-desktop {
+      margin: 40px 0 48px;
+      grid-column: span 6;
+      padding-left: 102px;
+      border-left: solid $menu-and-subscribe-font-color 1px;
+    }
+
+    &--title {
+      font-family: 'IBM Plex Sans', serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19.69px;
+      text-align: left;
+      color: $menu-and-subscribe-font-color;
+    }
+
+    &--week {
+      color: $menu-and-subscribe-font-color;
+      font-family: 'IBM Plex Sans', serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      text-align: left;
+
+      @include on-tablet {
+        display: grid;
+        column-gap: 23px;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 20px 0 0;
+      }
+
+      @include on-desktop {
+        column-gap: 30px;
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      &-days {
+        margin: 20px 0 16px;
+
+        @include on-tablet {
+          margin: 0;
+          grid-column: span 1;
+        }
+
+        @include on-desktop {
+          grid-column: span 2;
+        }
+      }
+    }
+
+    &--holidays {
+      @include on-tablet {
+        grid-column: span 1;
+      }
+
+      @include on-desktop {
+        grid-column: span 2;
+      }
+
+      &--text {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.nav {
+  grid-column: 1/-1;
+
+  @include page-grid;
+
+  &__list {
+    list-style-type: none;
+    grid-column: 1 / -1;
+    margin: 0;
+    display: flex;
+    gap: 28px;
+    padding: 27px 0 24px 52px;
+
+    @include on-tablet {
+      padding: 0 0 72px 62px;
+      margin-top: 39px;
+      margin-right: 38px;
+      border-right: solid $menu-and-subscribe-font-color 1px;
+    }
+
+    @include on-desktop {
+      border-right: none;
+      margin-top: 40px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    color: $menu-and-subscribe-font-color;
+  }
+
+  &__item {
+    @include hover(scale, 1.01);
+
+    font-family: 'IBM Plex Sans', serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-desktop {
+      font-family: 'IBM Plex Sans', serif;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 22px;
+      text-align: left;
+    }
+  }
+}
