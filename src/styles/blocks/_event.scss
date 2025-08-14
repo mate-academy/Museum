@@ -1,0 +1,214 @@
+.event {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 60px;
+
+  @include on-tablet {
+    padding-bottom: 64px;
+  }
+
+  @include on-desktop {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 130px;
+    padding-bottom: 104px;
+  }
+
+  &__img {
+    @include on-desktop {
+      display: block;
+      width: 57%;
+    }
+
+    @include hover(transform, scale(1.03));
+  }
+
+  &__content {
+    @include on-desktop {
+      grid-column: 10 / 13;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    max-width: 280px;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+  }
+
+  &__type {
+    @include font-ibm-plex-sans-medium;
+
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: left;
+    color: $text-light-grey;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &__date {
+    @include font-ibm-plex-sans-bold;
+
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    color: $primary-green;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__title {
+    @include font-montserrat-regular;
+
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    width: max-content;
+    font-size: 28px;
+    line-height: 28px;
+    text-align: left;
+    color: $text-primary;
+    position: relative;
+
+    @include on-tablet {
+      margin-top: 30px;
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      right: -20px;
+      top: 12px;
+      height: 10px;
+      width: 10px;
+      background-color: $primary-red;
+
+      @include on-tablet {
+        height: 15px;
+        width: 15px;
+        right: -30px;
+      }
+    }
+  }
+
+  &__description {
+    @include font-ibm-plex-sans-light;
+
+    max-width: 460px;
+    padding: 0;
+    padding-top: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    color: $text-light-grey;
+
+    @include on-tablet {
+      padding-top: 15px;
+    }
+  }
+
+  &--lecture {
+    display: block;
+    height: 210px;
+    width: auto;
+    padding-bottom: 0;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/picture_sunset.png);
+
+
+    @include on-tablet {
+      height: 390px;
+    }
+
+    @include on-desktop {
+      height: 550px;
+    }
+  }
+
+  &__content--lecture {
+    position: absolute;
+    height: 140px;
+    width: 280px;
+    bottom: -85px;
+    left: calc((100% - 280px) / 2);
+    padding-block: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    background-color: #fff;
+    box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+
+    @include on-tablet {
+      left: calc((100% - 570px) / 2);
+      bottom: -120px;
+      gap: 16px;
+      height: 204px;
+      width: 570px;
+      padding: 45px 140px 50px 55px;
+    }
+
+    @include on-desktop {
+      bottom: -102px;
+    }
+  }
+
+  &__info--lecture {
+    padding-inline: 21px;
+    margin-top: 0;
+
+    @include on-tablet {
+      padding-inline: 0;
+      max-width: 90%;
+    }
+  }
+
+  &__type--lecture {
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &__date--lecture {
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__title--lecture {
+    width: auto;
+    margin: 0;
+    text-align: center;
+
+    @include on-tablet {
+      text-align: left;
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    &::before {
+      display: none;
+      content: none;
+    }
+  }
+}

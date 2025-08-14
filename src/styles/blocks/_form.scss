@@ -1,0 +1,53 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+
+  @include on-tablet {
+    grid-column: 2 / -2;
+    gap: 16px;
+  }
+
+  @include on-desktop {
+    grid-column: 4 / -4;
+    gap: 30px;
+  }
+
+  &__input {
+    height: 50px;
+    padding-left: 24px;
+    flex: 1;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #fff;
+
+    @include on-tablet {
+      height: 70px;
+    }
+
+    &::placeholder {
+      @include font-montserrat-regular;
+    }
+
+    &:focus {
+      border: 1px solid $primary-red;
+    }
+  }
+
+  &__button {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+
+    background-position: 50%;
+
+    cursor: pointer;
+    background-color: $primary-red;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
