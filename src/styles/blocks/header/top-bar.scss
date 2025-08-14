@@ -1,0 +1,39 @@
+.top-bar {
+  @include page-grid;
+
+  grid-template-areas: 'menu';
+  column-gap: 30px;
+
+  position: absolute;
+  width: 100%;
+  padding-top: 9px;
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  &__menu-button {
+    display: flex;
+    width: 24px;
+    grid-column: 1;
+    grid-area: menu;
+
+    @include float-hover(2px, 4px);
+  }
+
+  &__logo {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    margin: auto;
+
+    @include float-hover(2px, 4px);
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / 8;
+    }
+  }
+}
