@@ -1,0 +1,170 @@
+.gallery {
+  display: grid;
+  position: relative;
+  &__title {
+    margin-top: 0;
+    text-align: center;
+
+    @include on-tablet {
+      text-align: left;
+    }
+  }
+
+  &__images {
+    @include page-grid;
+
+    row-gap: 30px;
+  }
+
+  &__photo {
+    display: grid;
+    min-height: 410px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    background-position: center;
+    background-size: cover;
+
+    @include on-desktop {
+      height: 600px;
+    }
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__photo-1 {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    grid-column: 1/-1;
+    display: none;
+
+    @include on-desktop {
+      display: grid;
+      grid-column: 1/5;
+    }
+  }
+
+  &__photo-2 {
+    display: none;
+
+    @include on-desktop {
+      display: grid;
+      grid-column: 5/13;
+    }
+  }
+
+  &__photo-3 {
+    display: none;
+
+    @include on-desktop {
+      display: grid;
+      grid-column: 1/9;
+    }
+  }
+
+  &__photo-4 {
+    display: none;
+
+    @include on-desktop {
+      display: grid;
+      grid-column: 9/13;
+    }
+  }
+
+  &__slider {
+    position: relative;
+    min-height: 410px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+
+    @include on-tablet {
+      height: 543px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &-input {
+      position: absolute;
+      visibility: hidden;
+    }
+
+    &-inputs {
+      width: 400%;
+      height: 410px;
+      display: flex;
+      gap: 20px;
+    }
+
+    &__slide {
+      width: 25%;
+      transition: all 0.6s ease;
+      object-fit: cover;
+      object-position: center;
+
+      @include on-tablet {
+        height: 543px;
+      }
+    }
+  }
+
+  &__image {
+    height: 410px;
+
+    object-fit: cover;
+    object-position: center;
+
+    @include on-tablet {
+      height: 543px;
+    }
+  }
+
+  &__navigation {
+    position: absolute;
+
+    left: 50%;
+    bottom: -20px;
+    display: flex;
+    gap: 22px;
+    transform: translateX(-50%);
+
+    &-label {
+      z-index: 2;
+      border-radius: 50%;
+      width: 9px;
+      height: 9px;
+      background-color: grey;
+      cursor: pointer;
+      transform: 0.5s;
+
+      &:hover,
+      &:active {
+        background-color: #1a5a4c;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__slider-input1:checked ~ .s1 {
+    margin-left: 0;
+  }
+
+  &__slider-input2:checked ~ .s1 {
+    margin-left: -25%;
+  }
+
+  &__slider-input3:checked ~ .s1 {
+    margin-left: -50%;
+  }
+
+  &__slider-input4:checked ~ .s1 {
+    margin-left: -77%;
+  }
+}

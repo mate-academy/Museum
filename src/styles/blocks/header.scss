@@ -1,0 +1,195 @@
+.header {
+  box-sizing: border-box;
+  position: relative;
+
+  &__content {
+    display: block;
+  }
+
+  &__photo {
+    background-image: url(../images/muzej-Ukrayini-Kiyiv.png);
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include on-tablet {
+      width: 49%;
+      right: 0;
+      left: 51%;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      width: 57%;
+      right: 0;
+      left: 43%;
+      height: 655px;
+    }
+  }
+
+  &__tittle {
+    @include page-grid;
+
+    &-content {
+      font-family: Montserrat, sans-serif;
+      font-size: 45px;
+      font-weight: 700;
+      line-height: 45px;
+      text-align: center;
+      color: #000;
+      padding-top: 250px;
+      margin: 0;
+      z-index: 2;
+
+      @include on-tablet {
+        font-size: 54px;
+        line-height: 64.8px;
+        text-align: left;
+        padding-top: 34px;
+        grid-column: 1/4;
+      }
+
+      @include on-desktop {
+        padding-top: 113px;
+        font-size: 72px;
+        line-height: 86.4px;
+      }
+    }
+
+    &::after {
+      @include on-desktop {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 70px;
+        background-color: #1a5a4c;
+        top: 565px;
+        left: 62px;
+      }
+    }
+  }
+
+  &__rotate {
+    display: none;
+
+    @include on-desktop {
+      position: absolute;
+      display: inline;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      line-height: 14px;
+      color: #687480;
+      transform: rotate(180deg);
+      writing-mode: vertical-lr;
+      margin: 0;
+      padding-bottom: 144px;
+    }
+  }
+
+  &__search-form {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 280px;
+    height: 50px;
+    border: 1px solid #1a5a4c;
+    margin-top: 20px;
+
+    ::placeholder {
+      color: #0f0e08;
+    }
+
+    @include on-tablet {
+      width: 270px;
+      height: 70px;
+      margin-top: 38px;
+    }
+
+    @include on-desktop {
+      margin-top: 89px;
+      margin-left: 200px;
+    }
+
+    &--text {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 50px;
+      text-align: center;
+      border: none;
+      outline: none;
+      background-color: inherit;
+    }
+
+    &--button,
+    &--photo {
+      width: 50px;
+      height: 50px;
+      border: none;
+      padding: 0;
+      margin: 0;
+
+      @include on-tablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  &__icons {
+    display: flex;
+
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__burger {
+    z-index: 3;
+
+    &--menu {
+      background-image: url(../images/burger_menu.png);
+      display: flex;
+      height: 24px;
+      width: 24px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s;
+      margin-top: 27px;
+    }
+  }
+
+  &__logo {
+    z-index: 2;
+    margin: 9px auto 0;
+
+    @include on-tablet {
+      display: grid;
+      grid-column: 4/6;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-column: 7/9;
+    }
+
+    &--link {
+      text-decoration: none;
+      font-family: Montserrat, sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 30px;
+      text-align: center;
+      color: #0f0e08;
+
+      @include on-tablet {
+        font-size: 36px;
+        line-height: 36px;
+      }
+    }
+  }
+}
