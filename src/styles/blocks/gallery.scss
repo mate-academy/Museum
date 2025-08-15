@@ -1,0 +1,112 @@
+@import '../utils/mixins';
+
+.gallery {
+  &__section {
+    padding: 20px;
+    margin-bottom: 130px;
+  }
+
+  &__tittle {
+    margin-bottom: 40px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+
+    @include on-tablet {
+      text-align: left;
+      font-size: 48px;
+      margin-bottom: 52px;
+    }
+  }
+
+  &__first {
+    @include on-desktop {
+      grid-column: 1 / 5;
+      height: 600px !important;
+    }
+  }
+
+  &__second {
+    @include on-desktop {
+      grid-column: 5 / 13;
+      height: 600px !important;
+      object-fit: cover;
+    }
+  }
+
+  &__thirth {
+    @include on-desktop {
+      grid-column: 1 / 9;
+      object-fit: cover;
+    }
+  }
+
+  &__fourth {
+    @include on-desktop {
+      grid-column: 9 / 13;
+      object-fit: cover;
+    }
+  }
+}
+
+/* === SWIPER === */
+
+.swiper {
+  display: none;
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
+
+  @include on-desktop {
+    display: none !important;
+  }
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: contain;
+  height: 620px;
+
+  @include on-tablet {
+    object-fit: cover;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000 !important;
+
+  &:hover {
+    @include transision;
+  }
+}
+
+.swiper-pagination {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* === GRID === */
+
+.gallery-grid {
+  display: none;
+  gap: 20px;
+
+  @include on-desktop {
+    @include page-grid;
+  }
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+}
