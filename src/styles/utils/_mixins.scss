@@ -4,3 +4,63 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin container {
+  margin: 0 auto;
+  padding: 0 $mobile-margin;
+  max-width: $mobile-container-width + (2 * $mobile-margin);
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 $tablet-margin;
+    max-width: $tablet-container-width + (2 * $tablet-margin);
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    padding: 0 $desktop-margin;
+    max-width: $desktop-container-width + (2 * $desktop-margin);
+  }
+}
+
+@mixin grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(-#{$mobile-gutter} / 2);
+
+  @media (min-width: $breakpoint-tablet) {
+    margin: 0 calc(-#{$tablet-gutter} / 2);
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    margin: 0 calc(-#{$desktop-gutter} / 2);
+  }
+}
+
+@mixin mobile-only {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media (min-width: $breakpoint-tablet) and (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
