@@ -1,7 +1,552 @@
 @import 'utils';
-@import 'fonts';
-@import 'typography';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background: $c-gray;
+  background: $c-white;
+  margin: 0;
+  padding: 0;
 }
+
+h1,
+h2,
+h3,
+h4,
+p,
+a {
+  font-family: Montserrat, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 $mobile-margin;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 $tablet-margin;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    padding: 0 $desktop-margin;
+  }
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  z-index: 1;
+  overflow: hidden;
+
+  @media (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.main-content {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 120px;
+
+  @media (min-width: $breakpoint-tablet) {
+    z-index: 1;
+    height: 100vh;
+  }
+}
+
+.hero-section {
+  margin-top: 320px;
+  padding: 20px 0;
+
+  .container {
+    text-align: center;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    margin-top: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: center;
+      text-align: left;
+      padding-right: 0;
+      max-width: none;
+      margin: 0;
+      padding-left: $tablet-margin;
+      height: 100vh;
+    }
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    .container {
+      grid-template-columns: 5fr 7fr;
+      padding-left: $desktop-margin;
+    }
+  }
+
+  .hero-image-desktop {
+    display: none;
+    position: relative;
+
+    @media (min-width: $breakpoint-tablet) {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-image: url('../images/Museum_header.png');
+      background-size: cover;
+      background-position: center left;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .hero-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+
+    @media (min-width: $breakpoint-tablet) {
+      top: 30px;
+      left: 30px;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      top: 40px;
+      left: 40px;
+    }
+
+    &-image {
+      height: 40px;
+      width: auto;
+
+      @media (min-width: $breakpoint-tablet) {
+        height: 48px;
+      }
+
+      @media (min-width: $breakpoint-desktop) {
+        height: 56px;
+      }
+    }
+  }
+
+  .hero-content {
+    @media (min-width: $breakpoint-tablet) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      padding-right: 40px;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      padding-right: 60px;
+    }
+  }
+}
+
+.hero-title {
+  font-family: Montserrat, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $c-black;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 48px;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 60px;
+  }
+}
+
+.tickets-text {
+  text-transform: uppercase;
+}
+
+.event-item__category,
+.lecture-card__category {
+  text-transform: uppercase;
+}
+
+.tickets-section {
+  margin-top: 20px;
+
+  @media (min-width: $breakpoint-tablet) {
+    margin-top: 38px;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    margin-top: 89px;
+    margin-left: calc(2 * (#{$desktop-column-width} + #{$desktop-gutter}));
+  }
+}
+
+.tickets-button {
+  display: inline-flex;
+  align-items: center;
+  background: $c-white;
+  color: $c-gray-main;
+  border: 1px solid #1a5a4c;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  overflow: hidden;
+  width: 280px;
+  height: 50px;
+  text-decoration: none;
+
+  @media (min-width: $breakpoint-tablet) {
+    width: calc(3 * #{$tablet-column-width} + 2 * #{$tablet-gutter});
+    height: 60px;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    width: calc(3 * #{$desktop-column-width} + 2 * #{$desktop-gutter});
+  }
+
+  &:hover {
+    border-color: $c-green;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(26, 90, 76, 0.2);
+  }
+
+  .tickets-text {
+    padding: 16px 24px;
+    flex: 1;
+  }
+
+  .tickets-arrow-section {
+    background: $c-green;
+    padding: 16px 20px;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 18px;
+
+    .tickets-text {
+      padding: 18px 32px;
+    }
+
+    .tickets-arrow-section {
+      padding: 18px 24px;
+    }
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 20px;
+
+    .tickets-text {
+      padding: 20px 40px;
+    }
+
+    .tickets-arrow-section {
+      padding: 20px 28px;
+    }
+  }
+}
+
+.tickets-arrow {
+  width: 8px;
+  height: 12px;
+  filter: brightness(0) invert(1);
+}
+
+.header {
+  position: relative;
+  z-index: 200;
+
+  @media (min-width: $breakpoint-tablet) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &-top {
+    background: transparent;
+    padding: 16px 0;
+    border-bottom: none;
+
+    .container {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+
+      @media (min-width: $breakpoint-tablet) {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.burger-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  grid-column: 1;
+
+  @media (min-width: $breakpoint-tablet) {
+    grid-column: unset;
+  }
+
+  .burger-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 2;
+
+  @media (min-width: $breakpoint-tablet) {
+    grid-column: unset;
+    justify-content: flex-start;
+    display: none;
+  }
+
+  &-image {
+    height: 40px;
+    width: auto;
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 68vh;
+  background: $c-green;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+
+  @media (min-width: $breakpoint-tablet) {
+    height: 40vh;
+  }
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  &__content {
+    padding: 20px;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $breakpoint-tablet) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    color: $c-white;
+    font-size: 30px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+    max-width: 300px;
+    margin-left: 50px;
+
+    @media (min-width: $breakpoint-tablet) {
+      margin-left: 0;
+    }
+  }
+
+  &__link {
+    color: $c-white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: rgb(244, 255, 125);
+    }
+  }
+
+  &__info {
+    margin-top: 40px;
+    color: $c-white;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.5);
+
+      @media (min-width: $breakpoint-tablet) {
+        height: 100%;
+        width: 1px;
+        left: -20px;
+        top: 0;
+        bottom: 0;
+      }
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      margin-top: 0;
+      padding-left: 40px;
+    }
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  &__schedule {
+    margin-bottom: 30px;
+
+    p {
+      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.4;
+
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__holidays {
+    p {
+      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.4;
+
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__details {
+    @media (min-width: $breakpoint-tablet) {
+      display: flex;
+      gap: 40px;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-mobile) {
+  .mobile-menu__content {
+    margin-left: calc(#{$mobile-margin} - 20px);
+  }
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .mobile-menu__content {
+    margin-left: calc(#{$tablet-margin} - 20px);
+  }
+
+  .burger-menu .burger-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .logo-image {
+    height: 48px;
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .mobile-menu__content {
+    margin-left: calc(#{$desktop-margin} - 20px);
+  }
+
+  .burger-menu .burger-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .logo-image {
+    height: 56px;
+  }
+}
+
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 150;
+
+  &.active {
+    display: block;
+  }
+}
+
+@import 'utils/events';
+@import 'utils/lecture';
+@import 'utils/gallery';
+@import 'utils/subscription';
+@import 'utils/footer';
