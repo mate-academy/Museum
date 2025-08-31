@@ -1,0 +1,130 @@
+.subscribe {
+  background: url('../images/subscribe--photo-2x.png') no-repeat center;
+  height: 550px;
+  width: 100%;
+  margin-top: 200px;
+  &__article {
+    @include page-grid;
+
+    height: 100%;
+    width: 100%;
+    &__block {
+      background: transparent;
+
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      grid-column: span 2;
+
+      @include on-tablet {
+        gap: 64px;
+        grid-column: 2/6;
+      }
+
+      @include on-pc {
+        gap: 72px;
+        grid-column: 4/11;
+      }
+
+      align-items: center;
+      justify-content: center;
+      &__title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 420px;
+        height: fit-content;
+        &--item {
+          font-family: $font-primary;
+          font-weight: 700;
+          font-size: 36px;
+
+          line-height: 100%;
+          color: $c-white;
+          margin-bottom: 15px;
+        }
+        &--subtitle {
+          font-family: $font-secondary;
+          font-weight: 300;
+          font-size: 16px;
+          width: 100%;
+          line-height: 150%;
+          color: $c-white;
+          margin-bottom: 30px;
+        }
+      }
+      &__form {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        grid-column: span 2;
+
+        @include on-tablet {
+          gap: 15px;
+          grid-column: 2/6;
+        }
+
+        @include on-pc {
+          gap: 30px;
+          grid-column: 4/7;
+        }
+        &--input {
+          min-width: 250px;
+          min-height: 50px;
+          background: $c-white;
+          &:focus,
+          &:active {
+            outline: none;
+          }
+
+          @include on-tablet {
+            width: 460px;
+            height: 70px;
+          }
+
+          @include on-pc {
+            width: 470px;
+            height: 70px;
+          }
+
+          border: none;
+          padding-left: 32px;
+          font-family: $font-secondary;
+          font-size: 14px;
+          line-height: 100%;
+          color: #687480;
+
+          &::placeholder {
+            font-family: $font-secondary;
+            font-size: 14px;
+            line-height: 100%;
+            color: #4e4e4e;
+          }
+        }
+        &--button {
+          min-width: 50px;
+          min-height: 50px;
+
+          @include on-tablet {
+            width: 70px;
+            height: 70px;
+          }
+
+          @include on-pc {
+            width: 70px;
+            height: 70px;
+          }
+
+          background-color: $c-red;
+          border: none;
+
+          font-weight: 700;
+          font-size: 24px;
+
+          color: $c-dark;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

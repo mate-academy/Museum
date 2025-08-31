@@ -1,0 +1,232 @@
+.header {
+  &__container {
+    @include page-grid;
+    @include pading-inlain;
+
+    row-gap: 20px;
+
+    background: url('../images/heder--national-bulding.png') 100% 0% / 100% 65%
+      no-repeat;
+
+    @include on-tablet {
+      background-size: 48% 100%;
+      row-gap: 40px;
+      padding-bottom: 20px;
+    }
+
+    @include on-pc {
+      background-size: 56.5% 100%;
+      row-gap: 89px;
+      padding-bottom: 50px;
+    }
+
+    &__top {
+      align-items: center;
+      display: flex;
+      padding-top: 15px;
+      grid-column: span 2;
+      gap: 88px;
+
+      @include on-tablet {
+        grid-column: span 6;
+        gap: 336px;
+      }
+
+      @include on-pc {
+        grid-column: span 12;
+        gap: 479px;
+      }
+      &--link {
+        align-content: center;
+
+        justify-items: center;
+        width: 24px;
+        height: 24px;
+      }
+      &--item {
+        display: block;
+
+        @include hover(transform, scale(1.2));
+
+        align-items: center;
+      }
+    }
+
+    &__title {
+      padding-top: 312px;
+      grid-column: span 2;
+      &--item {
+        font-family: $font-primary;
+        font-weight: 700;
+        font-size: 45px;
+        line-height: 100%;
+        text-align: center;
+      }
+
+      @include on-tablet {
+        grid-column: span 3;
+        padding-top: 24px;
+        &--item {
+          font-size: 54px;
+          line-height: 120%;
+
+          text-align: left;
+        }
+      }
+
+      @include on-pc {
+        padding-top: 30px;
+        grid-column: 1/6;
+        &--item {
+          font-family: $font-primary;
+
+          font-size: 72px;
+          line-height: 120%;
+          text-align: left;
+        }
+      }
+    }
+
+    &__bottom {
+      display: flex;
+      grid-column: span 2;
+      width: 100%;
+      &--link {
+        width: 25%;
+        height: 70px;
+        display: block;
+        background-color: $c-green;
+        place-items: center center;
+        align-content: center;
+        text-align: center;
+      }
+      &--name {
+        font-family: $font-secondary;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+        text-align: center;
+        align-content: center;
+        width: 75%;
+        height: 70px;
+        border: $c-green 1px solid;
+        display: block;
+      }
+
+      @include on-tablet {
+        grid-column: 1/4;
+        width: 80%;
+        &--link {
+          width: 25%;
+          height: 70px;
+          display: block;
+          background-color: $c-green;
+          place-items: center center;
+          align-content: center;
+          text-align: center;
+        }
+        &--name {
+          font-family: $font-secondary;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 100%;
+          text-align: center;
+          align-content: center;
+          width: 75%;
+          height: 70px;
+          border: $c-green 1px solid;
+          display: block;
+        }
+      }
+
+      @include on-pc {
+        grid-column: 3/6;
+
+        &--link {
+          width: 25%;
+          height: 70px;
+          display: block;
+          background-color: $c-green;
+          place-items: center center;
+          align-content: center;
+        }
+        &--name {
+          font-family: $font-secondary;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 100%;
+          text-align: center;
+          align-content: center;
+          width: 75%;
+          height: 70px;
+          border: $c-green 1px solid;
+          display: block;
+        }
+
+        &--photo {
+          display: block;
+          height: 12px;
+          width: 12px;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    &__rotate {
+      display: none;
+
+      @include on-pc {
+        display: block;
+        grid-column: 1 /2;
+        writing-mode: vertical-rl;
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}
+
+.logo--link {
+  display: block;
+  width: 170px;
+  height: 72px;
+  text-align: center;
+
+  @include hover(transform, scale(1.2));
+}
+
+.logo--item {
+  font-family: $font-primary;
+  font-weight: 700;
+  font-size: 36px;
+
+  @include hover(transform, scale(1.2));
+
+  line-height: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.rotate-text {
+  font-family: $font-secondary;
+  font-weight: 700;
+  font-size: 14px;
+
+  line-height: 100%;
+  color: #687480;
+  position: relative;
+  &::after {
+    content: '';
+    bottom: 50px;
+    left: 7px;
+    width: 1px;
+    height: 70px;
+    background-color: $c-green;
+    position: absolute;
+    display: none;
+
+    @include on-pc {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,137 @@
+.gallery-wrapper {
+  max-width: 1170px;
+
+  margin: auto;
+
+  // коли активний Swiper (на мобільних)
+  &.swiper {
+    padding-bottom: 48px; // місце під поінти
+  }
+}
+
+// Пагінація Swiper
+.swiper-pagination {
+  position: relative;
+  bottom: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #e0e0e0 !important; // неактивний колір
+  opacity: 1; // прибираємо прозорість
+  border-radius: 50%;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $c-green !important; // зелений активний
+  transform: scale(1.2); // легке збільшення для ефекту
+}
+
+/* ====== Адаптиви ====== */
+
+/* Мобільні (до 480px) */
+@media (max-width: 480px) {
+  .swiper-slide img {
+    width: 280px;
+    height: 410px;
+    margin: 0 auto;
+  }
+
+  .gallery-wrapper.swiper {
+    padding-bottom: 56px; // трохи більше відступу
+  }
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Планшети (481px–1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .swiper-slide img {
+    width: 100%;
+    max-width: 340px;
+    max-height: 543px;
+    display: block;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .gallery-wrapper.swiper {
+    padding-bottom: 64px; // більше місця під пагінацію
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Десктоп (>1024px) */
+@media (min-width: 1025px) {
+  .gallery-wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+
+  .gallery-item:nth-child(1) {
+    grid-column: span 4;
+
+    @include hover(transform, scale(1.1));
+  }
+  .gallery-item:nth-child(2) {
+    grid-column: span 8;
+
+    @include hover(transform, scale(1.05));
+  }
+  .gallery-item:nth-child(3) {
+    grid-column: span 8;
+
+    @include hover(transform, scale(1.05));
+  }
+  .gallery-item:nth-child(4) {
+    grid-column: span 4;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  .swiper-slide img {
+    max-width: 100%;
+  }
+}
+
+.gallery {
+  @include on-pc {
+    padding-inline: 55px;
+  }
+
+  &__title {
+    max-width: 1170px;
+    margin: auto;
+    padding-block: 56px;
+
+    &--item {
+      font-family: $font-primary;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 100%;
+    }
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

@@ -1,0 +1,180 @@
+.menu {
+  color: $c-white;
+  position: fixed;
+  inset: 0;
+
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-100%);
+
+  &:target {
+    pointer-events: all;
+    opacity: 1;
+    z-index: 3;
+
+    transform: translateX(0);
+  }
+
+  &__container {
+    @include pading-inlain;
+
+    padding-bottom: 50px;
+    max-width: 1280px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding-block: 27px 60px;
+    gap: 42px;
+
+    @include on-tablet {
+      padding-block: 40px 60px;
+      flex-direction: row;
+    }
+
+    @include on-pc {
+      padding-block: 40px 60px;
+      gap: 102px;
+      flex-direction: row;
+    }
+
+    &__nav {
+      &__close {
+        &--link {
+          display: block;
+          width: 24px;
+          height: 24px;
+
+          @include hover(transform, scale(1.2));
+
+          align-content: center;
+          justify-items: center;
+        }
+        &--item {
+          display: block;
+        }
+      }
+
+      display: flex;
+      gap: 28px;
+      padding-top: 10px;
+      flex-direction: row;
+      font-family: $font-secondary;
+      font-weight: 500;
+      font-size: 16px;
+
+      line-height: 100%;
+
+      @include on-tablet {
+        gap: 38px;
+        padding-top: 0;
+      }
+
+      @include on-pc {
+        padding-top: 0;
+        gap: 102px;
+        font-family: $font-secondary;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 100%;
+      }
+      &__lists {
+        display: flex;
+        gap: 25px;
+
+        @include on-tablet {
+          gap: 30px;
+        }
+
+        @include on-pc {
+          gap: 100px;
+        }
+        &--item {
+          @include hover(transform, scale(1.2));
+        }
+
+        &--group {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+        }
+      }
+    }
+    &--lin {
+      border: #fff solid 1px;
+
+      border-top: 1;
+      width: 280px;
+      height: 1px;
+
+      @include on-tablet {
+        height: 145px;
+        width: 1px;
+        border-left: 1px;
+      }
+
+      @include on-pc {
+        height: 145px;
+        width: 1px;
+        border-left: 1px;
+      }
+    }
+
+    &__text {
+      display: flex;
+      gap: 0;
+      flex-direction: column;
+      font-family: $font-secondary;
+
+      font-weight: 400;
+      font-size: 14px;
+
+      line-height: 150%;
+
+      @include on-tablet {
+        gap: 5px;
+        flex-direction: row;
+      }
+
+      @include on-pc {
+        flex-direction: row;
+        gap: 100px;
+      }
+      &__group {
+        display: flex;
+        width: 280px;
+        flex-direction: column;
+        gap: 20px;
+        &--item {
+          font-family: $font-secondary;
+          font-weight: 400;
+          font-size: 14px;
+
+          line-height: 150%;
+        }
+
+        @include on-tablet {
+          width: 170px;
+        }
+
+        @include on-pc {
+          width: 170px;
+        }
+      }
+    }
+  }
+}
+
+.margin-top {
+  margin-top: 40px;
+}
+
+.backround--green {
+  width: 100%;
+  height: fit-content;
+  background-color: $c-green;
+}
