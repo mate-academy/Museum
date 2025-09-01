@@ -1,0 +1,155 @@
+.hero {
+  @extend %flex-column;
+  gap: 16px;
+
+  @media (min-width: 600px) {
+    flex-direction: row-reverse;
+  }
+
+  @include on-desktop {
+    @include page-grid;
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-inline: 30px;
+  }
+
+  &__image {
+    @extend %full-image;
+    height: 300px;
+
+    @include on-tablet {
+      height: 384px;
+      flex: 1;
+    }
+    @include on-desktop {
+      height: 655px;
+      grid-column: 7 / -1;
+      grid-row: 1;
+      flex: none;
+    }
+  }
+
+  &__content {
+    @extend %flex-column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    grid-column: 1 / -1;
+    padding-inline: 20px;
+
+    @include on-tablet {
+      flex: 1;
+      align-items: flex-start;
+      row-gap: 38px;
+      padding-inline: 39px;
+    }
+
+    @include on-desktop {
+      row-gap: 89px;
+      align-items: flex-start;
+      padding-inline: 0;
+      grid-column: 1 / 7;
+      grid-row: 1;
+      flex: none;
+    }
+  }
+
+  &__title {
+    @extend %section-title;
+    font-size: 45px;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 54px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+      text-align: left;
+    }
+  }
+
+  &__events {
+    display: none;
+    text-decoration: none;
+    color: #687480;
+
+    @include on-desktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 80px;
+      left: 30px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #687480;
+      text-transform: uppercase;
+      transform: rotate(-90deg);
+      transform-origin: left bottom;
+      white-space: nowrap;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 70px;
+        height: 1px;
+        background-color: #1A5A4C;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &__button {
+    @extend %flex-center;
+    @extend %smooth-transition;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #1a5a4c;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+    display: flex;
+
+    @include on-desktop {
+      align-self: flex-end;
+    }
+
+    &-text {
+      flex: 1;
+      text-align: center;
+      font-size: 16px;
+      font-weight: medium;
+      color: #333;
+      background-color: white;
+    }
+
+    &-ico {
+      @extend %flex-center;
+      width: 50px;
+      height: 50px;
+      background-color: #1a5a4c;
+      margin: 0;
+      padding: 0;
+    }
+
+    &:hover {
+      background-color: $color-primary;
+      color: white;
+    }
+
+    @include on-tablet {
+      width: 270px;
+    }
+  }
+}
