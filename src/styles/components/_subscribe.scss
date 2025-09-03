@@ -1,9 +1,10 @@
 .subscribe {
   padding-block: 88px;
   background-image: url('../images/subscribe-bg.jpg');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  width: 100%;
 
   @include on-tablet {
     padding-block: 82px;
@@ -13,12 +14,27 @@
     padding-block: 163px;
   }
 
+  .section__content {
+    @include page-grid;
+  }
+
   &__content {
     @extend %flex-column;
     @extend %flex-center;
 
     box-sizing: border-box;
+    grid-column: 1 / -1;
     padding-inline: 20px;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      padding-inline: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / -4;
+      padding-inline: 0;
+    }
   }
 
   &__title {
@@ -52,6 +68,7 @@
   &__form {
     display: flex;
     height: 50px;
+    width: 100%;
 
     @include on-tablet {
       height: 70px;
@@ -60,7 +77,7 @@
 
     @include on-desktop {
       height: 70px;
-      gap: 30px;
+      gap: $grid-gutter-desktop;
     }
   }
 
@@ -81,8 +98,10 @@
   &__button {
     @extend %smooth-transition;
 
-    aspect-ratio: 1 / 1;
-    padding: 18px 24px;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    padding: 0;
     background-color: $color-warning;
     border: none;
     cursor: pointer;
@@ -91,6 +110,16 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 24px 24px;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      width: 70px;
+      height: 70px;
+    }
 
     &:hover {
       background-color: $color-warning-dark;
