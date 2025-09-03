@@ -2,7 +2,8 @@
   width: 100%;
   max-width: 100%;
   overflow: hidden; /* запобігає розтягуванню сторінки */
-  @include section-padding();
+
+  @include section-padding;
 
   @include on-desktop {
     padding-inline: 0;
@@ -12,17 +13,14 @@
   .gallery {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: calc(
-      100% - 56px
-    ); /* 100% - 40px (20+20) - 16px (gap) */
+    grid-auto-columns: calc(100% - 56px); /* 100% - 40px (20+20) - 16px (gap) */
     gap: 16px;
-    overflow-x: auto;
+    overflow: auto hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     padding: 0;
     box-sizing: content-box;
-    overflow-y: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
     max-width: 100%;
@@ -32,15 +30,18 @@
     }
 
     &__title {
-    @extend %section-title;
-    font-size: 36px;
-    @include section-margin();
-    text-align: center;
+      @extend %section-title;
 
-    @include on-tablet {
-      font-size: 48px;
+      font-size: 36px;
+
+      @include section-margin;
+
+      text-align: center;
+
+      @include on-tablet {
+        font-size: 48px;
+      }
     }
-  }
   }
 
   .slide {
@@ -106,6 +107,7 @@
       grid-auto-columns: calc(
         50% - 39px
       ); /* 2 слайди, відступи враховуються в section-padding, 16px gap */
+
       padding: 0;
     }
 
@@ -164,6 +166,7 @@
 }
 
 /* активна крапка через :has + :target (працює в сучасних браузерах) */
+/* stylelint-disable selector-max-id */
 .gallery-wrapper:has(#slide1:target) .gallery-dots a[href='#slide1'],
 .gallery-wrapper:has(#slide2:target) .gallery-dots a[href='#slide2'],
 .gallery-wrapper:has(#slide3:target) .gallery-dots a[href='#slide3'],
@@ -171,3 +174,4 @@
   background: $color-success;
   transform: scale(1.25);
 }
+/* stylelint-enable selector-max-id */
