@@ -1,11 +1,8 @@
 .gallery-wrapper {
   width: 100%;
+  max-width: 100%;
   overflow: hidden; /* запобігає розтягуванню сторінки */
-  padding-inline: 20px;
-
-  @include on-tablet {
-    padding-inline: 39px;
-  }
+  @include section-padding();
 
   @include on-desktop {
     padding-inline: 0;
@@ -16,7 +13,7 @@
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: calc(
-      100vw - 56px
+      100% - 56px
     ); /* 100% - 40px (20+20) - 16px (gap) */
     gap: 16px;
     overflow-x: auto;
@@ -28,17 +25,29 @@
     overflow-y: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    max-width: 100%;
 
     &::-webkit-scrollbar {
       display: none;
     }
+
+    &__title {
+    @extend %section-title;
+    font-size: 36px;
+    @include section-margin();
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 48px;
+    }
+  }
   }
 
   .slide {
     scroll-snap-align: start;
     height: 410px;
     overflow: hidden;
-    background: #111;
+    background: $color-dark;
     display: block;
     outline: none;
     flex-shrink: 0;
@@ -66,7 +75,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: #e0e0e0;
+      background: $color-light-gray;
       display: inline-block;
       text-indent: -9999px;
       transition:
@@ -75,7 +84,7 @@
       box-shadow: none;
 
       &:focus {
-        outline: 2px solid #1a5a4c;
+        outline: 2px solid $color-success;
         outline-offset: 3px;
       }
 
@@ -85,7 +94,7 @@
 
       &:active,
       &:focus-visible {
-        background: #1a5a4c;
+        background: $color-success;
         transform: scale(1.25);
       }
     }
@@ -95,8 +104,8 @@
   @include on-tablet {
     .gallery {
       grid-auto-columns: calc(
-        50% - 47px
-      ); /* 2 слайди, 39px відступ з кожного боку, 16px gap */
+        50% - 39px
+      ); /* 2 слайди, відступи враховуються в section-padding, 16px gap */
       padding: 0;
     }
 
@@ -111,8 +120,8 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-rows: 600px 600px;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 600px 360px;
       gap: 24px;
       padding: 0;
       overflow: visible;
@@ -124,27 +133,27 @@
       scroll-snap-align: none;
 
       &:nth-child(1) {
-        grid-column: 1 / 2;
+        grid-column: 1 / 5; // стовпці 1-4
         grid-row: 1;
         height: 600px;
       }
 
       &:nth-child(2) {
-        grid-column: 2 / 4;
+        grid-column: 5 / -1; // стовпці 5-12
         grid-row: 1;
         height: 600px;
       }
 
       &:nth-child(3) {
-        grid-column: 2 / 4;
+        grid-column: 1 / 9; // стовпці 1-8
         grid-row: 2;
-        height: 600px;
+        height: 360px;
       }
 
       &:nth-child(4) {
-        grid-column: 4 / 5;
+        grid-column: 9 / -1; // стовпці 9-12
         grid-row: 2;
-        height: 600px;
+        height: 360px;
       }
     }
 
@@ -159,6 +168,6 @@
 .gallery-wrapper:has(#slide2:target) .gallery-dots a[href='#slide2'],
 .gallery-wrapper:has(#slide3:target) .gallery-dots a[href='#slide3'],
 .gallery-wrapper:has(#slide4:target) .gallery-dots a[href='#slide4'] {
-  background: #1a5a4c;
+  background: $color-success;
   transform: scale(1.25);
 }

@@ -1,3 +1,118 @@
+// Typography system based on Figma design tokens
+
+// Headings
 h1 {
-  @extend %h1;
+  @include montserrat-hero-desktop();
+  margin: 0;
+  color: $color-primary;
+  
+  @include on-tablet {
+    @include montserrat-hero-medium();
+  }
+  
+  @media (max-width: #{$tablet-breakpoint - 1px}) {
+    @include montserrat-hero-large();
+  }
+}
+
+h2 {
+  @include montserrat-gallery-title();
+  margin: 0;
+  color: $color-primary;
+  
+  @include on-tablet {
+    @include montserrat-hero-large();
+  }
+  
+  @media (max-width: #{$tablet-breakpoint - 1px}) {
+    @include montserrat-hero-title();
+  }
+}
+
+h3 {
+  @include montserrat-hero-title();
+  margin: 0;
+  color: $color-primary;
+  
+  @media (max-width: #{$tablet-breakpoint - 1px}) {
+    @include montserrat-event-title();
+  }
+}
+
+h4 {
+  @include montserrat-event-title();
+  margin: 0;
+  color: $color-primary;
+  
+  @media (max-width: #{$tablet-breakpoint - 1px}) {
+    @include ibm-gallery-nav();
+  }
+}
+
+// Body text
+p {
+  @include ibm-description();
+  margin: 0;
+  color: $color-secondary;
+  
+  &.large {
+    @include ibm-subscribe();
+  }
+}
+
+// Utility classes
+.text-title {
+  @include ibm-title();
+}
+
+.text-button {
+  @include ibm-button();
+}
+
+.text-copyright {
+  @include ibm-copyright();
+}
+
+.text-events {
+  @include ibm-events();
+}
+
+.text-lecture {
+  @include ibm-lecture();
+}
+
+.text-date {
+  @include ibm-date();
+}
+
+.text-summary {
+  @include ibm-summary();
+}
+
+.text-logo {
+  @include montserrat-logo();
+  
+  @media (max-width: #{$tablet-breakpoint - 1px}) {
+    @include montserrat-logo-small();
+  }
+}
+
+.text-input {
+  @include montserrat-input();
+}
+
+// Links
+a {
+  @include ibm-title();
+  color: $color-primary;
+  text-decoration: none;
+  @include hover(color, $color-accent);
+}
+
+// Buttons
+button {
+  @include ibm-button();
+  background: none;
+  border: none;
+  cursor: pointer;
 }

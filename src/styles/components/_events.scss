@@ -1,20 +1,21 @@
 .events {
   @extend %flex-column;
+  @include content-spacing();
 
   &__title {
     @extend %section-title;
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 36px;
+    @include section-margin();
+    text-align: center;
 
     @include on-tablet {
-      font-size: 32px;
-      margin-bottom: 40px;
+      font-size: 48px;
     }
   }
 
   &__list {
     @extend %flex-column;
-    gap: 60px;
+    @include section-gap();
 
     @include on-tablet {
       gap: 64px;
@@ -27,24 +28,56 @@
 }
 
 .event {
-  @extend %flex-column;
+  @include page-grid;
   box-sizing: border-box;
   overflow: hidden;
   max-width: 100%;
-  align-items: center;
 
-  @include on-desktop {
-    flex-direction: row;
+  &__image {
+    @extend %full-image;
+    height: auto;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    grid-column: 1 / -1; // мобільний: повні 2 колонки
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include on-tablet {
+      grid-column: 1 / -1; // планшет: всі 6 колонок
+      height: 400px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 8; // десктоп: колонки 1-7
+      height: 520px;
+    }
   }
 
   &__info {
     @extend %flex-column;
     justify-content: space-between;
+    grid-column: 1 / -1; // мобільний: повні 2 колонки
+    padding-top: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 5; // планшет: перші 4 колонки
+      padding-top: 30px;
+    }
 
     @include on-desktop {
+      grid-column: 9 / -1; // десктоп: колонки 9-12
       height: 202px;
-      margin-left: 130px;
+      padding-top: 0;
+      align-self: center;
     }
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
   }
 
   &__type {
@@ -54,39 +87,8 @@
 
   &__date {
     @extend %metadata-text;
-    color: #1a5a4c;
+    color: $color-success;
     font-weight: bold;
-  }
-
-  &__description {
-    font-size: 16px;
-    line-height: 150%;
-    font-size: small;
-    color: $color-secondary;
-    margin: 0;
-  }
-
-  &__wrap {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-
-  &__image {
-    @extend %full-image;
-    height: auto;
-    max-width: 100%;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-    overflow: hidden;
-
-    &:hover {
-      transform: scale(1.05);
-    }
-
-    @include on-desktop {
-      height: 520px;
-    }
   }
 
   &__title {
@@ -103,7 +105,7 @@
       display: inline-block;
       width: 10px;
       height: 10px;
-      background-color: #f14a27;
+      background-color: $color-warning;
     }
 
     @include on-tablet {
@@ -112,6 +114,7 @@
   }
 
   &__description {
+    font-size: 16px;
     line-height: 1.6;
     color: $color-secondary;
     margin: 0;

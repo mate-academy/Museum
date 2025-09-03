@@ -1,6 +1,10 @@
 .hero {
   @extend %flex-column;
   gap: 16px;
+  max-width: $max-content-width;
+  margin: 0 auto;
+  width: 100%;
+  overflow-x: hidden;
 
   @media (min-width: 600px) {
     flex-direction: row-reverse;
@@ -11,8 +15,6 @@
     position: relative;
     display: grid;
     grid-template-rows: 1fr;
-    max-width: 1440px;
-    margin: 0 auto;
     padding-inline: 30px;
   }
 
@@ -38,13 +40,12 @@
     align-items: center;
     row-gap: 20px;
     grid-column: 1 / -1;
-    padding-inline: 20px;
+    @include section-padding();
 
     @include on-tablet {
       flex: 1;
       align-items: flex-start;
       row-gap: 38px;
-      padding-inline: 39px;
     }
 
     @include on-desktop {
@@ -76,7 +77,7 @@
   &__events {
     display: none;
     text-decoration: none;
-    color: #687480;
+    color: $color-accent;
 
     @include on-desktop {
       display: flex;
@@ -87,7 +88,7 @@
       left: 30px;
       font-size: 14px;
       font-weight: bold;
-      color: #687480;
+      color: $color-accent;
       text-transform: uppercase;
       transform: rotate(-90deg);
       transform-origin: left bottom;
@@ -103,7 +104,7 @@
         display: inline-block;
         width: 70px;
         height: 1px;
-        background-color: #1A5A4C;
+        background-color: $color-success;
         margin-right: 20px;
       }
     }
@@ -113,8 +114,8 @@
     @extend %flex-center;
     @extend %smooth-transition;
     width: 100%;
-    background-color: #ffffff;
-    border: 1px solid #1a5a4c;
+    background-color: $color-white;
+    border: 1px solid $color-success;
     overflow: hidden;
     cursor: pointer;
     padding: 0;
@@ -129,8 +130,8 @@
       flex: 1;
       text-align: center;
       font-size: 16px;
-      font-weight: medium;
-      color: #333;
+      font-weight: 600;
+      color: $color-dark-gray;
       background-color: white;
     }
 
@@ -138,14 +139,9 @@
       @extend %flex-center;
       width: 50px;
       height: 50px;
-      background-color: #1a5a4c;
+      background-color: $color-success;
       margin: 0;
       padding: 0;
-    }
-
-    &:hover {
-      background-color: $color-primary;
-      color: white;
     }
 
     @include on-tablet {

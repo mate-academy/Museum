@@ -11,9 +11,47 @@
 }
 
 .container {
-  padding-inline: 20px;
+  @include section-padding();
+}
 
-  @include on-tablet {
-    padding-inline: 39px;
+// Глобальне обмеження ширини для всіх секцій
+.section {
+  max-width: $max-content-width;
+  margin: 0 auto;
+  width: 100%;
+  overflow-x: hidden;
+
+  // Застосовуємо вертикальні відступи тільки до секцій з контентом
+  &--with-padding {
+    @include content-spacing();
   }
+}
+
+// Клас для повноширинних секцій (як hero з background)
+.section--full-width {
+  max-width: none;
+  overflow-x: hidden;
+
+  .section__content {
+    max-width: $max-content-width;
+    margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
+    @include section-padding();
+  }
+}// Утилітарні класи для відступів
+.spacing-section {
+  @include content-spacing();
+}
+
+.spacing-margin {
+  @include section-margin();
+}
+
+.spacing-padding {
+  @include section-padding();
+}
+
+.spacing-gap {
+  @include section-gap();
 }

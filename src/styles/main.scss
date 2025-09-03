@@ -6,6 +6,13 @@
 // Загальні стилі
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto; // Дозволяємо тільки природний вертикальний скрол
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto; // Дозволяємо тільки природний вертикальний скрол
 }
 
 h1,
@@ -35,13 +42,18 @@ $hero-section-height: 300px;
     min-width: 320px;
     overflow-x: hidden;
     margin: 0 auto;
+    max-width: $max-content-width;
   }
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  row-gap: 60px;
+  max-width: $max-content-width;
+  margin: 0 auto;
+  width: 100%;
+  overflow-x: hidden;
+  @include section-gap();
 }
 
 // Імпорт компонентів
