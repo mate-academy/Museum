@@ -1,0 +1,277 @@
+.aside-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.3s ease;
+
+  // Коли меню відкрите через :target
+  &:target {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $color-overlay;
+    backdrop-filter: blur(4px);
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: $color-success;
+    padding: 60px 20px 40px;
+    box-sizing: border-box;
+
+    @include on-tablet {
+      padding: 80px 39px 60px;
+    }
+
+    @include on-desktop {
+      padding: 100px 120px 80px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 20px;
+    row-gap: 30px;
+
+    // Мобільний: перший стовпець мінімальний розмір для кнопки, решта рівномірно
+    grid-template-columns: min-content 1fr 1fr;
+
+    @include on-tablet {
+      // Планшет: перший стовпець min-content, навігація 1fr+1fr, дільник auto, schedule більший простір
+      grid-template-columns: min-content 1fr 1fr auto 2fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    @include on-desktop {
+      // Десктоп: той же лейаут що планшет, але збільшені відступи
+      gap: 60px;
+    }
+  }
+
+  &__close {
+    @extend %smooth-transition;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    font-weight: 300;
+    color: $color-white;
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    // Позиціонування в grid
+    grid-column: 1;
+    grid-row: 1;
+    place-self: start start;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    @include on-tablet {
+      width: 50px;
+      height: 50px;
+      font-size: 36px;
+    }
+  }
+
+  &__nav-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    &--left {
+      // Мобільний: ряд 1, стовпець 2
+      grid-column: 2;
+      grid-row: 1;
+
+      @include on-tablet {
+        // Планшет: стовпець 2
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+
+    &--right {
+      // Мобільний: ряд 1, стовпець 3
+      grid-column: 3;
+      grid-row: 1;
+
+      @include on-tablet {
+        // Планшет: стовпець 3
+        grid-column: 3;
+        grid-row: 1;
+      }
+    }
+  }
+
+  &__item {
+    @extend %smooth-transition;
+
+    font-size: 16px;
+    line-height: 150%;
+    color: $color-white;
+    text-decoration: none;
+    padding: 8px 0;
+    border-bottom: 1px solid transparent;
+    display: inline-block;
+    width: auto;
+
+    &:hover {
+      color: $color-white;
+      border-bottom-color: $color-white;
+      opacity: 0.8;
+    }
+
+    @include on-tablet {
+      font-size: 18px;
+      padding: 12px 0;
+    }
+  }
+
+  &__divider {
+    background-color: $color-white;
+
+    // Мобільний: горизонтальний делівер на ряду 2, всі стовпці
+    grid-column: 1 / -1;
+    grid-row: 2;
+    height: 1px;
+    width: 100%;
+    margin: 20px 0;
+
+    @include on-tablet {
+      // Планшет і десктоп: вертикальний делівер на стовпці 4
+      grid-column: 4;
+      grid-row: 1;
+      width: 1px;
+      height: 100%;
+      margin: 0;
+      justify-self: center;
+      min-height: 200px;
+    }
+
+    @include on-desktop {
+      min-height: 250px;
+    }
+  }
+
+  &__schedule {
+    // Мобільний: весь блок schedule займає стовпці 2-3, ряд 3
+    grid-column: 2 / -1;
+    grid-row: 3;
+
+    @include on-tablet {
+      // Планшет: schedule block на стовпці 5, ряд 1
+      grid-column: 5;
+      grid-row: 1;
+    }
+  }
+
+  &__note {
+    // Мобільний: нотатка після графіку роботи
+    grid-column: 2 / -1; // Від другого стовпця до кінця (пропускаємо кнопку)
+    grid-row: 4;
+
+    @include on-tablet {
+      // Планшет/десктоп: показуємо в стовпці 6 після графіку
+      display: block;
+      grid-column: 6;
+      grid-row: 1;
+    }
+  }
+
+  &__day-off {
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: $color-white;
+  }
+
+  &__notice {
+    font-size: 14px;
+    color: $color-white;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  &__title {
+    @extend %section-title;
+
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: $color-white;
+
+    @include on-tablet {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+// Schedule стилі для aside-menu (в одному стовпці)
+.aside-menu .schedule {
+  // Завжди в один стовпець
+  display: block;
+
+  // Контейнер для днів роботи
+  &__items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 4px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  &__day {
+    @extend %metadata-text;
+
+    color: $color-white;
+    text-transform: capitalize;
+  }
+
+  &__time {
+    font-size: 14px;
+    line-height: 150%;
+    color: $color-white;
+    font-weight: bold;
+  }
+}
+
+// Запобігання прокрутки body коли меню відкрите
+.page__body:has(.aside-menu:target) {
+  overflow: hidden;
+}
+
+// Fallback для браузерів без :has
+.aside-menu:target ~ .page-content {
+  position: fixed;
+  width: 100%;
+}

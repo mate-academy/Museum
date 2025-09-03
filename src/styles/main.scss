@@ -1,7 +1,66 @@
-@import 'utils';
+@import 'utils/vars';
+@import 'utils/mixins';
+@import 'utils/extends';
 @import 'fonts';
-@import 'typography';
+
+// Загальні стилі
+html {
+  scroll-behavior: smooth;
+  overflow: hidden auto; // Дозволяємо тільки природний вертикальний скрол
+}
 
 body {
-  background: $c-gray;
+  overflow: hidden auto; // Дозволяємо тільки природний вертикальний скрол
 }
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  color: $color-primary;
+}
+
+.content {
+  padding-inline: 20px;
+}
+
+$hero-section-height: 300px;
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  &__body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+    margin: 0 auto;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  overflow-x: hidden;
+
+  @include section-gap;
+}
+
+// Імпорт компонентів
+@import 'components/common';
+@import 'components/aside-menu';
+@import 'components/header';
+@import 'components/hero';
+@import 'components/events';
+@import 'components/lecture';
+@import 'components/gallery';
+@import 'components/subscribe';
+@import 'components/info';
+@import 'components/copyright';
+@import 'components/footer';

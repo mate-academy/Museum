@@ -1,0 +1,62 @@
+.button {
+  font-family: inherit;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 0;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $color-accent;
+  }
+}
+
+.container {
+  @include section-padding;
+  
+  width: 100%;
+
+  max-width: $max-content-width;
+  margin: 0 auto;
+}
+
+// Глобальне обмеження ширини для всіх секцій
+.section {
+  margin: 0 auto;
+  width: 100%;
+  overflow-x: hidden;
+
+  // Застосовуємо вертикальні відступи тільки до секцій з контентом
+  &--with-padding {
+    @include content-spacing;
+  }
+}
+
+// Клас для повноширинних секцій (як hero з background)
+.section--full-width {
+  max-width: none;
+  overflow-x: hidden;
+
+  .section__content {
+    max-width: $max-content-width;
+    margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
+
+    @include section-padding;
+  }
+} // Утилітарні класи для відступів
+.spacing-section {
+  @include content-spacing;
+}
+
+.spacing-margin {
+  @include section-margin;
+}
+
+.spacing-padding {
+  @include section-padding;
+}
+
+.spacing-gap {
+  @include section-gap;
+}
