@@ -1,0 +1,243 @@
+.header {
+  &__container {
+    display: grid;
+
+    --columns: 2;
+
+    grid-template-columns: repeat(var(--columns), 1fr);
+    column-gap: 20px;
+
+    @include on-tablet {
+      // height: 100vh;
+
+      --columns: 6;
+
+      column-gap: 30px;
+    }
+
+    @include on-desktop {
+      height: 100vh;
+
+      --columns: 12;
+    }
+  }
+
+  // МОБІЛЬНА ВЕРСІЯ - показуємо top і bottom
+  &__top {
+    grid-column: 1 / -1;
+    position: relative;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &-content {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 88px;
+    }
+
+    &-burger {
+      background-image: url('../images/icons/burger-menu.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 24px;
+      width: 24px;
+      cursor: pointer;
+    }
+
+    &-logo {
+      top: 9px;
+      left: 20px;
+
+      background-image: url('../images/new-logo.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 55px;
+      height: 61px;
+      margin-top: 15px;
+      z-index: 1;
+    }
+
+    &-image {
+      width: calc(100% + 40px);
+      margin-left: -20px;
+      height: 300px;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &-title {
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      font-size: 45px;
+      line-height: 100%;
+      text-align: center;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    &-button {
+      text-decoration: none;
+      color: $main-font-color;
+      margin: 0 auto;
+    }
+  }
+
+  // tablet and desktop
+  &__left-side {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      position: relative;
+    }
+
+    &-burger {
+      background-image: url('../images/icons/burger-menu.png');
+      height: 24px;
+      width: 24px;
+      margin-top: 39px;
+      cursor: pointer;
+
+      @include hover(transform, scale(1.1));
+    }
+
+    &-title {
+      font-family: Montserrat, sans-serif;
+      font-size: 45px;
+      line-height: 100%;
+      text-align: center;
+      text-transform: uppercase;
+
+      @include on-tablet {
+        font-size: 54px;
+        line-height: 120%;
+        text-align: start;
+        margin: 64px 0 38px;
+      }
+
+      @include on-desktop {
+        font-size: 72px;
+        margin: 143px 0 89px;
+      }
+    }
+
+    &-button {
+      text-decoration: none;
+      color: $main-font-color;
+
+      &:hover {
+        color: $button-color;
+      }
+
+      @include on-desktop {
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    &-events {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        rotate: -90deg;
+        position: absolute;
+        left: -60px;
+        bottom: 60px;
+
+        &-title {
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 100%;
+          color: #687480;
+          text-transform: uppercase;
+        }
+
+        &-divider {
+          display: block;
+          height: 1px;
+          width: 70px;
+          background-color: $button-color;
+        }
+      }
+    }
+  }
+
+  &__right-side {
+    display: none;
+    width: 100%;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 4 / -1;
+      position: relative;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+      height: 100%;
+    }
+
+    &-logo {
+      position: relative;
+
+      background-image: url('../images/new-logo.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 55px;
+      height: 61px;
+      margin-top: 15px;
+      z-index: 1;
+      cursor: pointer;
+
+      @include hover(transform, scale(1.1));
+
+      @include on-tablet {
+        width: 68px;
+        height: 74px;
+        margin-left: 70px;
+      }
+
+      @include on-desktop {
+        margin-left: 55px;
+      }
+    }
+
+    &-image {
+      width: 100%;
+      display: block;
+
+      @include on-tablet {
+        position: absolute;
+        top: 0;
+        right: -39px;
+        width: calc(100% + 39px);
+        height: 384px;
+      }
+
+      @include on-desktop {
+        right: -55px;
+        width: calc(100% + 55px);
+        height: 100%;
+      }
+    }
+  }
+}

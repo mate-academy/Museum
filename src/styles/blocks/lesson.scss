@@ -1,0 +1,127 @@
+.lesson {
+  &__section {
+    width: 100%;
+    position: relative;
+
+    &-content {
+      display: grid;
+
+      --columns: 2;
+
+      grid-template-columns: repeat(var(--columns), 1fr);
+      column-gap: 20px;
+
+      @include on-tablet {
+        --columns: 6;
+
+        column-gap: 30px;
+      }
+    }
+
+    article {
+      width: 100%;
+
+      img {
+        width: calc(100% + 40px);
+        min-height: 210px;
+        object-fit: cover;
+        display: block;
+        transform: translateX(-20px);
+
+        @include on-tablet {
+          width: 100%;
+          min-height: 390px;
+          transform: translateX(0);
+        }
+
+        @include on-desktop {
+          width: calc(100% + 110px);
+          transform: translateX(-55px);
+        }
+      }
+    }
+
+    &-image {
+      display: grid;
+      grid-column: 1 / -1;
+    }
+
+    &-block {
+      box-sizing: border-box;
+      position: absolute;
+
+      bottom: -90px;
+      background-color: white;
+      box-shadow: 0 2px 0 0 #1a5a4c40;
+      padding-block: 20px;
+
+      grid-column: 1 / -1;
+      justify-self: center;
+
+      @include on-tablet {
+        padding-top: 45px;
+        padding-bottom: 50px;
+        padding-inline: 55px;
+
+        bottom: -125px;
+
+        max-width: 570px;
+      }
+
+      @include on-desktop {
+        padding-inline: 100px;
+      }
+
+      &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 20px;
+        margin-bottom: 20px;
+
+        @include on-tablet {
+          padding-inline: 0;
+          justify-content: start;
+          gap: 160px;
+          margin-bottom: 16px;
+        }
+      }
+
+      &-title {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+        color: #687480;
+        text-transform: uppercase;
+
+        @include on-tablet {
+          font-size: 14px;
+        }
+      }
+
+      &-date {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 150%;
+        color: $button-color;
+
+        @include on-tablet {
+          font-size: 14px;
+        }
+      }
+
+      &-themas {
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 100%;
+        text-align: center;
+
+        @include on-tablet {
+          font-size: 36px;
+          text-align: start;
+        }
+      }
+    }
+  }
+}

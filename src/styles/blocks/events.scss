@@ -1,0 +1,152 @@
+.events {
+  width: 100%;
+
+  &__section {
+    width: 100%;
+
+    article {
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    &-title {
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 100%;
+      text-align: center;
+      margin: 0;
+      margin-bottom: 40px;
+
+      @include on-tablet {
+        text-align: start;
+        font-size: 48px;
+        margin-bottom: 48px;
+      }
+
+      @include on-desktop {
+        margin-bottom: 56px;
+      }
+    }
+
+    &-content {
+      display: grid;
+
+      --columns: 2;
+
+      grid-template-columns: repeat(var(--columns), 1fr);
+      column-gap: 20px;
+
+      padding-bottom: 60px;
+
+      @include on-tablet {
+        --columns: 6;
+
+        column-gap: 30px;
+      }
+
+      @include on-desktop {
+        --columns: 12;
+
+        align-items: center;
+        padding-bottom: 104px;
+      }
+    }
+
+    &-image {
+      grid-column: 1 / -1;
+
+      margin-bottom: 20px;
+
+      @include on-tablet {
+        margin-bottom: 40px;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 8;
+
+        margin-bottom: 0;
+      }
+    }
+
+    &-text {
+      grid-column: 1 / -1;
+
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+
+      @include on-desktop {
+        grid-column: 9 / -1;
+      }
+
+      &-wrapper {
+        display: flex;
+
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      &-title {
+        margin: 0;
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 100%;
+
+        @include on-tablet {
+          font-size: 36px;
+        }
+      }
+
+      &-kvadrat {
+        display: block;
+        height: 10px;
+        width: 10px;
+        background-color: red;
+      }
+
+      &-topic {
+        margin: 0;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 150%;
+        color: $event-topic-color;
+      }
+    }
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+
+      @include on-tablet {
+        margin-bottom: 30px;
+      }
+
+      &-title {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+        color: #687480;
+        text-transform: uppercase;
+      }
+
+      &-date {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 150%;
+        color: $button-color;
+      }
+    }
+  }
+}

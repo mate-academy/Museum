@@ -1,0 +1,143 @@
+.subscribe {
+  display: block;
+  background-image: url('../images/subscribe.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 88px 0;
+
+  color: white;
+  text-align: center;
+
+  width: calc(100% + 40px);
+  transform: translateX(-20px);
+
+  @include on-tablet {
+    width: calc(100% + 78px);
+    transform: translateX(-39px);
+    padding: 82px 0;
+  }
+
+  @include on-desktop {
+    width: calc(100% + 110px);
+    transform: translateX(-55px);
+    padding: 163px 0;
+  }
+
+  &__content {
+    display: grid;
+
+    --columns: 2;
+
+    grid-template-columns: repeat(var(--columns), 1fr);
+    column-gap: 20px;
+
+    @include on-tablet {
+      --columns: 6;
+
+      column-gap: 30px;
+    }
+
+    @include on-desktop {
+      --columns: 12;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      font-size: 48px;
+      margin-bottom: 16px;
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / -4;
+    }
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+
+    margin: 0;
+    margin-bottom: 50px;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      margin-bottom: 72px;
+      grid-column: 4 / -4;
+    }
+  }
+
+  &__form-wrapper {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / -4;
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+
+    @include on-tablet {
+      gap: 30px;
+    }
+
+    &-input {
+      width: 100%;
+      height: 50px;
+
+      padding: 0;
+      border: none;
+
+      padding-left: 24px;
+
+      @include on-tablet {
+        height: 70px;
+      }
+    }
+
+    &-button {
+      min-width: 50px;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f14a27;
+      cursor: pointer;
+      border: none;
+
+      &:hover {
+        background-color: #e54725;
+      }
+
+      @include on-tablet {
+        min-width: 70px;
+        min-height: 70px;
+      }
+    }
+  }
+}
