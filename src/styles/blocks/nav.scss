@@ -1,0 +1,51 @@
+.nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__link {
+    position: relative;
+    width: fit-content;
+    text-decoration: none;
+    box-sizing: border-box;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      bottom: -5px;
+      height: 1px;
+      width: 100%;
+
+      transition: transform $effect-duration;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &--black {
+      color: $main-black-color;
+
+      &::after {
+        background-color: $main-black-color;
+      }
+    }
+
+    &--white {
+      color: $main-white-color;
+
+      &::after {
+        background-color: $main-white-color;
+      }
+    }
+  }
+}

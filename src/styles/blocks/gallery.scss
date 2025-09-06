@@ -1,0 +1,129 @@
+.gallery {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    scroll-behavior: smooth;
+    overflow: visible;
+    scroll-snap-type: x mandatory;
+
+    display: flex;
+
+    max-width: 100%;
+
+    @include on-desktop {
+      all: unset;
+      display: block;
+    }
+  }
+
+  &__track {
+    display: flex;
+    transition: transform $effect-duration ease-in-out;
+
+    @include until-desktop {
+      gap: 16px;
+      width: 100%;
+
+      @include on-tablet {
+        gap: 20px;
+        width: 100%;
+      }
+    }
+
+    @include on-desktop {
+      display: contents;
+      width: auto !important;
+      transition: none !important;
+    }
+  }
+
+  .gallery__radio {
+    display: none;
+  }
+
+  /* stylelint-disable selector-max-id */
+  #photo1:checked ~ .gallery__photos .gallery__track {
+    transform: translateX(0%);
+  }
+
+  #photo2:checked ~ .gallery__photos .gallery__track {
+    transform: translateX(-25%);
+  }
+
+  #photo3:checked ~ .gallery__photos .gallery__track {
+    transform: translateX(-50%);
+  }
+
+  #photo4:checked ~ .gallery__photos .gallery__track {
+    transform: translateX(-75%);
+
+    @include on-tablet {
+      transform: translateX(-50%);
+    }
+  }
+
+  #photo1:checked ~ .gallery__scroll label:nth-child(1),
+  #photo2:checked ~ .gallery__scroll label:nth-child(2),
+  #photo3:checked ~ .gallery__scroll label:nth-child(3),
+  #photo4:checked ~ .gallery__scroll label:nth-child(4) {
+    background-color: $accent-green-color;
+  }
+  /* stylelint-enable */
+  &__photos {
+    display: grid;
+    width: 100%;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__photo {
+    cursor: pointer;
+    scroll-snap-align: start;
+
+    width: 280px;
+    height: 410px;
+
+    object-fit: cover;
+    object-position: center;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 3;
+      width: 340px;
+      height: 543px;
+    }
+
+    @include on-desktop {
+      width: 100%;
+      height: 600px;
+    }
+
+    &--small {
+      @include on-desktop {
+        height: 360px;
+      }
+    }
+
+    transition: $effect-duration;
+
+    @include hover(transform, scale(1.05));
+  }
+}

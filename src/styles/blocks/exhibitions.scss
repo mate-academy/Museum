@@ -1,0 +1,137 @@
+.exhibitions {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+
+  font-size: 16px;
+
+  @include on-tablet {
+    margin-bottom: 112px;
+  }
+
+  @include on-desktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+    align-items: center;
+  }
+
+  &__photo {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: span 7;
+    }
+
+    transition: $effect-duration;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__content {
+    @include on-tablet {
+      width: 460px;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+      width: 100%;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      gap: 30px;
+      justify-content: start;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__type {
+    margin: 0;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: $grey-color;
+  }
+
+  &__date {
+    margin: 0;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0%;
+
+    color: $accent-green-color;
+  }
+
+  &__article {
+    margin: 0;
+
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+
+    color: $dark-grey-color;
+  }
+
+  &__name {
+    display: flex;
+    gap: 12px;
+    line-height: 34px;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      margin-bottom: 15px;
+    }
+
+    transition: $effect-duration;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__title {
+    margin: 0;
+
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: $main-black-color;
+
+    @include on-tablet {
+      font-size: 36px;
+    }
+  }
+
+  &__point {
+    width: 10px;
+    height: 10px;
+    background-color: $accent-red-color;
+
+    @include on-tablet {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
