@@ -1,0 +1,187 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  @include on-tablet {
+    flex-direction: row;
+    column-gap: 20px;
+    height: 100vh;
+  }
+
+  @include on-desktop {
+    max-width: 1280px;
+    margin: auto;
+    column-gap: 30px;
+  }
+
+  &__left-side {
+    order: 1;
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 20px;
+
+    @include on-tablet {
+      order: 0;
+      width: auto;
+      padding: 40px 0 34px 20px;
+    }
+
+    @include on-desktop {
+      padding-left: 55px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__text-logo {
+    @extend %h1;
+
+    text-align: center;
+
+    @include on-tablet {
+      max-width: 340px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      max-width: 470px;
+    }
+  }
+
+  &__tickets-events {
+    box-sizing: border-box;
+
+    @include on-desktop {
+      height: 188px;
+      position: relative;
+    }
+  }
+  &__button {
+    box-sizing: border-box;
+    border: 1px solid $prime-color;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    @include on-tablet {
+      width: 270px;
+    }
+
+    @include on-desktop {
+      position: absolute;
+      right: 0;
+    }
+  }
+  &__tickets {
+    flex-grow: 1;
+
+    text-align: center;
+
+    @extend %fm-imb-fw-500-fz-16-lh-100;
+
+    text-transform: uppercase;
+  }
+
+  &__interaction {
+    width: 50px;
+    height: 50px;
+    background-color: $prime-color;
+    background-image: url(../images/Icons/shevron-white.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform $effect-duration ease;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+    &--rotated {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @extend %fm-imb-fw-700-fz-14-lh-100;
+
+    @include on-desktop {
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 70px;
+      background-color: $prime-color;
+      bottom: 0;
+      left: 0;
+
+      &::before {
+        content: 'ПОДІЇ';
+        position: absolute;
+        left: 50%;
+        bottom: calc(100% + 20px);
+        writing-mode: vertical-rl;
+        transform: translateX(-50%) rotate(180deg);
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        inset: -12px -16px;
+      }
+    }
+  }
+
+  &__right-side {
+    background-image: url(../images/background/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    width: 100%;
+    padding-inline: 20px;
+    padding-top: 9px;
+    box-sizing: border-box;
+    aspect-ratio: 1;
+
+    @include on-tablet {
+      width: auto;
+      flex-grow: 1;
+      padding-inline: 80px;
+      padding-top: 15px;
+      aspect-ratio: 0;
+    }
+  }
+
+  &__up-side {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 55px;
+    height: 61px;
+
+    @include hover(transform, scale(1.2));
+
+    @include on-desktop {
+      height: 72px;
+    }
+  }
+
+  &__burger--mobile {
+    @include on-tablet {
+      display: none;
+    }
+  }
+  &__burger--desktop {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+}

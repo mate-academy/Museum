@@ -1,0 +1,80 @@
+.event {
+  @include page-grid;
+
+  row-gap: 20px;
+  text-decoration: none;
+
+  @include on-tablet {
+    row-gap: 40px;
+  }
+
+  @include on-desktop {
+    row-gap: 0;
+  }
+  &__photo {
+    width: 100%;
+    grid-column: 1/-1;
+    object-fit: cover;
+    height: 210px;
+
+    @include on-tablet {
+      height: 520px;
+    }
+
+    @include on-desktop {
+      grid-column: 1/8;
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+  &__details {
+    grid-column: 1/-1;
+
+    @include on-desktop {
+      grid-column: 9/-1;
+    }
+
+    display: flex;
+    align-items: center;
+  }
+  &__dates {
+    display: flex;
+    justify-content: space-between;
+
+    @include on-tablet {
+      justify-content: start;
+      column-gap: 48px;
+    }
+  }
+  &__label {
+    @extend %fm-imb-fw-500-fz-14-lh-100;
+  }
+  &__date {
+    @extend %fm-imb-fw-700-fz-14-lh-100;
+
+    color: $prime-color;
+    font-size: 16px;
+  }
+  &__title {
+    @extend %h3;
+
+    margin-top: 30px;
+    margin-bottom: 15px;
+    position: relative;
+    width: fit-content;
+
+    &::after {
+      content: '';
+      width: 15px;
+      aspect-ratio: 1;
+      position: absolute;
+      right: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: $orange-color;
+    }
+  }
+  &__info {
+    @extend %fm-imb-fw-300-fz-16-lh-150;
+  }
+}

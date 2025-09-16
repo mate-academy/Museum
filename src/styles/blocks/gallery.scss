@@ -1,0 +1,30 @@
+.gallery {
+  &__content {
+    display: none;
+
+    @include on-desktop {
+      @include page-grid;
+
+      row-gap: 30px;
+    }
+  }
+
+  &__photo {
+    height: 100%;
+    object-fit: cover;
+    &--short {
+      grid-column: span 4;
+    }
+    &--long {
+      grid-column: span 8;
+    }
+    &--tall {
+      height: 600px;
+    }
+    &--small {
+      height: 360px;
+    }
+
+    @include hover(transform, scale(1.05));
+  }
+}
