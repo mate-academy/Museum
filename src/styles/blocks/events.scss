@@ -1,0 +1,173 @@
+.events {
+  @include page-grid;
+
+  gap: 20px;
+
+  @include on-tablet {
+    gap: 40px;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+      align-self: center;
+    }
+
+    &-lecture {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+      position: absolute;
+      top: calc(100% - 60px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 280px;
+      background-color: $c-white;
+      box-shadow: 0 2px 0 0 $c-border;
+      padding-block: 20px;
+
+      @include on-tablet {
+        padding-block: 45px 50px;
+        width: 570px;
+        top: calc(100% - 85px);
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      gap: 40px;
+      justify-content: left;
+    }
+
+    &-lecture {
+      display: flex;
+      gap: 25px;
+      padding-left: 20px;
+      align-items: center;
+
+      @include on-tablet {
+        gap: 140px;
+        padding-left: 55px;
+      }
+
+      @include on-desktop {
+        gap: 130px;
+        padding-left: 100px;
+      }
+    }
+  }
+
+  &__type {
+    @include font-h4;
+
+    color: $c-gray;
+
+    @include on-tablet {
+      font-size: 14px;
+    }
+  }
+
+  &__date {
+    @include font-date;
+  }
+
+  &__title-box {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    align-items: baseline;
+
+    @include on-tablet {
+      margin-top: 30px;
+    }
+  }
+
+  &__title-lecture {
+    text-align: center;
+
+    @include on-tablet {
+      padding-left: 55px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      padding-left: 100px;
+    }
+  }
+
+  &__title {
+    @include font-event-title;
+  }
+
+  &__icon {
+    width: 10px;
+    height: 10px;
+    background-image: url(../images/icon/orange.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include on-tablet {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__description {
+    @include font-main-text;
+
+    margin-top: 10px;
+
+    @include on-tablet {
+      margin-top: 15px;
+    }
+  }
+
+  &__block {
+    position: relative;
+
+    @include on-tablet {
+      padding-inline: 35px;
+    }
+
+    @include on-desktop {
+      padding: 0;
+    }
+  }
+
+  &__lecture {
+    margin-top: 60px;
+
+    @include on-tablet {
+      margin-top: 112px;
+    }
+
+    @include on-desktop {
+      margin-top: 104px;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+.button {
+  // display: grid;
+  // grid-template-columns: 1fr auto 1fr 50px; // первая и третья - свободное пространство вокруг квитки. последняя - фиксированная ширина кнопки
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 280px;
+  height: 50px;
+
+  text-decoration: none;
+
+  border: 1px solid $c-green;
+  transition: all 0.3s ease;
+
+  @include on-tablet {
+    height: 70px;
+  }
+
+  &__text {
+    @include font-h4;
+
+    // grid-column: 2;
+    // justify-self: center;
+
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  &__icon-wrapper {
+    // grid-column: 4;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    background-color: $c-green;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__icon {
+    background-image: url(../images/icon/arrow.svg);
+    transition: background-image 0.3s ease;
+  }
+
+  &:hover {
+    border: 1px solid $c-red;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15); // мягкая тень для объёма
+
+    .button__icon-wrapper {
+      background-color: $c-red;
+    }
+
+    .button__icon {
+      background-image: url(../images/icon/arrow-black.svg);
+    }
+  }
+}

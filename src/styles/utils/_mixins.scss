@@ -4,3 +4,82 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet() {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop() {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-design() {
+  @media (min-width: $desktop-design-min-width) {
+    @content;
+  }
+}
+
+.container {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 55px;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+
+    column-gap: 30px;
+  }
+}
+
+@mixin hover-line-left($color) {
+  /* рисуем появляющуюся линию слева от текста */
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    left: -6px; // отступ от текста
+    top: 0;
+    bottom: 0;
+
+    width: 1px; // толщина линии
+    height: 100%;
+
+    background-color: $color;
+
+    transform: scaleY(0); // линия изначально "сплюснута"
+    transform-origin: top; // будет расти сверху вниз
+    transition: transform 0.3s;
+  }
+
+  &:hover::after {
+    transform: scaleY(1); // линия проявляется
+  }
+}

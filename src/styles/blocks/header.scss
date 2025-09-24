@@ -1,0 +1,122 @@
+.header {
+  position: relative;
+
+  @include on-tablet {
+    height: calc(
+      50vw / 0.97
+    ); // высота фона на планшете (50% ширины / aspect-ratio)
+  }
+
+  @include on-desktop {
+    height: calc(50vw / 1.11); // высота фона на десктопе
+  }
+
+  &__content {
+    @include page-grid;
+
+    height: 100%; // растягиваем на всю высоту header
+
+    &-box {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      @include on-tablet {
+        grid-column: 1 / 4;
+        align-items: flex-start;
+        gap: 38px;
+      }
+
+      @include on-desktop {
+        gap: 89px;
+      }
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 1.07 / 1; // высота к ширине
+    background-image: url('../images/header-bg.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 0; // фон под контентом
+
+    @include on-tablet {
+      left: 50%;
+      width: 50%;
+      height: auto;
+      aspect-ratio: 0.97 / 1;
+    }
+
+    @include on-desktop {
+      aspect-ratio: 1.11 / 1;
+    }
+  }
+
+  &__title {
+    @include font-title;
+
+    margin-top: calc((100vw / 1.07) - 50px); // высота фона на мобилке
+    text-align: center;
+
+    @include on-tablet {
+      margin-top: 25px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      margin-top: 104px;
+    }
+
+    &-br {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+      }
+    }
+  }
+
+  &__button {
+    width: 270px;
+
+    @include on-desktop {
+      margin-left: 200px;
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      gap: 20px; // расстояние между текстом и псевдоэлементом
+
+      @include font-h5;
+
+      text-decoration: none;
+      writing-mode: vertical-rl; // текст идёт вертикально сверху вниз (но с rotate(180deg) переворачивается)
+      align-items: center;
+      position: absolute;
+      bottom: 0; // фиксирует элемент внизу родителя (хедера)
+      transform: rotate(180deg);
+
+      @include hover(color, $c-red);
+
+      &::before {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 70px;
+        background-color: $c-gray;
+
+        //  transition: background-color 0.3s ease;
+      }
+    }
+  }
+}

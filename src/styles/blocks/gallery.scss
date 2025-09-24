@@ -1,0 +1,219 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include on-tablet {
+    gap: 48px;
+  }
+
+  @include on-desktop {
+    gap: 56px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px; // расстояние между фото и кружочками
+
+    @include on-tablet {
+      gap: 32px;
+    }
+
+    @include on-desktop {
+      gap: 0;
+    }
+  }
+
+  &__radio {
+    display: none; // Скрываем реальные радиокнопки, т.к. используем свои
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    overflow: hidden; // Прячет лишние слайды за рамкой
+
+    @include on-tablet {
+      padding: 4px;
+    }
+
+    @include on-desktop {
+      display: flex;
+      overflow: visible;
+      box-shadow: none;
+      padding: 0;
+    }
+  }
+
+  &__slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out; // Плавный переход при перелистывании
+
+    @include on-tablet {
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      @include page-grid;
+
+      row-gap: 30px;
+      width: 100%;
+    }
+  }
+
+  &__slide {
+    width: 100%;
+    flex-shrink: 0; // Запрещаем сжаться, слайд всегда = 100% ширины контейнера
+    position: relative; // нужно для корректного позиционирования переключателей внутри каждого слайда
+    transition: all 0.3s ease;
+
+    @include on-tablet {
+      width: calc(50% - 10px);
+    }
+
+    @include on-desktop {
+      flex-shrink: 1;
+      width: auto;
+      transition: none;
+      &:nth-of-type(1) {
+        grid-column: span 4;
+      }
+      &:nth-of-type(2) {
+        grid-column: span 8;
+      }
+      &:nth-of-type(3) {
+        grid-column: span 8;
+      }
+      &:nth-of-type(4) {
+        grid-column: span 4;
+      }
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 80%;
+    margin: 0 auto; // Центрирование по горизонтали
+  }
+
+  &__dots {
+    display: flex;
+    gap: 22px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__icon {
+    width: 9px;
+    height: 9px;
+    background-color: $c-icon;
+    border-radius: 50%;
+    cursor: pointer;
+
+    @include hover(background-color, $c-icon-hover);
+  }
+
+  // #slide1:checked ~ .gallery-dots label[for="slide1"],
+  // #slide2:checked ~ .gallery-dots label[for="slide2"],
+  // #slide3:checked ~ .gallery-dots label[for="slide3"],
+  // #slide4:checked ~ .gallery-dots label[for="slide4"] {
+  //   background-color: $c-green; // зеленый цвет активной точки
+  // }
+
+  // либо. оно же:
+
+  // &__radio:nth-of-type(1):checked ~ .gallery__dots .gallery__icon:nth-of-type(1),
+  // &__radio:nth-of-type(2):checked ~ .gallery__dots .gallery__icon:nth-of-type(2),
+  // &__radio:nth-of-type(3):checked ~ .gallery__dots .gallery__icon:nth-of-type(3),
+  // &__radio:nth-of-type(4):checked ~ .gallery__dots .gallery__icon:nth-of-type(4) {
+  //   background-color: $c-green;
+  // }
+
+  @for $i from 1 through 4 {
+    //  ПОДСВЕЧИВАЕМ РАДИОКНОПКУ. выше - то же, только длинно. ниже - цикл. если выбрана вторая радиокнопка. находим блок с точками, который идёт после радиокнопок. выбираем вторую точку внутри этого блока. подсвечиваем её цветом (делаем активной).
+    &__radio:nth-of-type(#{$i}):checked
+      ~ .gallery__dots
+      .gallery__icon:nth-of-type(#{$i}) {
+      background-color: $c-green;
+    }
+  }
+
+  &__radio:nth-of-type(1):checked ~ .gallery__content .gallery__slides {
+    transform: translateX(0);
+
+    @include on-desktop {
+      transform: none;
+    }
+  }
+
+  &__radio:nth-of-type(2):checked ~ .gallery__content .gallery__slides {
+    // Если выбран #slide2, то найди gallery-slides-container и сдвинь .gallery-slides на -100%
+    transform: translateX(-100%);
+
+    @include on-tablet {
+      transform: translateX(calc(-50% - 10px));
+    }
+
+    @include on-desktop {
+      transform: none;
+    }
+  }
+
+  &__radio:nth-of-type(3):checked ~ .gallery__content .gallery__slides {
+    transform: translateX(-200%);
+
+    @include on-tablet {
+      transform: translateX(
+        calc(-100% - 20px)
+      ); // Сдвигаем на 100% + отступ, чтобы показать вторую пару
+    }
+
+    @include on-desktop {
+      transform: none;
+    }
+  }
+
+  &__radio:nth-of-type(4):checked ~ .gallery__content .gallery__slides {
+    transform: translateX(-300%);
+
+    @include on-tablet {
+      transform: translateX(
+        calc(-150% - 30px)
+      ); // Сдвигаем на 100% + отступ, чтобы показать вторую пару
+    }
+
+    @include on-desktop {
+      transform: none;
+    }
+  }
+
+  &__switch--right,
+  &__switch--left {
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    width: 50%;
+    height: 100%;
+    z-index: 10;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__switch--left {
+    left: 0;
+  }
+
+  &__switch--right {
+    right: 0;
+  }
+}

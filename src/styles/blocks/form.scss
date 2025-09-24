@@ -1,0 +1,83 @@
+.form {
+  display: flex;
+  justify-content: center;
+
+  @include on-tablet {
+    gap: 16px;
+  }
+
+  @include on-desktop {
+    gap: 30px;
+  }
+
+  &__input {
+    box-sizing: border-box; //  чтоб паддинг не увеличивал бокс
+    width: 230px;
+    height: 50px;
+    padding-left: 24px;
+    border: none;
+
+    @include font-event-title;
+
+    font-size: 14px;
+    outline: none;
+
+    @include on-tablet {
+      font-size: 14px;
+      width: 374px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      width: 470px;
+      padding-left: 32px;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      @include font-event-title;
+
+      font-size: 14px;
+      color: $c-gray;
+      transition: color 0.3s ease;
+
+      @include on-tablet {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__label {
+    display: block;
+  }
+
+  &__block:hover &__input::placeholder {
+    color: $c-red;
+  }
+
+  &__button {
+    display: flex;
+    width: 50px;
+    padding: 0;
+    background-color: $c-red;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $c-green;
+    }
+
+    @include on-tablet {
+      width: 70px;
+    }
+  }
+
+  &__icon {
+    background-image: url('../images/icon/arrow-black.svg');
+  }
+}

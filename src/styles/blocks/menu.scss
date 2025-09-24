@@ -1,0 +1,124 @@
+.menu {
+  background-color: $c-green;
+
+  width: 100%; // растянется по ширине
+  transform: translateY(-100%); // в исходном состоянии меню спрятано за верхом
+  transition: transform 0.3s ease;
+
+  // когда оверлей активен
+  .page__menu:target & {
+    transform: translateY(0); // плавно опускаем вниз
+  }
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__navigation {
+    display: flex;
+    grid-column: 1 / -1;
+
+    gap: 52px;
+
+    @include on-tablet {
+      gap: 62px;
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      gap: 126px;
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__nav {
+    padding-top: 24px;
+    padding-bottom: 24px; // чтобы был отступ от текста
+
+    @include on-tablet {
+      padding-top: 40px;
+    }
+  }
+
+  &__schedule {
+    position: relative; // нужно для абсолютного позиционирования ::after
+
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    gap: 20px;
+    padding-block: 24px;
+
+    @include on-tablet {
+      padding-block: 40px;
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      padding-bottom: 48px;
+      grid-column: 8 / -1;
+    }
+
+    &-box {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      @include on-tablet {
+        flex-direction: row;
+        gap: 25px;
+      }
+
+      @include on-desktop {
+        gap: 30px;
+      }
+    }
+
+    &-title {
+      @include font-menu;
+    }
+
+    &-info {
+      @include font-menu;
+
+      flex: 1; // одинаковые по ширине
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: rgba($c-white, 0.5); // белый с 50% прозрачности
+
+      @include on-tablet {
+        width: 1px;
+        height: 145px;
+        top: 40px;
+        left: -38px;
+      }
+
+      @include on-desktop {
+        left: -102px;
+      }
+    }
+  }
+
+  &__hours {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex: 1; // одинаковые по ширине
+
+    &-item {
+      @include font-menu;
+    }
+  }
+
+  &__bold {
+    color: $c-white;
+    font-weight: 600;
+  }
+}
