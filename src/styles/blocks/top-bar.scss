@@ -1,0 +1,32 @@
+.top-bar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 79px;
+  grid-column: 1 / -1;
+
+  @include on-tablet {
+    grid-column: 1 / 5;
+    height: 102px;
+    justify-content: flex-end;
+  }
+
+  @include on-desktop {
+    grid-column: 1 / 8;
+  }
+
+  &__logo-link {
+    display: flex;
+    text-decoration: none;
+  }
+
+  &__logo {
+    @include font-logo;
+
+    transform-origin: center;
+    will-change: transform; // предотвращает рывки
+
+    @include hover(transform, scale(1.2));
+  }
+}

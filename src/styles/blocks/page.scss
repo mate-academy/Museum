@@ -1,0 +1,87 @@
+.page {
+  scroll-behavior: smooth; /* чтоб навигация происходила плавно */
+
+  &:has(.page__menu:target) {
+    overflow: hidden; /* Когда меню открыто, скрывается прокрутка страницы. Чтобы фон не скроллился за меню. */
+  }
+
+  &__body {
+    margin: 0;
+    background: $c-white;
+    position: relative;
+  }
+
+  &__menu {
+    pointer-events: none; /* Отключает клики по элементу */
+
+    position: fixed; /* Фиксирует меню относительно окна браузера (а не родителя). Оно остаётся на месте при скролле страницы. */
+    z-index: 2;
+    top: 0; /* растягивается на всю ширину экрана - топ, райт , лефт */
+    right: 0;
+    left: 0;
+    opacity: 0; /* Изначально меню невидимо. */
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.5
+    ); // серый полупрозрачный фон на ВСЮ страницу;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; // растягиваем серый фон по высоте окна
+
+    transition: all 0.3s;
+
+    &:target {
+      /* Срабатывает, если на элемент есть ссылка вида <a href="#idМеню">,
+      и в адресной строке есть этот id. То есть меню "активируется". */
+      pointer-events: all; /* Теперь клики по меню снова разрешены. */
+      opacity: 1; // становится видимым
+    }
+  }
+
+  &__main {
+    margin-top: 70px;
+
+    @include on-tablet {
+      margin-top: 88px;
+    }
+
+    @include on-desktop {
+      margin-top: 200px;
+    }
+  }
+
+  &__footer {
+    margin-block: 50px 35px;
+  }
+
+  &__scroll-up {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border: 1px solid $c-green;
+    border-radius: 50%;
+    bottom: 60px;
+    right: 20px;
+    background-image: url('../images/icon/arrow-up.svg');
+    display: flex;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    @include on-tablet {
+      right: 40px;
+    }
+
+    @include on-desktop {
+      right: 55px;
+    }
+  }
+}
