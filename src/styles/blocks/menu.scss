@@ -1,0 +1,138 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #18181abf;
+  color: $white;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+
+  &__block {
+    background-color: $green;
+
+    transform: translateY(-100%);
+    transition: all 0.5s ease;
+
+    @include on-tablet {
+      height: 225px;
+    }
+
+    @include on-desktop {
+      height: 233px;
+    }
+  }
+
+  &__box {
+    margin-bottom: 24px;
+    display: flex;
+    gap: 28px;
+
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+
+    @include on-tablet {
+      margin-bottom: 0;
+      gap: 38px;
+      flex-grow: 1;
+    }
+
+    @include on-desktop {
+      gap: 102px;
+    }
+  }
+
+  &__close-icon {
+    transition: all 0.3s linear;
+
+    &:hover {
+      transform: scale(1.5) rotate(90deg);
+    }
+  }
+
+  &__nav {
+    @include on-tablet {
+      flex-grow: 1;
+    }
+  }
+
+  &__separator {
+    margin-bottom: 24px;
+    background-color: #ffffff80;
+    height: 1px;
+    width: 100%;
+    animation: menu-line-hor 2s linear 5.5s alternate-reverse infinite both;
+
+    @include on-tablet {
+      height: 145px;
+      width: 1px;
+      animation: menu-line-ver 1s linear 5.5s alternate-reverse infinite both;
+    }
+  }
+
+  &__schedule-box {
+    transform: translateX(200%);
+    transition: all 0.5s ease;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      flex-grow: 1.3;
+    }
+  }
+
+  &__work-schedule {
+    margin-bottom: 15px;
+  }
+
+  &__weekends {
+    @include on-tablet {
+      width: 144px;
+      margin-top: 40px;
+    }
+
+    @include on-desktop {
+      max-width: 170px;
+    }
+  }
+}
+
+.menu.active {
+  opacity: 1;
+  pointer-events: auto;
+
+  .menu__block {
+    transform: translateY(0);
+    transition-delay: 0.5s;
+  }
+
+  .menu__box {
+    transform: translateX(0);
+    transition-delay: 1s;
+  }
+
+  .menu__schedule-box {
+    transform: translateX(0);
+    transition-delay: 1s;
+  }
+}
+
+.menu.closing {
+  .menu__box {
+    transform: translateX(-100%);
+    transition-delay: 0.2s;
+  }
+
+  .menu__schedule-box {
+    transform: translateX(200%);
+    transition-delay: 0.2s;
+  }
+
+  .menu__block {
+    transform: translateY(-100%);
+    transition-delay: 0.5s;
+  }
+
+  opacity: 0;
+  transition-delay: 1.1s;
+}

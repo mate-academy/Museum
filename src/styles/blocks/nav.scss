@@ -1,0 +1,96 @@
+.nav {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: $white;
+
+  @include on-desktop {
+    font-size: 22px;
+  }
+
+  &__list {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    list-style: none;
+
+    @include on-tablet {
+      margin-right: 20px;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 71px;
+      margin-right: -30px;
+    }
+
+    &--no-margin {
+      margin: 0;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: $white;
+    transition: all 0.5s;
+
+    &::before {
+      transform: translateY(-200%) translateX(-50%);
+
+      @extend %nav-link-before-after;
+    }
+
+    &::after {
+      transform: translateY(200%) translateX(50%);
+
+      @extend %nav-link-before-after;
+    }
+
+    &:hover {
+      color: $black;
+      transform: scale(1.1);
+
+      &::before {
+        opacity: 1;
+        transform: translateY(-200%) translateX(0);
+      }
+
+      &::after {
+        opacity: 1;
+        transform: translateY(200%) translateX(0);
+      }
+    }
+
+    &--black {
+      color: $black-second;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 100%;
+
+      &:hover {
+        color: $green;
+      }
+
+      &:hover.nav__link::before {
+        background-color: $green;
+      }
+
+      &:hover.nav__link::after {
+        background-color: $green;
+      }
+    }
+  }
+}
