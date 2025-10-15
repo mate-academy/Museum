@@ -1,0 +1,159 @@
+.header {
+  @include container;
+
+  display: flex;
+  position: relative;
+  z-index: 5;
+  align-items: center;
+  margin-top: 10px;
+
+  @include on-tablet {
+    margin-top: 15px;
+  }
+
+  &__toggle {
+    @include reset-button;
+    
+    margin-right: 28px;
+
+    @include on-tablet {
+      margin-right: 0;
+    }
+  }
+
+  &__logo {
+    margin: 0 auto;
+  }
+
+  &__overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: hsl(0deg 0% 0% / 54%);
+    z-index: 10;
+
+    @include hover(transform, translateY(0));
+  }
+
+  &__menu {
+    position: fixed;
+    width: 100%;
+    min-height: 233;
+    top: 0;
+    left: 0;
+    background-color: #1a5a4c;
+    z-index: 15;
+    padding: 30px 20px;
+    display: flex;
+    color: white;
+    font-family: $ff-ibm;
+    flex-direction: column;
+    
+    @include hover(transform, translateY(0));
+
+    @include on-tablet {
+      padding: 40px;
+      flex-direction: row;
+    }
+
+    @include on-desktop {
+      justify-content: center;
+    }
+  }
+
+  &__navigation {
+    position: relative;
+    padding-left: 0;
+
+    display: flex;
+    align-items: flex-start;
+
+    @include on-tablet {
+      padding-left: 124px;
+    }
+
+    .header__toggle {
+      @include on-tablet {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      @include on-desktop {
+        top: -13px;
+        left: 51px; 
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-flow: row wrap;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      li {
+        margin-bottom: 30px;
+        max-width: 100px;
+        width: 100%;
+
+        @include on-desktop {
+          max-width: 140px;
+        }
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 18px;
+
+        @include on-desktop {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+
+  &__schedule {
+    border-top: 1px solid $color-white;
+
+    display: flex;
+    flex-flow: row wrap;
+    padding-top: 24px;
+
+    @include on-tablet {
+      border-top: 0;
+      border-left: 1px solid $color-white;
+      padding-left: 102px;
+      margin-left: 102px;
+      padding-top: 0;
+    }
+
+    > div {
+      max-width: 190px;
+      margin-right: 30px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+body:not(._menu-open) {
+  .header__overlay,
+  .header__menu {
+    transform: translateY(-100%);
+  }
+}
+
+._menu-open {
+  overflow: hidden;
+}

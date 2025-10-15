@@ -1,0 +1,198 @@
+.footer {
+  padding: 50px 20px 55px;
+  margin: 0 auto;
+
+  @include on-tablet {
+    max-width: $tablet-min-width;
+    padding: 50px 35px 35px;
+  }
+
+  @include on-desktop {
+    max-width: $desktop-min-width;
+  }
+
+  @include on-desktop-wide {
+    padding: 50px 55px 35px;
+    max-width: $desktop-wide-min-width;
+  }
+
+  &__top {
+    display: grid;
+
+    font-family: $ff-ibm;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 26px;
+
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 20px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+      gap: 30px;
+    }
+  }
+
+  &__col {
+    max-width: 170px;
+    min-width: 100px;
+    position: relative;
+
+    div {
+      line-height: 1.5;
+    }
+
+    &:nth-child(1) {
+      max-width: 100%;
+      grid-column: -1 / 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 19px;
+
+      @include on-tablet {
+        grid-column: span 1;
+        max-width: 170px;
+        display: block;
+        margin-bottom: 0;
+      }
+
+      @include on-desktop {
+        grid-column: span 3;
+      }
+
+      img {
+        width: 62px;
+        height: 72px;
+      }
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      grid-column: span 1;
+
+      @include on-tablet {
+      grid-column: span 2;
+      }
+    }
+
+    &:nth-child(4) {
+      grid-column: -1 / 1;
+      max-width: 500px;
+      border-top: 1px solid #1a5a4c80;
+
+      padding-top: 35px;
+      margin-top: 10px;
+
+      @include on-tablet {
+        grid-column: 2 / 7;
+      }
+
+      @include on-desktop {
+        padding-top: 0;
+        margin-top: 0;
+        grid-column: 8 / -1;
+        border-top: 0;
+        border-left: 1px solid #1a5a4c80;
+        padding-left: 69px;
+      }
+    }
+
+    strong {
+      display: block;
+
+      @include on-tablet {
+        display: inline;
+      }
+    }
+  }
+
+  &__address {
+    text-decoration: none;
+    color: $dark-grey;
+  }
+
+  &__menu,
+  &__social {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__title {
+    margin: 0 0 15px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  &__link {
+    min-width: 140px;
+    margin-bottom: 8px;
+
+    a {
+      text-decoration: none;
+      color: $dark-grey;
+    }
+
+    @include on-desktop {
+      min-width: 210px;
+    }
+  }
+
+  &__social {
+    display: flex;
+    justify-content: space-between;
+    max-width: 70px;
+    width: 100%;
+
+    @include on-tablet {
+      margin-top: 62px;
+    }
+  }
+
+  &__copyright {
+    margin-top: 66px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column-reverse;
+
+    font-family: $ff-ibm;
+    font-weight: 300;
+    font-size: 12px;
+
+    color: $dark-grey;
+
+    gap: 11px;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+}
+
+.scroll-top {
+  width: 50;
+  height: 50;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #1A5A4C;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include on-tablet {
+    display: none;
+  }
+}
