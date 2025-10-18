@@ -1,0 +1,117 @@
+.button {
+  position: relative;
+  color: $main-text-dark;
+  line-height: 100%;
+
+  height: 50px;
+
+  border-right: none;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+
+  @include effects;
+
+  span {
+    margin: 0 auto;
+  }
+
+  @include on-tablet {
+    height: 70px;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 100%;
+
+    background-image: url('/src/images/icons/button-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: center;
+
+    @include on-tablet {
+      width: 70px;
+    }
+  }
+
+  &:hover {
+    background-color: $accent-primary;
+    color: $main-text-light;
+  }
+}
+
+.button-menu {
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  height: 24px;
+  width: 24px;
+
+  span {
+    @include effects;
+
+    position: absolute;
+    left: 3px;
+    right: 3px;
+    width: 18px;
+    height: 2px;
+    background-color: $main-text-dark;
+  }
+
+  span:nth-child(1) {
+    top: 6px;
+  }
+  span:nth-child(2) {
+    top: 11px;
+  }
+  span:nth-child(3) {
+    top: 16px;
+  }
+
+  /* active */
+  &--is-active span:nth-child(1) {
+    transform: rotate(45deg);
+    left: 3px;
+    top: 11px;
+    background-color: $main-text-light;
+  }
+  &--is-active span:nth-child(2) {
+    display: none;
+  }
+  &--is-active span:nth-child(3) {
+    transform: rotate(-45deg);
+    left: 3px;
+    top: 11px;
+    background-color: $main-text-light;
+  }
+
+  /* hover */
+  &:hover span {
+    background-color: $accent-secondary;
+  }
+  &:hover span:nth-child(1) {
+    transform: translateX(-2px);
+  }
+  &:hover span:nth-child(2) {
+    transform: translateX(2px);
+  }
+  &:hover span:nth-child(3) {
+    transform: translateX(-2px);
+  }
+
+  /* active + hover */
+  &--is-active:hover span:nth-child(1) {
+    transform: rotate(45deg) scale(1.2);
+  }
+  &--is-active:hover span:nth-child(3) {
+    transform: rotate(-45deg) scale(1.2);
+  }
+}
