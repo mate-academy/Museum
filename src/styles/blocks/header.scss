@@ -1,0 +1,223 @@
+.header {
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &__top {
+    background-image: url(/src/images/muzei-background.png);
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    @include on-tablet {
+      grid-column: 4 /-1;
+      height: 374px;
+    }
+
+    @include on-desktop {
+      grid-column: 6 /-1;
+      height: 655px;
+    }
+  }
+
+  &__bottom-icon {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      position: absolute;
+      top: 39px;
+      left: 34px;
+
+      @include on-desktop {
+        left: 55px;
+      }
+    }
+  }
+
+  &__title {
+    color: #0f0e08;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    margin: 0;
+    padding-top: 9px;
+
+    @include on-tablet {
+      padding-left: 60px;
+      padding-top: 15px;
+      font-size: 36px;
+    }
+
+    @include on-desktop {
+      padding-left: 50px;
+    }
+  }
+
+  &__icon {
+    padding-top: 27px;
+    padding-left: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__space {
+    padding-right: 44px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__bottom {
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include on-tablet {
+      grid-column: span 3;
+      grid-row: 1;
+      margin-top: 39px;
+      padding-left: 34px;
+      padding-right: 20px;
+      align-items: normal;
+    }
+
+    @include on-desktop {
+      grid-column: span 5;
+      padding-left: 55px;
+      margin-top: 45px;
+      padding-right: 30px;
+    }
+  }
+
+  &__bottom-title {
+    color: #000;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    margin: 0;
+
+    @include on-tablet {
+      font-size: 54px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    margin-top: 20px;
+    border: 1px solid #1a5a4c;
+
+    width: 280px;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: all 0.3s ease;
+
+    @include on-tablet {
+      margin-top: 38px;
+      width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      margin-top: 89px;
+      margin-left: auto;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: #fff5ee;
+    }
+  }
+
+  &__button-link {
+    text-decoration: none;
+    color: #0f0e08;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__events {
+    display: none;
+    
+    @include on-desktop {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      position: relative;
+      top: -40px;
+    }
+  }
+
+  &__events-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #687480;
+
+    transform: rotate(-90deg);
+    margin: 0;
+    padding: 0;
+    transform-origin: top left;
+    position: relative;
+    top: -40px;
+  }
+
+  &__line {
+    border: 1px solid #1a5a4c;
+    transform: rotate(-90deg);
+
+    width: 70px;
+    background-color: #1a5a4c;
+    margin-left: 10px;
+  }
+
+  &__button-icon {
+    background-color: #1a5a4c;
+    height: 100%;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
