@@ -1,0 +1,109 @@
+.header {
+  display: flex;
+  flex-direction: column;
+
+  @include on-tablet {
+    flex-direction: row-reverse;
+  }
+
+  &__art-museum {
+    position: relative;
+
+    @include on-tablet {
+      width: 80%;
+    }
+  }
+
+  &__background {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    overflow: hidden;
+    animation: background-show 0.9s linear both;
+
+    @include on-tablet {
+      margin: 0;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      height: 655px;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    z-index: 1;
+    margin: 27px 0 0 20px;
+    transition: all 0.3s linear;
+    animation: roll-in-right 1.5s ease;
+
+    &:hover {
+      transform: scale(1.5) rotate(180deg);
+      filter: invert(1) drop-shadow(1px 1px 3px $black);
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 1;
+    width: 45px;
+    height: 51px;
+    top: 9px;
+    right: 0;
+    left: 0;
+    transition: all 0.3s linear;
+
+    @include on-tablet {
+      margin: inherit;
+      top: 15px;
+      width: 220px;
+      height: 72px;
+    }
+
+    @include on-desktop {
+      width: 170px;
+    }
+
+    &:hover {
+      filter: invert(1) drop-shadow(1px 1px 3px $black);
+      transform: scale(1.1);
+    }
+  }
+
+  &__logo-image {
+    margin: auto;
+    width: 45px;
+    height: 51px;
+    filter: drop-shadow(1px 1px 3px $white);
+    animation: roll-in-right 1.5s ease;
+
+    @include on-tablet {
+      width: 55px;
+      height: 61px;
+    }
+
+    @include on-desktop {
+      animation: roll-in-right 2s ease;
+    }
+  }
+
+  &__background-photo {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 5/4.64;
+    animation: background-float 7s linear infinite alternate both;
+
+    @include on-tablet {
+      height: 100%;
+    }
+  }
+}

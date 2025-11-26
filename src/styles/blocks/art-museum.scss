@@ -1,0 +1,183 @@
+.art-museum {
+  &__menu {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      margin: 39px 0 64px 34px;
+    }
+
+    @include on-desktop {
+      margin: 39px 0 143px 55px;
+    }
+  }
+
+  &__menu-icon {
+    animation: roll-in-right 1.7s ease;
+    transition: all 0.3s linear;
+
+    @include on-desktop {
+      animation: roll-in-right 2s ease;
+    }
+
+    &:hover {
+      transform: scale(1.5) rotate(180deg);
+
+      @extend %filter;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: $black;
+    margin-bottom: 20px;
+    text-shadow: $text-shadow;
+    animation: title-com-in 2s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+
+    @include on-tablet {
+      margin: 0 20px 38px 34px;
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+      margin: 0 0 89px 55px;
+    }
+  }
+
+  &__title-word1 {
+    animation: title-com-in 2s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  &__title-word2 {
+    animation: title-com-in 2s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__events-and-tickets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__events {
+    display: none;
+    position: absolute;
+    top: 522px;
+    left: 45px;
+    font-size: 14px;
+    font-weight: 700;
+    transform: rotate(-90deg);
+    animation: from-left 2s ease;
+
+    @include on-desktop {
+      display: flex;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      width: 1px;
+      height: 70px;
+      background-color: $green;
+      animation: scale-in-ver-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s
+        alternate infinite both;
+    }
+  }
+
+  &__box-with-tickets {
+    display: flex;
+    margin-inline: 20px;
+    height: 50px;
+    width: 280px;
+    background-color: $white;
+    border: 1px solid $green;
+    animation: from-center 2s ease;
+    transition: all 0.5s linear;
+
+    &::after {
+      content: '>';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 49px;
+      margin-left: -50px;
+      background-color: $green;
+      color: $white;
+      transition: all 0.5s linear;
+      animation: from-left 2s ease;
+
+      @include on-tablet {
+        width: 70px;
+        height: 69px;
+        margin-left: -70px;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: $green;
+      box-shadow: 2px 2px 3px 2px $black;
+
+      &::after {
+        background-color: $white;
+        color: $black-second;
+      }
+    }
+
+    @include on-tablet {
+      margin-left: 34px;
+      width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      margin: 0 30px 0 256px;
+    }
+  }
+
+  &__tickets {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 50px;
+    height: 50px;
+    width: 280px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: $black-second;
+    text-decoration: none;
+    transition: all 0.5s linear;
+    animation: shake-horizontal 9s cubic-bezier(0.46, 0.03, 0.52, 0.96) 2s
+      infinite both;
+
+    @include on-tablet {
+      padding-right: 70px;
+      width: 270px;
+      height: 70px;
+    }
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
