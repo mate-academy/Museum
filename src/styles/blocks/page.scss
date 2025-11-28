@@ -1,0 +1,120 @@
+.page {
+  color: $grey-second;
+  font-family: 'IBM Plex Sans', sans-serif;
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__header {
+    min-width: 320px;
+    margin: 0 auto 70px;
+
+    @include on-tablet {
+      margin-bottom: 88px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__menu {
+    height: 100vh;
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+  }
+
+  &__current-events {
+    margin-bottom: 100px;
+
+    @include on-tablet {
+      margin-bottom: 88px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__event {
+    margin-bottom: 60px;
+    overflow: hidden;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+
+      &:last-child {
+        margin-bottom: 112px;
+      }
+    }
+
+    @include on-desktop {
+      margin-bottom: 104px;
+    }
+  }
+
+  &__lecture {
+    min-width: 320px;
+    margin-bottom: -60px;
+
+    @include on-tablet {
+      margin-bottom: -90px;
+    }
+  }
+
+  &__galery {
+    min-width: 320px;
+    margin-bottom: 100px;
+
+    @include on-tablet {
+      margin-bottom: 92px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__subscription {
+    min-width: 320px;
+    position: relative;
+    margin-bottom: 18px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__footer {
+    min-width: 320px;
+  }
+
+  &__button-link {
+    display: block;
+    transform: translateX(100%) translateY(100%);
+  }
+
+  &__button {
+    display: block;
+    position: fixed;
+    right: 20px;
+    bottom: 85px;
+
+    @include square(50px);
+
+    border-radius: 50%;
+    border: 1px solid $green;
+    z-index: 1;
+
+    &:hover {
+      background-color: $green;
+
+      .page__button-link {
+        filter: invert(100%) brightness(0);
+      }
+    }
+  }
+}
