@@ -1,0 +1,171 @@
+.header {
+  @include page-grid;
+
+  &__icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    @include on-tablet {
+      top: 39px;
+      left: 34px;
+    }
+
+    @include on-desktop {
+      left: 55px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 9px;
+
+    @include hover(transform, translate(-50%) scale(1.1));
+
+    @include on-tablet {
+      left: 62%;
+      margin-top: 15px;
+    }
+
+    @include on-desktop {
+      left: 50%;
+    }
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+
+    height: 300px;
+
+    background-image: url('../images/museumphoto.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include on-tablet {
+      grid-column: 4 / 7;
+      order: 2;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+      height: 655px;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 20px;
+
+    margin-inline: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      gap: 38px;
+      order: 1;
+      margin: 127px 0 0 34px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      gap: 89px;
+      margin: 206px 0 0 55px;
+    }
+  }
+
+  &__title {
+    margin-top: 20px;
+
+    @include on-tablet {
+      margin: 0;
+      text-align: left;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    height: 50px;
+    border: 1px solid $green;
+    transition:
+      background-color $effectDuration,
+      box-shadow $effectDuration;
+
+    @include on-tablet {
+      width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      margin-left: auto;
+    }
+
+    &--text {
+      flex: 1;
+
+      font-size: 16px;
+      font-weight: 500;
+      color: $dark-black;
+      text-align: center;
+      text-transform: uppercase;
+
+      transition: color $effectDuration;
+    }
+
+    &--arrow {
+      background-color: $green;
+    }
+
+    &:hover {
+      background-color: $green;
+      transition: background-color $effectDuration;
+
+      .header__button--text {
+        color: #d7dde3;
+      }
+    }
+  }
+
+  &__events-label {
+    position: relative;
+    display: none;
+
+    @include on-desktop {
+      position: absolute;
+      bottom: 70px;
+      transform-origin: left top;
+      transform: rotate(-90deg);
+
+      display: block;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        bottom: -25px;
+        left: -55px;
+        transform: rotate(-90deg);
+
+        display: block;
+
+        width: 1px;
+        height: 70px;
+
+        background-color: $green;
+      }
+    }
+  }
+
+  &__events-label--text {
+    font-size: 14px;
+    font-weight: 700;
+    color: $light-grey;
+    text-transform: uppercase;
+  }
+}

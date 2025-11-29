@@ -1,0 +1,123 @@
+.menu {
+  pointer-events: none;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: translateY(-100%);
+
+  gap: 24px 28px;
+
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 27px 20px;
+
+  color: $white;
+
+  opacity: 0;
+  background-color: $green;
+  box-shadow: 0 4px 12px rgba($black, 0.5);
+
+  transition:
+    opacity $effectDuration,
+    transform $effectDuration;
+
+  @include page-grid;
+
+  &:target {
+    pointer-events: all;
+    z-index: 10;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  @include on-tablet {
+    padding: 34px 39px;
+  }
+
+  @include on-desktop {
+    padding: 39px 55px;
+  }
+
+  &__overlay {
+    pointer-events: none;
+
+    position: fixed;
+    z-index: 5;
+    inset: 0;
+
+    opacity: 0;
+    background-color: $black;
+
+    transition: opacity $effectDuration;
+  }
+
+  &__wrapper {
+    display: flex;
+    grid-column: 1 / -1;
+    gap: 28px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      justify-content: space-between;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__line {
+    opacity: 0.5;
+    background-color: $white;
+
+    &--mobile {
+      grid-column: 1 / -1;
+      height: 1px;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        width: 1px;
+        height: 145px;
+      }
+    }
+  }
+}
+
+.schedule--menu {
+  position: relative;
+  grid-column: 1 / -1;
+  color: $white;
+
+  @include on-tablet {
+    grid-column: 4 / 7;
+    padding: 0;
+    border-top: 0;
+  }
+
+  @include on-desktop {
+    grid-column: 8 / -1;
+  }
+
+  @include on-big-desktop {
+    grid-column: 8 / -2;
+  }
+}
+
+[id='menu']:target ~ .menu__overlay {
+  pointer-events: auto;
+  opacity: 0.5;
+}
+
+body:has([id='menu']:target) {
+  overflow: hidden;
+}
