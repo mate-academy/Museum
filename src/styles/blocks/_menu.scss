@@ -1,0 +1,42 @@
+.menu {
+  // min-width: 0;
+  padding-inline: 52px 10px;
+
+  @include on-desktop {
+    padding-inline: 102px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    gap: 24px 22px;
+  }
+
+  &__link {
+    @extend %ibm-500;
+
+    color: $color-text-header-nav;
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+
+    @include hover(transform, scale($scale));
+  }
+
+  &--footer {
+    padding: 0;
+
+    .menu__link {
+      @extend %ibm-400;
+
+      line-height: 100%;
+      color: $color-primary;
+    }
+
+    .menu__list {
+      grid-template-columns: repeat(2, minmax(100px, 460px));
+      gap: 20px 35px;
+    }
+  }
+}

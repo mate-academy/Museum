@@ -1,0 +1,132 @@
+.subscription {
+  position: relative;
+  max-width: 1280px;
+  margin-inline: auto;
+
+  &__title {
+    margin-bottom: 20px;
+    color: $color-text-header-nav;
+    text-align: center;
+
+    @include on-tablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__wrapper {
+    @include content-padding-inline;
+
+    padding-block: 88px;
+
+    @include on-tablet {
+      padding: 82px 154px;
+    }
+
+    @include on-desktop {
+      padding: 163px 355px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 50px;
+    font-size: 18px;
+    color: $color-text-header-nav;
+    text-align: center;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    margin-inline: auto;
+
+    @include on-tablet {
+      column-gap: 16px;
+    }
+
+    @include on-desktop {
+      column-gap: 30px;
+    }
+  }
+
+  &__input {
+    flex: 1 1 auto;
+
+    box-sizing: border-box;
+    height: 50px;
+    padding-left: 24px;
+    padding-block: 18px;
+
+    background-color: $color-text-header-nav;
+
+    &::placeholder {
+      @extend %h3-subtitle;
+
+      font-size: 14px;
+      color: $color-grey;
+    }
+
+    @include on-tablet {
+      height: 70px;
+      padding-block: 28px;
+    }
+
+    @include on-desktop {
+      padding-left: 24px;
+    }
+  }
+
+  &__btn {
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border: none;
+
+    background-color: $color-sq-deko;
+    background-image: url(/src/images/icons/icon-errow-black.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: transform $transition;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    @include hover(transform, scale($scale));
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  &__background {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  &__background-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

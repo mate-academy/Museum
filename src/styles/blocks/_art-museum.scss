@@ -1,0 +1,89 @@
+.art-museum {
+  @include on-tablet {
+    // @include grid-layout-g;
+
+    grid-column: 1 / 4;
+  }
+
+  @include on-desktop {
+    @include grid-layout-g;
+
+    grid-column: 1 / -1;
+  }
+
+  @include on-desktop {
+    row-gap: 0;
+  }
+
+  &__title {
+    max-width: 12ch;
+    margin-bottom: 20px;
+    margin-inline: auto;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      grid-column: span 3;
+
+      max-width: 12ch;
+      margin-bottom: 38px;
+      margin-inline: 0;
+
+      font-size: 48px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      margin-bottom: 89px;
+      font-size: 72px;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    box-sizing: border-box;
+    border: 1px solid $color-green;
+
+    @include on-tablet {
+      width: 270px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 6;
+    }
+
+    @include hover(transform, scale($scale));
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  &__text {
+    display: grid;
+    place-items: center;
+    width: 100%;
+  }
+
+  &__arrow {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+
+    width: 50px;
+    height: 50px;
+
+    background-color: $color-green;
+    background-image: url(/src/images/icons/icon-arrow_ticket.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}

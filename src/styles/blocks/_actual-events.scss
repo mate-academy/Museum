@@ -1,0 +1,119 @@
+.actual-events {
+  & > :first-child {
+    @include content-padding-inline;
+
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__title {
+    color: $color-primary;
+    text-align: center;
+
+    @include on-tablet {
+      text-align: left;
+    }
+  }
+
+  &__cards {
+    & > :not(:last-child) {
+      @include content-padding-inline;
+
+      margin-bottom: 60px;
+
+      @include on-tablet {
+        margin-bottom: 64px;
+      }
+
+      @include on-desktop {
+        display: flex;
+        flex-direction: row;
+        column-gap: 130px;
+        margin-bottom: 104px;
+      }
+    }
+  }
+
+  .actual-events__card--lecture {
+    position: relative;
+    padding-inline: 0;
+
+    @include on-tablet {
+      @include content-padding-inline;
+    }
+
+    @include on-desktop {
+      max-width: 1280px;
+      padding-inline: 0;
+    }
+
+    & > :first-child {
+      margin-bottom: 0;
+    }
+
+    & > :last-child {
+      margin-inline: auto;
+    }
+
+    .card__lecture {
+      transform: translateY(-50%);
+
+      box-sizing: border-box;
+      width: 280px;
+      height: fit-content;
+      padding-block: 20px;
+
+      background-color: #fff;
+      box-shadow: 0 2px 0 0 #1a5a4c40;
+
+      @include on-tablet {
+        width: 470px;
+        padding-block: 45px;
+        padding-inline: 55px;
+      }
+
+      @include on-desktop {
+        width: 570px;
+        padding-inline: 100px;
+      }
+
+      & > :first-child {
+        margin-bottom: 24px;
+
+        @include on-tablet {
+          margin-bottom: 16px;
+        }
+      }
+    }
+
+    .card__event-wrapper {
+      column-gap: 20px;
+      padding-inline: 20px;
+
+      @include on-tablet {
+        column-gap: 150px;
+        padding-inline: 0;
+      }
+
+      @include on-desktop {
+        column-gap: 120px;
+      }
+    }
+
+    .card__subtitle {
+      padding-inline: 0;
+      text-align: center;
+
+      @include on-tablet {
+        text-align: left;
+      }
+    }
+  }
+}

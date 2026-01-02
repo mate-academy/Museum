@@ -1,0 +1,89 @@
+.header {
+  @include content-padding-inline;
+
+  position: relative;
+  overflow: hidden;
+
+  .header-top {
+    margin-bottom: 269px;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 143px;
+    }
+  }
+
+  .header-bottom {
+    @include on-tablet {
+      @include grid-layout-g;
+    }
+  }
+
+  .hero-img {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+
+    @include on-tablet {
+      left: calc(50% + 15px);
+      height: 100%;
+    }
+
+    @include on-desktop {
+      left: calc(50% - 85px);
+      height: 100%;
+    }
+
+    &__img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .nav-menu {
+    position: absolute;
+  }
+
+  &__deko {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    width: fit-content;
+
+    opacity: 0;
+
+    @include on-desktop {
+      position: absolute;
+      bottom: 55px;
+      left: 0;
+      transform: rotate(-90deg);
+
+      opacity: 1;
+    }
+  }
+
+  &__deko-line {
+    width: 70px;
+    height: 1px;
+    background-color: $color-green;
+  }
+
+  &__deko-events {
+    text-align: center;
+  }
+
+  @include on-desktop {
+    min-height: 655px;
+  }
+}
