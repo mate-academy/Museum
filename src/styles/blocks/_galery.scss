@@ -1,0 +1,97 @@
+.galery {
+  @include content-padding-inline;
+
+  .galery__title {
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  .swiper {
+    --swiper-pagination-bullet-horizontal-gap: 0;
+
+    overflow: visible;
+  }
+
+  .swiper-wrapper {
+    @include on-desktop {
+      @include grid-layout-g;
+    }
+  }
+  .swiper-slide {
+    height: 410px;
+
+    @include on-tablet {
+      height: 543px;
+    }
+
+    @include on-desktop {
+      @include hover(transform, scale(0.97)) {
+        box-shadow: 0 4px 15px rgba(26, 90, 86, 0.4);
+      }
+    }
+
+    &--one {
+      @include on-desktop {
+        grid-column: span 4;
+        height: 600px;
+      }
+    }
+
+    &--two {
+      @include on-desktop {
+        grid-column: 5 / -1;
+        height: 600px;
+      }
+    }
+    &--three {
+      @include on-desktop {
+        grid-column: span 8;
+        height: 360px;
+      }
+    }
+    &--four {
+      @include on-desktop {
+        grid-column: 9 / -1;
+        height: 360px;
+      }
+    }
+  }
+
+  .swiper-pagination {
+    position: static;
+    margin-top: 20px;
+
+    @include on-tablet {
+      margin-top: 32px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    .swiper-pagination-bullet:not(:last-child) {
+      margin-right: 22px;
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $color-green;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__viewport {
+    overflow: hidden;
+  }
+}

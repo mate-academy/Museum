@@ -1,0 +1,83 @@
+.card {
+  &__img-link {
+    width: 100%;
+    height: 100%;
+
+    @include hover(transform, scale($scale-bilds)) {
+      box-shadow: 0 4px 15px 0 #09423440;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__event-wrapper {
+    display: flex;
+    column-gap: 55px;
+    align-items: center;
+    width: fit-content;
+  }
+
+  &__event-name {
+    @extend %ibm-500;
+
+    color: $color-grey;
+  }
+
+  &__event-date {
+    @extend %ibm-700;
+
+    color: $color-green;
+
+    @include hover(transform, scale($scale));
+  }
+
+  &__subtitle-wrapper {
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+  }
+
+  &__subtitle {
+    color: $color-primary;
+  }
+
+  &__subtitle-deko {
+    width: 10px;
+    height: 10px;
+    background-color: $color-sq-deko;
+  }
+
+  &__img-background {
+
+    @include on-desktop {
+      height: 560px;
+    }
+  }
+
+  &__row {
+    max-width: 460px;
+
+    & > .card__event-wrapper {
+      margin-bottom: 15px;
+
+      @include on-tablet {
+        margin-bottom: 30px;
+      }
+    }
+
+    & > .card__subtitle-wrapper {
+      margin-bottom: 10px;
+
+      @include on-tablet {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  & > *.card__img-link {
+    margin-bottom: 20px;
+  }
+}

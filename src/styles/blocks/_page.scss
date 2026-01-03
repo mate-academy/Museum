@@ -1,0 +1,48 @@
+html {
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.body {
+  overflow-x: hidden;
+
+  > .header {
+    margin-bottom: 70px;
+
+    @include on-tablet {
+      margin-bottom: 107px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 318px;
+    }
+  }
+
+  > .overlay {
+    pointer-events: none;
+
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  > .main-layout {
+    margin-bottom: 18px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  > .overlay--active {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  &--locked {
+    overflow: hidden;
+  }
+}
