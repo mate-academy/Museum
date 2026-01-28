@@ -1,0 +1,177 @@
+.gallery {
+  position: relative;
+
+  grid-column: 1/-1;
+
+  box-sizing: border-box;
+  width: 100vw;
+  margin-bottom: 100px;
+
+  @include grid-page;
+
+  &__title {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 2/2;
+      font-size: 48px;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+
+    display: flex;
+    grid-column: span 2;
+    align-items: center;
+    justify-content: center;
+
+    height: 410px;
+    padding: 20px;
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-desktop {
+      grid-column: span 12;
+      height: fit-content;
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+    width: 280px;
+    height: 410px;
+
+    @include on-tablet {
+      width: 640px;
+    }
+
+    @include on-desktop {
+      width: 100%;
+      height: fit-content;
+    }
+  }
+
+  &__slider-nav {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+
+    display: flex;
+    gap: 22px;
+
+    width: 102px;
+  }
+
+  &__slider-nav label {
+    cursor: pointer;
+
+    display: inline-block;
+
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+
+    background-color: $color-label;
+
+    transition: background-color 0.2s;
+
+    &:active {
+      background-color: $bg-aside-color;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__slides {
+    display: flex;
+    width: 400%;
+    height: 100%;
+
+    @include on-tablet {
+      width: 200%;
+    }
+
+    @include on-desktop {
+      width: 100%;
+      height: fit-content;
+
+      @include grid-page;
+    }
+  }
+
+  &__slide {
+    position: relative;
+    overflow: hidden;
+    width: 25%;
+    margin: 20px;
+
+    @include on-tablet {
+      width: 50%;
+    }
+
+    @include on-desktop {
+      width: 100%;
+
+      &--one {
+        grid-column: 1/4;
+        width: 100%;
+        height: 600px;
+      }
+
+      &--two {
+        grid-column: 4/12;
+        width: 100%;
+        height: 600px;
+      }
+
+      &--three {
+        grid-column: 1/8;
+        width: 100%;
+        height: 360px;
+      }
+
+      &--four {
+        grid-column: 8/12;
+        width: 100%;
+        height: 360px;
+      }
+    }
+
+    img {
+      height: 100%;
+      object-fit: cover;
+
+      @include on-desktop {
+        width: 100%;
+      }
+
+      @include hover(scale, 1.2);
+    }
+  }
+
+  .s1:checked ~ &__slides {
+    transform: translate(0);
+  }
+
+  .s2:checked ~ &__slides {
+    transform: translate(-25%);
+  }
+
+  .s3:checked ~ &__slides {
+    transform: translate(-50%);
+  }
+
+  .s4:checked ~ &__slides {
+    transform: translate(-75%);
+  }
+}
+
+input[name='control'] {
+  display: none;
+}

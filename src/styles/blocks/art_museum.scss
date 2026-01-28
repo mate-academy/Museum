@@ -1,0 +1,132 @@
+.art_museum {
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  margin: 0;
+  margin-bottom: 70px;
+
+  @include on-tablet {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  &__bg {
+    grid-column: 1/-1;
+
+    width: 100%;
+    height: 300px;
+
+    background-image: url(/src/images/bg-art-museum.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include on-tablet {
+      height: 384px;
+    }
+
+    @include on-desktop {
+      height: 655px;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+
+    @include on-tablet {
+      align-items: start;
+      justify-content: left;
+      width: 50%;
+    }
+
+    @include on-desktop {
+      position: relative;
+      align-items: end;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 54px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      margin-bottom: 89px;
+      font-size: 72px;
+    }
+  }
+
+  &__button-buy-tickets {
+    display: flex;
+
+    box-sizing: border-box;
+    width: $button-input-width-mobile;
+    height: $button-input-height-mobile;
+    border: 1px $bg-aside-color solid;
+
+    text-decoration: none;
+
+    &--description {
+      width: 230px;
+      border: none;
+
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 100%;
+
+      background-color: transparent;
+    }
+
+    &--arrow {
+      width: 50px;
+      border: none;
+      background-color: $bg-aside-color;
+    }
+
+    @include on-tablet {
+      width: $button-input-width-tablet;
+      height: $button-input-height-tablet;
+    }
+  }
+
+  &__element-events {
+    display: none;
+
+    @include on-desktop {
+      position: absolute;
+      top: 110%;
+      right: 80%;
+      transform: rotate(271deg);
+
+      display: flex;
+
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #687480;
+
+      hr {
+        width: 70px;
+        height: 1px;
+        margin-right: 20px;
+        color: $bg-aside-color;
+      }
+    }
+  }
+}
