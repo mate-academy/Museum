@@ -32,16 +32,21 @@
     left: 0;
 
     width: 100%;
-    height: 100vh;
+    height: 100svh;
 
     visibility: hidden;
     opacity: 0;
     background: rgba(0, 0, 0, 0.5);
+    outline: none;
 
     transition: opacity 0.3s ease;
+
+    -webkit-tap-highlight-color: transparent;
+
   }
 
   &:target &__shadow {
+    overflow: hidden;
     visibility: visible;
     opacity: 1;
   }
@@ -62,9 +67,6 @@
 
   &-left{
     display: flex;
-
-    // width: 100%;
-
     grid-column: 1 / -1;
     flex-direction: column;
 
@@ -146,4 +148,9 @@
       width: 100%;
     }
   }
+}
+
+html:has(.menu:target),
+body:has(.menu:target) {
+  overflow: hidden;
 }
