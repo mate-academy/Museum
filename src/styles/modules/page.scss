@@ -1,0 +1,86 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.page {
+  scroll-behavior: smooth;
+
+  position: relative;
+
+  height: 100%;
+
+  font-family: $font-main;
+  color: $color-text;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+
+    background-color: $color-main-light;
+
+    &::before {
+      pointer-events: none;
+      content: '';
+
+      position: fixed;
+      z-index: 1;
+      inset: 0;
+
+      opacity: 0;
+      background-color: $color-main-dark;
+
+      transition: opacity $transition-speed $transition-function;
+    }
+
+    // stylelint-disable-next-line selector-max-id
+    &:has(#menu:target) {
+      overflow: hidden;
+
+      // stylelint-disable-next-line selector-max-id
+      &::before {
+        pointer-events: auto;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateY(-100%);
+
+    opacity: 0;
+
+    transition: all $transition-speed $transition-function;
+
+    &:target {
+      pointer-events: all;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $color-main-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: $color-accent;
+
+  @include hover(background-color, $color-additional);
+}

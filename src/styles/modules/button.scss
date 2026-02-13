@@ -1,0 +1,64 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.button {
+  display: flex;
+  height: 50px;
+  text-decoration: none;
+
+  @include tablet {
+    height: 70px;
+  }
+
+  &__label {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    border: 1px solid $color-accent;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    color: $color-text;
+
+    transition:
+      color $transition-speed $transition-function,
+      border-color $transition-speed $transition-function;
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1 / 1;
+    height: 100%;
+
+    background-color: $color-accent;
+
+    transition: background-color $transition-speed $transition-function;
+  }
+
+  &__icon {
+    filter: invert(1);
+    transition: filter $transition-speed $transition-function;
+  }
+
+  &:hover {
+    .button__label {
+      border-color: $color-additional;
+      color: $color-additional;
+    }
+
+    .button__box {
+      background-color: $color-additional;
+    }
+
+    .button__icon {
+      filter: invert(0);
+    }
+  }
+}

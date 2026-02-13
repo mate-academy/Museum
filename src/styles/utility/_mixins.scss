@@ -1,0 +1,70 @@
+@use './variables' as *;
+
+@mixin tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin content-padding {
+  box-sizing: border-box;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: $padding-mobile;
+
+  @include tablet {
+    padding-inline: $padding-tablet;
+  }
+
+  @include desktop {
+    padding-inline: $padding-desktop;
+  }
+}
+
+.container {
+  @include content-padding;
+
+  @include desktop {
+    max-width: $bp-desktop;
+  }
+}
+
+@mixin page-grid {
+  --columns: #{$cols-mobile};
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: $gap-mobile;
+
+  @include tablet {
+    --columns: #{$cols-tablet};
+
+    column-gap: $gap-tablet;
+  }
+
+  @include desktop {
+    --columns: #{$cols-desktop};
+
+    column-gap: $gap-desktop;
+  }
+}
+
+@mixin background-img($path) {
+  background-image: url($path);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin hover($property, $toValue) {
+  transition: all $transition-speed $transition-function;
+  &:hover {
+    #{$property}: #{$toValue};
+  }
+}
