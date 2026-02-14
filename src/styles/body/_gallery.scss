@@ -1,0 +1,130 @@
+.gallery {
+  width: 100%;
+
+  @include on-desktop {
+    padding-inline: 56px;
+  }
+
+  &--on-mobile {
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &--on-desktop {
+    display: none;
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, minmax(0, min-content));
+      gap: 20px;
+
+      max-width: 1280px;
+      margin-top: 56px;
+      padding: 0;
+    }
+  }
+
+  &__viewport {
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+
+    overflow-x: auto;
+
+    width: 100%;
+    margin-top: 40px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__track {
+    display: flex;
+    padding-left: 20px;
+
+    @include on-tablet {
+      padding-left: 34px;
+    }
+  }
+
+  &__slide {
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+    margin-right: 15px;
+  }
+
+  &__picture {
+    width: 100%;
+  }
+
+  &__img-mobile {
+    display: block;
+    width: 280px;
+    height: 410px;
+    object-fit: cover;
+
+    @include on-tablet {
+      width: 340px;
+      height: 543px;
+    }
+  }
+
+  &__img-desktop {
+    display: block;
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+
+    width: 100%;
+    max-width: 100%;
+
+    object-fit: cover;
+
+    &:nth-child(2) {
+      grid-column: 5 / -1;
+    }
+
+    &:nth-child(3) {
+      grid-column: 1 / 9;
+      grid-row: 2 / 3;
+    }
+
+    &:nth-child(4) {
+      grid-column: 9 / -1;
+      grid-row: 2 / 3;
+    }
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__pagination {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+
+    width: 100%;
+    margin-top: 20px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__bullet {
+    cursor: pointer;
+
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+
+    background-color: $c-bullet-none-active;
+
+    transition: all $transition-time ease;
+
+    &--active {
+      transform: scale(1.2);
+      background-color: $c-main-acent;
+    }
+  }
+}

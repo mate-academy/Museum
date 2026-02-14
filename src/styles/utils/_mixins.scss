@@ -1,6 +1,73 @@
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} #{$transition-time};
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin article-core {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+
+  &__event-name {
+    display: block;
+    margin: 0;
+    color: $c-event-name;
+  }
+
+  &__time {
+    color: $c-main-acent;
+  }
+}
+
+@mixin reset-form {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+
+  outline: none;
+  box-shadow: none;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    transition: background-color 5000s ease-in-out 0s;
+
+    -webkit-shadow-box: 0 0 0 1000px white inset !important;
+    -webkit-text-fill-color: #000 !important;
+  }
+}
+
+@mixin placeholder-style {
+  &::placeholder {
+    transition: all $transition-time ease-in-out;
+  }
+  &:hover {
+    &::placeholder {
+      color: $c-bullet;
+    }
+  }
+  &:focus {
+    &::placeholder {
+      opacity: 0;
+    }
   }
 }
