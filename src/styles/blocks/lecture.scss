@@ -1,0 +1,110 @@
+.lecture {
+  position: relative;
+  height: 236px;
+
+  @include on-tablet {
+    height: 426px;
+  }
+
+  @include on-desktop {
+    height: 550px;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 21px;
+
+    @include on-tablet {
+      gap: 140px;
+      justify-content: start;
+      padding: 45px 0 23px 55px;
+    }
+
+    @include on-desktop {
+      gap: 130px;
+      padding-left: 100px;
+    }
+  }
+
+  &__subtitle {
+    @extend %main-date;
+
+    font-weight: 500;
+    color: $inner-title-color;
+  }
+
+  &__date {
+    @extend %main-date;
+
+    color: $menu-background-color;
+  }
+
+  &__name {
+    @extend %title;
+
+    text-align: center;
+
+    @include on-tablet {
+      padding-left: 55px;
+      text-align: start;
+    }
+
+    @include on-desktop {
+      padding-left: 100px;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 2;
+    top: 153px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+
+    width: 280px;
+    height: 140px;
+
+    background-color: $menu-footer-text-color;
+    box-shadow: 0 2px 0 0 #1a5a4c40;
+
+    transition: box-shadow 0.5s ease;
+
+    @include on-tablet {
+      top: 306px;
+      width: 570px;
+      height: 204px;
+    }
+
+    @include on-desktop {
+      top: 448px;
+      width: 570px;
+      height: 204px;
+    }
+
+    &:hover {
+      box-shadow: 5px 7px 3px 0 #1a5a4c40;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url('../images/lecture/lecture.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}

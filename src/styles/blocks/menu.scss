@@ -1,0 +1,165 @@
+.menu {
+  @extend %menu-footer;
+
+  pointer-events: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+
+  color: $menu-footer-text-color;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
+
+  &.is-open {
+    pointer-events: all;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &.is-close {
+    pointer-events: none;
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  &__top {
+    flex-shrink: 0;
+
+    height: auto;
+    min-height: 400px;
+    padding: 27px 20px 0;
+
+    background-color: $menu-background-color;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      min-height: 280px;
+      padding: 39px 34px 0;
+    }
+
+    @include on-desktop {
+      padding: 40px 56px 0;
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+
+    display: block;
+
+    width: 24px;
+    height: 24px;
+
+    background-image: url('../images/icons/menu-close.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 28px;
+
+    @include on-tablet {
+      grid-column: 1 / 6;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      gap: 102px;
+    }
+  }
+
+  &__nav-group {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__link {
+    @extend %button;
+
+    font-size: 16px;
+    transition: color 0.5s ease;
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+
+    &:hover {
+      color: $inner-title-color;
+    }
+  }
+
+  &__line {
+    width: 100%;
+    margin-block: 24px;
+    border: none;
+    border-top: 1px solid #ffffff80;
+
+    @include on-tablet {
+      grid-column: 7;
+
+      width: 1px;
+      height: 80%;
+      margin-block: 0;
+      margin-inline: 0;
+      border: none;
+      border-right: 1px solid #ffffff80;
+
+      writing-mode: vertical-rl;
+    }
+  }
+
+  &__schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: 8 / -1;
+    }
+  }
+
+  &__schedule-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item-bold {
+    font-weight: 600;
+  }
+
+  &__bottom {
+    flex-grow: 1;
+    width: 100%;
+    height: auto;
+    background-color: #1a5a4c50;
+  }
+}

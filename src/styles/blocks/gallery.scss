@@ -1,0 +1,152 @@
+.gallery {
+  position: relative;
+  box-sizing: border-box;
+  margin: 183px 0 100px;
+  padding-inline: 20px;
+
+  @include on-tablet {
+    margin: 208px 0 92px;
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    margin: 302px 55px 200px;
+  }
+
+  &__container {
+    display: none;
+
+    @include on-desktop {
+      display: grid;
+      grid-template-areas:
+        'woman village village'
+        'woman village village'
+        'park park beach';
+      gap: 30px;
+    }
+  }
+
+  &__slide-1 {
+    grid-area: woman;
+  }
+
+  &__slide-2 {
+    grid-area: village;
+  }
+
+  &__slide-3 {
+    grid-area: park;
+  }
+
+  &__slide-4 {
+    grid-area: beach;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    text-align: center;
+
+    @include on-tablet {
+      margin-bottom: 48px;
+      text-align: start;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__swiper {
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__image {
+    will-change: transform;
+
+    display: block;
+
+    aspect-ratio: 28 / 41;
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+
+    @include on-tablet {
+      aspect-ratio: 340 / 543;
+    }
+
+    @include on-desktop {
+      aspect-ratio: auto;
+    }
+  }
+
+  &__image-3 {
+    object-position: left;
+
+    @include on-desktop {
+      object-position: center;
+    }
+  }
+
+  &__image-4 {
+    object-position: 82%;
+
+    @include on-desktop {
+      object-position: center;
+    }
+  }
+
+  &__slide {
+    overflow: hidden;
+    transition: transform 0.5s ease;
+
+    &:hover {
+      .gallery__image {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__pagination {
+    position: relative;
+    bottom: 0 !important;
+
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+
+    margin-block: 20px;
+
+    @include on-tablet {
+      margin-block: 32px;
+    }
+
+    .swiper-pagination-bullet {
+      width: 9px;
+      height: 9px;
+
+      opacity: 1;
+      background-color: $radio-button;
+
+      transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+
+      &:hover {
+        transform: scale(1.6);
+      }
+
+      &-active {
+        background-color: $menu-background-color;
+      }
+    }
+  }
+}
