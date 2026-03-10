@@ -1,0 +1,170 @@
+@import './contacts';
+
+.footer {
+  padding-top: 50px;
+
+  @include grid-page;
+  @include content-padding-inline;
+
+  &__logo {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / span 1;
+      flex-direction: column;
+      justify-content: start;
+      gap: 62px;
+    }
+  }
+
+  &__menu {
+    @include on-tablet {
+      grid-column: 2 / span 2;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / span 2;
+    }
+  }
+
+  &__logo-link {
+    all: unset;
+    display: block;
+    background-image: url(../images/logo/logo-manu.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 67px;
+    height: 72px;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__social-media-container {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__social-media {
+    all: unset;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+
+    &--face {
+      background-image: url(../images/logo/facebook-logo.svg);
+
+      @include hover(transform, scale(1.2));
+    }
+
+    &--insta {
+      background-image: url(../images/logo/instagram-logo.svg);
+
+      @include hover(transform, scale(1.2));
+    }
+  }
+
+  &__contacts {
+    grid-column: 2 / -1;
+
+    @include on-tablet {
+      grid-column: 4 / span 2;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / span 2;
+    }
+  }
+
+  &__hr {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    grid-column: 1 / -1;
+    background-color: $footer-hr;
+    margin-block: 70px 40px;
+
+    @include on-tablet {
+      margin-block: 64px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 8;
+      width: 1px;
+      height: 100%;
+      margin-block: 0;
+      margin: auto;
+    }
+  }
+
+  &__hr-link {
+    all: unset;
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-image: url(../images/logo/arrow-up-logo.svg);
+    right: 0;
+    top: -70px;
+
+    @include hover(box-shadow, 0 1px 18px 4px rgba(44, 44, 44, 0.64));
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+    padding-block: 80px 60px;
+
+    @include on-tablet {
+      padding-block: 120px 36px;
+    }
+
+    @include on-desktop {
+      padding-block: 87px 35px;
+    }
+  }
+
+  &__bottom-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  &__paragraph {
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 141%;
+    letter-spacing: 0;
+    text-align: center;
+    color: $dark-title;
+
+    &--one {
+      @include on-tablet {
+        order: 1;
+      }
+    }
+
+    &:first-of-type {
+      margin-bottom: 10px;
+
+      @include on-tablet {
+        margin-bottom: 0;
+        order: 2;
+      }
+    }
+  }
+}

@@ -1,7 +1,44 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import './header/header';
+@import './aside/aside';
+@import './nav/nav';
+@import './main/main-block';
+@import './footer/footer';
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  position: relative;
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden; /* not to scroll the page */
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all $transition;
+    height: 100vh;
+
+    &:target {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
 
 body {
   background: $c-gray;
+  padding: 0;
+  margin: 0;
 }

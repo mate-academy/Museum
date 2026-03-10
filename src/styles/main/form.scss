@@ -1,0 +1,96 @@
+.form {
+  &__fieldset {
+    border: none;
+    padding: 0;
+  }
+
+  &__legend {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 0;
+    text-align: center;
+    color: $white-color;
+  }
+
+  &__wrapper-input {
+    display: flex;
+    margin-top: 50px;
+
+    @include hover(transform, translateY(-10%));
+    @include hover(box-shadow, 0 3px 14px 4px rgba(107, 109, 109, 0.75));
+
+    @include on-tablet {
+      margin-top: 65px;
+    }
+
+    @include on-desktop {
+      margin-top: 72px;
+      gap: 30px;
+    }
+  }
+
+  &__input {
+    display: block;
+    height: 50px;
+    border: none;
+    padding: 0;
+    padding-left: 24px;
+    flex-grow: 1;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+
+    @include on-tablet {
+      height: 70px;
+    }
+
+    &::placeholder {
+      font-family: Montserrat, sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 100%;
+      letter-spacing: 0;
+      color: $gray-name;
+    }
+
+    &:focus {
+      outline: none;
+      background-color: $c-gray;
+      transition: all $transition;
+    }
+  }
+
+  &__button {
+    all: unset;
+    display: block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: $title-red;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &::after {
+      display: block;
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-image: url(../images/icon/icon-black-arrow.svg);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: all $transition;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &:hover::after {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+}

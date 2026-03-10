@@ -1,0 +1,60 @@
+.slider {
+  position: relative;
+  height: 440px;
+  overflow: hidden;
+
+  @include grid-page;
+
+  @include on-tablet {
+    height: 584px;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__slide {
+    position: absolute;
+    grid-column: 1 / -1;
+    height: 410px;
+    width: 100%;
+    transition: all $transition;
+
+    @include on-tablet {
+      height: 543px;
+      min-width: 340px;
+      padding-right: 20px;
+      width: 50%;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 102px;
+  }
+
+  &__button {
+    border: none;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    background-color: $gray-button;
+    cursor: pointer;
+
+    &--active {
+      background-color: $active-button-gallery;
+    }
+  }
+}
