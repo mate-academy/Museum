@@ -1,0 +1,219 @@
+.header {
+  position: relative;
+
+  @include on-desktop {
+    max-width: 1280px;
+    margin-inline: auto;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      @include grid-page;
+
+      padding-left: 39px;
+    }
+
+    @include on-desktop {
+      padding-left: 55px;
+    }
+  }
+
+  &__menu {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/icon/icon-menu.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 20px;
+    top: 27px;
+    cursor: pointer;
+
+    @include hover(background-image, url(../images/icon/icon-menu.svg));
+    @include hover(transform, scale(1.2));
+
+    @include on-tablet {
+      left: 39px;
+      top: 39px;
+    }
+
+    @include on-desktop {
+      left: 55px;
+    }
+  }
+
+  &__menu-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image-container {
+    display: flex;
+    justify-content: center;
+    background-image: url(../images/header-bg-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    aspect-ratio: 1.07 / 1;
+    padding-top: 9px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 1;
+
+      aspect-ratio: 0.97 / 1;
+      justify-content: start;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+      aspect-ratio: 1 / 0.91;
+    }
+  }
+
+  &__title-container {
+    @include on-tablet {
+      grid-column: 1 / span 3;
+      grid-row: 1;
+    }
+  }
+
+  &__logo-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 61px;
+
+    @include hover(transform, scale(1.2));
+
+    @include on-tablet {
+      margin-left: 72px;
+      margin-top: 15px;
+    }
+
+    @include on-desktop {
+      margin-left: 60px;
+    }
+  }
+
+  &__logo {
+    display: block;
+    object-position: center;
+  }
+
+  &__container-tikets-title {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    @include on-tablet {
+      grid-column: 1 / span 3;
+      padding-top: 127px;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / span 5;
+      padding-top: 206px;
+      gap: 89px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+      line-height: 120%;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    margin-inline: 20px;
+
+    @include hover(box-shadow, 0 3px 14px 4px rgba(30, 38, 37, 0.75));
+    @include hover(transform, translateY(-10%));
+
+    @include on-tablet {
+      margin-inline: 0;
+      width: 270px;
+    }
+
+    @include on-desktop {
+      align-self: end;
+    }
+  }
+
+  &__link-tickets {
+    all: unset;
+    display: block;
+    box-sizing: border-box;
+    height: 50px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 50px;
+    letter-spacing: 0;
+    cursor: pointer;
+    border: 1px solid $dark-green;
+    flex-grow: 1;
+    text-align: center;
+
+    @include hover(background-color, #d3d1d1);
+
+    @include on-tablet {
+      height: 70px;
+      line-height: 70px;
+    }
+  }
+
+  &__tickets-arrow {
+    display: flex;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: $dark-green;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-image: url(../images/icon/icon-ticket.svg);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: all $transition;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &:hover::after {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+}
