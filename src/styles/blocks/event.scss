@@ -1,0 +1,99 @@
+.event {
+  @include page-grid;
+
+  row-gap: 16px;
+
+  @include on-tablet {
+    row-gap: 40px;
+  }
+
+  &__picture {
+    grid-column: 1/-1;
+
+    @include on-desktop {
+      grid-column: 1/8;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+
+    object-fit: cover;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__info {
+    align-content: center;
+    display: grid;
+    row-gap: 10px;
+
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      row-gap: 30px;
+      grid-column: 1/5;
+    }
+
+    @include on-desktop {
+      grid-column: 9/-1;
+    }
+  }
+
+  &__time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      justify-content: flex-start;
+      gap: 24px;
+      align-items: center;
+    }
+  }
+
+  &__exibition {
+    font-weight: 500;
+    font-size: 16px;
+    color: $c-dark-gray;
+  }
+
+  &__date {
+    color: $c-green;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  &__title {
+    margin: 0;
+    color: $c-text;
+    position: relative;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    width: fit-content;
+    letter-spacing: 0%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      right: -20px;
+      bottom: 5px;
+      background: $c-light-gray;
+      margin-top: 16px;
+      background-color: $c-orange;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+
+    color: $c-dark-gray;
+  }
+}

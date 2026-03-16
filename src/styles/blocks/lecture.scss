@@ -1,0 +1,88 @@
+.lecture {
+  &__content > :not(.lecture__photo, .lecture__info) {
+    @include content-padding;
+  }
+  @include on-tablet {
+    &__content {
+      @include content-padding;
+    }
+  }
+
+  &__content {
+    @include on-tablet {
+      row-gap: 48px;
+    }
+
+    @include on-desktop {
+      row-gap: 56px;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    aspect-ratio: 16/9;
+
+    background-image: url('/src/images/img-sunset.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__info {
+    margin-inline: 20px;
+    padding: 24px 0;
+
+    position: relative;
+    display: grid;
+    bottom: 64px;
+
+    background-color: $c-gray;
+    grid-column: 1/-1;
+    justify-self: center;
+    text-align: center;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+    gap: 24px;
+
+    @include on-tablet {
+      padding: 34px;
+    }
+  }
+
+  &__time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    @include on-tablet {
+      gap: 140px;
+    }
+  }
+
+  &__text {
+    color: $c-dark-gray;
+    font-weight: 500;
+  }
+
+  &__date {
+    color: $c-green;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 400;
+    font-size: 28px;
+    text-align: center;
+    line-height: 100%;
+
+    @include on-tablet {
+      font-size: 36px;
+      width: 300px;
+    }
+
+    @include on-desktop {
+      width: 400px;
+    }
+  }
+}

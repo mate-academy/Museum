@@ -1,0 +1,132 @@
+.subscribe {
+  background-image: url(/src/images/bg-subscribe.png);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.75);
+
+  &__content {
+    @include content-padding;
+
+    @include page-grid;
+
+    padding-block: 88px;
+    color: $c-white;
+    gap: 50px;
+
+    @include on-tablet {
+      padding-block: 105px;
+      gap: 64px;
+    }
+
+    @include on-desktop {
+      gap: 72px;
+    }
+  }
+
+  &__info {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 36px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 48px;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 18px;
+    }
+  }
+
+  &__button {
+    grid-column: 1/-1;
+    width: 100%;
+    display: flex;
+
+    @include on-tablet {
+      grid-column: 2/6;
+    }
+
+    @include on-desktop {
+      grid-column: 4/10;
+    }
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__link {
+    height: $button-size;
+    box-sizing: border-box;
+    padding-left: 24px;
+    width: 100%;
+    outline: none;
+
+    @include on-tablet {
+      height: $button-big-size;
+    }
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 100%;
+      letter-spacing: 0%;
+    }
+
+    &:focus {
+      padding-left: 24px;
+    }
+  }
+
+  &__send {
+    width: $button-size;
+    border: 0;
+    background-color: $c-orange;
+
+    @include on-tablet {
+      width: $button-big-size;
+    }
+
+    & :hover {
+      animation: move 0.3s;
+    }
+  }
+
+  &__letter {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

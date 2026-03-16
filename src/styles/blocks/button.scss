@@ -1,0 +1,56 @@
+.button {
+  @include hover(transform, scale(1.05));
+
+  @include on-tablet {
+    height: $button-big-size;
+  }
+
+  &--header {
+    @include on-tablet {
+      max-width: 340px;
+    }
+
+    @include on-desktop {
+      width: 270px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: $button-size;
+    position: relative;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-decoration: none;
+    color: $c-text;
+    border: 1px solid $c-green;
+    height: $button-size;
+
+    @include on-tablet {
+      height: $button-big-size;
+      padding-right: $button-big-size;
+    }
+
+    &::after {
+      content: '>';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $c-light-gray;
+      position: absolute;
+      right: 0;
+      width: $button-size;
+      height: $button-size;
+      background-color: $c-green;
+
+      @include on-tablet {
+        height: $button-big-size;
+        width: $button-big-size;
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.page {
+  font-family: Montserrat, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0%;
+  scroll-behavior: smooth;
+
+  &__body {
+    background: $c-gray;
+    margin: 0;
+  }
+
+  &__menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    min-height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100%);
+    transition: all 0.3s;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+  }
+
+  &__main {
+    margin-top: 70px;
+
+    @include on-tablet {
+      margin-top: 88px;
+    }
+  }
+
+  &__footer {
+    margin-top: 50px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
