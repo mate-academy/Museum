@@ -1,0 +1,191 @@
+.button {
+  position: relative;
+  z-index: 5;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  padding: 0;
+  border: $button-border solid $color-system;
+
+  color: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  background-color: $color-light;
+
+  transition: all $transition-time ease;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    z-index: -5;
+    inset: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+
+    background-color: $color-system;
+
+    transition: transform $transition-time ease;
+  }
+
+  &__txt {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+
+    transition: color $transition-time ease;
+  }
+
+  &__input {
+    position: relative;
+    z-index: 10;
+
+    flex-grow: 1;
+
+    height: 100%;
+    padding: 0 0 0 24px;
+    border: none;
+
+    font-family: inherit;
+    line-height: 1;
+    color: $color-dark;
+
+    background: transparent;
+    outline: none;
+
+    transition:
+      background-position $transition-time ease,
+      color $transition-time ease 0.15s;
+
+    &::placeholder {
+      color: $color-title;
+    }
+
+    &:focus {
+      color: $color-dark;
+    }
+
+    .button--about-us & {
+      background: linear-gradient(
+        to right,
+        $color-light 50%,
+        $color-accent 50%
+      );
+      background-position: 0 0;
+      background-size: 200% 100%;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      transition: background-color $transition-time ease;
+
+      -webkit-text-fill-color: $color-dark;
+    }
+
+    .button:hover &::placeholder {
+      color: $color-dark;
+    }
+
+    .button:has(.button__arrow--about-us:hover) & {
+      color: $color-light;
+      background-position: 100% 0;
+
+      &::placeholder {
+        color: $color-light;
+      }
+
+      &:-webkit-autofill {
+        -webkit-text-fill-color: $color-light;
+      }
+    }
+  }
+
+  &__arrow {
+    position: relative;
+    z-index: 5;
+
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 100%;
+    border: none;
+
+    background-color: $color-system;
+
+    @include on-tablet {
+      width: 70px;
+    }
+
+    &--about-us {
+      cursor: pointer;
+      background-color: $color-accent;
+
+      &:hover {
+        .icon--arrow {
+          background-image: url(../images/icons/icon-arrow-light.svg);
+        }
+      }
+    }
+  }
+
+  &--about-us {
+    border: 0;
+    background-color: transparent;
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      transform: none !important;
+    }
+
+    @include on-tablet {
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &:hover {
+    &::after {
+      transform: scaleX(1);
+    }
+
+    .button__txt {
+      color: $color-light;
+    }
+  }
+
+  &:focus {
+    border-color: $color-accent;
+
+    &::after {
+      background-color: $color-accent;
+    }
+
+    .button__arrow {
+      background-color: $color-accent;
+    }
+  }
+
+  @include on-tablet {
+    height: 70px;
+  }
+
+  @include hover(transform, scale($transform-button-scale));
+}

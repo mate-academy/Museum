@@ -1,0 +1,51 @@
+.page {
+  user-select: none;
+  position: relative;
+  overflow-x: hidden;
+
+  &::after {
+    pointer-events: none;
+    content: '';
+
+    position: fixed;
+    z-index: 90;
+    inset: 0;
+
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    transition: opacity $transition-time ease;
+  }
+
+  &__body {
+    min-width: $mobile-width;
+    margin: 0;
+  }
+
+  &:has(.page__menu:target)::after {
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateY(-100%);
+
+    transition: all $transition-time ease;
+
+    &:target {
+      pointer-events: all;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}
