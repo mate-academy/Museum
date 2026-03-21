@@ -1,0 +1,52 @@
+.nav {
+  grid-column: 2;
+  grid-row: 1;
+
+  @include title;
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 28px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+
+    @include title;
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+  }
+
+  &__item {
+    @include hover(transform, scale($transform-button-scale));
+  }
+
+  &--contacts {
+    grid-column: 1 / -1;
+    grid-row: 4;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      grid-row: 3;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / 12;
+      grid-row: 1;
+    }
+
+    .nav__link {
+      font-size: 14px;
+      font-weight: normal;
+    }
+  }
+}

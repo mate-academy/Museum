@@ -1,0 +1,104 @@
+.event {
+  @include page-grid;
+
+  &__photo {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 0;
+    object-fit: cover;
+
+    @include hover(transform, scale($transform-photo-scale));
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+      margin: 0;
+      margin: auto;
+    }
+  }
+
+  &__details-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin: 0;
+
+    &--lecture {
+      gap: 20px;
+      justify-content: space-between;
+      padding: 20px;
+
+      @include on-tablet {
+        padding: 0;
+      }
+    }
+  }
+
+  &__type {
+    color: $color-title;
+    text-transform: uppercase;
+
+    @include title;
+  }
+
+  &__period {
+    font-size: 16px;
+    font-weight: 700;
+    color: $color-system;
+  }
+
+  &__title-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 0;
+  }
+
+  &__title {
+    font-family: $txt-title-font;
+    font-size: 28px;
+    line-height: 1;
+
+    @include on-tablet {
+      font-size: 36px;
+    }
+
+    &--lecture {
+      text-align: center;
+
+      @include on-tablet {
+        text-align: start;
+      }
+    }
+  }
+
+  &__accent-point {
+    width: 10px;
+    height: 10px;
+    background-color: $color-accent;
+
+    @include on-tablet {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__description-txt {
+    font-size: 16px;
+    color: $color-title;
+  }
+}

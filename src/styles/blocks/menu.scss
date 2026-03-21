@@ -1,0 +1,43 @@
+.menu {
+  z-index: 100;
+  color: $color-light;
+  background-color: $color-system;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 24px 28px;
+    align-items: start;
+
+    margin: 27px 0;
+
+    @include on-tablet {
+      grid-template-columns: 24px auto 1px auto;
+      gap: 0 38px;
+      justify-content: start;
+      margin: 39px 0;
+    }
+
+    @include on-desktop {
+      gap: 0 102px;
+    }
+  }
+
+  &__line {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100%;
+    height: 1px;
+
+    opacity: 0.5;
+    background-color: currentColor;
+
+    @include on-tablet {
+      grid-column: 3;
+      grid-row: 1;
+      width: 1px;
+      height: 100%;
+    }
+  }
+}
