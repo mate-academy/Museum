@@ -1,0 +1,122 @@
+.menu {
+  box-sizing: border-box;
+  overflow: auto;
+
+  --content-height: 399px;
+
+  z-index: 2;
+
+  @include on-tablet {
+    --content-height: 225px;
+  }
+
+  @include on-desktop {
+    --content-height: 233px;
+  }
+
+  &__content {
+    background-color: $menu-bg-color;
+    height: var(--content-height);
+  }
+
+  &__bg {
+    height: calc(100vh - var(--content-height));
+    opacity: 50%;
+    background-color: #18181a;
+  }
+
+  &__close {
+    background-image: url(../images/menu/close-cross.svg);
+  }
+
+  &__page-links {
+    display: flex;
+  }
+
+  &__nav {
+    display: flex;
+    margin-left: 28px;
+    gap: 28px;
+
+    @include on-tablet {
+      margin-inline: 38px;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      margin-inline: 102px;
+      gap: 31px;
+    }
+  }
+
+  &__list {
+    gap: 24px;
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__link {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    color: $main-bg-color;
+
+    @include on-desktop {
+      font-size: 22px;
+      line-height: 22px;
+    }
+  }
+
+  &__schedule {
+    color: $main-bg-color;
+
+    border-top: 1px solid $main-bg-color;
+    margin-top: 24px;
+    padding-top: 24px;
+
+    @include on-tablet {
+      border: none;
+      border-left: 1px solid $main-bg-color;
+      padding-top: 0;
+      margin-top: 0;
+      padding-left: 38px;
+    }
+
+    @include on-desktop {
+      padding-left: 102px;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+
+      @include on-tablet {
+        flex-direction: row;
+        gap: 26px;
+      }
+
+      @include on-desktop {
+        gap: 30px;
+      }
+    }
+  }
+
+  &__workdays {
+    @include on-tablet {
+      width: 170px;
+    }
+  }
+
+  &__offdays {
+    @include on-tablet {
+      width: 144px;
+    }
+
+    @include on-desktop {
+      width: 170px;
+    }
+  }
+}
