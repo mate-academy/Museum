@@ -1,7 +1,9 @@
 .galery {
   @include grid-template;
   @include container;
+
   position: relative;
+
   // height: 100%;
   @include property-multiscreen(margin-bottom, 130px, 130px, 200px);
 
@@ -11,8 +13,8 @@
   }
 
   &__slider {
-    grid-column: 1 / -1;
     display: grid;
+    grid-column: 1 / -1;
     grid-template-columns: subgrid;
 
 
@@ -21,12 +23,14 @@
 
   &__images  {
     display: grid;
-    grid-template-columns: subgrid;
+
     // grid-template-rows: 1fr;
     // gap: 20px;
     grid-column: 1 / -1;
-    height: auto;
+    grid-template-columns: subgrid;
+
     width: 100%;
+    height: auto;
 
     @include on-desktop {
       grid-template-columns: subgrid;
@@ -35,18 +39,21 @@
 
   &__wrapper {
     grid-area: 1/1;
+    grid-column: 1/-1;
+
     width: 100%;
     height: 410px;
-    grid-column: 1/-1;
-    object-fit: cover;
+
     opacity: 1;
+    object-fit: cover;
+
     // transform: translate(-100px);
     transition: transform $fast-transition, opacity $fast-transition ease-in-out;
 
 
     @include on-tablet {
-      height: 540px;
       grid-column: span 3;
+      height: 540px;
     }
 
     @include on-desktop {
@@ -59,28 +66,32 @@
   }
 
   &__img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 
   }
 
   &__bottom-slider {
     position: absolute;
-    display: flex;
-    gap: 20px;
+    bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -20px;
+
+    display: flex;
+    gap: 20px;
 
     & span {
-      display: block;
-      height: 9px;
-      width: 9px;
-      background-color: gray;
-      border-radius: 50%;
       cursor: pointer;
+
+      display: block;
+
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+
+      background-color: gray;
 
       &:hover {
         background-color: #1A5A4C;

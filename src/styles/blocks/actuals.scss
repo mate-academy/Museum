@@ -19,11 +19,10 @@
   &__event {
     @include grid-template;
     @include property-multiscreen(margin-bottom, 40px, 50px, 60px);
-    
-    grid-column: 1 / -1;
-    position: relative;
 
-    // height: 100%;
+    position: relative;
+    grid-column: 1 / -1;
+
     &:last-child {
       @include property-multiscreen(margin-bottom, 180px, 200px, 300px);
     }
@@ -31,23 +30,21 @@
 
   &__img-container {
     z-index: 1;
+
+    overflow: hidden;
     display: flex;
     justify-content: center;
-    // height: 100%;
-    width: 100%;
-    overflow: hidden;
-    object-fit: cover;
-    transition: width 2s;
+    grid-column: 1 / -1;
 
-    @include property-multiscreen(
-      grid-column,
-      unquote('1 / -1'),
-      unquote('1 / -1'),
-      unquote('1 / 8')
-    );
+    width: 100%;
+
+    object-fit: cover;
+
+    transition: width 2s;
 
     @include on-desktop {
       width: 175%;
+      grid-column: 1/8;
 
       &.element-visible {
         width: 100%;
@@ -57,8 +54,9 @@
 
   &__img {
     width: 100%;
-    // height: 100%;
+
     @include property-multiscreen(height, 210px, 520px);
+
     object-fit: cover;
     object-position: center;
   }
@@ -66,73 +64,74 @@
   &__content {
     display: grid;
     grid-template-columns: subgrid;
-
-    @include property-multiscreen(
-      grid-column,
-      unquote('1 / -1'),
-      unquote('1 / 5'),
-      unquote('9 / -1')
-    );
-
+    grid-column: 1 / -1;
     align-content: center;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+    }
+
   }
 
   &__date-container {
-    grid-column: 1 / -1;
     display: grid;
+    grid-column: 1 / -1;
     grid-template-columns: subgrid;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
     margin-top: 20px;
     margin-bottom: 10px;
 
     @include on-tablet {
-      justify-content: flex-start;
       gap: 30px;
+      justify-content: flex-start;
     }
   }
 
   &__type {
     @include property-multiscreen(font-size, 16px, 14px);
-    grid-column: 1;
 
+    grid-column: 1;
+    font-weight: 500;
     color: $museum-event;
     text-transform: uppercase;
-    font-weight: 500;
   }
 
   &__date {
     @include property-multiscreen(font-size, 16px, 14px);
+
     grid-column: 2 / -1;
-    color: $museum-green;
     font-weight: 700;
+    color: $museum-green;
     text-align: left;
   }
 
   &__name {
-    @include property-multiscreen(
-      font-size,
-      $font-size-event-name-s,
-      $font-size-event-name-l
-    );
-    @include property-multiscreen(margin-bottom, 10px, 15px);
-    @include property-multiscreen(
-      grid-column,
-      unquote('1 / -1'),
-      unquote('1 / -1'),
-      unquote('1 / -1')
-    );
-
-    font-weight: 400;
+    font-size: $font-size-event-name-s;
+    margin-bottom: 10px;
+    grid-column: 1 / -1;
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    font-weight: 400;
     color: $museum-black;
+
+    @include on-tablet {
+      font-size: $font-size-event-name-l;
+      margin-bottom: 15px;
+    }
+
 
     &::after {
       content: '';
-      background-color: $museum-block;
       margin-left: 10px;
+      background-color: $museum-block;
 
       @include property-multiscreen(
         height,
@@ -148,11 +147,12 @@
   }
 
   &__desc {
-    font-weight: 300;
+    grid-column: 1 / -1;
+
     font-size: 16px;
+    font-weight: 300;
     line-height: 150%;
     color: #4e4e4e;
-    grid-column: 1 / -1;
   }
 
   &__lection-content {
@@ -161,9 +161,6 @@
     @include property-multiscreen(padding-inline, 0, 55px, 100px);
     @include property-multiscreen(bottom, -80px, -120px, -100px);
 
-    display: grid;
-    grid-template-columns: subgrid;
-
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -171,9 +168,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: white;
+
     box-sizing: border-box;
     border-bottom: 2px solid #1a5a4c40;
+
+    background-color: white;
 
     @include hover(transform, translateX(-50%) scale($scale));
   }
@@ -194,6 +193,7 @@
       $font-size-event-name-s,
       $font-size-event-name-l
     );
+
     font-weight: 400;
     color: $museum-black;
     text-align: center;
@@ -206,12 +206,11 @@
 
     @include width-fulscreen;
     @include property-multiscreen(height, 210px, 390px, 550px);
-    // @include property-multiscreen(margin-bottom, 180px, 200px, 300px);
   }
 
   &__lection-img {
-    object-position: bottom;
     width: 100%;
     object-fit: cover;
+    object-position: bottom;
   }
 }

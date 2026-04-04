@@ -1,48 +1,47 @@
 .galery {
   @include grid-template;
   @include container;
-  @include property-multiscreen(margin-bottom,40px, 50px, 60px);
+  @include property-multiscreen(margin-bottom, 40px, 50px, 60px);
+
   // overflow: hidden;
 
   &__title {
-    @include property-multiscreen(margin-bottom,40px, 50px, 60px);
+    @include property-multiscreen(margin-bottom, 40px, 50px, 60px);
+
     grid-column: 1/-1;
   }
 
   &__slider {
-    display: grid;
     position: relative;
-    grid-template-columns: subgrid;
+    display: grid;
     grid-column: 1/-1;
-
+    grid-template-columns: subgrid;
   }
 
   &__images {
-    height: 540px;
-    grid-column: 1/-1;
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    display: flex;
-
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    scroll-marker-group: after;
 
+    overflow: auto hidden;
+    display: flex;
+    grid-column: 1/-1;
     gap: 20px;
 
+    width: 100%;
+    height: 540px;
+
+    scroll-marker-group: after;
 
     &::scroll-marker-group {
-      grid-column: 1/-1;
       display: flex;
-      justify-content: center;
+      grid-column: 1/-1;
       gap: 20px;
+      justify-content: center;
     }
 
     &::-webkit-scrollbar {
       display: none;
     }
-
   }
 
   &__wrapper {
@@ -57,11 +56,14 @@
 
     &::scroll-marker {
       content: '';
-      height: 10px;
+
       aspect-ratio: 1/1;
-      background-color: $museum-gray;
+      height: 10px;
       border-radius: 50%;
 
+      background-color: $museum-gray;
+
+      /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
       &:target-current {
         background-color: $museum-green;
       }
@@ -69,30 +71,34 @@
   }
 
   &__img {
-    height: 100%;
     width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
   }
 
   &__bottom-slider {
     position: absolute;
-    display: flex;
-    gap: 20px;
+    bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -20px;
+
+    display: flex;
+    gap: 20px;
 
     & span {
-      display: block;
-      height: 9px;
-      width: 9px;
-      background-color: gray;
-      border-radius: 50%;
       cursor: pointer;
 
+      display: block;
+
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+
+      background-color: gray;
+
       &:hover {
-        background-color: #1A5A4C;
+        background-color: #1a5a4c;
       }
     }
 

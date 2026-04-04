@@ -1,6 +1,7 @@
 .galery {
   @include grid-template;
   @include container;
+
   margin-bottom: 100px;
 
   &__title {
@@ -9,8 +10,8 @@
   }
 
   &__slider {
-    grid-column: 1/-1;
     display: grid;
+    grid-column: 1/-1;
     grid-template-columns: subgrid;
     flex-direction: column;
     align-items: center;
@@ -20,38 +21,41 @@
   }
 
   &__images {
+    display: flex;
     grid-column: 1/-1;
     height: 100%;
-    display: flex;
+
     @include slider-container;
 
     @include on-desktop {
       @include slider-container(false);
+
+      overflow: visible;
       display: grid;
       grid-template-columns: subgrid;
-      overflow: visible;
     }
   }
 
   &__wrapper {
+    scroll-snap-align: center;
     position: relative;
     flex: 0 0 calc(100%);
-    scroll-snap-align: center;
     height: 410px;
 
 
 
     @include on-tablet {
-      flex: 0 0 calc(50% - 10px);
       scroll-snap-align: start;
+      flex: 0 0 calc(50% - 10px);
       height: 540px;
     }
 
     @include on-desktop {
       @include hover(transform, scale($scale));
-      transition: opacity $fast-transition, transform $fast-transition;
+
       grid-column: span 8;
       height: 600px;
+      transition: opacity $fast-transition, transform $fast-transition;
 
       &:nth-child(n+5) {
         display: none;
@@ -78,13 +82,15 @@
   }
 
   &__bottom-slider {
-    margin-top: 20px;
-    grid-column: 1/-1;
+    z-index: 1;
+
     display: flex;
+    grid-column: 1/-1;
+    gap: 22px;
     align-items: center;
     justify-content: center;
-    gap: 22px;
-    z-index: 1;
+
+    margin-top: 20px;
 
     @include on-desktop {
       display: none;
@@ -92,15 +98,19 @@
   }
 
   &__button {
-    display: block;
-    height: 9px;
-    text-decoration: none;
-    aspect-ratio: 1/1;
-    padding: 0;
-    border-radius: 50%;
-    border: 0;
-    background-color: $museum-gray;
     cursor: pointer;
+
+    display: block;
+
+    aspect-ratio: 1/1;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    background-color: $museum-gray;
 
 
   }

@@ -26,6 +26,7 @@
 
   @include on-tablet {
     --column: #{$grid-columns-tablet};
+
     column-gap: 30px;
   }
 
@@ -61,16 +62,17 @@
   }
 }
 
-@mixin property-multiscreen ($property, $mobile, $tablet, $desktop: null) {
+@mixin property-multiscreen($property, $mobile, $tablet, $desktop: null) {
   #{$property}: $mobile;
 
   @include on-tablet {
     #{$property}: $tablet;
   }
+
   @include on-desktop {
-    @if $desktop != null {
+    @if $desktop {
       #{$property}: $desktop;
-    } @else {
+    } @else { /* stylelint-disable-line at-rule-empty-line-before */
       #{$property}: $tablet;
     }
   }
@@ -78,10 +80,10 @@
 
 @mixin slider-container($enable: true) {
   @if $enable {
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
     scroll-snap-type: x mandatory;
+    overflow: auto hidden;
+    display: flex;
+
     @include on-tablet {
       gap: 20px;
     }
@@ -91,15 +93,7 @@
   }
 }
 
-@include on-tablet {
-
-}
-
-@include on-desktop {
-
-}
-
 @mixin link-cleaner {
-  text-decoration: none;
   color: black;
+  text-decoration: none;
 }

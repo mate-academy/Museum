@@ -1,170 +1,82 @@
 'use strict';
 
-let indexValue = 1;
-const history = [];
-
-showImg(indexValue);
-
-function btm_slide(e) {
-  let direction = 0;
-
-  history.push(indexValue);
-  console.log(history);
-
-  if (e === indexValue) {
-    return
-  }
-
-  if (e > indexValue) {
-    direction = 1;
-  } else {
-    direction = -1;
-  }
-
-  showImg(indexValue = e, direction);
-}
-
-function side_slide(e) {
-  let direction = 0;
-
-  if (e > indexValue) {
-    direction = 1;
-  } else {
-    direction = -1;
-  }
-  showImg(indexValue += e, direction);
-}
-
-function showImg(e, swipe = null) {
-  let i;
-  const img = document.querySelectorAll('.galery__wrapper');
-  const slider = document.querySelectorAll('.galery__bottom-slider span');
-
-  if (e > img.length) {
-    indexValue = 1;
-  }
-
-  if (e < 1) {
-    indexValue = img.length;
-  }
-
-  for (i = 0; i < img.length; i++) {
-    img[i].style.display = 'none';
-  }
-
-  for (i = 0; i < slider.length; i++) {
-    slider[i].style.backgroundColor = '#687480';
-  }
-
-  if (swipe) {
-    // const direction = swipe > 0 ? 100 : -100;
-    let nextImage;
-    let currentImg;
-    const lastImg = history.slice(`-${1}`);
-    console.log(lastImg);
-
-    if (swipe > 0) {
-      nextImage = lastImg - 1 >= 0 ? lastImg - 1 : 0;
-      currentImg = indexValue - 1;
-      // console.log("next img = "+nextImage);
-      // console.log("current img = "+currentImg);
-    } else {
-      currentImg = indexValue - 2 >= 0 ? indexValue - 1 : 0;
-      nextImage = lastImg - 1 >= 0 ? lastImg - 1 : 0;
-    }
-
-    if (window.innerWidth > 768) {
-      img[nextImage].style.display = 'block';
-      img[currentImg].style.display = 'block';
-
-      // img[indexValue].style.transform = 'translateX(-100%)';
-      slider[indexValue - 1].style.backgroundColor = '#1A5A4C';
-      return;
-    }
-    img[currentImg].style.display = 'block';
-    img[currentImg].style.opacity = '1';
-    img[nextImage].style.display = 'block';
-
-    img[nextImage].style.transform = `translateX(-100%)`;
-    img[nextImage].style.zIndex = `1`;
-
-
-    setTimeout(() => {
-      img[currentImg].style.zIndex = `1`;
-      // img[currentImg].style.transform = `translateX(-100%)`;
-
-
-      img[nextImage].style.zIndex = `-1`;
-      img[nextImage].style.opacity = '0';
-      img[nextImage].style.transform = `translateX(0%)`;
-
-
-    }, 300);
-  } else {
-    img[indexValue - 1].style.display = 'block';
-  }
-
-  if (window.innerWidth > 768) {
-    img[indexValue].style.display = 'block';
-  }
-
-  if (window.innerWidth > 1080) {
-    let counterImg = 1;
-
-    for (let i = 0; i < img.length; i++) {
-      if (counterImg === 1 || counterImg === 4) {
-        img[i].style.gridColumn = 'span 4';
-      } else {
-        img[i].style.gridColumn = 'span 8';
-      }
-
-      counterImg++;
-
-      if (counterImg > 4) {
-        counterImg = 1;
-      }
-    }
-
-    const i1 = indexValue % img.length;
-    const i2 = (indexValue + 1) % img.length;
-    const i3 = (indexValue + 2) % img.length;
-
-    img[i1].style.display = 'block';
-    img[i2].style.display = 'block';
-    img[i3].style.display = 'block';
-  }
-
-  slider[indexValue - 1].style.backgroundColor = '#1A5A4C';
-}
-
-// function animate(arrayImage, swipe, count = 1) {
-//   let workArray = [];
-
-//   if (history.slice(`-${count}`)) {
-//     workArray = history.slice(`-${count}`);
-//   } else {
-//     for (let index = 0; index < count; index++) {
-//       workArray.push(index);
-//     }
-//   }
-// // TODO: доробити функцію анімації, при зміні count міняється кількість картинок і відповідно їх зсув
-//   for (let i = 0; i < count; i++) {
-//     if (swipe > 0) {
-//       nextImage = lastImg - 1 >= 0 ? lastImg - 1 : 0;
-//       currentImg = indexValue - 1;
-//       // console.log("next img = "+nextImage);
-//       // console.log("current img = "+currentImg);
-//     } else {
-//       currentImg = indexValue - 2 >= 0 ? indexValue - 1 : 0;
-//       nextImage = lastImg - 1 >= 0 ? lastImg - 1 : 0;
-//     }
-//   }
-// }
-
 document.addEventListener('DOMContentLoaded', () => {
-  showImg(indexValue);
-});
+  const img = document.querySelectorAll('.galery__wrapper');
+  const scrollContainer = document.querySelector('.galery__images');
+  const bottomSlider = document.querySelector('.galery__bottom-slider');
 
-window.addEventListener('resize', () => {
-  showImg(indexValue);
+  const desktop = document.documentElement.clientWidth >= 1280 ? 1 : 2;
+  let currentIndex = 0;
+  let widthScroll = img[0].clientWidth + 0;
+  let phoneOrTablet = 1;
+  let indexElemet;
+
+  if (document.documentElement.clientWidth >= 640) {
+    widthScroll = img[0].offsetWidth + 20;
+    phoneOrTablet = 2;
+  }
+
+  for (
+    let countButton = 0;
+    countButton < img.length - phoneOrTablet;
+    countButton++
+  ) {
+    const newElement = document.createElement('button');
+
+    newElement.classList.add('galery__button');
+    bottomSlider.appendChild(newElement);
+  }
+
+  const swipe = () => {
+    scrollContainer.scrollTo({
+      left: widthScroll * currentIndex,
+      behavior: 'smooth',
+    });
+  };
+  const button = document.querySelectorAll('.galery__button');
+
+  scrollContainer.addEventListener('scroll', () => {
+    indexElemet = Math.round(scrollContainer.scrollLeft / widthScroll);
+    button.forEach((b) => b.classList.remove('active'));
+    button[indexElemet].classList.add('active');
+  });
+
+  function opacityHover(className) {
+    if (desktop === 1) {
+      const selectorList = document.querySelectorAll(className);
+
+      selectorList.forEach((element) => {
+        element.addEventListener('mouseover', () => {
+          selectorList.forEach((i) => {
+            i.style.opacity = 0.5;
+            i.style.zIndex = 1;
+          });
+          element.style.opacity = 1;
+          element.style.zIndex = 3;
+          // console.log(element);
+        });
+
+        element.addEventListener('mouseleave', () => {
+          selectorList.forEach((i) => (i.style.opacity = 1));
+        });
+      });
+    }
+  }
+  opacityHover('.galery__wrapper');
+  opacityHover('.nav__link');
+  opacityHover('.footer__link');
+
+  button.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      currentIndex = index;
+      swipe();
+    });
+  });
+
+  const form = document.querySelector('.subscriptions__form');
+
+  form.addEventListener('submit', (e) => {
+    form.reset();
+  });
+
 });
