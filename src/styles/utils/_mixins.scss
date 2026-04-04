@@ -4,3 +4,98 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $screen-medium) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $screen-large) {
+    @content;
+  }
+}
+
+@mixin grid-template {
+  --column: #{$grid-columns-mobile};
+
+  display: grid;
+  grid-template-columns: repeat(var(--column), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --column: #{$grid-columns-tablet};
+
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    --column: #{$grid-columns-desktop};
+  }
+}
+
+@mixin container {
+  margin-inline: $margin-mobile;
+
+  @include on-tablet {
+    margin-inline: $margin-tablet;
+  }
+
+  @include on-desktop {
+    margin-inline: $margin-desktop;
+  }
+}
+
+@mixin width-fulscreen {
+  width: calc(100% + #{$margin-mobile * 2});
+  margin-inline: -#{$margin-mobile};
+
+  @include on-tablet {
+    width: calc(100% + #{$margin-tablet * 2});
+    margin-inline: -#{$margin-tablet};
+  }
+
+  @include on-desktop {
+    width: calc(100% + #{$margin-desktop * 2});
+    margin-inline: -#{$margin-desktop};
+  }
+}
+
+@mixin property-multiscreen($property, $mobile, $tablet, $desktop: null) {
+  #{$property}: $mobile;
+
+  @include on-tablet {
+    #{$property}: $tablet;
+  }
+
+  @include on-desktop {
+    
+    @if $desktop {
+      #{$property}: $desktop;
+    } @else {
+      /* stylelint-disable-line at-rule-empty-line-before */
+      #{$property}: $tablet;
+    }
+  }
+}
+
+@mixin slider-container($enable: true) {
+  @if $enable {
+    scroll-snap-type: x mandatory;
+    overflow: auto hidden;
+    display: flex;
+
+    @include on-tablet {
+      gap: 20px;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+@mixin link-cleaner {
+  color: black;
+  text-decoration: none;
+}

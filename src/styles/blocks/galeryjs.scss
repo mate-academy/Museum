@@ -1,0 +1,116 @@
+.galery {
+  @include grid-template;
+  @include container;
+
+  margin-bottom: 100px;
+
+  &__title {
+    grid-column: 1/-1;
+    margin-bottom: 50px;
+  }
+
+  &__slider {
+    display: grid;
+    grid-column: 1/-1;
+    grid-template-columns: subgrid;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+  }
+
+  &__images {
+    display: flex;
+    grid-column: 1/-1;
+    height: 100%;
+
+    @include slider-container;
+
+    @include on-desktop {
+      @include slider-container(false);
+
+      overflow: visible;
+      display: grid;
+      grid-template-columns: subgrid;
+    }
+  }
+
+  &__wrapper {
+    scroll-snap-align: center;
+    position: relative;
+    flex: 0 0 calc(100%);
+    height: 410px;
+
+    @include on-tablet {
+      scroll-snap-align: start;
+      flex: 0 0 calc(50% - 10px);
+      height: 540px;
+    }
+
+    @include on-desktop {
+      @include hover(transform, scale($scale));
+
+      grid-column: span 8;
+      height: 600px;
+      transition:
+        opacity $fast-transition,
+        transform $fast-transition;
+
+      &:nth-child(n + 5) {
+        display: none;
+      }
+
+      &--heightS {
+        height: 360px;
+      }
+    }
+
+    &--small {
+      grid-column: span 4;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__bottom-slider {
+    z-index: 1;
+
+    display: flex;
+    grid-column: 1/-1;
+    gap: 22px;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+
+    display: block;
+
+    aspect-ratio: 1/1;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    background-color: $museum-gray;
+  }
+
+  .active {
+    background-color: $museum-green;
+  }
+}

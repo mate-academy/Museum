@@ -1,0 +1,214 @@
+.actuals {
+  @include grid-template;
+  @include container;
+
+  grid-auto-flow: dense;
+
+  & * {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include property-multiscreen(margin-top, 70px, 90px, 200px);
+    @include property-multiscreen(margin-bottom, 40px, 50px, 60px);
+  }
+
+  &__event {
+    @include grid-template;
+    @include property-multiscreen(margin-bottom, 40px, 50px, 60px);
+
+    position: relative;
+    grid-column: 1 / -1;
+
+    &:last-child {
+      @include property-multiscreen(margin-bottom, 180px, 200px, 300px);
+    }
+  }
+
+  &__img-container {
+    z-index: 1;
+
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / -1;
+
+    width: 100%;
+
+    object-fit: cover;
+
+    transition: width 2s;
+
+    @include on-desktop {
+      width: 175%;
+      grid-column: 1/8;
+
+      &.element-visible {
+        width: 100%;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    @include property-multiscreen(height, 210px, 520px);
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+    align-content: center;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__date-container {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      gap: 30px;
+      justify-content: flex-start;
+    }
+  }
+
+  &__type {
+    @include property-multiscreen(font-size, 16px, 14px);
+
+    grid-column: 1;
+    font-weight: 500;
+    color: $museum-event;
+    text-transform: uppercase;
+  }
+
+  &__date {
+    @include property-multiscreen(font-size, 16px, 14px);
+
+    grid-column: 2 / -1;
+    font-weight: 700;
+    color: $museum-green;
+    text-align: left;
+  }
+
+  &__name {
+    font-size: $font-size-event-name-s;
+    margin-bottom: 10px;
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-weight: 400;
+    color: $museum-black;
+
+    @include on-tablet {
+      font-size: $font-size-event-name-l;
+      margin-bottom: 15px;
+    }
+
+    &::after {
+      content: '';
+      margin-left: 10px;
+      background-color: $museum-block;
+
+      @include property-multiscreen(
+        height,
+        $event-name-block-small,
+        $event-name-block-large
+      );
+      @include property-multiscreen(
+        width,
+        $event-name-block-small,
+        $event-name-block-large
+      );
+    }
+  }
+
+  &__desc {
+    grid-column: 1 / -1;
+
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+    color: #4e4e4e;
+  }
+
+  &__lection-content {
+    @include property-multiscreen(width, 280px, 570px);
+    @include property-multiscreen(height, 140px, 205px);
+    @include property-multiscreen(padding-inline, 0, 55px, 100px);
+    @include property-multiscreen(bottom, -80px, -120px, -100px);
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    box-sizing: border-box;
+    border-bottom: 2px solid #1a5a4c40;
+
+    background-color: white;
+
+    @include hover(transform, translateX(-50%) scale($scale));
+  }
+
+  &__lection-date-container {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 20px;
+
+    @include on-tablet {
+      margin-inline: 0;
+    }
+  }
+
+  &__lection-name {
+    @include property-multiscreen(
+      font-size,
+      $font-size-event-name-s,
+      $font-size-event-name-l
+    );
+
+    font-weight: 400;
+    color: $museum-black;
+    text-align: center;
+  }
+
+  &__lection-img-container {
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: end;
+
+    @include width-fulscreen;
+    @include property-multiscreen(height, 210px, 390px, 550px);
+  }
+
+  &__lection-img {
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+}

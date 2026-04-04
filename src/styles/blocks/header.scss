@@ -1,0 +1,215 @@
+.header {
+  @include grid-template;
+  @include container;
+
+  grid-auto-flow: dense;
+
+  &__burger {
+    cursor: pointer;
+
+    position: absolute;
+    z-index: 1;
+    top: 30px;
+    left: $margin-mobile;
+
+    width: 24px;
+    height: 24px;
+
+    background-image: url('../images/icons/baseline-menu-24px.svg');
+    background-repeat: no-repeat;
+
+    @include hover(transform, scale($scale));
+
+    @include on-tablet {
+      top: 40px;
+      left: $margin-tablet;
+    }
+
+    @include on-desktop {
+      left: $margin-desktop;
+    }
+  }
+
+  &__top {
+    position: relative;
+    grid-column: 1 / -1;
+    margin-inline: -#{$margin-mobile};
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      margin-right: -#{$margin-tablet};
+      margin-inline: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+      margin-right: -#{$margin-desktop};
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    @include on-tablet {
+      height: 100vh;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    z-index: 1;
+    top: 15px;
+    left: calc(50% - $margin-mobile);
+
+    display: block;
+
+    margin: 0;
+
+    font-weight: $font-bold;
+
+    @include on-tablet {
+      left: 0;
+      display: flex;
+      justify-content: center;
+      width: 220px;
+    }
+
+    @include on-desktop {
+      width: 170px;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    justify-content: center;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    margin-top: 20px;
+    padding-block: 20px;
+
+    font-size: 45px;
+    font-weight: $font-bold;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: 0%;
+
+    @include on-tablet {
+      justify-content: left;
+      margin-top: $ticket-button-heigh;
+      padding-block: 38px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      padding-block: 90px;
+    }
+  }
+
+  &__ticket {
+    display: flex;
+
+    // align-items: end;
+    height: 50px;
+
+    @include hover(transform, scale($scale));
+
+    @include on-tablet {
+      width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      align-self: flex-end;
+    }
+
+    &-arrov {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+
+      aspect-ratio: 1/1;
+
+      // width: 100%;
+      height: 100%;
+
+      font-weight: $font-bold;
+      color: $museum-gray;
+      text-decoration: none;
+
+      background-color: $museum-green;
+    }
+
+    &-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      border: 1px solid $museum-green;
+
+      color: $museum-black;
+      text-decoration: none;
+    }
+  }
+
+  &__event {
+    position: absolute;
+    bottom: 0;
+    transform: rotate(180deg);
+
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+
+    writing-mode: vertical-rl;
+
+    @include on-desktop {
+      display: flex;
+    }
+
+    &-text {
+      margin: 0;
+      padding: 0;
+
+      font-size: 14px;
+      font-weight: $font-bold;
+      color: $museum-event;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    &-line {
+      display: block;
+
+      width: 1px;
+      height: 70px;
+      margin-bottom: 20px;
+
+      background-color: $museum-green;
+    }
+  }
+}
