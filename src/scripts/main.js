@@ -1,6 +1,6 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('load', () => {
   const img = document.querySelectorAll('.galery__wrapper');
   const scrollContainer = document.querySelector('.galery__images');
   const bottomSlider = document.querySelector('.galery__bottom-slider');
