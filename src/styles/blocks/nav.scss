@@ -1,0 +1,111 @@
+.nav {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  transition: opacity 200ms;
+
+  &:target {
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  &:has(.nav__shadow)
+  &__background {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(0,0,0,0.5);
+
+  }
+
+  &__shadow {
+    z-index: 3;
+    height: 225px;
+    width: 100%;
+    background-color: $museum-green;
+    position: fixed;
+    top: 0;
+  }
+
+  &__data {
+    @include container;
+
+    margin-top: 40px;
+    display: flex;
+    // justify-content: space-between;
+    gap: 100px;
+  }
+
+  &__exit {
+    z-index: 4;
+    height: 24px;
+    aspect-ratio: 1/1;
+    background-image: url(../images/ri-close-fill.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include hover (transform, rotate(90deg));
+
+  }
+
+  &__schedule {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    max-width: 360px;
+  }
+
+  &__schedule-container {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__schedule * {
+    color: $museum-white;
+    font-size: 14px;
+    line-height: 150%;
+  }
+
+  &__schedule-time {
+    white-space: nowrap;
+  }
+
+  &__links {
+    @include grid-template;
+    display: flex;
+    gap: 20px;
+  }
+
+  &__links-container {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__link {
+    transition: opacity $fast-transition;
+    text-decoration: none;
+    color: $museum-white;
+    font-size: 16px;
+    line-height: 100%;
+    font-weight: 500;
+  }
+
+
+  &__line-conatiner {
+    display: flex;
+    width: 1px;
+    background-color: $museum-white;
+    align-self: stretch;
+  }
+
+}

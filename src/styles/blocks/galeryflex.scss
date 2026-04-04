@@ -1,0 +1,107 @@
+.galery {
+  @include grid-template;
+  @include container;
+  @include property-multiscreen(margin-bottom,40px, 50px, 60px);
+  // overflow: hidden;
+
+  &__title {
+    @include property-multiscreen(margin-bottom,40px, 50px, 60px);
+    grid-column: 1/-1;
+  }
+
+  &__slider {
+    display: grid;
+    position: relative;
+    grid-template-columns: subgrid;
+    grid-column: 1/-1;
+
+  }
+
+  &__images {
+    height: 540px;
+    grid-column: 1/-1;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-marker-group: after;
+
+    gap: 20px;
+
+
+    &::scroll-marker-group {
+      grid-column: 1/-1;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+  }
+
+  &__wrapper {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    flex: 0 0 100%;
+    height: 100%;
+
+    @include on-tablet {
+      flex: 0 0 50%;
+    }
+
+    &::scroll-marker {
+      content: '';
+      height: 10px;
+      aspect-ratio: 1/1;
+      background-color: $museum-gray;
+      border-radius: 50%;
+
+      &:target-current {
+        background-color: $museum-green;
+      }
+    }
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__bottom-slider {
+    position: absolute;
+    display: flex;
+    gap: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+
+    & span {
+      display: block;
+      height: 9px;
+      width: 9px;
+      background-color: gray;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #1A5A4C;
+      }
+    }
+
+    @include on-tablet {
+      bottom: -30px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}

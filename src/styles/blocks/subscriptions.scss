@@ -1,0 +1,124 @@
+.subscriptions {
+  // margin-top: 2000px;
+  height: 380px;
+
+  @include on-desktop {
+    height: 550px;
+  }
+
+  &__bg {
+    position: relative;
+    background-image: url(../images/subscr.jpg);
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+    }
+  }
+
+  &__grid {
+    position: relative;
+    z-index: 1;
+    @include grid-template;
+    @include container;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__content {
+    @include property-multiscreen(grid-column, unquote("1 / -1"), unquote("1 / -1"), unquote("4 / 10"));
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+    margin-bottom: 50px;
+    gap: 16px;
+
+    @include on-tablet {
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    @include property-multiscreen(font-size, 36px, 48px)
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  &__form {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+
+    @include on-tablet {
+      height: 70px;
+    }
+  }
+
+  &__input {
+    all: unset;
+    width: 100%;
+    text-align: start;
+    padding-inline-start: 36px;
+    font-size: 14px;
+    background-color: $museum-white;
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px $museum-white inset;
+      // border-radius: $boder-radius;
+    }
+  }
+
+  &__form-button {
+    all: unset;
+    cursor: pointer;
+
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-color: #F14A27;
+    background-image: url(../images/baseline-keyboard_arrow_right-24px.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 30px;
+    transition: background-color $fast-transition;
+    @include property-multiscreen(margin-left, 0, 16px, 30px);
+
+    &:hover {
+      background-color: #ff4e2b;
+    }
+
+    &:active {
+      background-color: $museum-green;
+    }
+  }
+}
+
