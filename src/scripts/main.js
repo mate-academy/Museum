@@ -78,5 +78,4 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', (e) => {
     form.reset();
   });
-
 });
