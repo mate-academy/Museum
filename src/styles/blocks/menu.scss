@@ -1,0 +1,121 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: $color-accent-green;
+  display: none;
+  color: $light-color;
+  padding-block: 26px;
+  @include content-padding-inline;
+
+  @include on-tablet {
+    padding-block: 40px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 48px;
+  }
+
+  &:target {
+    display: block;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba($light-color, 0.5);
+
+    @include on-tablet {
+      padding-bottom: 0;
+      border-bottom: 0;
+      border-right: 1px solid rgba($light-color, 0.5);
+      padding-right: 38px;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      padding-right: 102px;
+      gap: 102px;
+    }
+  }
+
+  &__icon {
+    height: 24px;
+    width: 24px;
+    display: block;
+    background-size: cover;
+    background-image: url(/src/images/icon-menu.png);
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__bottom {
+    font-size: $fs-xs;
+    line-height: 150%;
+    padding-top: 24px;
+
+    @include on-tablet {
+      padding-top: 0;
+      padding-left: 38px;
+    }
+
+    @include on-desktop {
+      padding-left: 102px;
+    }
+  }
+
+  &__title {
+    line-height: 141%;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 26px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__schedule {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  &__time {
+    font-weight: $fw-l;
+  }
+
+  &__weekend {
+    font-weight: $fw-l;
+  }
+
+  &__exclusion {
+    margin: 0;
+    flex-shrink: 1;
+  }
+}
