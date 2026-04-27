@@ -1,0 +1,112 @@
+.event {
+  @include page-grid;
+
+  &__link {
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 210px;
+    max-height: 520px;
+
+    @include on-tablet {
+      min-height: 520px;
+    }
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+      align-self: center;
+    }
+  }
+
+  &__period {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    margin-top: 20px;
+
+    @include on-tablet {
+      margin-top: 44px;
+    }
+
+    @include on-desktop {
+      margin-top: 0;
+    }
+  }
+
+  &__name {
+    font-weight: $fw-m;
+    line-height: 100%;
+    color: $secondary-color;
+    text-transform: uppercase;
+    margin: 0;
+
+    @include on-tablet {
+      font-size: $fs-xs;
+    }
+  }
+
+  &__date {
+    font-weight: $fw-xl;
+    line-height: 150%;
+    color: $color-accent-green;
+    margin: 0;
+
+    @include on-tablet {
+      font-size: $fs-xs;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-weight: $fw-s;
+    font-size: $fs-m;
+    line-height: 100%;
+    color: $accent-text-color;
+    margin: 10px 0;
+
+    @include on-tablet {
+      margin: 30px 0 15px;
+      font-size: $fs-l;
+    }
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-left: 10px;
+      background-color: #f14a27;
+      vertical-align: middle;
+
+      @include on-tablet {
+        width: 15px;
+        height: 15px;
+        margin-left: 15px;
+      }
+    }
+  }
+
+  &__description {
+    font-weight: $fw-xs;
+    line-height: 150%;
+    margin: 0;
+  }
+}

@@ -1,0 +1,97 @@
+.lecture {
+  @include page-grid;
+
+  position: relative;
+
+  &__link {
+    grid-column: 1 / -1;
+    margin-inline: -20px;
+
+    @include on-tablet {
+      margin-inline: -39px;
+    }
+
+    @include on-desktop {
+      margin-inline: -55px;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 210px;
+    max-height: 390px;
+
+    @include on-tablet {
+      max-height: 550px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(50%);
+    left: 0;
+    right: 0;
+    background-color: $light-color;
+    box-shadow: 0 2px 0 0 rgba($color-accent-green, 0.25);
+    padding: 20px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      padding: 45px 55px 50px;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 10;
+      padding: 45px 100px 50px;
+    }
+  }
+
+  &__period {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__name {
+    font-weight: $fw-m;
+    line-height: 100%;
+    color: $secondary-color;
+    text-transform: uppercase;
+    margin: 0;
+
+    @include on-tablet {
+      font-size: $fs-xs;
+    }
+  }
+
+  &__date {
+    font-weight: $fw-xl;
+    line-height: 150%;
+    color: $color-accent-green;
+    margin: 0;
+
+    @include on-tablet {
+      font-size: $fs-xs;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-weight: $fw-s;
+    font-size: $fs-m;
+    line-height: 100%;
+    color: $accent-text-color;
+    margin: 0;
+
+    @include on-tablet {
+      font-size: $fs-l;
+    }
+  }
+}

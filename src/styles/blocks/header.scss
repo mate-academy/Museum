@@ -1,0 +1,122 @@
+.header {
+  position: relative;
+  background-color: $light-color;
+  @include content-padding-inline;
+
+  &__wrapper {
+    @include page-grid;
+  }
+
+  &__bg {
+    margin-inline: -20px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      margin-inline: 0 -39px;
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      margin-inline-end: -55px;
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__image {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__content {
+    margin-top: 20px;
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+
+    @include on-tablet {
+      margin-top: 128px;
+      grid-column: 1 / 4;
+      grid-row: 1;
+      align-items: flex-start;
+      text-align: left;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      margin-top: 206px;
+      grid-column: 1 / 6;
+      align-items: flex-end;
+      gap: 88px;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-weight: $fw-xl;
+    font-size: 45px;
+    line-height: 100%;
+    color: $dark-color;
+    text-transform: uppercase;
+    margin: 0;
+
+    @include on-tablet {
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+    }
+  }
+
+  &__reserv {
+    display: flex;
+    align-items: stretch;
+    text-decoration: none;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: $fw-m;
+    line-height: 100%;
+    color: $accent-text-color;
+    box-sizing: border-box;
+    border: 1px solid $color-accent-green;
+    width: 100%;
+    margin: 0;
+
+    @include on-tablet {
+      width: 200px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-accent-green;
+    width: 50px;
+    height: 50px;
+    border: 1px solid $color-accent-green;
+    cursor: pointer;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__vector {
+    display: block;
+    height: 24px;
+    width: 24px;
+
+    @include hover(transform, scale(1.2));
+  }
+}

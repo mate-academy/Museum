@@ -1,0 +1,130 @@
+.subscription {
+  box-sizing: border-box;
+  background-image: url(/src/images/subscription-bg.png);
+  background-size: cover;
+  margin-top: 100px;
+
+  @include on-tablet {
+    margin-top: 92px;
+  }
+
+  @include on-desktop {
+    margin-top: 200px;
+  }
+
+  @include content-padding-inline;
+  @include page-grid;
+
+  &__wrapper {
+    margin: 88px 0;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      margin: 82px 0;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 10;
+      margin: 162px 0;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      gap: 16px;
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__description {
+    font-size: 18px;
+    line-height: 150%;
+    color: $light-color;
+    margin: 0;
+
+    @include on-tablet {
+      line-height: 100%;
+    }
+  }
+
+  &__form {
+    display: flex;
+
+    @include on-tablet {
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__input {
+    font-family: Montserrat, sans-serif;
+    font-size: $fs-xs;
+    line-height: 100%;
+    color: $accent-text-color;
+    padding-left: 24px;
+    width: 100%;
+    outline: none;
+    background-color: $light-color;
+    border: none;
+
+    @include on-desktop {
+      padding-left: 32px;
+    }
+
+    &::placeholder {
+      color: $secondary-color;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 1000px $light-color inset;
+      -webkit-text-fill-color: $accent-text-color;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f14a27;
+    width: 50px;
+    height: 50px;
+    border: none;
+    flex-shrink: 0;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+
+    cursor: pointer;
+    @include hover(opacity, 0.8);
+  }
+
+  &__vector {
+    display: block;
+    height: 24px;
+    width: 24px;
+  }
+}
