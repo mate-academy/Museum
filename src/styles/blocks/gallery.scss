@@ -26,6 +26,10 @@
     }
   }
 
+  &__trigger {
+    display: none;
+  }
+
   &__slider {
     overflow: hidden;
   }
@@ -33,7 +37,7 @@
   &__list {
     display: flex;
     gap: 16px;
-    overflow-x: auto;
+    transition: transform 0.5s ease;
 
     @include on-tablet {
       gap: 20px;
@@ -44,6 +48,7 @@
 
       overflow: visible;
       row-gap: 30px;
+      transform: none;
     }
   }
 
@@ -95,11 +100,37 @@
     }
   }
 
-  &__drops {
-    display: block;
-    margin-inline: auto;
-    height: 9px;
-    width: 102px;
+  @media (max-width: 1279px) {
+    [id='slide-1']:checked ~ &__slider &__list {
+      transform: translateX(0);
+    }
+    [id='slide-2']:checked ~ &__slider &__list {
+      transform: translateX(calc(-90% - 16px));
+    }
+    [id='slide-3']:checked ~ &__slider &__list {
+      transform: translateX(calc(-180% - 32px));
+    }
+    [id='slide-4']:checked ~ &__slider &__list {
+      transform: translateX(calc(-270% - 48px));
+    }
+
+    @include on-tablet {
+      [id='slide-2']:checked ~ &__slider &__list {
+        transform: translateX(calc(-45% - 20px));
+      }
+      [id='slide-3']:checked ~ &__slider &__list {
+        transform: translateX(calc(-90% - 40px));
+      }
+      [id='slide-4']:checked ~ &__slider &__list {
+        transform: translateX(calc(-135% - 60px));
+      }
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
     margin-top: 20px;
 
     @include on-tablet {
@@ -109,5 +140,25 @@
     @include on-desktop {
       display: none;
     }
+  }
+
+  &__dot {
+    width: 9px;
+    height: 9px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: rgba($color-accent-green, 0.5);
+    }
+  }
+
+  [id='slide-21']:checked ~ &__dots label[for='slide-1'],
+  [id='slide-2']:checked ~ &__dots label[for='slide-2'],
+  [id='slide-3']:checked ~ &__dots label[for='slide-3'],
+  [id='slide-4']:checked ~ &__dots label[for='slide-4'] {
+    background-color: $color-accent-green;
   }
 }
