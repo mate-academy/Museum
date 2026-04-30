@@ -1,0 +1,62 @@
+.page {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    min-width: 320px;
+    margin: 0;
+
+    font-family: $font-base;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: $text-color;
+
+    background: $white;
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateY(-100%);
+
+    opacity: 0;
+
+    transition: all $effectDuration ease;
+
+    &:target {
+      pointer-events: all;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    &:target ~ .overlay {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__main-content {
+    display: grid;
+    row-gap: 100px;
+    padding: 70px 0 100px;
+
+    @include on-tablet {
+      padding-top: 88px;
+    }
+
+    @include on-desktop {
+      row-gap: 200px;
+      padding-block: 200px;
+    }
+  }
+}

@@ -1,0 +1,178 @@
+.events {
+  @include page-grid;
+
+  row-gap: 60px;
+
+  @include on-tablet {
+    row-gap: 64px;
+  }
+
+  @include on-desktop {
+    row-gap: 104px;
+  }
+
+  &__item {
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      @include page-grid;
+
+      align-items: center;
+    }
+
+    &--card {
+      position: relative;
+      display: block;
+    }
+  }
+
+  &__image {
+    cursor: pointer;
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+
+    object-fit: cover;
+
+    @include hover(transform, translateY(-10px));
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: span 7;
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    @include on-desktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+      justify-content: stretch;
+    }
+
+    &--card {
+      gap: 25px;
+      justify-content: center;
+    }
+  }
+
+  &__name {
+    font-weight: 500;
+    line-height: 1;
+    color: $gray;
+    text-transform: uppercase;
+  }
+
+  &__date {
+    font-weight: 700;
+    color: $green;
+    text-transform: uppercase;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 15px;
+
+    @include on-tablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1;
+    color: $title-color;
+
+    @include on-tablet {
+      font-size: 36px;
+    }
+  }
+
+  &__square {
+    display: flex;
+    width: 10px;
+    height: 10px;
+
+    @include on-tablet {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__text {
+    color: $text-color;
+
+    @include on-tablet {
+      width: 100%;
+      max-width: 460px;
+    }
+  }
+
+  &__image-bg {
+    width: $full-width;
+    min-height: 210px;
+    margin-bottom: 0;
+    margin-left: $full-bleed-offset;
+
+    background: url(/src/images/events/classicism-and-romanticism.png) center
+      no-repeat;
+    background-size: cover;
+
+    @include on-tablet {
+      width: 100%;
+      min-height: 390px;
+      margin-left: 0;
+    }
+
+    @include on-desktop {
+      width: $full-width;
+      min-height: 550px;
+      margin-left: $full-bleed-offset;
+    }
+  }
+
+  &__card {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 50%;
+    transform: translate3d(-50%, 50%, 0);
+
+    width: 280px;
+    padding-block: 20px;
+
+    text-align: center;
+
+    background-color: $white;
+    box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+
+    @include on-tablet {
+      width: 570px;
+      padding-block: 45px;
+    }
+  }
+}
