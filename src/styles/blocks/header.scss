@@ -1,0 +1,218 @@
+.header {
+  position: relative;
+  min-height: 490px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__burger-icon {
+    position: absolute;
+    z-index: 1;
+    top: 27px;
+    left: 20px;
+
+    display: block;
+
+    width: 24px;
+    height: 24px;
+
+    background: url(/src/images/icon/burger-menu-2x.png) center no-repeat;
+    background-size: cover;
+
+    @include hover(transform, scale(1.2));
+
+    &--mobile {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        top: 39px;
+        left: 34px;
+        display: block;
+      }
+
+      @include on-desktop {
+        left: 55px;
+      }
+    }
+  }
+
+  &__logo-link {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include on-tablet {
+      position: absolute;
+      top: 15px;
+      left: 50px;
+      transform: none;
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: 55px;
+    height: 61px;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__media {
+    position: relative;
+    min-height: 300px;
+
+    @include on-tablet {
+      order: 2;
+      width: 50%;
+      min-height: 384px;
+    }
+
+    @include on-desktop {
+      width: 55%;
+      min-height: 655px;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: center;
+
+    padding-inline: 20px;
+
+    @include on-tablet {
+      row-gap: 40px;
+      order: 1;
+      width: 50%;
+      padding-left: 34px;
+    }
+
+    @include on-desktop {
+      row-gap: 90px;
+      width: 45%;
+      padding-right: 30px;
+      padding-left: 55px;
+    }
+  }
+
+  &__btn-container {
+    display: flex;
+
+    @include on-desktop {
+      justify-content: flex-end;
+    }
+  }
+
+  &__wrapper {
+    display: none;
+
+    @include on-desktop {
+      position: absolute;
+      bottom: 90px;
+      left: 70px;
+      display: block;
+    }
+
+    &-text {
+      display: none;
+
+      @include on-desktop {
+        display: inline-block;
+        transition: $effectDuration ease;
+      }
+    }
+
+    &-link {
+      display: none;
+
+      @include on-desktop {
+        position: relative;
+        transform-origin: left bottom;
+        transform: rotate(-90deg);
+
+        display: block;
+
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1;
+        color: $gray;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &::before {
+          content: '';
+
+          position: absolute;
+          top: 50%;
+          right: 100%;
+
+          display: block;
+
+          width: 70px;
+          height: 1px;
+          margin-right: 20px;
+
+          background-color: $green;
+
+          transition: $effectDuration ease;
+        }
+
+        &:hover {
+          &::before {
+            transform: translateX(-5px);
+          }
+
+          .header__wrapper-text {
+            transform: translateX(5px);
+          }
+        }
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1;
+    color: $black;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      margin-top: 64px;
+      font-size: 54px;
+      line-height: 1.2;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      font-size: 72px;
+    }
+  }
+}
