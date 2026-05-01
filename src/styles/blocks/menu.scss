@@ -1,0 +1,151 @@
+.menu {
+  min-width: 320px;
+  color: #fff;
+  background-color: #18181a7a;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100%);
+
+  transition:
+    transform $translition,
+    opacity $translition;
+  opacity: 0%;
+
+  &:target {
+    opacity: 100%;
+    transform: translateX(0);
+  }
+
+  &__container {
+    background-color: $green;
+    padding-block: 27px;
+    position: relative;
+
+    @include on-tablet {
+      padding-block: 40px;
+    }
+
+    @include on-small-desktop {
+      padding-block: 40px 48px;
+    }
+  }
+
+  &__nav-link-container {
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+  }
+
+  &__nav-close-container {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 32px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    width: 75%;
+    justify-content: space-around;
+    gap: 20px;
+  }
+
+  &__nav-link {
+    width: fit-content;
+    display: block;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+    line-height: 150%;
+
+    @include on-small-desktop {
+      font-size: 22px;
+    }
+
+    transition:
+      color $translition,
+      transform $translition;
+
+    &:hover {
+      color: $orange;
+      transform: scale(1.05);
+    }
+  }
+
+  &__line {
+    background-color: #fff;
+    height: 1px;
+    grid-column: 1 / -1;
+    margin-top: 24px;
+
+    @include on-tablet {
+      position: absolute;
+      left: 48%;
+      width: 1px;
+      height: 75%;
+      align-self: center;
+      margin: 0;
+    }
+  }
+
+  &__work-schedule-container {
+    margin-top: 24px;
+
+    grid-column: 1 span;
+
+    @include on-tablet {
+      margin: 0;
+      grid-column: 3 span;
+    }
+
+    @include on-small-desktop {
+      grid-column: 8 / -1;
+    }
+  }
+
+  &__info {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+    // @include on-tablet {
+    //   padding-left: 5%;
+    // }
+  }
+
+  &__info-summary-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: start;
+    width: 100%;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__info-summary {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    & strong {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 150%;
+    }
+
+    @include on-tablet {
+      width: 40%;
+    }
+  }
+}

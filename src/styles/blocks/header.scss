@@ -1,0 +1,191 @@
+.header {
+  &__background {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background-image: url('../images/header-bg.png');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+
+    @include on-tablet {
+      position: absolute;
+      justify-content: start;
+      width: 50%;
+      height: 374px;
+      margin-left: 50%;
+    }
+
+    @include on-small-desktop {
+      margin-left: 42.8%;
+      width: 57.2%;
+      height: 655px;
+    }
+  }
+  
+  &__button-span {
+    box-sizing: border-box;
+    place-content: center;
+    height: 70px;
+    width: 100%;
+    border: 1px solid $green;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: $black;
+
+    transition:
+      color $translition,
+      background-color $translition;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__button-arrow {
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $green;
+    border: 1px solid $green;
+
+    height: 100%;
+    aspect-ratio: 1 / 1;
+
+    transition: background-color $translition;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+    @include on-small-desktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__icon-burger-container {
+    height: 24px;
+    z-index: 1;
+    position: absolute;
+
+    padding-top: 27px;
+
+    @include on-tablet {
+      padding-top: 39px;
+    }
+
+    @include padding-content;
+  }
+
+  &__background-icon {
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 30px;
+    display: block;
+    height: fit-content;
+    text-align: center;
+    color: $black;
+    text-shadow: 0 0 10px white;
+    margin-top: 9px;
+
+    transition:
+      transform $translition,
+      color $translition;
+
+    @include on-tablet {
+      margin-top: 15px;
+      width: 220px;
+    }
+
+    &:hover {
+      color: $orange;
+      transform: scale(1.1);
+    }
+  }
+
+  &__button {
+    display: flex;
+    height: 70px;
+    width: 100%;
+    align-self: start;
+    align-items: center;
+    text-decoration: none;
+
+    margin-top: 20px;
+
+    @include on-tablet {
+      width: 270px;
+      margin-top: 38px;
+    }
+
+    @include on-small-desktop {
+      right: 0;
+      margin-top: 89px;
+      align-self: flex-end;
+    }
+
+    &:hover .icon {
+      background-color: $black;
+    }
+
+    &:hover .header__button-span {
+      background-color: $green;
+      color: #d7dde3;
+    }
+
+    &:hover .header__button-arrow {
+      background-color: #ff00;
+    }
+  }
+
+  &__title {
+    margin-top: 20px;
+    line-height: 120%;
+    color: #000;
+    font-size: 45px;
+
+    @include on-tablet {
+      margin-top: 127px;
+      font-size: 6cqw;
+    }
+
+    @include on-small-desktop {
+      margin-top: 206px;
+      font-size: 72px;
+    }
+  }
+
+  &__title-events {
+    position: absolute;
+    display: none;
+    width: fit-content;
+    margin-top: 522px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: #687480;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'IBM Plex Sans', sans-serif;
+
+    @include on-small-desktop {
+      display: block;
+    }
+
+    &::before {
+      content: '';
+      margin-bottom: 20px;
+      background-color: $green;
+      display: inline-block;
+      width: 1px;
+      height: 70px;
+    }
+  }
+}
