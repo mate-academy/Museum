@@ -34,13 +34,15 @@ const buttons: HTMLElement = document.querySelector(
 ) as HTMLElement;
 
 const updateButtons = () => {
-
-
-  currentFrame = Math.min(Math.max(currentFrame, 0), maxframe - (frameSize - 1) - 1);
+  currentFrame = Math.min(
+    Math.max(currentFrame, 0),
+    maxframe - (frameSize - 1) - 1,
+  );
   let innerbuttons = '';
   for (let i = 0; i < maxframe - (frameSize - 1); i++) {
     if (i === currentFrame) {
-      innerbuttons += '<button class="section-gallery__button section-gallery__button--active"></button>';
+      innerbuttons +=
+        '<button class="section-gallery__button section-gallery__button--active"></button>';
     } else {
       innerbuttons += '<button class="section-gallery__button"></button>';
     }
@@ -223,15 +225,17 @@ wrapper.addEventListener('pointerup', (e: PointerEvent) => {
   wrapper.style.scrollBehavior = '';
   wrapper.style.scrollSnapType = 'x mandatory';
 
-  const scroll = wrapper.scrollLeft -= mouseVelocity.getVelocity().speed / 3
+  const scroll = (wrapper.scrollLeft -= mouseVelocity.getVelocity().speed / 3);
   wrapper.scrollLeft = scroll;
   mouseVelocity.stop();
   currentFrame = Math.round(
-    scroll /
-      (imageWidth + parseFloat(getComputedStyle(swipperList).gap)),
+    scroll / (imageWidth + parseFloat(getComputedStyle(swipperList).gap)),
   );
 
-  currentFrame = Math.min(Math.max(currentFrame, 0), maxframe - (frameSize - 1) - 1);
+  currentFrame = Math.min(
+    Math.max(currentFrame, 0),
+    maxframe - (frameSize - 1) - 1,
+  );
   console.log(maxframe - (frameSize - 1));
   updateButtons();
 });
@@ -243,24 +247,27 @@ wrapper.addEventListener('pointercancel', () => {
   wrapper.style.scrollBehavior = '';
   wrapper.style.scrollSnapType = 'x mandatory';
 
-  const scroll = wrapper.scrollLeft -= mouseVelocity.getVelocity().speed / 3
+  const scroll = (wrapper.scrollLeft -= mouseVelocity.getVelocity().speed / 3);
   wrapper.scrollLeft = scroll;
   mouseVelocity.stop();
   currentFrame = Math.round(
-    scroll /
-      (imageWidth + parseFloat(getComputedStyle(swipperList).gap)),
+    scroll / (imageWidth + parseFloat(getComputedStyle(swipperList).gap)),
   );
 
-  currentFrame = Math.min(Math.max(currentFrame, 0), maxframe - (frameSize - 1) - 1);
+  currentFrame = Math.min(
+    Math.max(currentFrame, 0),
+    maxframe - (frameSize - 1) - 1,
+  );
   console.log(maxframe - (frameSize - 1));
   updateButtons();
 });
 
-
-const form = document.querySelector('.section-subscription__form') as HTMLFormElement;
+const form = document.querySelector(
+  '.section-subscription__form',
+) as HTMLFormElement;
 
 form.addEventListener('submit', (event) => {
-  event.preventDefault()
+  event.preventDefault();
 
   form.reset();
 });
