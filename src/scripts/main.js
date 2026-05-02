@@ -1,20 +1,16 @@
 'use strict';
 
-const swipper = document.querySelector(
-  '.section-gallery__swipper',
-) as HTMLElement;
+const swipper = document.querySelector('.section-gallery__swipper');
 
 const swipperWrapper = document.querySelector(
   '.section-gallery__swipper-wrapper',
-) as HTMLElement;
+);
 
-const swipperList = document.querySelector(
-  '.section-gallery__swipper-list',
-) as HTMLElement;
+const swipperList = document.querySelector('.section-gallery__swipper-list');
 
 const swippetImages = document.querySelectorAll(
   '.section-gallery__swipper-image',
-) as NodeListOf<HTMLElement>;
+);
 
 let currentFrame = 0;
 
@@ -23,26 +19,28 @@ const maxframe = 5;
 let wrapperWidth = 0;
 
 let imageWidth = 0;
+/* eslint-env browser */
 
 currentFrame = Math.round(
   swipperWrapper.scrollLeft /
     (imageWidth + parseFloat(getComputedStyle(swipperList).gap)),
 );
 
-const buttons: HTMLElement = document.querySelector(
-  '.section-gallery__buttons',
-) as HTMLElement;
+const buttons = document.querySelector('.section-gallery__buttons');
 
 const updateButtons = () => {
   currentFrame = Math.min(
     Math.max(currentFrame, 0),
     maxframe - (frameSize - 1) - 1,
   );
+
   let innerbuttons = '';
+
   for (let i = 0; i < maxframe - (frameSize - 1); i++) {
     if (i === currentFrame) {
       innerbuttons +=
-        '<button class="section-gallery__button section-gallery__button--active"></button>';
+        '<button class="section-gallery__button' +
+        ' section-gallery__button--active"></button>';
     } else {
       innerbuttons += '<button class="section-gallery__button"></button>';
     }
@@ -53,6 +51,7 @@ const updateButtons = () => {
     button.addEventListener('click', () => {
       const gap =
         parseFloat(getComputedStyle(swipperList).gap) * Math.max(0, index - 1);
+
       currentFrame = index;
       wrapper.scrollLeft = imageWidth * index + gap;
       updateButtons();
@@ -64,6 +63,7 @@ updateButtons();
 
 const resizeImages = () => {
   const old = frameSize;
+
   frameSize = +getComputedStyle(swipper).getPropertyValue('--frame-size');
 
   if (old !== frameSize) {
@@ -74,6 +74,7 @@ const resizeImages = () => {
 
   wrapperWidth = swipperWrapper.clientWidth;
   imageWidth = wrapperWidth / frameSize - gap / 2;
+
   swippetImages.forEach((image) => {
     image.style.width = imageWidth + 'px';
   });
@@ -85,28 +86,11 @@ window.addEventListener('resize', () => {
   resizeImages();
 });
 
-type MouseVelocityData = {
-  vx: number;
-  vy: number;
-  speed: number;
-};
-
-type MouseSample = {
-  x: number;
-  y: number;
-  time: number;
-};
-
 class MouseVelocity {
-  private sampleTime: number;
-  private samples: MouseSample[] = [];
-  private enabled = false;
-
-  public x = 0;
-  public y = 0;
-
-  private readonly onMove = (e: MouseEvent): void => {
-    if (!this.enabled) return;
+  onMove = (e) => {
+    if (!this.enabled) {
+      return;
+    }
 
     const now = performance.now();
 
@@ -132,7 +116,7 @@ class MouseVelocity {
     this.start();
   }
 
-  public getVelocity(): MouseVelocityData {
+  getVelocity() {
     if (!this.enabled || this.samples.length < 2) {
       return { vx: 0, vy: 0, speed: 0 };
     }
@@ -156,8 +140,10 @@ class MouseVelocity {
     };
   }
 
-  public start(): void {
-    if (this.enabled) return;
+  start() {
+    if (this.enabled) {
+      return;
+    }
 
     this.enabled = true;
     this.samples = [];
@@ -165,8 +151,10 @@ class MouseVelocity {
     window.addEventListener('mousemove', this.onMove);
   }
 
-  public stop(): void {
-    if (!this.enabled) return;
+  stop() {
+    if (!this.enabled) {
+      return;
+    }
 
     this.enabled = false;
     this.samples = [];
@@ -177,24 +165,20 @@ class MouseVelocity {
 
 const mouseVelocity = new MouseVelocity(100);
 
-function loop(): void {
-  const velocity = mouseVelocity.getVelocity();
-
+function loop() {
   requestAnimationFrame(loop);
 }
 
 loop();
 mouseVelocity.stop();
 
-const wrapper = document.querySelector(
-  '.section-gallery__swipper-wrapper',
-) as HTMLElement;
+const wrapper = document.querySelector('.section-gallery__swipper-wrapper');
 
 let isDragging = false;
 let startX = 0;
 let startScrollLeft = 0;
 
-wrapper.addEventListener('pointerdown', (e: PointerEvent) => {
+wrapper.addEventListener('pointerdown', (e) => {
   isDragging = true;
   mouseVelocity.start();
   wrapper.setPointerCapture(e.pointerId);
@@ -207,7 +191,7 @@ wrapper.addEventListener('pointerdown', (e: PointerEvent) => {
   wrapper.style.scrollSnapType = 'none';
 });
 
-wrapper.addEventListener('pointermove', (e: PointerEvent) => {
+wrapper.addEventListener('pointermove', (e) => {
   if (!isDragging) {
     return;
   }
@@ -217,7 +201,7 @@ wrapper.addEventListener('pointermove', (e: PointerEvent) => {
   wrapper.scrollLeft = startScrollLeft - deltaX;
 });
 
-wrapper.addEventListener('pointerup', (e: PointerEvent) => {
+wrapper.addEventListener('pointerup', (e) => {
   isDragging = false;
   wrapper.releasePointerCapture(e.pointerId);
 
@@ -225,18 +209,19 @@ wrapper.addEventListener('pointerup', (e: PointerEvent) => {
   wrapper.style.scrollBehavior = '';
   wrapper.style.scrollSnapType = 'x mandatory';
 
-  const scroll = (wrapper.scrollLeft -= mouseVelocity.getVelocity().speed / 3);
-  wrapper.scrollLeft = scroll;
+  const scroll2 = (wrapper.scrollLeft -= mouseVelocity.getVelocity().speed / 3);
+
+  wrapper.scrollLeft = scroll2;
   mouseVelocity.stop();
+
   currentFrame = Math.round(
-    scroll / (imageWidth + parseFloat(getComputedStyle(swipperList).gap)),
+    scroll2 / (imageWidth + parseFloat(getComputedStyle(swipperList).gap)),
   );
 
   currentFrame = Math.min(
     Math.max(currentFrame, 0),
     maxframe - (frameSize - 1) - 1,
   );
-  console.log(maxframe - (frameSize - 1));
   updateButtons();
 });
 
@@ -247,27 +232,26 @@ wrapper.addEventListener('pointercancel', () => {
   wrapper.style.scrollBehavior = '';
   wrapper.style.scrollSnapType = 'x mandatory';
 
-  const scroll = (wrapper.scrollLeft -= mouseVelocity.getVelocity().speed / 3);
-  wrapper.scrollLeft = scroll;
+  const scroll2 = (wrapper.scrollLeft -= mouseVelocity.getVelocity().speed / 3);
+
+  wrapper.scrollLeft = scroll2;
   mouseVelocity.stop();
+
   currentFrame = Math.round(
-    scroll / (imageWidth + parseFloat(getComputedStyle(swipperList).gap)),
+    scroll2 / (imageWidth + parseFloat(getComputedStyle(swipperList).gap)),
   );
 
   currentFrame = Math.min(
     Math.max(currentFrame, 0),
     maxframe - (frameSize - 1) - 1,
   );
-  console.log(maxframe - (frameSize - 1));
   updateButtons();
 });
 
-const form = document.querySelector(
-  '.section-subscription__form',
-) as HTMLFormElement;
+const form = document.querySelector('.section-subscription__form');
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
+form.addEventListener('submit', (event2) => {
+  event2.preventDefault();
 
   form.reset();
 });
