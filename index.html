@@ -650,7 +650,7 @@
           this.enabled = true;
           this.samples = [];
 
-          window.addEventListener('mousemove', this.onMove);
+          window.addEventListener('pointermove', this.onMove);
         }
 
         stop() {
@@ -661,17 +661,17 @@
           this.enabled = false;
           this.samples = [];
 
-          window.removeEventListener('mousemove', this.onMove);
+          window.removeEventListener('pointermove', this.onMove);
         }
       }
 
       const mouseVelocity = new MouseVelocity(100);
 
-      function loop() {
-        requestAnimationFrame(loop);
-      }
+      // function loop() {
+      //   requestAnimationFrame(loop);
+      // }
 
-      loop();
+      // loop();
       mouseVelocity.stop();
 
       const wrapper = document.querySelector(
@@ -693,6 +693,7 @@
         wrapper.style.scrollBehavior = 'auto';
         wrapper.style.cursor = 'grabbing';
         wrapper.style.scrollSnapType = 'none';
+
       });
 
       wrapper.addEventListener('pointermove', (e) => {
@@ -703,6 +704,7 @@
         const deltaX = e.clientX - startX;
 
         wrapper.scrollLeft = startScrollLeft - deltaX;
+
       });
 
       wrapper.addEventListener('pointerup', (e) => {
@@ -713,14 +715,15 @@
         wrapper.style.scrollBehavior = '';
         wrapper.style.scrollSnapType = 'x mandatory';
 
-        const scroll2 = (wrapper.scrollLeft -=
+
+        const scroll = (wrapper.scrollLeft -=
           mouseVelocity.getVelocity().speed / 3);
 
-        wrapper.scrollLeft = scroll2;
+        wrapper.scrollLeft = scroll;
         mouseVelocity.stop();
 
         currentFrame = Math.round(
-          scroll2 /
+          scroll /
             (imageWidth + parseFloat(getComputedStyle(swipperList).gap)),
         );
 
@@ -737,15 +740,14 @@
         wrapper.style.cursor = '';
         wrapper.style.scrollBehavior = '';
         wrapper.style.scrollSnapType = 'x mandatory';
-
-        const scroll2 = (wrapper.scrollLeft -=
+        const scroll = (wrapper.scrollLeft -=
           mouseVelocity.getVelocity().speed / 3);
 
-        wrapper.scrollLeft = scroll2;
+        wrapper.scrollLeft = scroll;
         mouseVelocity.stop();
 
         currentFrame = Math.round(
-          scroll2 /
+          scroll /
             (imageWidth + parseFloat(getComputedStyle(swipperList).gap)),
         );
 
