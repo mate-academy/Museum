@@ -10,6 +10,11 @@
 @import './sidebar';
 @import './ticket-button';
 @import './header';
+@import './events';
+@import './lecture';
+@import './gallery';
+@import './subscribe';
+@import './footer';
 
 @import '../../node_modules/bootstrap/scss/variables';
 @import '../../node_modules/bootstrap/scss/maps';
@@ -25,10 +30,27 @@ body {
   position: relative;
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
 main {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
 }
 
 a {
@@ -42,6 +64,10 @@ button {
   border: none;
   background-color: $c-white;
   box-sizing: border-box;
+}
+
+img {
+    @include hover(transform, scale(1.02))
 }
 
 .header__logo {
@@ -70,7 +96,9 @@ button {
 
   @include respond-to(xl) {
     grid-column: 7 / 14;
-    @include size(100%, 655px);
+    width: auto;
+    height: 665px;
+    margin-right: calc(-50vw + 50%);
   }
 
   &__inner {
@@ -144,4 +172,37 @@ h1 {
   @include respond-to(xl) {
     font-size: 72px;
   }
+}
+
+h2 {
+    font-family: Montserrat, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: $c-main-text;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+    @include respond-to(md) {
+        font-size: 48px;
+        text-align: left;
+    }
+}
+
+h3 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    text-align: left;
+    color: $c-main-text;
+    margin: 0;
+    padding: 0;
+    
+    @include respond-to(md) {
+        font-size: 36px;
+    }
+}
+
+.margin-top-60 {
+    margin-top: 60px;
 }

@@ -1,5 +1,8 @@
 .aside__menu {
   position: fixed;
+  display: flex;
+    justify-content: center;
+    align-items: center;
   top: 0;
   left: 0;
   right: 0;
@@ -8,6 +11,20 @@
 
   opacity: 0;
   pointer-events: none;
+
+  background-color: $c-accent;
+  box-sizing: border-box;
+  padding: 27px 20px;
+  height: 415px;
+
+  @include respond-to(md) {
+    padding: 39px 34px;
+    height: 225px;
+  }
+  @include respond-to(xl) {
+    padding: 0;
+  }
+
 }
 
 .aside__menu:target {
@@ -17,21 +34,15 @@
 }
 
 .menu {
-  background-color: $c-accent;
-  box-sizing: border-box;
-  padding: 27px 20px;
-  height: 415px;
-
+    width: 100%;
+    max-width: 1170px;
   @include respond-to(md) {
-    padding: 39px 34px;
-    height: 225px;
     display: flex;
     gap: 38px;
     justify-content: space-between;
   }
 
   @include respond-to(xl) {
-    padding: 40px 56px;
     justify-content: space-between;
     gap: 102px;
   }
