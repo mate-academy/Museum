@@ -1,6 +1,45 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} 0.3s ease-in-out;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media (min-width: 576px) { @content; }
+  } @else if $breakpoint == "md" {
+    @media (min-width: 768px) { @content; }
+  } @else if $breakpoint == "lg" {
+    @media (min-width: 992px) { @content; }
+  } @else if $breakpoint == "xl" {
+    @media (min-width: 1200px) { @content; }
+  } @else {
+    @media (min-width: $breakpoint) { @content; }
+  }
+}
+@mixin container-gutters($mobile-padding: 15px, $desktop-padding: 30px) {
+  padding-right: $mobile-padding;
+  padding-left: $mobile-padding;
+
+  @include respond-to(lg) { 
+    padding-right: $desktop-padding;
+    padding-left: $desktop-padding;
   }
 }

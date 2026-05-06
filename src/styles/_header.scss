@@ -1,0 +1,43 @@
+.header {
+  @include respond-to(md) {
+    display: grid;
+    grid-template-columns: repeat(6, 90px);
+    column-gap: 30px;
+    padding-left: 34px;
+    max-width: 768px;
+  }
+
+  @include respond-to(xl) {
+    position: relative;
+    grid-template-columns: repeat(12, 70px);
+    column-gap: 30px;
+    max-width: 1170px;
+    padding: 0;
+  }
+}
+
+.header__events {
+  position: relative;
+  grid-column: span 1;
+  grid-row: 2;
+
+  &-span {
+    position: absolute;
+    left: -20px;
+    top: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: $c-gray;
+    display: inline-block;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+  }
+
+  &-line {
+    width: 1px;
+    height: 70px;
+    background-color: $c-accent;
+    margin-top: 40px;
+  }
+}

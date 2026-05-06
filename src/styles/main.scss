@@ -1,7 +1,208 @@
-@import 'utils';
-@import 'fonts';
-@import 'typography';
+@import '../../node_modules/bootstrap/scss/functions';
 
+@import './utils/vars';
+
+@import './utils/mixins';
+@import './utils/extends';
+@import './fonts';
+
+@import './burger';
+@import './sidebar';
+@import './ticket-button';
+@import './header';
+@import './events';
+@import './lecture';
+@import './gallery';
+@import './subscribe';
+@import './footer';
+
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/maps';
+
+@import '../../node_modules/bootstrap/scss/mixins';
+@import '../../node_modules/bootstrap/scss/utilities';
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+html,
 body {
-  background: $c-gray;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: auto;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: $c-white;
+  box-sizing: border-box;
+}
+
+img {
+    @include hover(transform, scale(1.02))
+}
+
+.header__logo {
+  @include size(55px, 61px);
+
+  @include respond-to(md) {
+    @include size(72px, 72px);
+  }
+}
+
+.header__content {
+  width: 100%;
+  height: 300px;
+  background: url('../images/Natsionalnij-hudozhnij-muzej-Ukrayini-Kiyiv-10-1800x1200.png');
+  background-size: cover;
+  background-position: center;
+  padding: 10px 20px;
+
+  @include respond-to(md) {
+    @include size(100%, 384px);
+
+    grid-column: 4 / -1;
+    width: auto;
+    margin-right: calc(-50vw + 50%);
+  }
+
+  @include respond-to(xl) {
+    grid-column: 7 / 14;
+    width: auto;
+    height: 665px;
+    margin-right: calc(-50vw + 50%);
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 61px;
+
+    @include respond-to(md) {
+      width: 200px;
+      height: 72px;
+    }
+  }
+}
+
+.title-wrapper {
+  margin-top: 20px;
+  padding: 10px 20px;
+
+  @include respond-to(md) {
+    margin-top: 0;
+    padding: 0;
+  }
+}
+
+.header__main {
+  row-gap: 20px;
+
+  @include respond-to(md) {
+    grid-column: 1 / 4;
+    align-self: end;
+    flex-direction: column;
+    grid-row: 1;
+    row-gap: 38px;
+  }
+
+  @include respond-to(xl) {
+    display: grid !important;
+    grid-template-columns: repeat(6, 70px);
+    grid-template-rows: 1fr 1fr;
+    grid-column: 1 / 7;
+    align-self: center;
+    flex-direction: column;
+    grid-row: 1;
+    margin: 0;
+    gap: 90px 30px;
+  }
+}
+
+.header__title {
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  @include respond-to(xl) {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+    width: 100%;
+  }
+}
+
+h1 {
+  font-size: 45px;
+  color: $c-black;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+
+  @include respond-to(md) {
+    font-size: 54px;
+  }
+  @include respond-to(xl) {
+    font-size: 72px;
+  }
+}
+
+h2 {
+    font-family: Montserrat, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: $c-main-text;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+    @include respond-to(md) {
+        font-size: 48px;
+        text-align: left;
+    }
+}
+
+h3 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    text-align: left;
+    color: $c-main-text;
+    margin: 0;
+    padding: 0;
+    
+    @include respond-to(md) {
+        font-size: 36px;
+    }
+}
+
+.margin-top-60 {
+    margin-top: 60px;
 }

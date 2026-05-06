@@ -1,0 +1,134 @@
+.relevant-events {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1170px;
+  @include respond-to(md) {
+    padding: 0 34px;
+  }
+
+  @include respond-to(xl) {
+    padding: 0;
+  }
+}
+
+.event__list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  gap: 60px;
+
+  @include respond-to(md) {
+    gap: 64px;
+  }
+
+  @include respond-to(xl) {
+    gap: 104px;
+  }
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include respond-to(md) {
+    gap: 40px;
+  }
+
+  @include respond-to(xl) {
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 280 / 210;
+
+    @include respond-to(xl) {
+      width: 670px;
+      height: 520px;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @include respond-to(md) {
+      gap: 30px;
+    }
+
+    @include respond-to(xl) {
+      width: 370px;
+    }
+  }
+
+  &__desc {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: $c-secondary-text;
+    max-width: 460px;
+  }
+
+  &__title::after {
+    content: '';
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 2px;
+
+    @include size(10px);
+
+    background-color: $c-orange;
+
+    @include respond-to(md) {
+      @include size(15px);
+    }
+  }
+}
+
+.date__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (min-width: 400px) {
+    justify-content: start;
+    gap: 10px;
+  }
+
+  @include respond-to(xl) {
+    gap: 20px;
+  }
+}
+
+.date__span {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: $c-gray;
+
+  @include respond-to(md) {
+    font-size: 14px;
+  }
+}
+
+.date__text {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: $c-accent;
+
+  @include respond-to(md) {
+    font-size: 14px;
+  }
+}
