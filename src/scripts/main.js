@@ -24,3 +24,16 @@ const swiper = new Swiper('.slider', {
     clickable: true,
   }
 });
+
+const body = document.body;
+
+function checkMenu() {
+  if (window.location.hash === '#menu') {
+    body.classList.add('body--no-scroll');
+  } else {
+    body.classList.remove('body--no-scroll');
+  }
+}
+
+window.addEventListener('hashchange', checkMenu);
+window.addEventListener('load', checkMenu);
