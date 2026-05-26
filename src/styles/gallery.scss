@@ -1,0 +1,150 @@
+@use './mixins' as *;
+@use './variables' as *;
+
+.gallery {
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-block: 100px;
+
+  @include padd;
+
+  @include tablet {
+    padding-block: 88px 92px;
+  }
+
+  @include desktop {
+    padding-block: 200px;
+  }
+
+  &__title {
+    margin-block: 0 40px;
+    font-size: 36px;
+    line-height: 100%;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+
+    @include tablet {
+      text-align: left;
+      margin-bottom: 48px;
+      font-size: 48px;
+    }
+  }
+
+  &__slider {
+    box-sizing: border-box;
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include desktop {
+      @include grid;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    gap: 16px;
+    margin-right: -20px;
+    padding-right: 20px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include tablet {
+      gap: 20px;
+      padding-right: 10px;
+      margin-right: -34px;
+    }
+
+    @include desktop {
+      grid-column: span 12;
+      gap: 30px;
+      padding: 0;
+      margin: 0;
+
+      @include grid;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    min-height: 410px;
+    object-fit: cover;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+
+    @include tablet {
+      min-height: 543px;
+      width: calc((100% - 40px) / 2);
+    }
+
+    @include desktop {
+      min-height: 0;
+      width: 100%;
+      object-fit: contain;
+
+      @include hover(1.04);
+
+      &:nth-child(1) {
+        height: 600px;
+        grid-column: span 4;
+      }
+
+      &:nth-child(2) {
+        grid-column: span 8;
+        height: 600px;
+      }
+
+      &:nth-child(3) {
+        height: 360px;
+        grid-column: span 8;
+      }
+
+      &:nth-child(4) {
+        height: 360px;
+        grid-column: span 4;
+      }
+    }
+  }
+
+  &__scroll {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+
+    @include tablet {
+      margin-top: 32px;
+    }
+
+    @include desktop {
+      display: none;
+    }
+
+    &-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: $color-grey5;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &--active {
+        background-color: $color-gr;
+      }
+    }
+  }
+}

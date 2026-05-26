@@ -1,0 +1,163 @@
+@use './mixins' as *;
+@use './variables' as *;
+
+.asside {
+  @include padd;
+
+  box-sizing: border-box;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: $color-gr;
+  width: 100%;
+  padding-block: 27px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition: all 0.3s ease;
+
+  &--opened {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  @include tablet {
+    @include grid;
+  }
+
+  &__menu-close {
+    background-image: url(../images/Close.png);
+    background-size: 12px 12px;
+
+    @include hover(1.1);
+  }
+
+  .menu__nav {
+    @include font-ibm;
+
+    position: relative;
+    display: grid;
+    gap: 24px 28px;
+    box-sizing: border-box;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $color-wh;
+    width: 100%;
+
+    @include tablet {
+      padding-right: 38px;
+      gap: 24px 20px;
+      padding-bottom: 0;
+      border-bottom: 0;
+      grid-column: span 3;
+    }
+
+    @include desktop {
+      grid-column: span 6;
+      padding-right: 0;
+    }
+
+    .menu__link {
+      color: $color-wh;
+    }
+
+    & .menu__link:nth-child(4) {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    & .menu__link:nth-child(5) {
+      grid-column: 3;
+      grid-row: 2;
+    }
+  }
+
+  .menu__schedule {
+    padding-block: 24px 16px;
+
+    @include tablet {
+      padding: 0;
+    }
+
+    @include desktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  .menu__text {
+    color: $color-wh;
+  }
+
+  .menu__hours-list {
+    color: $color-wh;
+  }
+
+  .menu__warning {
+    @include font-ibm;
+
+    margin: 0;
+    color: $color-wh;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 141%;
+
+    @include tablet {
+      padding-top: 38px;
+    }
+  }
+
+  .menu__day-off {
+    grid-column: 2;
+
+    @include desktop {
+      grid-column: 5 / span 5;
+    }
+  }
+
+  .menu__container {
+    @include tablet {
+      display: grid;
+      gap: 38px;
+      position: relative;
+      box-sizing: border-box;
+      grid-column: span 3;
+      grid-template-columns: 1.4fr 1.3fr;
+
+      border-left: 1px solid $color-wh;
+      padding-left: 38px;
+      margin-left: -38px;
+    }
+
+    @include desktop {
+      grid-column: 7 / 12;
+      padding-left: 102px;
+      margin-left: 0;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
+    }
+  }
+}
+
+.asside-wrap {
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.asside-wrap:has(+ .asside--opened)::before {
+  opacity: 1;
+  visibility: visible;
+}

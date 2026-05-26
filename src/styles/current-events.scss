@@ -1,0 +1,149 @@
+@use './mixins' as *;
+@use './variables' as *;
+
+.current-events {
+  @include padd;
+
+  padding-block: 70px 60px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  @include tablet {
+    @include grid;
+
+    padding-block: 88px 96px;
+    align-items: flex-start;
+    gap: 48px;
+  }
+
+  @include desktop {
+    padding-block: 200px 56px;
+  }
+
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+    color: $color-bl;
+    margin: 0;
+    text-align: center;
+
+    @include tablet {
+      font-size: 48px;
+      grid-column: span 4;
+      text-align: left;
+    }
+
+    @include desktop {
+      grid-column: span 5;
+    }
+  }
+
+  &__card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+      @include grid;
+
+      grid-column: span 6;
+      padding-block: 18px 16px;
+    }
+
+    @include desktop {
+      padding-block: 26px 48px;
+      grid-column: span 12;
+    }
+  }
+
+  &__image {
+    display: flex;
+    align-items: center;
+    padding-block: 20px;
+
+    @include tablet {
+      padding-block: 0 10px;
+      grid-column: span 6;
+    }
+
+    @include desktop {
+      padding: 0;
+
+      @include hover(1.1);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    min-height: 210px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+      align-items: flex-start;
+      grid-column: span 4;
+    }
+
+    @include desktop {
+      @include hover(1.1);
+
+      align-items: flex-start;
+      grid-column: 8 / span 4;
+    }
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    color: $color-bl;
+    margin-block: 15px 10px;
+
+    @include tablet {
+      font-size: 36px;
+      margin-block: 30px 15px;
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 10px;
+    height: 10px;
+    object-fit: contain;
+    margin-top: 5px;
+    padding-left: 10px;
+  }
+
+  &__text {
+    @include font-ibm;
+
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: $color-grey2;
+    margin: 0;
+  }
+
+  &__insert {
+    @include tablet {
+      justify-content: flex-start;
+      gap: 20px;
+    }
+  }
+}

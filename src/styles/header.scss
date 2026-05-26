@@ -1,0 +1,61 @@
+@use './mixins' as *;
+@use './variables' as *;
+
+.header {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  width: 100%;
+  padding-top: 9px;
+
+  @include padd;
+
+  &__placeholder {
+    width: 24px;
+    height: 24px;
+  }
+
+  @include tablet {
+    padding-top: 15px;
+  }
+
+  &__menu-open {
+    background-image: url(../images/Vector.png);
+    background-size: 18px 12px;
+
+    @include hover(1.1);
+  }
+
+  &__logo {
+    @include hover(1.1);
+
+    @include tablet {
+      position: relative;
+      left: 115px;
+    }
+
+    @include desktop {
+      position: static;
+    }
+
+    &-img {
+      display: block;
+      width: 55px;
+      height: 61px;
+      object-fit: contain;
+
+      @include tablet {
+        min-height: 72px;
+      }
+    }
+  }
+}

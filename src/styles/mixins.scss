@@ -1,0 +1,49 @@
+@mixin padd() {
+  padding-inline: 20px;
+
+  @include tablet {
+    padding-inline: 34px;
+  }
+
+  @include desktop {
+    padding-inline: 55px;
+  }
+}
+
+@mixin tablet() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin font-ibm() {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+@mixin grid() {
+  display: grid;
+
+  @include tablet {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+}
+
+@mixin hover($scale) {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale($scale);
+  }
+}

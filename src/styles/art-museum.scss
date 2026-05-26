@@ -1,0 +1,129 @@
+@use './mixins' as *;
+@use './variables' as *;
+
+.art-museum {
+  box-sizing: border-box;
+
+  @include tablet {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  @include desktop {
+    @include grid;
+  }
+
+  &__podii {
+    display: none;
+    max-width: 14px;
+    max-height: 133px;
+    object-fit: contain;
+
+    @include desktop {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      top: 110px;
+    }
+  }
+
+  &__images {
+    width: 100%;
+    min-height: 300px;
+
+    @include desktop {
+      grid-column: 6 / span 7;
+    }
+  }
+
+  &__img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__item {
+    @include padd;
+
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding-block: 20px 0;
+    width: 100%;
+
+    @include tablet {
+      padding-right: 20px;
+      padding-top: 127px;
+      align-items: flex-start;
+    }
+
+    @include desktop {
+      grid-column: 1 / 6;
+      grid-row: 1;
+      width: 100%;
+      padding-right: 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include tablet {
+      text-align: left;
+      font-size: 54px;
+      line-height: 120%;
+    }
+
+    @include desktop {
+      font-size: 72px;
+      grid-column: span 5;
+    }
+  }
+
+  &__btn-ticket {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    width: 100%;
+    border: 1px solid $color-gr;
+
+    @include tablet {
+      max-width: 270px;
+    }
+
+    @include desktop {
+      grid-column: 3 / span 3;
+      grid-row: 2;
+    }
+  }
+
+  &__btn-text {
+    @include font-ibm;
+
+    font-size: 16px;
+    line-height: 100%;
+    font-weight: 500;
+    color: $color-bl;
+    flex-grow: 1;
+  }
+
+  &__btn-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    background-color: $color-gr;
+  }
+}
