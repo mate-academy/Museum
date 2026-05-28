@@ -1,0 +1,138 @@
+@import '../utils/mixins';
+@import '../utils/vars';
+
+.actual {
+  @include padding-in-line;
+  @include grid;
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+    color: $main-color;
+
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      text-align: start;
+    }
+  }
+}
+
+.poster {
+  grid-column: 1/-1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: subgrid;
+
+  &__photo {
+    grid-column: 1/-1;
+    width: 100%;
+
+    @include on-tablet {
+      grid-column: 1/-1;
+    }
+
+    @include on-desktop {
+      grid-column: span 7;
+    }
+  }
+
+  &__summary {
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 1/5;
+    }
+
+    @include on-desktop {
+      grid-column: -5/-1;
+      margin-block: auto;
+    }
+  }
+
+  &__date {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-between;
+
+    @include on-tablet {
+      justify-content: flex-start;
+      column-gap: 24px;
+      align-items: center;
+    }
+  }
+
+  &__subtitle {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #687480;
+  }
+
+  &__time {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+
+    line-height: 150%;
+    letter-spacing: 0;
+    color: $l-green;
+
+    @include on-tablet {
+      text-align: start;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+
+    line-height: 100%;
+    letter-spacing: 0;
+    color: $main-color;
+    position: relative;
+    margin: 0;
+
+    @include on-tablet {
+      font-size: 36px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      margin: 12px;
+      height: 10px;
+      width: 10px;
+      background-color: $l-red;
+    }
+  }
+
+  &__description {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+
+    line-height: 150%;
+    letter-spacing: 0;
+    color: #4e4e4e;
+  }
+
+  &:last-child {
+    margin-top: 60px;
+  }
+}
