@@ -1,0 +1,225 @@
+.header {
+  position: relative;
+  background-color: $white;
+
+  @include on-tablet {
+    min-height: 384px;
+  }
+
+  @include on-desktop {
+    min-height: 655px;
+    margin-bottom: 200px;
+  }
+
+  &__hero {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: max-content;
+    margin-bottom: 0;
+
+    @include on-tablet {
+      flex-direction: row-reverse;
+      margin-bottom: 88px;
+    }
+  }
+  &__bg {
+    width: 100%;
+    min-height: 300px;
+
+    background-image: url('../images/header_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include on-tablet {
+      right: 0;
+      left: auto;
+      width: 50%;
+    }
+
+    @include on-desktop {
+      width: 57%;
+      height: auto;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 27px 20px;
+
+    @include on-tablet {
+      padding: 39px 34px;
+    }
+
+    @include on-desktop {
+      padding-left: 55px;
+    }
+  }
+
+  &__top-bar {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+
+    padding: 27px 20px;
+  }
+
+  &__burger {
+    margin-right: auto;
+  }
+
+  &__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 9px;
+
+    @include on-tablet {
+      left: 64%;
+    }
+
+    @include on-desktop {
+      left: 50%;
+    }
+
+    @include on-large-desktop {
+      font-size: 36px;
+      font-weight: 800;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px 70px;
+
+    @include on-tablet {
+      display: block;
+
+      width: 50%;
+      height: 100%;
+      margin: 0 auto;
+      padding: 127px 0 19px 34px;
+    }
+
+    @include on-laptop {
+      padding-left: 55px;
+    }
+
+    @include on-small-desktop {
+      padding-bottom: 70px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 206px;
+    }
+
+    @include on-large-desktop {
+      padding-top: 166px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+
+    @include on-tablet {
+      margin-bottom: 38px;
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include on-laptop {
+      font-size: 60px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 89px;
+    }
+
+    @include on-large-desktop {
+      margin-bottom: 137px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+
+    @include on-desktop {
+      justify-content: flex-end;
+    }
+  }
+
+  // ===== EVENTS (за замовчуванням сховано) =====
+  &__events {
+    display: none;
+    align-items: center;
+
+    @include on-desktop {
+      position: absolute;
+      bottom: 0;
+      left: 55px;
+      transform-origin: left bottom;
+      transform: rotate(-90deg);
+
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+  }
+
+  // лінія
+  &__events-line {
+    width: 70px;
+    height: 1px;
+    background-color: $color-deep-green;
+  }
+
+  // текст
+  &__events-text {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    color: #687480;
+    white-space: nowrap;
+  }
+
+  // кнопка завжди справа від events
+  @include on-desktop {
+    &__button {
+      margin-right: 30px;
+    }
+  }
+
+  @include on-large-desktop {
+    &__button {
+      margin-right: 50px;
+    }
+  }
+}

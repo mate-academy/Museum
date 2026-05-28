@@ -1,0 +1,42 @@
+.burger {
+  cursor: pointer;
+
+  z-index: 1001;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 18px;
+  height: 12px;
+  border: none;
+
+  background: none;
+
+  &__line {
+    transform-origin: center;
+
+    width: 100%;
+    height: 2px;
+
+    background: $c-text-dark;
+
+    transition: $effectDuration;
+  }
+
+  &--active {
+    .burger__line {
+      background: $white;
+    }
+    .burger__line:nth-child(1) {
+      transform: translateY(5px) rotate(45deg);
+    }
+    .burger__line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burger__line:nth-child(3) {
+      transform: translateY(-5px) rotate(-45deg);
+    }
+  }
+}
