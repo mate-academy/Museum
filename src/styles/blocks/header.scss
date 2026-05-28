@@ -1,0 +1,148 @@
+@import '../utils/vars';
+
+.header {
+  position: fixed;
+  top: -100%;
+  opacity: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  transition:
+    top 0.3s ease,
+    opacity 0.3s ease;
+  z-index: 5000;
+  overscroll-behavior: contain;
+
+  &:target {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.menu {
+  @include padding-in-line;
+
+  padding-block: 28px;
+  box-sizing: border-box;
+  width: 100%;
+  background: $l-green;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+
+  @include on-tablet {
+    flex-direction: row;
+    gap: 0 38px;
+    padding-block: 40px;
+  }
+
+  @include on-desktop {
+    padding-block: 40px;
+    column-gap: 102px;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__close {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-image: url('../images/icons/close.svg');
+
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    z-index: 10;
+
+    @include on-desktop {
+      margin-right: 102px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-flow: column wrap;
+    list-style-type: none;
+    text-decoration: none;
+    margin: 0;
+    color: $white;
+  }
+
+  &__item {
+    margin-bottom: 28px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+
+    line-height: 100%;
+    letter-spacing: 0;
+
+    @include on-desktop {
+      font-size: 22px;
+      width: 170px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $white;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+  }
+}
+
+.schedule {
+  padding: 0;
+  width: 100%;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 141%;
+  letter-spacing: 0;
+  row-gap: 16px;
+
+  &__content {
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      row-gap: 0;
+      margin: 0;
+    }
+
+    @include on-desktop {
+      column-gap: 30px;
+    }
+  }
+
+  &--footer {
+    grid-column: 1/2;
+    color: $main-color;
+  }
+
+  &__time {
+    @include on-tablet {
+      width: 170px;
+      margin: 0;
+    }
+  }
+
+  &__summary {
+    @include on-tablet {
+      align-self: flex-end;
+      width: 144px;
+      margin: 0;
+    }
+  }
+}
