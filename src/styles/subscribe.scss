@@ -1,0 +1,98 @@
+.subscribe{
+  position: relative;
+  min-height: 380px;
+  width: 100%;
+  background-image: url(/src/images/subscribe/subscribe.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &::before{
+    position: absolute;
+    content: '';
+    background-color: $all-black;
+    height: 100%;
+    width: 100%;
+    opacity: 0.75;
+    z-index: 1;
+  }
+
+  @include on-desktop{
+    min-height: 550px;
+  }
+  &__content{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding: 88px 0;
+    z-index: 3;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    @include on-tablet{
+      padding: 82px 0;
+    }
+
+    @include on-desktop{
+      padding: 162px 0;
+    }
+  }
+  &__title{
+    @include title-text(700, white);
+    font-size: 36px;
+    padding-bottom: 20px
+  }
+
+  &__description{
+    @include second-text (400, white);
+    font-size: 18px;
+  }
+
+  &__input{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 280px;
+    padding-top: 50px;
+
+    @include on-tablet{
+      width: 460px;
+      height: 70px;
+      gap: 16px;
+    }
+  }
+
+  &__field{
+    @include title-text (400, $eye-grey);
+    width: 230px;
+    height: 100%;
+    border: none;
+    box-sizing: border-box;
+    padding-left: 24px;
+
+    &:focus{
+      outline: none;
+      color: $all-black;
+    }
+
+    @include on-tablet{
+      width: 374px;
+    }
+  }
+
+  &__button{
+    width: 50px;
+    height: 100%;
+    border: none;
+    background-color: $red;
+    background-image: url(/src/images/icons/arrow-icon-black.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include on-tablet{
+      width: 70px;
+    }
+  }
+}

@@ -1,0 +1,293 @@
+.hero{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+
+  margin-bottom: 70px;
+  box-sizing: border-box;
+  height: 100%;
+  animation: revealImage 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @include on-tablet{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include on-desktop{
+
+  }
+
+
+  &__left{
+    align-self: center;
+    order: 2;
+
+    @include on-tablet{
+      order: 1;
+      padding:  0 20px 0 34px ;
+      align-items: start;
+    }
+
+    @include on-desktop{
+      padding:  0 30px 0 55px ;
+
+    }
+
+  }
+
+  &__right{
+    order: 1;
+    height: 100%;
+    max-height: 500px;
+    width: 100%;
+    aspect-ratio: 1/0.95;
+    z-index: -1;
+    background-image: url(/src/images/hero/hero-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include on-tablet{
+      max-height: 655px;
+      max-width: 725px;
+    }
+
+
+    @include on-desktop{
+
+      max-height: 655px;
+    }
+  }
+
+
+  &__title{
+    @include title-text(700, $all-black);
+    font-size: 45px;
+    text-align: center;
+    padding: 20px 0 20px;
+    max-width: 450px;
+
+    @include on-tablet{
+      text-align: start;
+      padding: 0 0 38px;
+      font-size: 54px;
+    }
+
+    @include on-desktop{
+      font-size: 72px;
+      max-width: 500px;
+      padding: 0 0 90px;
+    }
+
+  }
+
+  &__button{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-self: center;
+    width: 280px;
+    height: 50px;
+    border: 1px solid $green;
+    text-decoration: none;
+    align-items: center;
+
+
+    &::after{
+      position: absolute;
+      background-color: $green;
+      background-image: url(/src/images/icons/arrow-icon.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      content: '';
+      width: 50px;
+      height: 100%;
+      right: 0;
+      top: 0;
+
+      @include on-tablet{
+        width: 70px;
+      }
+    }
+
+    @include on-tablet{
+      justify-self: start;
+      width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop{
+      justify-self: end;
+    }
+  }
+
+  &__button-text{
+    @include second-text(500, $all-black);
+    padding-left: 80px ;
+
+    @include on-tablet{
+      padding-left: 68px;
+    }
+  }
+
+  &__decore{
+    @include second-text (700, $eye-grey);
+    position: relative;
+    font-size:14px;
+    width: fit-content;
+    transform: rotate(-90deg);
+    display: none;
+    &::before{
+      position: absolute;
+      content: '';
+      width: 70px;
+      height: 2px;
+      background-color: $green;
+      right: 150%;
+      bottom: 50%;
+    }
+
+    @include on-desktop{
+      display: block;
+    }
+    // display: none;
+  }
+}
+// .hero{
+//   @include grid;
+//   grid-template-rows: 1fr, 1fr;
+//   width: 100%;
+//   margin-bottom: 70px;
+//   box-sizing: border-box;
+
+
+
+//   @include on-tablet{
+//     grid-template-rows: none;
+//     padding-left: 34px;
+//   }
+
+//   @include on-desktop{
+//     padding-left: 55px;
+//   }
+
+//   &__left{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     align-self: center;
+//     grid-row: 2;
+//     grid-column: 1/-1;
+//     height: fit-content;
+
+
+//     @include on-tablet{
+//       align-self: center;
+//       order: 0;
+//       box-sizing: border-box;
+//       // padding: 0 0 0 34px;
+//       align-items: start;
+//       grid-column: 1 / -4;
+//       grid-row: 1;
+//     }
+
+//     @include on-desktop{
+//       margin-inline-end: auto;
+
+//     }
+//   }
+
+//   &__right{
+//     display: block;
+//     width: 100%;
+//     grid-row: 1;
+//     grid-column: 1/-1;
+//     transform: scale(1);
+
+//     @include on-tablet{
+//       grid-column: 4 /-1;
+//     }
+
+//     @include on-desktop{
+//       grid-column: 6 / -1;
+
+//     }
+//   }
+
+//   &__background{
+//     transform: scaleX(-1);
+//     aspect-ratio: 1/0.95;
+//     z-index: -1;
+//     background-image: url(/src/images/hero/hero-bg.jpg);
+//     background-position: center center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+
+//     @include on-tablet{
+//       background-size: 145%;
+//     }
+
+//     @include on-desktop{
+//     }
+//   }
+
+//   &__title{
+//     @include title-text(700, $all-black);
+//     font-size: 45px;
+//     text-align: center;
+//     padding: 20px 0 20px;
+//     max-width: 450px;
+
+//     @include on-tablet{
+//       text-align: start;
+//       padding: 0 0 38px;
+//       font-size: 54px;
+//     }
+//   }
+
+//   &__button{
+//     display: flex;
+//     position: relative;
+//     box-sizing: border-box;
+//     justify-self: center;
+//     width: 280px;
+//     height: 50px;
+//     border: 1px solid $green;
+//     text-decoration: none;
+//     align-items: center;
+
+
+//     &::after{
+//       position: absolute;
+//       background-color: $green;
+//       background-image: url(/src/images/icons/arrow-icon.svg);
+//       background-repeat: no-repeat;
+//       background-position: center center;
+//       content: '';
+//       width: 50px;
+//       height: 100%;
+//       right: 0;
+//       top: 0;
+
+//       @include on-tablet{
+//         width: 70px;
+//       }
+//     }
+
+//     @include on-tablet{
+//       width: 270px;
+//       height: 70px;
+//     }
+//   }
+
+
+//   &__button-text{
+//     @include second-text(500, $all-black);
+//     padding-left: 80px ;
+
+//     @include on-tablet{
+//       padding-left: 68px;
+//     }
+//   }
+// }
