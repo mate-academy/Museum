@@ -1,0 +1,165 @@
+@import '../utils/mixins';
+@import '../utils/vars';
+
+.header {
+  position: fixed;
+  z-index: 5000;
+  top: -100%;
+  left: 0;
+
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+
+  width: 100vw;
+  height: 100vh;
+
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  transition:
+    top 0.3s ease,
+    opacity 0.3s ease;
+
+  &:target {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.menu {
+  @include padding-in-line;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding-block: 28px;
+
+  background: $l-green;
+
+  @include on-tablet {
+    flex-direction: row;
+    gap: 0 38px;
+    padding-block: 40px;
+  }
+
+  @include on-desktop {
+    column-gap: 102px;
+    padding-block: 40px;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__close {
+    position: relative;
+    z-index: 10;
+
+    display: block;
+
+    width: 24px;
+    height: 24px;
+
+    background-image: url('../images/icons/close.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include on-desktop {
+      margin-right: 102px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-flow: column wrap;
+
+    margin: 0;
+
+    color: $white;
+    text-decoration: none;
+    list-style-type: none;
+  }
+
+  &__item {
+    margin-bottom: 28px;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0;
+
+    @include on-desktop {
+      width: 170px;
+      font-size: 22px;
+    }
+  }
+
+  &__link {
+    cursor: pointer;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    color: $white;
+    text-decoration: none;
+    letter-spacing: 0;
+
+    @include hover(color, rgba(255, 255, 255, 0.7));
+  }
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+
+  width: 100%;
+  padding: 0;
+
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 141%;
+  color: $white;
+  letter-spacing: 0;
+
+  &__content {
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      row-gap: 0;
+      margin: 0;
+    }
+
+    @include on-desktop {
+      column-gap: 30px;
+    }
+  }
+
+  &--footer {
+    grid-column: 1 / 2;
+    color: $main-color;
+  }
+
+  &__time {
+    @include on-tablet {
+      width: 170px;
+      margin: 0;
+    }
+  }
+
+  &__summary {
+    @include on-tablet {
+      align-self: flex-end;
+      width: 144px;
+      margin: 0;
+    }
+  }
+}
