@@ -1,61 +1,65 @@
 .hero{
+  position: relative;
+
   display: flex;
   flex-direction: column;
-  position: relative;
-  width: 100%;
 
-  margin-bottom: 70px;
   box-sizing: border-box;
+  width: 100%;
   height: 100%;
-  animation: revealImage 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 70px;
+
+  animation: reveal-image $anim-timming ease-out;
 
   @include on-tablet{
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: end;
   }
 
-  @include on-desktop{
-
-  }
 
 
   &__left{
     align-self: center;
+    justify-content: center;
     order: 2;
 
     @include on-tablet{
+      align-items: start;
       order: 1;
       padding:  0 20px 0 34px ;
-      align-items: start;
     }
 
     @include on-desktop{
+      box-sizing: border-box;
+      max-width: 555px;
       padding:  0 30px 0 55px ;
-
+      margin-inline:auto ;
     }
 
   }
 
   &__right{
+    z-index: -1;
+
     order: 1;
+
+    aspect-ratio: 1/0.95;
+    width: 100%;
     height: 100%;
     max-height: 500px;
-    width: 100%;
-    aspect-ratio: 1/0.95;
-    z-index: -1;
+
     background-image: url(/src/images/hero/hero-bg.jpg);
-    background-position: center center;
     background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
 
     @include on-tablet{
-      max-height: 655px;
       max-width: 725px;
+      max-height: 655px;
     }
 
 
     @include on-desktop{
-
       max-height: 655px;
     }
   }
@@ -63,52 +67,63 @@
 
   &__title{
     @include title-text(700, $all-black);
+
+    padding: 20px 0;
     font-size: 45px;
     text-align: center;
-    padding: 20px 0 20px;
-    max-width: 450px;
 
     @include on-tablet{
-      text-align: start;
       padding: 0 0 38px;
       font-size: 54px;
+      text-align: start;
     }
 
     @include on-desktop{
-      font-size: 72px;
-      max-width: 500px;
       padding: 0 0 90px;
+      font-size: 72px;
     }
 
   }
 
   &__button{
-    display: flex;
     position: relative;
-    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
     justify-self: center;
+
+    box-sizing: border-box;
     width: 280px;
     height: 50px;
     border: 1px solid $green;
+
     text-decoration: none;
-    align-items: center;
+
+    animation: hero-button $anim-timming 0.1s both;
 
 
     &::after{
+      content: '';
+
       position: absolute;
+      top: 0;
+      right: 0;
+      box-sizing: border-box;
+
+      width: 50px;
+      height: 100%;
+
       background-color: $green;
       background-image: url(/src/images/icons/arrow-icon.svg);
       background-repeat: no-repeat;
       background-position: center center;
-      content: '';
-      width: 50px;
-      height: 100%;
-      right: 0;
-      top: 0;
+
+      animation: hero-button-decore $anim-timming 0.1s both;
 
       @include on-tablet{
         width: 70px;
       }
+
     }
 
     @include on-tablet{
@@ -124,6 +139,7 @@
 
   &__button-text{
     @include second-text(500, $all-black);
+
     padding-left: 80px ;
 
     @include on-tablet{
@@ -133,27 +149,48 @@
 
   &__decore{
     @include second-text (700, $eye-grey);
+
     position: relative;
-    font-size:14px;
-    width: fit-content;
-    transform: rotate(-90deg);
+
     display: none;
+
+    width: fit-content;
+
+    transform: rotate(-90deg) ;
+
+    font-size:14px;
+    text-decoration: none;
+
+    transition: 0.3s;
+
+    cursor: pointer;
+
     &::before{
-      position: absolute;
       content: '';
-      width: 70px;
-      height: 2px;
-      background-color: $green;
+
+      position: absolute;
       right: 150%;
       bottom: 50%;
+
+      width: 70px;
+      height: 2px;
+
+      background-color: $green;
+
+      transform-origin: right ;
+      animation: hero-decore $anim-timming 0.1s both;
     }
 
     @include on-desktop{
       display: block;
     }
-    // display: none;
+
+    &:hover{
+      color: $all-black;
+    }
   }
 }
+
 // .hero{
 //   @include grid;
 //   grid-template-rows: 1fr, 1fr;

@@ -1,33 +1,58 @@
 .card{
   @include grid;
-  margin-bottom: 60px;
+  background-color: white;
+
+
+  position: relative;
+
+  view-timeline: --card-reveal block; // делаем переменую, она следит за нахождением карточки, Block - отвечает за поиск по вертикали
+
+  animation-name: slideInUp ; // оглашаем анимацию, которую мы создали в отдельтом файле
+  animation-timeline: --card-reveal; // подвязываем время к переменной, которая следить, где по вертикали находится наш блок
+
+  animation-timing-function: ease-out; // плавно анимируем в конце
+  animation-fill-mode: forwards; // зафиксировать анимацию в конечном положение
+
+
+  animation-range: entry 0% cover 50%; //начинается когда карточки не видно (0), заканчивается когда видно на 50%
+
   align-items: center;
+  margin-bottom: 60px;
 
   @include on-tablet{
     margin-bottom: 64px;
   }
+
   @include on-desktop{
     max-width: none;
     margin-bottom: 104px;
   }
 
 
-
   &__img{
-    width: 100%;
-    aspect-ratio: 16/12;
     grid-column: 1/-1;
+    aspect-ratio: 16/13;
+    max-height: 520px;
+    width: 100%;
     margin-bottom: 16px;
+
+
+
+    @include on-tablet{
+      margin-bottom: 40px;
+    }
 
     @include on-s-desktop{
       grid-column: 1 /4;
+      margin-bottom: 0;
     }
 
     @include on-desktop{
-      max-width: 680px;
       grid-column: 1 /8;
       grid-row: 1;
+      max-width: 680px;
     }
+      @include hover(transform, scale(1.05));
   }
 
   &__text{
@@ -44,6 +69,8 @@
       align-self: center;
       height: fit-content;
     }
+
+
   }
 
   &__upper{
@@ -51,8 +78,9 @@
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-    margin-bottom: 10px;
+
     max-width: 260px;
+    margin-bottom: 10px;
 
     @include on-tablet{
       margin-bottom: 30px;
@@ -61,9 +89,10 @@
 
   &__eye-brown{
     @include second-text (500,$eye-grey);
-    text-transform: uppercase;
-    line-height: 100%;
+
     font-size: 16px;
+    line-height: 100%;
+    text-transform: uppercase;
   }
 
   &__data{
@@ -72,19 +101,29 @@
 
   &__title{
     position: relative;
-    @include title-text (400, $all-black);
-    font-size: 28px;
-    margin-bottom: 10px;
     width: fit-content;
+    margin-bottom: 10px;
+    font-size: 28px;
+
+    @include title-text (400, $all-black);
 
     &::after{
-      position: absolute;
       content: '';
-      height: 10px;
-      width: 10px;
-      background-color: $red;
+
+      position: absolute;
       top: 12px;
+
+      width: 10px;
+      height: 10px;
       margin-left: 12px;
+
+      background-color: $red;
+
+      @include on-tablet{
+      width: 15px;
+      height: 15px;
+      margin-left: 20px;
+      }
     }
 
     @include on-tablet{
@@ -95,6 +134,7 @@
 
   &__description{
     @include second-text(300, $desc-grey);
+
     font-size:16px;
   }
 }

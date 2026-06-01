@@ -1,64 +1,74 @@
 .lection{
   position: relative;
+  z-index: 1;
   bottom: 0;
-  z-index: -1;
 
+  justify-self: center;
+
+  aspect-ratio: 16/9;
   width: 100%;
+  max-width: 700px;
   min-height: 210px;
   max-height: 390px;
-  max-width: 700px;
-
   margin-bottom: 180px;
-  background-image: url(/src/images/actual/actual-lection.jpg);
-  aspect-ratio: 16/9;
-  background-repeat: no-repeat;
 
+  background-image: url(/src/images/actual/actual-lection.jpg);
+  background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
-  justify-self: center;
 
   @include on-tablet{
     margin-bottom: 300px;
   }
 
   @include on-desktop{
-     background-attachment: fixed;
     max-width: none;
     max-height: 550px;
     margin-bottom: 400px;
+     background-attachment: fixed;
 
   }
 
 
+
   &__content{
     position: absolute;
-    min-width: 280px;
-    width: 80%;
-    min-height: 140px;
-
-    box-sizing: border-box;
-    padding: 20px 0;
-    background-color: white;
-    border-bottom: 2px solid #1A5A4C40;
     bottom: 0%;
     left: 50%;
     transform: translate(-50%, 50%);
+    z-index: 2;
+
+    box-sizing: border-box;
+    width: 80%;
+    min-width: 280px;
+    min-height: 140px;
+    padding: 20px 0;
+    border-bottom: 2px solid #1A5A4C40;
+
+    background-color: white;
+
+
+
+    cursor: pointer;
 
     @include on-tablet{
+      max-width: 570px;
       padding: 45px 55px;
-      max-width: 570px;
     }
+
     @include on-tablet{
-      padding: 50px 100px;
       max-width: 570px;
+      padding: 50px 100px;
     }
+
+
   }
 
   &__text{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: baseline;
+    justify-content: space-around;
 
     @include on-tablet{
       justify-content: space-between;
@@ -68,13 +78,15 @@
       @include on-desktop{
       max-width:340px;
     }
+
   }
 
   &__eye-brown{
     @include second-text (500,$eye-grey);
-    text-transform: uppercase;
-    line-height: 100%;
+
     font-size: 16px;
+    line-height: 100%;
+    text-transform: uppercase;
 
   }
 
@@ -82,17 +94,32 @@
     @include second-text (700, $green);
   }
 
+  //сделаем тут закрашивание с лева направо текстом
    &__title{
-    @include title-text (400, $all-black);
-    font-size: 28px;
-    text-align: center;
+    @include title-text (400, transparent); // Текст становится прозрачным, делаем текст чеерез фоновое изображение далее
+
+    position: relative;
+    display: inline-block; // делаем инлайн блок, чтобы коррктно расположить градиент на ней
+
+    background-image: linear-gradient(90deg, #1A5A4C 0%, #2e7d6d 15%,#4cb39a 30%, #000 50%);
+    background-size: 200% 100%; // делаем его больше по ширинее фон,
+    background-position: 100% 0; // смещаем фон влево, чтобы исходно был черный цвет
+
+    background-clip: text; // делаем фоновое изображение внутри букв
+    transition: background-position $anim-timming ease;
+
     margin-top: 20px;
+    font-size: 28px;
+    text-decoration: none;
+    text-align: center;
 
     @include on-tablet{
       font-size: 36px;
       text-align: start;
     }
 
-
+    &:hover{
+      background-position: 0 0; // при наведение передвигаем фон вправо, на зеленый
+    }
   }
 }
