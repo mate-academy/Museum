@@ -1,0 +1,109 @@
+.subscription {
+  color: $c-white;
+
+  background-image: url(/src/images/subscription/subscription-bg-img.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include on-tablet {
+    background-image: url(/src/images/subscription/subscription-bg-tablet.png);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-block: 88px;
+
+    text-align: center;
+
+    @include content-padding-inline;
+
+    @include on-tablet {
+      padding-block: 82px;
+    }
+
+    @include on-desktop {
+      padding-block: 163px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: $c-white;
+
+    @include on-tablet {
+      margin-bottom: 16px;
+      text-align: center;
+    }
+  }
+
+  &__text {
+    margin-block: 0 50px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+      line-height: 1;
+    }
+  }
+
+  &__form {
+    display: flex;
+    width: 100%;
+    height: 50px;
+
+    @include on-tablet {
+      gap: 16px;
+      max-width: 460px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+      max-width: 570px;
+    }
+  }
+
+  &__input {
+    flex: 1;
+    padding: 18px 24px;
+    border: none;
+    font-size: 14px;
+
+    &::placeholder {
+      font-family: $f-heading;
+      color: $c-category;
+    }
+
+    &:focus {
+      outline: 2px solid $c-accent;
+      outline-offset: -2px;
+    }
+
+    @include on-desktop {
+      padding: 28px 32px;
+    }
+  }
+
+  &__submit {
+    cursor: pointer;
+
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1;
+    height: 100%;
+    border: none;
+
+    background-color: $c-accent-secondary;
+
+    @include hover(background-color, #c93c1f);
+  }
+}

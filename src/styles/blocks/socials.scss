@@ -1,0 +1,41 @@
+.socials {
+  list-style: none;
+
+  &__link {
+    color: $c-black;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+
+  &__link--facebook {
+    @include hover(color, $c-facebook);
+  }
+
+  &__ig-default {
+    fill: currentColor;
+    transition: opacity 0.3s ease;
+  }
+
+  &__ig-gradient {
+    opacity: 0;
+    fill: url(#ig-grad);
+    transition: opacity 0.3s ease;
+  }
+
+  &__link--instagram {
+    @media (hover: hover) {
+      &:hover {
+        .socials__ig-default {
+          opacity: 0;
+        }
+        .socials__ig-gradient {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.menu {
+  color: $c-white;
+  background-color: $c-accent;
+
+  &__container {
+    @include content-padding-inline;
+
+    position: relative;
+
+    box-sizing: border-box;
+    max-width: $desktop-min-width;
+    margin-block: 27px;
+    margin-inline: auto;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      margin-block: 40px;
+    }
+  }
+
+  &__close {
+    @include menu-toggle-position;
+    @include hover(transform, rotate(90deg));
+
+    top: 0;
+
+    @include on-tablet {
+      top: -1px;
+    }
+  }
+
+  &__close-icon {
+    display: block;
+  }
+
+  &__nav {
+    padding-left: 52px;
+
+    @include on-desktop {
+      padding-left: 126px;
+    }
+  }
+
+  &__divider {
+    margin-block: 24px;
+    background-color: rgba($c-white, 0.5);
+
+    @include on-tablet {
+      align-self: stretch;
+
+      width: 1px;
+      height: auto;
+      margin-block: 0;
+      margin-inline: 38px;
+    }
+
+    @include on-desktop {
+      margin-inline: 102px;
+    }
+  }
+}
