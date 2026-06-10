@@ -1,42 +1,41 @@
-.footer{
+.footer {
   position: relative;
 
-  &__content{
+  &__content {
+    @include grid;
     position: relative;
-    gap: 40px;
+    row-gap: 40px;
     height: fit-content;
     padding: 40px 0 35px;
-
-    @include grid;
   }
 
-  &__icons{
+  &__icons {
     display: flex;
     grid-column: 1/-1;
     flex-direction: row;
     justify-content: space-between;
 
-    @include on-tablet{
+    @include on-tablet {
       grid-column: 1;
       flex-direction: column;
-      max-height: 160px ;
+      max-height: 160px;
     }
   }
 
-  &__logo{
+  &__logo {
     width: fit-content;
     height: fit-content;
-    
-    @include hover (scale, 1.2);
+
+    @include hover(scale, 1.2);
   }
 
-  &__social{
+  &__social {
     display: flex;
     gap: 20px;
     align-items: center;
   }
 
-  &__soc-icon{
+  &__soc-icon {
     display: flex;
     align-items: center;
     align-self: center;
@@ -45,131 +44,206 @@
     width: 24px;
     height: 24px;
 
-    @include hover (scale, 1.2);
+    @include hover(scale, 1.2);
   }
 
-  &__time-of-work{
+  &__time-of-work {
     grid-column: 1;
 
-    @include on-tablet{
+    @include on-tablet {
       grid-column: 2 / 4;
     }
 
-    @include on-desktop{
+    @include on-desktop {
       grid-column: 3 / 5;
     }
   }
 
-  &__title{
+  &__title {
     @include second-text(400, $link-black);
 
     padding-bottom: 20px;
   }
 
-  &__times{
+  &__times {
     list-style: none;
   }
 
-  &__time{
+  &__time {
     @include second-text(600, $link-black);
 
     font-size: 14px;
   }
 
-  &__day{
+  &__day {
     @include second-text(400, $link-black);
   }
 
-  &__weekend{
+  &__weekend {
     @include second-text(400, $link-black);
 
     padding-top: 14px;
-    padding-bottom: 70px;
+    margin-bottom: 30px;
     font-size: 14px;
   }
 
-  &__contacts{
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
     grid-column: 2;
 
-        @include on-tablet{
+    @include on-tablet {
       grid-column: 4 / 6;
     }
 
-    @include on-desktop{
+    @include on-desktop {
       grid-column: 5 / 7;
     }
   }
 
-  &__link{
-    @include second-text(400, $link-black);
-
-    font-size: 14px;
-    text-decoration: none;
+  &__contacts-wrap {
+    max-width: 250px;
   }
 
-  &__button-top{
-    position: absolute;
-    right: 0;
-    bottom: 32%;
+  // ховер с жирностью текста с помощью тени
+  &__link {
+    @include second-text(400, $link-black);
+
+    display: inline-block;
+    font-size: 14px;
+    text-decoration: none;
+    transition: text-shadow $anim-timming;
+
+    &:hover {
+      text-shadow: 0 0 0.5px currentColor; // text-shadow: (сдвиг тени по Х) [сдвиг тени по Y ] [радиус тени] [цвет];
+    }
+  }
+
+  &__button-top {
+    display: inline-block;
+    align-self: end;
+    justify-self: end;
 
     width: 50px;
     height: 50px;
     border: 1px solid $green;
     border-radius: 50%;
-
     background-image: url(/src/images/icons/arrow-up.svg);
     background-repeat: no-repeat;
     background-position: center;
 
-    @include on-tablet{
+    @include on-tablet {
       display: none;
     }
   }
 
-  &__nav{
-    display: grid;
+  &__divieder {
+    display: block;
+    align-self: start;
+    height: 1px;
+    width: 100%;
+    background-color: $green;
+    opacity: 0.5;
     grid-column: 1/-1;
+
+    @include on-tablet {
+      justify-self: center;
+      width: 67%;
+    }
+
+    @include on-desktop {
+      height: 260px;
+      width: 1px;
+      display: block;
+      grid-column: 7;
+      justify-self: center;
+    }
+  }
+
+  &__nav {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-column: 1/-1;
     gap: 20px;
 
-      @include on-tablet{
+    width: 60%;
+
+    @include on-tablet {
       grid-column: 2 / 6;
       height: fit-content;
     }
 
-    @include on-desktop{
+    @include on-desktop {
       grid-column: 8/ 11;
     }
   }
 
-  &__nav-link{
-    @include second-text (400, $link-black);
+  // делаем аимацию подчркивания через псевдоэлемент
+  &__nav-link {
+    @include second-text(400, $link-black);
 
-    width: 60%;
+    position: relative;
+
+    width: fit-content;
     height: fit-content;
+
     font-size: 14px;
     text-decoration: none;
-  }
 
-  &__creatures{
-    display: flex;
-    grid-column: 1/-1;
-    text-align: center;
+    &::after {
+      content: '';
 
-    @include on-tablet{
-      flex-direction: row-reverse;
-      justify-content: space-between
+      position: absolute; // позиционируем єлемент
+      bottom: -4px; // располагаем ниже
+      transform-origin: left; // задаем отправную точку анимации
+      transform: scaleX(0); // скриваем его, уменьшаем масштаб до 0
+
+      display: block;
+
+      width: 100%; // делаем ширину на весь род єлемент, и высоту в 1 пиксель
+      height: 1px;
+
+      background-color: $all-black; // красим в черный
+
+      transition: transform $anim-timming; // задаем время анимации
+    }
+
+    &:hover::after {
+      transform: scaleX(1); // при наведение - рисуем
     }
   }
 
-  &__creatures-text{
+  &__creatures {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1/-1;
+    text-align: center;
+
+    @include on-tablet {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  &__creatures-text {
     @include second-text(300, $link-black);
+
+    display: inline-block;
 
     padding-bottom: 10px;
     text-decoration: none;
+    transition: text-shadow, $anim-timming;
+    grid-column: 1/-1;
 
-    @include on-tablet{
+    @include on-tablet {
       padding-bottom: 0;
+    }
+
+    &:hover {
+      text-shadow: 0 0 0.5px currentColor; // text-shadow: (сдвиг тени по Х) [сдвиг тени по Y ] [радиус тени] [цвет];
     }
   }
 }

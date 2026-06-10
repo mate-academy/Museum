@@ -3,9 +3,10 @@
 @import 'utils/vars';
 @import 'typography';
 @import 'animation';
+@import 'mobile-swiper';
 @import 'header';
+@import 'burger-menu';
 @import 'hero';
-@import 'museum';
 @import 'actual';
 @import 'card';
 @import 'lection';
@@ -13,23 +14,29 @@
 @import 'subscribe';
 @import 'footer';
 
-html{
+html {
   scroll-behavior: smooth;
+
+  &:has(.burger-menu:target) {
+    overflow: hidden;
+  }
 }
 
-h1, h2, h3, p, ul{
+h1,
+h2,
+h3,
+p,
+ul {
   margin: 0;
   padding: 0;
 }
 
-main{
+main {
   position: relative;
   z-index: 1;
-
 }
 
 body {
-
   margin: 0;
   background: white;
 }
@@ -40,16 +47,20 @@ body {
   padding-inline: 20px;
 
   @include on-tablet {
-    padding-inline: 39px;
+    padding-inline: 35px;
   }
 
   @include on-desktop {
     max-width: 1280px;
     padding-inline: 55px;
-
   }
 
+  &--swiper {
+    padding-inline: 0;
 
+    @include on-desktop {
+      max-width: 1280px;
+      padding-inline: 55px;
+    }
+  }
 }
-
-

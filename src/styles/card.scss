@@ -1,79 +1,74 @@
-.card{
+.card {
   @include grid;
-  background-color: white;
-
 
   position: relative;
 
-  view-timeline: --card-reveal block; // делаем переменую, она следит за нахождением карточки, Block - отвечает за поиск по вертикали
-
-  animation-name: slideInUp ; // оглашаем анимацию, которую мы создали в отдельтом файле
-  animation-timeline: --card-reveal; // подвязываем время к переменной, которая следить, где по вертикали находится наш блок
-
-  animation-timing-function: ease-out; // плавно анимируем в конце
-  animation-fill-mode: forwards; // зафиксировать анимацию в конечном положение
-
-
-  animation-range: entry 0% cover 50%; //начинается когда карточки не видно (0), заканчивается когда видно на 50%
-
   align-items: center;
+
   margin-bottom: 60px;
 
-  @include on-tablet{
+  background-color: white;
+
+  animation-name: slide-in-up; // оглашаем анимацию, которую мы создали в отдельтом файле
+  animation-timing-function: ease-out; // плавно анимируем в конце
+  animation-fill-mode: forwards; // зафиксировать анимацию в конечном положение
+  animation-timeline: --card-reveal; // подвязываем время к переменной, которая следить, где по вертикали находится наш блок
+  view-timeline: --card-reveal block; // делаем переменую, она следит за нахождением карточки, Block - отвечает за поиск по вертикали
+
+  animation-range: entry 0% cover 50%; // начинается когда карточки не видно (0), заканчивается когда видно на 50%
+
+  @include on-tablet {
     margin-bottom: 64px;
   }
 
-  @include on-desktop{
+  @include on-desktop {
     max-width: none;
     margin-bottom: 104px;
   }
 
-
-  &__img{
+  &__img {
     grid-column: 1/-1;
+
     aspect-ratio: 16/13;
-    max-height: 520px;
     width: 100%;
+    max-height: 520px;
     margin-bottom: 16px;
 
-
-
-    @include on-tablet{
+    @include on-tablet {
       margin-bottom: 40px;
     }
 
-    @include on-s-desktop{
+    @include on-s-desktop {
       grid-column: 1 /4;
       margin-bottom: 0;
     }
 
-    @include on-desktop{
+    @include on-desktop {
       grid-column: 1 /8;
       grid-row: 1;
       max-width: 680px;
     }
-      @include hover(transform, scale(1.05));
+
+    @include hover(transform, scale(1.05));
   }
 
-  &__text{
+  &__text {
     grid-column: 1/-1;
     max-width: 460px;
 
-        @include on-s-desktop{
+    @include on-s-desktop {
       grid-column: 4 /-1;
     }
 
-      @include on-desktop{
+    @include on-desktop {
       grid-column: 9 /-1;
       grid-row: 1;
       align-self: center;
       height: fit-content;
     }
-
-
   }
 
-  &__upper{
+  &__upper {
     display: flex;
     flex-direction: row;
     align-items: baseline;
@@ -82,32 +77,35 @@
     max-width: 260px;
     margin-bottom: 10px;
 
-    @include on-tablet{
+    @include on-tablet {
       margin-bottom: 30px;
     }
   }
 
-  &__eye-brown{
-    @include second-text (500,$eye-grey);
+  &__eye-brown {
+    @include second-text(500, $eye-grey);
 
     font-size: 16px;
     line-height: 100%;
     text-transform: uppercase;
   }
 
-  &__data{
-    @include second-text (700, $green);
+  &__data {
+    @include second-text(700, $green);
   }
 
-  &__title{
+  &__title {
+    display: inline-block;
     position: relative;
     width: fit-content;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
     font-size: 28px;
+    text-decoration: none;
+    cursor: pointer;
 
-    @include title-text (400, $all-black);
+    @include title-text(400, transparent);
 
-    &::after{
+    &::after {
       content: '';
 
       position: absolute;
@@ -118,23 +116,46 @@
       margin-left: 12px;
 
       background-color: $red;
+      transition: all $anim-timming;
 
-      @include on-tablet{
-      width: 15px;
-      height: 15px;
-      margin-left: 20px;
+      @include on-tablet {
+        width: 15px;
+        height: 15px;
+        margin-left: 20px;
       }
     }
 
-    @include on-tablet{
+    @include on-tablet {
       margin-bottom: 15px;
       font-size: 36px;
     }
+
+    background-image: linear-gradient(
+      90deg,
+      #1a5a4c 0%,
+      #2e7d6d 15%,
+      #4cb39a 30%,
+      #000 55%
+    );
+    background-position: 100% 0; // смещаем фон влево, чтобы исходно был черный цвет
+    background-clip: text; // делаем фоновое изображение внутри букв
+    background-size: 200% 100%; // делаем его больше по ширинее фон,
+
+    transition: background-position $anim-timming ease;
+
+    &:hover {
+      background-position: 0 0;
+    }
+
+    &:hover::after {
+      transform: rotate(90deg);
+      background-color: $green;
+    }
   }
 
-  &__description{
+  &__description {
     @include second-text(300, $desc-grey);
 
-    font-size:16px;
+    font-size: 16px;
   }
 }

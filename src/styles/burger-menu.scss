@@ -1,0 +1,161 @@
+.burger-menu {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba($color: $all-black, $alpha: 0.5);
+
+  transition: all $anim-timming;
+  opacity: 0;
+  z-index: 0;
+
+  // при нажатие на кнопку отображаем родительский элемент
+  &:target {
+    opacity: 1;
+    z-index: 100;
+
+    // возвращаем верхушку хэдэра на исходную
+    .burger-menu__top {
+      transform: translateY(0);
+    }
+  }
+
+  // прячем изначально верхушку и задаем время анимации отдельно, т.к. оно не наследуется((
+  &__top {
+    transition: all $anim-timming;
+    transform: translateY(-150%);
+    background-color: $green;
+    min-height: 225px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: 27px 0;
+    box-sizing: border-box;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 38px;
+    }
+
+    @include on-s-desktop {
+      gap: 72px;
+    }
+
+    @include on-desktop {
+      gap: 102px;
+    }
+  }
+
+  &__content-top {
+    display: flex;
+    justify-content: start;
+
+    padding-bottom: 24px;
+
+    @include on-tablet {
+      justify-content: space-between;
+    }
+
+    @include on-desktop {
+    }
+  }
+
+  &__divieder {
+    display: none;
+    align-self: start;
+    height: 145px;
+    width: 1px;
+    background-color: #fff;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__content-bottom {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+    border-top: 1px solid #fff;
+
+    @include on-tablet {
+      // max-height: 140px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      border-top: none;
+      // border-left: 1px solid #fff;
+      padding: 0;
+      gap: 26px;
+    }
+
+    @include on-desktop {
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 28px;
+    row-gap: 24px;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 24px;
+  }
+
+  &__link {
+    @include second-text(500, #fff);
+    font-size: 16px;
+    text-decoration: none;
+    max-width: 100px;
+    height: fit-content;
+  }
+
+  &__sub-title {
+    @include second-text(400, #fff);
+    font-size: 14px;
+    width: fit-content;
+    padding-bottom: 20px;
+  }
+
+  &__time-of-work {
+    width: fit-content;
+  }
+
+  &__times {
+    list-style: none;
+    width: 158px;
+    padding-bottom: 16px;
+
+    @include on-tablet {
+      padding: 0;
+    }
+  }
+
+  &__time {
+    @include second-text(600, #fff);
+    font-size: 14px;
+    width: fit-content;
+  }
+
+  &__day {
+    @include second-text(400, #fff);
+    font-size: 14px;
+    width: fit-content;
+
+    @include on-tablet {
+      align-self: end;
+      max-width: 144px;
+    }
+  }
+}

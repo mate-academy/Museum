@@ -1,83 +1,103 @@
-@keyframes reveal-image { // анимация появлния-блюра
+@keyframes reveal-image {
+  // анимация появлния-блюра
   0% {
-    opacity: 0.3;               // Полная прозрачность
-    filter: blur(20px);      // Сильное размытие в начале
+    opacity: 0.3; // Полная прозрачность
+    filter: blur(20px); // Сильное размытие в начале
   }
   100% {
-    opacity: 1;               // Полная видимость
-    filter: blur(0);          // Четкое изображение
+    opacity: 1; // Полная видимость
+    filter: blur(0); // Четкое изображение
+  }
+}
+
+// отдельная анимация шапки хээдэра
+@keyframes header-slide {
+  from {
+    transform: translateY(-150%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-title {
+  from {
+    transform: var(--move-from);
+  }
+
+  to {
+    transform: translate(0, 0);
   }
 }
 
 // плавная анимация кнопки
-@keyframes hero-button{
-  from{
-    clip-path: inset(0 100% 0 -300%); // 100%  - полностью скрыта кнопка начиная с левой части, -300% - зазор чтобы был виден зеленый элемент
+@keyframes hero-button {
+  from {
+    clip-path: inset(
+      0 100% 0 -300%
+    ); // 100%  - полностью скрыта кнопка начиная с левой части, -300% - зазор чтобы был виден зеленый элемент
   }
 
-  to{
+  to {
     clip-path: inset(0 0 0 -300%);
   }
 }
 
 // анимация проезда зеленого элемента кнопки
-@keyframes hero-button-decore{
-  from{
+@keyframes hero-button-decore {
+  from {
     transform: translateX(-400%);
     opacity: 1;
   }
 
-  to{
+  to {
     transform: translateX(0);
   }
 }
 // для декора на hero
-@keyframes hero-decore{
-  from {
-    transform: scaleX(0);
-  }
+// @keyframes hero-decore{
+//   from {
+//     transform: scaleX(0);
+//   }
 
-  to{
-    transform:  scaleX(1);
-  }
-}
-
+//   to{
+//     transform:  scaleX(1);
+//   }
+// }
 
 // анимация поялвения карточки при скроле
-@keyframes slideInUp {
+@keyframes slide-in-up {
   from {
-    opacity: 0;
     transform: translateY(200px); /* Стартуем ниже на 200px */
+    opacity: 0;
   }
   to {
+    transform: translateY(0); /* Приезжаем в обычную позицию */
     opacity: 1;
-    transform: translateY(0);    /* Приезжаем в обычную позицию */
   }
 }
-
 
 // анимация поднятия абсолютной карточки
-@keyframes slideInUp-center {
+@keyframes slide-in-up-center {
   from {
+    transform: translate(-50%, 100%);
     opacity: 0;
-    transform: translate(-50% , 100%);
   }
   to {
-    opacity: 1;
     transform: translate(-50%, 50%);
+    opacity: 1;
   }
 }
 
-@keyframes slideDown{
-  from{
-
-    filter: blur(20px);
+@keyframes slide-down {
+  from {
     transform: translateY(-100px);
+    filter: blur(20px);
   }
 
-  to{
-
-    filter: blur(0);
+  to {
     transform: translateY(0);
+    filter: blur(0);
   }
 }

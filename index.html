@@ -3,18 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
+    <link rel="icon" href="/src/images/icons/na-mu-logo.svg">
+    <title>Museum NaMu</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="src/styles/main.scss" />
+
   </head>
   <body>
 
     <header class="header">
       <div class="container">
         <div class="header__content">
-          <a href="#" class="header__button">
+          <a href="#burger-menu" class="header__button">
             <img src="/src/images/icons/burger-menu.svg"
             alt="burger-menu"
             class="header__burger">
@@ -29,11 +35,53 @@
       </div>
     </header>
 
+    <aside class="burger-menu" id="burger-menu">
+      <div class="burger-menu__top">
+        <div class="container">
+          <div class="burger-menu__content">
+            <div class="burger-menu__content-top">
+              <a href="#" class="burger-menu__button">
+                <img src="/src/images/icons/close-icon.svg"
+                alt="close-icon"
+                class="burger-menu__close"
+                >
+              </a>
+              <div class="burger-menu__nav">
+                <a href="#gallery" class="burger-menu__link">Галерея</a>
+                <a href="#subscribe" class="burger-menu__link">Про Нас</a>
+                <a href="#actual" class="burger-menu__link">Виставки та події</a>
+                <a href="#contacts" class="burger-menu__link">Контакти</a>
+              </div>
+            </div>
+            <div class="burger-menu__divieder"></div>
+            <div class="burger-menu__content-bottom">
+              <div class="burger-menu__time-of-work">
+                <p class="burger-menu__sub-title">Графік роботи</p>
+                <ul class="burger-menu__times">
+                  <li class="burger-menu__time">12:00 — 20:00 <span class="burger-menu__day">середа</span></li>
+                  <li class="burger-menu__time">12:00 — 20:00 <span class="burger-menu__day">четвер</span></li>
+                  <li class="burger-menu__time">12:00 — 20:00 <span class="burger-menu__day">п’ятниця</span></li>
+                  <li class="burger-menu__time">11:00 — 19:00 <span class="burger-menu__day">субота</span></li>
+                  <li class="burger-menu__time">11:00 — 19:00 <span class="burger-menu__day">неділя</span></li>
+                </ul>
+              </div>
+              <p class="burger-menu__day">
+                <span class="burger-menu__time">Вихідні:</span>
+              понеділок, вівторок <br>
+              Каса припиняє роботу за 1 годину<br>
+              до закриття музею
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
     <main class="main">
       <div class="hero">
         <div class="hero__left">
           <h1 class="hero__title">ХУДОЖНІЙ МУЗЕЙ</h1>
-          <a href="#" class="hero__button">
+          <a href="#actual" class="hero__button">
             <p class="hero__button-text">КВИТКИ</p>
           </a>
           <a href="#lection" class="hero__decore">події</a>
@@ -41,7 +89,7 @@
         <div class="hero__right"></div>
       </div>
 
-      <section class="actual">
+      <section class="actual" id="actual">
         <div class="container">
           <div class="actual__content">
             <h2 class="actual__main-title">Актуальні події</h2>
@@ -55,7 +103,7 @@
                   <p class="card__eye-brown">Виставка</p>
                   <p class="card__data">26.08-29.11.2019</p>
                 </div>
-                <h3 class="card__title">Іду і повертаюсь</h3>
+                <a href="#" class="card__title">Іду і повертаюсь</a>
                 <p class="card__description">
                   Національний Художній Музей України презентує унікальну частину колекції Градобанку - українське мистецтво другої половини 1980-1995 років.
                 </p>
@@ -72,7 +120,7 @@
                   <p class="card__eye-brown">Виставка</p>
                   <p class="card__data">26.08-29.11.2019</p>
                 </div>
-                <h3 class="card__title">І спогади і мрії</h3>
+                <a href="#" class="card__title">І спогади і мрії</a>
                 <p class="card__description">
                   Національний художній музей України до 100 річчя від дня народження видатної української художниці Тетяни Яблонської відкриває ретроспективну ювілейну виставку «І спогади і мрії».
                 </p>
@@ -94,102 +142,96 @@
         </div>
       </section>
 
-      <section class="gallery">
-        <div class="container">
-          <div class="gallery__content">
+      <section class="gallery" id="gallery">
+        <div class="container container--swiper">
+          <div class="gallery__content ">
             <h2 class="gallery__title">Галерея</h2>
-            <div class="gallery__slider">
+            <div class="gallery__slider swiper"> <!-- Делаем доп класс swiper для слайдера на мобильных-->
+              <div class="gallery__wrapper swiper-wrapper">
+                <div class="gallery__item gallery__item--1 swiper-slide">
+                  <img src="/src/images/gallery/gallery-1.jpg"
+                  alt="gallery-1"
+                  class="gallery__slides gallery__slides--1"
+                  >
+                  <div class="gallery__background">
+                    <h3 class="gallery__sub-title">
+                      Святкове вбрання
+                    </h3>
+                    <p class="gallery__sub-description">
+                      Марко Вишневецкий
+                    </p>
+                  </div>
 
-              <div class="gallery__item gallery__item--1">
-                <img src="/src/images/gallery/gallery-1.jpg"
-                alt="gallery-1"
-                class="gallery__slides gallery__slides--1"
-                >
-                <div class="gallery__background">
-                  <h3 class="gallery__sub-title">
-                    Святкове вбрання
-                  </h3>
-                  <p class="gallery__sub-description">
-                    Марко Вишневецкий
-                  </p>
                 </div>
 
-              </div>
+                <div class="gallery__item gallery__item--2 swiper-slide">
+                  <img src="/src/images/gallery/gallery-2.jpg"
+                  alt="gallery-2"
+                  class="gallery__slides gallery__slides--2"
+                  >
+                  <div class="gallery__background">
+                    <h3 class="gallery__sub-title">
+                      Ранок на ганку
+                    </h3>
+                    <p class="gallery__sub-description">
+                      Левко Громовик
+                    </p>
+                  </div>
 
-              <div class="gallery__item gallery__item--2">
-                <img src="/src/images/gallery/gallery-2.jpg"
-                alt="gallery-2"
-                class="gallery__slides gallery__slides--2"
-                >
-                <div class="gallery__background">
-                  <h3 class="gallery__sub-title">
-                  </h3>
-                  <p class="gallery__sub-description">
-                  </p>
                 </div>
 
-              </div>
+                <div class="gallery__item gallery__item--3 swiper-slide">
+                  <img src="/src/images/gallery/gallery-3.jpg"
+                  alt="gallery-3"
+                  class="gallery__slides gallery__slides--3"
+                  >
+                  <div class="gallery__background">
+                    <h3 class="gallery__sub-title">
+                      Лютнева дорога
+                    </h3>
+                    <p class="gallery__sub-description">
+                      Тадеуш Новак
+                    </p>
+                  </div>
 
-              <div class="gallery__item gallery__item--3">
-                <img src="/src/images/gallery/gallery-3.jpg"
-                alt="gallery-3"
-                class="gallery__slides gallery__slides--3"
-                >
-                <div class="gallery__background">
-                  <h3 class="gallery__sub-title">
-                    Лютнева дорога
-                  </h3>
-                  <p class="gallery__sub-description">
-                    Тадеуш Новак
-                  </p>
                 </div>
 
-              </div>
+                <div class="gallery__item gallery__item--4 swiper-slide">
+                  <img src="/src/images/gallery/gallery-4.jpg"
+                  alt="gallery-4"
+                  class="gallery__slides gallery__slides--4"
+                  >
+                  <div class="gallery__background">
+                    <h3 class="gallery__sub-title">
+                      Тінь платанів
+                    </h3>
+                    <p class="gallery__sub-description">
+                      Еліза Монтеро
+                    </p>
+                  </div>
 
-              <div class="gallery__item gallery__item--4">
-                <img src="/src/images/gallery/gallery-4.jpg"
-                alt="gallery-4"
-                class="gallery__slides gallery__slides--4"
-                >
-                <div class="gallery__background">
-                  <h3 class="gallery__sub-title">
-                    Тінь платанів
-                  </h3>
-                  <p class="gallery__sub-description">
-                    Еліза Монтеро
-                  </p>
                 </div>
-
-              </div>
-
-              <div class="gallery__item gallery__item--5">
-                <img src="/src/images/gallery/gallery-5.jpg"
-                alt="gallery-5"
-                class="gallery__slides gallery__slides--5"
-                >
-                <div class="gallery__background">
-                  <h3 class="gallery__sub-title">
-                    Захід сонця над теплим морем
-                  </h3>
-                  <p class="gallery__sub-description">
-                    Луі Верден
-                  </p>
+                <div class="gallery__item gallery__item--5 swiper-slide">
+                  <img src="/src/images/gallery/gallery-5.jpg"
+                  alt="gallery-5"
+                  class="gallery__slides gallery__slides--5"
+                  >
+                  <div class="gallery__background">
+                    <h3 class="gallery__sub-title">
+                      Захід сонця над теплим морем
+                    </h3>
+                    <p class="gallery__sub-description">
+                      Луі Верден
+                    </p>
+                  </div>
                 </div>
-
               </div>
-
-
-              <div class="gallery__pagination">
-                <div class="gallery__pagination-bullet"></div>
-                <div class="gallery__pagination-bullet"></div>
-                <div class="gallery__pagination-bullet"></div>
-                <div class="gallery__pagination-bullet"></div>
-              </div>
+              <div class=" gallery__pagination swiper-pagination"></div> <!-- привязываем нашу пагинацию к контейнеру -->
             </div>
           </div>
         </div>
       </section>
-      <section class="subscribe">
+      <section class="subscribe" id="subscribe">
         <div class="container">
           <div class="subscribe__content">
             <h2 class="subscribe__title">Підписка</h2>
@@ -197,18 +239,19 @@
               Бути в курсі всіх актуальних подій та останніх новин.
             </p>
 
-            <div class="subscribe__input">
+            <form class="subscribe__input" onsubmit="this.reset(); location.reload(); return false;">
+
               <input type="email"
               class="subscribe__field"
               placeholder="E-mail"
               >
               <button class="subscribe__button"></button>
-            </div>
+            </form>
           </div>
         </div>
       </section>
     </main>
-    <footer class="footer">
+    <footer class="footer" id="contacts">
       <div class="container">
         <div class="footer__content">
           <div class="footer__icons">
@@ -219,13 +262,17 @@
                >
             </a>
             <div class="footer__social">
-              <a href="#" class="footer__soc-icon">
+              <a href="https://www.facebook.com/namu.museum/"
+              target="_blank"
+              class="footer__soc-icon">
                 <img src="/src/images/icons/Facebook.svg"
                 alt="Facebook-icon"
                 class="footer__img"
                 >
               </a>
-              <a href="#" class="footer__soc-icon">
+              <a href="https://www.instagram.com/namu.museum/"
+                target="_blank"
+               class="footer__soc-icon">
                 <img src="/src/images/icons/instagram.svg"
                 alt="instagram-icon"
                 class="footer__img">
@@ -242,24 +289,32 @@
               <li class="footer__time">11:00 — 19:00 <span class="footer__day">неділя</span></li>
             </ul>
             <p class="footer__weekend">
-              Вихідні понеділок, вівторок
-              Каса припиняє роботу за 1 годину
+              Вихідні понеділок, вівторок <br>
+              Каса припиняє роботу за 1 годину<br>
               до закриття музею
             </p>
           </div>
           <div class="footer__contacts">
-            <p class="footer__title">Контакти:</p>
-            <a href="#" class="footer__link">вул. М. Грушевського, 6; Київ, 01001</a><br>
-            <a href="#" class="footer__link">тел. +38 (044) 278-13-57</a><br>
-            <a href="#" class="footer__link">факс +38 (044) 278-74-54</a>
-            <a href="#" class="footer__link">e-mail: info@namu.kiev.ua</a>
+            <div class="footer__contacts-wrap">
+              <p class="footer__title">Контакти:</p>
+              <a href="https://maps.app.goo.gl/d3ueQGD7YwVbGfHw9"
+              class="footer__link"
+              target="_blank">
+              вул. М. Грушевського, 6; Київ, 01001
+              </a>
+
+              <a href="tel:+380442781357" class="footer__link">тел. +38 (044) 278-13-57</a>
+              <a href="tel:+380442787454" class="footer__link">факс +38 (044) 278-74-54</a>
+              <a href="mailto:info@namu.kiev.ua" class="footer__link">e-mail: info@namu.kiev.ua</a>
+            </div>
             <a href="#" class="footer__button-top"></a>
           </div>
+          <div class="footer__divieder"></div>
           <div class="footer__nav">
-            <a href="#" class="footer__nav-link">Галерея</a>
-            <a href="#" class="footer__nav-link">Про Нас</a>
-            <a href="#" class="footer__nav-link">Виставки та події</a>
-            <a href="#" class="footer__nav-link">Контакти</a>
+            <a href="#gallery" class="footer__nav-link">Галерея</a>
+            <a href="#subscribe" class="footer__nav-link">Про Нас</a>
+            <a href="#actual" class="footer__nav-link">Виставки та події</a>
+            <a href="#contacts" class="footer__nav-link">Контакти</a>
           </div>
           <div class="footer__creatures">
             <a href="https://www.behance.net/zhyriadatmar"
@@ -268,7 +323,7 @@
             Designed by Zhyriada Marina
             </a>
 
-            <p href="#"
+            <p
              class="footer__creatures-text">
              Copyright © 2019. All Rights Reserved.
             </p>
@@ -277,6 +332,7 @@
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="src/scripts/main.js"></script>
   </body>
 </html>
