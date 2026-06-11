@@ -3,6 +3,7 @@
 
   &__content {
     @include grid;
+
     position: relative;
     row-gap: 40px;
     height: fit-content;
@@ -82,18 +83,18 @@
   &__weekend {
     @include second-text(400, $link-black);
 
-    padding-top: 14px;
     margin-bottom: 30px;
+    padding-top: 14px;
     font-size: 14px;
   }
 
   &__contacts {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     position: relative;
 
+    display: flex;
     grid-column: 2;
+    flex-direction: column;
+    justify-content: space-between;
 
     @include on-tablet {
       grid-column: 4 / 6;
@@ -124,13 +125,13 @@
 
   &__button-top {
     display: inline-block;
-    align-self: end;
-    justify-self: end;
+    place-self: end end;
 
     width: 50px;
     height: 50px;
     border: 1px solid $green;
     border-radius: 50%;
+
     background-image: url(/src/images/icons/arrow-up.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -142,12 +143,14 @@
 
   &__divieder {
     display: block;
-    align-self: start;
-    height: 1px;
-    width: 100%;
-    background-color: $green;
-    opacity: 0.5;
     grid-column: 1/-1;
+    align-self: start;
+
+    width: 100%;
+    height: 1px;
+
+    opacity: 0.5;
+    background-color: $green;
 
     @include on-tablet {
       justify-self: center;
@@ -155,18 +158,19 @@
     }
 
     @include on-desktop {
-      height: 260px;
-      width: 1px;
       display: block;
       grid-column: 7;
       justify-self: center;
+
+      width: 1px;
+      height: 260px;
     }
   }
 
   &__nav {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     grid-column: 1/-1;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 
     width: 60%;
@@ -218,8 +222,8 @@
 
   &__creatures {
     display: flex;
-    flex-direction: column;
     grid-column: 1/-1;
+    flex-direction: column;
     text-align: center;
 
     @include on-tablet {
@@ -232,11 +236,13 @@
     @include second-text(300, $link-black);
 
     display: inline-block;
+    grid-column: 1/-1;
 
     padding-bottom: 10px;
+
     text-decoration: none;
+
     transition: text-shadow, $anim-timming;
-    grid-column: 1/-1;
 
     @include on-tablet {
       padding-bottom: 0;

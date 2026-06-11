@@ -26,13 +26,13 @@
     margin-bottom: 104px;
   }
 
-  &__img {
+  &__border-img {
     grid-column: 1/-1;
 
     aspect-ratio: 16/13;
-    width: 100%;
-    max-height: 520px;
     margin-bottom: 16px;
+
+    overflow: hidden;
 
     @include on-tablet {
       margin-bottom: 40px;
@@ -50,6 +50,12 @@
     }
 
     @include hover(transform, scale(1.05));
+  }
+
+  &__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   &__text {
@@ -95,40 +101,17 @@
   }
 
   &__title {
-    display: inline-block;
-    position: relative;
-    width: fit-content;
-    padding-bottom: 10px;
-    font-size: 28px;
-    text-decoration: none;
     cursor: pointer;
 
-    @include title-text(400, transparent);
+    position: relative;
 
-    &::after {
-      content: '';
+    display: inline-block;
 
-      position: absolute;
-      top: 12px;
+    width: fit-content;
+    padding-bottom: 10px;
 
-      width: 10px;
-      height: 10px;
-      margin-left: 12px;
-
-      background-color: $red;
-      transition: all $anim-timming;
-
-      @include on-tablet {
-        width: 15px;
-        height: 15px;
-        margin-left: 20px;
-      }
-    }
-
-    @include on-tablet {
-      margin-bottom: 15px;
-      font-size: 36px;
-    }
+    font-size: 28px;
+    text-decoration: none;
 
     background-image: linear-gradient(
       90deg,
@@ -143,6 +126,27 @@
 
     transition: background-position $anim-timming ease;
 
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 12px;
+
+      width: 10px;
+      height: 10px;
+      margin-left: 12px;
+
+      background-color: $red;
+
+      transition: all $anim-timming;
+
+      @include on-tablet {
+        width: 15px;
+        height: 15px;
+        margin-left: 20px;
+      }
+    }
+
     &:hover {
       background-position: 0 0;
     }
@@ -150,6 +154,13 @@
     &:hover::after {
       transform: rotate(90deg);
       background-color: $green;
+    }
+
+    @include title-text(400, transparent);
+
+    @include on-tablet {
+      margin-bottom: 15px;
+      font-size: 36px;
     }
   }
 
