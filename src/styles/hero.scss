@@ -1,0 +1,200 @@
+.hero {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 70px;
+
+  animation: reveal-image $anim-timming ease-out;
+
+  @include on-tablet {
+    flex-direction: row;
+    justify-content: end;
+  }
+
+  &__left {
+    align-self: center;
+    justify-content: center;
+    order: 2;
+
+    @include on-tablet {
+      align-items: start;
+      order: 1;
+      padding: 0 20px 0 34px;
+    }
+
+    @include on-desktop {
+      box-sizing: border-box;
+      max-width: 555px;
+      margin-inline: auto;
+      padding: 0 30px 0 55px;
+    }
+  }
+
+  &__right {
+    z-index: -1;
+
+    order: 1;
+
+    aspect-ratio: 1/0.95;
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+
+    background-image: url(/src/images/hero/hero-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    @include on-tablet {
+      max-width: 725px;
+      max-height: 655px;
+    }
+
+    @include on-desktop {
+      max-height: 655px;
+    }
+  }
+
+  &__title {
+    --move-from: translateY(-50%);
+
+    padding: 20px 0;
+    font-size: 45px;
+    text-align: center;
+    animation: hero-title $anim-timming 0.1s both;
+
+    @include title-text(700, $all-black);
+
+    @include on-tablet {
+      --move-from: translateX(-90%);
+
+      padding: 0 0 38px;
+      font-size: 54px;
+      text-align: start;
+    }
+
+    @include on-desktop {
+      padding: 0 0 90px;
+      font-size: 72px;
+    }
+  }
+
+  &__button {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-self: center;
+
+    box-sizing: border-box;
+    width: 280px;
+    height: 50px;
+    border: 1px solid $green;
+
+    text-decoration: none;
+
+    animation: hero-button $anim-timming 0.1s both;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      box-sizing: border-box;
+      width: 50px;
+      height: 100%;
+
+      background-color: $green;
+      background-image: url(/src/images/icons/arrow-icon.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      transition: $anim-timming;
+      animation: hero-button-decore $anim-timming 0.1s both;
+
+      @include on-tablet {
+        width: 70px;
+      }
+    }
+
+    @include on-tablet {
+      justify-self: start;
+      width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      justify-self: end;
+    }
+
+    &:hover::after {
+      background-color: $green-hover;
+    }
+  }
+
+  &__button-text {
+    @include second-text(500, $all-black);
+
+    padding-left: 80px;
+
+    @include on-tablet {
+      padding-left: 68px;
+    }
+  }
+
+  &__decore {
+    @include second-text(700, $eye-grey);
+
+    cursor: pointer;
+
+    position: relative;
+    transform: rotate(-90deg);
+
+    display: none;
+
+    width: fit-content;
+
+    font-size: 14px;
+    text-decoration: none;
+
+    transition: 0.3s;
+
+    &::before {
+      --scale-x: 1;
+
+      content: '';
+
+      position: absolute;
+      right: 150%;
+      bottom: 50%;
+      transform-origin: right;
+
+      width: 70px;
+      height: 2px;
+
+      background-color: $green;
+
+      transition: transform, 0.3s;
+      animation: hero-decore $anim-timming 0.1s forwards;
+    }
+
+    @include on-desktop {
+      display: block;
+    }
+
+    &:hover {
+      color: $all-black;
+    }
+
+    &:hover::before {
+      transform: scaleX(0);
+    }
+  }
+}

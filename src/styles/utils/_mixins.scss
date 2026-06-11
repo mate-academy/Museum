@@ -1,6 +1,63 @@
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-s-desktop {
+  @media (min-width: $s-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $anim-timming;
   &:hover {
     #{$_property}: $_toValue;
+    cursor: pointer;
   }
+}
+
+@mixin grid {
+  --columns: 2;
+  --columns-width: 130px;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+  margin-inline: auto;
+
+  @include on-tablet {
+    --columns: 6;
+    --columns-width: 90px;
+
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    --columns-width: 70px;
+    --columns: 12;
+  }
+}
+
+@mixin title-text($_style, $_color) {
+  font-family: Montserrat, sans-serif;
+  font-weight: #{$_style};
+  line-height: 100%;
+  color: #{$_color};
+  letter-spacing: 0;
+}
+
+@mixin second-text($_style, $_color) {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: #{$_style};
+  line-height: 150%;
+  color: #{$_color};
+  letter-spacing: 0;
 }

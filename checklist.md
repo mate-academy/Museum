@@ -27,3 +27,24 @@
 7. The button "tickets" should lead to the block with current events
 8. The button "about us" should lead to the email digest
 9. All the social icons in the footer should be clickable and open the social networks in a new tab
+
+
+
+
+Github flow
+Сделать Fork репозитория.
+Клонировать форкнутый репозиторий.
+(Ссылка на проект должна содержать твоё имя, но не mate-academy)
+Выполнить npm install (или просто npm i).
+Выполнить npm start.
+Открыть ещё одно окно терминала для следующих шагов.
+Выполнить git checkout -b develop — чтобы создать новую ветку и переключиться на неё.
+Писать код в папке src.
+Выполнить npm run lint и исправить ошибки стиля кода.
+Выполнить npm run deploy, чтобы задеплоить решение на gh-pages.
+Выполнить git add . && git commit -m 'solution', чтобы сохранить изменения.
+Выполнить git push origin develop, чтобы отправить код для PR.
+Создать Pull Request (PR) из ветки develop в ветку master оригинального репозитория.
+Заменить <your_account> на свой Github username в
+DEMO LINK.
+Скопировать DEMO LINK в описание PR.

@@ -1,0 +1,125 @@
+.lection {
+  position: relative;
+  z-index: 1;
+  bottom: 0;
+
+  justify-self: center;
+
+  aspect-ratio: 16/9;
+  width: 100%;
+  max-width: 700px;
+  min-height: 210px;
+  max-height: 390px;
+  margin-bottom: 180px;
+
+  background-image: url(/src/images/actual/actual-lection.jpg);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+
+  @include on-tablet {
+    margin-bottom: 300px;
+  }
+
+  @include on-desktop {
+    max-width: none;
+    max-height: 550px;
+    margin-bottom: 300px;
+    background-attachment: fixed;
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 2;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+
+    box-sizing: border-box;
+    width: 80%;
+    min-width: 280px;
+    min-height: 140px;
+    padding: 20px 0;
+    border-bottom: 2px solid #1a5a4c40;
+
+    background-color: white;
+
+    @include on-tablet {
+      max-width: 570px;
+      padding: 45px 55px;
+    }
+
+    @include on-tablet {
+      max-width: 570px;
+      padding: 50px 100px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-around;
+
+    @include on-tablet {
+      justify-content: space-between;
+      max-width: 380px;
+    }
+
+    @include on-desktop {
+      max-width: 340px;
+    }
+  }
+
+  &__eye-brown {
+    @include second-text(500, $eye-grey);
+
+    font-size: 16px;
+    line-height: 100%;
+    text-transform: uppercase;
+  }
+
+  &__data {
+    @include second-text(700, $green);
+  }
+
+  // сделаем тут закрашивание с лева направо текстом
+  &__title {
+    @include title-text(
+      400,
+      transparent
+    ); // Текст становится прозрачным, делаем текст чеерез фоновое изображение далее
+
+    position: relative;
+
+    display: inline-block; // делаем инлайн блок, чтобы коррктно расположить градиент на ней
+
+    padding: 20px 0;
+
+    font-size: 28px;
+    text-align: center;
+    text-decoration: none;
+
+    background-image: linear-gradient(
+      90deg,
+      #1a5a4c 0%,
+      #2e7d6d 15%,
+      #4cb39a 30%,
+      #000 55%
+    );
+    background-position: 100% 0; // смещаем фон влево, чтобы исходно был черный цвет
+    background-clip: text; // делаем фоновое изображение внутри букв
+    background-size: 200% 100%; // делаем его больше по ширинее фон,
+
+    transition: background-position $anim-timming ease;
+
+    @include on-tablet {
+      font-size: 36px;
+      text-align: start;
+    }
+
+    &:hover {
+      background-position: 0 0; // при наведение передвигаем фон вправо, на зеленый
+    }
+  }
+}

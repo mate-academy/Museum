@@ -1,7 +1,64 @@
-@import 'utils';
-@import 'fonts';
-@import 'typography';
+
+@import 'utils/mixins';
+@import 'utils/vars';
+@import 'animation';
+@import 'header';
+@import 'burger-menu';
+@import 'hero';
+@import 'actual';
+@import 'card';
+@import 'lection';
+@import 'gallery';
+@import 'subscribe';
+@import 'footer';
+
+html {
+  scroll-behavior: smooth;
+
+  &:has(.burger-menu:target) {
+    overflow: hidden;
+  }
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
 
 body {
-  background: $c-gray;
+  margin: 0;
+  background: white;
+}
+
+.container {
+  box-sizing: border-box;
+  margin-inline: auto;
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 35px;
+  }
+
+  @include on-desktop {
+    max-width: 1280px;
+    padding-inline: 55px;
+  }
+
+  &--swiper {
+    padding-inline: 0;
+
+    @include on-desktop {
+      max-width: 1280px;
+      padding-inline: 55px;
+    }
+  }
 }
