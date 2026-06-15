@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  margin-top: 16px;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(224, 224, 224, 1);
+
+    @include add-transition(background-color);
+
+    &:last-child {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &--active {
+      background-color: $green-accent;
+    }
+  }
+}

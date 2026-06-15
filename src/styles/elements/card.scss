@@ -1,0 +1,119 @@
+.events-section {
+  &__wrapper {
+    display: grid;
+
+    @include page-grid;
+
+    row-gap: 60px;
+  }
+}
+
+.card {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  @include on-tablet {
+    grid-column: 1 / -1;
+  }
+
+  @include on-desktop {
+    display: grid;
+    grid-column: 1 / 13;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+    align-items: center;
+  }
+
+  &__img-wrapper {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+      margin-bottom: 0;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    @include add-transition(transform);
+
+    .card:hover & {
+      transform: scale(1.05);
+    }
+  }
+
+  &__information-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 20px;
+
+      & > * {
+        grid-column: 1 / 5;
+      }
+    }
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 9 / 13;
+      flex-direction: column;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    position: relative;
+
+    display: block;
+
+    width: fit-content;
+    margin-bottom: 10px;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 100%;
+    color: $main-accent;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 2px;
+      right: -20px;
+      transform: translate(50%, 100%);
+
+      width: 10px;
+      height: 10px;
+
+      background-color: rgba(241, 74, 39, 1);
+    }
+  }
+
+  &__description {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    color: rgba(78, 78, 78, 1);
+    letter-spacing: 0;
+  }
+}

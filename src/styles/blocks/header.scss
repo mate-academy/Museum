@@ -1,0 +1,251 @@
+.header {
+  position: relative;
+
+  &__main-container {
+    position: relative;
+    display: grid;
+    align-items: start;
+    padding-inline: 20px;
+
+    @include page-grid;
+
+    @include on-tablet {
+      padding-inline: 34px;
+    }
+
+    @include on-desktop {
+      padding-inline: 55px;
+    }
+  }
+
+  &__subinfo {
+    position: absolute;
+
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    @include on-desktop {
+      top: 80%;
+      left: 55px;
+      display: flex;
+      margin-top: 50px;
+    }
+  }
+
+  &__subtitle {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    color: rgba(104, 116, 128, 1);
+    text-transform: uppercase;
+
+    @include on-desktop {
+      transform: rotate(180deg);
+      writing-mode: vertical-lr;
+    }
+  }
+
+  .subinfo__line {
+    width: 1px;
+    height: 70px;
+    background-color: $green-accent;
+
+    @include on-desktop {
+      transform: none;
+    }
+  }
+
+  &__burger {
+    z-index: 25;
+
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+
+    margin-top: 24px;
+
+    @include on-tablet {
+      margin-top: 39px;
+    }
+  }
+
+  &__logo {
+    z-index: 10;
+
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: center;
+
+    margin: 0;
+
+    a {
+      line-height: 1;
+      color: $main-accent;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+      grid-row: 1;
+      place-self: start center;
+      text-align: center;
+    }
+
+    @include on-desktop {
+      grid-column: 7/9;
+    }
+  }
+
+  &__wrapper {
+    grid-column: 1 / -1;
+    grid-row: 1;
+
+    min-height: 40vh;
+    margin-inline: -20px;
+
+    background-image: url('../images/background.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 1 / 3;
+
+      min-height: 50vh;
+      margin-right: -34px;
+      margin-left: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+      min-height: 70vh;
+      margin-right: -55px;
+      margin-left: 0;
+    }
+  }
+
+  &__info {
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    flex-direction: column;
+    gap: 20px;
+
+    box-sizing: border-box;
+    margin-top: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 2;
+      margin-top: 40px;
+      padding: 0;
+    }
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 1 / 7;
+      grid-row: 2;
+      flex-direction: column;
+      gap: 40px;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      margin-top: 80px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 20px;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1;
+    color: $main-accent;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      text-align: left;
+    }
+
+    @include on-desktop {
+      margin-bottom: 0;
+      font-size: 72px;
+      line-height: 120%;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    display: block;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding-right: 56px;
+    padding-left: 16px;
+    padding-block: 18px;
+    border: 1px solid $green-accent;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    color: $main-accent;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &::after {
+      @include add-transition((background, color));
+
+      content: '>';
+
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 50px;
+      border: 1px solid $green-accent;
+
+      color: #fff;
+
+      background-color: $green-accent;
+    }
+
+    &:hover {
+      color: #fff;
+      background: $green-accent;
+    }
+
+    &:hover::after {
+      color: $green-accent;
+      background: #fff;
+    }
+
+    @include add-transition(background);
+
+    @include on-tablet {
+      width: 270px;
+      padding-right: 64px;
+      padding-left: 24px;
+    }
+
+    @include on-desktop {
+      width: 270px;
+      margin-left: auto;
+    }
+  }
+}
