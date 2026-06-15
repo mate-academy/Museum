@@ -1,4 +1,4 @@
-'use-strict';
+'use strict';
 
 const slider = document.querySelector('.slider');
 const sliderItems = document.querySelectorAll('.slider__item');
@@ -6,21 +6,14 @@ const dots = document.querySelectorAll('.pagination__dot');
 
 slider.addEventListener('scroll', () => {
   if (sliderItems.length < 2) {
-    return false;
+    return;
   }
 
-  const rect1 = sliderItems[1].getBoundingClientRect().left;
-  const rect0 = sliderItems[0].getBoundingClientRect().left;
-  const itemStep = rect1 - rect0;
-
-  const current = slider.scrollLeft + itemStep / 2;
-  const currentIndex = Math.floor(current / itemStep);
+  const itemStep = slider.scrollWidth / sliderItems.length;
+  const currentIndex = Math.round(slider.scrollLeft / itemStep);
+  const safeIndex = Math.max(0, Math.min(currentIndex, dots.length - 1));
 
   dots.forEach((dot, index) => {
-    if (index === currentIndex) {
-      dot.classList.add('pagination__dot--active');
-    } else {
-      dot.classList.remove('pagination__dot--active');
-    }
+    dot.classList.toggle('pagination__dot--active', index === safeIndex);
   });
 });
