@@ -1,0 +1,111 @@
+.subscribe-section {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 386px;
+  margin-top: 100px;
+
+  background-image: url('../images/subscribe-background.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+
+  @include on-tablet {
+    min-height: 380px;
+    margin-top: 92px;
+    background-image: url('../images/subscribe-background-tablet.png');
+  }
+
+  @include on-desktop {
+    min-height: 550px;
+    margin-top: 200px;
+    background-image: url('../images/subscribe-background-desktop.png');
+  }
+}
+
+.subscribe-section .container {
+  @include page-grid;
+
+  width: 100%;
+  padding-block: 88px;
+}
+
+.subscribe {
+  &__form {
+    display: flex;
+    grid-column: 1 / -1;
+    align-items: stretch;
+    justify-self: center;
+
+    width: 100%;
+
+    @include on-tablet {
+      grid-column: 2/6;
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 11;
+      gap: 30px;
+    }
+  }
+
+  &__input {
+    flex-grow: 1;
+  }
+  &__title {
+    grid-column: 1 / -1;
+
+    margin: 0;
+    margin-bottom: 20px;
+
+    color: #fff;
+    text-align: center;
+  }
+  &__subtitle {
+    grid-column: 1 / -1;
+
+    margin-bottom: 50px;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #fff;
+    text-align: center;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    width: 50px;
+    border: 0;
+
+    font-weight: 500;
+    color: #000;
+
+    background-color: rgba(241, 74, 39, 1);
+    outline: 0;
+
+    @include on-tablet {
+      width: 70px;
+    }
+
+    @include add-transition(background-color);
+
+    &:hover {
+      background-color: rgb(215, 64, 34);
+    }
+  }
+}

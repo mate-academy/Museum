@@ -1,0 +1,51 @@
+.gallery-section {
+  margin-top: 160px;
+
+  &__title {
+    padding-bottom: 40px;
+  }
+}
+
+.gallery {
+  &-wrapper {
+    display: none;
+
+    @include on-desktop {
+      overflow: hidden;
+
+      @include page-grid;
+
+      grid-auto-flow: row;
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    overflow: hidden;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      @include add-transition(transform);
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &--small {
+      @include on-desktop {
+        grid-column: span 4;
+        grid-row: span 1;
+      }
+    }
+
+    &--big {
+      @include on-desktop {
+        grid-column: span 8;
+        grid-row: span 1;
+      }
+    }
+  }
+}

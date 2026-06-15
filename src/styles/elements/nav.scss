@@ -1,0 +1,49 @@
+.nav {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px 30px;
+  justify-self: start;
+
+  @include on-desktop {
+    display: grid;
+    grid-column: 2 / 6;
+    grid-row: 1;
+    grid-template-columns: repeat(2, auto);
+    gap: 24px 40px;
+    justify-self: start;
+  }
+
+  &__link {
+    position: relative;
+
+    display: inline-block;
+
+    width: max-content;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: inherit;
+    white-space: wrap;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      transform: scale(0);
+
+      width: 100%;
+      height: 1px;
+
+      background-color: #fff;
+
+      @include add-transition(transform);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
