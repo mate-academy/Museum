@@ -1,0 +1,275 @@
+.exhibition-intro {
+  position: relative;
+  z-index: 5;
+
+  overflow: visible; // Allow card to overlap the bottom border
+
+  width: 100%;
+  height: 550px;
+  margin-bottom: 100px;
+
+  text-align: center;
+
+  background-color: $color-bg;
+
+  &__bg-wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    picture {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__container {
+    @extend %container-style;
+
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+
+    height: 100%;
+  }
+
+  &__card {
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 90%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: calc(100% - 110px);
+    max-width: 570px;
+    min-height: 204px;
+    padding: 40px 60px;
+    border-radius: 0;
+
+    background-color: $color-bg-white;
+    box-shadow: 0 2px 0 0 #1a5a4c40;
+
+    transition: transform $transition-speed;
+
+    &:hover {
+      transform: translate(-50%, 90%) translateY(-2px);
+    }
+
+    @media (min-width: 1280px) {
+      transform: translate(-50%, 90%);
+
+      justify-content: flex-start;
+
+      width: 570px;
+      height: 204px;
+      padding: 45px 100px 50px;
+
+      &:hover {
+        transform: translate(-50%, 90%) translateY(-2px);
+      }
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      width: 570px;
+      height: 204px;
+      padding: 45px 55px;
+
+      &:hover {
+        transform: translate(-50%, 90%) translateY(-2px);
+      }
+    }
+
+    @media (max-width: $tablet) {
+      position: absolute;
+      inset: 90px 20px auto;
+      transform: none;
+
+      width: auto;
+      height: 140px;
+      min-height: auto;
+      padding: 0;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  &__card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    margin-bottom: 12px;
+
+    @media (min-width: 1280px) {
+      align-items: baseline;
+      margin-bottom: 16px;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      position: relative;
+      width: 100%;
+      height: 21px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__card-tag {
+    font-family: $font-body;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #687480;
+    text-transform: uppercase;
+    letter-spacing: 0;
+
+    @media (min-width: 1280px) {
+      width: 70px;
+      height: 14px;
+      font-size: 14px;
+      line-height: 100%;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      position: absolute;
+      top: 4px;
+      left: 0;
+
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    @media (max-width: $tablet) {
+      position: absolute;
+      top: 24px;
+      left: 21px;
+
+      font-size: 16px;
+      line-height: 100%;
+    }
+  }
+
+  &__card-date {
+    font-family: $font-body;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a5a4c;
+
+    @media (min-width: 1280px) {
+      width: 170px;
+      height: 21px;
+      margin-right: 40px;
+
+      font-size: 14px;
+      line-height: 150%;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      position: absolute;
+      top: 0;
+      left: 240px;
+
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: $tablet) {
+      position: absolute;
+      top: 20px;
+      right: 21px;
+
+      font-size: 16px;
+      line-height: 150%;
+    }
+  }
+
+  &__card-title {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #0f0e08;
+    text-transform: none;
+    letter-spacing: 0;
+
+    &::after {
+      display: none;
+    }
+
+    br {
+      display: none;
+
+      @media (max-width: $tablet) {
+        display: inline;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      width: 370px;
+      height: 72px;
+
+      font-size: 36px;
+      line-height: 100%;
+      text-align: left;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      width: 370px;
+      height: 72px;
+      margin-top: 16px;
+
+      font-size: 36px;
+      line-height: 100%;
+      text-align: left;
+    }
+
+    @media (max-width: $tablet) {
+      position: absolute;
+      top: 64px;
+      left: 0;
+
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+      font-size: 24px;
+      line-height: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    height: 380px;
+  }
+
+  @media (max-width: $tablet) {
+    width: 100%;
+    height: 210px;
+    margin-bottom: 70px;
+  }
+}

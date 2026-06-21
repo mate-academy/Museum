@@ -2,6 +2,93 @@
 @import 'fonts';
 @import 'typography';
 
-body {
-  background: $c-gray;
+// Base Resets & Layout
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100%;
+
+  font-family: $font-body;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $color-text;
+
+  background-color: $color-bg;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font: inherit;
+  background: none;
+}
+
+// Common Container class
+%container-style {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 55px;
+
+  @media (max-width: 1024px) {
+    padding: 0 39px;
+  }
+
+  @media (max-width: $tablet) {
+    padding: 0 20px;
+  }
+}
+
+.container-style {
+  @extend %container-style;
+}
+
+// Section styling
+section {
+  padding: 80px 0;
+
+  @media (max-width: $tablet) {
+    padding: 60px 0;
+  }
+}
+
+// Imports of component styles
+@import 'header';
+@import 'hero';
+@import 'events';
+@import 'exhibition-intro';
+@import 'gallery';
+@import 'subscribe';
+@import 'footer';

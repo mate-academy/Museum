@@ -1,0 +1,358 @@
+.subscribe {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 120px 0;
+
+  color: $color-bg;
+
+  background-color: $color-primary;
+
+  &__bg-wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__container {
+    @extend %container-style;
+
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: $tablet) {
+      width: 100%;
+      height: 386px;
+      padding: 0 20px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    max-width: 600px;
+    margin: 0 auto;
+
+    text-align: center;
+
+    @media (min-width: 1280px) {
+      width: 570px;
+      max-width: 570px;
+      height: 224px;
+    }
+
+    @media (max-width: $tablet) {
+      position: relative;
+
+      width: 100%;
+      max-width: 100%;
+      height: 386px;
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    @extend %h2;
+
+    margin-bottom: 0;
+    color: $color-bg;
+    text-transform: none;
+
+    &::after {
+      display: none;
+    }
+
+    @media (min-width: 1280px) {
+      width: 370px;
+      height: 48px;
+      margin: 0 auto;
+
+      font-size: 48px;
+      line-height: 100%;
+      text-align: center;
+      letter-spacing: 0;
+    }
+
+    @media (max-width: $tablet) {
+      position: absolute;
+      top: 88px;
+      left: 0;
+
+      width: 100%;
+      margin: 0;
+
+      font-family: Montserrat, sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 100%;
+      color: #fff;
+      text-align: center;
+    }
+  }
+
+  &__description {
+    margin-bottom: 16px;
+
+    font-family: $font-body;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #fff;
+
+    @media (min-width: 1280px) {
+      width: 570px;
+      height: 18px;
+      margin: 0;
+
+      font-family: $font-body;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 100%;
+      text-align: center;
+      letter-spacing: 0;
+    }
+
+    @media (max-width: $tablet) {
+      position: absolute;
+      top: 144px;
+      right: 0;
+      left: 0;
+
+      width: auto;
+      margin: 0;
+
+      font-family: $font-body;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 150%;
+      color: #fff;
+      text-align: center;
+    }
+  }
+
+  &__form {
+    overflow: hidden;
+    display: flex;
+    gap: 0; // Seamless button connection or tight layout
+
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 0;
+
+    @media (max-width: $tablet) {
+      position: absolute;
+      top: 248px;
+      right: 0;
+      left: 0;
+
+      flex-direction: row; // Keep inline input + button on mobile too as shown in Figma
+
+      width: auto;
+      height: 50px;
+      margin: 0;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      gap: 16px;
+
+      width: 546px;
+      max-width: 546px;
+      height: 70px;
+      margin-top: 56px;
+    }
+
+    @media (min-width: 1280px) {
+      gap: 30px;
+
+      width: 570px;
+      max-width: 570px;
+      height: 70px;
+      margin-top: 56px;
+    }
+  }
+
+  &__input-wrapper {
+    position: relative;
+    flex-grow: 1;
+    text-align: left;
+
+    @media (max-width: $tablet) {
+      height: 100%;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      flex-grow: 0;
+      width: 460px;
+      height: 100%;
+    }
+
+    @media (min-width: 1280px) {
+      flex-grow: 0;
+      width: 470px;
+      height: 100%;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 18px 24px;
+    border: none;
+
+    font-family: $font-body;
+    font-size: 1rem;
+    color: $color-text;
+
+    background-color: $color-bg-white;
+    outline: none;
+
+    &::placeholder {
+      color: rgba($color-text, 0.4);
+    }
+
+    // Custom Webkit Autocomplete Styles
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 100px $color-bg-white inset !important;
+      transition: background-color 5000s ease-in-out 0s;
+
+      -webkit-text-fill-color: $color-text !important;
+    }
+
+    @media (max-width: $tablet) {
+      height: 100%;
+      padding: 0 20px;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      height: 100%;
+    }
+
+    @media (min-width: 1280px) {
+      height: 100%;
+    }
+  }
+
+  &__error-msg {
+    position: absolute;
+    bottom: -24px;
+    left: 4px;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $color-accent;
+
+    opacity: 0;
+
+    transition: opacity $transition-speed;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+
+  &__btn {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 64px;
+    padding: 0;
+    border: none;
+
+    background-color: $color-accent;
+
+    transition: background-color $transition-speed;
+
+    &:hover {
+      background-color: $color-accent-hover;
+    }
+
+    &:active {
+      background-color: $color-accent-active;
+    }
+
+    @media (max-width: $tablet) {
+      width: 50px;
+      height: 100%;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      width: 70px;
+      height: 100%;
+    }
+
+    @media (min-width: 1280px) {
+      width: 70px;
+      height: 100%;
+    }
+  }
+
+  &__btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 10px;
+    height: 10px;
+
+    &::after {
+      content: '';
+
+      transform: rotate(45deg);
+
+      display: block;
+
+      width: 8px;
+      height: 8px;
+      margin-right: 2px;
+      border-top: 2.5px solid $color-bg-white;
+      border-right: 2.5px solid $color-bg-white;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 550px;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (max-width: $tablet) {
+    width: 100%;
+    height: 386px;
+    margin: 0;
+    padding: 0;
+  }
+}

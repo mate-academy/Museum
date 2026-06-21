@@ -1,0 +1,452 @@
+.events {
+  background-color: $color-bg-white;
+
+  &__container {
+    @extend %container-style;
+
+    @media (max-width: 1024px) {
+      padding: 0 34px;
+    }
+  }
+
+  &__section-title {
+    @extend %h2;
+
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    color: #0f0e08;
+    text-transform: none;
+
+    &::after {
+      display: none;
+    }
+
+    @media (min-width: 1025px) {
+      width: 470px;
+      height: 48px;
+      margin-bottom: 56px;
+      margin-left: 0;
+
+      font-size: 48px;
+      line-height: 1;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      width: 460px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: -5px;
+
+      font-size: 48px;
+      line-height: 1;
+    }
+
+    @media (max-width: $tablet) {
+      max-width: 230px;
+      margin: 0 auto 36px;
+
+      font-family: Montserrat, sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      color: #0f0e08;
+      text-align: center;
+    }
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-left: 40px;
+
+    @media (min-width: 1025px) {
+      gap: 104px;
+      margin-left: 0;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      gap: 64px;
+      margin-left: 0;
+    }
+
+    @media (max-width: $tablet) {
+      gap: 48px;
+      align-items: center;
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    padding-top: 0;
+  }
+
+  @media (min-width: 640px) and (max-width: 1024px) {
+    padding-top: 8px;
+  }
+
+  @media (min-width: 1025px) {
+    padding-top: 82px;
+    padding-bottom: 104px;
+  }
+}
+
+.event-card {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  align-items: center;
+
+  width: 100%;
+
+  transition: transform $transition-speed;
+
+  &__image-container {
+    position: relative;
+
+    overflow: hidden;
+    flex: 0 1 670px;
+
+    aspect-ratio: 670 / 520;
+    width: 100%;
+    border-radius: 0;
+
+    background-color: #0f0e08;
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      flex: none;
+
+      aspect-ratio: auto;
+      width: 100%;
+      max-width: 700px;
+      height: 520px;
+    }
+
+    @media (max-width: $tablet) {
+      flex: none;
+
+      aspect-ratio: 280 / 210;
+      width: 100%;
+      height: auto;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  &__image {
+    cursor: pointer;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 0;
+
+    @media (min-width: 1025px) {
+      flex: 0 0 370px;
+      width: 370px;
+      height: 202px;
+    }
+
+    @media (max-width: $tablet) {
+      position: relative;
+      gap: 0;
+      padding: 0;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      gap: 0;
+      width: 460px;
+      height: 177px;
+      padding-top: 44px;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    @media (min-width: 1025px) {
+      position: relative;
+      width: 270px;
+      height: 21px;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      position: relative;
+      width: 100%;
+      height: 21px;
+    }
+  }
+
+  &__tag {
+    font-family: $font-body;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #687480;
+    text-transform: uppercase;
+    letter-spacing: 0;
+
+    @media (min-width: 1025px) {
+      position: absolute;
+      top: 4px;
+      left: 0;
+
+      width: 170px;
+      height: 15px;
+
+      font-size: 14px;
+      line-height: 100%;
+    }
+
+    @media (max-width: $tablet) {
+      position: absolute;
+      top: 20px;
+      left: 0;
+
+      font-family: $font-body;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1;
+      color: #687480;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      position: absolute;
+      top: 4px;
+      left: 0;
+
+      font-size: 14px;
+      line-height: 1;
+    }
+  }
+
+  &__date {
+    font-family: $font-body;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a5a4c;
+
+    @media (min-width: 1025px) {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: 173px;
+      height: 21px;
+
+      font-size: 14px;
+      line-height: 150%;
+      text-align: right;
+      letter-spacing: 0;
+    }
+
+    @media (max-width: $tablet) {
+      position: absolute;
+      top: 16px;
+      right: 0;
+      left: auto;
+
+      font-family: $font-body;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.5;
+      color: #1a5a4c;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      position: absolute;
+      top: 0;
+      left: 100px;
+
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+
+  &__title {
+    @extend %h3;
+
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #0f0e08;
+
+    transition: color $transition-speed;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    @media (min-width: 1025px) {
+      width: 370px;
+      height: 39px;
+      margin-top: 14px;
+
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      margin-top: 32px;
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    @media (max-width: $tablet) {
+      gap: 6px;
+
+      margin-top: 50px;
+      margin-right: 0;
+      margin-left: 0;
+
+      font-family: Montserrat, sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1;
+      color: #0f0e08;
+    }
+  }
+
+  &__marker {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #f14a27;
+
+    @media (min-width: 1025px) {
+      width: 15px;
+      height: 15px;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 0;
+
+    font-family: $font-body;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: #4e4e4e;
+
+    @media (min-width: 1025px) {
+      width: 370px;
+      height: 97px;
+      margin-top: -1px;
+
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: 0;
+    }
+
+    @media (max-width: $tablet) {
+      margin-top: 10px;
+      margin-right: 0;
+      margin-left: 0;
+
+      font-family: $font-body;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: #4e4e4e;
+    }
+
+    @media (min-width: 640px) and (max-width: 1024px) {
+      margin-top: 15px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  &__link {
+    align-self: flex-start;
+
+    padding-bottom: 4px;
+    border-bottom: 2px solid $color-primary;
+
+    font-family: $font-title;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: $color-primary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    transition: all $transition-speed;
+
+    &:hover {
+      padding-left: 4px;
+      border-color: $color-accent;
+      color: $color-accent;
+    }
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &:hover {
+    .event-card__image {
+      transform: scale(1.03);
+    }
+  }
+
+  &:nth-child(2) {
+    .event-card__content {
+      @media (min-width: 1025px) {
+        height: 228px;
+      }
+    }
+    .event-card__text {
+      @media (min-width: 1025px) {
+        height: 123px;
+      }
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 1024px) {
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 1025px) {
+    gap: 130px;
+  }
+
+  @media (max-width: $tablet) {
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+
+    width: 100%;
+    max-width: 500px;
+  }
+
+  @media (max-width: $tablet) {
+    gap: 24px;
+  }
+}
