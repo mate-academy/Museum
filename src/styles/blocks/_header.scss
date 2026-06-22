@@ -1,0 +1,84 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+@use '../utils/typography' as *;
+
+.header {
+  width: 100%;
+  margin-bottom: 70px;
+  padding-top: 27px;
+  padding-inline: 20px;
+
+  &__logo {
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &--icon {
+      width: 55px;
+      height: 61px;
+
+      @include font-style($logo);
+    }
+  }
+
+  &__menu-burger {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 270px;
+    background-image: url(../images/icons/menu.png);
+  }
+
+  &__wrapper {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    &--img {
+      aspect-ratio: 16/9;
+      width: 100%;
+      min-height: 300px;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: $title-black;
+
+    @include font-style($title-mobile);
+
+    text-align: center;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    border: 1px solid $green;
+
+    background-color: #fff;
+
+    &--text {
+      @include font-style($ticket);
+
+      flex-grow: 1;
+    }
+
+    &--arrow {
+      width: 50px;
+      height: 50px;
+
+      background-color: $green;
+      background-image: url(../images/icons/arrow-white.png);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}

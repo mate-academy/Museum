@@ -1,6 +1,21 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@use 'sass:map';
+
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content;
   }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin font-style($map) {
+  font-family: map.get($map, 'font-family');
+  font-size: map.get($map, 'font-size');
+  font-weight: map.get($map, 'font-weight');
+  line-height: map.get($map, 'line-height');
+  color: map.get($map, 'color');
 }
