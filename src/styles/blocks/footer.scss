@@ -1,0 +1,235 @@
+@use '../utils/mixins';
+@use '../utils/vars';
+
+.footer {
+  --count: 2;
+
+  @include mixins.on-tablet {
+    --count: 6;
+
+    column-gap: 30px;
+  }
+
+  @include mixins.on-desktop {
+    --count: 12;
+  }
+
+  display: grid;
+  grid-template-columns: repeat(var(--count), 1fr);
+  column-gap: 20px;
+  padding-block: 50px;
+
+  &__logo {
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    @include mixins.on-tablet {
+      grid-column: 1 / 2;
+      flex-direction: column;
+      justify-content: start;
+      margin-bottom: 0;
+    }
+
+    &-image {
+      width: 62.9px;
+      height: 72px;
+    }
+
+    &-social {
+      display: flex;
+      column-gap: 20.12px;
+      align-items: center;
+
+      @include mixins.on-tablet {
+        column-gap: 32px;
+        margin-top: 62px;
+      }
+    }
+  }
+
+  &__schedule {
+    grid-column: 1 / 2;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+
+    @include mixins.on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include mixins.on-desktop {
+      grid-column: 3 / 5;
+    }
+
+    &-title {
+      padding-bottom: 20px !important;
+    }
+
+    &-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      span {
+        font-weight: 600;
+      }
+    }
+
+    h2,
+    a,
+    p {
+      margin: 0;
+      padding: 0;
+
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  &__contact {
+    grid-column: 2 / -1;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+
+    @include mixins.on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include mixins.on-desktop {
+      grid-column: 5 / 7;
+    }
+
+    &-title {
+      padding-bottom: 20px !important;
+    }
+
+    h2,
+    a,
+    p {
+      display: block;
+
+      margin: 0;
+      padding: 0;
+
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  &__line {
+    display: none;
+
+    @include mixins.on-desktop {
+      display: flex;
+      grid-column: 7 / 8;
+      justify-content: center;
+    }
+
+    &-item {
+      width: 1px;
+      height: 100%;
+      background-color: rgb(26 90 76 / 0.5);
+    }
+  }
+
+  &__line-2 {
+    position: relative;
+
+    display: flex;
+    grid-column: 1 / -1;
+
+    height: 1px;
+    padding-block: 70px 40px;
+
+    @include mixins.on-tablet {
+      grid-column: 2 / 6;
+      padding-block: 64px;
+    }
+
+    @include mixins.on-desktop {
+      display: none;
+    }
+
+    &-item {
+      width: 100%;
+      height: 1px;
+      background-color: rgb(26 90 76 / 0.5);
+    }
+  }
+
+  &__menu {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    color: vars.$color-main;
+
+    &--1 {
+      @include mixins.on-tablet {
+        grid-column: 2 / 4;
+      }
+
+      @include mixins.on-desktop {
+        grid-column: 8 / 10;
+      }
+    }
+
+    &--2 {
+      @include mixins.on-tablet {
+        grid-column: 4 / 6;
+      }
+
+      @include mixins.on-desktop {
+        grid-column: 10 / 12;
+      }
+    }
+
+    a {
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    row-gap: 10px;
+
+    padding-top: 80px;
+
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 141%;
+    text-align: center;
+
+    @include mixins.on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: 120px;
+    }
+
+    @include mixins.on-desktop {
+      padding-top: 87px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}

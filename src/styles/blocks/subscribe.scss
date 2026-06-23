@@ -1,0 +1,146 @@
+@use '../utils/mixins';
+@use '../utils/vars';
+
+.subscribe {
+  --count: 2;
+
+  @include mixins.on-tablet {
+    --count: 6;
+
+    column-gap: 30px;
+  }
+
+  @include mixins.on-desktop {
+    --count: 12;
+  }
+
+  display: grid;
+  grid-template-columns: repeat(var(--count), 1fr);
+
+  padding-block: 88px;
+
+  text-align: center;
+
+  background-image: url('../images/subscribe/Rectangle-22.3.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include mixins.on-tablet {
+    padding-block: 82px;
+  }
+
+  @include mixins.on-tablet {
+    padding-block: 163px;
+  }
+
+  &__wrapper {
+    grid-column: 1 / -1;
+    padding-inline: vars.$main-inline-padding;
+
+    @include mixins.on-tablet {
+      grid-column: 2 / 6;
+      padding-inline: 0;
+    }
+
+    @include mixins.on-desktop {
+      grid-column: 4 / 10;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+
+    font-family: Monserrat, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+    color: vars.$color-menu;
+    text-align: center;
+
+    @include mixins.on-tablet {
+      margin-bottom: 16px;
+      font-size: 48px;
+    }
+  }
+
+  &__text {
+    margin: 0 0 50px;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    color: vars.$color-menu;
+
+    @include mixins.on-tablet {
+      margin-bottom: 64px;
+    }
+
+    @include mixins.on-tablet {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+
+    @include mixins.on-tablet {
+      column-gap: 16px;
+      height: 70px;
+    }
+
+    @include mixins.on-desktop {
+      column-gap: 30px;
+    }
+  }
+
+  &__input {
+    flex: 1;
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 18px 0 18px 24px;
+    border: none;
+
+    font-family: Monserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+
+    &::placeholder {
+      color: #687480;
+    }
+
+    &:focus {
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
+
+    &:-webkit-autofill,
+    &:autofill,
+    &:-webkit-autofill:hover,
+    &:autofill:hover,
+    &:-webkit-autofill:focus,
+    &:autofill:focus {
+      border: none;
+      box-shadow: 0 0 0 1000px #fff inset;
+
+      -webkit-text-fill-color: #687480 !important;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    border: none;
+
+    background-color: #f14a27;
+  }
+}

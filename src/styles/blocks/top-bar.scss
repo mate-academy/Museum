@@ -1,0 +1,73 @@
+@use '../utils/mixins';
+@use '../utils/vars';
+
+.top-bar {
+  --count: 2;
+
+  @include mixins.on-tablet {
+    --count: 6;
+  }
+
+  @include mixins.on-desktop {
+    --count: 12;
+  }
+
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  left: 0;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding-inline: vars.$main-inline-padding;
+
+  @include mixins.on-tablet {
+    top: 15px;
+    padding-inline: vars.$main-inline-padding-tablet;
+  }
+
+  @include mixins.on-desktop {
+    padding-inline: max(
+      #{vars.$main-inline-padding-desktop},
+      calc((100% - #{vars.$width-desktop}) / 2)
+    );
+  }
+
+  &__wrapper {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(var(--count), 1fr);
+    column-gap: 20px;
+    align-items: center;
+
+    @include mixins.on-tablet {
+      column-gap: 30px;
+    }
+  }
+
+  &__btn-menu {
+    position: absolute;
+    left: 0;
+  }
+
+  &__logo {
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: center;
+
+    @include mixins.on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include mixins.on-desktop {
+      grid-column: 6 / 8;
+    }
+
+    &-image {
+      width: 55px;
+      height: 61px;
+      object-fit: contain;
+    }
+  }
+}
