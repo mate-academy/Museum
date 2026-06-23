@@ -1,0 +1,167 @@
+@use '../utils/mixins';
+@use '../utils/vars';
+
+.gallery {
+  &--margin-bottom {
+    margin-bottom: 100px;
+
+    @include mixins.on-tablet {
+      margin-bottom: 92px;
+    }
+
+    @include mixins.on-desktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__title {
+    margin: 0 40px 0 0;
+
+    font-family: Monserrat, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+
+    @include mixins.on-tablet {
+      margin-bottom: 48px;
+      padding-inline: vars.$main-inline-padding-tablet;
+      font-size: 48px;
+      text-align: left;
+    }
+
+    @include mixins.on-desktop {
+      max-width: vars.$width-desktop;
+      margin-inline: max(
+        #{vars.$main-inline-padding-desktop},
+        calc((100% - #{vars.$width-desktop}) / 2)
+      );
+      padding-inline: 0;
+    }
+  }
+
+  &__slider {
+    @include mixins.on-desktop {
+      display: none !important;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    column-gap: 22px;
+    justify-content: center;
+    margin-top: 20px;
+
+    @include mixins.on-tablet {
+      margin-top: 32px;
+    }
+
+    @include mixins.on-desktop {
+      display: none !important;
+    }
+
+    .swiper-pagination-bullet {
+      cursor: pointer;
+
+      display: inline-block;
+
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+
+      background-color: vars.$color-slider-pagination;
+
+      transition: background-color vars.$time-animation linear;
+
+      &-active {
+        background-color: vars.$color-slider-pagination-active;
+      }
+    }
+  }
+
+  &__slide {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    aspect-ratio: 3 / 4;
+
+    text-align: center;
+
+    background: #444;
+
+    @include mixins.on-desktop {
+      display: none;
+    }
+
+    img {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform vars.$time-animation linear;
+
+      @include mixins.on-desktop {
+        display: none !important;
+      }
+    }
+
+    &:hover img {
+      transform: scale(1.1);
+    }
+  }
+
+  &-pc {
+    display: none;
+
+    @include mixins.on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
+
+    &__image {
+      display: flex;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform vars.$time-animation linear;
+    }
+
+    &__item {
+      overflow: hidden;
+
+      &:hover .gallery-pc__image {
+        transform: scale(1.1);
+      }
+
+      &--4-600 {
+        grid-column: span 4;
+        height: 600px;
+      }
+
+      &--8-600 {
+        grid-column: span 8;
+        height: 600px;
+      }
+
+      &--4-360 {
+        grid-column: span 4;
+        height: 360px;
+      }
+
+      &--8-360 {
+        grid-column: span 8;
+        height: 360px;
+      }
+    }
+  }
+}

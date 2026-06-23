@@ -1,0 +1,92 @@
+@use '../utils/mixins';
+@use '../utils/vars';
+
+.page {
+  scroll-behavior: smooth;
+
+  &:has(.menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    overflow-x: hidden;
+
+    margin: 0;
+
+    font-family: IBMPlexSans, sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 100%;
+    color: vars.$color-main;
+  }
+}
+
+.container {
+  margin-inline: vars.$main-inline-padding;
+
+  @include mixins.on-tablet {
+    margin-inline: vars.$main-inline-padding-tablet;
+  }
+
+  @include mixins.on-desktop {
+    max-width: vars.$width-desktop;
+    margin-inline: max(
+      #{vars.$main-inline-padding-desktop},
+      calc((100% - #{vars.$width-desktop}) / 2)
+    );
+  }
+}
+
+.arrow-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 50px;
+  border: 1px solid vars.$color-accent;
+  border-radius: 50%;
+
+  @include mixins.on-tablet {
+    display: none;
+  }
+}
+
+.link-border {
+  position: relative;
+  width: fit-content;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    bottom: -8px;
+    transform-origin: left center;
+    transform: scale(0);
+
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    transition: transform vars.$time-animation linear;
+  }
+
+  &:hover::before {
+    transform: scale(1);
+    width: 100%;
+  }
+
+  &--white::before {
+    background-color: vars.$color-menu;
+  }
+
+  &--green::before {
+    background-color: rgb(26 90 76 / 0.5);
+  }
+}

@@ -1,0 +1,178 @@
+@use '../utils/vars';
+@use '../utils/mixins';
+
+.menu {
+  &__mask {
+    position: fixed;
+    z-index: 15;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgb(0 0 0 / 0.5);
+
+    transition: opacity vars.$time-animation linear;
+  }
+
+  &__bg {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+
+    width: 100%;
+
+    color: vars.$color-menu;
+
+    background-color: vars.$color-accent;
+
+    transition: transform vars.$time-animation linear;
+  }
+
+  &:target {
+    .menu__bg {
+      transform: translateY(0);
+    }
+
+    .menu__mask {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__wrapper {
+    --count: 2;
+
+    @include mixins.on-tablet {
+      --count: 6;
+    }
+
+    @include mixins.on-desktop {
+      --count: 12;
+    }
+
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-template-columns: repeat(var(--count), 1fr);
+
+    box-sizing: border-box;
+    padding-block: 27px;
+
+    @include mixins.on-tablet {
+      column-gap: 30px;
+      padding-block: 40px;
+    }
+  }
+
+  &__nav {
+    position: relative;
+
+    display: flex;
+    grid-column: 1 / -1;
+    column-gap: 28px;
+
+    box-sizing: border-box;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgb(255 255 255 / 0.5);
+
+    @include mixins.on-tablet {
+      grid-column: 1 / 4;
+      column-gap: 38px;
+      padding-bottom: 0;
+      border-bottom: none;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        top: 0;
+        right: 8px;
+
+        display: block;
+
+        width: 1px;
+        height: 100%;
+
+        background-color: rgb(255 255 255 / 0.5);
+      }
+    }
+
+    @include mixins.on-desktop {
+      grid-column: 1 / 7;
+      column-gap: 102px;
+
+      &::after {
+        right: -30px;
+      }
+    }
+
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(2, 100px);
+      gap: 24px 20px;
+      height: max-content;
+
+      @include mixins.on-desktop {
+        gap: 30px 31px;
+      }
+    }
+
+    &-link {
+      font-size: 16px;
+      font-weight: 500;
+      color: vars.$color-menu;
+      text-decoration: none;
+    }
+  }
+
+  &__info {
+    grid-column: 1 / -1;
+
+    @include mixins.on-tablet {
+      grid-column: 4 / -1;
+    }
+
+    @include mixins.on-desktop {
+      grid-column: 8 / -1;
+    }
+
+    &-min-title {
+      margin: 0;
+      font-size: 14px;
+      line-height: 141%;
+    }
+
+    &-dop-info {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+      line-height: 150%;
+
+      span {
+        font-weight: 600;
+      }
+    }
+
+    &-list {
+      margin: 20px 0 16px;
+      padding: 0;
+      list-style: none;
+
+      li {
+        font-size: 14px;
+        line-height: 150%;
+
+        span {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

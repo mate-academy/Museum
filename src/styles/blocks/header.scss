@@ -1,0 +1,180 @@
+@use '../utils/mixins';
+@use '../utils/vars';
+
+.header {
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.on-tablet {
+    flex-direction: row;
+    height: 384px;
+  }
+
+  @include mixins.on-desktop {
+    height: 655px;
+  }
+
+  &__content {
+    position: relative;
+    order: 2;
+    margin-left: vars.$main-inline-padding;
+    padding-right: vars.$main-inline-padding;
+
+    @include mixins.on-tablet {
+      order: 1;
+      width: calc((((100% - (5 * 30px)) / 6) * 3) + (2 * 30px));
+      margin-left: 34px;
+      padding-inline: 0;
+    }
+
+    @include mixins.on-desktop {
+      width: calc(
+        (((#{vars.$width-desktop} - (11 * 30px)) / 12) * 5) + (4 * 30px)
+      );
+      margin-left: max(55px, calc((100% - #{vars.$width-desktop}) / 2));
+    }
+  }
+
+  &__image {
+    position: relative;
+    order: 1;
+
+    &-item {
+      display: flex;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+
+      @include mixins.on-tablet {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        order: 2;
+
+        height: 100%;
+      }
+    }
+
+    @include mixins.on-tablet {
+      flex: 1;
+    }
+  }
+
+  &__title {
+    margin: 20px 0 0;
+
+    font-family: Monserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+    color: vars.$color-main-title;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include mixins.on-tablet {
+      margin-top: 127px;
+      margin-right: 30px;
+
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include mixins.on-desktop {
+      margin-top: 206px;
+      font-size: 72px;
+    }
+  }
+
+  &__btn {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    padding-right: 50px;
+    border: 1px solid vars.$color-accent;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: vars.$color-main;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include mixins.on-tablet {
+      width: 270px;
+      height: 70px;
+      margin-top: 38px;
+      margin-right: 30px;
+    }
+
+    @include mixins.on-desktop {
+      width: 269px;
+      margin-top: 89px;
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      display: block;
+
+      width: 50px;
+      height: 100%;
+
+      background-color: vars.$color-accent;
+      background-image: url(../images/icons/btn-arrow-gray.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 24px 24px;
+
+      @include mixins.on-tablet {
+        width: 70px;
+      }
+    }
+
+    &-wrap {
+      @include mixins.on-desktop {
+        display: flex;
+        justify-content: end;
+      }
+    }
+  }
+
+  &__min-title {
+    position: absolute;
+    bottom: 60px;
+    left: -60px;
+    transform: rotate(-90deg);
+
+    display: none;
+    column-gap: 20px;
+    align-items: center;
+
+    @include mixins.on-desktop {
+      display: flex;
+    }
+
+    &-line {
+      width: 70px;
+      height: 1px;
+      background-color: vars.$color-accent;
+    }
+
+    &-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: vars.$color-min-title;
+      text-transform: uppercase;
+    }
+  }
+}
