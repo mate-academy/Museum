@@ -2,8 +2,9 @@
 
 const galleryContainer = document.querySelector('.gallery__container');
 const galleryTrack = document.querySelector('.gallery__track');
-const dots = document.querySelectorAll('.gallery__dot');
 const dotBox = document.querySelector('.gallery__dots');
+const dots = document.querySelectorAll('.gallery__dot');
+const emailForm = document.querySelector('.sub__mail-form');
 
 const images = [
   './src/images/images/gallery/gallery_1.png',
@@ -15,20 +16,48 @@ const images = [
 
 let touchStartX = 0;
 let touchEndX = 0;
-let currentIndex = 0;
-let dotIndex = 0;
+let currentImageIndex = 0;
+let currentDotIndex = 0;
 
 function changeSlide(index) {
-  currentIndex = index;
+  currentImageIndex = index;
 
-  galleryTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+  galleryTrack.style.transform = `translateX(-${currentImageIndex * 100}%)`;
 
   dots.forEach((dot) => {
-    dot.classList.remove('color');
+    dot.classList.remove('active');
   });
 
-  dots[currentIndex].classList.add('color');
+  dots[currentImageIndex].classList.add('active');
 }
+
+const handleSwipe = () => {
+  const swipeDistance = touchStartX - touchEndX;
+  const minSwipeDistance = 50;
+
+  if (swipeDistance > minSwipeDistance) {
+    if (currentImageIndex < images.length - 1) {
+      changeSlide(currentImageIndex + 1);
+    }
+  }
+
+  if (swipeDistance < -minSwipeDistance) {
+    if (currentImageIndex > 0) {
+      changeSlide(currentImageIndex - 1);
+    }
+  }
+};
+
+const changeDot = () => {
+  dots.forEach((dot) => {
+    dot.classList.remove('active');
+  });
+
+  currentDotIndex++;
+  currentDotIndex = currentDotIndex % dots.length;
+
+  dots[currentDotIndex].classList.add('active');
+};
 
 galleryContainer.addEventListener('touchstart', (event) => {
   touchStartX = event.touches[0].clientX;
@@ -39,35 +68,13 @@ galleryContainer.addEventListener('touchend', (event) => {
   handleSwipe();
 });
 
-function handleSwipe() {
-  const swipeDistance = touchStartX - touchEndX;
-  const minSwipeDistance = 50;
-
-  if (swipeDistance > minSwipeDistance) {
-    if (currentIndex < images.length - 1) {
-      changeSlide(currentIndex + 1);
-    } else {
-      changeSlide(0);
-    }
-  } else if (swipeDistance < -minSwipeDistance) {
-    if (currentIndex > 0) {
-      changeSlide(currentIndex - 1);
-    } else {
-      changeSlide(images.length - 1);
-    }
-  }
-}
-
-const changeDot = () => {
-  dots.forEach((dot) => {
-    dot.classList.remove('color');
-  });
-  dotIndex = (dotIndex + 1) % dots.length;
-
-  dots[dotIndex].classList.add('color');
-};
-
 dotBox.addEventListener('click', () => {
   changeDot();
-  changeSlide(dotIndex);
+  changeSlide(currentDotIndex);
+});
+
+emailForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  emailForm.reset();
+  window.scrollTo({ top: 0 });
 });

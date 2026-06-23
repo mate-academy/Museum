@@ -1,0 +1,71 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+@use '../utils/typography' as *;
+
+.sub {
+  width: 100%;
+  height: 386px;
+  margin-bottom: 18px;
+  padding: 88px 20px;
+
+  background-image: url(../images/images/sub.png);
+
+  &__disc {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    margin-bottom: 50px;
+  }
+
+  &__title {
+    @include font-style($section-title-mobile);
+
+    color: $white;
+  }
+
+  &__text {
+    text-align: center;
+
+    @include font-style($subscript-text);
+  }
+
+  &__mail-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    &--input {
+      flex-grow: 1;
+
+      height: 50px;
+      padding: 18px 24px;
+      border: none;
+
+      outline: none;
+
+      @include font-style($input-text);
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus {
+        box-shadow: 0 0 1000px #fff inset;
+
+        -webkit-text-fill-color: $inp-text;
+      }
+    }
+
+    &--btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 50px;
+      height: 50px;
+      border: none;
+
+      background-color: $red;
+    }
+  }
+}
