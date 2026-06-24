@@ -7,17 +7,25 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 20px;
 
+  width: 100%;
   padding: 50px 20px;
 
   background-color: $white;
 
   &__logo {
+    display: block;
     grid-column: span 1;
+    width: 63px;
+    height: 72px;
+
+    &--icon {
+      @include font-style($section-title-mobile);
+    }
   }
 
   &__socials {
     display: flex;
-    grid-column: 2 / 3;
+    grid-column: 2 / span 2;
     gap: 20px;
     align-items: center;
     justify-content: end;
@@ -106,19 +114,10 @@
       line-height: 100%;
 
       @include font-style($footer-title);
-
-      @include on-tablet {
-        margin-bottom: 120px;
-      }
     }
 
     &--link {
       color: inherit;
-    }
-
-    @include on-tablet {
-      grid-column: 2 / 7;
-      grid-row: 4;
     }
   }
 
@@ -134,25 +133,5 @@
     line-height: 141%;
     color: $black;
     text-align: center;
-
-    @include on-tablet {
-      margin: 0;
-    }
-  }
-
-  &__design {
-    @include on-tablet {
-      grid-column: 1 / 4;
-      grid-row: 5;
-      justify-self: start;
-    }
-  }
-
-  &__copy {
-    @include on-tablet {
-      grid-column: 4 / 7;
-      grid-row: 5;
-      justify-self: end;
-    }
   }
 }
