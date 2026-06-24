@@ -1,5 +1,8 @@
 'use strict';
 
+const btnMenu = document.querySelector('.header__menu-burger');
+const btnClose = document.querySelector('.menu__btn-close');
+const menu = document.querySelector('.menu');
 const galleryContainer = document.querySelector('.gallery__container');
 const galleryTrack = document.querySelector('.gallery__track');
 const dotBox = document.querySelector('.gallery__dots');
@@ -58,6 +61,14 @@ const changeDot = () => {
 
   dots[currentDotIndex].classList.add('active');
 };
+
+btnMenu.addEventListener('click', () => {
+  menu.classList.toggle('hidden');
+});
+
+btnClose.addEventListener('click', () => {
+  menu.classList.toggle('hidden');
+});
 
 galleryContainer.addEventListener('touchstart', (event) => {
   touchStartX = event.touches[0].clientX;
