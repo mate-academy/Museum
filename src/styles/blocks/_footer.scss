@@ -8,72 +8,92 @@
   column-gap: 20px;
 
   width: 100%;
-  padding: 50px 20px;
-
-  background-color: $white;
+  padding: 32px 20px;
 
   &__logo {
-    display: block;
-    grid-column: span 1;
-    width: 63px;
-    height: 72px;
+    grid-column: 1;
+    align-self: center;
 
-    &--icon {
-      @include font-style($section-title-mobile);
-    }
+    width: 55px;
+    margin-bottom: 40px;
+
+    text-align: center;
+
+    @include font-style($logo);
   }
 
   &__socials {
     display: flex;
-    grid-column: 2 / span 2;
+    grid-column: 2;
     gap: 20px;
     align-items: center;
+    align-self: center;
     justify-content: end;
+
+    margin-bottom: 40px;
+
+    &--link {
+      color: #000;
+    }
+
+    &--icon {
+      width: 24px;
+      height: 24px;
+      padding: 0;
+    }
   }
 
   &__hours {
-    grid-column: span 1;
-    margin-top: 40px;
+    display: flex;
+    grid-column: 1;
+    flex-direction: column;
+    gap: 20px;
+
+    &__title {
+      @include font-style($footer-title);
+    }
 
     &--list {
       display: flex;
       flex-direction: column;
     }
 
-    &--item time {
-      display: block;
+    &--item {
+      display: flex;
+      flex-direction: column;
+    }
 
+    &--item time {
       @include font-style($footer-hours);
     }
 
     &--item span {
-      font-size: 14px;
-      line-height: 150%;
-
       @include font-style($footer-title);
+
+      line-height: 150%;
     }
   }
 
-  &__title {
-    margin-bottom: 20px;
-
-    @include font-style($footer-title);
-  }
-
   &__text {
-    margin-top: 20px;
     line-height: 150%;
 
     @include font-style($footer-title);
   }
 
   &__contacts {
-    margin-top: 40px;
+    display: flex;
+    grid-column: 2;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__title {
+    @include font-style($footer-title);
   }
 
   &__up {
     display: flex;
-    grid-column: 2 / 3;
+    grid-column: 2;
     align-items: center;
     justify-content: center;
     justify-self: end;
@@ -84,6 +104,8 @@
     border: 1px solid $green;
     border-radius: 50%;
 
+    color: $green;
+
     &--icon {
       width: 16px;
       height: 16px;
@@ -93,12 +115,11 @@
   &__separator {
     grid-column: span 2;
 
-    width: 100%;
     height: 1px;
     margin: 0;
     margin-bottom: 40px;
 
-    background-color: #1a5a4c80;
+    background-color: rgba($color: $green, $alpha: 0.5);
   }
 
   &__nav {
@@ -108,30 +129,23 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-
       margin-bottom: 80px;
-
-      line-height: 100%;
-
-      @include font-style($footer-title);
     }
 
     &--link {
-      color: inherit;
+      @include font-style($footer-title);
+
+      line-height: 100%;
     }
   }
 
   &__design,
   &__copy {
     grid-column: span 2;
-
     margin-bottom: 10px;
 
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 141%;
-    color: $black;
+    @include font-style($footer-copyright);
+
     text-align: center;
   }
 }
