@@ -1,0 +1,97 @@
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin padding {
+  padding-inline: 20px;
+
+  @include tablet {
+    padding-inline: 34px;
+  }
+
+  @include desktop {
+    padding-inline: 55px;
+  }
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include tablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+@mixin title-style {
+  margin: 0;
+
+  font-family: Montserrat, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 100%;
+  text-align: center;
+  letter-spacing: 0%;
+
+  @include tablet {
+    text-align: left;
+  }
+}
+
+@mixin type-style {
+  margin: 0;
+
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: $c-grey;
+
+  @include tablet {
+    font-size: 14px;
+  }
+}
+
+@mixin date-style {
+  margin: 0;
+
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: $c-green;
+
+  @include tablet {
+    font-size: 14px;
+  }
+}
+
+@mixin name-style {
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+
+  @include tablet {
+    font-size: 36px;
+  }
+}

@@ -1,0 +1,75 @@
+.lecture {
+  @include tablet {
+    @include padding;
+  }
+
+  @include desktop {
+    margin-top: 110px;
+    padding: 0;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    min-height: 210px;
+    object-fit: cover;
+
+    @include tablet {
+      max-height: 390px;
+    }
+
+    @include desktop {
+      max-height: 550px;
+    }
+  }
+
+  &__descr {
+    transform: translateY(-50px);
+
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding-bottom: 20px;
+
+    background-color: #fff;
+    box-shadow: 0 2px 0 0 #1a5a4c40;
+
+    @include hover(scale, 1.05);
+
+    @include tablet {
+      transform: translateY(-100px);
+      width: calc(100% - 200px);
+      padding-bottom: 50px;
+    }
+
+    @include desktop {
+      width: calc(100% - 710px);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+  }
+
+  &__group {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 22px;
+
+    @include tablet {
+      padding-top: 45px;
+    }
+  }
+
+  &__type {
+    @include type-style;
+  }
+
+  &__date {
+    @include date-style;
+  }
+
+  &__name {
+    @include name-style;
+
+    margin-top: 22px;
+    text-align: center;
+  }
+}

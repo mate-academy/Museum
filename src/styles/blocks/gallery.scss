@@ -1,0 +1,165 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    @include title-style;
+    @include padding;
+
+    margin-top: 50px;
+
+    @include tablet {
+      margin-top: 0;
+    }
+
+    @include desktop {
+      margin-top: 100px;
+    }
+  }
+
+  &__group {
+    @include padding;
+
+    margin-top: 40px;
+
+    @include tablet {
+      margin-top: 48px;
+    }
+
+    @include desktop {
+      margin-top: 56px;
+    }
+  }
+
+  &__top-group {
+    @include tablet {
+      display: flex;
+      gap: 20px;
+    }
+
+    @include desktop {
+      @include grid;
+    }
+  }
+
+  &__bottom-group {
+    @include desktop {
+      display: flex;
+      gap: 20px;
+      margin-top: 30px;
+
+      @include grid;
+    }
+  }
+
+  &__image {
+    @include hover(scale, 1.02);
+
+    &--sl {
+      width: 100%;
+      height: 410px;
+      object-fit: cover;
+      object-position: top;
+
+      @include tablet {
+        height: 543px;
+      }
+    }
+
+    &--1 {
+      width: 100%;
+      height: 410px;
+      object-fit: cover;
+      object-position: top;
+
+      @include tablet {
+        height: 543px;
+      }
+
+      @include desktop {
+        grid-column: 1 / 5;
+        height: 600px;
+      }
+    }
+
+    &--11 {
+      display: none;
+
+      @include desktop {
+        display: flex;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include tablet {
+        display: block;
+        width: 100%;
+        height: 543px;
+        object-fit: cover;
+      }
+
+      @include desktop {
+        display: none;
+      }
+    }
+
+    &--2 {
+      display: none;
+
+      @include desktop {
+        display: block;
+        width: 100%;
+        height: 543px;
+        object-fit: cover;
+      }
+
+      @include desktop {
+        grid-column: 5 / -1;
+        height: 600px;
+      }
+    }
+
+    &--3 {
+      display: none;
+
+      @include desktop {
+        display: block;
+        grid-column: 1 / 9;
+
+        width: 100%;
+        height: 360px;
+
+        object-fit: cover;
+      }
+    }
+
+    &--4 {
+      display: none;
+
+      @include desktop {
+        display: block;
+        grid-column: 9 / -1;
+
+        width: 100%;
+        height: 360px;
+
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__slider {
+    margin: 0 auto;
+    margin-top: 20px;
+
+    @include tablet {
+      margin-top: 32px;
+    }
+
+    @include desktop {
+      display: none !important;
+    }
+  }
+}

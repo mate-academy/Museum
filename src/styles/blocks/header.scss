@@ -1,0 +1,180 @@
+.header {
+  @include tablet {
+    @include grid;
+  }
+
+  &__image {
+    box-sizing: border-box;
+    height: 300px;
+    padding-top: 9px;
+
+    text-align: center;
+
+    background-image: url(../images/header/header-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include tablet {
+      grid-column: 4 / -1;
+
+      height: 384px;
+      padding-top: 15px;
+      padding-left: 70px;
+
+      text-align: left;
+    }
+
+    @include desktop {
+      grid-column: 6 / -1;
+      height: 655px;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    margin-top: 27px;
+    text-decoration: none;
+
+    @include padding;
+    @include hover(scale, 1.1);
+
+    @include tablet {
+      margin-top: 39px;
+    }
+  }
+
+  &__logo {
+    text-decoration: none;
+
+    @include hover(scale, 1.01);
+  }
+
+  &__title {
+    @include padding;
+
+    margin: 0;
+    margin-top: 20px;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+
+    @include tablet {
+      grid-column: 1 / 4;
+
+      margin-top: calc(-384px + 127px);
+
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include desktop {
+      grid-column: 1 / 6;
+      margin-top: calc(-655px + 206px);
+      font-size: 72px;
+    }
+  }
+
+  &__tickets {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    margin-top: 20px;
+    margin-inline: 20px;
+    border: 1px $c-green solid;
+
+    text-decoration: none;
+
+    @include hover(scale, 1.05);
+
+    @include tablet {
+      grid-column: 1 / 4;
+
+      width: 270px;
+      height: 70px;
+      margin-top: calc(-384px + 295px);
+      margin-inline: 34px;
+    }
+
+    @include desktop {
+      grid-column: 3 / 6;
+      margin-top: calc(-655px + 467px);
+    }
+  }
+
+  &__hover {
+    @include hover(scale, 1.05);
+  }
+
+  &__button {
+    position: absolute;
+    right: 0;
+
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+
+    background-color: $c-green;
+    background-image: url(../images/header/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include tablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__text {
+    width: calc(100% - 50px);
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    color: #0f0e08;
+    text-align: center;
+  }
+
+  &__mini-btn {
+    display: none;
+    text-decoration: none;
+
+    @include desktop {
+      position: absolute;
+      top: 522px;
+      transform: rotate(270deg);
+
+      display: block;
+
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: $c-grey;
+
+      @include padding;
+
+      @include hover(scale, 1.1);
+
+      &::after {
+        content: '';
+
+        transform: translateX(-120%) translateY(-1000%);
+
+        display: block;
+
+        width: 150%;
+        height: 1px;
+
+        background-color: $c-green;
+      }
+    }
+  }
+}
