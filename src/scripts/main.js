@@ -3,6 +3,7 @@
 const btnMenu = document.querySelector('.header__menu-burger');
 const btnClose = document.querySelector('.menu__btn-close');
 const menu = document.querySelector('.menu');
+const nav = document.querySelector('.menu__nav');
 const galleryContainer = document.querySelector('.gallery__container');
 const galleryTrack = document.querySelector('.gallery__track');
 const dotBox = document.querySelector('.gallery__dots');
@@ -68,6 +69,14 @@ btnMenu.addEventListener('click', () => {
 
 btnClose.addEventListener('click', () => {
   menu.classList.toggle('hidden');
+});
+
+nav.addEventListener('click', (e) => {
+  const target = e.target.closest('.menu__nav--link');
+
+  if (target) {
+    menu.classList.toggle('hidden');
+  }
 });
 
 galleryContainer.addEventListener('touchstart', (event) => {
