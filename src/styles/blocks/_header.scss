@@ -7,6 +7,13 @@
   width: 100%;
   margin-bottom: 70px;
 
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+    margin: 0;
+  }
+
   &__top {
     position: absolute;
     z-index: 1;
@@ -19,6 +26,12 @@
     width: 100%;
     height: 61px;
     padding-inline: 20px;
+
+    @include on-tablet {
+      top: 15px;
+      height: 72px;
+      padding-inline: 34px;
+    }
   }
 
   &__menu-burger {
@@ -31,6 +44,22 @@
     color: $black;
 
     background-color: transparent;
+
+    transition: $transition;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      transform: rotate(45deg);
+    }
+
+    @include hover {
+      cursor: pointer;
+      transform: rotate(45deg);
+      scale: 1.15;
+    }
 
     &--icon {
       width: 24px;
@@ -48,16 +77,46 @@
 
     text-align: center;
 
+    transition: $transition;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      color: $white;
+    }
+
+    @include hover {
+      scale: 1.15;
+      color: $white;
+    }
+
     @include font-style($logo);
+
+    @include on-tablet {
+      transform: translateX(0);
+      width: 220px;
+    }
   }
 
   &__image-wrapper {
     width: 100%;
     margin-bottom: 20px;
+
+    @include on-tablet {
+      grid-column: 4 / span 3;
+      height: 384px;
+      margin-bottom: 88px;
+    }
   }
 
   &__img {
     width: 100%;
+
+    @include on-tablet {
+      height: 100%;
+    }
   }
 
   &__content {
@@ -67,14 +126,29 @@
 
     width: 100%;
     padding-inline: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / span 3;
+      grid-row: 1;
+      gap: 38px;
+
+      margin-top: 127px;
+      padding-left: 34px;
+    }
   }
 
   &__title {
-    color: $title-black;
-
     @include font-style($title-mobile);
 
+    color: $title-black;
     text-align: center;
+
+    @include on-tablet {
+      @include font-style($title-tablet);
+
+      font-size: clamp(45px, 7vw, 54px);
+      text-align: start;
+    }
   }
 
   &__link {
@@ -85,6 +159,25 @@
     height: 50px;
     padding: 0;
     border: 1px solid $green;
+
+    transition: $transition;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      scale: 0.95;
+    }
+
+    @include hover {
+      scale: 0.95;
+    }
+
+    @include on-tablet {
+      width: 270px;
+      height: 70px;
+    }
 
     &--text {
       @include font-style($ticket);
@@ -105,6 +198,11 @@
       color: $white;
 
       background-color: $green;
+
+      @include on-tablet {
+        width: 70px;
+        height: 70px;
+      }
     }
 
     &--arrow {

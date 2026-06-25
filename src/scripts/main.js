@@ -64,18 +64,18 @@ const changeDot = () => {
 };
 
 btnMenu.addEventListener('click', () => {
-  menu.classList.toggle('hidden');
+  menu.classList.toggle('visible');
 });
 
 btnClose.addEventListener('click', () => {
-  menu.classList.toggle('hidden');
+  menu.classList.toggle('visible');
 });
 
 nav.addEventListener('click', (e) => {
   const target = e.target.closest('.menu__nav--link');
 
   if (target) {
-    menu.classList.toggle('hidden');
+    menu.classList.toggle('visible');
   }
 });
 
