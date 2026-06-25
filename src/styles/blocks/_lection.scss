@@ -7,9 +7,17 @@
   width: 100%;
   margin-bottom: 183px;
 
+  @include on-tablet {
+    margin-bottom: 208px;
+  }
+
   &__img {
     width: 100%;
     height: 210px;
+
+    @include on-tablet {
+      height: 390px;
+    }
   }
 
   &__wrapper {
@@ -19,6 +27,11 @@
 
     width: 100%;
     padding-inline: 20px;
+
+    @include on-tablet {
+      top: 306px;
+      padding-inline: 65px;
+    }
   }
 
   &__box {
@@ -26,6 +39,10 @@
     padding-block: 20px;
     border-bottom: 2px solid rgba(#1a5a4c40, 0.25);
     background-color: $white;
+
+    @include on-tablet {
+      padding: 45px 55px 50px;
+    }
   }
 
   &__head {
@@ -35,9 +52,31 @@
     width: 100%;
     margin-bottom: 20px;
     padding-inline: 20px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-bottom: 16px;
+      padding: 0;
+    }
+
+    &--title {
+      grid-column: span 2;
+    }
+
+    &--date {
+      grid-column: 3 / -1;
+    }
   }
 
   &__text {
     text-align: center;
+
+    @include font-style($card-caption-mobile);
+
+    @include on-tablet {
+      font-size: 36px;
+      text-align: start;
+    }
   }
 }
