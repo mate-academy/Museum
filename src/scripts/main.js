@@ -93,6 +93,14 @@ dotBox.addEventListener('click', () => {
   changeSlide(currentDotIndex);
 });
 
+dotBox.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    changeDot();
+    changeSlide(currentDotIndex);
+  }
+});
+
 emailForm.addEventListener('submit', (e) => {
   e.preventDefault();
   emailForm.reset();

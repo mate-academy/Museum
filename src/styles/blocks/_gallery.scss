@@ -5,11 +5,24 @@
 .gallery {
   margin-bottom: 100px;
   padding-inline: 20px;
+  text-align: center;
+
+  @include on-tablet {
+    margin-bottom: 92px;
+    padding-inline: 34px;
+  }
 
   &__container {
     overflow: hidden;
+
+    aspect-ratio: 16 / 26;
     width: 100%;
-    min-height: 450px;
+    max-height: 78dvh;
+
+    @include on-tablet {
+      margin-bottom: 32px;
+    }
+
     margin-bottom: 20px;
   }
 
@@ -27,17 +40,34 @@
     flex-shrink: 0;
     width: 100%;
     height: 100%;
+    object-fit: contain;
   }
 
   &__dots {
-    // cursor: pointer;
+    cursor: pointer;
 
-    display: flex;
+    display: inline-flex;
     gap: 22px;
     align-items: center;
     justify-content: center;
 
     height: 20px;
+    padding: 4px 10px;
+    border-radius: 20px;
+
+    transition: $transition;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $green;
+    }
+
+    @include hover {
+      scale: 0.9;
+    }
   }
 
   &__dot {
