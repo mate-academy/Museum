@@ -3,13 +3,13 @@
 @use '../utils/typography' as *;
 
 .gallery {
+  width: 100%;
   margin-bottom: 100px;
   padding-inline: 20px;
-  text-align: center;
 
-  @include on-tablet {
-    margin-bottom: 92px;
-    padding-inline: 34px;
+  &__title {
+    margin-bottom: 40px;
+    color: $black;
   }
 
   &__container {
@@ -17,12 +17,7 @@
 
     aspect-ratio: 16 / 26;
     width: 100%;
-    max-height: 78dvh;
-
-    @include on-tablet {
-      margin-bottom: 32px;
-    }
-
+    max-height: 70dvh;
     margin-bottom: 20px;
   }
 
@@ -44,37 +39,24 @@
   }
 
   &__dots {
-    cursor: pointer;
-
-    display: inline-flex;
+    display: flex;
     gap: 22px;
     align-items: center;
     justify-content: center;
 
     height: 20px;
+    margin: 0 auto;
     padding: 4px 10px;
     border-radius: 20px;
 
     transition: $transition;
-
-    &:focus {
-      outline: none;
-    }
-
-    &:focus-visible {
-      outline: 1px solid $green;
-    }
-
-    @include hover {
-      scale: 0.9;
-    }
   }
 
   &__dot {
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background-color: $grey-dot;
+    background-color: $dot;
 
     &.active {
       background-color: $green;

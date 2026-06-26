@@ -4,38 +4,23 @@
 
 .events {
   width: 100%;
+  margin-bottom: 60px;
   padding-inline: 20px;
 
-  @include on-tablet {
-    padding-inline: 34px;
-  }
-
   &__title {
+    max-width: 300px;
+    margin: 0 auto;
     margin-bottom: 40px;
-    text-align: center;
-
-    @include font-style($section-title-mobile);
-
-    @include on-tablet {
-      margin-bottom: 48px;
-      font-size: 48px;
-      text-align: start;
-    }
+    color: $black;
   }
 
-  &__article-container {
+  &__container {
     display: flex;
     flex-direction: column;
     gap: 60px;
     align-items: center;
 
     width: 100%;
-    margin-bottom: 60px;
-
-    @include on-tablet {
-      gap: 64px;
-      margin-bottom: 112px;
-    }
   }
 
   &__article {
@@ -43,23 +28,15 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+  }
 
-    @include on-tablet {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: repeat(4, auto);
-      column-gap: 20px;
-    }
+  &__wrapper {
+    width: 100%;
+    margin-bottom: 16px;
   }
 
   &__img {
     width: 100%;
-    margin-bottom: 16px;
-
-    @include on-tablet {
-      grid-column: span 6;
-      margin-bottom: 40px;
-    }
   }
 
   &__head {
@@ -70,31 +47,16 @@
     width: 100%;
     margin-bottom: 10px;
 
-    @include on-tablet {
-      grid-column: span 3;
-      grid-row: 2;
-      width: 220px;
-      margin-bottom: 30px;
-    }
-
     &--title {
-      @include font-style($card-topic-mobile);
-
-      @include on-tablet {
-        font-size: 14px;
-      }
+      @include font-style($head-title);
     }
 
     &--date {
-      @include font-style($card-date-mobile);
-
-      @include on-tablet {
-        font-size: 14px;
-      }
+      @include font-style($head-date);
     }
   }
 
-  &__caption-box {
+  &__caption {
     display: flex;
     gap: 15px;
     align-items: center;
@@ -102,40 +64,25 @@
     width: 100%;
     margin-bottom: 10px;
 
-    @include on-tablet {
-      grid-column: span 4;
-      grid-row: 3;
-      margin-bottom: 15px;
-    }
-  }
-
-  &__caption {
-    @include font-style($card-caption-mobile);
-
-    @include on-tablet {
-      font-size: 36px;
+    &--title {
+      @include font-style($caption-title);
     }
 
     &--box {
-      transform: translateY(-2.5px);
-      width: 10px;
-      height: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: $red;
 
-      @include on-tablet {
-        transform: translateY(1.5px);
-        width: 15px;
-        height: 15px;
+      &-icon {
+        transform: translateY(2px);
+        width: 10px;
+        height: 10px;
       }
     }
   }
 
   &__text {
-    @include font-style($card-text-mobile);
-
-    @include on-tablet {
-      grid-column: span 4;
-      grid-row: 4;
-    }
+    @include font-style($article-text);
   }
 }
