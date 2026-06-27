@@ -6,6 +6,8 @@ const menu = document.querySelector('.menu');
 const nav = document.querySelector('.menu__nav');
 const galleryContainer = document.querySelector('.gallery__container');
 const galleryTrack = document.querySelector('.gallery__track');
+const galleryImages = document.querySelectorAll('.gallery__img');
+const img = document.querySelector('.gallery__img');
 const dotBox = document.querySelector('.gallery__dots');
 const dots = document.querySelectorAll('.gallery__dot');
 const emailForm = document.querySelector('.sub__mail-form');
@@ -21,19 +23,25 @@ const images = [
 let touchStartX = 0;
 let touchEndX = 0;
 let currentImageIndex = 0;
-let currentDotIndex = 0;
 
 function changeSlide(index) {
   currentImageIndex = index;
 
-  galleryTrack.style.transform = `translateX(-${currentImageIndex * 100}%)`;
+  const currentWidth = img.offsetWidth;
+  const gap = 10;
 
+  galleryTrack.style.transform = `translateX(calc(-${currentImageIndex * (currentWidth + gap)}px))`;
+}
+
+const changeDot = () => {
   dots.forEach((dot) => {
     dot.classList.remove('active');
   });
 
-  dots[currentImageIndex].classList.add('active');
-}
+  const activeDotIndex = currentImageIndex % dots.length;
+
+  dots[activeDotIndex].classList.add('active');
+};
 
 const handleSwipe = () => {
   const swipeDistance = touchStartX - touchEndX;
@@ -42,26 +50,48 @@ const handleSwipe = () => {
   if (swipeDistance > minSwipeDistance) {
     if (currentImageIndex < images.length - 1) {
       changeSlide(currentImageIndex + 1);
+      changeDot();
     }
   }
 
   if (swipeDistance < -minSwipeDistance) {
     if (currentImageIndex > 0) {
       changeSlide(currentImageIndex - 1);
+      changeDot();
     }
   }
 };
 
-const changeDot = () => {
-  dots.forEach((dot) => {
-    dot.classList.remove('active');
-  });
+galleryContainer.addEventListener('touchstart', (event) => {
+  touchStartX = event.touches[0].clientX;
+});
 
-  currentDotIndex++;
-  currentDotIndex = currentDotIndex % dots.length;
+galleryContainer.addEventListener('touchend', (event) => {
+  touchEndX = event.changedTouches[0].clientX;
+  handleSwipe();
+});
 
-  dots[currentDotIndex].classList.add('active');
-};
+dotBox.addEventListener('click', () => {
+  if (currentImageIndex >= galleryImages.length - 1) {
+    changeSlide(0);
+  } else {
+    changeSlide(currentImageIndex + 1);
+  }
+  changeDot();
+});
+
+dotBox.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+
+    if (currentImageIndex >= galleryImages.length - 1) {
+      changeSlide(0);
+    } else {
+      changeSlide(currentImageIndex + 1);
+    }
+    changeDot();
+  }
+});
 
 btnMenu.addEventListener('click', () => {
   menu.classList.toggle('visible');
@@ -76,28 +106,6 @@ nav.addEventListener('click', (e) => {
 
   if (target) {
     menu.classList.toggle('visible');
-  }
-});
-
-galleryContainer.addEventListener('touchstart', (event) => {
-  touchStartX = event.touches[0].clientX;
-});
-
-galleryContainer.addEventListener('touchend', (event) => {
-  touchEndX = event.changedTouches[0].clientX;
-  handleSwipe();
-});
-
-dotBox.addEventListener('click', () => {
-  changeDot();
-  changeSlide(currentDotIndex);
-});
-
-dotBox.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter' || event.key === ' ') {
-    event.preventDefault();
-    changeDot();
-    changeSlide(currentDotIndex);
   }
 });
 
