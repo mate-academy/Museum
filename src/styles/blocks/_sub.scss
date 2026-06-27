@@ -7,53 +7,37 @@
   margin-bottom: 18px;
   padding: 88px 20px;
 
-  background-image: url(../assets/images/sub-mob.png);
+  background-image: url(../assets/images/sub.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
-  &__disc {
+  &__head {
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
 
     margin-bottom: 50px;
-
-    @include on-tablet {
-      grid-column: 2 / 6;
-      gap: 16px;
-      margin-bottom: 64px;
-    }
   }
 
   &__title {
     color: $white;
-
-    @include on-tablet {
-      font-size: 48px;
-    }
   }
 
   &__text {
     text-align: center;
 
-    @include font-style($subscript-text);
-
-    @include on-tablet {
-      line-height: 100%;
-    }
+    @include font-style($sub-text);
   }
 
   &__mail-form {
     display: flex;
     align-items: center;
-    width: 100%;
 
-    @include on-tablet {
-      grid-column: 2 / 6;
-      gap: 16px;
-    }
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
 
     &--input {
       flex-grow: 1;
@@ -66,18 +50,10 @@
 
       @include font-style($input-text);
 
-      &:-webkit-autofill,
-      &:-webkit-autofill:hover,
-      &:-webkit-autofill:focus {
-        box-shadow: 0 0 1000px #fff inset;
-
-        -webkit-text-fill-color: $inp-text;
-      }
-
-      @include on-tablet {
-        height: 70px;
-        padding: 24px 28px;
-      }
+      // &:-webkit-autofill,
+      // &:-webkit-autofill:hover,
+      // &:-webkit-autofill:focus {
+      box-shadow: 0 0 1000px #fff inset;
     }
 
     &--btn {
@@ -95,21 +71,11 @@
 
       transition: $transition;
 
-      @include on-tablet {
-        width: 70px;
-        height: 70px;
-
-        @include hover {
-          cursor: pointer;
-          scale: 0.9;
-        }
+      &-icon {
+        width: 24px;
+        height: 24px;
+        padding: 0;
       }
-    }
-
-    &__icon {
-      width: 24px;
-      height: 24px;
-      padding: 0;
     }
   }
 }
