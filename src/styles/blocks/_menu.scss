@@ -15,6 +15,7 @@
   column-gap: 20px;
 
   width: 100%;
+  max-width: 1440px;
   padding: 27px 20px;
 
   visibility: hidden;
@@ -22,18 +23,19 @@
 
   transition: $transition;
 
-  @include on-tablet {
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-    width: 100%;
-    padding: 39px 34px;
-  }
+  // @include on-tablet {
+  //   grid-template-columns: repeat(6, 1fr);
+  //   grid-template-rows: auto;
+  //   width: 100%;
+  //   padding: 39px 34px;
+  // }
 
-  @include on-desktop {
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto;
-    column-gap: 30px;
-  }
+  // @include on-desktop {
+  //   grid-template-columns: repeat(12, 1fr);
+  //   grid-template-rows: auto;
+  //   column-gap: 30px;
+  //   width: 100%;
+  // }
 
   &.visible {
     transform: translateY(0);
@@ -51,17 +53,17 @@
 
     background-color: transparent;
 
-    @include on-tablet {
-      top: 39px;
-      left: 34px;
-    }
+    // @include on-tablet {
+    //   top: 39px;
+    //   left: 34px;
+    // }
 
-    @include on-desktop {
-      top: 40px;
-      left: 56px;
-    }
+    // @include on-desktop {
+    //   top: 40px;
+    //   left: 56px;
+    // }
 
-    &--icon {
+    &-icon {
       width: 24px;
       height: 24px;
       padding: 0;
@@ -71,45 +73,50 @@
   &__nav {
     grid-column: span 2;
     grid-row: 1;
+
+    width: 100%;
     margin-bottom: 24px;
     padding-left: 52px;
 
-    @include on-tablet {
-      grid-column: 1 / 4;
-      width: 100%;
-      margin: 0;
-      padding-left: 62px;
-    }
+    // @include on-tablet {
+    //   grid-column: 1 / 4;
+    //   width: 100%;
+    //   margin: 0;
+    //   padding-left: 62px;
+    // }
 
-    @include on-desktop {
-      grid-column: 2 / 6;
-      width: 100%;
-      padding-left: 26px;
-    }
+    // @include on-desktop {
+    //   grid-column: 2 / 7;
+    //   width: 100%;
+    //   padding-left: 26px;
+    // }
 
-    &--list {
+    &-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px 28px;
+      width: 100%;
 
-      @include on-tablet {
-        gap: 24px 20px;
-      }
+      // @include on-tablet {
+      //   gap: 24px 20px;
+      //   width: 100%;
+      // }
 
-      @include on-desktop {
-        gap: 30px;
-      }
+      // @include on-desktop {
+      //   gap: 30px;
+      //   width: 100%;
+      // }
     }
 
-    &--link {
-      @include font-style($ticket);
+    &-link {
+      @include ticket;
 
       color: $white;
       text-shadow: 0 0 3px $white;
 
-      @include on-desktop {
-        font-size: 22px;
-      }
+      // @include on-desktop {
+      //   font-size: 22px;
+      // }
     }
   }
 
@@ -123,23 +130,23 @@
 
     background-color: rgba($white, 0.5);
 
-    @include on-tablet {
-      grid-column: 3;
-      grid-row: 1 / -1;
-      justify-self: end;
+    // @include on-tablet {
+    //   grid-column: 3;
+    //   grid-row: 1 / -1;
+    //   justify-self: end;
 
-      width: 1px;
-      height: 100%;
-      margin-bottom: 0;
-      margin-inline: 18px;
-    }
+    //   width: 1px;
+    //   height: 100%;
+    //   margin-bottom: 0;
+    //   margin-inline: 18px;
+    // }
 
-    @include on-desktop {
-      grid-column: 7;
-      grid-row: 1 / -1;
-      justify-self: start;
-      margin: 0;
-    }
+    // @include on-desktop {
+    //   grid-column: 7;
+    //   grid-row: 1 / -1;
+    //   justify-self: start;
+    //   margin: 0;
+    // }
   }
 
   &__hours {
@@ -151,37 +158,37 @@
 
     margin-bottom: 16px;
 
-    @include on-tablet {
-      grid-column: 4 / 6;
-      grid-row: 1 / -1;
-      margin: 0;
-    }
+    // @include on-tablet {
+    //   grid-column: 4 / 6;
+    //   grid-row: 1 / -1;
+    //   margin: 0;
+    // }
 
-    @include on-desktop {
-      grid-column: 8 / 10;
-      grid-row: 1 / -1;
-    }
+    // @include on-desktop {
+    //   grid-column: 8 / 10;
+    //   grid-row: 1 / -1;
+    // }
 
-    &--title {
-      @include font-style($footer-title);
+    &-title {
+      @include footer-title;
 
       color: $white;
     }
 
-    &--list {
+    &-list {
       display: flex;
       flex-direction: column;
     }
 
-    &--item {
+    &-item {
       &-time {
-        @include font-style($footer-hours);
+        @include footer-hours;
 
         color: $white;
       }
 
       &-day {
-        @include font-style($footer-day);
+        @include footer-day;
 
         color: $white;
       }
@@ -192,25 +199,25 @@
     grid-column: span 2;
     grid-row: 4;
 
-    @include font-style($footer-day);
+    @include footer-day;
 
     color: $white;
 
-    @include on-tablet {
-      grid-column: 5 / -1;
-      grid-row: 1 / -1;
-      margin-top: 40px;
-      padding-left: 77px;
-    }
+    // @include on-tablet {
+    //   grid-column: 5 / -1;
+    //   grid-row: 1 / -1;
+    //   margin-top: 40px;
+    //   padding-left: 77px;
+    // }
 
-    @include on-desktop {
-      grid-column: 10 / 12;
-      grid-row: 1 / -1;
-      padding: 0;
-    }
+    // @include on-desktop {
+    //   grid-column: 10 / 12;
+    //   grid-row: 1 / -1;
+    //   padding: 0;
+    // }
 
     &--bold {
-      @include font-style($footer-hours);
+      @include footer-hours;
 
       color: $white;
     }
