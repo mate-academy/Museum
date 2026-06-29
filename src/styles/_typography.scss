@@ -1,3 +1,67 @@
-h1 {
-  @extend %h1;
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+
+  box-sizing: border-box;
+  min-width: 320px;
+  margin: 0;
+
+  color: $c-black-soft;
+
+  background-color: $c-white;
+}
+
+.page {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  min-width: 320px;
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  padding-inline: $container-padding-mobile;
+
+  @include on-tablet {
+    padding-inline: $container-padding-tablet;
+  }
+
+  @include on-desktop {
+    padding-inline: $container-padding-desktop;
+  }
+}
+
+html,
+body {
+  overscroll-behavior-x: none;
+}
+
+html:has(.menu:target) {
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.header__button,
+.event-card__image,
+.footer__social,
+.footer__up,
+.footer__link,
+.header__menu,
+.menu__link,
+.subscribe__button {
+  @include hover(transform, scale(1.05));
+}
+
+.gallery {
+  &__image {
+    @include hover(transform, scaleX(-1) scale(1.03));
+  }
 }

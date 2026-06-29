@@ -1,0 +1,140 @@
+.subscribe {
+  position: relative;
+
+  min-height: 386px;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url('../images/subscribe-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include on-tablet {
+    min-height: 380px;
+  }
+
+  @include on-desktop {
+    min-height: 550px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 386px;
+
+    @include on-tablet {
+      min-height: 380px;
+    }
+
+    @include on-desktop {
+      min-height: 550px;
+    }
+  }
+
+  &__title {
+    @extend %title-lg;
+
+    margin: 0 0 20px;
+    color: $c-white;
+
+    @include on-tablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    @extend %subscribe-text;
+
+    margin: 0 0 50px;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    width: 100%;
+
+    @include on-tablet {
+      grid-template-columns: 1fr 70px;
+      gap: 16px;
+      width: 460px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+      width: 570px;
+    }
+  }
+
+  &__input {
+    @extend %plex-400;
+
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    height: 50px;
+    padding-inline: 24px;
+    border: 0;
+
+    font-size: 14px;
+    line-height: 100%;
+    color: $c-black-soft;
+
+    background-color: $c-white;
+    outline: none;
+    caret-color: $c-green-deep;
+
+    transition:
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
+
+    @include on-tablet {
+      height: 70px;
+      padding-inline: 32px;
+    }
+
+    &::placeholder {
+      color: $c-gray-blue;
+    }
+
+    &:hover {
+      background-color: #e6e6e6;
+      box-shadow: inset 0 0 0 2px rgba($c-green-deep, 0.35);
+    }
+
+    &:focus {
+      background-color: #e6e6e6;
+      box-shadow: inset 0 0 0 2px $c-green-deep;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    border: 0;
+
+    background-color: $c-orange;
+    background-image: url('../images/arrow-right-black.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include on-tablet {
+      height: 70px;
+    }
+  }
+}
