@@ -5,28 +5,31 @@
 .footer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, auto);
   column-gap: 20px;
 
-  width: 100%;
+  // width: 100%;
   padding: 32px 20px;
 
   &__logo {
     grid-column: 1;
+    grid-row: 1;
     margin-bottom: 40px;
 
-    @include font-style($logo);
+    @include logo;
   }
 
   &__socials {
     display: flex;
     grid-column: 2;
+    grid-row: 1;
     gap: 20px;
     align-items: center;
     justify-content: end;
 
     margin-bottom: 40px;
 
-    &--link {
+    &-link {
       color: $full-black;
 
       &-icon {
@@ -40,39 +43,41 @@
   &__hours {
     display: flex;
     grid-column: 1;
+    grid-row: 2;
     flex-direction: column;
     gap: 20px;
 
-    &--title {
-      @include font-style($footer-title);
+    &-title {
+      @include footer-title;
     }
 
-    &--list {
+    &-list {
       display: flex;
       flex-direction: column;
     }
 
-    &--item {
+    &-item {
       display: flex;
       flex-direction: column;
     }
 
-    &--time {
-      @include font-style($footer-hours);
+    &-time {
+      @include footer-hours;
     }
 
-    &--day {
-      @include font-style($footer-day);
+    &-day {
+      @include footer-day;
     }
 
-    &--text {
-      @include font-style($footer-day);
+    &-text {
+      @include footer-day;
     }
   }
 
   &__contacts {
     display: flex;
     grid-column: 2;
+    grid-row: 2;
     flex-direction: column;
     gap: 20px;
   }
@@ -81,8 +86,8 @@
     display: flex;
     flex-direction: column;
 
-    &--link {
-      @include font-style($footer-day);
+    &-link {
+      @include footer-day;
 
       display: inline-block;
       text-shadow: 0 0 3px $green;
@@ -92,6 +97,7 @@
   &__up {
     display: flex;
     grid-column: 2;
+    grid-row: 3;
     align-items: center;
     justify-content: center;
     justify-self: end;
@@ -104,7 +110,7 @@
 
     color: $green;
 
-    &--icon {
+    &-icon {
       width: 16px;
       height: 16px;
     }
@@ -112,23 +118,27 @@
 
   &__separator {
     grid-column: span 2;
+    grid-row: 4;
+
     height: 1px;
     margin-bottom: 40px;
+
     background-color: rgba($green, 0.5);
   }
 
   &__nav {
     grid-column: span 2;
+    grid-row: 5;
     margin-bottom: 80px;
 
-    &--list {
+    &-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
 
-    &--link {
-      @include font-style($footer-menu);
+    &-link {
+      @include footer-menu;
 
       text-shadow: 0 0 3px $green;
     }
@@ -137,11 +147,12 @@
   &__copies {
     display: flex;
     grid-column: span 2;
+    grid-row: 6;
     flex-direction: column;
     gap: 10px;
 
     text-align: center;
 
-    @include font-style($footer-copyright);
+    @include footer-copyright;
   }
 }

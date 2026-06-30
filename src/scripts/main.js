@@ -30,7 +30,7 @@ function changeSlide(index) {
   const currentWidth = img.offsetWidth;
   const gap = 10;
 
-  galleryTrack.style.transform = `translateX(calc(-${currentImageIndex * (currentWidth + gap)}px))`;
+  galleryTrack.style.transform = `translateX(calc(-${currentImageIndex * (currentWidth * 0.98 + gap)}px))`;
 }
 
 const changeDot = () => {

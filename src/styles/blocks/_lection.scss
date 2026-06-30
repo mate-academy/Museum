@@ -4,23 +4,23 @@
 
 .lection {
   position: relative;
-  width: 100%;
   margin-bottom: 183px;
 
-  &__wrapper-img {
+  &__wrapper {
     width: 100%;
-    min-height: 210px;
+    height: clamp(210px, 58.43px + 47.37vw, 390px);
     margin-bottom: 183px;
+    object-fit: cover;
+  }
 
-    background-image: url(../assets/images/lection.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  &__img {
+    width: 100%;
+    height: 100%;
   }
 
   &__container {
     position: absolute;
-    top: 153px;
+    top: clamp(153px, 24.17px + 40.26vw, 306px);
     left: 0;
 
     width: 100%;
@@ -28,7 +28,6 @@
   }
 
   &__box {
-    width: 100%;
     padding-block: 20px;
     border-bottom: 2px solid $lection-bottom;
     background-color: $white;
@@ -47,6 +46,6 @@
   &__title {
     text-align: center;
 
-    @include font-style($caption-title);
+    @include caption-title;
   }
 }
