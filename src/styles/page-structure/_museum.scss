@@ -1,0 +1,106 @@
+.museum {
+  @include page-grid;
+
+  grid-column: 1 / -1;
+
+  row-gap: 20px;
+
+  @include on-tablet {
+    grid-area: 1 / 1 / 1 / 4;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    row-gap: 38px;
+  }
+
+  @include on-desktop {
+    grid-area: 1 / 1 / 1 / 6;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    row-gap: 89px;
+  }
+
+  &__title {
+    margin-top: 20px;
+
+    display: flex;
+    align-self: end;
+
+    grid-column: 1 / -1;
+
+    font-family: $main-font;
+    color: #000;
+    text-align: center;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include on-tablet {
+      margin-top: 127px;
+
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      margin-top: 206px;
+
+      font-size: 72px;
+    }
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+    width: 280px;
+
+    border: 1px solid $green;
+
+    @include on-tablet {
+      width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      align-self: start;
+      grid-column: 3 / -1;
+
+      margin-bottom: 118px;
+    }
+  }
+
+  &__link-block {
+    background-color: $green;
+  }
+
+  &__side-sign {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      align-items: center;
+    }
+
+    margin: 0 0 -45px -50px;
+    transform: rotate(-90deg);
+    gap: 20px;
+
+    &--tag {
+      display: flex;
+
+      color: $grey-text-color;
+      font-family: $secondary-font;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 100%;
+    }
+
+    &--line {
+      width: 70px;
+      height: 1px;
+
+      background-color: $green;
+    }
+  }
+}

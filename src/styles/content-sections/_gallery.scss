@@ -1,0 +1,196 @@
+.gallery {
+  // 💡 ПРИБРАЛИ @include page-grid звідси, бо галерея вже лежить всередині .page__content!
+  grid-column: 1 / -1; // Розтягуємо секцію галереї на всі 12 колонок сайту
+  margin-inline: auto; // Центруємо галерею, якщо екран більший за макет
+  margin-bottom: 100px;
+
+  @include on-tablet {
+    margin-bottom: 92px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 200px;
+  }
+
+  &__title-block {
+    grid-column: 1 / -1;
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+    margin-top: 40px;
+
+    // Мобільна версія (горизонтальний скрол)
+    @media (max-width: 639px) {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      gap: 16px;
+      padding: 0 20px;
+      margin: 40px -20px 0;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    // Планшетна версія (горизонтальний скрол)
+    @media (min-width: 640px) and (max-width: 1023px) {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      gap: 16px;
+      padding: 0 34px;
+      margin: 48px -34px 0;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    // Десктопна версія галереї
+    @include on-desktop {
+      display: grid;
+      grid-column: 1 / -1;
+      margin-top: 56px;
+      margin-inline: 0; // Скидаємо від'ємні марджини планшета
+      width: 100%;
+
+      // Створюємо чисті 12 колонок, які ідеально збігаються з .page__content
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 600px 360px;
+      gap: 30px; // Об'єднана властивість для лінтера (і row-gap, і column-gap по 30px)
+    }
+  }
+
+  &__photo {
+    display: flex;
+
+    @include hover(scale, 1.03);
+
+    @media (max-width: 1023px) {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+
+      &--photo-1,
+      &--photo-2,
+      &--photo-3,
+      &--photo-4,
+      &--photo-5 {
+        display: flex !important;
+      }
+    }
+
+    @media (max-width: 639px) {
+      width: calc(100vw - 60px);
+    }
+
+    @media (min-width: 640px) and (max-width: 1023px) {
+      width: calc((100vw - 68px - 16px - 60px) / 2);
+    }
+
+    // Десктопна версія (Ідеальний розподіл 4 + 8 та 8 + 4)
+    &--photo-1 {
+      @include on-desktop {
+        display: flex;
+        grid-area: 1 / 1 / 1 / 5;
+        width: auto !important;
+
+        // 💡 1 фото: обрізається по верхньому краю (дівчина з головою)
+        .gallery__img {
+          object-position: center top;
+        }
+      }
+    }
+
+    &--photo-2 {
+      @include on-desktop {
+        display: flex;
+        grid-area: 1 / 5 / 1 / -1;
+        width: auto !important;
+
+        // 💡 2 фото: строго по центру
+        .gallery__img {
+          object-position: center center;
+        }
+      }
+    }
+
+    &--photo-3 {
+      @include on-desktop {
+        display: flex;
+        grid-area: 2 / 1 / 2 / 9;
+        width: auto !important;
+
+        // 💡 3 фото: обрізається по верхньому краю
+        .gallery__img {
+          object-position: center center;
+        }
+      }
+    }
+
+    &--photo-4 {
+      @include on-desktop {
+        display: flex;
+        grid-area: 2 / 9 / 2 / -1;
+        width: auto !important;
+
+        // 💡 4 photo: строго по центру
+        .gallery__img {
+          object-position: center bottom;
+        }
+      }
+    }
+
+    &--photo-5 {
+      @include on-desktop {
+        display: none !important;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__carousel {
+    margin-inline: auto;
+    margin-top: 20px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 3 / 5;
+    }
+
+    @media (min-width: 1024px) {
+      display: none !important;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 9px;
+  }
+
+  &__bullet {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease;
+
+    &--active {
+      background-color: #005a43;
+      transform: scale(1.15);
+    }
+  }
+}
