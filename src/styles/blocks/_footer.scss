@@ -8,8 +8,19 @@
   grid-template-rows: repeat(6, auto);
   column-gap: 20px;
 
-  // width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
   padding: 32px 20px;
+
+  @include on-tablet {
+    grid-template-columns: repeat((6, 1fr));
+    padding: 51px 34px 36px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    padding: 47px 55px 35px;
+  }
 
   &__logo {
     grid-column: 1;
@@ -17,6 +28,36 @@
     margin-bottom: 40px;
 
     @include logo;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      color: $red;
+    }
+
+    @include hover {
+      scale: 0.95;
+      color: $red;
+      transition: $transition;
+    }
+
+    @include on-tablet {
+      grid-column: 1 / 2;
+      grid-row: 1;
+      justify-content: flex-start;
+
+      width: 98px;
+      height: 72px;
+
+      font-size: 36px;
+    }
+
+    @include on-desktop {
+      width: 100%;
+      margin: 0;
+    }
   }
 
   &__socials {
@@ -29,8 +70,36 @@
 
     margin-bottom: 40px;
 
+    @include on-tablet {
+      grid-column: 1 / 2;
+      grid-row: 2;
+      gap: 32px;
+      align-self: self-start;
+      justify-content: start;
+
+      margin-bottom: 156px;
+
+      @include on-desktop {
+        margin-bottom: 60px;
+      }
+    }
+
     &-link {
       color: $full-black;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        color: $red;
+      }
+
+      @include hover {
+        scale: 0.95;
+        color: $red;
+        transition: $transition;
+      }
 
       &-icon {
         width: 24px;
@@ -47,6 +116,17 @@
     flex-direction: column;
     gap: 20px;
 
+    @include on-tablet {
+      grid-column: 2 / 4;
+      grid-row: 1 / 3;
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+      margin: 0;
+    }
+
     &-title {
       @include footer-title;
     }
@@ -59,6 +139,13 @@
     &-item {
       display: flex;
       flex-direction: column;
+
+      @include on-tablet {
+        @media (min-width: 1135px) {
+          flex-direction: row;
+          gap: 5px;
+        }
+      }
     }
 
     &-time {
@@ -80,6 +167,15 @@
     grid-row: 2;
     flex-direction: column;
     gap: 20px;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 7;
+    }
   }
 
   &__adress {
@@ -91,6 +187,20 @@
 
       display: inline-block;
       text-shadow: 0 0 3px $green;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        color: $red;
+      }
+
+      @include hover {
+        scale: 1.05;
+        color: $red;
+        transition: $transition;
+      }
     }
   }
 
@@ -110,6 +220,10 @@
 
     color: $green;
 
+    @include on-tablet {
+      display: none;
+    }
+
     &-icon {
       width: 16px;
       height: 16px;
@@ -124,6 +238,22 @@
     margin-bottom: 40px;
 
     background-color: rgba($green, 0.5);
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      grid-row: 3;
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      grid-column: 7;
+      grid-row: 1 / 3;
+      justify-self: center;
+
+      width: 1px;
+      height: 100%;
+      margin: 0;
+    }
   }
 
   &__nav {
@@ -131,16 +261,47 @@
     grid-row: 5;
     margin-bottom: 80px;
 
+    @include on-tablet {
+      grid-column: 2 / 6;
+      grid-row: 4;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / 11;
+      grid-row: 1;
+      margin: 0;
+    }
+
     &-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+
+      @include on-desktop {
+        gap: 20px 32px;
+      }
     }
 
     &-link {
+      display: inline-block;
+
       @include footer-menu;
 
       text-shadow: 0 0 3px $green;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        color: $red;
+      }
+
+      @include hover {
+        scale: 1.05;
+        color: $red;
+        transition: $transition;
+      }
     }
   }
 
@@ -154,5 +315,17 @@
     text-align: center;
 
     @include footer-copyright;
+
+    @include on-tablet {
+      grid-column: span 6;
+      grid-row: 5;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include on-desktop {
+      grid-column: span 12;
+      margin-top: 87px;
+    }
   }
 }
