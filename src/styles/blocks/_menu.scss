@@ -1,0 +1,186 @@
+.menu {
+  position: fixed;
+  z-index: 200;
+  inset: 0;
+  transform: translateY(-100%);
+
+  overflow-y: auto;
+
+  transition: transform 0.3s ease;
+
+  &.is-open {
+    transform: translateY(0);
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 28px;
+    align-items: start;
+
+    @include content-padding-inline;
+
+    padding-top: 27px;
+    padding-bottom: 27px;
+
+    background-color: $c-green;
+
+    @include tablet-small {
+      grid-template-columns: auto 1fr 1fr 1fr;
+      column-gap: 10px;
+    }
+
+    @include tablet {
+      column-gap: 38px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    @include desktop {
+      grid-template-columns: auto 1fr 1fr 1fr;
+      column-gap: 102px;
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+
+    grid-column: 1;
+    grid-row: 1;
+
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    color: $c-white;
+
+    background: none;
+
+    @include hover(opacity, 0.6);
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: $c-white;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-column: 2;
+    grid-row: 1;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 28px;
+
+    margin: 0;
+    padding: 0 0 24px;
+
+    list-style: none;
+
+    @include tablet-small {
+      grid-column: 2;
+    }
+
+    @include desktop {
+      grid-column: 2;
+      gap: 31px 30px;
+    }
+  }
+
+  &__link {
+    font-family: $ff-main;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    color: $c-white;
+    text-decoration: none;
+
+    @include hover(opacity, 0.6);
+  }
+
+  &__schedule {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding-top: 24px;
+    border-top: 1px solid rgba($c-white, 0.2);
+
+    @include tablet-small {
+      display: grid;
+      grid-column: 3 / -1;
+      grid-row: 1;
+      grid-template-columns: 1fr 1fr;
+
+      padding-top: 0;
+      padding-left: 28px;
+      border-top: none;
+      border-left: 1px solid rgba($c-white, 0.2);
+    }
+
+    @include tablet {
+      padding-left: 38px;
+    }
+
+    @include desktop {
+      grid-column: 3 / -1;
+      grid-template-columns: repeat(2, 170px);
+      column-gap: 30px;
+      padding-left: 102px;
+    }
+  }
+
+  &__schedule-title {
+    margin: 0 0 20px;
+
+    font-family: $ff-second;
+    font-size: 14px;
+    line-height: 1.4;
+    color: $c-white;
+
+    @include tablet-small {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__schedule-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__schedule-time,
+  &__schedule-day {
+    margin-bottom: 4px;
+
+    font-family: $ff-second;
+    font-size: 14px;
+    line-height: 1.5;
+    color: $c-white;
+  }
+
+  &__schedule-time {
+    font-weight: 700;
+  }
+
+  &__schedule-day {
+    font-weight: 400;
+  }
+
+  &__schedule-note {
+    margin: 16px 0 0;
+
+    font-family: $ff-second;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $c-white;
+
+    @include tablet-small {
+      grid-column: 2;
+      margin: 0;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+  }
+}

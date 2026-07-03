@@ -1,6 +1,76 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin tablet-small {
+  @media (min-width: $bp-tablet-small) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin design {
+  @media (min-width: $bp-design) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: $container-padding-mobile;
+
+  @include tablet-small {
+    padding-inline: $container-padding-tablet-small;
+  }
+
+  @include tablet {
+    padding-inline: $container-padding-tablet;
+  }
+
+  @include desktop {
+    max-width: $container-max-width;
+    margin-inline: auto;
+    padding-inline: $container-padding-desktop;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include tablet-small {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
