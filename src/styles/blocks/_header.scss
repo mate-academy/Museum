@@ -15,12 +15,23 @@
     padding-inline: 34px;
   }
 
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(4, auto);
+    column-gap: 30px;
+
+    max-width: 1440px;
+    margin-bottom: 200px;
+    margin-inline: auto;
+    padding-inline: 55px;
+  }
+
   &__image-wrapper {
     display: flex;
 
     aspect-ratio: 16 / 15;
     width: 100%;
-    max-height: 30dvh;
+    max-height: 70dvh;
     margin-bottom: 20px;
 
     @include on-tablet {
@@ -32,6 +43,11 @@
       width: 50%;
       max-height: 415px;
       margin: 0;
+    }
+
+    @include on-desktop {
+      aspect-ratio: 725 / 655;
+      min-height: 655px;
     }
   }
 
@@ -64,6 +80,10 @@
       height: 72px;
       padding-inline: 34px;
     }
+
+    @include on-desktop {
+      padding-inline: 55px;
+    }
   }
 
   &__menu-btn {
@@ -76,6 +96,22 @@
     color: $black;
 
     background-color: transparent;
+
+    transition: $transition;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      color: $red;
+    }
+
+    @include hover {
+      cursor: pointer;
+      transform: scale(0.9);
+      color: $red;
+    }
 
     &-icon {
       width: 24px;
@@ -97,11 +133,31 @@
 
     text-align: center;
 
+    transition: $transition;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      color: $red;
+    }
+
+    @include hover {
+      cursor: pointer;
+      transform: scale(0.9);
+      color: $red;
+    }
+
     @include on-tablet {
       transform: translateX(0);
       width: 220px;
       height: 72px;
       font-size: 36px;
+    }
+
+    @include on-desktop {
+      width: 170px;
     }
   }
 
@@ -122,6 +178,13 @@
       margin-block: 127px 107px;
       padding: 0;
     }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      grid-row: 1 / 4;
+      gap: 89px;
+      margin: 206px 0 0;
+    }
   }
 
   &__title {
@@ -134,6 +197,10 @@
       line-height: 1.2;
       text-align: start;
     }
+
+    @include on-desktop {
+      font-size: 72px;
+    }
   }
 
   &__link {
@@ -144,9 +211,19 @@
     height: 50px;
     border: 1px solid $green;
 
+    transition: $transition;
+
+    @include hover {
+      scale: 0.95;
+    }
+
     @include on-tablet {
       max-width: 270px;
       height: 70px;
+    }
+
+    @include on-desktop {
+      align-self: self-end;
     }
 
     &-text {
@@ -178,6 +255,59 @@
     &-box-icon {
       width: 24px;
       height: 24px;
+    }
+  }
+
+  &__events {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 1;
+      grid-row: 3 / -1;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+      align-self: end;
+
+      height: 145px;
+      margin-top: 55px;
+      margin-left: 6px;
+
+      transition: $transition;
+
+      @include hover {
+        scale: 0.95;
+        .header__events-text {
+          color: $red;
+        }
+      }
+    }
+  }
+
+  @include on-desktop {
+    &__events-text {
+      transform-origin: baseline;
+      transform: rotate(-90deg);
+
+      display: inline-block;
+      flex-grow: 1;
+
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+      color: $head-title-grey;
+
+      transition: $transition;
+    }
+  }
+
+  @include on-desktop {
+    &__events-separator {
+      width: 1px;
+      height: 70px;
+      background-color: $green;
     }
   }
 }
