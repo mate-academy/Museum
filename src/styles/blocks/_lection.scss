@@ -1,0 +1,122 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+@use '../utils/typography' as *;
+
+.lection {
+  position: relative;
+  max-width: 1440px;
+  margin-bottom: 183px;
+  margin-inline: auto;
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+
+    margin-bottom: 208px;
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    display: block;
+
+    aspect-ratio: 128 / 55;
+    width: 100%;
+    margin-bottom: 302px;
+    padding: 0;
+  }
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-desktop {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__container {
+    position: absolute;
+    top: clamp(153px, -37.6px + 59.56vw, 343px);
+    left: 0;
+
+    width: 100%;
+    padding-inline: 20px;
+
+    @include on-tablet {
+      top: clamp(246px, -245.28px + 76.76vw, 540px);
+      padding-inline: 99px;
+    }
+
+    @include on-desktop {
+      top: clamp(286px, -266.7px + 53.97vw, 415px);
+
+      @media (min-width: 1264px) {
+        padding-inline: 355px;
+      }
+
+      @media (min-width: 1264px) {
+        top: clamp(416px, 243.64px + 13.64vw, 440px);
+      }
+    }
+
+    // @media (min-width: 1440px) {
+    //   top: clamp(440px, -186.09px + 43.48vw, 640px);
+    // }
+  }
+
+  &__box {
+    padding-block: 20px;
+    border-bottom: 2px solid $lection-bottom;
+    background-color: $white;
+
+    @include on-tablet {
+      padding: 45px 55px 50px;
+    }
+
+    @include on-desktop {
+      @media (min-width: 1264px) {
+        padding: 45px 100px 50px;
+      }
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    margin-bottom: 20px;
+    padding-inline: 20px;
+
+    @include on-tablet {
+      margin-bottom: 16px;
+      padding: 0;
+    }
+  }
+
+  &__title {
+    text-align: center;
+
+    @include caption-title;
+
+    @include on-tablet {
+      font-size: 36px;
+      text-align: start;
+    }
+  }
+}
