@@ -53,3 +53,14 @@ if (galleryViewport && galleryInputs.length > 0) {
     { passive: true },
   );
 }
+
+const menuToggle = document.querySelector('#menu-toggle');
+const menuLinks = document.querySelectorAll('.menu__nav-link');
+
+menuLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    if (menuToggle) {
+      menuToggle.checked = false;
+    }
+  });
+});

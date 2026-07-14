@@ -295,3 +295,30 @@
   visibility: visible;
   opacity: 1;
 }
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+
+  background-color: rgba(15, 14, 8, 0.4);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.menu-toggle:checked ~ .menu-overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+html:has(.menu-toggle:checked),
+body:has(.menu-toggle:checked) {
+  overflow: hidden;
+}
