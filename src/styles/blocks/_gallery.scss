@@ -1,0 +1,229 @@
+.gallery {
+  padding-top: 100px;
+
+  @include on-tablet {
+    padding-top: 88px;
+  }
+
+  @include on-desktop {
+    padding-top: 200px;
+  }
+
+  &__title {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 40px;
+    @extend %fm-montserrat_w-700_fs-36_lh-100_c-0F0E08;
+
+    @include on-tablet {
+      text-align: left;
+    }
+  }
+
+  &__viewport {
+    width: 100%;
+    overflow: hidden;
+
+    @include on-desktop {
+      overflow: visible;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    transition: transform 0.3s;
+
+    @include on-tablet {
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+      transform: none;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__item {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    @include on-tablet {
+      flex: 0 0 calc(50% - 10px);
+    }
+
+    @include on-desktop {
+      flex: none;
+      width: auto;
+      min-width: 0;
+      max-width: none;
+      overflow: visible;
+    }
+  }
+
+  &__item--slider-only {
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__item--1 {
+    @include on-desktop {
+      grid-column: 1 / 5;
+      grid-row: 1;
+    }
+  }
+
+  &__item--2 {
+    @include on-desktop {
+      grid-column: 5 / 13;
+      grid-row: 1;
+    }
+  }
+
+  &__item--3 {
+    @include on-desktop {
+      grid-column: 1 / 9;
+      grid-row: 2;
+    }
+  }
+
+  &__item--4 {
+    @include on-desktop {
+      grid-column: 9 / 13;
+      grid-row: 2;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.04);
+    }
+
+    @include on-desktop {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: center;
+    gap: 22px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__page-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  &__dot {
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: $gallery-dot-color;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.04);
+    }
+  }
+
+  &__content {
+    .gallery__page-input:nth-of-type(1):checked
+      ~ .gallery__viewport
+      .gallery__list {
+      transform: translateX(0);
+    }
+
+    .gallery__page-input:nth-of-type(2):checked
+      ~ .gallery__viewport
+      .gallery__list {
+      transform: translateX(calc(-100% * 1));
+    }
+
+    .gallery__page-input:nth-of-type(3):checked
+      ~ .gallery__viewport
+      .gallery__list {
+      transform: translateX(calc(-100% * 2));
+    }
+
+    .gallery__page-input:nth-of-type(4):checked
+      ~ .gallery__viewport
+      .gallery__list {
+      transform: translateX(calc(-100% * 3));
+    }
+
+    &:has(.gallery__page-input:nth-of-type(1):checked)
+      .gallery__dot:nth-child(1),
+    &:has(.gallery__page-input:nth-of-type(2):checked)
+      .gallery__dot:nth-child(2),
+    &:has(.gallery__page-input:nth-of-type(3):checked)
+      .gallery__dot:nth-child(3),
+    &:has(.gallery__page-input:nth-of-type(4):checked)
+      .gallery__dot:nth-child(4) {
+      background-color: $gallery-dot-active-color;
+    }
+
+    @include on-tablet {
+      .gallery__page-input:nth-of-type(1):checked
+        ~ .gallery__viewport
+        .gallery__list {
+        transform: translateX(0);
+      }
+
+      .gallery__page-input:nth-of-type(2):checked
+        ~ .gallery__viewport
+        .gallery__list {
+        transform: translateX(calc(-50% - 10px));
+      }
+
+      .gallery__page-input:nth-of-type(3):checked
+        ~ .gallery__viewport
+        .gallery__list {
+        transform: translateX(calc(-100% - 20px));
+      }
+
+      .gallery__page-input:nth-of-type(4):checked
+        ~ .gallery__viewport
+        .gallery__list {
+        transform: translateX(calc(-150% - 30px));
+      }
+    }
+
+    @include on-desktop {
+      .gallery__list {
+        transform: none;
+      }
+    }
+  }
+}

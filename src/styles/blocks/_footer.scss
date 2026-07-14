@@ -1,0 +1,310 @@
+.footer {
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 32px;
+  background-color: $footer-bg-color;
+
+  @include on-tablet {
+    padding-top: 51px;
+    padding-bottom: 36px;
+  }
+
+  @include on-desktop {
+    padding-top: 47px;
+    padding-bottom: 35px;
+  }
+
+  .container {
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0 $grid-gap-tablet;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: $grid-gap-desktop;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      justify-content: flex-start;
+      align-self: start;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 62px;
+      margin-bottom: 0;
+      grid-column: 1 / 2;
+    }
+  }
+
+  &__socials-list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__socials-link {
+    display: inline-flex;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  &__logo-image {
+    display: block;
+  }
+
+  &__logo-link {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin: 0;
+      margin-bottom: 64px;
+      column-gap: $grid-gap-tablet;
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      column-gap: $grid-gap-desktop;
+      grid-column: 2 / 7;
+    }
+  }
+
+  &__schedule {
+    grid-column: 1;
+    grid-row: 1 / -1;
+  }
+
+  &__contacts {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  &__to-top {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid $ticket-button-border-color;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.04);
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__schedule-info {
+    margin-top: 30px;
+  }
+
+  &__schedule-title {
+    @extend %menu-title_fm-IBM-Plex-Sans_w-400_fs-14_lh-141_c-0F0E08;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  &__schedule-time {
+    @extend %menu_fm-IBM-Plex-Sans_w-600_fs-14_lh-150_c-0F0E08;
+  }
+
+  &__schedule-day {
+    @extend %menu_fm-IBM-Plex-Sans_w-400_fs-14_lh-150_c-0F0E08;
+  }
+
+  &__schedule-info-text {
+    @extend %menu_fm-IBM-Plex-Sans_w-400_fs-14_lh-150_c-0F0E08;
+  }
+
+  &__contacts-title {
+    @extend %menu-title_fm-IBM-Plex-Sans_w-400_fs-14_lh-141_c-0F0E08;
+
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  &__contacts-text {
+    @extend %menu_fm-IBM-Plex-Sans_w-400_fs-14_lh-150_c-0F0E08;
+  }
+
+  &__address-link {
+    @extend %menu_fm-IBM-Plex-Sans_w-400_fs-14_lh-150_c-0F0E08;
+
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &__phone-link {
+    @extend %menu_fm-IBM-Plex-Sans_w-400_fs-14_lh-150_c-0F0E08;
+
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__email-link {
+    @extend %menu_fm-IBM-Plex-Sans_w-400_fs-14_lh-150_c-0F0E08;
+
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__schedule-hours p,
+  &__schedule-info p,
+  &__contacts p {
+    margin: 0;
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    background-color: $menu-bg-color;
+    opacity: 0.5;
+    border: 0;
+    padding: 0;
+
+    @include on-tablet {
+      margin: 0;
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 8;
+      width: 1px;
+      height: 100%;
+      align-self: stretch;
+    }
+  }
+
+  &__nav {
+    margin-top: 40px;
+    margin-bottom: 80px;
+
+    @include on-tablet {
+      margin-top: 64px;
+      margin-bottom: 120px;
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / 12;
+      margin: 0;
+    }
+  }
+
+  &__nav-groups {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+  }
+
+  &__nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__nav-link {
+    @extend %footer_link-fm-IBM-Plex-Sans_w-400_fs-14_lh-100_c-0F0E08;
+
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__text-designed {
+    @extend %footer_designed-by-fm-IBM-Plex-Sans_w-300_fs-12_lh-141_c-0F0E08;
+
+    margin: 0;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      margin: 0;
+    }
+  }
+
+  &__text-copyright {
+    @extend %footer_designed-by-fm-IBM-Plex-Sans_w-300_fs-12_lh-141_c-0F0E08;
+
+    margin: 0;
+  }
+
+  &__bottom {
+    @include on-tablet {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-direction: row-reverse;
+    }
+
+    @include on-desktop {
+      margin-top: 87px;
+    }
+  }
+}

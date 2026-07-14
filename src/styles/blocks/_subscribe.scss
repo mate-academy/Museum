@@ -1,0 +1,141 @@
+.subscribe {
+  margin-top: 100px;
+  position: relative;
+  background-image: url('../images/subscribe/subscribe-mobile.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 88px;
+
+  @include on-tablet {
+    background-image: url('../images/subscribe/subscribe-1.png');
+    margin-top: 92px;
+    padding-bottom: 82px;
+    background-size: cover;
+    background-position: center right 10%;
+  }
+
+  @include on-desktop {
+    background-image: url('../images/subscribe/subscribe-3.png');
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    margin-top: 200px;
+    min-height: max(550px, calc(100vw * 1100 / 2560));
+    padding-top: 163px;
+    padding-bottom: 163px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .container {
+    @include on-desktop {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    @extend %fm-montserrat_w-700_fs-36_lh-100_c-FFFFFF;
+
+    padding-top: 88px;
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include on-tablet {
+      padding-top: 82px;
+      margin-bottom: 16px;
+      font-size: 48px;
+    }
+
+    @include on-desktop {
+      padding-top: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    @extend %subscribe_fm-IBM-Plex-Sans_w-400_fs-18_lh-150_c-FFFFFF;
+
+    margin: 0;
+    margin-bottom: 50px;
+    text-align: center;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+      line-height: 100%;
+    }
+
+    @include on-desktop {
+      margin-bottom: 72px;
+      line-height: 100%;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: row;
+    margin-inline: auto;
+    align-items: center;
+    justify-content: center;
+
+    @include on-tablet {
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    width: 230px;
+    height: 50px;
+    padding: 0;
+    padding-left: 24px;
+    color: $ticket-button-text-color;
+    background-color: $subscribe-title-color;
+    flex-shrink: 0;
+    border: 0;
+    &:focus {
+      outline: none;
+    }
+
+    @include on-tablet {
+      width: 374px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      width: 470px;
+      height: 70px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 50px;
+    height: 52px;
+    background-color: $subscribe-button-color;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__button-icon {
+    display: block;
+  }
+}

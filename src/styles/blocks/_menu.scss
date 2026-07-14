@@ -1,0 +1,324 @@
+.menu-toggle {
+  position: absolute;
+
+  overflow: hidden;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+}
+
+.menu {
+  box-sizing: border-box;
+  pointer-events: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  height: 399px;
+  padding-top: 25px;
+  padding-bottom: 24px;
+  padding-inline: $padding-inline-mobile;
+  visibility: hidden;
+  opacity: 0;
+  background-color: $menu-bg-color;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: stretch;
+    gap: 20px;
+    padding-top: 36px;
+    padding-inline: $padding-inline-tablet;
+    height: auto;
+    min-height: 225px;
+  }
+
+  @media (min-width: 768px) {
+    gap: 38px;
+  }
+
+  @include on-desktop {
+    gap: $menu-section-gap-desktop;
+    padding-top: 36px;
+    padding-inline: $padding-inline-desktop;
+    height: auto;
+    min-height: 233px;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+    width: 100%;
+    align-items: flex-start;
+    flex-shrink: 0;
+
+    @include on-tablet {
+      width: 100%;
+      min-width: 0;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      gap: 38px;
+    }
+  }
+
+  &__divider {
+    align-self: stretch;
+    height: 1px;
+    background-color: #ffffff80;
+    flex-shrink: 0;
+    margin-top: 24px;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      width: 1px;
+      align-self: stretch;
+      height: auto;
+      max-height: 100%;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    flex: 1;
+    min-width: 0;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__nav-groups {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+
+    @include on-tablet {
+      grid-template-columns: max-content max-content;
+      width: max-content;
+      max-width: 100%;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 31px;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  &__nav-link {
+    @extend %menu-link_fm-IBM-Plex-Sans_w-500_fs-16_lh-100_c-FFFFFF;
+
+    display: block;
+    text-decoration: none;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0;
+    border: none;
+
+    background: transparent;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+
+  &__close-icon {
+    display: block;
+    width: 14px;
+    height: 14px;
+  }
+
+  &__schedule {
+    width: 100%;
+    min-width: 0;
+
+    @include on-tablet {
+      display: grid;
+      justify-self: stretch;
+      width: 100%;
+      min-width: 0;
+      justify-content: center;
+      grid-template-columns: minmax(0, max-content) minmax(0, max-content);
+      gap: 20px 38px;
+    }
+
+    @include on-desktop {
+      justify-self: center;
+      width: max-content;
+      max-width: 100%;
+      column-gap: 31px;
+      grid-template-columns: max-content max-content;
+    }
+  }
+
+  &__schedule-title {
+    @extend %menu-title_fm-IBM-Plex-Sans_w-400_fs-14_lh-141_c-FFFFFF;
+
+    margin: 0;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+  }
+
+  &__schedule-hours {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 20px;
+
+    @include on-tablet {
+      grid-column: 1;
+      grid-row: 2;
+      margin-top: 0;
+      column-gap: 20px;
+    }
+
+    @include on-desktop {
+      grid-column: 1;
+      grid-row: 2;
+    }
+  }
+
+  &__schedule-time {
+    @extend %menu_fm-IBM-Plex-Sans_w-600_fs-14_lh-150_c-FFFFFF;
+  }
+
+  &__schedule-day {
+    @extend %menu_fm-IBM-Plex-Sans_w-400_fs-14_lh-150_c-FFFFFF;
+  }
+
+  &__schedule-info {
+    @extend %menu_fm-IBM-Plex-Sans_w-600_fs-14_lh-150_c-FFFFFF;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 16px;
+
+    @include on-tablet {
+      grid-column: 2;
+      grid-row: 2;
+      align-self: start;
+      min-width: 0;
+      margin-top: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 2;
+      grid-row: 2;
+    }
+  }
+
+  &__schedule-info-text {
+    @extend %menu_fm-IBM-Plex-Sans_w-400_fs-14_lh-150_c-FFFFFF;
+  }
+
+  &__schedule-hours p,
+  &__schedule-info p {
+    margin: 0;
+  }
+
+  &__schedule-hours &__schedule-time,
+  &__schedule-hours &__schedule-day {
+    display: inline;
+  }
+
+  &__schedule-hours p {
+    display: block;
+
+    @include on-tablet {
+      white-space: nowrap;
+    }
+  }
+
+  &__schedule-info &__schedule-time,
+  &__schedule-info &__schedule-day {
+    display: inline;
+  }
+}
+
+.menu-toggle:checked ~ .menu {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+
+  background-color: rgba(15, 14, 8, 0.4);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.menu-toggle:checked ~ .menu-overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+html:has(.menu-toggle:checked),
+body:has(.menu-toggle:checked) {
+  overflow: hidden;
+}
