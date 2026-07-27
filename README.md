@@ -19,7 +19,7 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 ## Checklist for preparing a portfolio project for HR review
 
 1. Don’t forget to add a title for the whole web page (it could be the name of your landing)
-2. A landing page is implemented strictly according to the design in Figma
+2. A landing page is implemented strictly according to the design in Figma, but ignore the designer’s lack of professionalism.
 4. Links in the header and footer menus should lead to the corresponding blocks of the landing page
 5. The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
 6. Placeholders in the forms suggest what to enter, and if there is a validation of the form, then it is clear in what format to enter the phone number
@@ -49,7 +49,7 @@ Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Ple
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Museum/).
+  [DEMO LINK](https://ggylyon.github.io/Museum/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.

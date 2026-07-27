@@ -1,0 +1,67 @@
+.button {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0;
+  border: 1px solid $color-2;
+
+  text-decoration: none;
+
+  background: none;
+
+  transition: $transition-time;
+
+  &__text {
+    flex: 1 1 auto;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: $color-1;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: flex-end;
+
+    width: 50px;
+    height: 50px;
+
+    background-color: $color-2;
+
+    transition: inherit;
+
+    @include on('tablet') {
+      width: 70px;
+      height: 70px;
+    }
+
+    &::after {
+      content: '';
+
+      width: 24px;
+      height: 24px;
+
+      background-image: url('../images/arrow.svg');
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  &:hover {
+    background: $color-2;
+
+    .button__text {
+      color: $color-3;
+    }
+    .button__square {
+      background-color: $color-3;
+    }
+  }
+}

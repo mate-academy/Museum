@@ -1,0 +1,111 @@
+.lecture {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+
+  &__image-container {
+    overflow: hidden;
+    grid-column: 1 / -1;
+
+    @include on('tablet') {
+      grid-column: 2 / -2;
+    }
+
+    @include on('desktop') {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__image {
+    -webkit-user-select: none;
+    user-select: none;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: $transition-time;
+
+    -webkit-user-drag: none;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__info-block {
+    transform: translateY(-50%);
+
+    display: flex;
+    grid-column: 2 / -2;
+    flex-direction: column;
+    gap: 20px;
+
+    padding-block: 20px;
+
+    background-color: $color-3;
+    box-shadow: (0 2px 0 rgba(26, 90, 76, 0.25));
+
+    @include on('tablet') {
+      gap: 16px;
+      justify-self: center;
+      padding-block: 50px;
+      padding-inline: 55px;
+    }
+
+    @include on('desktop') {
+      grid-column: 5 / 11;
+      justify-self: normal;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    @include on('tablet') {
+      justify-content: space-between;
+    }
+  }
+
+  &__type {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: $color-4;
+    text-transform: uppercase;
+
+    @include on('tablet') {
+      font-size: 14px;
+    }
+  }
+
+  &__date {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 150%;
+    color: $color-2;
+
+    @include on('tablet') {
+      font-size: 14px;
+    }
+  }
+
+  &__title {
+    width: 100%;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    color: $color-1;
+    text-align: center;
+
+    @include on('tablet') {
+      font-size: 36px;
+      text-align: left;
+    }
+  }
+}
