@@ -12,9 +12,9 @@
       href="src/styles/style.scss"
     />
     <link rel="icon" href="src/images/favicon.svg">
+    <script src="src/scripts/main.js" defer></script>
   </head>
   <body class="page">
-
     <header class="header">
       <div class="header__content">
         <div class="header__block-left">
@@ -64,58 +64,53 @@
     <nav class="navigation">
       <div class="navigation__container">
         <div class="navigation__content">
-
           <div class="navigation__first-row">
             <div class="navigation__close-menu-button"></div>
             <ul class="navigation__list">
-              <div class="navigation__list-row">
-                <li class="navigation__item">
-                  <ul class="navigation__item">
-                    <a
-                      href="#"
-                      class="navigation__link gallery-link"
-                      onclick="event.preventDefault();"
-                    >
-                      Галерея
-                    </a>
-                  </ul>
-                </li>
-                <li class="navigation__item">
-                  <ul class="navigation__item">
-                    <a
-                      href="#"
-                      class="navigation__link events-link"
-                      onclick="event.preventDefault();"
-                    >
-                      Виставки та події
-                    </a>
-                  </ul>
-                </li>
-              </div>
-              <div class="navigation__list-row">
-                <li class="navigation__item">
-                  <ul class="navigation__item">
-                    <a
-                      href="#"
-                      class="navigation__link about-link"
-                      onclick="event.preventDefault();"
-                    >
-                      Про нас
-                    </a>
-                  </ul>
-                </li>
-                <li class="navigation__item">
-                  <ul class="navigation__item">
-                    <a
-                      href="#"
-                      class="navigation__link contacts-link"
-                      onclick="event.preventDefault();"
-                    >
-                      Контакти
-                    </a>
-                  </ul>
-                </li>
-              </div>
+              <li class="navigation__item">
+                <ul class="navigation__item">
+                  <a
+                    href="#"
+                    class="navigation__link gallery-link"
+                    onclick="event.preventDefault();"
+                  >
+                    Галерея
+                  </a>
+                </ul>
+              </li>
+              <li class="navigation__item">
+                <ul class="navigation__item">
+                  <a
+                    href="#"
+                    class="navigation__link about-link"
+                    onclick="event.preventDefault();"
+                  >
+                    Про нас
+                  </a>
+                </ul>
+              </li>
+              <li class="navigation__item">
+                <ul class="navigation__item">
+                  <a
+                    href="#"
+                    class="navigation__link events-link"
+                    onclick="event.preventDefault();"
+                  >
+                    Виставки та події
+                  </a>
+                </ul>
+              </li>
+              <li class="navigation__item">
+                <ul class="navigation__item">
+                  <a
+                    href="#"
+                    class="navigation__link contacts-link"
+                    onclick="event.preventDefault();"
+                  >
+                    Контакти
+                  </a>
+                </ul>
+              </li>
             </ul>
           </div>
 
@@ -126,11 +121,11 @@
               <div class="schedule__title">Графік роботи</div>
               <div class="schedule__working-hours">
                 <ul class="schedule__week">
-                  <li class="schedule__day"><span>12:00 — 20:00</span> середа</li>
-                  <li class="schedule__day"><span>12:00 — 20:00</span> четвер</li>
-                  <li class="schedule__day"><span>12:00 — 20:00</span> п'ятниця</li>
-                  <li class="schedule__day"><span>11:00 — 19:00</span> субота</li>
-                  <li class="schedule__day"><span>11:00 — 19:00</span> неділя</li>
+                  <li class="schedule__day"><span class="schedule__bold">12:00 — 20:00</span> середа</li>
+                  <li class="schedule__day"><span class="schedule__bold">12:00 — 20:00</span> четвер</li>
+                  <li class="schedule__day"><span class="schedule__bold">12:00 — 20:00</span> п'ятниця</li>
+                  <li class="schedule__day"><span class="schedule__bold">11:00 — 19:00</span> субота</li>
+                  <li class="schedule__day"><span class="schedule__bold">11:00 — 19:00</span> неділя</li>
                 </ul>
                 <div class="schedule__weekends">
                   <span>Вихідні:</span> понеділок, вівторок
@@ -405,154 +400,5 @@
         </div>
       </div>
     </footer>
-
-    <script defer>
-      'use strict';
-
-      // REGION WRITTEN BY GEMINI
-      function getPercentUntilVisible(element) {
-        const currentScroll = window.scrollY || document.documentElement.scrollTop;
-
-        const elementTop = element.getBoundingClientRect().bottom + currentScroll;
-
-        const targetScroll = elementTop - window.innerHeight;
-
-        if (targetScroll <= 0 || currentScroll >= targetScroll) return 0;
-
-        const remaining = ((targetScroll - currentScroll) / targetScroll) * 100;
-
-        return Math.max(0, Math.min(100, remaining)).toFixed(1);
-      };
-      // END REGION WRITTEN BY GEMINI
-
-      const eventsBlock = document.querySelector('article');
-
-      window.addEventListener('scroll', () => {
-        const percentLeft = getPercentUntilVisible(eventsBlock);
-        if (percentLeft !== 0) document.documentElement.style.setProperty("--scroll-events-position", `${percentLeft}px`);
-      });
-
-      const openMenuButton = document.querySelector('.header__open-menu-button');
-      const closeMenuButton = document.querySelector('.navigation__close-menu-button');
-      const navigation = document.querySelector('.navigation');
-
-      function openMenu() {
-        navigation.classList.add('navigation--visible');
-      };
-
-      function closeMenu() {
-        navigation.classList.remove('navigation--visible');
-      }
-
-      openMenuButton.addEventListener('click', () => {
-        openMenu();
-      });
-
-      closeMenuButton.addEventListener('click', () => {
-        closeMenu();
-      });
-      document.addEventListener('click', (event) => {
-        if (!event.target.closest('.navigation') && !event.target.closest('.header__open-menu-button')) closeMenu();
-      });
-
-      let sliderStartX;
-      let galleryItem = document.querySelector('.gallery__item');
-      let isGalleryItemTransitioning = false;
-      let sliderPosition = 0;
-      let maxSliderPosition = 2;
-      galleryItem.addEventListener('transitionstart', () => {
-          isGalleryItemTransitioning = true;
-      });
-
-      galleryItem.addEventListener('transitionend', () => {
-          isGalleryItemTransitioning = false;
-      });
-
-      galleryItem.addEventListener('transitioncancel', () => {
-          isGalleryItemTransitioning = false;
-      });
-
-
-      document.addEventListener("pointerdown", (e) => {
-          sliderStartX = e.clientX;
-      });
-
-      function sliderImageSlide() {
-        document.querySelector('.gallery__item--1').style.transform = `translateX(calc(${(0 - sliderPosition) * 100}% + ${(0 - sliderPosition) * 20}px))`;
-        document.querySelector('.gallery__item--2').style.transform = `translateX(calc(${(1 - sliderPosition) * 100}% + ${(1 - sliderPosition) * 20}px))`;
-        document.querySelector('.gallery__item--3').style.transform = `translateX(calc(${(2 - sliderPosition) * 100}% + ${(2 - sliderPosition) * 20}px))`;
-        document.querySelector('.gallery__item--4').style.transform = `translateX(calc(${(3 - sliderPosition) * 100}% + ${(3 - sliderPosition) * 20}px))`;
-      };
-
-      function sliderUpdateDots() {
-        if (document.querySelector(`.gallery__slider-dot--active`)) document.querySelector(`.gallery__slider-dot--active`).classList.remove(`gallery__slider-dot--active`);
-        document.querySelector(`.gallery__slider-dot--${sliderPosition + 1}`).classList.add('gallery__slider-dot--active');
-      };
-
-      function sliderDotDisplay() {
-        if (window.innerWidth >= 768) {
-          maxSliderPosition = 2;
-          if (sliderPosition > maxSliderPosition) sliderPosition = maxSliderPosition;
-          sliderImageSlide();
-          sliderUpdateDots();
-          document.querySelector(`.gallery__slider-dot--4`).style.display = 'none';
-        }
-        if (window.innerWidth < 768) {
-          maxSliderPosition = 3;
-          document.querySelector(`.gallery__slider-dot--4`).style.display = 'block';
-        }
-      }
-
-      sliderDotDisplay();
-
-      window.addEventListener('resize', (e) => {
-        sliderDotDisplay();
-      });
-
-
-      document.addEventListener("pointermove", (e) => {
-
-        if (window.innerWidth <= 1280) {
-
-          if (!isGalleryItemTransitioning) {
-            if (event.target.closest('.gallery__track')) {
-              if (e.buttons === 0) return;
-
-              const distanceAndDirection = e.clientX - sliderStartX;
-
-              if (distanceAndDirection < 0 && sliderPosition < maxSliderPosition) sliderPosition++;
-              if (distanceAndDirection > 0 && sliderPosition > 0) sliderPosition--;
-
-              sliderImageSlide();
-
-              sliderUpdateDots();
-
-            }
-          }
-        }
-      });
-
-      function scrollTo(block) {
-        document
-        .querySelector(block)
-        .scrollIntoView({ block: 'start', behavior: 'smooth' });
-        closeMenu();
-      }
-
-      const galleryLink = document.querySelectorAll('.gallery-link');
-      const eventsLink = document.querySelectorAll('.events-link');
-      const contactsLink = document.querySelectorAll('.contacts-link');
-      const aboutLink = document.querySelectorAll('.about-link');
-      const footerTopButton = document.querySelector('.footer__top-button');
-      const logoButton = document.querySelectorAll('.logo-link');
-
-      galleryLink.forEach(item => {item.addEventListener('click', () => {scrollTo('.gallery-section')})});
-      eventsLink.forEach(item => {item.addEventListener('click', () => {scrollTo('.events-section')})});
-      aboutLink.forEach(item => {item.addEventListener('click', () => {scrollTo('.follow-section')})});
-      contactsLink.forEach(item => {item.addEventListener('click', () => {scrollTo('.footer')})});
-      footerTopButton.addEventListener('click', () => {scrollTo('.header')});
-      logoButton.forEach(item => {item.addEventListener('click', () => {scrollTo('.header')})});
-
-    </script>
   </body>
 </html>
