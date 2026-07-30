@@ -1,0 +1,133 @@
+.navigation {
+  @include grid;
+
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  transform-origin: top;
+  transform: translateY(-100%);
+
+  width: 100%;
+  height: auto;
+
+  background-color: $color-2;
+
+  transition: $transition-time;
+
+  &--visible {
+    transform: translateY(0);
+    & + .blackout {
+      z-index: 100;
+      opacity: 0.5;
+    }
+  }
+
+  &__container {
+    position: relative;
+    grid-column: 2 / -2;
+    height: auto;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-block: 27px;
+
+    @include on('tablet') {
+      flex-direction: row;
+      align-items: start;
+      justify-content: space-between;
+      padding-block: 40px;
+    }
+  }
+
+  &__first-row {
+    display: flex;
+    gap: 28px;
+
+    @include on('tablet') {
+      gap: 38px;
+    }
+
+    @include on('desktop') {
+      gap: 102px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+
+    @include on('desktop') {
+      gap: 30px;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: fit-content;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: $color-3;
+    text-decoration: none;
+
+    @include on('desktop') {
+      font-size: 22px;
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      right: 0;
+      bottom: -5px;
+      left: 0;
+      transform-origin: left;
+      transform: scaleX(0);
+
+      display: block;
+
+      height: 1px;
+
+      background-color: $color-3;
+
+      transition: $transition-time;
+    }
+
+    &:hover {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &__separator {
+    width: 100%;
+    height: 1px;
+    background-color: $color-3;
+
+    @include on('tablet') {
+      width: 1px;
+      height: 145px;
+    }
+  }
+
+  &__close-menu-button {
+    cursor: pointer;
+
+    width: 24px;
+    height: 24px;
+
+    background-image: url('../images/close-menu.svg');
+    background-position: center;
+    background-size: cover;
+  }
+}

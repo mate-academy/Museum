@@ -1,6 +1,32 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-time;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin on($screen-type) {
+  @each $width, $type in $screen-sizes {
+    @if $type == $screen-type {
+      @media (min-width: #{$width}px) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: 0.2fr repeat(2, 1fr) 0.2fr;
+  gap: 20px;
+
+  @include on('tablet') {
+    grid-template-columns: 0.4fr repeat(6, 1fr) 0.4fr;
+    gap: 20px;
+  }
+
+  @include on('desktop') {
+    grid-template-columns: 0.4fr repeat(12, 1fr) 0.4fr;
+    gap: 30px;
   }
 }
