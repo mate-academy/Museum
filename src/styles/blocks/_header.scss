@@ -1,0 +1,65 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+.header {
+  position: relative;
+
+  &__top {
+    @extend %container;
+
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    display: grid;
+    grid-template-columns: 24px 1fr 24px;
+    align-items: start;
+
+    padding-top: 27px;
+
+    @include on-tablet-l {
+      padding-top: 39px;
+    }
+  }
+
+  &__menu-toggle {
+    @include hover('opacity', 0.6);
+
+    cursor: pointer;
+
+    display: block;
+
+    width: 24px;
+    height: 24px;
+
+    background-image: url('../images/icon-menu.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__logo {
+    @include hover('opacity', 0.7);
+
+    margin-top: -18px;
+  }
+}
+
+.logo {
+  font-family: $font-title;
+  font-size: 30px;
+  font-weight: $fw-bold;
+  line-height: 1;
+  color: $c-dark;
+  text-align: center;
+
+  @include on-tablet-l {
+    font-size: 36px;
+  }
+
+  &__line {
+    display: block;
+  }
+}
