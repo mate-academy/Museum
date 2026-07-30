@@ -1,6 +1,57 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@use 'sass:math';
+@use 'vars' as *;
+
+@mixin on-tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin on-tablet-l {
+  @media (min-width: $bp-tablet-l) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin hover($property, $to-value) {
+  transition: #{$property} $transition;
+
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $to-value;
+  }
+}
+
+@mixin adaptive-value(
+  $property,
+  $max-size,
+  $min-size,
+  $width-from: 1280,
+  $width-to: 320
+) {
+  $slope: math.div($max-size - $min-size, $width-from - $width-to);
+  $intersection: -$width-to * $slope + $min-size;
+
+  #{$property}: clamp(
+    #{$min-size}px,
+    #{$intersection}px + #{$slope * 100}vw,
+    #{$max-size}px
+  );
+}
+
+@mixin zoom-on-hover($scale: 1.1) {
+  overflow: hidden;
+
+  img {
+    transition: transform $transition;
+  }
+
+  &:hover img {
+    transform: scale($scale);
   }
 }
