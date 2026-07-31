@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 
 const DESKTOP_WIDTH = 1280;
 
@@ -11,12 +11,16 @@ function initSliders() {
   }
 
   new Swiper(slider, {
-    modules: [Pagination],
+    modules: [Navigation, Pagination],
     observer: true,
     observeParents: true,
     slidesPerView: 'auto',
     spaceBetween: 16,
     speed: 800,
+    navigation: {
+      prevEl: '[data-fls-slider-prev]',
+      nextEl: '[data-fls-slider-next]',
+    },
     pagination: {
       el: '[data-fls-slider-pagination]',
       clickable: true,
