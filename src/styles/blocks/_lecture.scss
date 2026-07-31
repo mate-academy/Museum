@@ -1,0 +1,91 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+.lecture {
+  position: relative;
+  margin-top: 94px;
+  padding-bottom: 83px;
+
+  @include on-tablet-l {
+    margin-top: 222px;
+    padding-bottom: 120px;
+  }
+
+  @include on-desktop {
+    margin-top: 104px;
+    padding-bottom: 102px;
+  }
+
+  &__photo {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+
+    @include on-tablet-l {
+      display: block;
+      width: calc(100% - #{$padding-tablet * 2});
+      height: 390px;
+      margin: 0 auto;
+    }
+
+    @include on-desktop {
+      width: 100%;
+      height: 550px;
+    }
+  }
+
+  &__card {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: grid;
+    row-gap: 20px;
+
+    box-sizing: border-box;
+    width: calc(100% - #{$padding-mobile * 2});
+    max-width: 570px;
+    padding: 20px 0;
+
+    text-align: center;
+
+    background-color: $c-white;
+    box-shadow: 0 4px 20px rgba($c-black, 0.08);
+
+    @include on-tablet-l {
+      row-gap: 17px;
+      padding: 45px 55px 55px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      padding: 45px 100px 55px;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    gap: 24px;
+    align-items: baseline;
+    justify-content: center;
+
+    @include on-tablet-l {
+      gap: 130px;
+      justify-content: flex-start;
+    }
+  }
+
+  &__label {
+    @extend %label;
+  }
+
+  &__date {
+    @extend %date;
+  }
+
+  &__title {
+    @extend %card-title;
+  }
+}
