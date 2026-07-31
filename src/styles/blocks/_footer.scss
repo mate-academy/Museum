@@ -16,10 +16,13 @@
     padding-bottom: 34px;
   }
 
-  &__content {
+  &__container {
     @extend %container;
 
     position: relative;
+  }
+
+  &__grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: 56px;
@@ -48,10 +51,13 @@
   }
 
   &__logo {
-    @include hover('opacity', 0.7);
-
     display: block;
     text-align: left;
+    transition: opacity $transition;
+
+    &:hover {
+      opacity: 0.7;
+    }
 
     @include on-tablet-l {
       margin-bottom: 62px;
@@ -64,11 +70,22 @@
   }
 
   &__social {
-    @include hover('opacity', 0.6);
-
     display: block;
+
     width: 24px;
     height: 24px;
+
+    opacity: 0.55;
+
+    transition:
+      opacity $transition,
+      transform $transition;
+
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-2px);
+      opacity: 1;
+    }
   }
 
   &__column {
@@ -118,8 +135,6 @@
   }
 
   &__link {
-    @include hover('color', $c-green);
-
     display: block;
 
     font-family: $font-text;
@@ -127,6 +142,12 @@
     font-weight: $fw-regular;
     line-height: 1;
     color: $c-dark;
+
+    transition: color $transition;
+
+    &:hover {
+      color: $c-green;
+    }
 
     & + & {
       margin-top: 20px;
@@ -218,8 +239,6 @@
   }
 
   &__top-button {
-    @include hover('opacity', 0.7);
-
     display: flex;
     grid-column: 1 / -1;
     align-items: center;
@@ -237,6 +256,12 @@
     background-repeat: no-repeat;
     background-position: center;
     box-shadow: 0 2px 12px rgba($c-black, 0.15);
+
+    transition: opacity $transition;
+
+    &:hover {
+      opacity: 0.7;
+    }
 
     @include on-tablet-l {
       display: none;

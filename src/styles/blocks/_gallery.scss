@@ -3,16 +3,9 @@
 @use '../utils/extends' as *;
 
 .gallery {
-  @extend %container;
-
   padding-top: 100px;
-
-  @include on-tablet-l {
-    padding-top: 88px;
-  }
-
-  @include on-desktop {
-    padding-top: 200px;
+  &__container {
+    @extend %container;
   }
 
   &__title {
@@ -30,8 +23,8 @@
   }
 
   &__slider {
+    position: relative;
     overflow: hidden;
-    margin-right: -$padding-mobile;
 
     @include on-tablet {
       margin-right: -$padding-tablet;
@@ -54,11 +47,42 @@
   }
 
   &__item {
-    @include zoom-on-hover;
+    position: relative;
 
+    overflow: hidden;
     display: block;
+
     width: 280px;
     height: 410px;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      inset: 0;
+
+      opacity: 0;
+      background-color: rgba($c-overlay, 0.45);
+
+      transition: opacity $transition;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $transition;
+    }
+
+    &:hover img,
+    &:focus-visible img {
+      transform: scale(1.05);
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+      opacity: 1;
+    }
 
     @include on-tablet {
       width: 340px;
@@ -85,12 +109,33 @@
         display: none;
       }
     }
+  }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  &__caption {
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    transform: translateY(10px);
+
+    font-family: $font-text;
+    font-size: 16px;
+    font-weight: $fw-medium;
+    line-height: 1.4;
+    color: $c-white;
+
+    opacity: 0;
+
+    transition:
+      opacity $transition,
+      transform $transition;
+  }
+
+  .gallery__item:hover &__caption,
+  .gallery__item:focus-visible &__caption {
+    transform: translateY(0);
+    opacity: 1;
   }
 
   &__pagination {
@@ -108,5 +153,50 @@
     @include on-desktop {
       display: none;
     }
+  }
+
+  &__arrow {
+    @extend %control-square;
+
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: none;
+
+    border-radius: 50%;
+
+    background-color: $c-white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px;
+    box-shadow: 0 2px 12px rgba($c-black, 0.15);
+
+    @include on-tablet-l {
+      display: flex;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &--prev {
+      left: 0;
+      background-image: url('../images/icon-arrow-left.svg');
+    }
+
+    &--next {
+      right: 0;
+      background-image: url('../images/icon-arrow-right.svg');
+    }
+  }
+
+  @include on-tablet-l {
+    padding-top: 88px;
+  }
+
+  @include on-desktop {
+    padding-top: 200px;
   }
 }

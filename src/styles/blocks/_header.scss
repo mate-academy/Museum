@@ -5,7 +5,7 @@
 .header {
   position: relative;
 
-  &__top {
+  &__container {
     @extend %container;
 
     position: absolute;
@@ -13,11 +13,12 @@
     top: 0;
     right: 0;
     left: 0;
+  }
 
+  &__top {
     display: grid;
     grid-template-columns: 24px 1fr 24px;
     align-items: start;
-
     padding-top: 27px;
 
     @include on-tablet-l {
@@ -97,9 +98,12 @@
   }
 
   &__logo {
-    @include hover('opacity', 0.7);
-
     margin-top: -18px;
+    transition: opacity $transition;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }
 
