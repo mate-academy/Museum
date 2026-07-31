@@ -16,6 +16,7 @@ function initSliders() {
     observeParents: true,
     slidesPerView: 'auto',
     centeredSlides: true,
+    loop: true,
     spaceBetween: 16,
     speed: 800,
     navigation: {

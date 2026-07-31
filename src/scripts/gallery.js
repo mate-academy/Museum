@@ -14,7 +14,13 @@ function buildLightbox() {
   lightboxImage.className = 'gallery__lightbox-image';
   lightboxImage.alt = '';
 
-  lightbox.append(lightboxImage);
+  const close = document.createElement('button');
+
+  close.className = 'gallery__lightbox-close';
+  close.type = 'button';
+  close.setAttribute('aria-label', 'Закрити');
+
+  lightbox.append(lightboxImage, close);
   document.body.append(lightbox);
 }
 
@@ -63,16 +69,20 @@ function galleryInit() {
 
   buildLightbox();
 
-  items.forEach((item) => {
-    item.setAttribute('aria-expanded', 'false');
+  items.forEach((item) => item.setAttribute('aria-expanded', 'false'));
 
-    item.addEventListener('click', () => {
-      if (openedItem === item) {
-        closeLightbox();
-      } else {
-        openLightbox(item);
-      }
-    });
+  document.addEventListener('click', (event) => {
+    const item = event.target.closest(ITEM_SELECTOR);
+
+    if (!item) {
+      return;
+    }
+
+    if (openedItem === item) {
+      closeLightbox();
+    } else {
+      openLightbox(item);
+    }
   });
 
   lightbox.addEventListener('click', closeLightbox);
