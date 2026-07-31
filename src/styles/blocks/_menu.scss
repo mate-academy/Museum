@@ -23,8 +23,6 @@
   }
 
   &__panel {
-    @extend %container;
-
     display: grid;
     grid-template-columns: 24px 1fr;
     gap: 2px 28px;
@@ -33,6 +31,10 @@
 
     padding-top: 27px;
     padding-bottom: 27px;
+    padding-inline: max(
+      #{$padding-mobile},
+      calc((100% - #{$container-width}) / 2)
+    );
 
     background-color: $c-green;
 
