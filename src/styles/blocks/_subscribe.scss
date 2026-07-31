@@ -29,6 +29,7 @@
     @extend %container;
 
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     justify-items: center;
   }
 
@@ -42,6 +43,10 @@
     text-align: center;
 
     @include adaptive-value('font-size', 48, 36);
+
+    @include under-mobile {
+      font-size: calc(36 / 320 * 100vw);
+    }
 
     @include on-tablet-l {
       margin-bottom: 16px;

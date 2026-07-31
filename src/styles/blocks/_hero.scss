@@ -17,7 +17,7 @@
 
   &__photo {
     width: 100%;
-    height: 300px;
+    height: min(300px, calc(100vw * 300 / 320));
     object-fit: cover;
 
     @include on-tablet-l {
@@ -63,6 +63,10 @@
 
   &__title {
     text-align: center;
+
+    @include under-mobile {
+      font-size: calc(45 / 320 * 100vw);
+    }
 
     @include on-tablet-l {
       text-align: left;
