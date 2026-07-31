@@ -17,14 +17,14 @@
     opacity $transition,
     visibility $transition;
 
-  &:target {
+  html[data-fls-menu-open] & {
     visibility: visible;
     opacity: 1;
   }
 
   &__panel {
     display: grid;
-    grid-template-columns: 24px 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2px 28px;
     align-content: start;
     align-items: start;
@@ -38,8 +38,15 @@
 
     background-color: $c-green;
 
+    @include on-tablet {
+      padding-inline: max(
+        #{$padding-tablet},
+        calc((100% - #{$container-width}) / 2)
+      );
+    }
+
     @include on-tablet-l {
-      grid-template-columns: 24px 278px 1fr;
+      grid-template-columns: 302px minmax(0, 1fr);
       column-gap: 0;
 
       min-height: 225px;
@@ -48,23 +55,10 @@
     }
 
     @include on-desktop {
-      grid-template-columns: 24px 502px 1fr;
+      grid-template-columns: 526px minmax(0, 1fr);
       min-height: 233px;
       padding-bottom: 49px;
     }
-  }
-
-  &__close {
-    @include hover('opacity', 0.6);
-
-    display: block;
-
-    width: 24px;
-    height: 24px;
-
-    background-image: url('../images/icon-close.svg');
-    background-repeat: no-repeat;
-    background-position: center;
   }
 
   &__nav {
@@ -73,18 +67,19 @@
     gap: 24px 28px;
     align-content: start;
 
+    margin-left: 52px;
     padding-top: 2px;
 
     @include on-tablet-l {
       grid-template-columns: repeat(2, 120px);
       column-gap: 0;
-      margin-left: 38px;
+      margin-left: 62px;
     }
 
     @include on-desktop {
       grid-template-columns: repeat(2, 200px);
       row-gap: 30px;
-      margin-left: 102px;
+      margin-left: 127px;
     }
   }
 
@@ -141,6 +136,6 @@
   }
 }
 
-body:has(.menu:target) {
+html[data-fls-menu-open] body {
   overflow: hidden;
 }

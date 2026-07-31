@@ -9,7 +9,7 @@
     @extend %container;
 
     position: absolute;
-    z-index: 2;
+    z-index: 20;
     top: 0;
     right: 0;
     left: 0;
@@ -26,18 +26,74 @@
   }
 
   &__menu-toggle {
-    @include hover('opacity', 0.6);
-
     cursor: pointer;
+
+    position: relative;
+    z-index: 11;
 
     display: block;
 
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 12px;
+    margin: 6px 3px;
+    padding: 0;
+    border: none;
 
-    background-image: url('../images/icon-menu.svg');
-    background-repeat: no-repeat;
-    background-position: center;
+    background: none;
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    span,
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      right: 0;
+
+      width: 100%;
+      height: 2px;
+
+      background-color: $c-dark;
+
+      transition: all $transition;
+    }
+
+    span {
+      top: calc(50% - 1px);
+    }
+
+    &:hover span,
+    &:hover::before,
+    &:hover::after {
+      background-color: $c-green;
+    }
+
+    html[data-fls-menu-open] & {
+      &::before,
+      &::after {
+        background-color: $c-white;
+      }
+
+      &::before {
+        top: calc(50% - 1px);
+        transform: rotate(-45deg);
+      }
+
+      &::after {
+        bottom: calc(50% - 1px);
+        transform: rotate(45deg);
+      }
+      span {
+        width: 0;
+      }
+    }
   }
 
   &__logo {
