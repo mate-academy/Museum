@@ -1,3 +1,6 @@
+@use 'utils/vars' as *;
+@use 'utils/mixins' as *;
+
 *,
 *::before,
 *::after {
@@ -69,7 +72,34 @@ input {
   }
 }
 
-.page {
-  max-width: 1440px;
+.wrapper {
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+
+  max-width: $page-width;
+  min-height: 100%;
   margin: 0 auto;
+
+  > * {
+    min-width: 0;
+  }
+
+  > main {
+    flex: 1 1 auto;
+  }
+}
+
+[class*='__container'] {
+  max-width: $container-width + $padding-desktop * 2;
+  margin: 0 auto;
+  padding: 0 $padding-mobile;
+
+  @include on-tablet {
+    padding: 0 $padding-tablet;
+  }
+
+  @include on-desktop {
+    padding: 0 $padding-desktop;
+  }
 }
