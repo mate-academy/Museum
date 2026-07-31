@@ -5,7 +5,7 @@
 .header {
   position: relative;
 
-  &__top {
+  &__container {
     @extend %container;
 
     position: absolute;
@@ -13,11 +13,12 @@
     top: 0;
     right: 0;
     left: 0;
+  }
 
+  &__top {
     display: grid;
     grid-template-columns: 24px 1fr 24px;
     align-items: start;
-
     padding-top: 27px;
 
     @include on-tablet-l {
@@ -96,10 +97,31 @@
     }
   }
 
-  &__logo {
-    @include hover('opacity', 0.7);
-
+  &__logo.logo {
     margin-top: -18px;
+    color: $c-white;
+    text-shadow: 0 1px 4px rgba($c-black, 0.4);
+    transition: opacity $transition;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    @include on-tablet-l {
+      position: absolute;
+      top: 39px;
+      left: $logo-left-tablet;
+
+      width: $logo-width-tablet;
+
+      color: $c-dark;
+      text-shadow: none;
+    }
+
+    @include on-desktop {
+      left: $logo-left-desktop;
+      width: $logo-width-desktop;
+    }
   }
 }
 
@@ -118,4 +140,9 @@
   &__line {
     display: block;
   }
+}
+
+html[data-fls-menu-open] .header__logo {
+  pointer-events: none;
+  opacity: 0;
 }

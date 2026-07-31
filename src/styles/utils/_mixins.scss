@@ -1,6 +1,12 @@
 @use 'sass:math';
 @use 'vars' as *;
 
+@mixin under-mobile {
+  @media (max-width: #{$bp-mobile - 1px}) {
+    @content;
+  }
+}
+
 @mixin on-tablet {
   @media (min-width: $bp-tablet) {
     @content;
@@ -19,14 +25,6 @@
   }
 }
 
-@mixin hover($property, $to-value) {
-  transition: #{$property} $transition;
-
-  &:hover {
-    #{$property}: $to-value;
-  }
-}
-
 @mixin adaptive-value(
   $property,
   $max-size,
@@ -42,16 +40,4 @@
     #{$intersection}px + #{$slope * 100}vw,
     #{$max-size}px
   );
-}
-
-@mixin zoom-on-hover($scale: 1.1) {
-  overflow: hidden;
-
-  img {
-    transition: transform $transition;
-  }
-
-  &:hover img {
-    transform: scale($scale);
-  }
 }
