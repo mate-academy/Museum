@@ -2,6 +2,1694 @@
 @import 'fonts';
 @import 'typography';
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: $c-gray;
+  overflow-x: hidden;
+  font-family: $font-body;
+  color: $color-dark;
+  background: $color-white;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  background: none;
+}
+
+// =====================
+// CONTAINER  (margin 55px из Figma)
+// =====================
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 55px;
+
+  @include respond-to($bp-tablet) {
+    padding: 0 34px;
+  }
+
+  @include respond-to($bp-mobile) {
+    padding: 0 20px;
+  }
+}
+
+// =====================
+// LOGO
+// =====================
+.logo {
+  display: block;
+  &__text {
+    display: block;
+
+    font-family: $font-heading;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    color: $color-dark;
+    text-align: center;
+  }
+}
+
+// =====================
+// BURGER
+// =====================
+.burger {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 5px;
+
+  width: 24px;
+  padding: 2px 0;
+  &__line {
+    display: block;
+
+    width: 24px;
+    height: 2px;
+
+    background: $color-dark;
+
+    transition: $transition;
+  }
+}
+
+// =====================
+// BTN
+// =====================
+.btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-body;
+  font-weight: 500;
+
+  &--outline {
+    width: 269px;
+
+    // Figma: w=269px h=70px
+    height: 70px;
+    border: 1px solid $color-green;
+    color: $color-dark;
+
+    .btn__text {
+      flex: 1;
+
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+    .btn__arrow {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+
+      width: 70px;
+      height: 70px;
+
+      background: $color-green;
+
+      @include hover(background, $color-green-dark);
+    }
+
+    @include respond-to($bp-mobile) {
+      width: 280px;
+      height: 50px;
+      .btn__arrow {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  &--accent {
+    flex-shrink: 0;
+    justify-content: center;
+
+    width: 70px;
+    height: 70px;
+
+    background: $color-red;
+
+    @include hover(background, $color-red-dark);
+
+    @include respond-to($bp-mobile) {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+// =====================
+// NAV PANEL (зелёная панель-меню)
+// Figma Menu_1280: bg=#1a5a4c, полная ширина, h~233px
+// =====================
+.nav-panel {
+  pointer-events: none;
+
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: translateY(-10px);
+
+  opacity: 0;
+  background: $color-green;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+
+  &.is-open {
+    pointer-events: auto;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &__inner {
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
+
+    max-width: none;
+    margin: 0;
+    padding: 40px 55px;
+
+    @include respond-to($bp-tablet) {
+      padding-right: 34px;
+      padding-bottom: 40px;
+      padding-left: 34px;
+    }
+
+    @include respond-to($bp-mobile) {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+  }
+
+  &__close {
+    flex-shrink: 0;
+    align-self: flex-start;
+
+    // desktop 102 → tablet 38, fluid между
+    margin-right: clamp(38px, 8vw, 102px);
+    padding: 0;
+
+    color: $color-white;
+
+    @include respond-to($bp-tablet) {
+      margin-right: 38px;
+    }
+  }
+
+  &__cols {
+    display: flex;
+    flex: 1;
+    gap: 0;
+    align-items: flex-start;
+
+    @include respond-to($bp-mobile) {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 169px;
+
+    &:first-child {
+      margin-right: 31px;
+    } // 382-182-169=31
+
+    @include respond-to($bp-tablet) {
+      width: 100px; // Figma Menu_768: w=100
+      &:first-child {
+        margin-right: 20px;
+      } // 216-(96+100)=20
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: $color-white;
+
+    @include hover(opacity, 0.7);
+  }
+
+  &__divider {
+    flex-shrink: 0;
+    align-self: stretch;
+
+    width: 1px;
+    min-height: 145px;
+    margin-left: clamp(38px, 8vw, 102px);
+
+    background: rgba($color-white, 0.3);
+
+    @include respond-to($bp-tablet) {
+      margin-left: 38px;
+    }
+
+    @include respond-to($bp-mobile) {
+      // cols starts at x=82 (20px padding + 24px X + 38px margin)
+      // pull to x=20: margin-left = -(24+38) = -62px, width = cols_width + 62px
+      width: calc(100% + 62px);
+      height: 1px;
+      min-height: 0;
+      margin: 0 0 0 -62px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex: 1;
+    gap: clamp(20px, 2.3vw, 30px);
+    padding-left: clamp(38px, 4.2vw, 54px);
+
+    @include respond-to($bp-tablet) {
+      flex-shrink: 0;
+      gap: 26px;
+      padding-left: 38px;
+    }
+
+    @include respond-to($bp-mobile) {
+      flex-direction: column;
+      gap: 12px;
+
+      width: calc(100% + 62px);
+      margin-left: -62px;
+      padding-left: 0;
+    }
+  }
+
+  &__info-col {
+    flex: 1;
+    &:first-child {
+      flex: none;
+      width: 170px;
+    }
+    &:last-child {
+      padding-top: 40px;
+    }
+
+    @include respond-to($bp-tablet) {
+      &:first-child {
+        width: 170px;
+      }
+      &:last-child {
+        padding-top: 0;
+      }
+    }
+  }
+
+  &__info-title {
+    margin-bottom: 20px;
+    font-size: 13px;
+    font-weight: 400;
+    color: $color-white;
+  }
+
+  &__info-text {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: $color-white;
+    strong {
+      font-weight: 600;
+    }
+  }
+}
+
+// =====================
+// HERO
+// Figma Museum_1280 (1280×655):
+//   Бургер:       x=55   y=39   w=24  h=24
+//   Лого "NAMU":  x=555  y=15   w=170 h=72  ← внутри картинки
+//   Заголовок:    x=55   y=206  w=470 fs=72
+//   Кнопка:       x=256  y=467  w=269 h=70
+//   "ПОДІЇ" text: x=55   y=522  w=14  h=43
+//   Вертик.линия: x=61   y=585  w=1   h=70
+//   Картинка:     x=555  y=0    w=725 h=655
+// =====================
+.hero {
+  position: relative;
+
+  overflow: hidden;
+
+  width: 100%;
+  max-width: 100%;
+  height: 655px;
+
+  background: $color-white;
+
+  @include respond-to($bp-tablet) {
+    overflow: hidden;
+    height: 384px;
+    min-height: unset;
+  }
+
+  @include respond-to($bp-mobile) {
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  // Картинка — right:0, top:0. Figma: x=555 w=725 → 555/1280 = 43.36%
+  // Fluid: между 768 и 1280 ширина скейлится пропорционально
+  &__image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 43.36%;
+
+    overflow: hidden;
+
+    height: 655px;
+
+    img {
+      display: block;
+
+      width: 100%;
+      max-width: none;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    @include respond-to($bp-tablet) {
+      right: 0;
+      left: auto;
+      width: 374px;
+      height: 384px;
+    }
+
+    @include respond-to($bp-mobile) {
+      position: relative;
+      right: auto;
+      left: auto;
+
+      order: -1;
+
+      width: 100%;
+      height: 300px;
+    }
+  }
+
+  // Лого внутри картинки — x=555 y=15, но картинка начинается с x=555
+  // значит лого от левого края картинки = 555-555 = 0...
+  // но в Figma лого x=555 абсолютно, картинка тоже x=555
+  // → лого в левом верхнем углу картинки, offset ~0px от её левого края
+  // Из скриншота видим: лого примерно на 80-100px от левого края картинки
+  // Точно: 555 (x лого) - 555 (x картинки) = 0px, но с учётом padding картинки
+  &__logo {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    left: 80px;
+
+    .logo__text {
+      font-size: 36px;
+      color: $color-dark;
+    }
+
+    @include respond-to($bp-mobile) {
+      top: 9px;
+
+      // Figma: x=132 y=9 centered in 320px image, font-size: 30px
+      left: 50%;
+      transform: translateX(-50%);
+      .logo__text {
+        font-size: 30px;
+      }
+    }
+  }
+
+  // Левая часть: всё что слева от картинки — fluid 43.36%
+  &__left {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 43.36%;
+    height: 655px;
+    padding-left: 55px; // margin из Figma
+
+    @include respond-to($bp-tablet) {
+      width: calc(100% - 374px);
+      height: 384px;
+    }
+
+    @include respond-to($bp-mobile) {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      width: 100%;
+      height: auto;
+      padding: 0 20px;
+    }
+  }
+
+  // Бургер: всегда position: absolute относительно .hero
+  // Desktop/tablet: x=55/34 y=39 (Figma Museum_1280)
+  // Mobile: x=23 y=33 (Figma Museum_320 — на картинке)
+  &__burger {
+    position: absolute;
+    z-index: 5;
+    top: 39px;
+    left: 55px;
+
+    @include respond-to($bp-tablet) {
+      left: 34px;
+    }
+
+    @include respond-to($bp-mobile) {
+      top: 33px;
+      left: 23px;
+    }
+  }
+
+  // Заголовок: y=206, fs=72 на 1280 / 52 на 768
+  // clamp: плавный скейл шрифта между брейкпоинтами
+  // right: не даёт тексту заезжать под картинку на промежуточных ширинах
+  &__title {
+    position: absolute;
+    top: 206px;
+    right: calc(56.64% + 20px);
+    left: 55px;
+
+    max-width: 470px;
+
+    font-family: $font-heading;
+    font-size: clamp(52px, 5.63vw, 72px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: $color-dark;
+
+    @include respond-to($bp-tablet) {
+      top: 110px;
+      right: calc(374px + 20px);
+      left: 34px;
+
+      width: auto;
+      max-width: none;
+
+      font-size: 52px;
+    }
+
+    @include respond-to($bp-mobile) {
+      position: relative;
+      top: auto;
+      right: auto;
+      left: auto;
+
+      width: auto;
+      max-width: none;
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      font-size: 45px;
+      text-align: center;
+    }
+  }
+
+  // Кнопка: x=256 y=467 → 256/1280 = 20% (fluid)
+  &__btn {
+    position: absolute;
+    top: 467px;
+    left: 20%;
+
+    @include respond-to($bp-tablet) {
+      top: 280px;
+      left: 34px;
+    }
+
+    @include respond-to($bp-mobile) {
+      position: relative;
+      top: auto;
+      left: auto;
+    }
+  }
+
+  // ПОДІЇ: x=55 y=522, вертикальный текст
+  &__side-label {
+    position: absolute;
+    top: 522px;
+    left: 55px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+
+    @include respond-to($bp-mobile) {
+      display: none;
+    }
+  }
+
+  // Текст "ПОДІЇ": rotate -90 (вертикально)
+  &__side-text {
+    transform: rotate(180deg);
+
+    height: 43px;
+
+    writing-mode: vertical-rl;
+    font-size: 14px;
+    font-weight: 700;
+    color: $color-gray;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  // Линия: x=61 y=585 h=70 — по центру текста
+  &__side-line {
+    display: block;
+    width: 1px;
+    height: 70px;
+    background: $color-green;
+  }
+}
+
+// =====================
+// EVENTS
+// Figma: картинки x=55 w=670 h=520, текст x=855 w=370
+// Итого: 55 + 670 = 725 (картинка), 855-725=130 (gap??)
+// Нет — canvas 1280: картинка 55..725, текст 855..1225
+// → картинка от левого края без container, ширина 670
+// → текст начинается с x=855 = картинка(670) + gap(130) + margin(55) = 855 ✓
+// =====================
+.events {
+  padding-top: 200px;
+
+  @include respond-to($bp-tablet) {
+    padding-top: 80px;
+  }
+
+  @include respond-to($bp-mobile) {
+    padding-top: 70px;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+    padding: 0;
+
+    @include respond-to($bp-tablet) {
+      margin-bottom: 40px;
+    }
+
+    @include respond-to($bp-mobile) {
+      margin-bottom: 40px;
+      padding: 0 20px;
+      font-size: 36px;
+      text-align: center;
+    }
+  }
+}
+
+// Event блок: НЕ в container, картинка от края
+// Fluid: 670fr/500fr = пропорции Figma (670px img + 500px text-col в 1170px)
+.event {
+  display: grid;
+  grid-template-columns: minmax(0, 670fr) minmax(0, 500fr);
+  margin: 0 0 104px;
+  padding: 0 55px;
+
+  // Картинка: 670×520 на 1280 → aspect-ratio для fluid скейла
+  &__image-wrap {
+    overflow: hidden;
+    aspect-ratio: 670 / 520;
+    max-height: 520px;
+
+    @include respond-to($bp-tablet) {
+      aspect-ratio: auto;
+      height: 520px;
+      max-height: none;
+    }
+
+    @include respond-to($bp-mobile) {
+      height: 210px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__info {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    // Figma gap=130px на 1280 → fluid clamp между брейкпоинтами
+    padding: 60px 0 60px clamp(40px, 10.2vw, 130px);
+
+    @include respond-to($bp-tablet) {
+      padding: 30px 0 30px 30px;
+    }
+
+    @include respond-to($bp-mobile) {
+      padding: 20px;
+    }
+  }
+
+  &--reverse {
+    grid-template-columns: minmax(0, 500fr) minmax(0, 670fr);
+
+    .event__info {
+      order: 0;
+      padding-right: 0;
+      padding-left: 55px;
+    }
+
+    .event__image-wrap {
+      order: 1;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 30px;
+
+    @include respond-to($bp-tablet) {
+      margin-bottom: 16px;
+    }
+
+    @include respond-to($bp-mobile) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__type {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-gray;
+    text-transform: uppercase;
+  }
+
+  &__date {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: $color-green;
+  }
+
+  &__name {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: baseline;
+
+    margin-bottom: 20px;
+
+    font-family: $font-heading;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+    color: $color-dark;
+
+    @include respond-to($bp-tablet) {
+      margin-bottom: 14px;
+      font-size: 28px;
+    }
+
+    @include respond-to($bp-mobile) {
+      flex-wrap: nowrap;
+      margin-bottom: 10px;
+      font-size: 26px;
+    }
+  }
+
+  &__desc {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: $color-text;
+
+    @include respond-to($bp-tablet) {
+      font-size: 14px;
+    }
+
+    @include respond-to($bp-mobile) {
+      font-size: 16px;
+    }
+  }
+
+  &__dot {
+    display: inline-block;
+    flex-shrink: 0;
+
+    width: 15px;
+    height: 15px;
+
+    vertical-align: middle;
+
+    background: $color-red;
+
+    @include respond-to($bp-mobile) {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  @include respond-to($bp-tablet) {
+    grid-template-columns: 1fr;
+    margin-bottom: 50px;
+    padding: 0 34px;
+    .event__info {
+      padding: 24px 0 0;
+    }
+    &--reverse {
+      grid-template-columns: 1fr;
+      .event__info {
+        order: 1;
+        padding: 24px 0 0;
+      }
+      .event__image-wrap {
+        order: 0;
+      }
+    }
+  }
+
+  @include respond-to($bp-mobile) {
+    grid-template-columns: 1fr;
+    margin-bottom: 60px;
+    padding: 0 20px;
+    .event__info {
+      padding: 16px 0 0;
+    }
+    &--reverse {
+      grid-template-columns: 1fr;
+      .event__info {
+        order: 1;
+        padding: 16px 0 0;
+      }
+      .event__image-wrap {
+        order: 0;
+      }
+    }
+  }
+}
+
+// =====================
+// LECTURE
+// Figma: bg картинка y=2207 h=550, full-width
+// Карточка: x=355 y=2655 w=570 h=204, bg=white
+// shadow: 0px 2px 0px 0px rgba(26,90,76,0.25)
+// ЛЕКЦІЯ x=455 (card x=355, offset=100)
+// Дата:  x=655 (offset=300 от карточки)
+// Заголовок: x=455 y=2737 fs=36
+// =====================
+.lecture {
+  position: relative;
+  overflow: visible;
+  height: 550px;
+  margin-top: 104px;
+
+  @include respond-to($bp-tablet) {
+    height: 390px;
+    margin-top: 60px;
+  }
+
+  @include respond-to($bp-mobile) {
+    overflow: visible;
+    height: 210px;
+    margin-top: 60px;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__card {
+    position: absolute;
+    z-index: 3;
+    top: 448px;
+    right: 0;
+    left: 0;
+
+    width: min(570px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 45px clamp(30px, 7.8vw, 100px);
+
+    background: $color-white;
+    box-shadow: 0 2px 0 0 rgba(26, 90, 76, 0.25);
+
+    @include respond-to($bp-tablet) {
+      top: 290px;
+      right: 0;
+      left: 0;
+
+      box-sizing: border-box;
+      width: min(570px, calc(100% - 40px));
+      height: 204px;
+      margin: 0 auto;
+      padding: 45px clamp(30px, 13vw, 100px);
+    }
+
+    @include respond-to($bp-mobile) {
+      top: 153px;
+      right: 20px;
+      left: 20px;
+
+      box-sizing: border-box;
+
+      // Figma: x=20 y=1818 w=280 h=140 (bg image y=1665 h=210, card top=1818-1665=153)
+      width: auto;
+      height: 140px;
+      padding: 24px 21px;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    @include respond-to($bp-mobile) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__type {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-gray;
+    text-transform: uppercase;
+  }
+
+  &__date {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: $color-green;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: $color-dark;
+
+    @include respond-to($bp-mobile) {
+      font-size: 28px;
+      text-align: center;
+    }
+  }
+}
+
+// =====================
+// GALLERY
+// Figma: "Галерея" x=55 y=3059 fs=48
+// Картинки (от y=3163):
+//   tall:  x=55   w=370 h=600   (gallery-1)
+//   wide:  x=455  w=770 h=600   (gallery-2) ← x=455!
+//   bot-L: x=55   w=770 h=360   (gallery-3) ← x=55, w=770!
+//   bot-R: x=855  w=370 h=360   (gallery-4)
+// =====================
+.gallery {
+  padding-top: 200px;
+
+  @include respond-to($bp-tablet) {
+    padding-top: 192px;
+  }
+
+  @include respond-to($bp-mobile) {
+    // Figma: "Галерея" y=2058, lecture section CSS ends y=1875 → padding=2058-1875=183px
+    // (card overflows to y=1958 but layout flow continues from y=1875)
+    padding-top: 183px;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    padding: 0 55px;
+
+    @include respond-to($bp-tablet) {
+      margin-bottom: 30px;
+      padding: 0 34px;
+    }
+
+    @include respond-to($bp-mobile) {
+      margin-bottom: 40px;
+      padding: 0 20px;
+      font-size: 36px;
+      text-align: center;
+    }
+  }
+
+  // Сетка точно по Figma:
+  // col1=370px (x=55..425), col2=400px (x=455..855=425+30gap+..нет)
+  // Разберём: x=55 w=370 → col1 end=425; x=455 w=770 → col2+col3
+  // gap между col1 и col2: 455-425=30px
+  // col2 w=770 на 2 ряда делится: top=600h, bot= две части (770=400+370? нет)
+  // bot-L x=55 w=770: НО bot-L x=55! Это та же позиция что col1!
+  // Значит bot-L занимает col1+col2 (370+30+400=800? не совпадает с 770)
+  // Пересмотрим: 55+770=825. col2 x=455+770=1225. 1280-55=1225 ✓
+  // bot-L x=55 w=770 h=360 = занимает от 55 до 825 (770px)
+  // bot-R x=855 w=370 h=360 = от 855 до 1225
+  // gap между bot-L и bot-R: 855-825=30px
+  // Итого layout:
+  //   row1: [55px][370px tall][30px gap][770px wide][55px] = 55+370+30+770+55=1280 ✓
+  //   row2: [55px][770px bot-L][30px gap][370px bot-R][55px] = 55+770+30+370+55=1280 ✓
+  // → grid: columns = 55px 370px 30px 770px 55px? нет, это не grid…
+  // Используем padding и внутри grid без margin
+  // Проще: grid-template-columns: 370px 30px 400px 30px 370px (внутри container без padding)
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    // Строки задаются aspect-ratio элементов — fluid скейл между брейкпоинтами
+    grid-template-rows: auto auto;
+    gap: 10px;
+
+    padding: 0 55px;
+
+    @include respond-to($bp-tablet) {
+      display: none;
+    }
+
+    @include respond-to($bp-mobile) {
+      display: none;
+    }
+  }
+
+  &__item {
+    overflow: hidden;
+    min-height: 0;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      @include hover(transform, scale(1.05));
+    }
+
+    // Aspect-ratio = Figma размеры (1280): скейлится пропорционально
+    // gallery-1: col1, row1 (370×600)
+    &--tall {
+      grid-column: 1;
+      grid-row: 1;
+      aspect-ratio: 380 / 600;
+    }
+
+    // gallery-2: col2+col3, row1 (770×600)
+    &--wide {
+      grid-column: 2 / 4;
+      grid-row: 1;
+      aspect-ratio: 770 / 600;
+    }
+
+    // gallery-3: col1+col2, row2 (770×360)
+    &--bottom-left {
+      grid-column: 1 / 3;
+      grid-row: 2;
+      aspect-ratio: 770 / 360;
+    }
+
+    // gallery-4: col3, row2 (370×360)
+    &--bottom-right {
+      grid-column: 3;
+      grid-row: 2;
+      aspect-ratio: 380 / 360;
+    }
+
+    @include respond-to($bp-tablet) {
+      &--tall {
+        grid-column: 1;
+        grid-row: 1 / 3;
+
+        // При 2 рядах tall занимает всю высоту: row1+gap+row2
+        height: calc(370px + 10px + 320px);
+      }
+      &--wide {
+        grid-column: 2;
+        grid-row: 1;
+        height: 370px;
+      }
+      &--bottom-left {
+        grid-column: 2;
+        grid-row: 2;
+        height: 320px;
+      }
+      &--bottom-right {
+        display: none;
+      }
+    }
+  }
+
+  &__slider {
+    display: none;
+
+    @include respond-to($bp-tablet) {
+      display: block;
+      padding: 0 34px;
+    }
+
+    @include respond-to($bp-mobile) {
+      display: block;
+      padding: 0 20px;
+    }
+  }
+}
+
+// =====================
+// SLIDER
+// =====================
+.slider {
+  &__track {
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+
+    overflow-x: auto;
+    display: flex;
+    gap: 20px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &__slide {
+    scroll-snap-align: start;
+    overflow: hidden;
+    flex: 0 0 340px;
+    height: 543px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @include respond-to($bp-mobile) {
+      flex: 0 0 280px;
+      height: 410px;
+    }
+  }
+  &__dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  &__dot {
+    cursor: pointer;
+
+    width: 8px;
+    height: 8px;
+    border: none;
+    border-radius: 50%;
+
+    background: rgba($color-dark, 0.2);
+
+    transition: background $transition;
+    &.is-active {
+      background: $color-green;
+    }
+  }
+}
+
+// =====================
+// SUBSCRIBE
+// Figma: y=4353 h=550 full-width
+// overlay: rgba(0,0,0,0.75)
+// "Підписка": x=455(center) fs=48 Montserrat Bold
+// desc: x=355 w=570 (center) fs=18
+// input: x=355 w=470 h=70
+// button: x=855 w=70 h=70 bg=#f14a27
+// =====================
+.subscribe {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  height: 550px;
+  margin-top: 80px;
+
+  @include respond-to($bp-mobile) {
+    height: 386px;
+    margin-top: 100px;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__content {
+    // Figma: x=355 w=570 → центр при 1280 = 355 = (1280-570)/2 ✓
+    max-width: 570px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  // fs=48, Montserrat Bold, color=white
+  &__title {
+    margin-bottom: 20px;
+
+    font-family: $font-heading;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+    color: $color-white;
+
+    @include respond-to($bp-mobile) {
+      font-size: 36px;
+    }
+  }
+
+  &__desc {
+    margin-bottom: 72px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: $color-white;
+
+    @include respond-to($bp-mobile) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__field {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    width: 100%;
+    max-width: 570px;
+    margin: 0 auto;
+
+    // Figma 320: input x=20 w=230 + button x=250 w=50 → gap=0
+    @include respond-to($bp-mobile) {
+      gap: 0;
+    }
+  }
+
+  &__input {
+    flex: 1;
+
+    min-width: 0;
+    height: 70px;
+    padding: 0 32px;
+    border: none;
+
+    font-family: $font-body;
+    font-size: 14px;
+    color: $color-dark;
+
+    background: $color-white;
+    outline: none;
+    &::placeholder {
+      color: $color-gray;
+    }
+
+    @include respond-to($bp-mobile) {
+      height: 50px;
+      padding: 0 24px;
+    }
+  }
+
+  &__submit {
+    cursor: pointer;
+
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    height: 70px;
+    border: none;
+
+    background: $color-red;
+
+    transition: background $transition;
+    &:hover {
+      background: $color-red-dark;
+    }
+
+    @include respond-to($bp-mobile) {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  &__error {
+    min-height: 20px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #ff6b6b;
+  }
+}
+
+// =====================
+// FOOTER
+// Figma: y=4903 h=457, bg=white
+// лого: x=55.9 y=48 w=63 h=72
+// "Графік роботи" title: x=256 y=48 (left=256)
+// "Контакти:" title: x=457 y=48 (left=457)
+// divider: x=691 h=260
+// "Галерея": x=757 y=48
+// "Про Нас": x=958 y=48
+// copyright left: x=56 y=406
+// copyright right: x=1057 y=406
+// =====================
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding: 48px 0 0;
+  background: $color-white;
+
+  @include respond-to($bp-mobile) {
+    padding: 32px 20px 0;
+  }
+
+  .container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    max-width: none;
+    margin: 0;
+  }
+
+  &__inner {
+    display: grid;
+
+    // Fluid: пропорции Figma (200/201/234/1/остальное) вместо фикс. px
+    grid-template-columns:
+      minmax(120px, 200fr) minmax(140px, 201fr) minmax(160px, 234fr)
+      1px minmax(0, 535fr);
+    gap: 0;
+    align-items: start;
+
+    margin-bottom: 60px;
+
+    @include respond-to($bp-tablet) {
+      // 3 колонки: лого | Графік+Контакти | Галерея+Про нас
+      // Но по SVG: лого | Графік | Контакти в ряд 1, затем разделитель, Галерея | Про нас в ряд 2
+      // footer__nav показывается на планшете — переопределяем
+      display: block; // Отключаем grid, управляем вручную через отдельные flex
+    }
+
+    @include respond-to($bp-mobile) {
+      // Figma Museum_320: logo top-left, social top-right
+      // Info: 2 cols (Графік x=20, Контакти x=170)
+      // Divider horizontal x=20 w=280
+      // Nav: 2 cols (x=20, x=170)
+      // Copyright centered
+      display: block;
+      margin-bottom: 0;
+    }
+  }
+
+  // Tablet-only: переопределяем layout через обёртку
+  @include respond-to($bp-tablet) {
+    &__inner {
+      display: grid;
+      grid-template-columns: 121px 240px 1fr;
+      grid-template-rows: auto auto;
+      gap: 0;
+      align-items: start;
+
+      margin-bottom: 0;
+    }
+
+    &__brand {
+      grid-column: 1;
+      grid-row: 1 / 3;
+      padding-right: 0;
+    }
+
+    &__info {
+      display: contents;
+    }
+
+    &__info-block:nth-child(2) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    &__info-block:nth-child(3) {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    &__nav {
+      position: relative;
+
+      grid-column: 2 / 4;
+      grid-row: 2;
+
+      padding-top: 64px;
+      padding-left: 0;
+
+      &::before {
+        content: '';
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 460px;
+        height: 1px;
+
+        background: rgba($color-green, 0.5);
+      }
+    }
+
+    &__nav-col {
+      width: 240px;
+    }
+
+    &__divider {
+      display: none;
+    }
+  }
+
+  // ВАЖНО: mobile-override идёт ПОСЛЕ tablet-only блока,
+  // иначе tablet grid перезапишет display:block на 320px
+  @include respond-to($bp-mobile) {
+    &__inner {
+      display: block;
+    }
+    &__info-block {
+      grid-column: unset;
+      grid-row: unset;
+    }
+    &__nav::before {
+      display: none;
+    }
+  }
+
+  &__logo .logo__text {
+    text-align: left;
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 30px;
+
+    @include respond-to($bp-mobile) {
+      // Figma: logo x=20, FB x=232, Instagram x=276 → logo left, social right
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      margin-bottom: 40px;
+      padding-right: 0;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 22px;
+    margin-top: 62px;
+
+    @include respond-to($bp-mobile) {
+      // Figma: FB at x=232, Instagram x=276, gap=276-232-24=20px
+      gap: 20px;
+      margin-top: 24px;
+    }
+  }
+
+  &__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include hover(opacity, 0.6);
+  }
+
+  &__info {
+    display: contents;
+
+    @include respond-to($bp-mobile) {
+      // Show as 2-column grid: Графік (x=20 w=130) | Контакти (x=170 w=128)
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      column-gap: 20px;
+      margin-bottom: 71px;
+    }
+  }
+
+  &__info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-right: 20px;
+
+    @include respond-to($bp-mobile) {
+      padding-right: 0;
+    }
+  }
+
+  &__divider {
+    width: 1px;
+    height: 260px;
+    background: rgba($color-green, 0.5);
+
+    @include respond-to($bp-tablet) {
+      display: none;
+    }
+
+    @include respond-to($bp-mobile) {
+      // Figma: x=20 y=3668 width=280 height=1 — горизонтальный разделитель
+      display: block;
+      width: 100%;
+      height: 1px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: clamp(16px, 2.5vw, 32px);
+    box-sizing: border-box;
+    padding-left: clamp(20px, 5vw, 65px);
+
+    @include respond-to($bp-tablet) {
+      margin-top: 64px;
+      padding-left: 0;
+    }
+
+    @include respond-to($bp-mobile) {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      column-gap: 20px;
+
+      margin-top: 0;
+      margin-bottom: 40px;
+      padding-top: 0;
+
+      // Figma: Галерея x=20, Про Нас x=170 — совпадает с footer__info grid
+      padding-left: 0;
+    }
+  }
+
+  &__nav-col {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 169px;
+
+    @include respond-to($bp-tablet) {
+      width: 240px;
+    }
+
+    @include respond-to($bp-mobile) {
+      // Figma: start-to-start=34px, item-height=14px → gap=20px
+      flex: unset;
+      gap: 20px;
+      width: auto;
+    }
+  }
+
+  &__nav-link {
+    font-size: 14px;
+    line-height: 1;
+    color: $color-dark;
+
+    @include hover(color, $color-green);
+  }
+
+  &__info-title {
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  &__info-text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    &--gap {
+      margin-top: 21px;
+    }
+    &--small {
+      margin-top: 4px;
+      font-size: 12px;
+    }
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 35px;
+
+    @include respond-to($bp-tablet) {
+      margin-top: 120px;
+    }
+
+    @include respond-to($bp-mobile) {
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+
+      margin-top: 40px;
+      padding-bottom: 24px;
+    }
+  }
+
+  &__copy {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.5;
+
+    @include respond-to($bp-mobile) {
+      text-align: center;
+    }
+  }
+}
+
+// =====================
+// BACK TO TOP
+// Figma Museum_320: x=250 y=3597 w=50 h=50 — circle with arrow
+// right: 320-250-50=20px from right edge
+// =====================
+// =====================
+// BACK TO TOP
+// Figma Museum_320: x=250 y=3597 50×50 — в потоке футера над разделителем
+// right: 320-250-50=20px (совпадает с padding футера), до разделителя 20px
+// Дизайн: прозрачный круг, зелёная обводка 1px, зелёная стрелка (SVG в HTML)
+// =====================
+.back-to-top {
+  cursor: pointer;
+
+  display: none;
+
+  padding: 0;
+  border: none;
+
+  line-height: 0;
+
+  background: none;
+
+  transition: opacity $transition;
+
+  // Только на mobile, в потоке: справа, 20px до разделителя
+  @include respond-to($bp-mobile) {
+    display: block;
+    margin-bottom: 20px;
+    margin-left: auto;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.section-title {
+  font-family: $font-heading;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  color: $color-dark;
+}
+
+// Mobile override for .section-title — base class defined after components
+// so without this, 48px overrides component-level 36px mobile rules
+@include respond-to($bp-mobile) {
+  .section-title {
+    font-size: 36px;
+  }
 }
