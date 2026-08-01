@@ -1,27 +1,36 @@
-# НАМУ — Museum landing page
+# NAMU — Museum landing page
 
-Адаптивний лендінг Національного художнього музею України: афіша актуальних
-виставок, анонс лекції, галерея колекції зі слайдером і форма підписки на новини.
+Responsive landing page for the National Art Museum of Ukraine: current exhibitions,
+a lecture announcement, a collection gallery with a slider, and a newsletter
+subscription form.
 
-## Технології
-
-HTML5, SCSS (BEM, partials), Vite, Swiper, Cypress
-
-## Посилання
+## Links
 
 - [DEMO LINK](https://HiljSV.github.io/Museum/)
-- [Макет у Figma](https://www.figma.com/design/tC0kH52mr5Yaa4jhWGytzc/)
+- [Figma design](https://www.figma.com/design/tC0kH52mr5Yaa4jhWGytzc/)
 
-## Що всередині
+## Tech stack
 
-- шапка з бургер-меню на `:target` — без JS, зі блокуванням скролу сторінки
-- адаптив під **320 / 640 / 768 / 1280**: числа знято з макета через Figma REST API
-- галерея: сітка 370/770 на десктопі й слайдер Swiper із пагінацією нижче 1280
-- форма підписки: не відправляється порожньою, очищається без перезавантаження
-- плавний скрол по якорях, наведення на всі інтерактивні елементи, збільшення
-  фото галереї та виставок на hover
+HTML5, SCSS (BEM, partials), vanilla JS (ES modules), Vite, Swiper, Cypress
 
-## Запуск локально
+## What is inside
+
+- **Header with a hamburger menu** — a `data-fls-menu-open` attribute on `<html>` drives the
+  panel, the burger turns into a cross itself, page scroll is locked with scrollbar-width
+  compensation, and the menu closes on a nav link or `Esc`.
+- **Responsive at 320 / 640 / 768 / 1280** — the values are taken from the design via the
+  Figma REST API. The page is capped at 1440px and centred; no horizontal scroll from 320px up.
+- **Gallery** — a 370/770 grid on desktop and a looped Swiper slider below 1280 with round
+  arrows and clickable pagination. Clicking a photo opens it in a lightbox scaled to the
+  viewport (`object-fit: contain`), closed by the cross, a backdrop click or `Esc`.
+- **Scroll reveal** — `IntersectionObserver`, one-shot, staggered through `--reveal-delay`;
+  it honours `prefers-reduced-motion` and the content stays visible with JS disabled.
+- **Subscription form** — cannot be submitted empty (`type="email"` + `required`), and resets
+  itself without reloading the page.
+- Smooth anchor scrolling, hover states on every interactive element, and a zoom-on-hover
+  effect on the gallery and exhibition photos.
+
+## Running locally
 
 ```bash
 nvm use 20
@@ -29,12 +38,13 @@ npm install
 npm start
 ```
 
-Відкрити <http://localhost:5173/>
+Then open <http://localhost:5173/>.
 
-## Перевірки
+## Checks
 
 ```bash
-npm run lint     # prettier + stylelint + linthtml
-npm test         # lint + cypress
-npm run build    # прод-збірка у /dist
+npm run lint     # stylelint + prettier + mate-scripts lint
+npm test         # lint + Cypress
+npm run build    # production build into /dist
+npm run deploy   # publish the build to gh-pages
 ```
