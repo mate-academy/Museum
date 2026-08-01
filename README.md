@@ -1,55 +1,50 @@
-# Museum landing page
-Implement landing page according to [Figma design](https://www.figma.com/file/cRBCqE06cDrY3s4jX7h3iY/%D0%9D%D0%90%D0%9C%D0%A3-(Edit)?node-id=0%3A1) - Use BEM and SCSS
+# NAMU — Museum landing page
 
-Check font styles. Use [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans?query=ibm), [Montserrat](https://fonts.google.com/specimen/Montserrat?query=mon)
+Responsive landing page for the National Art Museum of Ukraine: current exhibitions,
+a lecture announcement, a collection gallery with a slider, and a newsletter
+subscription form.
 
-- The design 1440px
-- Desktop 1280px
-- Tablet 640px
-- Mobile (> 320px)
+## Links
 
-1. Implement the header with hamburger menu.
-1. Implement `Художній Музей` block.
-1. Implement `Актуальні події` block with two similar blocks `Йду і повертаюсь`, `І спогади і мрії`.
-1. Implement `Від класицизму до романтизму` block.
-1. Implement `Галерея` block and slider.
-1. Implement `Підписка` block.
-1. Implement footer.
+- [DEMO LINK](https://HiljSV.github.io/Museum/)
+- [Figma design](https://www.figma.com/design/tC0kH52mr5Yaa4jhWGytzc/)
 
-## Checklist for preparing a portfolio project for HR review
+## Tech stack
 
-1. Don’t forget to add a title for the whole web page (it could be the name of your landing)
-2. A landing page is implemented strictly according to the design in Figma
-4. Links in the header and footer menus should lead to the corresponding blocks of the landing page
-5. The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
-6. Placeholders in the forms suggest what to enter, and if there is a validation of the form, then it is clear in what format to enter the phone number
-7. Make sure everything looks neat on mobile and without horizontal scrolling
-8. Add favicon
-9. Add a smooth scroll for the whole page
-10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
-11. The form shouldn’t submit empty
-12. The buttons "exhibitions" and "tickets" should lead to the block with current events
-13. The button "about us" should lead to the email digest
-14. Facebook and Instagram icons in the footer should be clickable and open the museum's social networks in a new tab
-15. Pictures in the gallery and exhibitions sections should increase on hover
-16. OPTIONAL: After everything is done, you can add a slider for viewing pictures in the gallery (for mobile version)
+HTML5, SCSS (BEM, partials), vanilla JS (ES modules), Vite, Swiper, Cypress
 
+## What is inside
 
-## Github flow
-1. **Fork** the repo.
-2. **Clone** the forked one. (The project link should have your name but not `mate-academy`)
-3. Run `npm install` (or just `npm i`).
-4. Run `npm start`.
-5. Open one more terminal window for the next steps.
-6. `git checkout -b develop` - to create new branch and switch on it.
-7. Write you code in `src` folder.
-8. Run `npm run lint` and fix code style errors.
-9. Run `npm run deploy` to deploy your solution to `gh-pages`.
-10. `git add . && git commit -m 'solution'` to save your changes.
-11. `git push origin develop` - to send you code for PR.
-12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
-13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Museum/).
-14. Copy `DEMO LINK` to the PR description.
+- **Header with a hamburger menu** — a `data-fls-menu-open` attribute on `<html>` drives the
+  panel, the burger turns into a cross itself, page scroll is locked with scrollbar-width
+  compensation, and the menu closes on a nav link or `Esc`.
+- **Responsive at 320 / 640 / 768 / 1280** — the values are taken from the design via the
+  Figma REST API. The page is capped at 1440px and centred; no horizontal scroll from 320px up.
+- **Gallery** — a 370/770 grid on desktop and a looped Swiper slider below 1280 with round
+  arrows and clickable pagination. Clicking a photo opens it in a lightbox scaled to the
+  viewport (`object-fit: contain`), closed by the cross, a backdrop click or `Esc`.
+- **Scroll reveal** — `IntersectionObserver`, one-shot, staggered through `--reveal-delay`;
+  it honours `prefers-reduced-motion` and the content stays visible with JS disabled.
+- **Subscription form** — cannot be submitted empty (`type="email"` + `required`), and resets
+  itself without reloading the page.
+- Smooth anchor scrolling, hover states on every interactive element, and a zoom-on-hover
+  effect on the gallery and exhibition photos.
 
-> To update you PR repeat steps 7-11.
+## Running locally
+
+```bash
+nvm use 20
+npm install
+npm start
+```
+
+Then open <http://localhost:5173/>.
+
+## Checks
+
+```bash
+npm run lint     # stylelint + prettier + mate-scripts lint
+npm test         # lint + Cypress
+npm run build    # production build into /dist
+npm run deploy   # publish the build to gh-pages
+```

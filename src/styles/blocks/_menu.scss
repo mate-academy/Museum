@@ -1,0 +1,145 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+.menu {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+
+  overflow-y: auto;
+
+  visibility: hidden;
+  opacity: 0;
+  background-color: rgba($c-overlay, 0.95);
+
+  transition:
+    opacity $transition,
+    visibility $transition;
+
+  html[data-fls-menu-open] & {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px 28px;
+    align-content: start;
+    align-items: start;
+
+    padding-top: 27px;
+    padding-bottom: 27px;
+    padding-inline: max(
+      #{$padding-mobile},
+      calc((100% - #{$container-width}) / 2)
+    );
+
+    background-color: $c-green;
+
+    @include on-tablet {
+      padding-inline: max(
+        #{$padding-tablet},
+        calc((100% - #{$container-width}) / 2)
+      );
+    }
+
+    @include on-tablet-l {
+      grid-template-columns: 302px minmax(0, 1fr);
+      column-gap: 0;
+
+      min-height: 225px;
+      padding-top: 39px;
+      padding-bottom: 41px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: 526px minmax(0, 1fr);
+      min-height: 233px;
+      padding-bottom: 49px;
+    }
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 24px 28px;
+    align-content: start;
+
+    margin-left: 52px;
+    padding-top: 2px;
+
+    @include on-tablet-l {
+      grid-template-columns: repeat(2, 120px);
+      column-gap: 0;
+      margin-left: 62px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(2, 200px);
+      row-gap: 30px;
+      margin-left: 127px;
+    }
+  }
+
+  &__link {
+    font-family: $font-text;
+    font-size: 16px;
+    font-weight: $fw-medium;
+    line-height: 1;
+    color: $c-white;
+
+    transition: color $transition;
+
+    &:hover {
+      color: $c-arrow;
+    }
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+  }
+
+  &__info {
+    display: grid;
+    grid-column: 1 / -1;
+    row-gap: 16px;
+
+    padding-top: 25px;
+    border-top: 1px solid rgba($c-white, 0.5);
+
+    @include on-tablet-l {
+      grid-column: auto;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 40px;
+
+      margin-left: 18px;
+      padding-top: 0;
+      padding-left: 39px;
+      border-top: none;
+      border-left: 1px solid rgba($c-white, 0.5);
+    }
+
+    @include on-desktop {
+      margin-left: 71px;
+      padding-left: 103px;
+    }
+  }
+
+  &__info-accent {
+    font-weight: $fw-semibold;
+  }
+
+  &__info-text {
+    font-family: $font-text;
+    font-size: 14px;
+    font-weight: $fw-regular;
+    line-height: 1.5;
+    color: $c-white;
+  }
+}
+
+html[data-fls-menu-open] body {
+  overflow: hidden;
+}

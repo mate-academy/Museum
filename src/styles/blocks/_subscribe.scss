@@ -1,0 +1,121 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+.subscribe {
+  position: relative;
+
+  margin-top: 105px;
+  padding: 88px 0 96px;
+
+  background-image:
+    linear-gradient(rgba($c-black, 0.75), rgba($c-black, 0.75)),
+    url('../images/subscribe-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include on-tablet-l {
+    margin-top: 121px;
+    padding: 82px 0;
+  }
+
+  @include on-desktop {
+    margin-top: 200px;
+    padding: 163px 0;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-family: $font-title;
+    font-weight: $fw-bold;
+    line-height: 1;
+    color: $c-white;
+    text-align: center;
+
+    @include adaptive-value('font-size', 48, 36);
+
+    @include on-tablet-l {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    max-width: 570px;
+    margin-bottom: 50px;
+
+    font-family: $font-text;
+    font-size: 18px;
+    font-weight: $fw-regular;
+    line-height: 1.5;
+    color: $c-white;
+    text-align: center;
+
+    @include on-tablet-l {
+      margin-bottom: 72px;
+      line-height: 1;
+    }
+  }
+
+  &__form {
+    display: flex;
+    width: 100%;
+    max-width: 280px;
+
+    @include on-tablet {
+      max-width: 460px;
+    }
+
+    @include on-desktop {
+      max-width: 570px;
+    }
+  }
+
+  &__input {
+    flex-grow: 1;
+
+    min-width: 0;
+    padding: 0 24px;
+
+    font-family: $font-title;
+    font-size: 14px;
+    font-weight: $fw-regular;
+    color: $c-dark;
+
+    background-color: $c-white;
+
+    &::placeholder {
+      color: $c-muted;
+    }
+
+    &:-webkit-autofill {
+      box-shadow: inset 0 0 0 1000px $c-white;
+    }
+
+    @include on-tablet-l {
+      padding: 0 32px;
+    }
+  }
+
+  &__submit {
+    @extend %control-square;
+
+    background-color: $c-orange;
+    background-image: url('../images/icon-arrow-right.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: opacity $transition;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}

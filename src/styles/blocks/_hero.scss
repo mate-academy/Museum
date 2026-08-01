@@ -1,0 +1,163 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+.hero {
+  position: relative;
+  padding-bottom: 70px;
+
+  @include on-tablet-l {
+    min-height: 472px;
+    padding-bottom: 0;
+  }
+
+  @include on-desktop {
+    min-height: 855px;
+  }
+
+  &__photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+
+    @include on-tablet-l {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+
+      width: 48.7%;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      width: 56.6%;
+      height: 655px;
+    }
+  }
+
+  &__container {
+    position: relative;
+    padding-top: 20px;
+
+    @include on-tablet-l {
+      padding-top: 127px;
+    }
+
+    @include on-desktop {
+      padding-top: 206px;
+    }
+  }
+
+  &__text {
+    @include on-tablet-l {
+      max-width: 340px;
+    }
+
+    @include on-desktop {
+      max-width: 470px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+
+    @include on-tablet-l {
+      text-align: left;
+    }
+  }
+
+  &__button {
+    margin-top: 20px;
+
+    @include on-tablet-l {
+      margin-top: 38px;
+    }
+
+    @include on-desktop {
+      margin-top: 89px;
+      margin-left: auto;
+    }
+  }
+
+  &__scroll {
+    display: none;
+
+    @include on-desktop {
+      position: absolute;
+      top: 522px;
+      left: $padding-desktop;
+
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+
+      width: 14px;
+    }
+  }
+
+  &__scroll-label {
+    writing-mode: vertical-rl;
+    font-family: $font-text;
+    font-size: 14px;
+    font-weight: $fw-bold;
+    line-height: 1;
+    color: $c-muted;
+    text-transform: uppercase;
+  }
+
+  &__scroll-line {
+    width: 1px;
+    height: 70px;
+    background-color: $c-green;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: $control-size-mobile;
+  border: 1px solid $c-green;
+
+  background-color: transparent;
+
+  transition: opacity $transition;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  @include on-tablet {
+    width: 270px;
+    height: $control-size;
+  }
+
+  &__text {
+    flex-grow: 1;
+
+    padding: 0 $padding-mobile;
+
+    font-family: $font-text;
+    font-size: 16px;
+    font-weight: $fw-medium;
+    line-height: 1;
+    color: $c-dark;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__icon {
+    @extend %control-square;
+
+    height: calc(100% + 2px);
+    margin: -1px -1px -1px 0;
+
+    background-color: $c-green;
+    background-image: url('../images/icon-arrow-right.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

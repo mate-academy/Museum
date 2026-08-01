@@ -1,0 +1,146 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+.header {
+  position: relative;
+
+  &__container {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 24px 1fr 24px;
+    align-items: start;
+    padding-top: 27px;
+
+    @include on-tablet-l {
+      padding-top: 39px;
+    }
+  }
+
+  &__menu-toggle {
+    cursor: pointer;
+
+    position: relative;
+    z-index: 11;
+
+    display: block;
+
+    width: 18px;
+    height: 12px;
+    margin: 6px 3px;
+    padding: 0;
+    border: none;
+
+    background: none;
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    span,
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      right: 0;
+
+      width: 100%;
+      height: 2px;
+
+      background-color: $c-dark;
+
+      transition: all $transition;
+    }
+
+    span {
+      top: calc(50% - 1px);
+    }
+
+    &:hover span,
+    &:hover::before,
+    &:hover::after {
+      background-color: $c-green;
+    }
+
+    html[data-fls-menu-open] & {
+      &::before,
+      &::after {
+        background-color: $c-white;
+      }
+
+      &::before {
+        top: calc(50% - 1px);
+        transform: rotate(-45deg);
+      }
+
+      &::after {
+        bottom: calc(50% - 1px);
+        transform: rotate(45deg);
+      }
+      span {
+        width: 0;
+      }
+    }
+  }
+
+  &__logo.logo {
+    margin-top: -18px;
+    color: $c-white;
+    text-shadow: 0 1px 4px rgba($c-black, 0.4);
+    transition: opacity $transition;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    @include on-tablet-l {
+      position: absolute;
+      top: 39px;
+      left: $logo-left-tablet;
+
+      width: $logo-width-tablet;
+
+      color: $c-dark;
+      text-shadow: none;
+    }
+
+    @include on-desktop {
+      left: $logo-left-desktop;
+      width: $logo-width-desktop;
+    }
+  }
+}
+
+.logo {
+  font-family: $font-title;
+  font-size: 30px;
+  font-weight: $fw-bold;
+  line-height: 1;
+  color: $c-dark;
+  text-align: center;
+
+  @include on-tablet-l {
+    font-size: 36px;
+  }
+
+  &__line {
+    display: block;
+  }
+}
+
+html[data-fls-menu-open] .header__logo {
+  pointer-events: none;
+  opacity: 0;
+}

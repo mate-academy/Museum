@@ -1,4 +1,74 @@
-%h1 {
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
+@use 'vars' as *;
+@use 'mixins' as *;
+
+%section-title {
+  font-family: $font-title;
+  font-weight: $fw-bold;
+  color: $c-dark;
+  text-align: center;
+
+  @include adaptive-value('font-size', 48, 36);
+
+  @include on-tablet-l {
+    text-align: left;
+  }
+}
+
+%card-title {
+  font-family: $font-title;
+  font-weight: $fw-regular;
+  color: $c-dark;
+
+  @include adaptive-value('font-size', 36, 28);
+}
+
+%label {
+  font-family: $font-text;
+  font-size: 16px;
+  font-weight: $fw-medium;
+  line-height: 1;
+  color: $c-muted;
+  text-transform: uppercase;
+
+  @include on-tablet-l {
+    font-size: 14px;
+  }
+}
+
+%date {
+  font-family: $font-text;
+  font-size: 16px;
+  font-weight: $fw-bold;
+  line-height: 1.5;
+  color: $c-green;
+
+  @include on-tablet-l {
+    font-size: 14px;
+  }
+}
+
+%body-text {
+  font-family: $font-text;
+  font-size: 16px;
+  font-weight: $fw-light;
+  line-height: 1.5;
+  color: $c-text;
+}
+
+%control-square {
+  cursor: pointer;
+
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: $control-size-mobile;
+  height: $control-size-mobile;
+  border: none;
+
+  @include on-tablet-l {
+    width: $control-size;
+    height: $control-size;
+  }
 }
