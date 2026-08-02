@@ -1,6 +1,40 @@
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
+
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin montserrat($weight) {
+  font-family: Montserrat, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  font-style: normal;
+}
+
+@mixin ibm-plex($weight) {
+  font-family: IBM-Plex-Sans, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+@mixin plate {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin aditional-media($minW) {
+  @media (min-width: $minW) {
+    @content;
   }
 }
