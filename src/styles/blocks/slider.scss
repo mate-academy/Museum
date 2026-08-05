@@ -17,12 +17,10 @@
 
     @include on-desktop {
       display: grid;
-      grid-template-rows: 600px 360px;
-      grid-template-columns: repeat(3, 1fr);
       gap: 30px;
       grid-template:
-        'first second second'
-        'third third fourth';
+        'first second second' 600px
+        'third third fourth' 360px / 1fr 1fr 1fr;
     }
   }
 
@@ -89,13 +87,13 @@
   }
 
   @keyframes target {
-    from {
+    0% {
       transform: scaleX(-1);
     }
     50% {
       transform: scaleX(-1) scale(1.05);
     }
-    to {
+    100% {
       transform: scaleX(-1);
     }
   }
