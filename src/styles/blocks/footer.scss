@@ -1,0 +1,125 @@
+.footer {
+  @include grid-page;
+
+  margin-inline: 20px;
+
+  @include on-tablet {
+    margin-inline: 34px;
+  }
+
+  @include on-desktop {
+    margin-inline: 54px;
+  }
+
+  &__top {
+    display: flex;
+    grid-column: 1/-1;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      grid-column: 1/2;
+      flex-direction: column;
+      gap: 62px;
+      justify-content: start;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__navigation {
+    grid-column: 1/-1;
+
+    @include grid-page;
+
+    @include on-tablet {
+      grid-column: 2/-2;
+    }
+
+    @include on-desktop {
+      grid-column: -6/-2;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__bottom-copyright-info {
+    display: flex;
+    grid-column: 1/-1;
+    flex-direction: column;
+    gap: 10px;
+
+    margin: 0 auto;
+    margin-bottom: 36px;
+
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 150%;
+    text-align: center;
+
+    @include on-tablet {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  &__main-info {
+    grid-column: 1/-1;
+    margin-bottom: 40px;
+    padding-bottom: 70px;
+    border-bottom: 1px solid #1a5a4c80;
+
+    @include grid-page;
+
+    @include on-tablet {
+      grid-column: 2/-2;
+
+      @include grid-page;
+
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      position: relative;
+
+      grid-column: 3/7;
+
+      margin-bottom: 87px;
+      padding-bottom: 0;
+      border-bottom: none;
+      &::after {
+        content: '';
+
+        position: absolute;
+        top: 0;
+        right: -66px;
+        bottom: 0;
+
+        border-right: 1px solid #1a5a4c80;
+      }
+    }
+  }
+
+  &__contacts {
+    @include on-tablet {
+      grid-column: 4/-1;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__schedule {
+    @include on-tablet {
+      grid-column: 1/4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+}

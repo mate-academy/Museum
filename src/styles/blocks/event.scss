@@ -1,0 +1,116 @@
+.event {
+  margin-bottom: 60px;
+
+  @include on-tablet {
+    @include grid-page;
+
+    margin-bottom: 64px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 104px;
+  }
+
+  &__img-link {
+    display: block;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      grid-column: 1/-1;
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: 1/8;
+      margin-bottom: 0;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+
+    @include transition-transform;
+
+    &:hover {
+      transform: scale($scaleValue);
+    }
+  }
+
+  &__date-title {
+    font-weight: 500;
+    color: $dateTitleColor;
+    text-transform: uppercase;
+  }
+
+  &__date-duration {
+    font-weight: 700;
+    line-height: 150%;
+    color: $eventDatesColor;
+  }
+
+  &__container {
+    @include on-tablet {
+      @include grid-page;
+
+      grid-column: 1/-1;
+    }
+
+    @include on-desktop {
+      display: flex;
+      grid-column: -5/-1;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__dates {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      grid-column: 1/-1;
+      gap: 20px;
+      justify-content: start;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    color: $secondaryTextColor;
+  }
+
+  &__title-box {
+    width: 10px;
+    height: 10px;
+    background-color: #f14a27;
+  }
+
+  &__title-container {
+    display: flex;
+    gap: 1ch;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      grid-column: 1/-1;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__description {
+    font-weight: 300;
+    line-height: 150%;
+    color: #4e4e4e;
+
+    @include on-tablet {
+      grid-column: 1/5;
+    }
+  }
+}

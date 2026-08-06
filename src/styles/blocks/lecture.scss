@@ -1,0 +1,118 @@
+.lecture {
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 0;
+  }
+
+  &__content {
+    z-index: 2;
+
+    width: 280px;
+    margin: auto;
+    margin-top: -57px;
+    padding: 24px 0 20px;
+
+    background-color: #fff;
+    box-shadow: 0 2px 0 0 #1a5a4c40;
+
+    @include on-tablet {
+      grid-column: 2/-2;
+
+      width: 100%;
+      margin-top: -82px;
+      margin-inline: -50px;
+      padding-top: 45px;
+      padding-bottom: 50px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-column: 4/-4;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+
+      margin-top: -102px;
+      margin-inline: 0;
+      padding-inline: 0;
+    }
+  }
+
+  &__container {
+    position: relative;
+
+    @include on-tablet {
+      @include grid-page;
+    }
+
+    @include on-desktop {
+      padding-inline: 55px;
+    }
+  }
+
+  &__dates {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+      justify-content: flex-start;
+
+      margin-bottom: 16px;
+
+      font-size: 14px;
+    }
+
+    @include on-desktop {
+      grid-column: 2/-2;
+    }
+  }
+
+  &__date-title {
+    font-weight: 500;
+    color: $dateTitleColor;
+    text-transform: uppercase;
+  }
+
+  &__image {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    object-fit: cover;
+
+    @include on-tablet {
+      min-height: 390px;
+      object-fit: cover;
+    }
+
+    @include on-desktop {
+      height: 500px;
+    }
+  }
+
+  &__date-duration {
+    grid-column: 3/-1;
+    font-weight: 700;
+    line-height: 150%;
+    color: $eventDatesColor;
+  }
+
+  &__title {
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    color: $secondaryTextColor;
+    text-align: center;
+
+    @include on-tablet {
+      grid-column: 2/-2;
+      font-size: 36px;
+      text-align: left;
+    }
+  }
+}

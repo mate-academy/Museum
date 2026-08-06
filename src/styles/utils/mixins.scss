@@ -1,0 +1,33 @@
+@mixin on-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin grid-page {
+  --grid-columns-count: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns-count), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --grid-columns-count: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    --grid-columns-count: 12;
+  }
+}
+
+@mixin transition-transform {
+  transition: transform $transitionTime;
+}
