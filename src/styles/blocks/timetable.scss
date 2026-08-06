@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 16px;
 
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 150%;
@@ -15,7 +15,6 @@
 
   &__time {
     display: grid;
-    flex-direction: column;
     gap: 16px;
   }
 
@@ -26,8 +25,14 @@
   &--menu {
     & .timetable__time {
       @include on-tablet {
-        grid-template-columns: repeat(2, minmax(auto, 170px));
-        gap: 38px;
+        grid-template-columns: 170px 144px;
+        gap: 26px;
+      }
+
+      @include on-desktop {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
       }
     }
   }
