@@ -328,7 +328,11 @@
               <form
                 action="post"
                 class="subscription__form"
-                onsubmit="this.reset()"
+                onsubmit="
+                  event.preventDefault();
+                  this.reset();
+                  window.scrollTo(0, 0);
+                "
               >
                 <input
                   type="email"
@@ -336,7 +340,10 @@
                   placeholder="E-mail"
                   required
                 />
-                <button class="subscription__submit">
+                <button
+                  type="submit"
+                  class="subscription__submit"
+                >
                   <img
                     src="./src/images/icons/arrow-left-dark.svg"
                     alt="submit button image"
