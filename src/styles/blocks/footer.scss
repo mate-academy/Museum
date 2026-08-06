@@ -1,0 +1,118 @@
+.footer {
+  &__content {
+
+    @include page-grid;
+    
+    padding-block: 50px 35px;
+    grid-template-areas:
+      'top top'
+      'timetable contacts'
+      'bottom bottom'
+      'splitter splitter'
+      'nav nav'
+      'copyright copyright';
+
+    @include on-tablet {
+      padding-block: 51px 36px;
+      grid-template-areas:
+        'top timetable timetable contacts contacts _'
+        'top splitter splitter splitter splitter _'
+        'top nav nav nav nav _'
+        'copyright copyright copyright copyright copyright copyright';
+    }
+
+    @include on-desktop {
+      padding-block: 47px 35px;
+      row-gap: 87px;
+      grid-template-areas:
+        'top . timetable timetable contacts contacts splitter nav nav nav nav .'
+        'copyright copyright copyright copyright copyright copyright copyright copyright copyright copyright copyright copyright';
+    }
+  }
+
+  &__top {
+    grid-area: top;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      flex-direction: column;
+      justify-content: start;
+      gap: 62px;
+    }
+  }
+
+  &__timetable {
+    grid-area: timetable;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__contacts {
+    grid-area: contacts;
+  }
+
+  &__splitter {
+    grid-area: splitter;
+    height: 1px;
+    width: 100%;
+    margin-bottom: 40px;
+    background-color: rgba($color: $secondary-color, $alpha: 0.5);
+
+    @include on-tablet {
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      width: 1px;
+      height: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  &__bottom {
+    grid-area: bottom;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__nav {
+    grid-area: nav;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-bottom: 80px;
+  }
+
+  &__media {
+    display: flex;
+    gap: 20px;
+
+    @include on-tablet {
+      gap: 32px;
+    }
+  }
+
+  &__logo {
+    height: 72px;
+  }
+
+  &__copyright {
+    grid-area: copyright;
+  }
+}
