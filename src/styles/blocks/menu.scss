@@ -1,0 +1,111 @@
+.menu {
+  pointer-events: none;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  height: 100vh;
+
+  color: #fff;
+
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0);
+
+  transition: all $transitionTime;
+
+  &:target {
+    pointer-events: all;
+    position: absolute;
+    opacity: 1;
+    background-color: #000b;
+  }
+
+  &__background-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    height: 100vh;
+  }
+
+  &__content {
+    position: relative;
+    padding: 27px 20px;
+    background-color: $borderColor;
+
+    @include on-tablet {
+      @include grid-page;
+
+      padding: 40px 34px;
+    }
+
+    @include on-desktop {
+      padding: 40px 56px 48px;
+    }
+  }
+
+  &__top-bar {
+    position: relative;
+
+    display: flex;
+    gap: 28px;
+
+    margin-bottom: 24px;
+    padding-bottom: 25px;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      border-bottom: 1px solid #ffffff80;
+
+      @include on-tablet {
+        inset: 0 0 -7px auto;
+        margin-right: 8px;
+        border: none;
+        border-right: 1px solid #ffffff80;
+      }
+
+      @include on-desktop {
+        right: -38px;
+      }
+    }
+
+    @include on-tablet {
+      grid-column: 1/4;
+      gap: 38px;
+    }
+
+    @include on-desktop {
+      grid-column: 1/7;
+      gap: 102px;
+    }
+  }
+
+  &__schedule {
+    @include on-tablet {
+      grid-column: 4/-1;
+    }
+
+    @include on-desktop {
+      grid-column: 8/-1;
+    }
+  }
+
+  &__navbar {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+
+    @include on-tablet {
+      justify-content: start;
+    }
+  }
+}

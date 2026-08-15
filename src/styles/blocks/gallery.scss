@@ -1,0 +1,93 @@
+.gallery {
+  margin-inline: 20px;
+
+  @include on-tablet {
+    margin-inline: 34px;
+    padding-bottom: 4px;
+  }
+
+  @include on-desktop {
+    margin-inline: 55px;
+  }
+
+  &__slider {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__slider-link {
+    display: block;
+
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+
+    background-color: #e0e0e0;
+  }
+
+  &__images {
+    display: flex;
+    box-sizing: &border-box;
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      @include grid-page;
+
+      margin-bottom: 32px;
+    }
+
+    @include on-desktop {
+      row-gap: 30px;
+    }
+  }
+
+  &__image {
+    box-sizing: border-box;
+    min-width: 100%;
+    max-width: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    @include transition-transform;
+
+    &:nth-child(n + 2) {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale($scaleValue);
+    }
+
+    @include on-tablet {
+      grid-column: span 3;
+      height: 100%;
+
+      &:nth-child(2) {
+        display: block;
+      }
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+
+      &:nth-child(n + 3) {
+        display: block;
+      }
+
+      &--big {
+        grid-column: span 8;
+      }
+    }
+  }
+
+  &__slider-link--active {
+    background-color: $borderColor;
+  }
+}
