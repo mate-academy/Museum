@@ -1,0 +1,39 @@
+.nav {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: repeat(2, 32px);
+  gap: 28px 24px;
+
+  @include on-desktop {
+    font-size: 22px;
+    grid-template-columns: repeat(2, 169px);
+    grid-template-rows: repeat(2, 44px);
+    gap: 30px;
+  }
+
+  &__link {
+    color: $menu-text-color;
+    text-decoration: none;
+    width: 100px;
+
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $menu-text-color;
+
+      transition: transform $transition-time;
+      transform: scale(0);
+      transform-origin: center;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}

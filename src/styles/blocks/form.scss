@@ -1,0 +1,55 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+
+  &__input {
+    width: 230px;
+    border: none;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    background-color: $page-background-color;
+    padding-left: 24px;
+    outline: none;
+
+    @include on-tablet {
+      width: 374px;
+    }
+
+    @include on-desktop {
+      width: 470px;
+    }
+
+    &::placeholder {
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 100%;
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px $page-background-color inset; // Це приховає жовтий фон, "вставляючи" твій колір
+      -webkit-text-fill-color: #000; // Це встановлює колір тексту. Заміни #000 на той, що тобі потрібен.
+      transition: background-color 5000s ease-in-out 0s; // Допомагає уникнути миттєвої зміни кольору
+    }
+  }
+
+  &__button {
+    width: 50px;
+    border: none;
+    background-color: $subscribe-button-color;
+    background-image: url(/src/images/icons/subscribe-icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-color $transition-time;
+
+    &:hover {
+      background-color: $subscribe-button-hover-color;
+    }
+
+    @include on-tablet {
+      width: 70px;
+    }
+  }
+}

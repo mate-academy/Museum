@@ -1,0 +1,106 @@
+.exhibition {
+  @include page-grid;
+
+  &__photo {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 210px;
+    margin: 0 0 20px;
+    align-self: center;
+    transition: transform $transition-time;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    @include on-tablet {
+      height: 520px;
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+      margin-bottom: 104px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__date {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    color: $exhibition-date-color;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 15px;
+
+    @include on-tablet {
+      width: 220px;
+      font-size: 14px;
+      align-self: start;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__days {
+    color: $theme-color;
+    font-weight: 700;
+  }
+
+  &__discription {
+    max-width: 460px;
+
+    @include on-tablet {
+      align-self: start;
+    }
+  }
+
+  &__name {
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: $main-title-text-color;
+    margin: 0 0 10px;
+    display: flex;
+
+    @include on-tablet {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    &-rectangle {
+      background-color: $exhibition-name-rectangle-color;
+      width: 10px;
+      height: 10px;
+      align-self: center;
+      margin-left: 14px;
+
+      @include on-tablet {
+        height: 15px;
+        width: 15px;
+      }
+    }
+  }
+
+  &__text {
+    color: $exhibition-text-color;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+    margin: 0 0 60px;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+    }
+  }
+}
