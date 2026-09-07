@@ -1,0 +1,69 @@
+.form {
+  display: flex;
+  gap: 10px;
+
+  @include desktop {
+    gap: 30px;
+  }
+
+  &__field {
+    flex-grow: 1;
+
+    box-sizing: border-box;
+    height: 50px;
+    padding: 0 20px;
+    border: none;
+
+    font-family: $font-title;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+
+    background-color: $color-white;
+
+    @include desktop {
+      height: 70px;
+    }
+
+    &::placeholder {
+      color: $color-placeholder;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 50px;
+    height: 50px;
+    border: none;
+
+    background-color: $color-orange;
+
+    @include desktop {
+      width: 70px;
+      height: 70px;
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-60%, -50%) rotate(45deg);
+
+      width: 8px;
+      height: 8px;
+      border-top: 2px solid $color-black;
+      border-right: 2px solid $color-black;
+    }
+  }
+}
