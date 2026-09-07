@@ -1,0 +1,126 @@
+.subscription {
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 386px;
+
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+      url(../images/subscription-bg-image.jpg);
+    background-position: center;
+    background-size: cover;
+
+    @include on-tablet {
+      height: 380px;
+    }
+
+    @include on-desktop {
+      height: 550px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 20px;
+
+    font-family: $font-secondary;
+    font-weight: 700;
+    line-height: 100%;
+    color: $color-background;
+
+    @include responsive-font-size(36px, 48px, 48px);
+
+    @include on-tablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    max-width: 280px;
+    margin: 0;
+    margin-bottom: 50px;
+
+    font-size: 18px;
+    font-weight: 400;
+    color: $color-background;
+    text-align: center;
+
+    @include on-tablet {
+      max-width: none;
+      margin-bottom: 64px;
+      line-height: 100%;
+    }
+
+    @include on-desktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    box-sizing: border-box;
+    width: 280px;
+
+    @include on-tablet {
+      gap: 16px;
+      width: 460px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+      width: 570px;
+    }
+  }
+
+  &__email {
+    flex-grow: 1;
+
+    box-sizing: border-box;
+    height: 50px;
+    padding-left: 24px;
+
+    background-color: $color-background;
+
+    @include on-tablet {
+      height: 70px;
+    }
+
+    @include on-desktop {
+      padding-left: 32px;
+    }
+
+    &::placeholder {
+      font-family: $font-secondary;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 100%;
+      color: $color-text-muted;
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px $color-contrast inset;
+
+      -webkit-text-fill-color: $color-text-primary;
+    }
+  }
+
+  &__button {
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+    height: 50px;
+    background-color: $color-accent-red;
+
+    @include arrow-background('../images/icons/icon-arrow-black.svg');
+
+    @include on-tablet {
+      height: 70px;
+    }
+
+    &:hover {
+      background-position: calc(50% + 5px) center;
+    }
+  }
+}

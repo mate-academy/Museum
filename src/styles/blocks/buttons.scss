@@ -1,0 +1,39 @@
+.button {
+  display: flex;
+
+  height: 50px;
+  border: 1px solid $color-accent;
+
+  font-weight: 500;
+  line-height: 100%;
+  color: $color-text-primary;
+  text-decoration: none;
+
+  @include on-tablet {
+    height: 70px;
+  }
+
+  &__text {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    background-color: $color-accent;
+
+    @include arrow-background('../images/icons/icon-arrow.svg');
+  }
+
+  &:hover &__icon {
+    background-position: calc(50% + 5px) center;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}

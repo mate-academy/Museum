@@ -1,6 +1,97 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $effect-duration;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin responsive-font-size($mobile, $tablet, $desktop) {
+  font-size: $mobile;
+
+  @include on-tablet {
+    font-size: $tablet;
+  }
+
+  @include on-desktop {
+    font-size: $desktop;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: $mobile-grid-gap;
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: $tablet-desktop-grid-gap;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: $content-padding-mobile;
+
+  @include on-tablet {
+    padding-inline: $content-padding-tablet;
+  }
+
+  @include on-desktop {
+    padding-inline: $content-padding-desktop;
+  }
+}
+
+@mixin event-type-style {
+  margin: 0;
+  font-weight: 500;
+  line-height: 100%;
+  color: $color-text-muted;
+
+  @include on-tablet {
+    font-size: 14px;
+  }
+}
+
+@mixin event-date-style {
+  margin: 0;
+  font-weight: 700;
+  color: $color-accent;
+
+  @include on-tablet {
+    font-size: 14px;
+  }
+}
+
+@mixin event-title-style {
+  margin: 0;
+  font-family: $font-secondary;
+  font-weight: 400;
+  line-height: 100%;
+
+  @include responsive-font-size(28px, 36px, 36px);
+}
+
+@mixin arrow-background($image) {
+  background-image: url($image);
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-position $effect-duration;
 }

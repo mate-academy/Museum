@@ -1,0 +1,84 @@
+.lecture {
+  &__image {
+    height: 210px;
+    background-image: url(../images/lecture-bg-image.jpg);
+    background-position: center;
+    background-size: cover;
+
+    @include on-tablet {
+      height: 390px;
+    }
+
+    @include on-desktop {
+      height: 550px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 280px;
+    height: 140px;
+    margin-top: -57px;
+    margin-inline: auto;
+
+    background-color: $color-background;
+    box-shadow: 0 2px 0 0 $color-accent-muted;
+
+    @include on-tablet {
+      width: 570px;
+      height: 204px;
+      margin-top: -84px;
+      padding-inline: 55px;
+    }
+
+    @include on-desktop {
+      margin-top: -102px;
+      padding-inline: 100px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @include on-tablet {
+      gap: 190px;
+      justify-content: flex-start;
+    }
+
+    @include on-desktop {
+      gap: 150px;
+    }
+  }
+
+  &__type {
+    @include event-type-style;
+  }
+
+  &__date {
+    @include event-date-style;
+  }
+
+  &__title-link {
+    color: $color-text-primary;
+    text-decoration: none;
+
+    @include hover(color, $color-accent);
+  }
+
+  &__title {
+    @include event-title-style;
+
+    text-align: center;
+
+    @include on-tablet {
+      text-align: left;
+    }
+  }
+}

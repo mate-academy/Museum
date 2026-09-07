@@ -1,0 +1,124 @@
+.event {
+  margin-bottom: 60px;
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 40px 30px;
+    margin-bottom: 64px;
+
+    &:last-child {
+      margin-bottom: 112px;
+    }
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    margin-bottom: 104px;
+  }
+
+  &__picture-link {
+    overflow: hidden;
+    display: block;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      grid-row: 1 / 2;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__picture {
+    display: block;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    @include hover(transform, scale($image-hover-scale));
+  }
+
+  &__content {
+    @include on-tablet {
+      grid-column: 1 / 5;
+      grid-row: 2 / 3;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+      grid-row: 1 / 2;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      gap: 25px;
+      justify-content: start;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__type {
+    @include event-type-style;
+  }
+
+  &__date {
+    @include event-date-style;
+  }
+
+  &__title-link {
+    color: $color-text-primary;
+    text-decoration: none;
+
+    @include hover(color, $color-accent);
+  }
+
+  &__title {
+    @include event-title-style;
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    &::after {
+      content: '';
+
+      display: block;
+      flex-shrink: 0;
+
+      aspect-ratio: 1;
+      width: 10px;
+
+      background-color: $color-accent-red;
+
+      @include on-tablet {
+        width: 20px;
+      }
+    }
+  }
+
+  &__description {
+    margin: 0;
+    font-weight: 300;
+    color: $color-content;
+  }
+}

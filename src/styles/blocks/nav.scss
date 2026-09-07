@@ -1,0 +1,58 @@
+.nav {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 28px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    @include on-tablet {
+      column-gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 30px 31px;
+    }
+
+    &--footer {
+      gap: 20px;
+
+      @include on-tablet {
+        column-gap: 30px;
+      }
+    }
+  }
+
+  &__link {
+    font-weight: 500;
+    line-height: 100%;
+    color: $color-contrast;
+    text-decoration: none;
+
+    transition: text-decoration-color $effect-duration;
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+
+    &--footer {
+      font-size: 14px;
+      font-weight: 400;
+      color: $color-text-primary;
+
+      @include on-desktop {
+        font-size: 14px;
+      }
+    }
+
+    &:hover {
+      text-decoration-color: currentColor;
+      text-decoration-line: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 5px;
+    }
+  }
+}

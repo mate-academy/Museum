@@ -1,0 +1,103 @@
+.gallery {
+  &__slider {
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+
+    overflow: auto hidden;
+
+    margin-right: -$content-padding-mobile;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-right: -$content-padding-tablet;
+      margin-bottom: 32px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__slides {
+    display: flex;
+    gap: 16px;
+
+    @include on-tablet {
+      gap: 20px;
+    }
+  }
+
+  &__slide {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  &__slide-image {
+    display: block;
+  }
+
+  &__pagination {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    aspect-ratio: 1 / 1;
+    width: 9px;
+    border-radius: 50%;
+    background-color: $color-pagination-dot;
+  }
+
+  &__dot--active {
+    background-color: $color-accent;
+  }
+
+  &__paintings {
+    display: none;
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px $tablet-desktop-grid-gap;
+    }
+  }
+
+  &__painting-link {
+    overflow: hidden;
+    display: block;
+
+    @include on-desktop {
+      &--girl {
+        grid-column: 1 / 5;
+      }
+
+      &--village {
+        grid-column: 5 / -1;
+      }
+
+      &--park {
+        grid-column: 1 / 9;
+      }
+
+      &--sea {
+        grid-column: 9 / -1;
+      }
+    }
+  }
+
+  &__painting {
+    display: block;
+    width: 100%;
+
+    @include hover(transform, scale($image-hover-scale));
+  }
+}

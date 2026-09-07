@@ -1,0 +1,66 @@
+.menu {
+  &__content {
+    display: grid;
+    grid-template-columns: $icon-size 1fr;
+    column-gap: 28px;
+
+    padding-block: 27px;
+    padding-inline: $content-padding-mobile;
+
+    @include on-tablet {
+      display: flex;
+      gap: 38px;
+      align-items: flex-start;
+
+      padding-block: 40px;
+      padding-inline: $content-padding-tablet 35px;
+    }
+
+    @include on-desktop {
+      gap: 102px;
+      padding-block: 40px 48px;
+      padding-inline: $content-padding-desktop 155px;
+    }
+  }
+
+  &__close-link {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+
+    @include on-tablet {
+      flex-shrink: 0;
+    }
+  }
+
+  &__nav {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      min-width: 220px;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      min-width: 368px;
+    }
+  }
+
+  &__schedule {
+    grid-column: 1 / -1;
+    padding-top: 24px;
+    border-top: 1px solid $color-contrast-transparent;
+
+    @include on-tablet {
+      padding-top: 0;
+      padding-left: 38px;
+      border-top: none;
+      border-left: 1px solid $color-contrast-transparent;
+    }
+
+    @include on-desktop {
+      padding-left: 102px;
+    }
+  }
+}
