@@ -1,0 +1,151 @@
+.menu {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+
+  display: none;
+
+  width: 100%;
+  min-height: 399px;
+
+  background-color: $color-green;
+
+  &:target {
+    display: block;
+  }
+
+  @include tablet {
+    min-height: 225px;
+  }
+
+  @include desktop {
+    min-height: 233px;
+  }
+
+  &__content {
+    height: 100%;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba($color-black, 0.5);
+  }
+
+  &__close,
+  &__nav,
+  &__divider,
+  &__schedule {
+    grid-row: 1;
+    align-self: start;
+  }
+
+  &__close {
+    position: relative;
+
+    justify-self: start;
+
+    width: 24px;
+    height: 24px;
+    margin-top: 27px;
+
+    @include tablet {
+      margin-top: 39px;
+    }
+
+    @include desktop {
+      margin-top: 40px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      width: 22px;
+      height: 2px;
+
+      background-color: $color-white;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+
+    margin-top: 27px;
+    margin-left: 52px;
+
+    @include tablet {
+      gap: 20px;
+      margin-top: 39px;
+      margin-left: 62px;
+    }
+
+    @include desktop {
+      gap: 31px;
+      margin-top: 40px;
+      margin-left: 27px;
+    }
+
+    .nav__list {
+      flex-shrink: 0;
+      row-gap: 24px;
+      width: 100px;
+
+      @include desktop {
+        row-gap: 30px;
+        width: 169px;
+      }
+    }
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    margin-top: 123px;
+    background-color: rgba($color-white, 0.5);
+
+    @include tablet {
+      width: 1px;
+      height: 145px;
+      margin-top: 40px;
+      margin-left: -15px;
+    }
+
+    @include desktop {
+      margin-left: -3px;
+    }
+  }
+
+  &__schedule {
+    min-width: 0;
+    margin-top: 148px;
+
+    @include tablet {
+      margin-top: 40px;
+    }
+
+    @include desktop {
+      margin-left: 0;
+    }
+  }
+}

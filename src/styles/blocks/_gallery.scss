@@ -1,0 +1,150 @@
+.gallery {
+  padding-top: 183px;
+  padding-bottom: 100px;
+
+  @include tablet {
+    padding-top: 208px;
+  }
+
+  @include desktop {
+    padding-top: 302px;
+    padding-bottom: 200px;
+  }
+
+  &__title {
+    @extend %title-section;
+
+    margin: 0 0 40px;
+    font-size: 36px;
+    text-align: center;
+
+    @include tablet {
+      margin-bottom: 48px;
+      font-size: 48px;
+      text-align: left;
+    }
+
+    @include desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+  }
+
+  &__radio {
+    position: absolute;
+
+    overflow: hidden;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+
+    clip-path: inset(50%);
+  }
+
+  &__list {
+    display: flex;
+    gap: 16px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    transition: transform 0.3s;
+
+    @include tablet {
+      gap: 20px;
+    }
+
+    @include desktop {
+      display: grid;
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    overflow: hidden;
+    flex-shrink: 0;
+    width: 280px;
+    height: 410px;
+
+    @include tablet {
+      width: 340px;
+      height: 543px;
+    }
+
+    @include desktop {
+      width: auto;
+      height: 600px;
+
+      &--third,
+      &--fourth {
+        height: 360px;
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__dots {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+    margin-top: 20px;
+
+    @include tablet {
+      margin-top: 32px;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    cursor: pointer;
+
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+
+    background-color: $color-dot;
+
+    transition: background-color 0.3s;
+  }
+
+  @for $i from 2 through 4 {
+    &__radio:nth-of-type(#{$i}):checked ~ &__slider &__list {
+      transform: translateX(
+        calc(-1 * clamp(0px, 296px * ($i - 1), 1208px - 100vw))
+      );
+
+      @include tablet {
+        transform: translateX(
+          calc(-1 * clamp(0px, 360px * ($i - 1), 1488px - min(100vw, 1238px)))
+        );
+      }
+
+      @include desktop {
+        transform: none;
+      }
+    }
+  }
+
+  @for $i from 1 through 4 {
+    &__radio:nth-of-type(#{$i}):checked ~ &__dots &__dot:nth-child(#{$i}) {
+      background-color: $color-green;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+.intro {
+  &__content {
+    height: 483px;
+
+    @include tablet {
+      height: 384px;
+    }
+
+    @include desktop {
+      height: 655px;
+    }
+  }
+
+  &__image,
+  &__title,
+  &__ticket,
+  &__scroll {
+    grid-row: 1;
+    align-self: start;
+  }
+
+  &__image {
+    width: calc(100% + 40px);
+    height: 300px;
+    margin-left: -20px;
+
+    object-fit: cover;
+    object-position: 50% 0;
+
+    @include tablet {
+      width: calc(100% + 34px);
+      height: 384px;
+      margin-left: 0;
+      object-position: 50% 50%;
+    }
+
+    @include desktop {
+      width: calc(100% + 55px);
+      height: 655px;
+    }
+  }
+
+  &__title {
+    @extend %title-hero;
+
+    margin: 320px 0 0;
+
+    font-size: 45px;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include tablet {
+      margin-top: 127px;
+      font-size: 54px;
+      line-height: 120%;
+      text-align: left;
+    }
+
+    @include desktop {
+      margin-top: 206px;
+      font-size: 72px;
+    }
+  }
+
+  &__ticket {
+    justify-self: start;
+    margin-top: 433px;
+
+    @include tablet {
+      margin-top: 295px;
+    }
+
+    @include desktop {
+      margin-top: 467px;
+    }
+  }
+
+  &__scroll {
+    display: none;
+
+    @include desktop {
+      position: relative;
+
+      display: block;
+      justify-self: start;
+
+      width: 14px;
+      height: 133px;
+      margin-top: 522px;
+      margin-left: -3px;
+      padding: 0 3px;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 1px;
+        height: 70px;
+
+        background-color: $color-green;
+      }
+    }
+  }
+
+  &__scroll-text {
+    transform: rotate(180deg);
+
+    display: block;
+
+    writing-mode: vertical-rl;
+    font-family: $font-main;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    color: $color-placeholder;
+  }
+}

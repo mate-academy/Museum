@@ -1,0 +1,62 @@
+.schedule {
+  &__title {
+    margin: 0 0 16px;
+
+    font-family: $font-main;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 141%;
+    color: $color-ink;
+  }
+
+  &__hours {
+    margin: 0;
+
+    font-family: $font-main;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $color-ink;
+
+    &--weekend {
+      margin-top: 24px;
+    }
+  }
+
+  &__day {
+    font-weight: 400;
+  }
+
+  &--menu {
+    display: grid;
+    gap: 16px;
+
+    .schedule__title,
+    .schedule__hours {
+      color: $color-white;
+    }
+
+    .schedule__title {
+      margin-bottom: 0;
+    }
+
+    @include tablet {
+      grid-template-columns: minmax(145px, 170px) minmax(100px, 144px);
+      column-gap: 26px;
+    }
+
+    @include desktop {
+      grid-template-columns: minmax(0, 170px) minmax(0, 170px);
+      column-gap: 30px;
+    }
+  }
+
+  &--menu &__hours--weekend {
+    margin-top: 0;
+
+    @include tablet {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
+  }
+}
