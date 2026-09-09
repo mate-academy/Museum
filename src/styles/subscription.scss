@@ -1,0 +1,165 @@
+.subscription {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 386px;
+
+  overflow: hidden;
+
+  background-image: url('../images/images/subscription.jpg');
+  background-position: center;
+  background-size: cover;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  @include on-tablet {
+    padding-top: 120px;
+    padding-bottom: 160px;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+
+    padding-inline: 25px;
+
+    text-align: center;
+  }
+
+  &__title {
+    color: $c-text6;
+
+    @include on-desktop {
+      margin: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &__text {
+    margin-bottom: 50px;
+
+    color: $c-text6;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+
+    br {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    @include on-desktop {
+      margin-bottom: 70px;
+
+      line-height: 100%;
+    }
+  }
+
+  &__form {
+    display: flex;
+
+    width: 100%;
+    max-width: 280px;
+    height: 50px;
+
+    margin: 0 auto;
+
+    @include on-tablet {
+      max-width: 460px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      max-width: 570px;
+    }
+  }
+
+  &__input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding-inline: 30px;
+
+    border: none;
+
+    color: $c-text1;
+
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+
+    outline: none;
+
+    background-color: $c-background1;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 1000px $c-background1 inset;
+
+      -webkit-text-fill-color: $c-text1;
+
+      background-color: $c-background1;
+
+      transition: background-color 9999s ease-in-out 0s;
+    }
+
+    &::placeholder {
+      color: $c-text4;
+      opacity: 1;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 50px;
+    height: 50px;
+
+    padding: 0;
+
+    border: none;
+
+    background: $c-background2;
+
+    cursor: pointer;
+
+    @include on-tablet {
+      width: 70px;
+      height: 70px;
+
+      margin-left: 16px;
+    }
+
+    @include on-desktop {
+      margin-left: 30px;
+    }
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

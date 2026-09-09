@@ -1,0 +1,136 @@
+.gallery {
+  overflow: hidden;
+  padding-bottom: 100px;
+
+  @include on-desktop {
+    padding-bottom: 180px;
+    padding-top: 100px;
+  }
+
+  &__title {
+    padding-top: 70px;
+    margin-bottom: 40px;
+    text-align: center;
+
+    @include on-tablet {
+      padding-top: 100px;
+      margin-bottom: 60px;
+      text-align: left;
+      @include content-padding-inline;
+    }
+  }
+
+  &__slider {
+    width: 100%;
+    overflow: hidden;
+    @include content-padding-inline;
+  }
+
+  &__track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.4s ease;
+  }
+
+  &__slide {
+    flex: 0 0 280px;
+    width: 280px;
+    height: 410px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 26px;
+  }
+
+  &__dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: $c-background4;
+    cursor: pointer;
+
+    &--active {
+      background: $c-background3;
+    }
+  }
+
+  @include on-tablet {
+    &__slide {
+      flex-basis: 340px;
+      width: 340px;
+      height: 543px;
+    }
+  }
+
+  &__dot:last-child {
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  @include on-desktop {
+    &__slider {
+      overflow: visible;
+    }
+
+    &__track {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 30px;
+      transform: none !important;
+    }
+
+    &__slide {
+      width: 100%;
+      @include hover(transform, scale(1.05));
+
+      &:nth-child(1) {
+        grid-column: 1 / 5;
+        grid-row: 1;
+        width: auto;
+        height: 600px;
+      }
+
+      &:nth-child(2) {
+        display: none;
+      }
+
+      &:nth-child(3) {
+        grid-column: 5 / 13;
+        grid-row: 1;
+        width: auto;
+        height: 600px;
+      }
+
+      &:nth-child(4) {
+        grid-column: 1 / 9;
+        grid-row: 2;
+        width: auto;
+        height: 360px;
+      }
+
+      &:nth-child(5) {
+        grid-column: 9 / 13;
+        grid-row: 2;
+        width: auto;
+        height: 360px;
+      }
+    }
+
+    &__dots {
+      display: none;
+    }
+  }
+}

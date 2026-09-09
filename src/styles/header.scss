@@ -1,0 +1,316 @@
+.header {
+  box-sizing: border-box;
+  min-width: 320px;
+
+  @include on-tablet {
+    display: grid;
+  }
+
+  @include on-desktop {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 30px;
+
+    width: 100%;
+  }
+
+  &__top {
+    position: relative;
+
+    height: 300px;
+
+    background-color: $c-background1;
+    background-image: url('../images/images/header-museum-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include on-tablet {
+      grid-area: 1 / 1;
+
+      height: 384px;
+
+      background-color: $c-background1;
+      background-position: right top;
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+    }
+
+    @include on-desktop {
+      position: static;
+
+      grid-column: 6 / -1;
+      grid-row: 1;
+
+      height: 655px;
+
+      background-size: cover;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 9px;
+    left: 50%;
+
+    display: flex;
+
+    width: 55px;
+    height: 61px;
+
+    transform: translateX(-50%);
+
+    img {
+      @include hover(transform, scale(1.1));
+    }
+
+    @include on-tablet {
+      top: 15px;
+      left: 65%;
+
+      width: 66px;
+      height: 72px;
+
+      transform: translateX(-65%);
+    }
+
+    @include on-desktop {
+      top: 15px;
+      left: 50%;
+
+      width: 66px;
+      height: 72px;
+
+      transform: translateX(-50%);
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 24px;
+
+    @include content-padding-inline;
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      top: 39px;
+
+      z-index: 3;
+    }
+
+    @include on-desktop {
+      top: 39px;
+      right: auto;
+      left: 55px;
+
+      z-index: 3;
+
+      width: 24px;
+
+      padding-inline: 0;
+    }
+  }
+
+  &__bottom {
+    @include content-padding-inline;
+
+    text-align: center;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      grid-area: 1 / 1;
+
+      z-index: 1;
+
+      width: 50%;
+
+      padding-top: 70px;
+
+      text-align: left;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      grid-row: 1;
+
+      width: auto;
+
+      padding-inline: 55px;
+      padding-top: 140px;
+    }
+  }
+
+  &__title {
+    @include on-desktop {
+      padding-bottom: 60px;
+    }
+  }
+
+  &__tickets {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 280px;
+    height: 50px;
+
+    padding: 0;
+
+    border: 1px solid $c-background3;
+
+    color: inherit;
+
+    background-color: transparent;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    &::after {
+      content: '';
+
+      display: block;
+
+      width: 50px;
+      height: 50px;
+
+      background-color: $c-background3;
+      background-image: url('../images/icons/arrow_right-white.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 24px;
+
+      @include on-tablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    @include on-tablet {
+      width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      margin-left: 180px;
+    }
+  }
+
+  &__tickets-title {
+    flex: 1;
+
+    color: $c-text1;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
+    text-align: center;
+  }
+
+  &__events {
+    display: none;
+
+    @include on-desktop {
+      position: absolute;
+      top: 280px;
+      bottom: 0;
+      left: 61px;
+
+      display: block;
+
+      width: 1px;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        top: 322px;
+        bottom: 0;
+        left: 0;
+
+        width: 1px;
+        height: 70px;
+
+        background-color: $c-background3;
+      }
+    }
+  }
+
+  &__events-text {
+    position: absolute;
+    top: 265px;
+    left: -16px;
+
+    padding-block: 10px;
+
+    color: $c-background3;
+
+    background-color: $c-background1;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+
+    writing-mode: vertical-rl;
+
+    transform: rotate(180deg);
+  }
+}
+
+.icon {
+  display: block;
+
+  width: 24px;
+  height: 24px;
+
+  &--menu {
+    background-image: url('../images/icons/menu-icon.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &--close {
+    background-image: url('../images/icons/menu-icon-close.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include on-tablet {
+      margin-left: -6px;
+    }
+
+    @include on-desktop {
+      margin-left: 0;
+    }
+  }
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 10;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.header:has(.top-bar:target) .menu-overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
