@@ -1,5 +1,5 @@
 .footer {
-  padding-top: 48px;
+  padding-top: 50px;
   padding-bottom: 48px;
 
   @include desktop {
@@ -13,12 +13,22 @@
     }
   }
 
+  &__brand {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
   &__brand,
   &__schedule,
   &__contacts,
   &__nav,
-  &__copyright,
-  &__author {
+  &__author,
+  &__copyright {
     @include desktop {
       grid-row: 1;
       align-self: start;
@@ -39,7 +49,110 @@
   }
 
   &__socials {
-    margin-top: 62px;
+    margin-top: 24px;
+
+    @include tablet {
+      margin-top: 62px;
+    }
+  }
+
+  &__schedule,
+  &__contacts {
+    margin-top: 40px;
+
+    @include tablet {
+      margin-top: 0;
+    }
+
+    @include desktop {
+      margin-top: 48px;
+    }
+  }
+
+  &__up {
+    position: relative;
+
+    justify-self: end;
+
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    border: 1px solid $color-green;
+    border-radius: 50%;
+
+    @include hover(background-color, rgba($color-green, 0.08));
+
+    @include tablet {
+      display: none;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 21px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 1px;
+      height: 14px;
+
+      background-color: $color-green;
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+
+      width: 8px;
+      height: 8px;
+      border-top: 1px solid $color-green;
+      border-left: 1px solid $color-green;
+    }
+  }
+
+  &__divider {
+    height: 1px;
+    margin-top: 30px;
+
+    @include tablet {
+      margin-top: 87px;
+    }
+
+    background-color: rgba($color-green, 0.5);
+
+    @include desktop {
+      justify-self: center;
+      width: 1px;
+      height: 250px;
+      margin-top: 48px;
+    }
+  }
+
+  &__nav {
+    margin-top: 30px;
+
+    .nav__link {
+      display: block;
+      line-height: 100%;
+      white-space: nowrap;
+    }
+
+    .nav__list {
+      row-gap: 20px;
+    }
+
+    @include tablet {
+      margin-top: 64px;
+    }
+
+    @include desktop {
+      margin-top: 48px;
+    }
   }
 
   &__heading {
@@ -61,18 +174,45 @@
     @include hover(color, $color-green);
   }
 
-  &__copyright,
-  &__author {
+  &__author,
+  &__copyright {
     margin: 0;
-
-    @include desktop {
-      margin-top: 406px;
-    }
 
     font-family: $font-main;
     font-size: 12px;
     font-weight: 300;
     line-height: 141%;
     color: $color-ink;
+    text-align: center;
+
+    @include tablet {
+      text-align: left;
+    }
+  }
+
+  &__author {
+    margin-top: 10px;
+
+    @include tablet {
+      margin-top: 120px;
+      text-align: left;
+    }
+
+    @include desktop {
+      margin-top: 406px;
+      text-align: right;
+    }
+  }
+
+  &__copyright {
+    margin-top: 80px;
+
+    @include tablet {
+      margin-top: 120px;
+    }
+
+    @include desktop {
+      margin-top: 406px;
+    }
   }
 }
