@@ -1,0 +1,141 @@
+.hero {
+  @include page-grid;
+
+  align-items: center;
+  margin-bottom: 70px;
+
+  @include on-tablet {
+    margin-bottom: 88px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 200px;
+  }
+
+  &__img-wrapper {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    height: 320px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      height: 384px;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+      height: 655px;
+    }
+  }
+
+  &__img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: bottom right;
+  }
+
+  &__content {
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    margin-top: 20px;
+    padding-inline: $mobile-padding-inline;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      gap: 38px;
+      align-items: flex-start;
+      align-self: end;
+
+      margin: 0;
+      margin-bottom: 19px;
+      padding-inline: 0;
+
+      @include content-padding-inline-start;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      gap: 89px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    @include on-tablet {
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      text-align: left;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    @include hover(transform, scale(1.1));
+  }
+  &__side-text {
+    transform: rotate(180deg);
+
+    writing-mode: vertical-rl;
+    font-family: $font-small;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    color: $color-grey;
+    text-transform: uppercase;
+
+    transition: color $effect-duration;
+  }
+
+  &__side-line {
+    width: 1px;
+    height: 70px;
+    background-color: $line;
+    transition: background-color $effect-duration;
+  }
+
+  &__side-label {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+
+      margin-top: 55px;
+    }
+
+    &:hover {
+      .hero__side-text {
+        color: $color-dark-green;
+      }
+
+      .hero__side-line {
+        background-color: $color-dark-green;
+      }
+    }
+  }
+}

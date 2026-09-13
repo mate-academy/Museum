@@ -1,0 +1,99 @@
+.event-card {
+  @include page-grid;
+
+  row-gap: 16px;
+
+  &__img-wrapper {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    height: 210px;
+
+    @include on-tablet {
+      height: 520px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include hover(transform, scale($scale));
+  }
+
+  &__info {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      grid-row: 2;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+      grid-row: 1;
+      align-self: center;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      gap: 30px;
+      justify-content: flex-start;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__type {
+    @extend %event-type;
+  }
+
+  &__date {
+    @extend %event-date;
+  }
+
+  &__wrap {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__marker {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-image: url(../images/icons/rectangle.svg);
+
+    @include on-tablet {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__description {
+    margin: 0;
+
+    font-family: $font-small;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+    color: $color-grey;
+  }
+}

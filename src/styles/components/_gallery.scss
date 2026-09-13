@@ -1,0 +1,66 @@
+.gallery {
+  overflow: hidden;
+  margin-bottom: 100px;
+
+  @include on-tablet {
+    margin-bottom: 92px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 200px;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &--grid {
+    @include on-desktop {
+      .swiper-wrapper {
+        display: grid;
+
+        @include page-grid;
+
+        gap: 30px;
+        align-items: stretch;
+      }
+
+      .swiper-slide {
+        width: auto;
+        height: auto;
+
+        &--one {
+          grid-column: 1 / 5;
+          grid-row: 1;
+          height: 600px;
+        }
+
+        &--two {
+          grid-column: 5 / -1;
+          grid-row: 1;
+          height: 600px;
+        }
+
+        &--three {
+          grid-column: 1 / 8;
+          grid-row: 2;
+          height: 360px;
+        }
+
+        &--four {
+          grid-column: 8 / -1;
+          grid-row: 2;
+          height: 360px;
+        }
+      }
+    }
+  }
+}

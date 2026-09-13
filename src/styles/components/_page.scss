@@ -1,0 +1,37 @@
+.page {
+  scroll-behavior: smooth;
+  background: $color-white;
+
+  &__body {
+    min-width: $mobile-min-width;
+    margin: 0;
+    padding: 0;
+    background: $color-white;
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+    transform: translateY(-100%);
+
+    opacity: 0;
+
+    transition:
+      transform $effect-duration ease,
+      opacity $effect-duration ease;
+
+    &:target {
+      pointer-events: all;
+      transform: translateY(0);
+      overflow: hidden;
+      opacity: 1;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}

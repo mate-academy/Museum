@@ -1,0 +1,163 @@
+.subs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 390px;
+  margin-bottom: 50px;
+
+  background-image: url(../images/subscription-bg.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  @include on-tablet {
+    min-height: 380px;
+  }
+
+  @include on-desktop {
+    min-height: 550px;
+  }
+
+  &__wrap {
+    @include page-grid;
+
+    row-gap: 50px;
+    width: 100%;
+
+    @include on-tablet {
+      row-gap: 65px;
+    }
+
+    @include on-desktop {
+      row-gap: 72px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 11;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+  }
+
+  &__description {
+    max-width: 460px;
+    margin: 0;
+
+    font-family: $font-small;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    color: $color-white;
+    text-align: center;
+  }
+
+  &__form {
+    display: flex;
+    grid-column: 1 / -1;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 450px;
+    height: 50px;
+    margin: 0 auto;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      gap: 16px;
+      max-width: 460px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 11;
+      gap: 30px;
+      max-width: 570px;
+    }
+  }
+
+  &__input {
+    flex: 1 1 auto;
+
+    min-width: 0;
+    height: 100%;
+    padding: 0 24px;
+    border: none;
+
+    font-family: $font-small;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    color: $color-grey;
+
+    background-color: $color-white;
+    outline: none;
+
+    &::placeholder {
+      color: $color-grey;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      font-family: $font-small !important;
+      -webkit-box-shadow: 0 0 0 1000px $color-white inset !important;
+      transition: background-color $effect-duration ease-in-out 0s;
+
+      -webkit-text-fill-color: $color-grey !important;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+
+    flex: 0 0 50px;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 100%;
+    padding: 0;
+    border: none;
+
+    background-color: $color-red;
+
+    @include hover(transform, scale($scale));
+
+    @include on-tablet {
+      flex: 0 0 70px;
+    }
+
+    &-icon {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      background-image: url(../images/icons/arrow-black.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include hover(transform, translateX(4px));
+    }
+  }
+}

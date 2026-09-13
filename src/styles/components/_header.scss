@@ -1,0 +1,51 @@
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  align-items: center;
+
+  margin-top: 9px;
+
+  @include page-grid;
+  @include content-padding-inline;
+
+  @include on-tablet {
+    margin-top: 15px;
+  }
+
+  &__burger {
+    cursor: pointer;
+
+    @include hover(transform, scale(1.1));
+
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+
+    margin-right: 88px;
+  }
+
+  &__logo {
+    @extend %logo-style;
+
+    @include hover(transform, scale(1.05));
+
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: center;
+
+    font-size: 30px;
+    text-decoration: none;
+
+    @include on-tablet {
+      grid-column: 4;
+      font-size: 36px;
+    }
+
+    @include on-desktop {
+      grid-column: 6;
+    }
+  }
+}

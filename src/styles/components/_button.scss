@@ -1,0 +1,54 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 280px;
+  height: 50px;
+  border: 1px solid $color-dark-green;
+
+  text-decoration: none;
+
+  @include hover(transform, scale($scale));
+
+  @include on-tablet {
+    width: 270px;
+    height: 70px;
+  }
+
+  &__text {
+    margin: auto;
+
+    font-family: $font-small;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    color: $color-black;
+    text-transform: uppercase;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 100%;
+
+    background-color: $color-dark-green;
+
+    &-arrow {
+      width: 8px;
+      height: 12px;
+      background-image: url(../images/icons/arrow.svg);
+      transition: transform $effect-duration;
+
+      @include hover(transform, translateX(4px));
+    }
+
+    @include on-tablet {
+      width: 70px;
+    }
+  }
+}

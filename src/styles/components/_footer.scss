@@ -1,0 +1,234 @@
+.footer {
+  @include page-grid;
+
+  margin-bottom: 60px;
+
+  @include on-tablet {
+    margin-bottom: 35px;
+  }
+
+  &__main {
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      grid-column: span 1;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: span 2;
+    }
+  }
+
+  &__logo {
+    @extend %logo-style;
+
+    text-decoration: none;
+
+    @include hover(transform, scale(1.05));
+
+    @include on-tablet {
+      margin-bottom: 62px;
+    }
+  }
+
+  &__socials {
+    @extend %list-reset;
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    @include on-tablet {
+      gap: 32px;
+    }
+
+    @include on-desktop {
+      gap: 22px;
+    }
+  }
+
+  &__social-item {
+    @include hover(transform, scale(1.1));
+  }
+
+  &__section {
+    grid-column: span 1;
+    grid-row: 2;
+
+    @include on-tablet {
+      grid-column: span 2;
+      grid-row: 1;
+    }
+
+    &-title {
+      margin-bottom: 20px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 141%;
+    }
+  }
+
+  &__schedule {
+    &-list {
+      @extend %list-reset;
+
+      @extend %text-small;
+
+      margin-bottom: 20px;
+    }
+
+    &-hours {
+      font-weight: 600;
+    }
+
+    &-note {
+      @extend %text-small;
+
+      margin: 0;
+    }
+  }
+
+  &__link {
+    cursor: pointer;
+    color: $color-black;
+    text-decoration: none;
+
+    @include hover(color, $color-dark-green);
+  }
+
+  &__contact-info {
+    @extend %text-small;
+
+    margin: 0;
+  }
+
+  &__address {
+    @extend %text-small;
+
+    font-style: normal;
+  }
+
+  &__scroll-top {
+    cursor: pointer;
+
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-self: flex-end;
+
+    width: 50px;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__line {
+    display: block;
+    grid-column: 1 / -1;
+    grid-row: 4;
+
+    width: 100%;
+    height: 1px;
+    margin-bottom: 40px;
+
+    background-color: $line;
+
+    @include on-tablet {
+      grid-column: 2 / span 4;
+      grid-row: 2;
+      margin-top: 64px;
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      grid-column: span 1;
+      grid-row: 1;
+      justify-self: center;
+
+      width: 1px;
+      height: 100%;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    margin-bottom: 80px;
+
+    @include on-tablet {
+      grid-column: 2 / span 4;
+      margin-bottom: 120px;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+      grid-row: 1;
+      margin-bottom: 0;
+    }
+
+    &-list {
+      @extend %list-reset;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+
+      @include on-tablet {
+        column-gap: 30px;
+      }
+    }
+
+    &-link {
+      @extend %text-small;
+
+      cursor: pointer;
+      line-height: 100%;
+      text-decoration: none;
+
+      @include hover(color, $color-dark-green);
+    }
+
+    &-item {
+      @include hover(transform, scale($scale));
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: 6;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include on-desktop {
+      margin-top: 87px;
+    }
+
+    &-text {
+      @extend %text-caption;
+
+      margin: 0;
+    }
+  }
+}

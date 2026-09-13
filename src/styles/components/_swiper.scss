@@ -1,0 +1,71 @@
+.swiper {
+  overflow: visible !important;
+
+  &-wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &-slide {
+    width: auto;
+    height: 100%;
+
+    @include on-tablet {
+      height: 543px;
+    }
+
+    @include on-desktop {
+      width: auto;
+      height: auto;
+    }
+  }
+
+  &-slide-img {
+    display: block;
+
+    width: 100%;
+    height: 410px;
+
+    object-fit: cover;
+    object-position: center;
+
+    @include on-tablet {
+      height: 543px;
+    }
+
+    @include on-desktop {
+      height: 100%;
+
+      @include hover(transform, scale($scale));
+    }
+  }
+
+  &-dots {
+    cursor: pointer;
+
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+
+    margin-top: 20px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &-dots-bullet {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+
+    opacity: 1;
+    background-color: $color-grey-light;
+
+    transition: background-color $effect-duration ease;
+
+    &--active {
+      background-color: $color-dark-green;
+    }
+  }
+}
