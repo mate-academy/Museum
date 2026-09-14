@@ -1,0 +1,65 @@
+@use '../abstracts' as *;
+
+.header {
+  --column-menu: 1/2;
+  --column-logo: 2/2;
+  --justify-items-menu: center;
+  --padding-top: 8px;
+  --font-size-logo: 30px;
+  --transform-translate-x-logo: -35px;
+
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  padding-top: var(--padding-top);
+
+  &__content {
+    align-items: center;
+
+    .icon {
+      @extend %hover-scale-10-bg-primary;
+
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  &__menu {
+    grid-column: var(--column-menu);
+  }
+
+  &__logo {
+    @extend %hover-primary-color;
+
+    transform: translateX(var(--transform-translate-x-logo));
+
+    grid-column: var(--column-logo);
+
+    width: fit-content;
+
+    font-family: $font-headings;
+    font-size: var(--font-size-logo);
+    font-weight: $fw-bold;
+    line-height: 1;
+    color: var(--color-bg-accent);
+  }
+
+  @include respond-to('md') {
+    --column-menu: 1/4;
+    --column-logo: 5/5;
+    --font-size-logo: 36px;
+    --padding-top: 19px;
+    --text-align-logo: center;
+    --transform-translate-x-logo: -60px;
+  }
+
+  @include respond-to('lg') {
+    --column-logo: 7/8;
+    --font-size-logo: 36px;
+    --padding-top: 19px;
+    --transform-translate-x-logo: -30px;
+  }
+}

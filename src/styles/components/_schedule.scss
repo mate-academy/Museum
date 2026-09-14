@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+
+.schedule {
+  --font-weight-note: #{$fw-regular};
+  --display-separator: none;
+
+  &__address {
+    font-style: normal;
+  }
+
+  &__note {
+    &--bold {
+      font-weight: $fw-bold;
+    }
+  }
+
+  &__separator {
+    display: var(--display-separator);
+  }
+
+  @include respond-to('lg') {
+    --font-weight-note: #{$fw-bold};
+    --display-separator: inline-flex;
+  }
+}

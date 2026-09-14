@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use '../variables/media' as *;
+
+// prettier-ignore
+@mixin respond-to($name) {
+  @if map.has-key($breakpoints, $name) {
+    @media (min-width: map.get($breakpoints, $name)) {
+      @content;
+    }
+  } @else {
+    @error 'Unknown breakpoint: #{$name}. Check the name in _variables.scss';
+  }
+}

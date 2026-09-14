@@ -1,0 +1,52 @@
+@use '../abstracts' as *;
+
+.form {
+  --width-input: 230px;
+  --width-btn: 50px;
+  --height-btn: 50px;
+  --height-input: 50px;
+  --padding-input: 16px;
+  --gap: 0;
+
+  @extend %hover-effect-form;
+
+  display: flex;
+  gap: var(--gap);
+
+  font-size: 14px;
+  font-weight: $fw-regular;
+  line-height: 1.5;
+
+  &__input {
+    width: var(--width-input);
+    height: var(--height-input);
+    padding: var(--padding-input);
+    border: none;
+
+    font: inherit;
+
+    outline: none;
+  }
+
+  &__btn {
+    width: var(--width-btn);
+    height: var(--height-btn);
+    background-color: var(--color-secondary);
+    outline: none;
+  }
+
+  @include respond-to('md') {
+    --gap: 16px;
+    --width-input: 374px;
+    --width-btn: 70px;
+    --height-input: 70px;
+    --height-btn: 70px;
+    --padding-input: 28px;
+  }
+
+  @include respond-to('lg') {
+    --width-input: 470px;
+
+    gap: 30px;
+  }
+}

@@ -1,0 +1,22 @@
+@use '../variables/grid' as *;
+@use '../mixins/media' as *;
+
+@mixin page-grid($cols-phone: 2, $cols-sm: 6, $cols-lg: 12) {
+  display: grid;
+  grid-template-columns: repeat($cols-phone, minmax(0, 1fr));
+  column-gap: $grid-gutter-sm;
+
+  @if $cols-sm {
+    @include respond-to('md') {
+      grid-template-columns: repeat($cols-sm, minmax(0, 1fr));
+      column-gap: $grid-gutter-md; // 30px
+    }
+  }
+
+  @if $cols-lg {
+    @include respond-to('lg') {
+      grid-template-columns: repeat($cols-lg, minmax(0, 1fr));
+      column-gap: $grid-gutter-lg; // 30px
+    }
+  }
+}

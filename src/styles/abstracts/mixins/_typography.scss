@@ -1,0 +1,41 @@
+@use 'sass:map';
+
+@use 'media' as *;
+@use '../variables/typography' as *;
+
+@mixin text-style($style-name) {
+  @if map.has-key($typography-sm, $style-name) {
+    $sm: map.get($typography-sm, $style-name);
+
+    font-family: map.get($sm, font);
+    font-size: map.get($sm, size);
+    font-weight: map.get($sm, weight);
+    line-height: map.get($sm, line-height);
+
+    @if map.has-key($typography-md, $style-name) {
+      $md: map.get($typography-md, $style-name);
+
+      @include respond-to('md') {
+        font-size: map.get($md, size);
+
+        @if map.has-key($md, line-height) {
+          line-height: map.get($md, line-height);
+        }
+      }
+    }
+
+    @if map.has-key($typography-lg, $style-name) {
+      $lg: map.get($typography-lg, $style-name);
+
+      @include respond-to('lg') {
+        font-size: map.get($lg, size);
+
+        @if map.has-key($lg, line-height) {
+          line-height: map.get($lg, line-height);
+        }
+      }
+    }
+  } @else {
+    @warn "style #{$style-name} not found in vars typography";
+  }
+}

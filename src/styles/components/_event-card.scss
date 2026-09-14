@@ -1,0 +1,185 @@
+@use '../abstracts' as *;
+
+.event-card {
+  --width-img: 100%;
+  --width-img-lecture: 100%;
+  --height-img-lecture: 210px;
+  --width-content: 100%;
+  --width-event-date-lecture: auto;
+  --width-squire: 0.63rem;
+  --width-lecture-block: 280px;
+  --height-squire: 0.63rem;
+  --height-img: 100%;
+  --margin-block-meta: 1.25rem 0;
+  --margin-block-title: 0.63rem 0;
+  --margin-block-description: 0.69rem 0;
+  --margin-block-title-lecture: 20px 0;
+  --margin-bottom: 60px;
+  --padding-inline-meta-lecture: 20px;
+  --padding-inline-lecture-block: 0;
+  --padding-inline-container-img: 0;
+  --padding-block-lecture-block: 20px;
+  --text-align-title-lecture: center;
+  --flex-direction: column;
+  --justify-content-meta: space-between;
+  --justify-content-meta-lecture: space-between;
+  --gap-meta: 0;
+  --gap-meta-lecture: 20px;
+
+  position: relative;
+  display: flex;
+  flex-direction: var(--flex-direction);
+  margin-bottom: var(--margin-bottom);
+
+  &__wrapper {
+    padding-block: 20px;
+  }
+
+  &__content {
+    width: var(--width-content);
+  }
+
+  &__meta {
+    display: flex;
+    gap: var(--gap-meta);
+    justify-content: var(--justify-content-meta);
+    margin-block: var(--margin-block-meta);
+  }
+
+  &__lecture-event-meta {
+    display: flex;
+    gap: var(--gap-meta-lecture);
+    justify-content: var(--justify-content-meta-lecture);
+    padding-inline: var(--padding-inline-meta-lecture);
+  }
+
+  &__category {
+    font-weight: $fw-medium;
+    text-transform: uppercase;
+  }
+
+  &__date {
+    font-weight: $fw-bold;
+    color: var(--color-primary);
+  }
+
+  &__title {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    margin-block: var(--margin-block-title);
+
+    &::after {
+      content: '';
+
+      transform: translateY(-0.15rem);
+
+      width: var(--width-squire);
+      height: var(--height-squire);
+
+      background-color: var(--color-secondary);
+    }
+  }
+
+  &--lecture {
+    flex-direction: column;
+  }
+
+  &__title--lecture {
+    margin-block: var(--margin-block-title-lecture);
+    text-align: var(--text-align-title-lecture);
+  }
+
+  &__description {
+    margin-block: var(--margin-block-description);
+  }
+
+  &__img {
+    @extend %hover-effect-scale-5;
+
+    width: var(--width-img);
+    height: var(--height-img);
+    object-fit: cover;
+  }
+
+  &__years {
+    white-space: nowrap;
+  }
+
+  &__img--lecture {
+    width: var(--width-img-lecture);
+    height: var(--height-img-lecture);
+    margin-inline: auto;
+
+    object-fit: cover;
+    object-position: top;
+  }
+
+  &__block-lecture {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+
+    width: var(--width-lecture-block);
+    padding-block: var(--padding-block-lecture-block);
+    padding-inline: var(--padding-inline-lecture-block);
+
+    background-color: $clr-white;
+    box-shadow: 0 0.13rem 0 $clr-shadow;
+
+    .event-card__title {
+      margin-top: 20px;
+      text-align: center;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .event-card__date {
+      width: var(--width-event-date-lecture);
+    }
+  }
+
+  @include respond-to('md') {
+    --height-img-lecture: 390px;
+    --margin-block-meta: 2.5rem 0;
+    --margin-block-title: 1.88rem 0;
+    --margin-block-description: 0.94rem 0;
+    --margin-block-title-lecture: 16px 0;
+    --padding-block-lecture-block: 42px 50px;
+    --padding-inline-lecture-block: 55px;
+    --padding-inline-container-img: #{$container-padding-md};
+    --padding-inline-meta-lecture: 0;
+    --width-lecture-block: 570px;
+    --width-event-date-lecture: 220px;
+    --text-align-title-lecture: left;
+    --width-content: 460px;
+    --justify-content-meta: normal;
+    --gap-meta: 20px;
+    --gap-meta-lecture: 140px;
+    --width-squire: 0.94rem;
+    --height-squire: 0.94rem;
+
+    &__container-img {
+      width: 100%;
+      padding-inline: var(--padding-inline-container-img);
+    }
+  }
+
+  @include respond-to('lg') {
+    --flex-direction: row;
+    --justify-content-meta-lecture: normal;
+    --width-content: 370px;
+    --width-img: 670px;
+    --width-img-lecture: 1280px;
+    --height-img-lecture: 550px;
+    --margin-block-meta: 0;
+    --margin-bottom: 104px;
+    --padding-inline-container-img: 0;
+
+    gap: 130px;
+    align-items: center;
+  }
+}
