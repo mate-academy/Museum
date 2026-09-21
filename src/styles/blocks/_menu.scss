@@ -1,13 +1,16 @@
 .menu {
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
+  transform: translateY(-100%);
+
   width: 100%;
   height: 233px;
+
   background: #1a5a4c;
-  transform: translateY(-100%);
+
   transition: transform 0.4s ease;
-  z-index: 10;
 
   &:target {
     transform: translateY(0);
@@ -26,6 +29,7 @@
     grid-template-columns: 24px 368px 1px 370px;
     column-gap: 102px;
     align-items: start;
+
     padding: 40px 0;
 
     @include tablet {
@@ -35,8 +39,7 @@
 
     @include mobile {
       grid-template-columns: 20px 1fr;
-      column-gap: 28px;
-      row-gap: 24px;
+      gap: 24px 28px;
       padding: 27px 0;
     }
   }
@@ -50,13 +53,14 @@
   }
 
   &__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 30px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
 
     @include tablet {
       grid-template-columns: repeat(2, 100px);
@@ -70,12 +74,12 @@
     }
 
     a {
-      text-decoration: none;
       font-family: 'IBM Plex Sans', sans-serif;
-      font-weight: 500;
       font-size: 22px;
+      font-weight: 500;
       line-height: 100%;
       color: #fff;
+      text-decoration: none;
 
       @include hover(opacity, 0.7);
 
@@ -109,13 +113,14 @@
     }
 
     @include mobile {
+      grid-column: 1 / -1;
       max-width: 280px;
       max-height: 224px;
-      grid-column: 1 / -1;
     }
 
     &-title {
       margin-bottom: 20px;
+
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 14px;
       font-weight: 400;
@@ -144,7 +149,6 @@
   &__schedule-left,
   &__schedule-right {
     max-width: 170px;
-
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 14px;
     color: #fff;
@@ -186,22 +190,23 @@
 
 .overlay {
   position: fixed;
+  z-index: 9;
   top: 0;
   left: 0;
+
   width: 100%;
   height: 100%;
 
+  visibility: hidden;
+  opacity: 0;
   background-color: rgba(0, 0, 0, 0.4);
 
-  opacity: 0;
-  visibility: hidden;
   transition:
     opacity 0.4s ease,
     visibility 0.4s ease;
-  z-index: 9;
 }
 
 .menu:target + .overlay {
-  opacity: 1;
   visibility: visible;
+  opacity: 1;
 }
