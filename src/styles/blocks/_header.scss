@@ -1,0 +1,185 @@
+.hero {
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    grid-column: 1 / 6;
+
+    @include tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include mobile {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+  }
+
+  &__title {
+    margin-top: 143px;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 120%;
+
+    @include tablet {
+      margin-top: 64px;
+      font-size: 54px;
+    }
+
+    @include mobile {
+      order: 2;
+
+      margin-top: 0;
+
+      font-size: 45px;
+      line-height: 100%;
+      text-align: center;
+    }
+  }
+
+  &__image {
+    position: relative;
+
+    grid-column: 6 / 13;
+
+    width: calc(100% + 55px);
+    height: 655px;
+
+    background-image: url('../images/museum.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include tablet {
+      grid-column: 4 / 7;
+      width: calc(100% + 39px);
+      height: 384px;
+    }
+
+    @include mobile {
+      transform: translateX(-20px);
+
+      grid-column: 1 / -1;
+      grid-row: 1;
+      order: -1;
+
+      width: calc(100% + 40px);
+      max-height: 300px;
+    }
+  }
+}
+
+.tickets {
+  cursor: pointer;
+
+  box-sizing: border-box;
+  width: 270px;
+  height: 70px;
+  margin-top: 90px;
+  margin-left: auto;
+  padding: 0;
+  border: 1px solid #1a5a4c;
+
+  color: inherit;
+  text-decoration: none;
+
+  @include flex-center;
+
+  @include tablet {
+    margin-top: 38px;
+    margin-left: 0;
+  }
+
+  @include mobile {
+    order: 3;
+    width: 280px;
+    height: 50px;
+    margin-top: 20px;
+  }
+
+  &__text {
+    flex: 1;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  &__arrow {
+    @include flex-center;
+
+    justify-content: center;
+    width: 70px;
+    height: 100%;
+    background-color: #1a5a4c;
+
+    @include mobile {
+      width: 50px;
+    }
+  }
+}
+
+.namu {
+  position: absolute;
+
+  width: 170px;
+  height: 72px;
+  margin-top: 15px;
+
+  background-image: url('../images/icons/NA MU.png');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include tablet {
+    width: 220px;
+    margin-left: 0;
+  }
+
+  @include mobile {
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 55px;
+    height: 61px;
+    margin-top: 9px;
+  }
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  width: 14px;
+  margin-top: -40px;
+
+  &__text {
+    transform: rotate(180deg);
+
+    writing-mode: vertical-rl;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #687480;
+  }
+
+  &__line {
+    width: 1px;
+    height: 70px;
+    margin-left: 6px;
+    background-color: #1a5a4c;
+  }
+
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
