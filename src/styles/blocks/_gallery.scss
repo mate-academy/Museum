@@ -62,6 +62,9 @@
     &:hover {
       transform: scale(1.05);
     }
+    &__dots {
+      display: none;
+    }
   }
 }
 
@@ -109,6 +112,71 @@
       height: 100%;
 
       object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    overflow: hidden;
+
+    padding-top: 140px;
+    padding-right: 0;
+    padding-left: 0;
+
+    &__title {
+      width: 100%;
+      height: auto;
+
+      font-size: 36px;
+      line-height: 100%;
+      text-align: center;
+    }
+
+    &__grid {
+      display: flex;
+      gap: 10px;
+
+      width: max-content;
+      margin-top: 32px;
+      margin-left: 20px;
+    }
+
+    &__item {
+      flex-shrink: 0;
+
+      &--1,
+      &--2 {
+        display: block;
+
+        width: 220px;
+        height: 360px;
+      }
+
+      &--3,
+      &--4 {
+        display: none;
+      }
+    }
+    &__dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+
+      margin-top: 20px;
+    }
+
+    &__dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background-color: #e0e0e0;
+
+      &--active {
+        background-color: $c-green;
+      }
     }
   }
 }
