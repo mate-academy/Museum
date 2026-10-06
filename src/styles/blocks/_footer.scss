@@ -15,6 +15,17 @@
     height: 271px;
   }
 
+  &__contact-link {
+    color: inherit;
+    text-decoration: none;
+
+    transition: color $transition-duration;
+
+    &:hover {
+      color: $c-green;
+    }
+  }
+
   &__brand {
     position: absolute;
     top: 0;
@@ -177,21 +188,83 @@
   }
 
   &__copyright {
-    left: 56px;
+    left: clamp(20px, 4.4vw, 56px);
 
-    width: 270px;
+    width: max-content;
   }
 
   &__design {
-    left: 1057px;
+    right: clamp(20px, 4.4vw, 56px);
+    left: auto;
 
-    width: 167px;
+    width: max-content;
+
+    text-align: right;
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1000px) and (max-width: 1200px) {
   .footer {
-    height: 651px;
+    &__content {
+      left: clamp(24px, 4vw, 56px);
+
+      display: grid;
+      grid-template-columns:
+        140px
+        minmax(170px, 1fr)
+        minmax(170px, 1fr)
+        150px
+        150px;
+      column-gap: clamp(24px, 3vw, 45px);
+
+      width: calc(100% - 2 * clamp(24px, 4vw, 56px));
+    }
+
+    &__brand,
+    &__schedule,
+    &__contacts,
+    &__divider,
+    &__nav {
+      position: static;
+    }
+
+    &__brand {
+      grid-column: 1;
+      width: auto;
+    }
+
+    &__schedule {
+      grid-column: 2;
+      width: auto;
+    }
+
+    &__contacts {
+      grid-column: 3;
+      width: auto;
+    }
+
+    &__divider {
+      display: none;
+    }
+
+    &__nav {
+      &--gallery {
+        grid-column: 4;
+        width: auto;
+      }
+
+      &--about {
+        grid-column: 5;
+        width: auto;
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 999px) {
+  .footer {
+    height: auto;
+    padding-bottom: 72px;
 
     &__content {
       position: relative;
@@ -199,17 +272,24 @@
       left: 0;
 
       display: grid;
-      grid-template-columns: 80px 170px 170px;
-      column-gap: 45px;
+      grid-template-columns:
+        80px
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+      grid-template-rows: auto 1px auto;
+      gap: 36px clamp(20px, 4vw, 45px);
 
-      width: 100%;
+      width: min(calc(100% - 68px), 760px);
       height: auto;
-      padding: 50px 34px 0;
+      margin: 0 auto;
+      padding-top: 50px;
     }
 
     &__brand {
       position: static;
+
       grid-column: 1;
+      grid-row: 1;
 
       width: 80px;
     }
@@ -250,184 +330,157 @@
 
     &__schedule {
       position: static;
-      grid-column: 2;
 
-      width: 170px;
+      grid-column: 2;
+      grid-row: 1;
+
+      width: auto;
     }
 
     &__contacts {
       position: static;
-      grid-column: 3;
 
-      width: 170px;
+      grid-column: 3;
+      grid-row: 1;
+
+      width: auto;
     }
 
     &__divider {
-      position: absolute;
-      top: 365px;
-      left: 154px;
+      position: static;
 
-      width: 460px;
+      grid-column: 2 / 4;
+      grid-row: 2;
+
+      width: 100%;
       height: 1px;
 
       background-color: #1a5a4c80;
     }
 
     &__nav {
-      position: absolute;
-      top: 430px;
+      position: static;
 
       &--gallery {
-        left: 154px;
+        grid-column: 2;
+        grid-row: 3;
 
-        width: 220px;
-        height: 48px;
+        width: auto;
+        height: auto;
       }
 
       &--about {
-        left: 394px;
+        grid-column: 3;
+        grid-row: 3;
 
-        width: 220px;
-        height: 48px;
+        width: auto;
+        height: auto;
       }
     }
 
     &__copyright {
-      top: 600px;
-      left: 34px;
+      top: auto;
+      bottom: 24px;
+      left: clamp(20px, 4vw, 34px);
 
-      width: 270px;
+      width: max-content;
     }
 
     &__design {
-      top: 600px;
-      right: 34px;
-      left: auto;
+      inset: auto clamp(20px, 4vw, 34px) 24px auto;
 
-      width: 167px;
+      width: max-content;
+
+      text-align: right;
     }
   }
 }
-
 @media (max-width: 480px) {
   .footer {
-    height: 720px;
+    height: auto;
+    padding: 40px 20px 32px;
 
     &__content {
-      position: relative;
-      top: 0;
-      left: 0;
+      position: static;
 
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0;
+      gap: 36px 20px;
 
       width: 100%;
       height: auto;
-      padding: 40px 20px 0;
+      padding: 0;
     }
 
     &__brand {
       position: static;
-      grid-column: 1 / 3;
 
       display: flex;
+      grid-column: 1 / -1;
       align-items: flex-start;
       justify-content: space-between;
 
       width: 100%;
     }
 
-    &__logo {
-      width: 63px;
-      height: 72px;
-    }
-
-    &__socials {
-      gap: 18px;
-      margin-top: 8px;
-    }
-
     &__schedule {
       position: static;
       grid-column: 1;
 
-      width: 130px;
-      margin-top: 42px;
+      width: auto;
+      margin-top: 0;
     }
 
     &__contacts {
       position: static;
       grid-column: 2;
 
-      width: 130px;
-      margin-top: 42px;
-    }
-
-    &__heading {
-      margin-bottom: 16px;
-
-      font-size: 12px;
-    }
-
-    &__schedule-text,
-    &__contacts-text {
-      font-size: 12px;
-      line-height: 150%;
+      width: auto;
+      margin-top: 0;
     }
 
     &__divider {
-      position: absolute;
-      top: 500px;
-      left: 20px;
+      position: static;
+      grid-column: 1 / -1;
 
-      width: 280px;
+      width: 100%;
       height: 1px;
-
-      background-color: #1a5a4c80;
     }
 
     &__nav {
-      position: absolute;
-      top: 530px;
-
-      gap: 16px;
+      position: static;
 
       &--gallery {
-        left: 20px;
+        grid-column: 1;
 
-        width: 120px;
+        width: auto;
+        height: auto;
       }
 
       &--about {
-        left: 170px;
+        grid-column: 2;
 
-        width: 120px;
+        width: auto;
+        height: auto;
       }
     }
 
-    &__link {
-      font-size: 12px;
+    &__copyright,
+    &__design {
+      position: static;
+
+      width: 100%;
+
+      font-size: 10px;
+      text-align: center;
     }
 
     &__copyright {
-      top: 680px;
-      left: 20px;
-
-      width: 140px;
-
-      font-size: 10px;
+      margin: 40px 0 0;
     }
 
     &__design {
-      top: 680px;
-      right: 20px;
-      left: auto;
-
-      width: 140px;
-
-      font-size: 10px;
-      text-align: right;
+      margin: 8px 0 0;
     }
   }
 }
