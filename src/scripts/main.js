@@ -10,7 +10,7 @@ form?.addEventListener('submit', (event) => {
   }
 
   form.reset();
-  
+
   window.scrollTo({
     top: 0,
     behavior: 'smooth',
@@ -24,11 +24,15 @@ const menuLinks = menu?.querySelectorAll('.menu__link');
 
 const openMenu = () => {
   menu.classList.add('menu--open');
+
+  document.documentElement.classList.add('page--menu-open');
   document.body.classList.add('page--menu-open');
 };
 
 const closeMenu = () => {
   menu.classList.remove('menu--open');
+
+  document.documentElement.classList.remove('page--menu-open');
   document.body.classList.remove('page--menu-open');
 };
 
