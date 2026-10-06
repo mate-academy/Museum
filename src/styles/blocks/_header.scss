@@ -1,0 +1,410 @@
+.header {
+  display: grid;
+  grid-template-columns: 555px 1fr;
+  height: 655px;
+
+  &__left {
+    position: relative;
+  }
+
+  &__menu-button {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 39px;
+    left: 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 24px;
+    height: 24px;
+    padding: 6px 3px;
+  }
+
+  &__menu-line {
+    display: block;
+
+    width: 18px;
+    height: 2px;
+
+    background-color: $c-black;
+  }
+
+  &__content {
+    position: absolute;
+    top: 206px;
+    left: 55px;
+  }
+
+  &__title {
+    @extend %title-font;
+
+    width: 470px;
+    height: 172px;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: 0;
+
+    text-transform: uppercase;
+  }
+
+  &__tickets {
+    display: flex;
+
+    width: 269px;
+    height: 70px;
+    margin-top: 89px;
+    margin-left: 201px;
+  }
+
+  &__tickets-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 199px;
+    height: 70px;
+    border: 1px solid $c-green;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0;
+
+    text-transform: uppercase;
+  }
+
+  &__tickets-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    height: 70px;
+
+    font-size: 24px;
+    line-height: 1;
+    color: #d7dde3;
+
+    background-color: $c-green;
+
+    transition: background-color $transition-duration;
+  }
+
+  &__tickets:hover &__tickets-arrow {
+    background-color: $c-orange;
+  }
+
+  &__events-link {
+    position: absolute;
+    top: 522px;
+    left: 55px;
+
+    width: 14px;
+    height: 133px;
+  }
+
+  &__events-text {
+    position: absolute;
+    top: 0;
+    left: 14px;
+
+    width: 43px;
+    height: 14px;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: $c-gray-text;
+
+    text-transform: uppercase;
+
+    transform: rotate(90deg);
+    transform-origin: top left;
+  }
+
+  &__events-line {
+    position: absolute;
+    top: 63px;
+    left: 6px;
+
+    width: 1px;
+    height: 70px;
+
+    background-color: $c-green;
+  }
+
+  &__image {
+    position: relative;
+
+    background-image: url('../images/header-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 15px;
+    left: 0;
+
+    width: 170px;
+    height: 72px;
+  }
+
+  &__logo-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1200px) {
+  .header {
+    grid-template-columns: minmax(240px, 45%) minmax(0, 1fr);
+
+    height: clamp(384px, 46vw, 440px);
+
+    &__left {
+      position: relative;
+
+      min-width: 0;
+    }
+
+    &__menu-button {
+      top: clamp(24px, 4vw, 40px);
+      left: clamp(24px, 4vw, 34px);
+    }
+
+    &__content {
+      position: absolute;
+      top: clamp(90px, 13vw, 132px);
+      right: 20px;
+      left: clamp(24px, 4vw, 34px);
+    }
+
+    &__title {
+      width: 100%;
+      height: auto;
+
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 100%;
+    }
+
+    &__tickets {
+      width: min(270px, 100%);
+      height: clamp(54px, 7vw, 70px);
+
+      margin-top: clamp(24px, 4vw, 42px);
+      margin-left: 0;
+    }
+
+    &__tickets-text {
+      flex: 1;
+
+      width: auto;
+      height: 100%;
+    }
+
+    &__tickets-arrow {
+      flex-shrink: 0;
+
+      width: clamp(54px, 7vw, 70px);
+      height: 100%;
+    }
+
+    &__events-link {
+      display: none;
+    }
+
+    &__image {
+      height: 100%;
+
+      background-position: center;
+    }
+
+    &__logo {
+      top: 9px;
+      left: 50%;
+
+      width: 55px;
+      height: 61px;
+
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .event {
+    &__image {
+      width: 100%;
+      height: 210px;
+
+      object-fit: cover;
+    }
+
+    &__content {
+      width: 100%;
+
+      margin-top: 24px;
+    }
+
+    &__meta {
+      justify-content: space-between;
+
+      margin-bottom: 16px;
+    }
+
+    &__type {
+      width: auto;
+
+      font-size: 14px;
+    }
+
+    &__date {
+      font-size: 14px;
+    }
+
+    &__title-row {
+      gap: 10px;
+
+      margin-bottom: 12px;
+    }
+
+    &__title {
+      font-size: 28px;
+      line-height: 100%;
+    }
+
+    &__marker {
+      width: 10px;
+      height: 10px;
+    }
+
+    &__description {
+      max-width: none;
+
+      font-size: 16px;
+      line-height: 150%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    height: auto;
+
+    &__left {
+      position: static;
+
+      order: 2;
+    }
+
+    &__menu-button {
+      position: absolute;
+      top: 24px;
+      left: 20px;
+      z-index: 10;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 24px;
+      height: 24px;
+      padding: 6px 3px;
+
+      background-color: transparent;
+      border: none;
+    }
+
+    &__image {
+      position: relative;
+
+      order: 1;
+
+      width: 100%;
+      height: 300px;
+
+      background-position: center;
+    }
+
+    &__logo {
+      position: absolute;
+      top: 9px;
+      left: 50%;
+
+      width: 55px;
+      height: 61px;
+
+      transform: translateX(-50%);
+    }
+
+    &__logo-image {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+    }
+
+    &__content {
+      position: static;
+
+      padding: 20px 20px 0;
+    }
+
+    &__title {
+      width: 280px;
+      height: 93px;
+      margin: 0 auto;
+
+      font-family: Montserrat, sans-serif;
+      font-size: 45px;
+      font-weight: 700;
+      line-height: 100%;
+      letter-spacing: 0;
+      color: #000;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    &__tickets {
+      width: 100%;
+      max-width: 280px;
+      height: 70px;
+      margin: 24px auto 0;
+    }
+
+    &__tickets-text {
+      flex: 1;
+
+      width: auto;
+    }
+
+    &__tickets-arrow {
+      flex-shrink: 0;
+    }
+
+    &__events-link {
+      display: none;
+    }
+  }
+}
