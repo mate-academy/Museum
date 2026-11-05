@@ -1,0 +1,132 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+
+.subscribe {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100vw;
+  margin-bottom: 50px;
+  margin-left: 0;
+
+  background-image: url('/src/images/subscribe/form-bg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 390px;
+
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-family: $montserrat;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+    color: rgba(255, 255, 255, 1);
+
+    @include on-tablet {
+      font-size: 48px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 50px;
+    font-size: 18px;
+    line-height: 180%;
+    color: rgba(255, 255, 255, 1);
+
+    @include on-tablet {
+      font-size: 18px;
+
+      & br {
+        display: none;
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+  }
+
+  &__em {
+    display: block;
+
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 18px 60px 18px 24px;
+    border: none;
+
+    outline: none;
+    box-shadow: none;
+
+    @include on-tablet {
+      padding: 28px 60px 28px 24px;
+    }
+
+    @include on-desktop {
+      padding: 32px 80px 28px 32px;
+    }
+  }
+
+  &__email {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-width: 0;
+
+    @include on-tablet {
+      width: 50%;
+    }
+
+  }
+
+  &__clear {
+    cursor: pointer;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    border: 0;
+
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 1);
+
+    background-color: rgba(241, 74, 39, 1);
+
+    @include on-tablet {
+      right: auto;
+      left: calc(100% + 16px);
+      width: 70px;
+    }
+
+    @include on-desktop {
+      left: calc(100% + 30px);
+    }
+  }
+}

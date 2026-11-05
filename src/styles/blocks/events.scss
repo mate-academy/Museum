@@ -1,0 +1,241 @@
+@use '../utils/mixins' as *;
+
+.events {
+  grid-column: 1 / -1;
+
+  &__wrapper {
+    @include page-grid;
+
+    grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  }
+
+  &__item {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+
+    min-width: 0;
+    margin-bottom: 64px;
+
+    &:last-child {
+      @include on-desktop {
+        .events__picture,
+        .events__item-content {
+          grid-column: 1 / -1;
+        }
+
+        .events__picture {
+          min-height: 550px;
+          margin-inline: clamp(
+            -100px,
+            calc((1170px - 100vw) / 2 - 55px),
+            -55px
+          );
+        }
+
+        .events__item-content {
+          padding: 55px 100px;
+        }
+
+        .events__name {
+          margin-right: 100px;
+        }
+
+        .events__info-sb {
+          justify-content: start;
+        }
+      }
+    }
+  }
+
+  &__item-content {
+    grid-column: 1 / -1;
+    min-width: 0;
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+      align-self: center;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin-bottom: 48px;
+      font-size: 48px;
+      text-align: left;
+
+      & br {
+        display: none;
+      }
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__picture {
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__picture-full {
+    overflow: hidden;
+
+    min-height: 210px;
+    margin-right: -20px;
+    margin-bottom: 0;
+    margin-left: -20px;
+
+    .events__image {
+      min-height: 210px;
+      object-fit: cover;
+    }
+
+    @include on-tablet {
+      height: 390px;
+      margin-right: 0;
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+
+    min-width: 0;
+    margin-bottom: 10px;
+    padding-inline: 21px;
+
+    @include on-tablet {
+      gap: 20px;
+      justify-content: start;
+      margin-bottom: 32px;
+      padding-inline: 0;
+    }
+  }
+
+  &__info-sb {
+    @include on-tablet {
+      justify-content: space-between;
+      width: 87%;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+
+    margin-top: -50px;
+    margin-inline: auto;
+    padding-block: 20px;
+
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 2px 0 rgba(26, 90, 76, 0.25);
+
+    @include on-tablet {
+      width: 80%;
+      margin-top: -100px;
+      padding: 45px 55px;
+    }
+
+    @include on-desktop {
+      width: 60%;
+    }
+  }
+
+  &__name {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    color: rgba(104, 116, 128, 1);
+  }
+
+  &__date {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 150%;
+    color: rgba(26, 90, 76, 1);
+    white-space: nowrap;
+  }
+
+  &__heading-center {
+    @include on-desktop {
+      white-space: nowrap;
+    }
+
+    .events__heading-label {
+      white-space: nowrap;
+    }
+
+    .events__heading-label::after {
+      content: '';
+
+      display: inline-block;
+
+      width: 10px;
+      height: 10px;
+      margin-left: 12px;
+
+      vertical-align: middle;
+
+      background-color: rgba(241, 74, 39, 1);
+    }
+
+    @include on-tablet {
+      text-align: left;
+    }
+  }
+
+  &__heading-th {
+    text-align: center;
+
+    @include on-tablet {
+      text-align: left;
+    }
+  }
+
+  &__descr {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+    color: rgba(78, 78, 78, 1);
+  }
+
+  &__text-tabl {
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      width: 65%;
+    }
+
+    @include on-desktop {
+      width: auto;
+    }
+  }
+}

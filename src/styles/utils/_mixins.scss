@@ -1,6 +1,84 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@use '../utils/vars' as *;
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin flat-desktop {
+  @media (min-width: $flat-desktop-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 40px;
+  }
+
+  @include on-desktop {
+    padding-inline: 55px;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+  }
+}
+
+.container {
+  max-width: 1170px;
+
+  @include content-padding-inline;
+
+  margin-inline: auto;
+}
+
+.section-title {
+  font-family: $montserrat;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 100%;
+  color: rgba(15, 14, 8, 1);
+  text-align: center;
+
+  @include on-tablet {
+    font-size: 48px;
+  }
+}
+
+.events__heading {
+  margin-bottom: 10px;
+
+  font-family: $montserrat;
+  font-size: 28px;
+  font-weight: 400;
+  text-align: left;
+
+  @include on-tablet {
+    margin-bottom: 15px;
+    font-size: 36px;
   }
 }
