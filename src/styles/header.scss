@@ -1,0 +1,487 @@
+.header{
+  @include on($bp-mobile){
+   height: 600px;
+  }
+}
+
+.hero {
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    z-index: 5;
+    inset: 0;
+
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    transition:
+      opacity 0.4s ease-in-out,
+      visibility 0.4s ease-in-out;
+  }
+
+  @include on($bp-tablet) {
+    flex-direction: column;
+    padding-bottom: 300px;
+  }
+}
+
+.menu-toggle:checked ~ .hero::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+.museum {
+  padding-top: 200px;
+
+  &__title {
+    padding-left: 50px;
+
+    font-family: var(--font-family);
+    font-size: 72px;
+    font-weight: bold;
+    color: #000;
+
+    @include on($bp-tablet) {
+      order: 2;
+      padding-left: 16px;
+      font-size: 56px;
+      text-align: center;
+    }
+
+    @include on($bp-mobile) {
+      padding-left: 16px;
+      font-size: 36px;
+      text-align: center;
+    }
+  }
+
+  @include on($bp-tablet) {
+    order: 2;
+    padding-top: 40px;
+    padding-bottom: 130px;
+  }
+
+  @include on($bp-mobile) {
+    order: 2;
+    padding-top: 24px;
+    padding-bottom: 110px;
+  }
+}
+
+
+
+.blok__ticket {
+  padding-left: 200px;
+
+  @include on($bp-tablet) {
+     padding: 0 16px 32px;
+    padding-left: 60px;
+  }
+
+  @include on($bp-mobile) {
+     padding-left: 30px;
+    padding-inline: 16px;
+  }
+}
+
+.ticket {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 270px;
+  min-height: 70px;
+  border: 2px solid #1a5a4c;
+  &__text {
+    position: absolute;
+    left: 67px;
+
+    font-family:
+      "IBM Plex Sans",
+      sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #0f0e08;
+  }
+}
+
+
+
+.arrow {
+  position: absolute;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+
+  min-width: 70px;
+  min-height: 70px;
+
+  background: #1a5a4c;
+}
+
+.namu {
+  position: relative;
+  z-index: 5;
+  max-width: 100%;
+
+  @include on($bp-tablet) {
+    order: 1;
+  }
+
+  &__text {
+    position: absolute;
+    z-index: 5;
+    top: 15px;
+    left: 50px;
+
+    display: block;
+
+    font-family: var(--font-family);
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1;
+    color: #0f0e08;
+    text-transform: uppercase;
+
+    @include on($bp-tablet) {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+  }
+  &__photo {
+    z-index: 0;
+    max-width: 100vh;
+    height: 100vh;
+    object-fit: cover;
+
+    @include on($bp-tablet) {
+      width: 860px;
+      max-width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.burger-menu {
+  z-index: 10;
+  padding-top: 30px;
+  padding-left: 30px;
+
+  @include on($bp-tablet) {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+  }
+}
+
+.event {
+  position: absolute;
+  left: 30px;
+  transform: rotate(180deg);
+
+  writing-mode: vertical-rl;
+  font-family:
+    "IBM Plex Sans",
+    sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #687480;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 1px;
+    height: 70px;
+
+    background-color: #687480;
+  }
+
+  @include on($bp-tablet) {
+    bottom: 80px;
+    left: 24px;
+    display: none;
+  }
+
+  @include on($bp-mobile) {
+    left: 16px;
+    display: none;
+  }
+}
+
+.menu {
+ scrollbar-gutter: stable;
+
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  display: flex;
+  gap: 250px;
+  justify-content: center;
+
+  visibility: hidden;
+  opacity: 0;
+  background-color: #1a5a4c;
+
+  transition:
+    opacity 0.4s ease-in-out,
+    visibility 0.4s ease-in-out;
+
+  @include on($bp-tablet) {
+    display: grid;
+    grid-template-columns: 1fr; // одна колонка на всю ширину меню
+    grid-template-rows: 1fr;
+    gap: 0;
+  }
+}
+
+.menu-toggle:checked ~ .menu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.nav {
+  &::after {
+    content: '';
+
+    position: absolute;
+    right: 50%;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 1px;
+    height: 145px;
+
+    background-color: #fff;
+
+    @include on($bp-tablet) {
+      bottom: 15%;
+      left: 45%;
+      transform: translateX(-50%);
+    }
+
+    @include on($bp-mobile) {
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      display: flex;
+
+      width: 280px;
+      height: 1px;
+
+      writing-mode: horizontal-tb;
+
+      background-color: #fff;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    padding-top: 10px;
+
+
+    @include on($bp-mobile) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+
+      margin: 0;
+      padding-top: 0;
+    }
+
+        @include on($bp-tablet) {
+     column-gap: 120px;
+          justify-self: center;
+     padding-right: 150px;
+    }
+
+    @include on($bp-small-desktop) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 200px;
+      text-align: right;
+    }
+  }
+
+  &__item {
+    padding-top: 30px;
+    list-style: none;
+
+    @include on($bp-mobile) {
+      width: 100px;
+    }
+  }
+
+  &__link {
+    padding-top: 30px;
+    padding-left: 50px;
+
+    font-family:
+      "IBM Plex Sans",
+      sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+
+    @include on($bp-mobile) {
+      padding-left: 0;
+    }
+  }
+
+  @include on($bp-mobile) {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-self: center;
+    justify-content: center;
+
+    padding-inline: 150px;
+  }
+}
+
+.schedule__block {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+
+  @include on($bp-mobile) {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-top: 50px;
+    padding-left: 25%;
+  }
+}
+
+.schedule {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  padding-bottom: 50px;
+
+  @include on($bp-small-desktop) {
+    display: grid;
+    grid-template-columns: max-content auto;
+    column-gap: 2px;
+  }
+
+  @include on($bp-tablet) {
+    display: grid;
+    grid-template-columns: max-content auto;
+    column-gap: 2px;
+    padding-left: 40px;
+  }
+
+  @include on($bp-mobile) {
+    grid-template-columns: max-content 1fr; // день стоїть одразу після часу
+    gap: 8px 6px;
+    padding-bottom: 0;
+  }
+
+  &__title {
+    grid-column: span 2;
+
+    margin: 0;
+    padding-top: 40px;
+    padding-bottom: 20px;
+
+    font-family:
+      "IBM Plex Sans",
+      sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+  }
+
+  &__text {
+    margin: 0;
+
+    font-family:
+      "IBM Plex Sans",
+      sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  &__day {
+    margin: 0;
+
+    font-family:
+      "IBM Plex Sans",
+      sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+
+    @include on($bp-tablet) {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+}
+
+.weekend {
+  padding-top: 80px;
+  padding-bottom: 30px;
+
+  @include on($bp-mobile) {
+    padding-top: 0;
+  }
+
+  @include on($bp-tablet) {
+    padding-bottom: 50px;
+  }
+
+  &__text {
+    max-width: 144px;
+    margin: 0;
+
+    font-family:
+      "IBM Plex Sans",
+      sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+
+    @include on($bp-mobile) {
+      max-width: 250px;
+      padding-bottom: 50px;
+    }
+  }
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
