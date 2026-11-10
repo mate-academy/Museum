@@ -13,7 +13,7 @@
   &::after {
     content: '';
 
-    position: absolute;
+    position: fixed;
     z-index: 5;
     inset: 0;
 
@@ -119,10 +119,10 @@
 .arrow {
   position: absolute;
   right: 0;
-
+  border: none;
   display: flex;
   justify-content: center;
-
+  cursor: pointer;
   min-width: 70px;
   min-height: 70px;
 
@@ -178,6 +178,8 @@
   z-index: 10;
   padding-top: 30px;
   padding-left: 30px;
+  width: 50px;  // Задай реальну ширину клікабельної зони
+  height: 50px;
 
   @include on($bp-tablet) {
     position: absolute;
@@ -262,6 +264,8 @@
 
 .menu-toggle {
   display: none;
+  width: 50px;
+  height: 50px;
 }
 
 .nav {
@@ -307,7 +311,6 @@
     justify-content: center;
     padding-top: 10px;
 
-
     @include on($bp-small-desktop) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -330,7 +333,7 @@
       gap: 15px;
 
       margin: 0;
-      padding-top: 20px;
+      padding-top: 0;
       padding-right: 0;
     }
 
@@ -356,6 +359,10 @@
     font-weight: 500;
     color: #fff;
     text-decoration: none;
+    transform: opacity 0.8;
+     &:hover{
+ opacity: 0.8;
+  }
 
     @include on($bp-mobile) {
       padding-left: 0;
@@ -381,7 +388,7 @@
     display: grid;
     grid-template-columns: 1fr;
     padding-top: 50px;
-    padding-left: 25%;
+    padding-left: 10%;
   }
 }
 
@@ -408,6 +415,7 @@
     grid-template-columns: max-content 1fr; // день стоїть одразу після часу
     gap: 8px 6px;
     padding-bottom: 0;
+    padding-left: 0;
   }
 
   &__title {
