@@ -54,3 +54,12 @@ document.addEventListener('keydown', event => {
     closeMenu();
   }
 });
+
+const subscriptionForm = document.querySelector('.subscription__form');
+
+if (subscriptionForm) {
+  subscriptionForm.addEventListener('submit', event => {
+    event.preventDefault();
+    subscriptionForm.reset();
+  });
+}
