@@ -9,6 +9,7 @@ const menuLinks = document.querySelectorAll('.menu__link');
 function openMenu() {
   menu.classList.add('is-open');
   overlay.classList.add('is-open');
+  document.body.classList.add('menu-open');
 
   menu.removeAttribute('inert');
   menu.setAttribute('aria-hidden', 'false');
@@ -24,6 +25,7 @@ function closeMenu(restoreFocus = true) {
 
   menu.classList.remove('is-open');
   overlay.classList.remove('is-open');
+  document.body.classList.remove('menu-open');
 
   menu.setAttribute('inert', '');
   menu.setAttribute('aria-hidden', 'true');
