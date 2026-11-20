@@ -1,6 +1,42 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover($_property: transform, $_toValue: scale(1.05)) {
+  transition: #{$_property} $duration;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin underline($_color, $_height: 1px) {
+  padding-bottom: 2px;
+
+  background-image: linear-gradient($_color, $_color);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 0 $_height;
+
+  transition: background-size $duration;
+
+  &:hover {
+    background-size: 100% $_height;
+  }
+}
+
+@mixin hover-scale-color($_color, $_scale: 1.05) {
+  transition: transform $duration, color $duration;
+
+  &:hover {
+    transform: scale($_scale);
+    color: $_color;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on-dekstop {
+  @media (min-width: 1280px) {
+    @content;
   }
 }

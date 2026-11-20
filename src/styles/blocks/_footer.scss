@@ -1,0 +1,306 @@
+.footer {
+  @include on-tablet {
+    padding-top: 51px;
+  }
+
+  @include on-dekstop {
+    padding-top: 47px;
+  }
+
+  &__logo {
+    grid-column: $col-first;
+
+    font-size: $fs-title;
+    font-weight: $fw-bold;
+    line-height: $lh-100;
+    color: $c-dark;
+    text-decoration: none;
+
+    &:hover {
+      color: $c-red;
+    }
+
+    @include on-tablet {
+      grid-row: $row-first;
+      align-self: start;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    grid-column: $col-second;
+    gap: $sp-20;
+    place-self: center end;
+
+    @include on-tablet {
+      grid-column: $col-first;
+      grid-row: $row-first;
+      gap: $sp-38;
+      place-self: start;
+
+      margin-top: 134px;
+    }
+  }
+
+  &__social {
+    display: block;
+    color: $c-dark;
+    transition: transform $duration, color $duration;
+
+    &:hover {
+      transform: scale(1.05);
+      color: $c-red;
+    }
+  }
+
+  &__social-icon {
+    display: block;
+    height: 24px;
+    background-color: currentColor;
+    mask: no-repeat center / contain;
+
+    &--facebook {
+      width: 12px;
+
+      mask-image: url('../images/icon/facebook.svg');
+    }
+
+    &--instagram {
+      width: 24px;
+
+      mask-image: url('../images/icon/instagram.svg');
+    }
+  }
+
+  &__schedule {
+    grid-column: $col-first;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+      grid-row: 1 / 3;
+    }
+
+    @include on-dekstop {
+      grid-column: 3 / 5;
+    }
+  }
+
+  &__subtitle {
+    margin: $sp-40 0 $sp-20;
+
+    font-family: $font-plex;
+    font-size: $fs-sm;
+    font-weight: $fw-regular;
+    line-height: $lh-141;
+    color: $c-dark;
+
+    @include on-tablet {
+      margin: 0 0 $sp-20;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+
+    font-family: $font-plex;
+    font-size: $fs-sm;
+    font-weight: $fw-regular;
+    line-height: $lh-150;
+    color: $c-dark;
+    list-style: none;
+  }
+
+  &__nav {
+    display: grid;
+    grid-column: $col-full;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $sp-20 $sp-20;
+
+    padding-top: $sp-40;
+    border-top: 1px solid rgba($c-green, 0.5);
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      grid-row: 3;
+      padding-top: $sp-64;
+    }
+
+    @include on-dekstop {
+      grid-column: 8 / -1;
+      grid-row: 1 / 3;
+      grid-template-columns: 170px 1fr;
+      column-gap: $sp-30;
+      align-content: start;
+      align-self: start;
+
+      height: 260px;
+      margin-left: -64px;
+      padding: 0 0 0 $sp-64;
+      border-top: none;
+      border-left: 1px solid rgba($c-green, 0.5);
+    }
+  }
+
+  &__time {
+    font-family: $font-plex;
+    font-size: $fs-sm;
+    font-weight: 600;
+    line-height: $lh-150;
+    color: $c-dark;
+  }
+
+  &__note {
+    margin: $sp-20 0 $sp-70;
+
+    font-family: $font-plex;
+    font-size: $fs-sm;
+    font-weight: $fw-regular;
+    line-height: $lh-150;
+    color: $c-dark;
+
+    @include on-tablet {
+      margin: $sp-20 0 $sp-64;
+    }
+  }
+
+  &__contacts {
+    grid-column: $col-second;
+    grid-row: $row-second;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+      grid-row: 1 / 3;
+    }
+
+    @include on-dekstop {
+      grid-column: 5 / 7;
+    }
+  }
+
+  &__address {
+    font-family: $font-plex;
+    font-size: $fs-sm;
+    font-weight: $fw-regular;
+    font-style: normal;
+    line-height: $lh-150;
+    color: $c-dark;
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: $c-red;
+    }
+  }
+
+  &__up {
+    position: relative;
+
+    grid-column: $col-second;
+    grid-row: $row-second;
+    place-self: end end;
+
+    width: 10px;
+    height: 12px;
+    margin-bottom: $sp-20;
+    padding: 19px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+
+    color: $c-green;
+
+    transition: transform $duration, color $duration;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      inset: 0;
+
+      width: 10px;
+      height: 12px;
+      margin: auto;
+
+      background-color: currentColor;
+
+      mask: url('../images/icon/arrow-up.svg') no-repeat center;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      color: $c-red;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__nav-link {
+    justify-self: start;
+
+    font-family: $font-plex;
+    font-size: $fs-sm;
+    font-weight: $fw-regular;
+    line-height: $lh-100;
+    color: $c-dark;
+    text-decoration: none;
+
+    @include hover-scale-color($c-red);
+  }
+
+  &__designed {
+    grid-column: $col-full;
+
+    margin: 80px 0 $sp-10;
+
+    font-family: $font-plex;
+    font-size: 12px;
+    font-weight: $fw-light;
+    line-height: $lh-141;
+    color: $c-dark;
+    text-align: center;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 4;
+      margin: 120px 0 36px;
+      text-align: right;
+    }
+
+    @include on-dekstop {
+      grid-column: 7 / -1;
+      grid-row: 3;
+      margin: 87px 0 35px;
+    }
+  }
+
+  &__copyright {
+    grid-column: $col-full;
+
+    margin: 0 0 $sp-56;
+
+    font-family: $font-plex;
+    font-size: 12px;
+    font-weight: $fw-light;
+    line-height: $lh-141;
+    color: $c-dark;
+    text-align: center;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 4;
+      margin: 120px 0 36px;
+      text-align: left;
+    }
+
+    @include on-dekstop {
+      grid-column: 1 / 7;
+      grid-row: 3;
+      margin: 87px 0 35px;
+    }
+  }
+}
