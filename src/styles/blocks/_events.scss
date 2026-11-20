@@ -1,0 +1,169 @@
+.events {
+  &__title {
+    grid-column: $col-full;
+    grid-row: $row-first;
+
+    margin: $sp-70 0 $sp-40;
+
+    font-size: $fs-title;
+    font-weight: $fw-bold;
+    line-height: $lh-100;
+    color: $c-dark;
+    text-align: center;
+
+    @include on-tablet {
+      margin: $sp-88 0 48px;
+      font-size: $fs-xl;
+      text-align: left;
+    }
+
+    @include on-dekstop {
+      margin: $sp-200 0 $sp-56;
+    }
+  }
+
+  &__card {
+    display: grid;
+    grid-column: $col-full;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include on-tablet {
+      grid-template-columns: subgrid;
+    }
+
+    @include on-dekstop {
+      grid-template-rows: 1fr auto auto auto 1fr;
+      margin-bottom: 104px;
+    }
+  }
+
+  &__image {
+    cursor: pointer;
+    grid-column: $col-full;
+    width: 100%;
+
+    @include hover;
+
+    @include on-tablet {
+      height: 520px;
+      object-fit: cover;
+    }
+
+    @include on-dekstop {
+      grid-column: 1 / 8;
+      grid-row: 1 / -1;
+    }
+  }
+
+  &__type {
+    grid-column: $col-first;
+
+    margin: $sp-20 0 $sp-15;
+
+    font-family: $font-plex;
+    font-size: $fs-md;
+    font-weight: $fw-medium;
+    line-height: $lh-100;
+    color: $c-gray-white;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      margin: 44px 0 $sp-32;
+      font-size: $fs-sm;
+    }
+
+    @include on-dekstop {
+      grid-column: 9;
+      grid-row: 2;
+      align-self: baseline;
+      margin: 0 0 $sp-32;
+    }
+  }
+
+  &__date {
+    grid-column: $col-second;
+
+    margin: $sp-16 0 $sp-10;
+
+    font-family: $font-plex;
+    font-size: $fs-md;
+    font-weight: $fw-bold;
+    line-height: $lh-150;
+    color: $c-green;
+
+    @include on-tablet {
+      grid-column: 2 / -1;
+      margin: $sp-40 0 $sp-30;
+      font-size: $fs-sm;
+    }
+
+    @include on-dekstop {
+      grid-column: 10 / -1;
+      grid-row: 2;
+      align-self: baseline;
+      margin: 0 0 $sp-30;
+    }
+  }
+
+  &__name {
+    grid-column: $col-full;
+
+    margin: 0;
+
+    font-size: 28px;
+    font-weight: $fw-regular;
+    line-height: $lh-100;
+    color: $c-dark;
+
+    &::after {
+      content: '';
+
+      display: inline-block;
+
+      width: 10px;
+      height: 10px;
+      margin-left: 12px;
+
+      vertical-align: middle;
+
+      background-color: $c-red;
+
+      @include on-tablet {
+        width: 15px;
+        height: 15px;
+    }
+    }
+
+    @include on-tablet {
+      font-size: $fs-lg;
+    }
+
+    @include on-dekstop {
+      grid-column: 9 / -1;
+      grid-row: 3;
+    }
+  }
+
+  &__description {
+    grid-column: $col-full;
+
+    margin: $sp-10 0 60px;
+
+    font-family: $font-plex;
+    font-size: $fs-md;
+    font-weight: $fw-light;
+    line-height: $lh-150;
+    color: $c-gray-black;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin: $sp-15 0 $sp-64;
+    }
+
+    @include on-dekstop {
+      grid-column: 9 / -1;
+      grid-row: 4;
+      margin: $sp-15 0 0;
+    }
+  }
+}

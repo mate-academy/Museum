@@ -1,0 +1,151 @@
+.subscribe {
+  width: 100%;
+  min-height: 386px;
+  margin-bottom: $sp-50;
+
+  background-image: url('../images/subscribe/subscribe-bg-mobile.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include on-tablet {
+    min-height: 380px;
+    margin-bottom: 0;
+    background-image: url('../images/subscribe/subscribe-bg.svg');
+  }
+
+  @include on-dekstop {
+    min-height: 550px;
+  }
+
+  &__title {
+    grid-column: $col-full;
+
+    margin: $sp-88 0 $sp-20;
+
+    font-size: $fs-title;
+    font-weight: $fw-bold;
+    line-height: $lh-100;
+    color: $c-white;
+    text-align: center;
+
+    @include on-tablet {
+      margin: 82px 0 $sp-16;
+      font-size: $fs-xl;
+    }
+
+    @include on-dekstop {
+      margin: 163px 0 $sp-16;
+    }
+  }
+
+  &__text {
+    grid-column: $col-full;
+
+    margin: 0 0 $sp-50;
+
+    font-family: $font-plex;
+    font-size: 18px;
+    font-weight: $fw-light;
+    line-height: $lh-150;
+    color: $c-white;
+    text-align: center;
+
+    @include on-tablet {
+      margin: 0 0 $sp-64;
+      line-height: $lh-100;
+    }
+
+    @include on-dekstop {
+      margin: 0 0 72px;
+    }
+  }
+
+  &__form {
+    display: grid;
+    grid-column: $col-full;
+    grid-template-columns: minmax(0, 1fr) auto;
+    margin-bottom: $sp-88;
+
+    @include on-tablet {
+      grid-column: $col-full;
+      grid-template-columns: minmax(0, 1fr) $btn-size-lg;
+      column-gap: $sp-16;
+      justify-self: center;
+
+      width: 460px;
+      margin-bottom: 82px;
+    }
+
+    @include on-dekstop {
+      grid-column: 4 / 10;
+      column-gap: $sp-30;
+      justify-self: stretch;
+
+      width: auto;
+      margin-bottom: 163px;
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    height: $btn-size;
+    padding: 18px $sp-20;
+    border: none;
+    border-radius: 0;
+
+    font-size: $fs-md;
+    line-height: 1;
+    color: $c-dark;
+
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+
+    &::placeholder {
+      font-size: $fs-sm;
+      font-weight: $fw-regular;
+      line-height: $lh-100;
+      color: $c-gray-white;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 1000px $c-white inset;
+
+      -webkit-text-fill-color: $c-dark;
+    }
+
+    @include on-tablet {
+      height: $btn-size-lg;
+      padding: $sp-28 $sp-24;
+    }
+
+    @include on-dekstop {
+      padding: $sp-28 $sp-32;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+
+    width: $btn-size;
+    border: none;
+
+    background-color: $c-red;
+    background-image: url(../images/icon/arrow-black.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: filter $duration;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+
+    @include on-tablet {
+      width: $btn-size-lg;
+    }
+  }
+}

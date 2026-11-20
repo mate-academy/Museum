@@ -1,0 +1,159 @@
+.gallery {
+  margin-top: $sp-100;
+
+  @include on-tablet {
+    margin-top: $sp-88;
+  }
+
+  @include on-dekstop {
+    margin-top: $sp-200;
+    margin-bottom: $sp-200;
+  }
+
+  &__title {
+    grid-column: $col-full;
+
+    margin: 0 0 $sp-40;
+
+    font-size: $fs-title;
+    font-weight: $fw-bold;
+    line-height: $lh-100;
+    color: $c-dark;
+    text-align: center;
+
+    @include on-tablet {
+      margin: 0 0 48px;
+      font-size: $fs-xl;
+      text-align: left;
+    }
+
+    @include on-dekstop {
+      margin: 0 0 $sp-56;
+    }
+  }
+
+  &__list {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+
+    overflow-x: auto;
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-auto-flow: column;
+    grid-column: $col-full;
+    column-gap: $sp-20;
+
+    margin-right: -20px;
+    padding-right: $sp-20;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include on-tablet {
+      grid-auto-columns: calc((100% - 20px) / 2);
+      margin-right: -34px;
+      padding-right: 34px;
+    }
+
+    @include on-dekstop {
+      overflow: visible;
+      grid-auto-columns: auto;
+      grid-auto-flow: row;
+      grid-template-columns: subgrid;
+      row-gap: $sp-30;
+
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__image {
+    cursor: pointer;
+    scroll-snap-align: start;
+
+    height: 410px;
+
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+
+    @include hover(transform, scale(1.02));
+
+    @include on-tablet {
+      height: 543px;
+    }
+
+    @include on-dekstop {
+      height: 600px;
+    }
+
+    &--1 {
+      background-image: url(../images/gallery/gallery-mobile.svg);
+
+      @include on-dekstop {
+        grid-column: span 4;
+      }
+    }
+
+    &--2 {
+      background-image: url(../images/gallery/gallery-mobile-tablet.svg);
+
+      @include on-dekstop {
+        grid-column: span 8;
+        background-image: url(../images/gallery/gallery-dekstop.svg);
+      }
+    }
+
+    &--3 {
+      background-image: url(../images/gallery/gallery-3.svg);
+
+      @include on-dekstop {
+        grid-column: span 8;
+        height: 360px;
+      }
+    }
+
+    &--4 {
+      background-image: url(../images/gallery/gallery-4.svg);
+
+      @include on-dekstop {
+        grid-column: span 4;
+        height: 360px;
+      }
+    }
+  }
+
+  &__dots {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column: $col-full;
+    column-gap: 22px;
+    justify-content: center;
+
+    margin: $sp-20 0 $sp-100;
+
+    @include on-tablet {
+      margin: $sp-32 0 92px;
+    }
+
+    @include on-dekstop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    display: block;
+
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+
+    background-color: $c-gray-5;
+
+    &--active {
+      background-color: $c-green;
+    }
+  }
+}
