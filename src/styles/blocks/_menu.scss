@@ -1,0 +1,282 @@
+.menu {
+  pointer-events: none;
+
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  color: #fff;
+
+  visibility: hidden;
+  opacity: 0;
+  background-color: #1a5a4c;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+
+  &.is-open {
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    min-height: 399px;
+    padding: 0 20px;
+  }
+
+  &__close {
+    cursor: pointer;
+
+    position: absolute;
+    z-index: 2;
+    top: 27px;
+    left: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+
+    background: transparent;
+  }
+
+  &__close-icon {
+    pointer-events: none;
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__list {
+    position: absolute;
+    top: 27px;
+    left: 72px;
+
+    display: grid;
+    grid-template-columns: 100px 100px;
+    gap: 24px 28px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  &__item {
+    width: 100px;
+  }
+
+  &__link {
+    display: block;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0;
+
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__schedule {
+    position: relative;
+    padding-top: 148px;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 123px;
+      left: 0;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: #ffffff80;
+    }
+  }
+
+  &__schedule-title {
+    margin: 0 0 20px;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #fff;
+  }
+
+  &__hours {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #fff;
+  }
+
+  &__hours-row {
+    margin: 0;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  &__description {
+    margin: 16px 0 0;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #fff;
+
+    strong {
+      font-weight: 600;
+    }
+
+    span {
+      display: block;
+    }
+  }
+
+  @media (min-width: 768px) {
+    &__content {
+      min-height: 225px;
+      padding: 0;
+    }
+
+    &__close {
+      top: 39px;
+      left: 34px;
+    }
+
+    &__list {
+      top: 39px;
+      left: 96px;
+      column-gap: 20px;
+    }
+
+    &__schedule {
+      position: absolute;
+      top: 40px;
+      left: 393px;
+
+      display: grid;
+      grid-template-columns: 170px 144px;
+      grid-template-rows: 20px 105px;
+      gap: 20px 26px;
+
+      width: 340px;
+      padding-top: 0;
+
+      &::before {
+        top: 0;
+        left: -39px;
+        width: 1px;
+        height: 145px;
+      }
+    }
+
+    &__schedule-title {
+      grid-column: 1;
+      grid-row: 1;
+      margin: 0;
+    }
+
+    &__hours {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    &__description {
+      grid-column: 2;
+      grid-row: 2;
+      margin: 0;
+    }
+  }
+
+  @include on-desktop {
+    &__content {
+      min-height: 233px;
+    }
+
+    &__close {
+      top: 40px;
+      left: 56px;
+    }
+
+    &__list {
+      top: 40px;
+      left: 182px;
+
+      grid-template-columns: 200px 168px;
+      gap: 30px 0;
+
+      width: 368px;
+    }
+
+    &__item {
+      width: auto;
+    }
+
+    &__link {
+      font-size: 22px;
+    }
+
+    &__schedule {
+      left: 755px;
+      grid-template-columns: 170px 170px;
+      column-gap: 30px;
+      width: 370px;
+
+      &::before {
+        left: -103px;
+      }
+    }
+  }
+}
+
+.menu-overlay {
+  pointer-events: none;
+
+  position: fixed;
+  z-index: 5;
+  inset: 0;
+
+  visibility: hidden;
+  opacity: 0;
+  background-color: rgb(0 0 0 / 50%);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+
+  &.is-open {
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+  }
+}

@@ -1,7 +1,45 @@
-@import 'utils';
+@import 'utils/vars';
+@import 'utils/mixins';
+@import 'utils/extends';
+
 @import 'fonts';
 @import 'typography';
 
+@import 'blocks/header';
+@import 'blocks/menu';
+@import 'blocks/events';
+@import 'blocks/gallery';
+@import 'blocks/subscription';
+@import 'blocks/footer';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
 body {
-  background: $c-gray;
+  overflow-x: clip;
+  min-width: 320px;
+  margin: 0;
+  background-color: #fff;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+.header__logo,
+.footer__logo,
+.header__menu-button,
+.menu__close,
+.header__events-link {
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
